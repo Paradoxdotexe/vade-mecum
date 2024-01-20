@@ -1,13 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider
+} from 'react-router-dom';
 import './index.css';
-import { App } from './App';
+import { DocsPage } from './DocsPage';
 import reportWebVitals from './reportWebVitals';
 
-const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
-root.render(
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/">
+      <Route path="docs" element={<DocsPage />} />
+    </Route>
+  )
+);
+
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
