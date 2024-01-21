@@ -7,8 +7,9 @@ import {
   RouterProvider
 } from 'react-router-dom';
 import './index.css';
-import { DocsPage } from './DocsPage';
+import { DocsPage } from './pages/docs/DocsPage';
 import reportWebVitals from './reportWebVitals';
+import styled from 'styled-components';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -18,9 +19,24 @@ const router = createBrowserRouter(
   )
 );
 
+const PageWrapper = styled.div`
+  background: #2c2c2c;
+  color: #fcfcfc;
+  min-height: 100vh;
+  overflow: auto;
+  font-size: 16px;
+  line-height: 1;
+
+  * {
+    box-sizing: border-box;
+  }
+`;
+
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <PageWrapper>
+      <RouterProvider router={router} />
+    </PageWrapper>
   </React.StrictMode>
 );
 
