@@ -10,28 +10,30 @@ const StyledComponent = styled.div`
   }
 
   h1 {
-    margin-block: 32px;
-  }
-
-  h2,
-  p,
-  blockquote {
-    margin-block: 24px;
-  }
-
-  h1 {
+    padding-block: 16px;
+    margin-block: 16px;
+    border-bottom: 1px solid white;
     font-size: 48px;
     font-weight: 800;
   }
 
   h2 {
+    padding-block: 12px;
+    margin-block: 12px;
+    border-bottom: 1px solid white;
     font-size: 24px;
     font-weight: 700;
   }
 
   h3 {
+    margin-block: 12px;
     font-size: 20px;
     font-weight: 700;
+  }
+
+  p,
+  blockquote {
+    margin-block: 24px;
   }
 
   p {
@@ -66,6 +68,7 @@ const StyledComponent = styled.div`
 
         &:not(:last-child) {
           white-space: nowrap;
+          vertical-align: baseline;
         }
       }
 
