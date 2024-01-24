@@ -4,7 +4,8 @@ import styled from 'styled-components';
 
 const StyledComponent = styled.div`
   h1,
-  h2 {
+  h2,
+  h3 {
     font-family: 'Noto Sans Display', sans-serif;
   }
 
@@ -28,6 +29,11 @@ const StyledComponent = styled.div`
     font-weight: 700;
   }
 
+  h3 {
+    font-size: 20px;
+    font-weight: 700;
+  }
+
   p {
     line-height: 1.5;
   }
@@ -36,7 +42,7 @@ const StyledComponent = styled.div`
     background-color: #3b3b3b;
     border-radius: 0 8px 8px 8px;
     margin-inline: 0;
-    padding: 16px;
+    padding: 12px;
 
     p {
       margin: 0;
@@ -55,7 +61,12 @@ const StyledComponent = styled.div`
     tr {
       th,
       td {
-        padding: 16px;
+        padding: 12px;
+        line-height: 150%;
+
+        &:not(:last-child) {
+          white-space: nowrap;
+        }
       }
 
       th {

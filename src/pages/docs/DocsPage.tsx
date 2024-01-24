@@ -5,7 +5,7 @@ import { DocsMarkdown } from './DocsMarkdown';
 
 const Page = styled.div`
   padding: 64px;
-  width: 900px;
+  width: 964px;
 `;
 
 export const DocsPage: React.FC = () => {
