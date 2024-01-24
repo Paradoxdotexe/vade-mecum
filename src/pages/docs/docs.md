@@ -1,15 +1,17 @@
 # 1. World
 
-The most important part of every RPG is its world. It's what gives the characters life and their adventure meaning.
+The most important part of every RPG is its world. It's what gives the characters life and the adventures meaning.
 By design, _Vade Mecum_ is world-agnostic, meaning it is built to work in any universe with any theme in any time period.
 
 Does this mean we hang you out to dry when it comes to designing your World? Of course not!
 
-_Vade Mecum_ provides a number of pre-built World Kits that will provide the resources you need to start adventuring.
+_Vade Mecum_ provides a number of pre-built "World Kits" that will provide the resources you need to start adventuring.
 This includes everything from weapons and armor, places and people, and adventuring classes.
 We will highlight some of these kits below, but their complete documentation can be found in the kit itself.
 
 ## _Vale of Myths_ (High Fantasy)
+
+This high fantasy kit is set in a kingdom-controlled dominion where characters will face the dangers of evil kings, dark magic users, and monsters only found in myth and legend.
 
 | Focus        | Class      | Description                                                          |
 | ------------ | ---------- | -------------------------------------------------------------------- |
@@ -20,6 +22,8 @@ We will highlight some of these kits below, but their complete documentation can
 | Perception   | **Druid**  | A protector of nature who harnesses the earth and its creatures.     |
 
 ## _Vega Matrix_ (Science Fiction)
+
+This science fiction kit is set in a distance galaxy where the politics between planets and the evil actors within will challenge the resolve of the party's spaceship crew.
 
 | Focus        | Class         | Description                                                                    |
 | ------------ | ------------- | ------------------------------------------------------------------------------ |
@@ -136,17 +140,17 @@ As such, perks give characters a way to accentuate their strengths in ways that 
 ## 2.4 Classes
 
 While attributes, skills, and perks are the foundation of a character's abilities, classes are the foundation of a character's identity and nature.
-Classes define a character's Focus attribute, as well as give them access to skills, perks, and items that are otherwise inaccessible to other classes.
+Classes define a character's Focus attribute, as well as gives them access to skills, perks, and items that are otherwise inaccessible to other classes.
 
 > Specific character classes are defined by the World Kit being used, but all classes follow a universal pattern for how they are structured.
 
-Classes grant a character a unique 16th skill that falls under a specified Focus attribute.
+Classes grant a character a unique 16th skill that falls under the designated Focus attribute.
 This class skill is used to perform class-specific actions and give the character an edge in a specialized area of the World.
 
-Each class provides a unique list of perks that fall under the class skill.
-These class perks will often allow the character to evolve its abilities in several different ways.
+Each class provides a unique list of perks that fall under this class skill.
+These class perks will often allow the character to evolve its abilities in different ways.
 
-Additionally, each class also has a unique type of gear associated with them that serves as a channel for the class's power.
+Additionally, each class has a unique type of gear associated with them that serves as a channel for the class's power.
 This piece of gear is only attainable by leveling up and will provide bonuses to the class skill.
 
 > An example of a class from the _Vale of Myths_ World Kit is given below.
@@ -161,15 +165,6 @@ Knights fight for honor and glory, using their strength and martial prowess to d
 | --------- | ----- | ------------------------------------------------------------------------------ |
 | Strength  | Honor | Persuade others using morality and might, follow-up attack with a melee weapon |
 
-Knights have access to perks built on top of the core commandments of chivalry.
-
-| Attribute | Perk         | Requirement | Description                                                                                                                                    |
-| --------- | ------------ | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| Strength  | Pledged Word | Honor 1     | _Thou shalt never lie and shalt remain faithful to thy pledged word._ You get +2 to Speech when making a promise.                              |
-| Strength  | Charge       | Honor 2     | _Thou shalt not recoil before thine enemy._ Your movement speed is doubled for the first round of combat.                                      |
-| Strength  | Champion     | Honor 2     | _Thou shalt be the champion of the good against evil._ Your initiative roll is automatically doubled.                                          |
-| Strength  | Bulwark      | Honor 3     | _Thou shalt make war without cessation and without mercy._ You take only half damage when hit by an enemy with over half its health remaining. |
-
 Every Knight carries a Honorific Banner that bolsters their confidence and allows them to fight with Honor.
 This piece of gear most often manifests itself as a physical banner with a coat of arms.
 While this banner flies during battle, a Knight can use their second action to make a follow-up attack using Honor after landing a melee attack using Force.
@@ -180,3 +175,14 @@ While this banner flies during battle, a Knight can use their second action to m
 | 8     | Honor +1                |
 | 16    | Honor +2                |
 | 24    | Honor +3                |
+
+Knights have access to perks built on top of the core commandments of chivalry.
+
+| Attribute | Perk         | Requirement | Description                                                                                                                                    |
+| --------- | ------------ | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| Strength  | Pledged Word | Honor 1     | _Thou shalt never lie and shalt remain faithful to thy pledged word._ You get +2 to Speech when making a promise.                              |
+| Strength  | Charge       | Honor 2     | _Thou shalt not recoil before thine enemy._ Your movement speed is doubled for the first round of combat.                                      |
+| Strength  | Champion     | Honor 2     | _Thou shalt be the champion of the good against evil._ Your initiative roll is automatically doubled.                                          |
+| Strength  | Bulwark      | Honor 3     | _Thou shalt make war without cessation and without mercy._ You take only half damage when hit by an enemy with over half its health remaining. |
+
+## 2.5 Experience Levels
