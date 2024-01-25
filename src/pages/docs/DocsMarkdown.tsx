@@ -31,13 +31,20 @@ const StyledComponent = styled.div`
     font-weight: 700;
   }
 
-  p,
-  blockquote {
+  p {
+    line-height: 1.5;
     margin-block: 24px;
   }
 
-  p {
-    line-height: 1.5;
+  code {
+    font-family: 'Noto Sans';
+    background: #484848;
+    border-radius: 8px;
+    padding: 1px 5px;
+  }
+
+  a {
+    color: #03a9f7;
   }
 
   blockquote {
@@ -45,6 +52,7 @@ const StyledComponent = styled.div`
     border-radius: 0 8px 8px 8px;
     margin-inline: 0;
     padding: 12px;
+    margin-block: 24px;
 
     p {
       margin: 0;

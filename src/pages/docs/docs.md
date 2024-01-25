@@ -47,13 +47,13 @@ Each character has 5 core attributes that define its physical and mental ability
 These attributes are scored on a scale from 1 to 6, with the average human being a 3.
 When a character performs an action, these attribute scores are used to determine how well they do.
 
-| Attribute    | Description                                              |
-| ------------ | -------------------------------------------------------- |
-| Strength     | Measures athletics, endurance, and muscular power.       |
-| Dexterity    | Measures agility, reflexes, and coordination.            |
-| Intelligence | Measures critical thinking, problem solving, and memory. |
-| Charisma     | Measures empathy, persuasiveness, and social influence.  |
-| Perception   | Measures awareness, attention, and insightfulness.       |
+| Attribute        | Description                                              |
+| ---------------- | -------------------------------------------------------- |
+| **Strength**     | Measures athletics, endurance, and muscular power.       |
+| **Dexterity**    | Measures agility, reflexes, and coordination.            |
+| **Intelligence** | Measures critical thinking, problem solving, and memory. |
+| **Charisma**     | Measures empathy, persuasiveness, and social influence.  |
+| **Perception**   | Measures awareness, attention, and insightfulness.       |
 
 Within the 5 attributes, each character has one Flaw and one Focus.
 A character's Flaw is their glaring weakness—the quality that holds them back from being the perfect adventurer.
@@ -65,23 +65,23 @@ Below attributes, characters have 15 core skills that represent proficiencies wi
 These skills are scored on a scale from 0 to 3, with the average human being a 1.
 Skills allow characters to specialize themselves for specific types of actions.
 
-| Attribute    | Skill         | Description                                                  |
-| ------------ | ------------- | ------------------------------------------------------------ |
-| Strength     | Power         | Move a heavy object, attack with a melee weapon              |
-| Strength     | Fortitude     | Endure physical hardship, resist physical exhaustion         |
-| Strength     | Athletics     | Climb an obstacle, jump a gap, sprint for a long distance    |
-| Dexterity    | Precision     | Pick a lock, disarm a trap, attack with a ranged weapon      |
-| Dexterity    | Stealth       | Move quietly, hide oneself, evade detection                  |
-| Dexterity    | Agility       | Dodge a hazard, react quickly, manuever acrobatically        |
-| Intelligence | Comprehension | Understand complex information, operate systems              |
-| Intelligence | Innovation    | Fix or modify existing items, create new items               |
-| Intelligence | Medicine      | Diagnose and treat injuries and illnesses                    |
-| Charisma     | Intuition     | Understand others' motives and feelings, detect lies         |
-| Charisma     | Speech        | Persuade or deceive others                                   |
-| Charisma     | Barter        | Haggle for better prices or terms, assess the value of items |
-| Perception   | Insight       | Understand sensory symbols or signs, recognize places        |
-| Perception   | Detection     | Detect the presence of a creature, identify traps or hazards |
-| Perception   | Investigation | Search for clues or objects, scan for details                |
+| Attribute    | Skill             | Description                                                  |
+| ------------ | ----------------- | ------------------------------------------------------------ |
+| Strength     | **Power**         | Move a heavy object, attack with a melee weapon              |
+| Strength     | **Fortitude**     | Endure physical hardship, resist physical exhaustion         |
+| Strength     | **Athletics**     | Climb an obstacle, jump a gap, sprint for a long distance    |
+| Dexterity    | **Precision**     | Pick a lock, disarm a trap, attack with a ranged weapon      |
+| Dexterity    | **Stealth**       | Move quietly, hide oneself, evade detection                  |
+| Dexterity    | **Agility**       | Dodge a hazard, react quickly, manuever acrobatically        |
+| Intelligence | **Comprehension** | Understand complex information, operate systems              |
+| Intelligence | **Innovation**    | Fix or modify existing items, create new items               |
+| Intelligence | **Medicine**      | Diagnose and treat injuries and illnesses                    |
+| Charisma     | **Intuition**     | Understand others' motives and feelings, detect lies         |
+| Charisma     | **Speech**        | Persuade or deceive others                                   |
+| Charisma     | **Barter**        | Haggle for better prices or terms, assess the value of items |
+| Perception   | **Insight**       | Understand sensory symbols or signs, recognize places        |
+| Perception   | **Detection**     | Detect the presence of a creature, identify traps or hazards |
+| Perception   | **Investigation** | Search for clues or objects, scan for details                |
 
 ## 2.3 Perks
 
@@ -89,53 +89,53 @@ From skills, characters can adopt perks that serve as an expansion of their over
 Each perk falls under a specific skill and will require a minimum level in that skill to acquire.
 As such, perks give characters a way to accentuate their strengths in ways that compliment their play style.
 
-| Attribute    | Perk         | Requirement     | Description                                                                                           |
-| ------------ | ------------ | --------------- | ----------------------------------------------------------------------------------------------------- |
-| Strength     |              | Power 1         |                                                                                                       |
-| Strength     |              | Power 2         |                                                                                                       |
-| Strength     | Beserker     | Power 3         | You can use your second action to make a melee attack.                                                |
-| Strength     |              | Fortitude 1     |                                                                                                       |
-| Strength     |              | Fortitude 2     |                                                                                                       |
-| Strength     | Midnight Oil | Fortitude 3     | You can do a second light activity during your Rest.                                                  |
-| Strength     |              | Athletics 1     |                                                                                                       |
-| Strength     |              | Athletics 2     |                                                                                                       |
-| Strength     | Big Brother  | Athletics 3     | If someone within 2 tiles is hit with an attack, you can leap in to switch places, taking all damage. |
-| Dexterity    |              | Precision 1     |                                                                                                       |
-| Dexterity    | Fast Fingers | Precision 2     | You can aim a ranged weapon without using an action.                                                  |
-| Dexterity    |              | Precision 3     |                                                                                                       |
-| Dexterity    |              | Stealth 1       |                                                                                                       |
-| Dexterity    | Assassin     | Stealth 2       | When an enemy is surprised, you can make a weapon attack using Stealth instead.                       |
-| Dexterity    |              | Stealth 3       |                                                                                                       |
-| Dexterity    |              | Agility 1       |                                                                                                       |
-| Dexterity    |              | Agility 2       |                                                                                                       |
-| Dexterity    |              | Agility 3       |                                                                                                       |
-| Intelligence |              | Comprehend 1    |                                                                                                       |
-| Intelligence |              | Comprehend 2    |                                                                                                       |
-| Intelligence |              | Comprehend 3    |                                                                                                       |
-| Intelligence |              | Innovation 1    |                                                                                                       |
-| Intelligence |              | Innovation 2    |                                                                                                       |
-| Intelligence |              | Innovation 3    |                                                                                                       |
-| Intelligence |              | Medicine 1      |                                                                                                       |
-| Intelligence |              | Medicine 2      |                                                                                                       |
-| Intelligence | Witch Doctor | Medicine 3      | Even when incapacitated with a deadly injury, you can roll to heal yourself.                          |
-| Charisma     |              | Intuition 1     |                                                                                                       |
-| Charisma     |              | Intuition 2     |                                                                                                       |
-| Charisma     | Empath       | Intuition 3     |                                                                                                       |
-| Charisma     |              | Speech 1        |                                                                                                       |
-| Charisma     |              | Speech 2        |                                                                                                       |
-| Charisma     |              | Speech 3        |                                                                                                       |
-| Charisma     | Deep Pockets | Barter 1        | Tiny items don’t contribute towards your carrying capacity.                                           |
-| Charisma     |              | Barter 2        |                                                                                                       |
-| Charisma     |              | Barter 3        |                                                                                                       |
-| Perception   |              | Insight 1       |                                                                                                       |
-| Perception   |              | Insight 2       |                                                                                                       |
-| Perception   |              | Insight 3       |                                                                                                       |
-| Perception   |              | Detection 1     |                                                                                                       |
-| Perception   | Sixth Sense  | Detection 2     | You can't be surprised during combat.                                                                 |
-| Perception   |              | Detection 3     |                                                                                                       |
-| Perception   |              | Investigation 1 |                                                                                                       |
-| Perception   |              | Investigation 2 |                                                                                                       |
-| Perception   |              | Investigation 3 |                                                                                                       |
+| Attribute    | Perk             | Requirement     | Description                                                                                           |
+| ------------ | ---------------- | --------------- | ----------------------------------------------------------------------------------------------------- |
+| Strength     |                  | Power 1         |                                                                                                       |
+| Strength     |                  | Power 2         |                                                                                                       |
+| Strength     | **Beserker**     | Power 3         | After landing a melee attack, you can use your second action to make another.                         |
+| Strength     |                  | Fortitude 1     |                                                                                                       |
+| Strength     |                  | Fortitude 2     |                                                                                                       |
+| Strength     | **Midnight Oil** | Fortitude 3     | You can do a second light activity during your Rest.                                                  |
+| Strength     |                  | Athletics 1     |                                                                                                       |
+| Strength     |                  | Athletics 2     |                                                                                                       |
+| Strength     | **Big Brother**  | Athletics 3     | If someone within 2 tiles is hit with an attack, you can leap in to switch places, taking all damage. |
+| Dexterity    |                  | Precision 1     |                                                                                                       |
+| Dexterity    | **Fast Fingers** | Precision 2     | You can aim a ranged weapon without using an action.                                                  |
+| Dexterity    |                  | Precision 3     |                                                                                                       |
+| Dexterity    |                  | Stealth 1       |                                                                                                       |
+| Dexterity    | **Assassin**     | Stealth 2       | When an enemy is surprised, you can make a weapon attack using Stealth instead.                       |
+| Dexterity    |                  | Stealth 3       |                                                                                                       |
+| Dexterity    |                  | Agility 1       |                                                                                                       |
+| Dexterity    |                  | Agility 2       |                                                                                                       |
+| Dexterity    |                  | Agility 3       |                                                                                                       |
+| Intelligence |                  | Comprehend 1    |                                                                                                       |
+| Intelligence |                  | Comprehend 2    |                                                                                                       |
+| Intelligence |                  | Comprehend 3    |                                                                                                       |
+| Intelligence |                  | Innovation 1    |                                                                                                       |
+| Intelligence |                  | Innovation 2    |                                                                                                       |
+| Intelligence |                  | Innovation 3    |                                                                                                       |
+| Intelligence |                  | Medicine 1      |                                                                                                       |
+| Intelligence |                  | Medicine 2      |                                                                                                       |
+| Intelligence | **Witch Doctor** | Medicine 3      | Even when incapacitated with a deadly injury, you can roll to heal yourself.                          |
+| Charisma     |                  | Intuition 1     |                                                                                                       |
+| Charisma     |                  | Intuition 2     |                                                                                                       |
+| Charisma     | **Empath**       | Intuition 3     |                                                                                                       |
+| Charisma     |                  | Speech 1        |                                                                                                       |
+| Charisma     |                  | Speech 2        |                                                                                                       |
+| Charisma     |                  | Speech 3        |                                                                                                       |
+| Charisma     | **Deep Pockets** | Barter 1        | Tiny items don’t contribute towards your carrying capacity.                                           |
+| Charisma     |                  | Barter 2        |                                                                                                       |
+| Charisma     |                  | Barter 3        |                                                                                                       |
+| Perception   |                  | Insight 1       |                                                                                                       |
+| Perception   |                  | Insight 2       |                                                                                                       |
+| Perception   |                  | Insight 3       |                                                                                                       |
+| Perception   |                  | Detection 1     |                                                                                                       |
+| Perception   | **Sixth Sense**  | Detection 2     | You can't be surprised during combat.                                                                 |
+| Perception   |                  | Detection 3     |                                                                                                       |
+| Perception   |                  | Investigation 1 |                                                                                                       |
+| Perception   |                  | Investigation 2 |                                                                                                       |
+| Perception   |                  | Investigation 3 |                                                                                                       |
 
 ## 2.4 Classes
 
@@ -161,13 +161,13 @@ Knights are soldiers sworn to uphold the code of chivalry and defend the realm a
 They are a stalwart force on the battlefield, often clad in heavy armor and weaponry and leading the charge against the enemy.
 Knights fight for honor and glory, using their strength and martial prowess to defend the helpless from evil.
 
-| Attribute | Skill | Description                                                                    |
-| --------- | ----- | ------------------------------------------------------------------------------ |
-| Strength  | Honor | Persuade others using morality and might, follow-up attack with a melee weapon |
+| Attribute | Skill     | Description                                                                    |
+| --------- | --------- | ------------------------------------------------------------------------------ |
+| Strength  | **Honor** | Persuade others using morality and might, follow-up attack with a melee weapon |
 
 Every Knight carries a Honorific Banner that bolsters their confidence and allows them to fight with Honor.
-This piece of gear most often manifests itself as a physical banner with a coat of arms.
-While this banner flies during battle, a Knight can use their second action to make a follow-up attack using Honor after landing a melee attack using Force.
+This piece of gear most often manifests itself as a physical banner with a meaningful coat of arms.
+While this banner flies during battle, a Knight can use their second action to make a melee attack using Honor.
 
 | Level | Honorific Banner Effect |
 | ----- | ----------------------- |
@@ -178,11 +178,51 @@ While this banner flies during battle, a Knight can use their second action to m
 
 Knights have access to perks built on top of the core commandments of chivalry.
 
-| Attribute | Perk         | Requirement | Description                                                                                                                                    |
-| --------- | ------------ | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| Strength  | Pledged Word | Honor 1     | _Thou shalt never lie and shalt remain faithful to thy pledged word._ You get +2 to Speech when making a promise.                              |
-| Strength  | Charge       | Honor 2     | _Thou shalt not recoil before thine enemy._ Your movement speed is doubled for the first round of combat.                                      |
-| Strength  | Champion     | Honor 2     | _Thou shalt be the champion of the good against evil._ Your initiative roll is automatically doubled.                                          |
-| Strength  | Bulwark      | Honor 3     | _Thou shalt make war without cessation and without mercy._ You take only half damage when hit by an enemy with over half its health remaining. |
+| Attribute | Perk             | Requirement | Description                                                                                                                                       |
+| --------- | ---------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Strength  | **Pledged Word** | Honor 1     | _Thou shalt never lie and shalt remain faithful to thy pledged word._ You get +2 to Speech when making a promise.                                 |
+| Strength  | **Charge**       | Honor 2     | _Thou shalt not recoil before thine enemy._ Your movement speed is doubled for the first round of combat.                                         |
+| Strength  | **Champion**     | Honor 2     | _Thou shalt be the champion of the good against evil._ Your initiative roll is automatically doubled.                                             |
+| Strength  | **Bulwark**      | Honor 3     | _Thou shalt make war without cessation and without mercy._ You take only half damage when hit by an enemy with over half of its health remaining. |
 
-## 2.5 Experience Levels
+## 2.5 Health Points
+
+Each character has a number of health points, or HP, that measures their physical condition.
+The Max HP for any character is equal to `(Level + Strength + Fortitude) x 6`.
+
+> **Example:** A Level 5 character with Strength 4 and Fortitude 1 will have a Max HP of 60.
+
+As a character engages in combat, they will take damage, lose HP, and face consequences (see [3.5 Death](#3.5-Death)).
+
+## 2.6 Movement Speed
+
+Each character has a movement speed that regulates how far they can move during combat.
+Movement speed is measured in terms of grid tiles (most commonly 5 foot chunks).
+A character's movement speed is equal to `(Dexterity + Movement) x 2`.
+
+> **Example:** A character with Dexterity 3 and Movement 1 will have a movement speed of 8 tiles, or 40 feet.
+
+## 2.7 Carrying Capacity
+
+Each character has a carrying capacity that determines how much gear and resources they can carry before becoming over-encumbered.
+Carrying capacity is measured in terms of slots, an arbitrary unit of weight and size.
+A character's carrying capacity is equal to `(Strength + Fortitude) x 2`.
+
+> **Example:** A character with Strength 4 and Fortitude 1 will have a carrying capacity of 10 slots.
+
+For simplicity, all items are divided into 7 weight categories that correspond to a specific number of slots.
+
+| Category       | Weight    | Description           | _Vale of Myths_ Example | _Vega Matrix_ Example |
+| -------------- | --------- | --------------------- | ----------------------- | --------------------- |
+| **Tiny**       | 1/20 slot | Fits in a small bag   | Coin                    | Bullet                |
+| **Very Light** | 1/4 slot  | Fits in a large bag   | Arrow, ration           | Ration                |
+| **Light**      | 1/2 slot  | Fits in one hand      | Dagger                  | Pistol                |
+| **Average**    | 1 slot    | Fits in two hands     | Sword                   | Rifle                 |
+| **Heavy**      | 2 slots   | Heavy in two hands    | Greatsword              | Sniper rifle          |
+| **Very Heavy** | 4 slots   | Fits on your shoulder | Cannon                  | Rocket launcher       |
+| **Cumbersome** | 20 slots  | Fits on a vehicle     | Stone statue            | Scrap metal           |
+
+When a character's carrying capacity is exceed, they become over-encumbered and no longer have the strength to move themselves.
+
+> All items that are carried count towards a character's carrying capacity.
+> This does not include items that are worn, such as armor, clothing, and backpacks.
