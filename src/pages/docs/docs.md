@@ -226,3 +226,72 @@ When a character's carrying capacity is exceed, they become over-encumbered and 
 
 > All items that are carried count towards a character's carrying capacity.
 > This does not include items that are worn, such as armor, clothing, and backpacks.
+
+# 3. Adventuring
+
+Once your campaign has a party of characters, there's only one thing left do: adventure!
+Adventuring can take many shapes and forms, but _Vade Mecum_ provides a general rule set for how to resolve the adventuring day.
+
+## 3.1 Skill Checks
+
+When a character performs an action of consequence, the Game Master will ask for a skill check.
+This includes the player rolling a number of dice based on the character's ability, any gear being used, and the situation itself.
+Then based on the roll, the Game Master will resolve the outcome.
+
+In this skill check, the player will roll a number of D6 equal to `(Attribute + Skill + Gear +/- Difficulty)`.
+
+> **_Vega Matrix_ Example:** A character with Strength 4 and Power 2 wants to force open a locked door with a Crowbar (+1).
+> The Game Master asks for the player to roll a Power check and sets the difficulty at Hard (-1).
+> The players rolls 6 `(4 + 2 + 1 - 1)` D6.
+
+There are 7 levels of difficulty that a check can be given, ranging from Trivial (+3) to Titan (-3).
+In the examples below, we look at a player rolling a Speech check to persuade an NPC to help them.
+
+| Difficulty    | Modifier | Description                                  | Example            |
+| ------------- | -------- | -------------------------------------------- | ------------------ |
+| **Trivial**   | +3       | Extremely simple/likely                      | Your best friend   |
+| **Very Easy** | +2       | Very simple/likely                           | Your friend        |
+| **Easy**      | +1       | Somewhat simple/likely                       | A friendly NPC     |
+| **Average**   | +0       | Not too simple or challenging, evenly likely | An indifferent NPC |
+| **Hard**      | -1       | Somewhat challenging/unlikely                | A disgruntled NPC  |
+| **Very Hard** | -2       | Very challenging/unlikely                    | Your enemy         |
+| **Titan**     | -3       | Extremely challenging/unlikely               | Your nemesis       |
+
+> Actions that fall outside the bounds of these difficulties should not be given skill checks.
+> An action harder than Titan would be an immediate failure and an action easier than Trivial would be an immediate success.
+
+After a player rolls their dice, they can evaluate the outcome based on the highest die they rolled.
+In the examples below, we look at a player rolling an Athletics check to scale a cliff.
+
+| Max D6     | Result        | Outcome                                          | Example                                      |
+| ---------- | ------------- | ------------------------------------------------ | -------------------------------------------- |
+| 6          | **Success**   | The character completes the action successfully. | The character reaches the top of the cliff.  |
+| 5          | **Stalemate** | The character is ineffectual in their attempt.   | The character is stuck on the ground.        |
+| 4, 3, 2, 1 | **Failure**   | The character fails the action detrimentally.    | The character slips and falls off the cliff. |
+
+In this system, there is a strong relationship between the amount of dice being rolled and the chances of success and failure.
+As such, _Vade Mecum_ encourages specialization from the party, rather than a brute force mentality.
+There is a negative incentive to attempt difficult and dangerous situations, and a positive incentive to find solutions that play to the party's strengths.
+
+> For example, if a Strength 1 character attempts a Power check to force open a door, there is a high chance they hurt themself, hurt someone else, or jam the door.
+> But if a Strength 6 character attempts the same check, there is a high chance they succeed and a near zero chance they fail.
+
+The exact probabilities for any roll is given below.
+
+| # of Dice | Success | Stalemate | Failure |
+| --------- | ------- | --------- | ------- |
+| 1         | 16.7%   | 16.7%     | 66.7%   |
+| 2         | 30.6%   | 25.0%     | 44.4%   |
+| 3         | 42.1%   | 28.2%     | 29.6%   |
+| 4         | 51.8%   | 28.5%     | 19.8%   |
+| 5         | 59.8%   | 27.0%     | 13.2%   |
+| 6         | 66.5%   | 24.7%     | 8.8%    |
+| 7         | 72.1%   | 22.1%     | 5.9%    |
+| 8         | 76.7%   | 19.4%     | 3.9%    |
+| 9         | 80.6%   | 16.8%     | 2.6%    |
+| 10        | 83.8%   | 14.4%     | 1.7%    |
+| 11        | 86.5%   | 12.3%     | 1.2%    |
+| 12        | 88.8%   | 10.4%     | 0.8%    |
+| 13        | 90.7%   | 8.8%      | 0.5%    |
+| 14        | 92.2%   | 7.4%      | 0.3%    |
+| 15        | 93.5%   | 6.3%      | 0.2%    |

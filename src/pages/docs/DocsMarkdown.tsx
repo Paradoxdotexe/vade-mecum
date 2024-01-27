@@ -38,7 +38,7 @@ const StyledComponent = styled.div`
 
   code {
     font-family: 'Noto Sans';
-    background: #484848;
+    background: #585858;
     border-radius: 8px;
     padding: 1px 5px;
   }
