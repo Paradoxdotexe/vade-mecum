@@ -14,6 +14,7 @@
   - [3.2 Weapons and Tools](#3.2-Weapons-and-Tools)
   - [3.3 Armor and Cover](#3.3-Armor-and-Cover)
   - [3.4 Combat](#3.4-Combat)
+  - [3.5 Death](#3.5-Death)
 
 # 1. World
 
@@ -188,7 +189,7 @@ While this banner flies during battle, a Knight can use their second action to m
 
 | Level | Honorific Banner Effect |
 | ----- | ----------------------- |
-| 1     | Honor +0,               |
+| 1     | Honor +0                |
 | 8     | Honor +1                |
 | 16    | Honor +2                |
 | 24    | Honor +3                |
@@ -252,17 +253,13 @@ Adventuring can take many shapes and forms, but _Vade Mecum_ provides a general 
 ## 3.1 Skill Checks
 
 When a character performs an action of consequence, the Game Master will ask for a skill check.
-This includes the player rolling a number of dice based on the character's ability, any gear being used, and the situation itself.
+This includes the player rolling a number of dice based on the character's ability and the difficulty of the action.
 Then based on the roll, the Game Master will resolve the outcome.
 
-In this skill check, the player will roll a number of D6 equal to `(Attribute + Skill + Gear +/- Difficulty)`.
-
-> **_Vega Matrix_ Example:** A character with Strength 4 and Power 2 wants to force open a locked door with a Crowbar (+1).
-> The Game Master asks for the player to roll a Power check and sets the difficulty at Hard (-1).
-> The players rolls 6 `(4 + 2 + 1 - 1)` D6.
+In this skill check, the player will roll a number of D6 equal to `(Attribute + Skill +/- Difficulty)`.
 
 There are 7 levels of difficulty that a check can be given, ranging from Trivial (+3) to Titan (-3).
-In the examples below, we look at a player rolling a Speech check to persuade an NPC to help them.
+In the examples below, we look at the difficulty of a player rolling a Speech check to persuade difference NPC's.
 
 | Difficulty    | Modifier | Description                                  | Example            |
 | ------------- | -------- | -------------------------------------------- | ------------------ |
@@ -274,8 +271,19 @@ In the examples below, we look at a player rolling a Speech check to persuade an
 | **Very Hard** | -2       | Very challenging/unlikely                    | Your enemy         |
 | **Titan**     | -3       | Extremely challenging/unlikely               | Your nemesis       |
 
+To determine a roll's difficulty, the Game Master must take into account two things:
+
+1. The challenge and likelihood of the action
+2. The gear being used to complete the action
+
+For example, if a character is attempting to persuade a disgruntled NPC, but is offering a large sum of currency, the Game Master may determine the difficulty to be Easy.
+
 > Actions that fall outside the bounds of these difficulties should not be given skill checks.
 > An action harder than Titan would automatically fail and an action easier than Trivial would automatically succeed.
+
+> **_Vega Matrix_ Example:** A character with Strength 4 and Power 2 wants to force open a locked door.
+> The Game Master rules the door to be Very Hard (-2) but the character is using a Crowbar (+1), setting the overall difficulty at Hard (-1).
+> The players rolls a Power check with 5 D6 `(4 + 2 - 1)`.
 
 After a player rolls their dice, they can evaluate the outcome based on the highest die they rolled.
 In the examples below, we look at a player rolling an Athletics check to scale a cliff.
@@ -315,39 +323,37 @@ The exact probabilities for any roll is given below.
 
 ## 3.2 Weapons and Tools
 
-To gain an edge on skill checks, characters can utilize weapons and tools that increase the number of dice they can rolled when performing specific actions.
+To gain an edge on skill checks, characters can utilize weapons and tools that decrease the difficulty when performing specific actions.
 
 > Individual weapons and tools are defined by the World Kit being used, but all of them follow a universal pattern for how they are defined.
 
-Each item will specify its rarity (see [3.7 Cost and Currency](#3.7-Cost-and_Currency)), size (see [2.7 Carrying Capacity](#2.7-Carrying-Capacity)), and the gear bonus it gives to a specific action. Weapons, additionally, will specify the attack range and the amount of damage that is dealt when an attack is successful.
+Each item will specify its rarity (see [3.7 Cost and Currency](#3.7-Cost-and_Currency)), its size (see [2.7 Carrying Capacity](#2.7-Carrying-Capacity)), its difficulty modifier, and the skill action it applies to. Weapons, additionally, will specify the attack range and the amount of damage dealt.
 
 > Some examples of weapon and tools from the _Vale of Myths_ World Kit is given below.
 
-| Item                     | Rarity    | Size    | Description                                  |
-| ------------------------ | --------- | ------- | -------------------------------------------- |
-| **Rope**                 | Common    | Average | +1 Agility to climb                          |
-| **Sword**                | Average   | Average | +1 Power to attack, 2d6 damage, 1 tile range |
-| **Greatsword**           | Rare      | Heavy   | +2 Power to attack, 4d6 damage, 1 tile range |
-| **Ring of Invisibility** | Legendary | Tiny    | +5 Stealth to avoid detection                |
+| Item                     | Rarity    | Size    | Modifier | Description                                    |
+| ------------------------ | --------- | ------- | -------- | ---------------------------------------------- |
+| **Rope**                 | Common    | Average | +1       | Climbing with Athletics                        |
+| **Sword**                | Average   | Average | +1       | Attacking with Power, 2d6 damage, 1 tile range |
+| **Greatsword**           | Rare      | Heavy   | +2       | Attacking with Power, 4d6 damage, 1 tile range |
+| **Ring of Invisibility** | Legendary | Tiny    | +6       | Sneaking with Stealth                          |
 
 ## 3.3 Armor and Cover
 
-Similar to how weapons increase combat effectiveness, armor and cover decreases it.
-Characters can use armor and cover to gain an edge against attacks made against them.
-
+Similar to how weapons decrease difficulty, armor and cover increases it.
 There are three tiers of armor and cover that incrementally increase the difficulty of landing attacks.
 
-| Tier       | Difficulty     | _Vale of Myths_ Armor Example | _Vale of Myths_ Cover Example |
-| ---------- | -------------- | ----------------------------- | ----------------------------- |
-| **Light**  | Hard (-1)      | Leather armor                 | Foliage, fence                |
-| **Medium** | Very Hard (-2) | Chainmail armor               | Tree, low wall                |
-| **Heavy**  | Titan (-3)     | Plate armor                   | Battlement                    |
+| Tier       | Modifier | _Vale of Myths_ Armor Example | _Vale of Myths_ Cover Example |
+| ---------- | -------- | ----------------------------- | ----------------------------- |
+| **Light**  | -1       | Leather armor                 | Foliage, fence                |
+| **Medium** | -2       | Chainmail armor               | Tree, low wall                |
+| **Heavy**  | -3       | Plate armor                   | Battlement                    |
 
-> Protection given by armor and cover can stack to a higher difficulty.
-> For example, attacking someone wearing light armor and hiding behind medium cover would be Titan difficulty.
+> Protection given by armor and cover do stack when determining overall difficulty.
+> For example, someone wearing medium armor behind medium cover would have a -4 difficulty modifier.
 > General rules apply where an attack harder than Titan would automatically fail and thus cannot be rolled for.
 
-While armor protects the wearer from melee and ranged attacks, cover only protects from the latter.
+While armor protects the wearer from melee and ranged attacks, cover only protects at range.
 Additionally, those in cover cannot take Movement or Actions (see [3.4 Combat](#3.4-Combat)).
 
 ## 3.4 Combat
@@ -361,7 +367,7 @@ rolls a number of D6 equal to `(Dexterity + Perception)` and sums the roll to re
 
 Combat will persist for a number of rounds until one side concedes or parishes.
 In every round of combat, each character will take a turn in order of initiative.
-During their turn, a character can take Movement and take up two Actions (in any order or configuration).
+During their turn, a character can take Movement and up to two Actions (in any order or configuration).
 
 > Each round of combat is roughly equivalent to 6 seconds of World time.
 
@@ -376,8 +382,8 @@ Characters can utilize their movement speed to navigate the combat area and seek
 
 ### Action (2x)
 
-Characters can utilize their actions to perform skill checks and interact with objects in the combat area.
-Of these two Actions, only one can be used to make an attack (unless otherwise specified by a perk or class.)
+Characters can use an action to perform a skill check or interact with objects in the combat area.
+Of there two actions, a character can only use one to make an attack (unless otherwise specified by a perk or class.)
 
 | Type                        | Example                                                                     |
 | --------------------------- | --------------------------------------------------------------------------- |
@@ -387,7 +393,7 @@ Of these two Actions, only one can be used to make an attack (unless otherwise s
 ### Surprise
 
 In some cases, the party may attempt to surprise their enemy to gain an advantage.
-To do this, one character from the party will roll a Stealth check with a difficulty equivalent to the highest enemy Detection.
+To do this, one character from the party will roll a Stealth check with a difficulty modifier equivalent to the highest enemy Detection.
 
 | Result        | Outcome                                                                              |
 | ------------- | ------------------------------------------------------------------------------------ |
@@ -398,3 +404,68 @@ To do this, one character from the party will roll a Stealth check with a diffic
 > **Example:** A party attempts to surprise a group of soldiers on patrol. The soldiers are led by a Scout with Detection 2.
 > The character leading the party rolls a Stealth check with Very Hard (-2) difficulty and is successful.
 > The soldiers wearing light armor (-1) now have an attack difficulty of Easy (+1) for the first round.
+
+## 3.5 Death
+
+During combat, every character faces the possibility of death.
+When a character's HP is reduced to 0, they are incapacitated and incur an injury.
+There are six levels of injury with six degrees therein.
+
+Immediately after being incapacitated, the player will roll a D6 to determine their character's injury level and another D6 to determine the injury degree.
+A table of all injuries are given at the end of this section.
+
+### Recoverable Injuries
+
+If a character incurs an injury that is Minor (6), Moderate (5), or Serious (4), they will recover in a given number of rounds.
+To accelerate their recovery, the injured player themself or another player within 1 tile can roll a Medicine check with the given difficulty.
+If the roll is successful, the character is stabilized with 1 HP.
+
+### Deadly Injuries
+
+If a character incurs an injury that is Severe (3), Critical (2), or Fatal (1), they will die in a give number of rounds.
+To prevent their death, another player within 1 tile must roll a Medicine check with the given difficulty.
+If the roll is successful, the character is stabilized with 1 HP. Otherwise, the character is dead.
+
+After a character is recovered from a deadly injury, they are disabled until their next Rest.
+A disabled character has their movement speed reduced by half and cannot be healed by any means.
+
+> While incapacitated, all attacks on the character are Trivial (+3) and increase the level of injury by one.
+
+| D6  | Injury Level | Effect             | D6  | Injury Degree           | Difficulty     |
+| --- | ------------ | ------------------ | --- | ----------------------- | -------------- |
+| 6   | **Minor**    | Recovery, 2 rounds | 6   | Whiplash                | Very Easy (+2) |
+| 6   | **Minor**    | Recovery, 2 rounds | 5   | Cut skin                | Easy (+1)      |
+| 6   | **Minor**    | Recovery, 2 rounds | 4   | Sprained ankle          | Average        |
+| 6   | **Minor**    | Recovery, 2 rounds | 3   | Sprained wrist          | Average        |
+| 6   | **Minor**    | Recovery, 2 rounds | 2   | Bruised rib             | Hard (-1)      |
+| 6   | **Minor**    | Recovery, 2 rounds | 1   | Lost breath             | Hard (-1)      |
+| 5   | **Moderate** | Recovery, 3 rounds | 6   | Concussion              | Easy (+1)      |
+| 5   | **Moderate** | Recovery, 3 rounds | 5   | Simple laceration       | Easy (+1)      |
+| 5   | **Moderate** | Recovery, 3 rounds | 4   | Dislocated knee         | Average        |
+| 5   | **Moderate** | Recovery, 3 rounds | 3   | Dislocated shoulder     | Average        |
+| 5   | **Moderate** | Recovery, 3 rounds | 2   | Rib fracture            | Hard (-1)      |
+| 5   | **Moderate** | Recovery, 3 rounds | 1   | Throat contusion        | Hard (-1)      |
+| 4   | **Serious**  | Recovery, 4 rounds | 6   | Black eye               | Easy (+1)      |
+| 4   | **Serious**  | Recovery, 4 rounds | 5   | Deep laceration         | Easy (+1)      |
+| 4   | **Serious**  | Recovery, 4 rounds | 4   | Crushed leg             | Average        |
+| 4   | **Serious**  | Recovery, 4 rounds | 3   | Crushed arm             | Average        |
+| 4   | **Serious**  | Recovery, 4 rounds | 2   | Multiple rib fractures  | Hard (-1)      |
+| 4   | **Serious**  | Recovery, 4 rounds | 1   | Cervical fracture       | Hard (-1)      |
+| 3   | **Severe**   | Death, 4 rounds    | 6   | Head trauma             | Easy (+1)      |
+| 3   | **Severe**   | Death, 4 rounds    | 5   | Lacerated tendon        | Easy (+1)      |
+| 3   | **Severe**   | Death, 4 rounds    | 4   | Leg fracture            | Average        |
+| 3   | **Severe**   | Death, 4 rounds    | 3   | Arm fracture            | Average        |
+| 3   | **Severe**   | Death, 4 rounds    | 2   | Internal bleeding       | Hard (-1)      |
+| 3   | **Severe**   | Death, 4 rounds    | 1   | Neck injury             | Hard (-1)      |
+| 2   | **Critical** | Death, 3 rounds    | 6   | Orbital fracture        | Easy (+1)      |
+| 2   | **Critical** | Death, 3 rounds    | 5   | Lacerated artery        | Easy (+1)      |
+| 2   | **Critical** | Death, 3 rounds    | 4   | Compound leg fracture   | Average        |
+| 2   | **Critical** | Death, 3 rounds    | 3   | Compound arm fracture   | Average        |
+| 2   | **Critical** | Death, 3 rounds    | 2   | Ruptured spleen         | Hard (-1)      |
+| 2   | **Critical** | Death, 3 rounds    | 1   | Spinal cord injury      | Hard (-1)      |
+| 1   | **Fatal**    | Death, 2 rounds    | 6   | Skull fracture          | Easy (+1)      |
+| 1   | **Fatal**    | Death, 2 rounds    | 5   | Lacerated organ         | Easy (+1)      |
+| 1   | **Fatal**    | Death, 2 rounds    | 4   | Partially amputated leg | Average        |
+| 1   | **Fatal**    | Death, 2 rounds    | 3   | Partially amputated arm | Average        |
+| 1   | **Fatal**    | Death, 2 rounds    | 2   | Punctured lung          | Hard (-1)      |
+| 1   | **Fatal**    | Death, 2 rounds    | 1   | Severed aorta           | Very Hard (-2) |

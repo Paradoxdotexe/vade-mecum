@@ -34,11 +34,17 @@ const StyledComponent = styled.div`
   p {
     line-height: 1.5;
     margin-block: 24px;
+
+    &:has(+ ol, + ul) {
+      margin-bottom: 0px;
+    }
   }
 
-  ul {
+  ul,
+  ol {
     line-height: 150%;
     padding-inline-start: 32px;
+    margin-block: 6px 24px;
   }
 
   code {
