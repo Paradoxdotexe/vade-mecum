@@ -13,6 +13,7 @@
   - [3.1 Skill Checks](#3.1-Skill-Checks)
   - [3.2 Weapons and Tools](#3.2-Weapons-and-Tools)
   - [3.3 Armor and Cover](#3.3-Armor-and-Cover)
+  - [3.4 Combat](#3.4-Combat)
 
 # 1. World
 
@@ -274,7 +275,7 @@ In the examples below, we look at a player rolling a Speech check to persuade an
 | **Titan**     | -3       | Extremely challenging/unlikely               | Your nemesis       |
 
 > Actions that fall outside the bounds of these difficulties should not be given skill checks.
-> An action harder than Titan would be an immediate failure and an action easier than Trivial would be an immediate success.
+> An action harder than Titan would automatically fail and an action easier than Trivial would automatically succeed.
 
 After a player rolls their dice, they can evaluate the outcome based on the highest die they rolled.
 In the examples below, we look at a player rolling an Athletics check to scale a cliff.
@@ -318,16 +319,16 @@ To gain an edge on skill checks, characters can utilize weapons and tools that i
 
 > Individual weapons and tools are defined by the World Kit being used, but all of them follow a universal pattern for how they are defined.
 
-Each item will specify its rarity (see [3.7 Cost and Currency](#3.7-Cost-and_Currency)), size (see [2.7 Carrying Capacity](#2.7-Carrying-Capacity)), associated skill, and gear bonus. Weapons, additionally, will specify an amount of damage that is dealt when an attack is successful.
+Each item will specify its rarity (see [3.7 Cost and Currency](#3.7-Cost-and_Currency)), size (see [2.7 Carrying Capacity](#2.7-Carrying-Capacity)), and the gear bonus it gives to a specific action. Weapons, additionally, will specify the attack range and the amount of damage that is dealt when an attack is successful.
 
 > Some examples of weapon and tools from the _Vale of Myths_ World Kit is given below.
 
-| Item                     | Rarity    | Size    | Skill       | Bonus | Damage |
-| ------------------------ | --------- | ------- | ----------- | ----- | ------ |
-| **Rope**                 | Common    | Average | **Agility** | +1    | /      |
-| **Sword**                | Average   | Average | **Power**   | +1    | 2D6    |
-| **Greatsword**           | Rare      | Heavy   | **Power**   | +2    | 3D6    |
-| **Ring of Invisibility** | Legendary | Tiny    | **Stealth** | +5    | /      |
+| Item                     | Rarity    | Size    | Description                                  |
+| ------------------------ | --------- | ------- | -------------------------------------------- |
+| **Rope**                 | Common    | Average | +1 Agility to climb                          |
+| **Sword**                | Average   | Average | +1 Power to attack, 2d6 damage, 1 tile range |
+| **Greatsword**           | Rare      | Heavy   | +2 Power to attack, 4d6 damage, 1 tile range |
+| **Ring of Invisibility** | Legendary | Tiny    | +5 Stealth to avoid detection                |
 
 ## 3.3 Armor and Cover
 
@@ -336,10 +337,64 @@ Characters can use armor and cover to gain an edge against attacks made against 
 
 There are three tiers of armor and cover that incrementally increase the difficulty of landing attacks.
 
-| Tier   | Difficulty     | _Vale of Myths_ Armor Example | _Vale of Myths_ Cover Example |
-| ------ | -------------- | ----------------------------- | ----------------------------- |
-| Light  | Hard (-1)      | Leather armor                 | Foliage, fence                |
-| Medium | Very Hard (-2) | Chainmail armor               | Tree, low wall                |
-| Heavy  | Titan (-3)     | Plate armor                   | Battlement                    |
+| Tier       | Difficulty     | _Vale of Myths_ Armor Example | _Vale of Myths_ Cover Example |
+| ---------- | -------------- | ----------------------------- | ----------------------------- |
+| **Light**  | Hard (-1)      | Leather armor                 | Foliage, fence                |
+| **Medium** | Very Hard (-2) | Chainmail armor               | Tree, low wall                |
+| **Heavy**  | Titan (-3)     | Plate armor                   | Battlement                    |
 
-> Protection given by cover and armor do not stack. Attacking someone who is wearing heavy armor and hiding behind heavy cover would still be Titan difficulty.
+> Protection given by armor and cover can stack to a higher difficulty.
+> For example, attacking someone wearing light armor and hiding behind medium cover would be Titan difficulty.
+> General rules apply where an attack harder than Titan would automatically fail and thus cannot be rolled for.
+
+While armor protects the wearer from melee and ranged attacks, cover only protects from the latter.
+Additionally, those in cover cannot take Movement or Actions (see [3.4 Combat](#3.4-Combat)).
+
+## 3.4 Combat
+
+When a situation reaches a point than can no longer be resolved by words, the party enters combat.
+Combat begins by determining each character's turn order by rolling for initiative. Each character
+rolls a number of D6 equal to `(Dexterity + Perception)` and sums the roll to resolve their initiative.
+
+> **Example:** A character with Dexterity 4 and Perception 2 rolls 6D6 and sums the value to 23.
+> Characters with a higher initiative will go before them and characters with a lower initiative will go after.
+
+Combat will persist for a number of rounds until one side concedes or parishes.
+In every round of combat, each character will take a turn in order of initiative.
+During their turn, a character can take Movement and take up two Actions (in any order or configuration).
+
+> Each round of combat is roughly equivalent to 6 seconds of World time.
+
+### Movement
+
+Characters can utilize their movement speed to navigate the combat area and seek cover from the enemy.
+
+| Type           | Description                                                       |
+| -------------- | ----------------------------------------------------------------- |
+| **Move**       | Move a number of tiles up to your movement speed                  |
+| **Take Cover** | Take cover behind an object by consuming half your movement speed |
+
+### Action (2x)
+
+Characters can utilize their actions to perform skill checks and interact with objects in the combat area.
+Of these two Actions, only one can be used to make an attack (unless otherwise specified by a perk or class.)
+
+| Type                        | Example                                                                     |
+| --------------------------- | --------------------------------------------------------------------------- |
+| **Roll a Skill Check**      | Roll Power to make a melee attack, roll Investigation to search for an exit |
+| **Interact with an Object** | Consume a potion, open a door, swap weapons, aim a weapon                   |
+
+### Surprise
+
+In some cases, the party may attempt to surprise their enemy to gain an advantage.
+To do this, one character from the party will roll a Stealth check with a difficulty equivalent to the highest enemy Detection.
+
+| Result        | Outcome                                                                              |
+| ------------- | ------------------------------------------------------------------------------------ |
+| **Success**   | The party surprises the enemy, decreasing the attack difficulty by 2 levels.         |
+| **Stalemate** | The party fails to surprise the enemy and begin combat as usual.                     |
+| **Failure**   | The party prematurely alerts the enemy, increasing the attack difficulty by 1 level. |
+
+> **Example:** A party attempts to surprise a group of soldiers on patrol. The soldiers are led by a Scout with Detection 2.
+> The character leading the party rolls a Stealth check with Very Hard (-2) difficulty and is successful.
+> The soldiers wearing light armor (-1) now have an attack difficulty of Easy (+1) for the first round.
