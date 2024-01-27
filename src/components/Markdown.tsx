@@ -10,7 +10,7 @@ const headerRegex = /<h(\d)>(.*?)<\/h\1>/g;
 const processMarkdown = (markdown: string) => {
   let match: RegExpExecArray | null;
   while ((match = headerRegex.exec(markdown))) {
-    const id = match[2].replace(' ', '-');
+    const id = match[2].replace(/ /g, '-');
     markdown = markdown.slice(0, match.index + 3) + ` id='${id}'` + markdown.slice(match.index + 3);
   }
   console.log(markdown);

@@ -1,3 +1,18 @@
+# Vade Mecum
+
+- [1. World](#1.-World)
+- [2. Characters](#2.-Characters)
+  - [2.1 Attributes](#2.1-Attributes)
+  - [2.2 Skills](#2.2-Skills)
+  - [2.3 Perks](#2.3-Perks)
+  - [2.4 Classes](#2.4-Classes)
+  - [2.5 Health Points](#2.5-Health-Points)
+  - [2.6 Movement Speed](#2.6-Movement-Speed)
+  - [2.7 Carrying Capacity](#2.7-Carrying-Capacity)
+- [3. Adventuring](#3.-Adventuring)
+  - [3.1 Skill Checks](#3.1-Skill-Checks)
+  - [3.2 Weapons and Tools](#3.2-Weapons-and-Tools)
+
 # 1. World
 
 The most important part of every RPG is its world. It's what gives the characters life and the adventures meaning.
@@ -210,9 +225,9 @@ A character's carrying capacity is equal to `(Strength + Fortitude) x 2`.
 
 > **Example:** A character with Strength 4 and Fortitude 1 will have a carrying capacity of 10 slots.
 
-For simplicity, all items are divided into 7 weight categories that correspond to a specific number of slots.
+For simplicity, all items are divided into 7 size categories that correspond to a specific number of slots.
 
-| Category       | Weight    | Description           | _Vale of Myths_ Example | _Vega Matrix_ Example |
+| Category       | Size      | Description           | _Vale of Myths_ Example | _Vega Matrix_ Example |
 | -------------- | --------- | --------------------- | ----------------------- | --------------------- |
 | **Tiny**       | 1/20 slot | Fits in a small bag   | Coin                    | Bullet                |
 | **Very Light** | 1/4 slot  | Fits in a large bag   | Arrow, ration           | Ration                |
@@ -222,7 +237,7 @@ For simplicity, all items are divided into 7 weight categories that correspond t
 | **Very Heavy** | 4 slots   | Fits on your shoulder | Cannon                  | Rocket launcher       |
 | **Cumbersome** | 20 slots  | Fits on a vehicle     | Stone statue            | Scrap metal           |
 
-When a character's carrying capacity is exceed, they become over-encumbered and no longer have the strength to move themselves.
+When a character's carrying capacity is exceeded, they become over-encumbered and no longer have the strength to move themselves.
 
 > All items that are carried count towards a character's carrying capacity.
 > This does not include items that are worn, such as armor, clothing, and backpacks.
@@ -295,3 +310,20 @@ The exact probabilities for any roll is given below.
 | 13        | 90.7%   | 8.8%      | 0.5%    |
 | 14        | 92.2%   | 7.4%      | 0.3%    |
 | 15        | 93.5%   | 6.3%      | 0.2%    |
+
+## 3.2 Weapons and Tools
+
+To gain an edge on skill checks, characters can utilize weapons and tools that increase the number of dice they can roll to perform specific actions.
+
+> Individual weapons and tools are defined by the World Kit being used, but all of them follow a universal pattern for how they are defined.
+
+Each item will specify its rarity (see [3.7 Cost and Currency](#3.7-Cost-and_Currency)), size (see [2.7 Carrying Capacity](#2.7-Carrying-Capacity)), associated skill, and gear bonus. Weapons, additionally, will specify an amount of damage that is dealt when an attack is successful.
+
+> Some examples of weapon and tools from the _Vale of Myths_ World Kit is given below.
+
+| Item                     | Rarity    | Size    | Skill       | Bonus | Damage |
+| ------------------------ | --------- | ------- | ----------- | ----- | ------ |
+| **Rope**                 | Common    | Average | **Agility** | +1    | /      |
+| **Sword**                | Average   | Average | **Power**   | +1    | 2D6    |
+| **Greatsword**           | Rare      | Heavy   | **Power**   | +2    | 3D6    |
+| **Ring of Invisibility** | Legendary | Tiny    | **Stealth** | +5    | /      |

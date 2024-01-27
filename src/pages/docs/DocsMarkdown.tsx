@@ -36,6 +36,11 @@ const StyledComponent = styled.div`
     margin-block: 24px;
   }
 
+  ul {
+    line-height: 150%;
+    padding-inline-start: 32px;
+  }
+
   code {
     font-family: 'Noto Sans';
     background: #585858;
