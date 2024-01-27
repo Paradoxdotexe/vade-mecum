@@ -12,6 +12,7 @@
 - [3. Adventuring](#3.-Adventuring)
   - [3.1 Skill Checks](#3.1-Skill-Checks)
   - [3.2 Weapons and Tools](#3.2-Weapons-and-Tools)
+  - [3.3 Armor and Cover](#3.3-Armor-and-Cover)
 
 # 1. World
 
@@ -313,7 +314,7 @@ The exact probabilities for any roll is given below.
 
 ## 3.2 Weapons and Tools
 
-To gain an edge on skill checks, characters can utilize weapons and tools that increase the number of dice they can roll to perform specific actions.
+To gain an edge on skill checks, characters can utilize weapons and tools that increase the number of dice they can rolled when performing specific actions.
 
 > Individual weapons and tools are defined by the World Kit being used, but all of them follow a universal pattern for how they are defined.
 
@@ -327,3 +328,18 @@ Each item will specify its rarity (see [3.7 Cost and Currency](#3.7-Cost-and_Cur
 | **Sword**                | Average   | Average | **Power**   | +1    | 2D6    |
 | **Greatsword**           | Rare      | Heavy   | **Power**   | +2    | 3D6    |
 | **Ring of Invisibility** | Legendary | Tiny    | **Stealth** | +5    | /      |
+
+## 3.3 Armor and Cover
+
+Similar to how weapons increase combat effectiveness, armor and cover decreases it.
+Characters can use armor and cover to gain an edge against attacks made against them.
+
+There are three tiers of armor and cover that incrementally increase the difficulty of landing attacks.
+
+| Tier   | Difficulty     | _Vale of Myths_ Armor Example | _Vale of Myths_ Cover Example |
+| ------ | -------------- | ----------------------------- | ----------------------------- |
+| Light  | Hard (-1)      | Leather armor                 | Foliage, fence                |
+| Medium | Very Hard (-2) | Chainmail armor               | Tree, low wall                |
+| Heavy  | Titan (-3)     | Plate armor                   | Battlement                    |
+
+> Protection given by cover and armor do not stack. Attacking someone who is wearing heavy armor and hiding behind heavy cover would still be Titan difficulty.
