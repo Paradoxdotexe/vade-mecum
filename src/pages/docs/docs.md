@@ -220,6 +220,9 @@ A character's movement speed is equal to `(Dexterity + Movement) x 2`.
 
 > **Example:** A character with Dexterity 3 and Movement 1 will have a movement speed of 8 tiles, or 40 feet.
 
+Out of combat, all parties have the same movement speed of 10 miles per hour when traversing long distances.
+This speed can be increased by vehicles provided in your chosen World Kit.
+
 ## 2.7 Carrying Capacity
 
 Each character has a carrying capacity that determines how much gear and resources they can carry before becoming over-encumbered.
@@ -338,6 +341,11 @@ Each item will specify its rarity (see [3.7 Cost and Currency](#3.7-Cost-and_Cur
 | **Greatsword**           | Rare      | Heavy   | +2       | Attacking with Power, 4d6 damage, 1 tile range |
 | **Ring of Invisibility** | Legendary | Tiny    | +6       | Sneaking with Stealth                          |
 
+When using a piece of gear with durability, a failed skill check will result in the gear taking damage.
+Damage results in the item's modifier decreasing by one.
+When a gear's modifier falls below zero, it is considered broken and can no longer be used until it is repaired.
+Repairs to restore the gear modifier can be made during a Rest (see [3.7 Rest](#3.7-Rest)).
+
 ## 3.3 Armor and Cover
 
 Similar to how weapons decrease difficulty, armor and cover increases it.
@@ -426,46 +434,64 @@ If a character incurs an injury that is Severe (3), Critical (2), or Fatal (1), 
 To prevent their death, another player within 1 tile must roll a Medicine check with the given difficulty.
 If the roll is successful, the character is stabilized with 1 HP. Otherwise, the character is dead.
 
-After a character is recovered from a deadly injury, they are disabled until their next Rest.
+After a character is recovered from a deadly injury, they are disabled until their next Rest (see [3.7 Rest](#3.7-Rest)).
 A disabled character has their movement speed reduced by half and cannot be healed by any means.
 
 > While incapacitated, all attacks on the character are Trivial (+3) and increase the level of injury by one.
 
-| D6  | Injury Level | Effect             | D6  | Injury Degree           | Difficulty     |
-| --- | ------------ | ------------------ | --- | ----------------------- | -------------- |
-| 6   | **Minor**    | Recovery, 2 rounds | 6   | Whiplash                | Very Easy (+2) |
-| 6   | **Minor**    | Recovery, 2 rounds | 5   | Cut skin                | Easy (+1)      |
-| 6   | **Minor**    | Recovery, 2 rounds | 4   | Sprained ankle          | Average        |
-| 6   | **Minor**    | Recovery, 2 rounds | 3   | Sprained wrist          | Average        |
-| 6   | **Minor**    | Recovery, 2 rounds | 2   | Bruised rib             | Hard (-1)      |
-| 6   | **Minor**    | Recovery, 2 rounds | 1   | Lost breath             | Hard (-1)      |
-| 5   | **Moderate** | Recovery, 3 rounds | 6   | Concussion              | Easy (+1)      |
-| 5   | **Moderate** | Recovery, 3 rounds | 5   | Simple laceration       | Easy (+1)      |
-| 5   | **Moderate** | Recovery, 3 rounds | 4   | Dislocated knee         | Average        |
-| 5   | **Moderate** | Recovery, 3 rounds | 3   | Dislocated shoulder     | Average        |
-| 5   | **Moderate** | Recovery, 3 rounds | 2   | Rib fracture            | Hard (-1)      |
-| 5   | **Moderate** | Recovery, 3 rounds | 1   | Throat contusion        | Hard (-1)      |
-| 4   | **Serious**  | Recovery, 4 rounds | 6   | Black eye               | Easy (+1)      |
-| 4   | **Serious**  | Recovery, 4 rounds | 5   | Deep laceration         | Easy (+1)      |
-| 4   | **Serious**  | Recovery, 4 rounds | 4   | Crushed leg             | Average        |
-| 4   | **Serious**  | Recovery, 4 rounds | 3   | Crushed arm             | Average        |
-| 4   | **Serious**  | Recovery, 4 rounds | 2   | Multiple rib fractures  | Hard (-1)      |
-| 4   | **Serious**  | Recovery, 4 rounds | 1   | Cervical fracture       | Hard (-1)      |
-| 3   | **Severe**   | Death, 4 rounds    | 6   | Head trauma             | Easy (+1)      |
-| 3   | **Severe**   | Death, 4 rounds    | 5   | Lacerated tendon        | Easy (+1)      |
-| 3   | **Severe**   | Death, 4 rounds    | 4   | Leg fracture            | Average        |
-| 3   | **Severe**   | Death, 4 rounds    | 3   | Arm fracture            | Average        |
-| 3   | **Severe**   | Death, 4 rounds    | 2   | Internal bleeding       | Hard (-1)      |
-| 3   | **Severe**   | Death, 4 rounds    | 1   | Neck injury             | Hard (-1)      |
-| 2   | **Critical** | Death, 3 rounds    | 6   | Orbital fracture        | Easy (+1)      |
-| 2   | **Critical** | Death, 3 rounds    | 5   | Lacerated artery        | Easy (+1)      |
-| 2   | **Critical** | Death, 3 rounds    | 4   | Compound leg fracture   | Average        |
-| 2   | **Critical** | Death, 3 rounds    | 3   | Compound arm fracture   | Average        |
-| 2   | **Critical** | Death, 3 rounds    | 2   | Ruptured spleen         | Hard (-1)      |
-| 2   | **Critical** | Death, 3 rounds    | 1   | Spinal cord injury      | Hard (-1)      |
-| 1   | **Fatal**    | Death, 2 rounds    | 6   | Skull fracture          | Easy (+1)      |
-| 1   | **Fatal**    | Death, 2 rounds    | 5   | Lacerated organ         | Easy (+1)      |
-| 1   | **Fatal**    | Death, 2 rounds    | 4   | Partially amputated leg | Average        |
-| 1   | **Fatal**    | Death, 2 rounds    | 3   | Partially amputated arm | Average        |
-| 1   | **Fatal**    | Death, 2 rounds    | 2   | Punctured lung          | Hard (-1)      |
-| 1   | **Fatal**    | Death, 2 rounds    | 1   | Severed aorta           | Very Hard (-2) |
+| D6  | Injury Level | Effect             | D6  | Injury Degree               | Difficulty     |
+| --- | ------------ | ------------------ | --- | --------------------------- | -------------- |
+| 6   | **Minor**    | Recovery, 2 rounds | 6   | **Whiplash**                | Very Easy (+2) |
+| 6   | **Minor**    | Recovery, 2 rounds | 5   | **Cut skin**                | Easy (+1)      |
+| 6   | **Minor**    | Recovery, 2 rounds | 4   | **Sprained ankle**          | Average        |
+| 6   | **Minor**    | Recovery, 2 rounds | 3   | **Sprained wrist**          | Average        |
+| 6   | **Minor**    | Recovery, 2 rounds | 2   | **Bruised rib**             | Hard (-1)      |
+| 6   | **Minor**    | Recovery, 2 rounds | 1   | **Lost breath**             | Hard (-1)      |
+| 5   | **Moderate** | Recovery, 3 rounds | 6   | **Concussion**              | Easy (+1)      |
+| 5   | **Moderate** | Recovery, 3 rounds | 5   | **Simple laceration**       | Easy (+1)      |
+| 5   | **Moderate** | Recovery, 3 rounds | 4   | **Dislocated knee**         | Average        |
+| 5   | **Moderate** | Recovery, 3 rounds | 3   | **Dislocated shoulder**     | Average        |
+| 5   | **Moderate** | Recovery, 3 rounds | 2   | **Rib fracture**            | Hard (-1)      |
+| 5   | **Moderate** | Recovery, 3 rounds | 1   | **Throat contusion**        | Hard (-1)      |
+| 4   | **Serious**  | Recovery, 4 rounds | 6   | **Black eye**               | Easy (+1)      |
+| 4   | **Serious**  | Recovery, 4 rounds | 5   | **Deep laceration**         | Easy (+1)      |
+| 4   | **Serious**  | Recovery, 4 rounds | 4   | **Crushed leg**             | Average        |
+| 4   | **Serious**  | Recovery, 4 rounds | 3   | **Crushed arm**             | Average        |
+| 4   | **Serious**  | Recovery, 4 rounds | 2   | **Multiple rib fractures**  | Hard (-1)      |
+| 4   | **Serious**  | Recovery, 4 rounds | 1   | **Cervical fracture**       | Hard (-1)      |
+| 3   | **Severe**   | Death, 4 rounds    | 6   | **Head trauma**             | Easy (+1)      |
+| 3   | **Severe**   | Death, 4 rounds    | 5   | **Lacerated tendon**        | Easy (+1)      |
+| 3   | **Severe**   | Death, 4 rounds    | 4   | **Leg fracture**            | Average        |
+| 3   | **Severe**   | Death, 4 rounds    | 3   | **Arm fracture**            | Average        |
+| 3   | **Severe**   | Death, 4 rounds    | 2   | **Internal bleeding**       | Hard (-1)      |
+| 3   | **Severe**   | Death, 4 rounds    | 1   | **Neck injury**             | Hard (-1)      |
+| 2   | **Critical** | Death, 3 rounds    | 6   | **Orbital fracture**        | Easy (+1)      |
+| 2   | **Critical** | Death, 3 rounds    | 5   | **Lacerated artery**        | Easy (+1)      |
+| 2   | **Critical** | Death, 3 rounds    | 4   | **Compound leg fracture**   | Average        |
+| 2   | **Critical** | Death, 3 rounds    | 3   | **Compound arm fracture**   | Average        |
+| 2   | **Critical** | Death, 3 rounds    | 2   | **Ruptured spleen**         | Hard (-1)      |
+| 2   | **Critical** | Death, 3 rounds    | 1   | **Spinal cord injury**      | Hard (-1)      |
+| 1   | **Fatal**    | Death, 2 rounds    | 6   | **Skull fracture**          | Easy (+1)      |
+| 1   | **Fatal**    | Death, 2 rounds    | 5   | **Lacerated organ**         | Easy (+1)      |
+| 1   | **Fatal**    | Death, 2 rounds    | 4   | **Partially amputated leg** | Average        |
+| 1   | **Fatal**    | Death, 2 rounds    | 3   | **Partially amputated arm** | Average        |
+| 1   | **Fatal**    | Death, 2 rounds    | 2   | **Punctured lung**          | Hard (-1)      |
+| 1   | **Fatal**    | Death, 2 rounds    | 1   | **Severed aorta**           | Very Hard (-2) |
+
+## 3.7 Rest
+
+After a day of adventuring, the party is required to rest for 8 hours to refresh their minds and bodies.
+During these 8 hours, characters will engage in a mix of sleeping and a single light activity.
+Any light activity permitted by the Game Master will be evaluated by a skill check.
+The most common light activities are given below.
+
+| Skill          | Light Activity                  | Success                                                   |
+| -------------- | ------------------------------- | --------------------------------------------------------- |
+| **Detection**  | Keep watch for enemies.         | Forces the enemy's surprise attack to automatically fail. |
+| **Medicine**   | Heal a character.               | Heals the character for a number of HP equal to the roll. |
+| **Innovation** | Repair a damaged piece of gear. | Restores the gear's bonus by one.                         |
+
+During this rest, all characters are expected to consume a meal ration.
+Those that do will roll a number of D6 equal to `(Strength + Fortitude)` and heal that number of HP at the conclusion of the rest.
+
+> If a rest is interrupted for more than 4 hours, it must be restarted.
