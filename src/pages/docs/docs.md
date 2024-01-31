@@ -256,37 +256,47 @@ Adventuring can take many shapes and forms, but _Vade Mecum_ provides a general 
 ## 3.1 Skill Checks
 
 When a character performs an action of consequence, the Game Master will ask for a skill check.
-This includes the player rolling a number of dice based on the character's ability and the difficulty of the action.
+This includes the player rolling a number of dice based on the character's ability and the situational nature of the action.
 Then based on the roll, the Game Master will resolve the outcome.
 
-In this skill check, the player will roll a number of D6 equal to `(Attribute + Skill +/- Difficulty)`.
+For any skill check, the player will roll a number of D6 equal to `(Attribute + Skill + Advantage - Disadvantage)`.
 
-There are 7 levels of difficulty that a check can be given, ranging from Trivial (+3) to Titan (-3).
-In the examples below, we look at the difficulty of a player rolling a Speech check to persuade difference NPC's.
+### Advantage and Disadvantage
 
-| Difficulty    | Modifier | Description                                  | Example            |
-| ------------- | -------- | -------------------------------------------- | ------------------ |
-| **Trivial**   | +3       | Extremely simple/likely                      | Your best friend   |
-| **Very Easy** | +2       | Very simple/likely                           | Your friend        |
-| **Easy**      | +1       | Somewhat simple/likely                       | A friendly NPC     |
-| **Average**   | +0       | Not too simple or challenging, evenly likely | An indifferent NPC |
-| **Hard**      | -1       | Somewhat challenging/unlikely                | A disgruntled NPC  |
-| **Very Hard** | -2       | Very challenging/unlikely                    | Your enemy         |
-| **Titan**     | -3       | Extremely challenging/unlikely               | Your nemesis       |
+While attribute and skill dice come directly from the character's innate ability, advantage/disadvantage comes from the objects or people involved in the action.
 
-To determine a roll's difficulty, the Game Master must take into account two things:
+> For any skill check, the maximum advantage that can be applied is +6 and the maximum disadvantage is -6.
 
-1. The challenge and likelihood of the action
-2. The gear being used to complete the action
+Most commonly, advantage will come from an item assisting the action, and disadvantage will come from an item countering the action.
+Examples of common sources of advantage/disadvantage are given below.
 
-For example, if a character is attempting to persuade a disgruntled NPC, but is offering a large sum of currency, the Game Master may determine the difficulty to be Easy.
+| Skill     | Action                          | Advantage Source | Disadvantage Source |
+| --------- | ------------------------------- | ---------------- | ------------------- |
+| Power     | Melee attack                    | Weapon           | Armor, cover        |
+| Precision | Pick a lock                     | Lock picking set | Lock                |
+| Medicine  | Heal an incapacitated character | First aid kit    | Injury              |
+| Speech    | Persuade an NPC                 | NPC              | NPC                 |
 
-> Actions that fall outside the bounds of these difficulties should not be given skill checks.
-> An action harder than Titan would automatically fail and an action easier than Trivial would automatically succeed.
+For ambiguous sources of advantage/disadvantage, such as locks, injuries, and NPC's, the Game Master can declare a difficulty.
+There are 7 levels of difficulty, ranging from Trivial (+3) to Titan (-3).
+In the examples below, we look at a Speech check where the Game Master may declare a difficulty based on the NPC.
 
-> **_Vega Matrix_ Example:** A character with Strength 4 and Power 2 wants to force open a locked door.
-> The Game Master rules the door to be Very Hard (-2) but the character is using a Crowbar (+1), setting the overall difficulty at Hard (-1).
-> The players rolls a Power check with 5 D6 `(4 + 2 - 1)`.
+| Difficulty    | A/D | Description                                  | Example            |
+| ------------- | --- | -------------------------------------------- | ------------------ |
+| **Trivial**   | +3  | Extremely simple/likely                      | Your best friend   |
+| **Very Easy** | +2  | Very simple/likely                           | Your friend        |
+| **Easy**      | +1  | Somewhat simple/likely                       | A friendly NPC     |
+| **Average**   | +0  | Not too simple or challenging, evenly likely | An indifferent NPC |
+| **Hard**      | -1  | Somewhat challenging/unlikely                | A disgruntled NPC  |
+| **Very Hard** | -2  | Very challenging/unlikely                    | Your enemy         |
+| **Titan**     | -3  | Extremely challenging/unlikely               | Your nemesis       |
+
+> **Example:** A character attempts to force open a locked door. The Game Master asks for a Power check.
+> The character has Strength 4 and Power 2 and is using a Crowbar (+1) to assist them.
+> The Game Master sets the door's difficulty at Very Hard (-2) since it is metal and reinforced.
+> The player rolls a Power check with 5 D6.
+
+### Success, Stalemate, and Failure
 
 After a player rolls their dice, they can evaluate the outcome based on the highest die they rolled.
 In the examples below, we look at a player rolling an Athletics check to scale a cliff.
@@ -296,6 +306,9 @@ In the examples below, we look at a player rolling an Athletics check to scale a
 | 6          | **Success**   | The character completes the action successfully. | The character reaches the top of the cliff.  |
 | 5          | **Stalemate** | The character is ineffectual in their attempt.   | The character is stuck on the ground.        |
 | 4, 3, 2, 1 | **Failure**   | The character fails the action detrimentally.    | The character slips and falls off the cliff. |
+
+In many situations, failure will mean the action can no longer be attempted by other members of the party.
+For example, failing to force open a door may jam it closed, failing to pick a lock may ruin its keyhole, or failing to search a bookcase may ruin the books.
 
 In this system, there is a strong relationship between the amount of dice being rolled and the chances of success and failure.
 As such, _Vade Mecum_ encourages specialization from the party, rather than a brute force mentality.
@@ -396,7 +409,7 @@ Of there two actions, a character can only use one to make an attack (unless oth
 | Type                        | Example                                                                     |
 | --------------------------- | --------------------------------------------------------------------------- |
 | **Roll a Skill Check**      | Roll Power to make a melee attack, roll Investigation to search for an exit |
-| **Interact with an Object** | Consume a potion, open a door, swap weapons, aim a weapon                   |
+| **Interact with an Object** | Consume a potion, open a door, throw an object                              |
 
 ### Surprise
 
