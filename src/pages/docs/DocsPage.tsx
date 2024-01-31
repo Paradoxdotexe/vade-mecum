@@ -1,5 +1,4 @@
 import React from 'react';
-import docs from './docs.md';
 import styled from 'styled-components';
 import { DocsMarkdown } from './DocsMarkdown';
 
@@ -27,10 +26,14 @@ const Page = styled.div`
   }
 `;
 
-export const DocsPage: React.FC = () => {
+type DocsPageProps = {
+  docs: string;
+};
+
+export const DocsPage: React.FC<DocsPageProps> = props => {
   return (
     <Page>
-      <DocsMarkdown src={docs} />
+      <DocsMarkdown src={props.docs} />
     </Page>
   );
 };

@@ -111,7 +111,7 @@ As such, perks give characters a way to accentuate their strengths in ways that 
 | ------------ | ---------------- | --------------- | ----------------------------------------------------------------------------------------------------- |
 | Strength     |                  | Power 1         |                                                                                                       |
 | Strength     |                  | Power 2         |                                                                                                       |
-| Strength     | **Beserker**     | Power 3         | After landing a melee attack, you can use your second action to make another.                         |
+| Strength     |                  | Power 3         |                                                                                                       |
 | Strength     |                  | Fortitude 1     |                                                                                                       |
 | Strength     |                  | Fortitude 2     |                                                                                                       |
 | Strength     | **Midnight Oil** | Fortitude 3     | You can do a second light activity during your Rest.                                                  |

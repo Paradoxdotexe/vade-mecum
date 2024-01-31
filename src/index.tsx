@@ -7,14 +7,16 @@ import {
   RouterProvider
 } from 'react-router-dom';
 import './index.css';
-import { DocsPage } from './pages/docs/DocsPage';
+import { VadeMecumDocsPage } from './pages/docs/VadeMecumDocsPage';
 import reportWebVitals from './reportWebVitals';
 import styled from 'styled-components';
+import { ValeOfMythsDocsPage } from './pages/docs/ValeOfMythsDocsPage';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/">
-      <Route path="docs" element={<DocsPage />} />
+      <Route path="docs" element={<VadeMecumDocsPage />} />
+      <Route path="docs/vale-of-myths" element={<ValeOfMythsDocsPage />} />
     </Route>
   )
 );
