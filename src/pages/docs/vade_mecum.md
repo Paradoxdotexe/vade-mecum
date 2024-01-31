@@ -427,15 +427,15 @@ Classes and perks may give access to other available types of reactions.
 In some cases, the party may attempt to surprise their enemy to gain an advantage.
 To do this, one character from the party will roll a Stealth check with a difficulty modifier equivalent to the highest enemy Detection.
 
-| Result        | Outcome                                                                              |
-| ------------- | ------------------------------------------------------------------------------------ |
-| **Success**   | The party surprises the enemy, decreasing the attack difficulty by 2 levels.         |
-| **Stalemate** | The party fails to surprise the enemy and begin combat as usual.                     |
-| **Failure**   | The party prematurely alerts the enemy, increasing the attack difficulty by 1 level. |
+| Result        | Outcome                                                                             |
+| ------------- | ----------------------------------------------------------------------------------- |
+| **Success**   | The party surprises the enemy, earning a free round while the enemies are stunned.  |
+| **Stalemate** | The party fails to surprise the enemy and begin combat as usual.                    |
+| **Failure**   | The party prematurely alerts the enemy, giving them a free round for movement only. |
 
 > **Example:** A party attempts to surprise a group of soldiers on patrol. The soldiers are led by a Scout with Detection 2.
 > The character leading the party rolls a Stealth check with Very Hard (-2) difficulty and is successful.
-> The soldiers wearing light armor (-1) now have an attack difficulty of Easy (+1) for the first round.
+> The party stuns the enemies and gets a free round against them.
 
 ## 3.5 Death
 

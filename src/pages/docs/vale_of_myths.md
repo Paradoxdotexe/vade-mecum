@@ -3,6 +3,11 @@
 This high fantasy kit is set in a kingdom-controlled dominion where characters will face the dangers of evil kings, dark magic users, and monsters only found in myth and legend.
 
 - [1. Classes](#1.-Classes)
+  - [Knight](#Knight)
+  - [Barbarian](#Barbarian)
+  - [Ranger](#Ranger)
+  - [Monk](#Monk)
+  - [Mage](#Mage)
 
 # 1. Classes
 
@@ -105,9 +110,9 @@ Rangers have access to perks that add new items to their Survival Toolkit.
 
 | Attribute | Perk              | Requirement | Description                                                               |
 | --------- | ----------------- | ----------- | ------------------------------------------------------------------------- |
-| Strength  | **Scouting Lens** | Survival 1  | You get +2 to Detection when scouting from an elevated vantage point.     |
-| Strength  | **Tripwire**      | Survival 2  | You get +2 to Detection when watching for enemies during your Rest.       |
-| Strength  | **Camouflage**    | Survival 3  | You get +2 to Stealth when launching a surprise attack against the enemy. |
+| Dexterity | **Scouting Lens** | Survival 1  | You get +2 to Detection when scouting from an elevated vantage point.     |
+| Dexterity | **Tripwire**      | Survival 2  | You get +2 to Detection when watching for enemies during your Rest.       |
+| Dexterity | **Camouflage**    | Survival 3  | You get +2 to Stealth when launching a surprise attack against the enemy. |
 
 ## Monk
 
@@ -137,6 +142,85 @@ Monks have access to perks that give them new ways to harness their Chi Points.
 
 | Attribute | Perk                 | Requirement | Description                                                                                          |
 | --------- | -------------------- | ----------- | ---------------------------------------------------------------------------------------------------- |
-| Strength  | **Zen**              | Chi 1       | You can expend a Chi Point to calm a group of people, giving +2 to all Speech checks against them.   |
-| Strength  | **Reflexive**        | Chi 2       | You get two reactions during combat.                                                                 |
-| Strength  | **Return to Sender** | Chi 3       | After deflecting an attack, you can spend a Chi Point to deal the intended damage back on the enemy. |
+| Dexterity | **Zen**              | Chi 1       | You can expend a Chi Point to calm a group of people, giving +2 to all Speech checks against them.   |
+| Dexterity | **Reflexive**        | Chi 2       | You get two reactions during combat.                                                                 |
+| Dexterity | **Return to Sender** | Chi 3       | After deflecting an attack, you can spend a Chi Point to deal the intended damage back on the enemy. |
+
+## Mage
+
+Mages have a natural or learned connection with the magical forces of the world, allowing them to commune with unseen magical energy.
+They harness magic to wield powerful spells against their foes and bend the natural world to their will.
+Mages are on a constant pursuit for knowledge, devoting themselves to the discovery of rare, new magic that will propel them to new heights.
+
+| Attribute    | Skill     | Description                                               |
+| ------------ | --------- | --------------------------------------------------------- |
+| Intelligence | **Magic** | Commune with magical forces, attack a target with a spell |
+
+Every Mage carries a Magical Channel that empowers them to wield magical energy.
+This Magical Channel most often manifests as a staff, book, wand, or ring imbued with knowledge or magic itself.
+While they carry their Magical Channel, a Mage has access to a number of Magic Points (MP) they can use to cast spells.
+
+| Level | Magical Channel Effect             |
+| ----- | ---------------------------------- |
+| 1     | Magic +0, enables Average spells   |
+| 8     | Magic +1, enables Rare spells      |
+| 16    | Magic +2, enables Very Rare spells |
+| 24    | Magic +3, enables Legendary spells |
+
+Mages gain access to schools of magic through their perks and can learn a new spell on each level.
+Mages have a maximum number of Magic Points they can hold equal to their level.
+Casting a spell requires a number of MP equal to the Magic requirement of its school and the spell's rarity.
+
+> **Example:** Casting an Average Prestidigitation spell would cost 0 MP while casting a Legendary Chronomancy spell would cost 6 MP.
+
+During a Rest, Mages can spend their light activity to roll for Magic and regain that number of Magic Points.
+
+| Attribute    | Perk                 | Requirement | Description                                                                                               |
+| ------------ | -------------------- | ----------- | --------------------------------------------------------------------------------------------------------- |
+| Intelligence | **Prestidigitation** | Magic 0     | Unlock spells from the School of Prestidigitation, giving the ability to cast minor illusions and tricks. |
+| Intelligence | **Abjuration**       | Magic 1     | Unlock spells from the School of Abjuration, giving the ability to protect and defend.                    |
+| Intelligence | **Elementalism**     | Magic 2     | Unlock spells from the School of Elementalism, giving the ability to wield the natural elements.          |
+| Intelligence | **Necromancy**       | Magic 3     | Unlock spells from the School of Necromancy, giving the ability to wield vitality and death.              |
+| Intelligence | **Chronomancy**      | Magic 3     | Unlock spells from the School of Chronomancy, giving the ability to bend the flow of time.                |
+
+### School of Prestidigitation
+
+The study of minor illusions and tricks that are subtle and harmless.
+
+| Spell      | Rarity  | MP  | Description                                                                                                                                     |
+| ---------- | ------- | --- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Murmur** | Average | 0   | Create a small sensory effect, such as an image, sound, or smell. This could be a tattoo, the sound of a barking dog, or the smell of gasoline. |
+
+### School of Abjuration
+
+The study of protection and defense magic to stave off attacks.
+
+| Spell                 | Rarity    | MP  | Description                                |
+| --------------------- | --------- | --- | ------------------------------------------ |
+| **Light Mage Armor**  | Average   | 1   | Surround yourself in magical Light Armor.  |
+| **Medium Mage Armor** | Rare      | 2   | Surround yourself in magical Medium Armor. |
+| **Heavy Mage Armor**  | Very Rare | 3   | Surround yourself in magical Heavy Armor   |
+
+### School of Elementalism
+
+The study of the natural elements and how to wield them.
+
+| Spell          | Rarity | MP  | Description                                                                                                                                                                                                 |
+| -------------- | ------ | --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Tidal Wave** | Rare   | 4   | Create a tidal wave of water that hits a 40 foot cubic area within 20 feet. All characters make an Agility check, taking 2d6 damage on a success and 4d6 damage otherwise. Any fire in the area is put out. |
+
+### School of Necromancy
+
+The study of life and death and how to bring about either in expedited fashion.
+
+| Spell       | Rarity    | MP  | Description                                                                                                                                 |
+| ----------- | --------- | --- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Revival** | Legendary | 6   | Revive a character that has been dead for less than 24 hours. The revived character permanently loses 6d6 hit points (with a minimum of 1). |
+
+### School of Chronomancy
+
+The study of the flow of time and how it can be manipulated. Often considered the holy grail of magic.
+
+| Spell         | Rarity    | MP  | Description                                                                                                                                                                                      |
+| ------------- | --------- | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Time Stop** | Legendary | 6   | Stops the flow of time until your next turn for all enemies within a 120 foot radius. For one round, the party can take their turn with attacks at a +3 advantage while the enemies stand still. |

@@ -78,6 +78,7 @@ const StyledComponent = styled.div`
   table {
     border-spacing: 0;
     width: 100%;
+    margin-block: 24px;
 
     tr {
       th,
