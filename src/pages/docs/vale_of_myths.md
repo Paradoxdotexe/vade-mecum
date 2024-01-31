@@ -105,6 +105,38 @@ Rangers have access to perks that add new items to their Survival Toolkit.
 
 | Attribute | Perk              | Requirement | Description                                                               |
 | --------- | ----------------- | ----------- | ------------------------------------------------------------------------- |
-| Strength  | **Scouting Lens** | Survival 1  | You get +3 to Detection when scouting from an elevated vantage point.     |
-| Strength  | **Tripwire**      | Survival 2  | You get +3 to Detection when watching for enemies during your Rest.       |
-| Strength  | **Camouflage**    | Survival 3  | You get +3 to Stealth when launching a surprise attack against the enemy. |
+| Strength  | **Scouting Lens** | Survival 1  | You get +2 to Detection when scouting from an elevated vantage point.     |
+| Strength  | **Tripwire**      | Survival 2  | You get +2 to Detection when watching for enemies during your Rest.       |
+| Strength  | **Camouflage**    | Survival 3  | You get +2 to Stealth when launching a surprise attack against the enemy. |
+
+## Monk
+
+Monks are disciplined guardians of peace with a deep understanding of physical and spiritual balance.
+They prefer to deflect and neutralize attacks rather than initiate them and have learned to channel their inner energy to perform impressive feats.
+Monks are devoted to self-control and harmony, only intervening when the balance of the world is in danger.
+
+| Attribute | Skill   | Description                               |
+| --------- | ------- | ----------------------------------------- |
+| Dexterity | **Chi** | Deescalate conflict, channel inner energy |
+
+Every Monk carries a Spiritual Talisman that enhances their ability to harness their inner Chi.
+This Spiritual Talisman most often manifests itself as a bracelet, pendant, or ring of beads that is inscribed with their temple's tenants.
+While they carry their Spiritual Talisman, a Monk has access to a number of Chi Points and can also spend their reaction to deflect an attack using a successful Chi check.
+
+Monks can expend Chi Points to reroll a failed skill check or utilize feats from their perks.
+During a Rest, they can spend their light activity to find peace and restore all of their Chi Points.
+
+| Level | Spiritual Talisman Effect        |
+| ----- | -------------------------------- |
+| 1     | Chi +0, maximum of 3 Chi Points  |
+| 8     | Chi +1, maximum of 6 Chi Points  |
+| 16    | Chi +2, maximum of 9 Chi Points  |
+| 24    | Chi +3, maximum of 12 Chi Points |
+
+Monks have access to perks that give them new ways to harness their Chi Points.
+
+| Attribute | Perk                 | Requirement | Description                                                                                          |
+| --------- | -------------------- | ----------- | ---------------------------------------------------------------------------------------------------- |
+| Strength  | **Zen**              | Chi 1       | You can expend a Chi Point to calm a group of people, giving +2 to all Speech checks against them.   |
+| Strength  | **Reflexive**        | Chi 2       | You get two reactions during combat.                                                                 |
+| Strength  | **Return to Sender** | Chi 3       | After deflecting an attack, you can spend a Chi Point to deal the intended damage back on the enemy. |

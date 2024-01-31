@@ -411,6 +411,17 @@ Of there two actions, a character can only use one to make an attack (unless oth
 | **Roll a Skill Check**      | Roll Power to make a melee attack, roll Investigation to search for an exit |
 | **Interact with an Object** | Consume a potion, open a door, throw an object                              |
 
+### Reaction
+
+Additionally, characters can take one reaction per round that is prompted by the movement or action of another character.
+By default, all characters can perform an opportunity attack as a reaction.
+
+| Reaction               | Description                                                                                 |
+| ---------------------- | ------------------------------------------------------------------------------------------- |
+| **Opportunity Attack** | When an enemy within 5 feet moves away from you, you can make an attack against that enemy. |
+
+Classes and perks may give access to other available types of reactions.
+
 ### Surprise
 
 In some cases, the party may attempt to surprise their enemy to gain an advantage.
