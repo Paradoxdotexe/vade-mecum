@@ -1,6 +1,7 @@
 # Vade Mecum
 
 - [1. World](#1.-World)
+  - [1.1 Currency](#1.1-Currency)
 - [2. Characters](#2.-Characters)
   - [2.1 Attributes](#2.1-Attributes)
   - [2.2 Skills](#2.2-Skills)
@@ -23,24 +24,28 @@
 
 The most important part of every RPG is its world. It's what gives the characters life and the adventures meaning.
 By design, _Vade Mecum_ is world-agnostic, meaning it is built to work in any universe with any theme in any time period.
+But this doesn't mean we leave you out to dry.
 
-Does this mean we hang you out to dry when it comes to designing your World? Of course not!
-
-_Vade Mecum_ provides a number of pre-built "World Kits" that will provide the resources you need to start adventuring.
-This includes everything from weapons and armor, places and people, and adventuring classes.
+_Vade Mecum_ provides a number of pre-built "World Kits" that provide the resources you need to start adventuring.
+This includes classes, races, items, people, places, adventures, and more.
 We will highlight some of these kits below, but their complete documentation can be found in the kit itself.
 
 ## _Vale of Myths_ (High Fantasy)
 
 This high fantasy kit is set in a kingdom-controlled dominion where characters will face the dangers of evil kings, dark magic users, and monsters only found in myth and legend.
 
-| Focus        | Class      | Description                                                          |
-| ------------ | ---------- | -------------------------------------------------------------------- |
-| Strength     | **Knight** | A stalwart force on the battlefield that fights for honor and glory. |
-| Dexterity    | **Rogue**  | A master of stealth and cunning that thrives in the shadows.         |
-| Intelligence | **Mage**   | A student of magic who bend the forces of nature to their will.      |
-| Charisma     | **Bard**   | A performer whose music and storytelling goes beyond just art.       |
-| Perception   | **Druid**  | A protector of nature who harnesses the earth and its creatures.     |
+| Focus        | Class         | Description                                                           |
+| ------------ | ------------- | --------------------------------------------------------------------- |
+| Strength     | **Knight**    | A stalwart force on the battlefield that fights for honor and glory.  |
+| Strength     | **Barbarian** | A fierce and frightening warrior driven by pure rage.                 |
+| Dexterity    | **Ranger**    | A master of range weapons and the natural environment.                |
+| Dexterity    | **Monk**      | A disciple of peace who deflects rather than attacks.                 |
+| Intelligence | **Mage**      | A student of magic who bends the forces of nature to their will.      |
+| Intelligence | **Forge**     | A tinkerer that combines metal and magic to make powerful gear.       |
+| Charisma     | **Herald**    | A messenger that seeks diplomatic solutions over deadly battles.      |
+| Charisma     | **Bard**      | A performer whose music and storytelling goes beyond just art.        |
+| Perception   | **Sage**      | A practitioner of the natural arts to heal and protect their friends. |
+| Perception   | **Druid**     | A protector of nature who harnesses the earth and its creatures.      |
 
 ## _Vega Matrix_ (Science Fiction)
 
@@ -53,6 +58,41 @@ This science fiction kit is set in a distance galaxy where the politics between 
 | Intelligence | **Android**   | A sentient robot that wanders beyond of its main directive.                    |
 | Charisma     | **Diplomat**  | A leader charged with negotiating the socio-political landscape of the galaxy. |
 | Perception   | **Navigator** | A pilot capable of charting the stars and navigating between systems.          |
+
+## 1.1 Currency
+
+No matter what World is being used, there exists an economic system that uses a single denomination of currency to buy and sell items.
+This currency will vary based on the World, using pieces such as coins, dollars, credits, or bottlecaps as stores of value.
+To keep things generic, we refer to these as Currency Units, or CU.
+
+For pricing items, we use 7 levels of rarity that measure how rare and costly any given item is.
+In most campaigns, characters begin with the ability to buy items of Average rarity and lower.
+Items that are Rare, Very Rare, and Legendary should require PC's to save up currency or succeed on challenging adventures.
+
+| Rarity          | Cost   | Example                    |
+| --------------- | ------ | -------------------------- |
+| **Ubiquitous**  | Free   | Cup of water               |
+| **Very Common** | 1 CU   | Pint of ale                |
+| **Common**      | 5 CU   | Simple meal                |
+| **Average**     | 20 CU  | Fancy meal, simple lodging |
+| **Rare**        | 100 CU | Light armor, fancy lodging |
+| **Very Rare**   | 200 CU | Medium armor               |
+| **Legendary**   | 400 CU | Heavy armor                |
+
+> A single Currency Unit is of little worth by itself, being equivalent to an item of Very Common rarity.
+> Stumbling upon a single CU in the World would be unsurprising and unimpactful.
+
+To purchases an item, a character requires a marketplace or merchant that has the item (as dictated by the GM).
+Additionally, if the item is Rare or higher, a Barter check is required to determine the final cost.
+
+| Result    | Outcome                                |
+| --------- | -------------------------------------- |
+| Success   | You haggle the price down 10%.         |
+| Stalemate | You find the item priced as expected.  |
+| Failure   | The merchant haggles the price up 10%. |
+
+> **Example:** A character looks to buy some Heavy Armor (Legendary) in a large marketplace and the GM rules that item is being sold there.
+> The character rolls a Barter check but fails. They have the choice to buy the item for 440 CU or try again tomorrow.
 
 # 2. Characters
 
@@ -454,6 +494,14 @@ To do this, one character from the party will roll a Stealth check with a diffic
 > **Example:** A party attempts to surprise a group of soldiers on patrol. The soldiers are led by a Scout with Detection 2.
 > The character leading the party rolls a Stealth check with Very Hard (-2) difficulty and is successful.
 > The party stuns the enemies and gets a free round against them.
+
+### Looting
+
+After completing a bout of combat, characters have the ability to search for spoils of their labor.
+To do so, each player makes an Investigation check.
+On a success, they either recover a usable item from a fallen enemy or find an amount of currency by rolling a number of D6 equal to `(Level + Perception + Investigation)`.
+
+> **Example:** A Level 3 character with Perception 4 and Investigation 1 could find between 8 and 48 units of currency.
 
 ## 3.5 Death
 
