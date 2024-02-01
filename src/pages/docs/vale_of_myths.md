@@ -15,10 +15,10 @@ This high fantasy kit is set in a kingdom-controlled dominion where characters w
 | ------------ | ------------- | --------------------------------------------------------------------- |
 | Strength     | **Knight**    | A stalwart force on the battlefield that fights for honor and glory.  |
 | Strength     | **Barbarian** | A fierce and frightening warrior driven by pure rage.                 |
-| Dexterity    | **Ranger**    | A master of the bow who picks off their targets from range.           |
+| Dexterity    | **Ranger**    | A master of range weapons and the natural environment.                |
 | Dexterity    | **Monk**      | A disciple of peace who deflects rather than attacks.                 |
 | Intelligence | **Mage**      | A student of magic who bends the forces of nature to their will.      |
-| Intelligence | **Cleric**    | A devotee who calls on their gods to fight and heal.                  |
+| Intelligence | **Forge**     | A tinkerer that combines metal and magic to make powerful gear.       |
 | Charisma     | **Herald**    | A messenger that seeks diplomatic solutions over deadly battles.      |
 | Charisma     | **Bard**      | A performer whose music and storytelling goes beyond just art.        |
 | Perception   | **Sage**      | A practitioner of the natural arts to heal and protect their friends. |
@@ -224,3 +224,36 @@ The study of the flow of time and how it can be manipulated. Often considered th
 | Spell         | Rarity    | MP  | Description                                                                                                                                                                                      |
 | ------------- | --------- | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **Time Stop** | Legendary | 6   | Stops the flow of time until your next turn for all enemies within a 120 foot radius. For one round, the party can take their turn with attacks at a +3 advantage while the enemies stand still. |
+
+## Forge
+
+Forges are masters of metalwork and enchantment, combining their knowledge of both metallurgy and magic to craft gear that far surpasses ordinary craftsmanship.
+They spend countless hours in the workshop, experimenting with rare metals and powerful runes to create weapons and armor of great renown.
+Forges prefer the company of their hammer, but are fiercely loyal to the few they call friends.
+
+| Attribute    | Skill        | Description                                  |
+| ------------ | ------------ | -------------------------------------------- |
+| Intelligence | **Smithing** | Craft, enchant, and repair weapons and armor |
+
+Every Forge carries a Smithing Hammer that enables them to merge metal and runes through pure friction.
+This Smithing Hammer most often manifest itself as a dwarven warhammer weighing roughly 25 pounds with two broad faces.
+While they carry their Smithing Hammer, a Forge can repair gear using Smithing instead of Innovation and has the ability to earn Smithing Points that can be expended to create or enhance gear.
+
+During a Rest, a Forge can spend their light activity learning, experimenting, and smithing.
+They will make a Smithing Check and on a success, earn 1 Smithing Point.
+Once a Forge has enough Smithing Points, they can expend them to complete a creation or enhancement.
+
+| Level | Smithing Hammer Effect                     |
+| ----- | ------------------------------------------ |
+| 1     | Smithing +0, maximum of 3 Smithing Points  |
+| 8     | Smithing +1, maximum of 6 Smithing Points  |
+| 16    | Smithing +2, maximum of 9 Smithing Points  |
+| 24    | Smithing +3, maximum of 12 Smithing Points |
+
+Forges can unlock new weapons and gear they can spending Smithing Points on through perks.
+
+| Attribute    | Perk  | Requirement | Description |
+| ------------ | ----- | ----------- | ----------- |
+| Intelligence | **-** | Smithing 1  |             |
+| Intelligence | **-** | Smithing 2  |             |
+| Intelligence | **-** | Smithing 3  |             |

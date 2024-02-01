@@ -307,8 +307,10 @@ In the examples below, we look at a player rolling an Athletics check to scale a
 | 5          | **Stalemate** | The character is ineffectual in their attempt.   | The character is stuck on the ground.        |
 | 4, 3, 2, 1 | **Failure**   | The character fails the action detrimentally.    | The character slips and falls off the cliff. |
 
-In many situations, failure will mean the action can no longer be attempted by other members of the party.
+Out of combat, failure will often mean the action can no longer be attempted by other members of the party.
 For example, failing to force open a door may jam it closed, failing to pick a lock may ruin its keyhole, or failing to search a bookcase may ruin the books.
+
+During combat, failure during an attack will result in the weapon being used taking a point of damage (see [3.2 Weapons and Tools](#3.2-Weapons-and-Tools)).
 
 In this system, there is a strong relationship between the amount of dice being rolled and the chances of success and failure.
 As such, _Vade Mecum_ encourages specialization from the party, rather than a brute force mentality.
