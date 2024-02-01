@@ -9,12 +9,15 @@
   - [2.5 Health Points](#2.5-Health-Points)
   - [2.6 Movement Speed](#2.6-Movement-Speed)
   - [2.7 Carrying Capacity](#2.7-Carrying-Capacity)
+  - [2.8 Renown](#2.8-Renown)
 - [3. Adventuring](#3.-Adventuring)
   - [3.1 Skill Checks](#3.1-Skill-Checks)
   - [3.2 Weapons and Tools](#3.2-Weapons-and-Tools)
   - [3.3 Armor and Cover](#3.3-Armor-and-Cover)
   - [3.4 Combat](#3.4-Combat)
   - [3.5 Death](#3.5-Death)
+  - [3.6 Rest](#3.6-Rest)
+  - [3.7 Experience Levels](#3.7-Experience-Levels)
 
 # 1. World
 
@@ -248,6 +251,19 @@ When a character's carrying capacity is exceeded, they become over-encumbered an
 > All items that are carried count towards a character's carrying capacity.
 > This does not include items that are worn, such as armor, clothing, and backpacks.
 
+## 2.8 Renown
+
+Each character starts their journey with Average renown, where the world knows they are an adventurer but have heard nothing about their feats or accomplishments.
+As they level up, they gain renown and begin to have word of their skill spread amongst the people.
+Based on their renown, character's gain advantage when making Speech checks against common NPC's.
+
+| Renown        | Speech Advantage | Description                                           |
+| ------------- | ---------------- | ----------------------------------------------------- |
+| **Average**   | +0               | People know you call yourself an adventurer           |
+| **Rare**      | +1               | People have heard your name in passing conversation   |
+| **Very Rare** | +2               | People know a full story about one of your adventures |
+| **Legendary** | +3               | People think of you when thinking of an adventurer    |
+
 # 3. Adventuring
 
 Once your campaign has a party of characters, there's only one thing left do: adventure!
@@ -359,7 +375,7 @@ Each item will specify its rarity (see [3.7 Cost and Currency](#3.7-Cost-and_Cur
 When using a piece of gear with durability, a failed skill check will result in the gear taking damage.
 Damage results in the item's modifier decreasing by one.
 When a gear's modifier falls below zero, it is considered broken and can no longer be used until it is repaired.
-Repairs to restore the gear modifier can be made during a Rest (see [3.7 Rest](#3.7-Rest)).
+Repairs to restore the gear modifier can be made during a Rest (see [3.6 Rest](#3.6-Rest)).
 
 ## 3.3 Armor and Cover
 
@@ -460,7 +476,7 @@ If a character incurs an injury that is Severe (3), Critical (2), or Fatal (1), 
 To prevent their death, another player within 1 tile must roll a Medicine check with the given difficulty.
 If the roll is successful, the character is stabilized with 1 HP. Otherwise, the character is dead.
 
-After a character is recovered from a deadly injury, they are disabled until their next Rest (see [3.7 Rest](#3.7-Rest)).
+After a character is recovered from a deadly injury, they are disabled until their next Rest (see [3.6 Rest](#3.6-Rest)).
 A disabled character has their movement speed reduced by half and cannot be healed by any means.
 
 > While incapacitated, all attacks on the character are Trivial (+3) and increase the level of injury by one.
@@ -504,7 +520,7 @@ A disabled character has their movement speed reduced by half and cannot be heal
 | 1   | **Fatal**    | Death, 2 rounds    | 2   | **Punctured lung**          | Hard (-1)      |
 | 1   | **Fatal**    | Death, 2 rounds    | 1   | **Severed aorta**           | Very Hard (-2) |
 
-## 3.7 Rest
+## 3.6 Rest
 
 After a day of adventuring, the party is required to rest for 8 hours to refresh their minds and bodies.
 During these 8 hours, characters will engage in a mix of sleeping and a single light activity.
@@ -520,4 +536,58 @@ The most common light activities are given below.
 During this rest, all characters are expected to consume a meal ration.
 Those that do will roll a number of D6 equal to `(Strength + Fortitude)` and heal that number of HP at the conclusion of the rest.
 
-> If a rest is interrupted for more than 4 hours, it must be restarted.
+> If a Rest is interrupted for more than 4 hours, it must be restarted.
+
+## 3.7 Experience Levels
+
+All characters begin at Level 1 and progress to subsequent levels through experience points, or XP.
+Each level requires 6 XP to achieve and awards the character with one or more rewards specific to that level.
+
+After completing a session of adventuring (typically ending in a Rest), experience points are awarded by the Game Master based on set criteria.
+Each character evaluates the criteria individually with confirmation by the GM.
+The Game Master may also choose to award additional XP beyond the criteria for significant events that represent a growth in a player's character.
+
+### XP Criteria
+
+- [ ] Did you participate in the session?
+- [ ] Did you roleplay to build on your character's personality/backstory?
+- [ ] Did you defeat an enemy that posed a threat to yourself or your ideals?
+- [ ] Did you defeat an enemy that posed a threat to your party or its companions?
+- [ ] Did you make progress towards your personal goal?
+- [ ] Did you make progress towards your party's goal?
+
+### Level Rewards
+
+- On every level, the character will gain one skill point.
+- One every 2nd level, the character will choose a new perk.
+- On every 4th level, the character will gain one attribute point.
+- On every 6th level, the character will evolve their class item.
+- On every 8th level the character gains renown.
+
+At Level 24, a character will have become a legendary adventurer in the eyes of the world.
+
+| Level | Reward(s)                                                                             |
+| ----- | ------------------------------------------------------------------------------------- |
+| 2     | `+1 skill point` `+1 perk`                                                            |
+| 3     | `+1 skill point`                                                                      |
+| 4     | `+1 skill point` `+1 perk` `+1 attribute point`                                       |
+| 5     | `+1 skill point`                                                                      |
+| 6     | `+1 skill point` `+1 perk` `+1 class item evolution`                                  |
+| 7     | `+1 skill point`                                                                      |
+| 8     | `+1 skill point` `+1 perk` `+1 attribute point` `+1 renown`                           |
+| 9     | `+1 skill point`                                                                      |
+| 10    | `+1 skill point` `+1 perk`                                                            |
+| 11    | `+1 skill point`                                                                      |
+| 12    | `+1 skill point` `+1 perk` `+1 attribute point` `+1 class item evolution`             |
+| 13    | `+1 skill point`                                                                      |
+| 14    | `+1 skill point` `+1 perk`                                                            |
+| 15    | `+1 skill point`                                                                      |
+| 16    | `+1 skill point` `+1 perk` `+1 attribute point` `+1 renown`                           |
+| 17    | `+1 skill point`                                                                      |
+| 18    | `+1 skill point` `+1 perk` `+1 class item evolution`                                  |
+| 19    | `+1 skill point`                                                                      |
+| 20    | `+1 skill point` `+1 perk` `+1 attribute point`                                       |
+| 21    | `+1 skill point`                                                                      |
+| 22    | `+1 skill point` `+1 perk`                                                            |
+| 23    | `+1 skill point`                                                                      |
+| 24    | `+1 skill point` `+1 perk` `+1 attribute point` `+1 class item evolution` `+1 renown` |

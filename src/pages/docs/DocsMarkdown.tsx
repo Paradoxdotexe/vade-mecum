@@ -45,6 +45,22 @@ const StyledComponent = styled.div`
     line-height: 150%;
     padding-inline-start: 32px;
     margin-block: 6px 24px;
+
+    // checkbox list
+    &:has(input[type='checkbox']) {
+      list-style-type: none;
+      padding-inline-start: 0;
+
+      input[type='checkbox'] {
+        border: none;
+        appearance: none;
+        width: 16px;
+        height: 16px;
+        border-radius: 4px;
+        background-color: #585858;
+        margin: 0 3px -1px 0;
+      }
+    }
   }
 
   code {
