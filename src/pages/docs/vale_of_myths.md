@@ -8,6 +8,8 @@ This high fantasy kit is set in a kingdom-controlled dominion where characters w
   - [Ranger](#Ranger)
   - [Monk](#Monk)
   - [Mage](#Mage)
+  - [Forge](#Forge)
+  - [Herald](#Herald)
 
 # 1. Classes
 
@@ -41,9 +43,10 @@ While this banner flies during battle, a Knight can use their second action to m
 | Level | Honorific Banner Effect |
 | ----- | ----------------------- |
 | 1     | Honor +0                |
-| 8     | Honor +1                |
-| 16    | Honor +2                |
-| 24    | Honor +3                |
+| 6     | Honor +1                |
+| 12    | Honor +2                |
+| 18    | Honor +3                |
+| 24    | Honor +4                |
 
 Knights have access to perks built on top of the core commandments of chivalry.
 
@@ -73,9 +76,10 @@ While in a Combat Rage, Barbarians can make melee attacks using Rage instead of 
 | Level | Tribal Marking Effect |
 | ----- | --------------------- |
 | 1     | Rage +0               |
-| 8     | Rage +1               |
-| 16    | Rage +2               |
-| 24    | Rage +3               |
+| 6     | Rage +1               |
+| 12    | Rage +2               |
+| 18    | Rage +3               |
+| 24    | Rage +4               |
 
 Barbarians have access to perks that empower their Combat Rage.
 
@@ -102,9 +106,10 @@ While they have their Survival Toolkit, a Ranger doubles their movement speed an
 | Level | Survival Toolkit Effect |
 | ----- | ----------------------- |
 | 1     | Survival +0             |
-| 8     | Survival +1             |
-| 16    | Survival +2             |
-| 24    | Survival +3             |
+| 6     | Survival +1             |
+| 12    | Survival +2             |
+| 18    | Survival +3             |
+| 24    | Survival +4             |
 
 Rangers have access to perks that add new items to their Survival Toolkit.
 
@@ -134,9 +139,10 @@ During a Rest, they can spend their light activity to find peace and restore all
 | Level | Spiritual Talisman Effect        |
 | ----- | -------------------------------- |
 | 1     | Chi +0, maximum of 3 Chi Points  |
-| 8     | Chi +1, maximum of 6 Chi Points  |
-| 16    | Chi +2, maximum of 9 Chi Points  |
-| 24    | Chi +3, maximum of 12 Chi Points |
+| 6     | Chi +1, maximum of 6 Chi Points  |
+| 12    | Chi +2, maximum of 9 Chi Points  |
+| 18    | Chi +3, maximum of 12 Chi Points |
+| 24    | Chi +4, maximum of 15 Chi Points |
 
 Monks have access to perks that give them new ways to harness their Chi Points.
 
@@ -163,9 +169,10 @@ While they carry their Magical Channel, a Mage has access to a number of Magic P
 | Level | Magical Channel Effect             |
 | ----- | ---------------------------------- |
 | 1     | Magic +0, enables Average spells   |
-| 8     | Magic +1, enables Rare spells      |
-| 16    | Magic +2, enables Very Rare spells |
-| 24    | Magic +3, enables Legendary spells |
+| 6     | Magic +1, enables Rare spells      |
+| 12    | Magic +2, enables Very Rare spells |
+| 18    | Magic +3, enables Legendary spells |
+| 24    | Magic +4                           |
 
 Mages gain access to schools of magic through their perks and can learn a new spell on each level.
 Mages have a maximum number of Magic Points they can hold equal to their level.
@@ -236,7 +243,7 @@ Forges prefer the company of their hammer, but are fiercely loyal to the few the
 | Intelligence | **Smithing** | Craft, enchant, and repair weapons and armor |
 
 Every Forge carries a Smithing Hammer that enables them to merge metal and runes through pure friction.
-This Smithing Hammer most often manifest itself as a dwarven warhammer weighing roughly 25 pounds with two broad faces.
+This Smithing Hammer most often manifests itself as a dwarven warhammer weighing roughly 25 pounds with two broad faces.
 While they carry their Smithing Hammer, a Forge can repair gear using Smithing instead of Innovation and has the ability to earn Smithing Points that can be expended to create or enhance gear.
 
 During a Rest, a Forge can spend their light activity learning, experimenting, and smithing.
@@ -246,9 +253,10 @@ Once a Forge has enough Smithing Points, they can expend them to complete a crea
 | Level | Smithing Hammer Effect                     |
 | ----- | ------------------------------------------ |
 | 1     | Smithing +0, maximum of 3 Smithing Points  |
-| 8     | Smithing +1, maximum of 6 Smithing Points  |
-| 16    | Smithing +2, maximum of 9 Smithing Points  |
-| 24    | Smithing +3, maximum of 12 Smithing Points |
+| 6     | Smithing +1, maximum of 6 Smithing Points  |
+| 12    | Smithing +2, maximum of 9 Smithing Points  |
+| 18    | Smithing +3, maximum of 12 Smithing Points |
+| 24    | Smithing +4, maximum of 15 Smithing Points |
 
 Forges can unlock new weapons and gear they can spending Smithing Points on through perks.
 
@@ -257,3 +265,49 @@ Forges can unlock new weapons and gear they can spending Smithing Points on thro
 | Intelligence | **-** | Smithing 1  |             |
 | Intelligence | **-** | Smithing 2  |             |
 | Intelligence | **-** | Smithing 3  |             |
+
+## Herald
+
+Heralds are messengers with a profound belief in diplomacy and dialogue, always favoring the pen and the voice over the sword.
+They wield the art of communication like a masterful instrument, forming alliances, resolving conflicts, and inspiring those around them.
+Heralds often find themselves as the voice of reason, guiding their allies towards success and their enemies towards failure.
+
+| Attribute | Skill         | Description                                                    |
+| --------- | ------------- | -------------------------------------------------------------- |
+| Charisma  | **Influence** | Persuade using peaceful logic, inspire allies, inhibit enemies |
+
+Every Herald carries a Beacon of Influence that enables them to sway the thoughts and actions of those around them.
+This Beacon of Influence most often manifests itself as a scroll, whistle, trumpet, or other instrument.
+While they carry their Beacon of Influence, a Herald has a number of Influence Points, or IP, that can be spent to inspire allies towards success or inhibit enemies towards failure.
+
+| Level | Beacon of Influence Effect |
+| ----- | -------------------------- |
+| 1     | Influence +0               |
+| 6     | Influence +1               |
+| 12    | Influence +2               |
+| 18    | Influence +3               |
+| 24    | Influence +4               |
+
+Heralds have a maximum number of Influence Points they can hold equal to their level.
+At any point in time, Heralds can spend Influence Points to force an enemy or ally to reroll a skill check.
+The Herald first rolls an Influence check against their target and then resolves the outcome.
+
+| Result    | Outcome                                                                                                                          |
+| --------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| Success   | The target must reroll their skill check with an additional advantage or disadvantage equal to a number of IP spent (minimum 1). |
+| Stalemate | The target keeps their roll.                                                                                                     |
+| Failure   | The target keeps their roll and you lose 1 IP.                                                                                   |
+
+> **Example:** An enemy rolls a Power check against a character and hits.
+> The Herald rolls an Influence check to inhibit the enemy and succeeds.
+> They choose to spend 2 IP to have the enemy reroll their Power check with -2 disadvantage.
+
+Heralds regain all of their Influence Points after a Rest.
+
+Heralds can unlock unique ways to influence others through their perks.
+
+| Attribute | Perk             | Requirement | Description                                                                                                                                                                                |
+| --------- | ---------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Charisma  | **Whisper**      | Influence 1 | You go unnoticed when influencing others.                                                                                                                                                  |
+| Charisma  | **Rallying Cry** | Influence 2 | You can make an Influence check to rally your allies in combat. On a success, you spend IP equal to the number of allies rallied and they all get +1 advantage on attacks for three turns. |
+| Charisma  | **Turncoat**     | Influence 3 | You can make an Influence check against an enemy's Intuition to convince them to join your cause. On a success, you spend IP equal to the enemy's level and they change sides.             |
