@@ -13,18 +13,18 @@ This high fantasy kit is set in a kingdom-controlled dominion where characters w
 
 # 1. Classes
 
-| Focus        | Class         | Description                                                           |
-| ------------ | ------------- | --------------------------------------------------------------------- |
-| Strength     | **Knight**    | A stalwart force on the battlefield that fights for honor and glory.  |
-| Strength     | **Barbarian** | A fierce and frightening warrior driven by pure rage.                 |
-| Dexterity    | **Ranger**    | A master of range weapons and the natural environment.                |
-| Dexterity    | **Monk**      | A disciple of peace who deflects rather than attacks.                 |
-| Intelligence | **Mage**      | A student of magic who bends the forces of nature to their will.      |
-| Intelligence | **Forge**     | A tinkerer that combines metal and magic to make powerful gear.       |
-| Charisma     | **Herald**    | A messenger that seeks diplomatic solutions over deadly battles.      |
-| Charisma     | **Bard**      | A performer whose music and storytelling goes beyond just art.        |
-| Perception   | **Sage**      | A practitioner of the natural arts to heal and protect their friends. |
-| Perception   | **Druid**     | A protector of nature who harnesses the earth and its creatures.      |
+| Focus        | Class         | Description                                                                |
+| ------------ | ------------- | -------------------------------------------------------------------------- |
+| Strength     | **Knight**    | A stalwart force on the battlefield that fights for honor and glory.       |
+| Strength     | **Barbarian** | A fierce and frightening warrior driven by pure rage.                      |
+| Dexterity    | **Ranger**    | A master of range weapons and the natural environment.                     |
+| Dexterity    | **Monk**      | A disciple of peace who deflects rather than attacks.                      |
+| Intelligence | **Mage**      | A student of magic who bends the forces of nature to their will.           |
+| Intelligence | **Forge**     | A tinkerer that combines metal and magic to make powerful gear.            |
+| Charisma     | **Herald**    | A messenger that influences people towards diplomacy and away from battle. |
+| Charisma     | **Enchanter** | A master of manipulation that can bend others unknowingly to their will.   |
+| Perception   | **Sage**      | A practitioner of the natural arts to heal and protect their friends.      |
+| Perception   | **Druid**     | A protector of nature who harnesses the earth and its creatures.           |
 
 ## Knight
 
@@ -311,3 +311,38 @@ Heralds can unlock unique ways to influence others through their perks.
 | Charisma  | **Whisper**      | Influence 1 | You go unnoticed when influencing others.                                                                                                                                                  |
 | Charisma  | **Rallying Cry** | Influence 2 | You can make an Influence check to rally your allies in combat. On a success, you spend IP equal to the number of allies rallied and they all get +1 advantage on attacks for three turns. |
 | Charisma  | **Turncoat**     | Influence 3 | You can make an Influence check against an enemy's Intuition to convince them to join your cause. On a success, you spend IP equal to the enemy's level and they change sides.             |
+
+## Enchanter
+
+Enchanters are master of manipulation, wielding the subtle arts of mind control and psychosis to bend people in their favor.
+They are capable of infiltrating the hearts and minds of their targets, turning enemies into allies without them ever knowing.
+Enchanters often lurk in the shadows, preferring subtlety over direct confrontation to prevent being ostracized for their dangerous abilities.
+
+| Attribute | Skill           | Description                                         |
+| --------- | --------------- | --------------------------------------------------- |
+| Charisma  | **Enchantment** | Persuade by enchanting the mind, bestow enchantment |
+
+Every Enchanter carries an Enchantment Charm that enhances their sway over the minds others.
+This Enchantment Charm most often manifests itself as a unique, ornate ring, locket, diadem, or amulet.
+While they care their Enchantment Charm, an Enchanter can use an action to bestow an enchantment on a target.
+
+| Level | Enchantment Charm Effect                      |
+| ----- | --------------------------------------------- |
+| 1     | Enchantment +0, maximum 1 enchantment target  |
+| 6     | Enchantment +1, maximum 2 enchantment targets |
+| 12    | Enchantment +2, maximum 3 enchantment targets |
+| 18    | Enchantment +3, maximum 4 enchantment targets |
+| 24    | Enchantment +4, maximum 5 enchantment targets |
+
+To bestow an enchantment, the Enchanter must roll a successful Enchantment check.
+Once bestowed, an enchantment lasts until the Enchanter rests.
+When an Enchanter tries to enchant a new target while currently enchanting the maximum, they must choose a target to free of their enchantment.
+
+Enchanters can unlock new enchantments through their perks.
+
+| Attribute | Perk                             | Requirement   | Description                                                               |
+| --------- | -------------------------------- | ------------- | ------------------------------------------------------------------------- |
+| Charisma  | **Enchantment of Hallucination** | Enchantment 1 | The target sees a small illusion of your making, equivalent to Murmur.    |
+| Charisma  | **Enchantment of Fear**          | Enchantment 1 | The target cannot move within 10 feet of you or make attacks against you. |
+| Charisma  | **Enchantment of Exhaustion**    | Enchantment 2 | The target's movement speed is reduced by half.                           |
+| Charisma  | **Enchantment of Weakness**      | Enchantment 3 | The target makes all attack checks with -2 disadvantage.                  |
