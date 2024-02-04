@@ -10,6 +10,7 @@ This high fantasy kit is set in a kingdom-controlled dominion where characters w
   - [Mage](#Mage)
   - [Forge](#Forge)
   - [Herald](#Herald)
+  - [Enchanter](#Enchanter)
 
 # 1. Classes
 
@@ -176,7 +177,7 @@ While they carry their Magical Channel, a Mage has access to a number of Magic P
 
 Mages gain access to schools of magic through their perks and can learn a new spell on each level.
 Mages have a maximum number of Magic Points they can hold equal to their level.
-Casting a spell requires a number of MP equal to the Magic requirement of its school and the spell's rarity.
+Casting a spell requires a successful Magic check and a number of MP equal to the Magic requirement of its school and the spell's rarity.
 
 > **Example:** Casting an Average Prestidigitation spell would cost 0 MP while casting a Legendary Chronomancy spell would cost 6 MP.
 
@@ -324,7 +325,7 @@ Enchanters often lurk in the shadows, preferring subtlety over direct confrontat
 
 Every Enchanter carries an Enchantment Charm that enhances their sway over the minds others.
 This Enchantment Charm most often manifests itself as a unique, ornate ring, locket, diadem, or amulet.
-While they care their Enchantment Charm, an Enchanter can use an action to bestow an enchantment on a target.
+While they carry their Enchantment Charm, an Enchanter can use an action to bestow an enchantment on a target.
 
 | Level | Enchantment Charm Effect                      |
 | ----- | --------------------------------------------- |
@@ -346,3 +347,63 @@ Enchanters can unlock new enchantments through their perks.
 | Charisma  | **Enchantment of Fear**          | Enchantment 1 | The target cannot move within 10 feet of you or make attacks against you. |
 | Charisma  | **Enchantment of Exhaustion**    | Enchantment 2 | The target's movement speed is reduced by half.                           |
 | Charisma  | **Enchantment of Weakness**      | Enchantment 3 | The target makes all attack checks with -2 disadvantage.                  |
+
+## Sage
+
+Sages are guardians of the natural world, studying the vast knowledge of nature's ancient lore and learning to commune with its very essence.
+They use nature's energy to conduct magical rituals that harness nature's power to support them on their journey.
+Sages are often wise beyond their years, seeking to understand the deeper truths of existence and advising those around them to seek natural balance.
+
+| Attribute  | Skill      | Description                          |
+| ---------- | ---------- | ------------------------------------ |
+| Perception | **Nature** | Commune with nature, perform rituals |
+
+Every Sage carries a Ritual Totem that infuses their ritual circles with nature's essence.
+This Ritual Totem most often manifests itself as a sacred drum, book, or pole that has been inscribed with nature's teachings.
+While they have their Ritual Totem, a sage can spend their light activity during their Rest to cast a ritual.
+
+| Level | Ritual Totem Effect |
+| ----- | ------------------- |
+| 1     | Nature +0           |
+| 6     | Nature +1           |
+| 12    | Nature +2           |
+| 18    | Nature +3           |
+| 24    | Nature +4           |
+
+Rituals give Sages access to a number of ritual acts that can be performed while it is in effect.
+Performing a ritual act requires a successful Nature check and a number of Nature Points, or NP, equal to the Nature requirement of its ritual and the act's rarity.
+Sages have a maximum number of Nature Points they can hold equal to their level that are regained after a Rest.
+
+Sages gain access to new rituals through their perks.
+
+| Attribute  | Perk                              | Requirement | Description                                                                                          |
+| ---------- | --------------------------------- | ----------- | ---------------------------------------------------------------------------------------------------- |
+| Perception | **Ritual of the Shield Guardian** | Nature 1    | Unlock the Ritual of the Shield Guardian, giving the ability to shield allies from enemies.          |
+| Perception | **Ritual of the Spirit Path**     | Nature 2    | Unlock the Ritual of the Spirit Path, giving the ability to navigate difficult situations.           |
+| Perception | **Ritual of the Stormcaller**     | Nature 3    | Unlock the Ritual of the Stormcaller, giving the ability to call down nature's fury from the clouds. |
+
+### Ritual of the Spirit Guardian
+
+This ritual uses nature's essence to shield allies from attack and create powerful shield guardians.
+
+| Act              | Rarity        | NP  | Description                                                                               |
+| ---------------- | ------------- | --- | ----------------------------------------------------------------------------------------- |
+| Glancing Wind    | **Average**   | 1   | When a character is hit by an attack, use the wind to reduce the incoming damage by half. |
+| Tornado Guardian | **Legendary** | 4   | Call down a Tornado Guardian that fights by your side. You control its actions.           |
+
+### Ritual of the Spirit Path
+
+This ritual uses nature's essence to guide the Sage through unsafe and unknown journeys.
+
+| Act               | Rarity      | NP  | Description                                                                |
+| ----------------- | ----------- | --- | -------------------------------------------------------------------------- |
+| Veil of the Wind  | **Average** | 2   | You and your party gain +3 advantage to all Stealth checks.                |
+| Nature's Blessing | **Average** | 2   | You gain +3 to Speech checks when progressing your personal or party goal. |
+
+### Ritual of the Stormcaller
+
+This ritual uses nature's essence to harness the electric energy of the storms above.
+
+| Act             | Rarity        | NP  | Description                                                                                                           |
+| --------------- | ------------- | --- | --------------------------------------------------------------------------------------------------------------------- |
+| Lightning Storm | **Legendary** | 6   | You control three lightning bolts that strike one or more chosen targets. For each bolt, the target takes 4D6 damage. |
