@@ -11,6 +11,8 @@ This high fantasy kit is set in a kingdom-controlled dominion where characters w
   - [Forge](#Forge)
   - [Herald](#Herald)
   - [Enchanter](#Enchanter)
+  - [Sage](#Sage)
+  - [Druid](#Druid)
 
 # 1. Classes
 
@@ -407,3 +409,48 @@ This ritual uses nature's essence to harness the electric energy of the storms a
 | Act             | Rarity        | NP  | Description                                                                                                           |
 | --------------- | ------------- | --- | --------------------------------------------------------------------------------------------------------------------- |
 | Lightning Storm | **Legendary** | 6   | You control three lightning bolts that strike one or more chosen targets. For each bolt, the target takes 4D6 damage. |
+
+## Druid
+
+Druids are truly one with nature, carrying an innate bond with the fauna that populates the natural world and a primal power to call upon them in times of need.
+They travel with a loyal beast companion that is always by their side, anchoring them with the strength and cunning of the wild.
+Druids serve as the bridge between the untamed wilderness and the civilized world, guiding their party with primal wisdom and fierce loyalty.
+
+| Attribute  | Skill     | Description                                              |
+| ---------- | --------- | -------------------------------------------------------- |
+| Perception | **Beast** | Control beast companion, commune with nature's creatures |
+
+Every Druid is accompanied by a Tamed Beast that is a fiercely loyal friend and protector.
+This Tamed Beast can be a large creature, such as a wolf or hawk, or a small creature, such as a spider or snake, that has a deep connection with the Druid.
+While they are with their Tamed Beast, a Druid can call them to action or beckon for its fellow beasts to come to its aid.
+
+| Tamed Beast Size | Description                                                                           |
+| ---------------- | ------------------------------------------------------------------------------------- |
+| Small            | Attack for 1D6 damage, 40ft of movement, +2 to Stealth checks, +1 to Detection checks |
+| Large            | Attack for 2D6 damage, 20ft of movement, +2 to Speech checks, +1 to Detection checks  |
+
+| Level | Tamed Beast Effect                          |
+| ----- | ------------------------------------------- |
+| 1     | Beast +0, 10 HP Tamed Beast, 1 Beast Point  |
+| 6     | Beast +1, 20 HP Tamed Beast, 2 Beast Points |
+| 12    | Beast +2, 30 HP Tamed Beast, 3 Beast Points |
+| 18    | Beast +3, 40 HP Tamed Beast, 4 Beast Points |
+| 24    | Beast +4, 50 HP Tamed Beast, 5 Beast Points |
+
+Once per turn, druids can expand an action to have their Tamed Beast perform a skill check (this includes making a second attack using a Beast check).
+
+Additionally, druids have access to a number of Beast Points, or BP, that they can use to call upon Untamed Beasts from nature.
+To call upon an Untamed Beast, druids must make a successful Beast check and expend the specified number of Beast Points.
+Druids regain all lost Beast Points after a Rest.
+
+> Tamed Beasts follow the same rules of injury and death when reduced to 0 hit points.
+> If a Tamed Beast dies, a new one is found upon reaching the next level milestone.
+
+Druids can unlock new Untamed Beasts to call upon through their perks.
+
+| Attribute  | Perk               | Requirement | Description                                                                                        |
+| ---------- | ------------------ | ----------- | -------------------------------------------------------------------------------------------------- |
+| Perception | **Swarm of Bees**  | Nature 1    | Spend 1 BP to summon a swarm of bees to attack a target, dealing 2D6 damage.                       |
+| Perception | **Vengeful Eagle** | Nature 2    | Spend 2 BP to summon an eagle to attack a target, dealing 4D6 damage.                              |
+| Perception | **Rushing Bear**   | Nature 3    | Spend 3 BP to summon a bear to attack a target, dealing 6D6 damage.                                |
+| Perception | **Pack of Wolves** | Nature 3    | Spend 3 BP to summon a pack of wolves to attack up to three targets. Each target takes 2D6 damage. |
