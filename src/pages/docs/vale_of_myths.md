@@ -454,3 +454,82 @@ Druids can unlock new Untamed Beasts to call upon through their perks.
 | Perception | **Vengeful Eagle** | Nature 2    | Spend 2 BP to summon an eagle to attack a target, dealing 4D6 damage.                              |
 | Perception | **Rushing Bear**   | Nature 3    | Spend 3 BP to summon a bear to attack a target, dealing 6D6 damage.                                |
 | Perception | **Pack of Wolves** | Nature 3    | Spend 3 BP to summon a pack of wolves to attack up to three targets. Each target takes 2D6 damage. |
+
+# 2. Races
+
+The Vale is home to five intelligent races: humans, elves, dwarves, halflings, and fey.
+
+## Human
+
+Humans thrive on adaptability and ambition, forming the backbone of society through their resourcefulness and drive. Their strength lies in their versatility and innovation, allowing them to excel in various disciplines, from magic to technology. However, their ambition often leads to internal conflicts and a susceptibility to self-destructive behavior, which can undermine their achievements and unity.
+
+Humans get 2 skill points to distribute into Intelligence.
+
+## Elf
+
+Elves are deeply connected to nature and the arcane, living in harmonious and often secluded communities that value tradition and the natural world. Their longevity grants them humble wisdom and the ability to perceive the world in ways that most other creatures cannot. Their weakness lies in their aloofness and a certain rigidity to change, which can isolate them from the outside world and make adaptation challenging.
+
+Elves get 2 skill points to distribute into Perception.
+
+## Dwarf
+
+Dwarves are renowned for their craftsmanship and sturdiness, dwelling in mountainous fortresses and underground cities built in the deepest parts of the world. Their strength is in their resilience, both physically and in their unwavering determination and loyalty. However, their insular and reluctant nature can lead to a lack of perspective and a vulnerability to being outmaneuvered.
+
+Dwarves get 2 skill points to distribute into Strength.
+
+## Halfling
+
+Halflings are a small, nimble race known for their love for comfort and peace, often living in tight-knit communities in the countryside or within the hidden nooks of larger cities. Their strength lies in their incredible agility and surprising luck, allowing them to navigate through challenges and dangers with ease and grace. However, their size and non-confrontational nature make them vulnerable in physical and social situations.
+
+Halflings get 2 skill points to distribute into Dexterity.
+
+## Fey
+
+The Fey race, with their otherworldly charm and enigmatic personalities, influence the world through diplomacy and government. Their strength lies in their grounded nature and their ability to sway the hearts of those around them with their irresistible charisma. However, their manipulative behavior and capricious nature often leads to unpredictable interactions, making alliances with them as fleeting as their moods.
+
+Fey get 2 skill points to distribute into Charisma.
+
+# 3. Items
+
+In _Vale of Myths_, valerian pieces (abbreviated as "pcs") are the main denomination of currency used to buy and sell items.
+
+## Weapons
+
+| Item           | Rarity    | Cost    | Size     | Description                                    |
+| -------------- | --------- | ------- | -------- | ---------------------------------------------- |
+| **Dagger**     | Common    | 5 pcs   | 1/2 slot | +1 Power to attack, 1d6 damage, 5ft range      |
+| **Shortsword** | Average   | 20 pcs  | 1 slot   | +1 Power to attack, 2d6 damage, 5ft range      |
+| **Longsword**  | Rare      | 100 pcs | 2 slots  | +2 Power to attack, 3d6 damage, 5ft range      |
+| **Greatsword** | Very Rare | 200 pcs | 4 slots  | +3 Power to attack, 4d6 damage, 5ft range      |
+| **Shortbow**   | Average   | 20 pcs  | 2 slots  | +1 Precision to attack, 1d6 damage, 40ft range |
+| **Crossbow**   | Rare      | 100 pcs | 2 slots  | +2 Precision to attack, 2d6 damage, 40ft range |
+| **Longbow**    | Very Rare | 200 pcs | 4 slots  | +3 Precision to attack, 3d6 damage, 80ft range |
+
+## Armor
+
+| Item                | Rarity    | Cost    | Tier   |
+| ------------------- | --------- | ------- | ------ |
+| **Leather Armor**   | Average   | 20 pcs  | Light  |
+| **Chainmail armor** | Rare      | 100 pcs | Medium |
+| **Plate armor**     | Very Rare | 200 pcs | Heavy  |
+
+## Tools
+
+| Item                   | Rarity      | Cost   | Size     | Description                                |
+| ---------------------- | ----------- | ------ | -------- | ------------------------------------------ |
+| **Adventuring Ration** | Very Common | 1 pc   | 1/4 slot | Satiates a character for a single Rest     |
+| **Rope**               | Common      | 5 pcs  | 1 slot   | +1 Athletics to climb                      |
+| **Grappling Hook**     | Common      | 5 pcs  | 1/2 slot | +1 Athletics to climb                      |
+| **Lantern**            | Common      | 5 pcs  | 1/2 slot | +1 Investigation/Detection to search       |
+| **Medical Pouch**      | Average     | 20 pcs | 1 slot   | +1 Medicine to heal                        |
+| **Tool Belt**          | Average     | 20 pcs | 1 slot   | +1 Innovation to repair or craft           |
+| **World Map**          | Common      | 5 pcs  | 1/4 slot | +1 Insight to interpret a location or path |
+
+## Services
+
+| Item               | Rarity  | Cost    | Description                                            |
+| ------------------ | ------- | ------- | ------------------------------------------------------ |
+| **Simple Meal**    | Common  | 5 pcs   | Satiates a character for 2 Rests                       |
+| **Fancy Meal**     | Average | 20 pcs  | Satiates a character for 2 + 1D6 Rests                 |
+| **Simple Lodging** | Average | 20 pcs  | A simple place to stay for the night, +1 to Rest rolls |
+| **Fancy Lodging**  | Rare    | 100 pcs | A simple place to stay for the night, +3 to Rest rolls |
