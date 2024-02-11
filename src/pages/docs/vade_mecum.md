@@ -24,10 +24,11 @@ The world is defined and controlled by a Game Master that acts as both the game'
   - [2.2 Skills](#2.2-Skills)
   - [2.3 Perks](#2.3-Perks)
   - [2.4 Classes](#2.4-Classes)
-  - [2.5 Health Points](#2.5-Health-Points)
-  - [2.6 Movement Speed](#2.6-Movement-Speed)
-  - [2.7 Carrying Capacity](#2.7-Carrying-Capacity)
-  - [2.8 Renown](#2.8-Renown)
+  - [2.5 Experience Levels](#2.5-Experience-Levels)
+  - [2.6 Health Points](#2.6-Health-Points)
+  - [2.7 Movement Speed](#2.7-Movement-Speed)
+  - [2.8 Carrying Capacity](#2.8-Carrying-Capacity)
+  - [2.9 Renown](#2.9-Renown)
 - [3. Adventuring](#3.-Adventuring)
   - [3.1 Skill Checks](#3.1-Skill-Checks)
   - [3.2 Weapons and Tools](#3.2-Weapons-and-Tools)
@@ -35,7 +36,6 @@ The world is defined and controlled by a Game Master that acts as both the game'
   - [3.4 Combat](#3.4-Combat)
   - [3.5 Death](#3.5-Death)
   - [3.6 Rest](#3.6-Rest)
-  - [3.7 Experience Levels](#3.7-Experience-Levels)
 
 # 1. World
 
@@ -255,7 +255,61 @@ Knights have access to perks built on top of the core commandments of chivalry.
 | Strength  | **Champion**     | Honor 2     | _Thou shalt be the champion of the good against evil._ Your initiative roll is automatically doubled.                                             |
 | Strength  | **Bulwark**      | Honor 3     | _Thou shalt make war without cessation and without mercy._ You take only half damage when hit by an enemy with over half of its health remaining. |
 
-## 2.5 Health Points
+## 2.5 Experience Levels
+
+All characters begin at Level 1 and progress to subsequent levels through experience points, or XP.
+Each level requires 6 XP to achieve and awards the character with one or more rewards specific to that level.
+
+After completing a session of adventuring (typically ending in a Rest), experience points are awarded by the Game Master based on set criteria.
+Each character evaluates the criteria individually with confirmation by the Game Master.
+The Game Master may also choose to award additional XP beyond the criteria for significant events that represent a growth in a player's character.
+
+### XP Criteria
+
+- [ ] Did you participate in the session?
+- [ ] Did you roleplay to build on your character's personality/backstory?
+- [ ] Did you defeat an enemy that posed a threat to yourself, your ideals, or your personal goal?
+- [ ] Did you defeat an enemy that posed a threat to your party, its companions, or its group goal?
+- [ ] Did you make progress towards your personal goal?
+- [ ] Did you make progress towards your party's goal?
+
+### Level Rewards
+
+- On every level, the character will gain one skill point.
+- One every 2nd level, the character will choose a new perk.
+- On every 4th level, the character will gain one attribute point.
+- On every 6th level, the character will evolve their class item.
+- On every 8th level the character gains renown.
+
+At Level 24, a character will have become a legendary adventurer in the eyes of the world.
+
+| Level | Reward(s)                                                                             |
+| ----- | ------------------------------------------------------------------------------------- |
+| 2     | `+1 skill point` `+1 perk`                                                            |
+| 3     | `+1 skill point`                                                                      |
+| 4     | `+1 skill point` `+1 perk` `+1 attribute point`                                       |
+| 5     | `+1 skill point`                                                                      |
+| 6     | `+1 skill point` `+1 perk` `+1 class item evolution`                                  |
+| 7     | `+1 skill point`                                                                      |
+| 8     | `+1 skill point` `+1 perk` `+1 attribute point` `+1 renown`                           |
+| 9     | `+1 skill point`                                                                      |
+| 10    | `+1 skill point` `+1 perk`                                                            |
+| 11    | `+1 skill point`                                                                      |
+| 12    | `+1 skill point` `+1 perk` `+1 attribute point` `+1 class item evolution`             |
+| 13    | `+1 skill point`                                                                      |
+| 14    | `+1 skill point` `+1 perk`                                                            |
+| 15    | `+1 skill point`                                                                      |
+| 16    | `+1 skill point` `+1 perk` `+1 attribute point` `+1 renown`                           |
+| 17    | `+1 skill point`                                                                      |
+| 18    | `+1 skill point` `+1 perk` `+1 class item evolution`                                  |
+| 19    | `+1 skill point`                                                                      |
+| 20    | `+1 skill point` `+1 perk` `+1 attribute point`                                       |
+| 21    | `+1 skill point`                                                                      |
+| 22    | `+1 skill point` `+1 perk`                                                            |
+| 23    | `+1 skill point`                                                                      |
+| 24    | `+1 skill point` `+1 perk` `+1 attribute point` `+1 class item evolution` `+1 renown` |
+
+## 2.6 Health Points
 
 Each character has a number of health points, or HP, that measures their physical condition.
 The Max HP for any character is equal to `(Level + Strength + Fortitude) x 6`.
@@ -264,7 +318,7 @@ The Max HP for any character is equal to `(Level + Strength + Fortitude) x 6`.
 
 As a character engages in combat, they will take damage, lose HP, and face consequences (see [3.5 Death](#3.5-Death)).
 
-## 2.6 Movement Speed
+## 2.7 Movement Speed
 
 Each character has a movement speed that regulates how far they can move during combat.
 Movement speed is measured in terms of grid tiles which are roughly 5ft squares.
@@ -275,7 +329,7 @@ A character's movement speed is equal to `(Dexterity + Movement) x 2`.
 Out of combat, all characters have the same movement speed of 10 miles per hour when traversing long distances.
 This speed can be increased by vehicles provided if available in the chosen World Kit.
 
-## 2.7 Carrying Capacity
+## 2.8 Carrying Capacity
 
 Each character has a carrying capacity that determines how much gear and resources they can carry before becoming over-encumbered.
 Carrying capacity is measured in terms of slots, an arbitrary unit of weight and size.
@@ -300,10 +354,10 @@ When a character's carrying capacity is exceeded, they become over-encumbered an
 > All items that are carried count towards a character's carrying capacity.
 > This does not include items that are worn, such as armor, clothing, and backpacks.
 
-## 2.8 Renown
+## 2.9 Renown
 
 Each character starts their journey with Average renown, where the world knows they are an adventurer but have heard nothing about their feats or accomplishments.
-As they level up (see [3.7 Experience Levels](#3.7-Experience-Levels)), they gain renown and begin to have word of their skill spread amongst the people.
+As they level up (see [2.5 Experience Levels](#2.5-Experience-Levels)), they gain renown and begin to have word of their skill spread amongst the people.
 Based on their renown, characters gain advantage when making Speech checks against common NPC's.
 
 | Renown        | Speech Advantage | Description                                           |
@@ -315,7 +369,7 @@ Based on their renown, characters gain advantage when making Speech checks again
 
 # 3. Adventuring
 
-Once your campaign has a party of characters, there's only one thing left do: adventure!
+Once you've established your Adventuring Party of characters, there's only one thing left do: adventure!
 Adventuring can take many shapes and forms, but _Vade Mecum_ provides a general rule set for how to resolve the adventuring day.
 
 ## 3.1 Skill Checks
@@ -339,7 +393,7 @@ Examples of common sources of advantage/disadvantage are given below.
 | --------- | ------------------------------- | ---------------- | ------------------- |
 | Power     | Melee attack                    | Weapon           | Armor, cover        |
 | Precision | Pick a lock                     | Lock picking set | Lock                |
-| Medicine  | Heal an incapacitated character | First aid kit    | Injury              |
+| Medicine  | Heal an incapacitated character | Medical pouch    | Injury              |
 | Speech    | Persuade an NPC                 | NPC              | NPC                 |
 
 For ambiguous sources of advantage/disadvantage, such as locks, injuries, and NPC's, the Game Master can declare a difficulty.
@@ -370,12 +424,26 @@ In the examples below, we look at a player rolling an Athletics check to scale a
 | ---------- | ------------- | ------------------------------------------------ | -------------------------------------------- |
 | 6          | **Success**   | The character completes the action successfully. | The character reaches the top of the cliff.  |
 | 5          | **Stalemate** | The character is ineffectual in their attempt.   | The character is stuck on the ground.        |
-| 4, 3, 2, 1 | **Failure**   | The character fails the action detrimentally.    | The character slips and falls off the cliff. |
+| 1, 2, 3, 4 | **Failure**   | The character fails the action detrimentally.    | The character slips and falls off the cliff. |
 
 Out of combat, failure will often mean the action can no longer be attempted by other members of the party.
 For example, failing to force open a door may jam it closed, failing to pick a lock may ruin its keyhole, or failing to search a bookcase may ruin the books.
 
-During combat, failure during an attack will result in the weapon being used taking a point of damage (see [3.2 Weapons and Tools](#3.2-Weapons-and-Tools)).
+During combat (when stakes are higher), failure will often give the enemy the upper hand or result in the weapon or tool being used taking a point of damage (see [3.2 Weapons and Tools](#3.2-Weapons-and-Tools)).
+
+### Group Skill Checks
+
+When a group of players is required to pass the same skill check, they will all make their own rolls.
+To determine the outcome, evaluate the results of each individual skill check and cancel out any failures with any successes.
+The final result can then be determined by taking the highest result.
+
+> **Example:** A Party of 4 characters attempt to collectively sneak into a building.
+> The Game Master calls for a group Stealth check.
+> Two characters roll a success, one character rolls a stalemate, and one character rolls a failure.
+> After canceling out the one failure with one success, there remains a success and a stalemate.
+> Taking the highest result, the group Stealth check is ruled a success.
+
+### Probability
 
 In this system, there is a strong relationship between the amount of dice being rolled and the chances of success and failure.
 As such, _Vade Mecum_ encourages specialization from the party, rather than a brute force mentality.
@@ -406,30 +474,32 @@ The exact probabilities for any roll is given below.
 
 ## 3.2 Weapons and Tools
 
-To gain an edge on skill checks, characters can utilize weapons and tools that decrease the difficulty when performing specific actions.
+To gain an edge on skill checks, characters can utilize weapons and tools that give an advantage when performing skill checks.
 
 > Individual weapons and tools are defined by the World Kit being used, but all of them follow a universal pattern for how they are defined.
 
-Each item will specify its rarity (see [3.7 Cost and Currency](#3.7-Cost-and_Currency)), its size (see [2.7 Carrying Capacity](#2.7-Carrying-Capacity)), its difficulty modifier, and the skill action it applies to. Weapons, additionally, will specify the attack range and the amount of damage dealt.
+Each item will specify its rarity (see [1.2 Currency](#1.2-Currency)), its size (see [2.8 Carrying Capacity](#2.8-Carrying-Capacity)), and how it can be used.
+Weapons, additionally, will specify the attack range and the amount of damage dealt.
 
-> Some examples of weapon and tools from the _Vale of Myths_ World Kit is given below.
+> Some examples of weapon and tools from the _Vale of Myths_ World Kit are given below.
 
-| Item                     | Rarity    | Size    | Modifier | Description                                    |
-| ------------------------ | --------- | ------- | -------- | ---------------------------------------------- |
-| **Rope**                 | Common    | Average | +1       | Climbing with Athletics                        |
-| **Sword**                | Average   | Average | +1       | Attacking with Power, 2d6 damage, 1 tile range |
-| **Greatsword**           | Rare      | Heavy   | +2       | Attacking with Power, 4d6 damage, 1 tile range |
-| **Ring of Invisibility** | Legendary | Tiny    | +6       | Sneaking with Stealth                          |
+| Item              | Rarity    | Cost    | Size     | Description                               |
+| ----------------- | --------- | ------- | -------- | ----------------------------------------- |
+| **Rope**          | Common    | 5 pcs   | 1 slot   | +1 Athletics to climb                     |
+| **Lantern**       | Common    | 5 pcs   | 1/2 slot | +1 Investigation/Detection to search      |
+| **Medical Pouch** | Average   | 20 pcs  | 1/2 slot | +1 Medicine to heal                       |
+| **Shortsword**    | Average   | 20 pcs  | 1 slot   | +1 Power to attack, 2d6 damage, 5ft range |
+| **Greatsword**    | Very Rare | 200 pcs | 2 slots  | +3 Power to attack, 4d6 damage, 5ft range |
 
-When using a piece of gear with durability, a failed skill check will result in the gear taking damage.
-Damage results in the item's modifier decreasing by one.
-When a gear's modifier falls below zero, it is considered broken and can no longer be used until it is repaired.
-Repairs to restore the gear modifier can be made during a Rest (see [3.6 Rest](#3.6-Rest)).
+When using a tool or weapon, a failed skill check will result in the item taking damage.
+Damage results in the item's advantage modifier decreasing by one.
+When an item's modifier falls below zero, it is considered broken and can no longer be used until it is repaired.
+Repairs to restore the item modifier can be made during a Rest (see [3.6 Rest](#3.6-Rest)).
 
 ## 3.3 Armor and Cover
 
-Similar to how weapons decrease difficulty, armor and cover increases it.
-There are three tiers of armor and cover that incrementally increase the difficulty of landing attacks.
+Similar to how weapons and tools assist friendly skill checks, armor and cover inhibit enemy skill checks.
+There are 3 tiers of armor and cover that incrementally increase the disadvantage applied to incoming attacks.
 
 | Tier       | Modifier | _Vale of Myths_ Armor Example | _Vale of Myths_ Cover Example |
 | ---------- | -------- | ----------------------------- | ----------------------------- |
@@ -437,16 +507,15 @@ There are three tiers of armor and cover that incrementally increase the difficu
 | **Medium** | -2       | Chainmail armor               | Tree, low wall                |
 | **Heavy**  | -3       | Plate armor                   | Battlement                    |
 
-> Protection given by armor and cover do stack when determining overall difficulty.
-> For example, someone wearing medium armor behind medium cover would have a -4 difficulty modifier.
-> General rules apply where an attack harder than Titan would automatically fail and thus cannot be rolled for.
+> Protection given by armor and cover do stack when determining overall disadvantage.
+> For example, someone wearing medium armor behind medium cover would have -4 disadvantage to being hit.
 
 While armor protects the wearer from melee and ranged attacks, cover only protects at range.
 Additionally, those in cover cannot take Movement or Actions (see [3.4 Combat](#3.4-Combat)).
 
 ## 3.4 Combat
 
-When a situation reaches a point than can no longer be resolved by words, the party enters combat.
+When a situation reaches a point than can no longer be resolved by words, the Party will enter combat.
 Combat begins by determining each character's turn order by rolling for initiative. Each character
 rolls a number of D6 equal to `(Dexterity + Perception)` and sums the roll to resolve their initiative.
 
@@ -457,7 +526,7 @@ Combat will persist for a number of rounds until one side concedes or parishes.
 In every round of combat, each character will take a turn in order of initiative.
 During their turn, a character can take Movement and up to two Actions (in any order or configuration).
 
-> Each round of combat is roughly equivalent to 6 seconds of World time.
+> Each round of combat is roughly equivalent to 6 seconds of world time.
 
 ### Movement
 
@@ -481,42 +550,40 @@ Of there two actions, a character can only use one to make an attack (unless oth
 ### Reaction
 
 Additionally, characters can take one reaction per round that is prompted by the movement or action of another character.
-By default, all characters can perform an opportunity attack as a reaction.
+By default, all characters can perform an opportunity attack as a reaction, but classes and perks may give access to other types of reactions.
 
 | Reaction               | Description                                                                                 |
 | ---------------------- | ------------------------------------------------------------------------------------------- |
 | **Opportunity Attack** | When an enemy within 5 feet moves away from you, you can make an attack against that enemy. |
 
-Classes and perks may give access to other available types of reactions.
-
 ### Surprise
 
-In some cases, the party may attempt to surprise their enemy to gain an advantage.
+In some cases, the Party may attempt to surprise their enemy to gain an advantage.
 To do this, one character from the party will roll a Stealth check with a difficulty modifier equivalent to the highest enemy Detection.
 
-| Result        | Outcome                                                                             |
-| ------------- | ----------------------------------------------------------------------------------- |
-| **Success**   | The party surprises the enemy, earning a free round while the enemies are stunned.  |
-| **Stalemate** | The party fails to surprise the enemy and begin combat as usual.                    |
-| **Failure**   | The party prematurely alerts the enemy, giving them a free round for movement only. |
+| Result        | Outcome                                                                              |
+| ------------- | ------------------------------------------------------------------------------------ |
+| **Success**   | The party surprises the enemy, earning a free round while the enemies are surprised. |
+| **Stalemate** | The party fails to surprise the enemy and begin combat as usual.                     |
+| **Failure**   | The party prematurely alerts the enemy, giving them a free round for movement only.  |
 
 > **Example:** A party attempts to surprise a group of soldiers on patrol. The soldiers are led by a Scout with Detection 2.
 > The character leading the party rolls a Stealth check with Very Hard (-2) difficulty and is successful.
-> The party stuns the enemies and gets a free round against them.
+> The party surprised the enemies and gets a free round against them.
 
 ### Looting
 
 After completing a bout of combat, characters have the ability to search for spoils of their labor.
 To do so, each player makes an Investigation check.
-On a success, they either recover a usable item from a fallen enemy or find an amount of currency by rolling a number of D6 equal to `(Level + Perception + Investigation)`.
+On a success, they either recover a usable item from a fallen enemy or find an amount of currency equal to `(Level + Perception + Investigation) x D6`.
 
-> **Example:** A Level 3 character with Perception 4 and Investigation 1 could find between 8 and 48 units of currency.
+> **Example:** A Level 3 character with Perception 4 and Investigation 1 could find between 8 and 48 units of currency after passing an Investigation check.
 
 ## 3.5 Death
 
 During combat, every character faces the possibility of death.
 When a character's HP is reduced to 0, they are incapacitated and incur an injury.
-There are six levels of injury with six degrees therein.
+There are 6 levels of injury with 6 degrees therein.
 
 Immediately after being incapacitated, the player will roll a D6 to determine their character's injury level and another D6 to determine the injury degree.
 A table of all injuries are given at the end of this section.
@@ -524,17 +591,15 @@ A table of all injuries are given at the end of this section.
 ### Recoverable Injuries
 
 If a character incurs an injury that is Minor (6), Moderate (5), or Serious (4), they will recover in a given number of rounds.
-To accelerate their recovery, the injured player themself or another player within 1 tile can roll a Medicine check with the given difficulty.
-If the roll is successful, the character is stabilized with 1 HP.
+To accelerate their recovery, the injured player themself or another player within 5ft can roll a Medicine check with the given advantage/disadvantage.
+If the roll is successful, the character is stabilized with 1 HP and they are back in the fight.
 
 ### Deadly Injuries
 
 If a character incurs an injury that is Severe (3), Critical (2), or Fatal (1), they will die in a give number of rounds.
-To prevent their death, another player within 1 tile must roll a Medicine check with the given difficulty.
-If the roll is successful, the character is stabilized with 1 HP. Otherwise, the character is dead.
-
-After a character is recovered from a deadly injury, they are disabled until their next Rest (see [3.6 Rest](#3.6-Rest)).
-A disabled character has their movement speed reduced by half and cannot be healed by any means.
+To prevent their death, another player within 5ft must roll a Medicine check with the given advantage/disadvantage.
+If the roll is successful, the character is stabilized with 1 HP and they are back in the fight, but wounded.
+A wounded character has their movement speed reduced by half until their next Rest.
 
 > While incapacitated, all attacks on the character are Trivial (+3) and increase the level of injury by one.
 
@@ -584,67 +649,14 @@ During these 8 hours, characters will engage in a mix of sleeping and a single l
 Any light activity permitted by the Game Master will be evaluated by a skill check.
 The most common light activities are given below.
 
-| Skill          | Light Activity                  | Success                                                   |
-| -------------- | ------------------------------- | --------------------------------------------------------- |
-| **Detection**  | Keep watch for enemies.         | Forces the enemy's surprise attack to automatically fail. |
-| **Medicine**   | Heal a character.               | Heals the character for a number of HP equal to the roll. |
-| **Innovation** | Repair a damaged piece of gear. | Restores the gear's bonus by one.                         |
+| Light Activity         | Skill      | Success                                                  |
+| ---------------------- | ---------- | -------------------------------------------------------- |
+| Keep watch for enemies | Detection  | Forces the enemy's surprise attack to automatically fail |
+| Heal a character       | Medicine   | Heals the character for a number of HP equal to the roll |
+| Repair a damaged item  | Innovation | Restores the item's bonus by one                         |
 
-During this rest, all characters are expected to consume a meal ration.
-Those that do will roll a number of D6 equal to `(Strength + Fortitude)` and heal that number of HP at the conclusion of the rest.
+During a Rest, characters can recover HP by satiating themselves with food and water.
+Food and water can be provided by adventuring rations or by meals provided by NPC's.
+Those that are satiated will roll a number of D6 equal to `(Strength + Fortitude)` and heal that number of HP at the conclusion of the Rest.
 
 > If a Rest is interrupted for more than 4 hours, it must be restarted.
-
-## 3.7 Experience Levels
-
-All characters begin at Level 1 and progress to subsequent levels through experience points, or XP.
-Each level requires 6 XP to achieve and awards the character with one or more rewards specific to that level.
-
-After completing a session of adventuring (typically ending in a Rest), experience points are awarded by the Game Master based on set criteria.
-Each character evaluates the criteria individually with confirmation by the GM.
-The Game Master may also choose to award additional XP beyond the criteria for significant events that represent a growth in a player's character.
-
-### XP Criteria
-
-- [ ] Did you participate in the session?
-- [ ] Did you roleplay to build on your character's personality/backstory?
-- [ ] Did you defeat an enemy that posed a threat to yourself or your ideals?
-- [ ] Did you defeat an enemy that posed a threat to your party or its companions?
-- [ ] Did you make progress towards your personal goal?
-- [ ] Did you make progress towards your party's goal?
-
-### Level Rewards
-
-- On every level, the character will gain one skill point.
-- One every 2nd level, the character will choose a new perk.
-- On every 4th level, the character will gain one attribute point.
-- On every 6th level, the character will evolve their class item.
-- On every 8th level the character gains renown.
-
-At Level 24, a character will have become a legendary adventurer in the eyes of the world.
-
-| Level | Reward(s)                                                                             |
-| ----- | ------------------------------------------------------------------------------------- |
-| 2     | `+1 skill point` `+1 perk`                                                            |
-| 3     | `+1 skill point`                                                                      |
-| 4     | `+1 skill point` `+1 perk` `+1 attribute point`                                       |
-| 5     | `+1 skill point`                                                                      |
-| 6     | `+1 skill point` `+1 perk` `+1 class item evolution`                                  |
-| 7     | `+1 skill point`                                                                      |
-| 8     | `+1 skill point` `+1 perk` `+1 attribute point` `+1 renown`                           |
-| 9     | `+1 skill point`                                                                      |
-| 10    | `+1 skill point` `+1 perk`                                                            |
-| 11    | `+1 skill point`                                                                      |
-| 12    | `+1 skill point` `+1 perk` `+1 attribute point` `+1 class item evolution`             |
-| 13    | `+1 skill point`                                                                      |
-| 14    | `+1 skill point` `+1 perk`                                                            |
-| 15    | `+1 skill point`                                                                      |
-| 16    | `+1 skill point` `+1 perk` `+1 attribute point` `+1 renown`                           |
-| 17    | `+1 skill point`                                                                      |
-| 18    | `+1 skill point` `+1 perk` `+1 class item evolution`                                  |
-| 19    | `+1 skill point`                                                                      |
-| 20    | `+1 skill point` `+1 perk` `+1 attribute point`                                       |
-| 21    | `+1 skill point`                                                                      |
-| 22    | `+1 skill point` `+1 perk`                                                            |
-| 23    | `+1 skill point`                                                                      |
-| 24    | `+1 skill point` `+1 perk` `+1 attribute point` `+1 class item evolution` `+1 renown` |
