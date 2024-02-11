@@ -500,10 +500,10 @@ In _Vale of Myths_, valerian pieces (abbreviated as "pcs") are the main denomina
 | **Dagger**     | Common    | 5 pcs   | 1/2 slot | +1 Power to attack, 1d6 damage, 5ft range      |
 | **Shortsword** | Average   | 20 pcs  | 1 slot   | +1 Power to attack, 2d6 damage, 5ft range      |
 | **Longsword**  | Rare      | 100 pcs | 2 slots  | +2 Power to attack, 3d6 damage, 5ft range      |
-| **Greatsword** | Very Rare | 200 pcs | 4 slots  | +3 Power to attack, 4d6 damage, 5ft range      |
+| **Greatsword** | Very Rare | 200 pcs | 2 slots  | +3 Power to attack, 4d6 damage, 5ft range      |
 | **Shortbow**   | Average   | 20 pcs  | 2 slots  | +1 Precision to attack, 1d6 damage, 40ft range |
 | **Crossbow**   | Rare      | 100 pcs | 2 slots  | +2 Precision to attack, 2d6 damage, 40ft range |
-| **Longbow**    | Very Rare | 200 pcs | 4 slots  | +3 Precision to attack, 3d6 damage, 80ft range |
+| **Longbow**    | Very Rare | 200 pcs | 2 slots  | +3 Precision to attack, 3d6 damage, 80ft range |
 
 ## Armor
 
