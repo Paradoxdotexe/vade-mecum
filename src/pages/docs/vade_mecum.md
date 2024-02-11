@@ -158,53 +158,53 @@ Based on skill proficiencies, characters can adopt perks that serve as an expans
 Each perk falls under a specific skill and will require a minimum level in that skill to acquire.
 As such, perks give characters a way to accentuate their strengths in ways that compliment their play style.
 
-| Attribute    | Perk             | Requirement     | Description                                                                                              |
-| ------------ | ---------------- | --------------- | -------------------------------------------------------------------------------------------------------- |
-| Strength     |                  | Power 1         |                                                                                                          |
-| Strength     |                  | Power 2         |                                                                                                          |
-| Strength     |                  | Power 3         |                                                                                                          |
-| Strength     |                  | Fortitude 1     |                                                                                                          |
-| Strength     |                  | Fortitude 2     |                                                                                                          |
-| Strength     | **Midnight Oil** | Fortitude 3     | _Your ability to stay awake is unmatched._ You can complete a second Rest Activity with -1 disadvantage. |
-| Strength     |                  | Athletics 1     |                                                                                                          |
-| Strength     |                  | Athletics 2     |                                                                                                          |
-| Strength     | **Big Brother**  | Athletics 3     | If an ally within 10ft is hit with an attack, you can leap in to switch places, taking all damage.       |
-| Dexterity    |                  | Precision 1     |                                                                                                          |
-| Dexterity    |                  | Precision 2     |                                                                                                          |
-| Dexterity    |                  | Precision 3     |                                                                                                          |
-| Dexterity    | **Assassin**     | Stealth 1       | When an enemy is surprised, you can make a weapon attack using Stealth instead.                          |
-| Dexterity    |                  | Stealth 2       |                                                                                                          |
-| Dexterity    |                  | Stealth 3       |                                                                                                          |
-| Dexterity    |                  | Agility 1       |                                                                                                          |
-| Dexterity    |                  | Agility 2       |                                                                                                          |
-| Dexterity    |                  | Agility 3       |                                                                                                          |
-| Intelligence |                  | Comprehend 1    |                                                                                                          |
-| Intelligence |                  | Comprehend 2    |                                                                                                          |
-| Intelligence |                  | Comprehend 3    |                                                                                                          |
-| Intelligence |                  | Innovation 1    |                                                                                                          |
-| Intelligence |                  | Innovation 2    |                                                                                                          |
-| Intelligence |                  | Innovation 3    |                                                                                                          |
-| Intelligence |                  | Medicine 1      |                                                                                                          |
-| Intelligence |                  | Medicine 2      |                                                                                                          |
-| Intelligence | **Witch Doctor** | Medicine 3      | Even when incapacitated with a deadly injury, you can roll to heal yourself.                             |
-| Charisma     |                  | Intuition 1     |                                                                                                          |
-| Charisma     |                  | Intuition 2     |                                                                                                          |
-| Charisma     | **Empath**       | Intuition 3     |                                                                                                          |
-| Charisma     |                  | Speech 1        |                                                                                                          |
-| Charisma     |                  | Speech 2        |                                                                                                          |
-| Charisma     |                  | Speech 3        |                                                                                                          |
-| Charisma     | **Deep Pockets** | Barter 1        | Tiny items don’t contribute towards your carrying capacity.                                              |
-| Charisma     |                  | Barter 2        |                                                                                                          |
-| Charisma     |                  | Barter 3        |                                                                                                          |
-| Perception   |                  | Insight 1       |                                                                                                          |
-| Perception   |                  | Insight 2       |                                                                                                          |
-| Perception   |                  | Insight 3       |                                                                                                          |
-| Perception   |                  | Detection 1     |                                                                                                          |
-| Perception   | **Sixth Sense**  | Detection 2     | You can't be surprised during combat.                                                                    |
-| Perception   |                  | Detection 3     |                                                                                                          |
-| Perception   |                  | Investigation 1 |                                                                                                          |
-| Perception   |                  | Investigation 2 |                                                                                                          |
-| Perception   |                  | Investigation 3 |                                                                                                          |
+| Attribute    | Perk                 | Requirement     | Description                                                                                                               |
+| ------------ | -------------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| Strength     | **Bloody Knuckles**  | Power 1         | You get +1 advantage on Power checks to melee attack without a weapon.                                                    |
+| Strength     | **Dead Lift**        | Power 2         | You get +2 advantage on Power checks to lift or move a heavy object.                                                      |
+| Strength     | **Battering Ram**    | Power 3         | You get +3 advantage on Power checks to force your way through an obstacle.                                               |
+| Strength     | **Human Shield**     | Fortitude 1     | You act as light cover in combat for all characters within 10ft behind you.                                               |
+| Strength     | **Pack Mule**        | Fortitude 2     | Your carrying capacity is increased by a number of slots equal to your `(Strength + Fortitude)`.                          |
+| Strength     | **Night Owl**        | Fortitude 3     | During your Rest, you can complete a second Rest Activity with -1 disadvantage.                                           |
+| Strength     | **Trainer**          | Athletics 1     | You give allies +1 advantage on Athletics checks.                                                                         |
+| Strength     | **Free Solo**        | Athletics 2     | You get +2 advantage on Athletics checks to climb without equipment.                                                      |
+| Strength     | **Big Brother**      | Athletics 3     | If an ally within 10ft is hit with an attack, you can leap in to switch places, taking all damage.                        |
+| Dexterity    | **Locksmith**        | Precision 1     | You get +1 advantage when picking locks.                                                                                  |
+| Dexterity    | **Bipod**            | Precision 2     | You get +2 advantage when attacking with a ranged weapon from behind cover.                                               |
+| Dexterity    | **Sniper**           | Precision 3     | You get +3 advantage when attacking with a ranged weapon from an elevated position.                                       |
+| Dexterity    | **Lone Wolf**        | Stealth 1       | You get +1 advantage when making Stealth checks on your own.                                                              |
+| Dexterity    | **Assassin**         | Stealth 2       | When an enemy is surprised, you can make a weapon attack using Stealth instead with +2 advantage.                         |
+| Dexterity    | **Black Mass**       | Stealth 3       | You get +3 advantage when making Stealth checks in natural darkness.                                                      |
+| Dexterity    | **Escapist**         | Agility 1       | You get +1 advantage on Agility checks to escape someone or a situation.                                                  |
+| Dexterity    | **Fleet Foot**       | Agility 2       | You are not impeded by Rough Terrain.                                                                                     |
+| Dexterity    | **Evasion**          | Agility 3       | Opportunity attacks on you have -3 disadvantage.                                                                          |
+| Intelligence | **Book Worm**        | Comprehension 1 | You get +1 advantage on Comprehension checks to comprehend written information.                                           |
+| Intelligence | **Linguist**         | Comprehension 2 | You get +2 advantage on Comprehension to comprehend a foreign language.                                                   |
+| Intelligence | **Strategist**       | Comprehension 3 | When you plan a surprise attack, you give +3 advantage to the Stealth roll to surprise the enemy.                         |
+| Intelligence | **Junk Collector**   | Innovation 1    | You get +1 advantage on Innovation checks to craft an item using junk.                                                    |
+| Intelligence | **Repairman**        | Innovation 2    | On a successful Innovation check to repair an item, you can also repair a second item.                                    |
+| Intelligence | **Inventor**         | Innovation 3    | You get +3 advantage on Innovation checks to build something unique.                                                      |
+| Intelligence | **Spiritual Healer** | Medicine 1      | You can stabilize allies from up to 15 ft away.                                                                           |
+| Intelligence | **Field Medic**      | Medicine 2      | On a stalemate Medicine check to stabilize an ally, you decrease the injury level by one.                                 |
+| Intelligence | **Witch Doctor**     | Medicine 3      | Even when incapacitated with a deadly injury, you can roll to stabilize yourself.                                         |
+| Charisma     | **Polygraph**        | Intuition 1     | You get +1 advantage on Intuition checks to determine if an NPC is lying.                                                 |
+| Charisma     | **Empath**           | Intuition 2     | You get +2 advantage on Intuition checks to determine an NPC's true emotional state.                                      |
+| Charisma     | **Counselor**        | Intuition 3     | After a successful Intuition check against an NPC, you get +3 advantage on your next Speech check using that information. |
+| Charisma     | **Tourist**          | Speech 1        | You find meals and lodging for you and your party for one rarity level cheaper.                                           |
+| Charisma     | **Relatable**        | Speech 2        | You get +2 advantage on Speech checks against NPC's from the same race or class.                                          |
+| Charisma     | **Identity Theft**   | Speech 3        | You get +3 advantage when making Speech checks while impersonating someone else.                                          |
+| Charisma     | **Deep Pockets**     | Barter 1        | Tiny items don’t contribute towards your carrying capacity.                                                               |
+| Charisma     | **Peddler**          | Barter 2        | You always know where the closest merchant or marketplace is.                                                             |
+| Charisma     | **Negotiator**       | Barter 3        | A successful barter check haggles the prices an additional 10% in your favor.                                             |
+| Perception   | **Architect**        | Insight 1       | You get +1 advantage on Insight checks against manmade structures.                                                        |
+| Perception   | **Ecologist**        | Insight 2       | You get +2 advantage on Insight checks against natural phenomena, such as animals, plants, weather, and terrain.          |
+| Perception   | **Inspector**        | Insight 3       | After a successful Insight check, you get +3 advantage on your next Investigation/Detection check using that information. |
+| Perception   | **Combat Ready**     | Detection 1     | You add 6 to your initiative roll.                                                                                        |
+| Perception   | **Sixth Sense**      | Detection 2     | You can't be surprised during combat.                                                                                     |
+| Perception   | **One Eye Open**     | Detection 3     | You can keep watch for enemies during a Rest without expending a Rest Activity.                                           |
+| Perception   | **Loot Goblin**      | Investigation 1 | You get +1 advantage on Investigation checks to loot after combat.                                                        |
+| Perception   | **Emergency Exit**   | Investigation 2 | You get +2 advantage on Investigation checks to find an exit or escape route.                                             |
+| Perception   | **Detective**        | Investigation 3 | You get +3 advantage when searching for clues in pursuit of your personal or party's goal.                                |
 
 ## 2.4 Classes
 
@@ -322,20 +322,22 @@ As a character engages in combat, they will take damage, lose HP, and face conse
 
 Each character has a movement speed that regulates how far they can move during combat.
 Movement speed is measured in terms of grid tiles which are roughly 5ft squares.
-A character's movement speed is equal to `(Dexterity + Movement) x 2`.
+A character's movement speed is equal to `(Dexterity + Agility) x 2`.
 
 > **Example:** A character with Dexterity 3 and Movement 1 will have a movement speed of 8 tiles, or 40 feet.
 
 Out of combat, all characters have the same movement speed of 10 miles per hour when traversing long distances.
 This speed can be increased by vehicles provided if available in the chosen World Kit.
 
+> Movement in combat through Rough Terrain, such as rocks, mud, or debris, consumes twice the amount of movement speed.
+
 ## 2.8 Carrying Capacity
 
 Each character has a carrying capacity that determines how much gear and resources they can carry before becoming over-encumbered.
 Carrying capacity is measured in terms of slots, an arbitrary unit of weight and size.
-A character's carrying capacity is equal to `(Strength + Fortitude) x 2`.
+A character's carrying capacity is equal to `(Strength + Fortitude) x 3`.
 
-> **Example:** A character with Strength 4 and Fortitude 1 will have a carrying capacity of 10 slots.
+> **Example:** A character with Strength 4 and Fortitude 1 will have a carrying capacity of 15 slots.
 
 For simplicity, all items are divided into 7 size categories that correspond to a specific number of slots.
 
@@ -645,11 +647,11 @@ A wounded character has their movement speed reduced by half until their next Re
 ## 3.6 Rest
 
 After a day of adventuring, the party is required to rest for 8 hours to refresh their minds and bodies.
-During these 8 hours, characters will engage in a mix of sleeping and a single light activity.
-Any light activity permitted by the Game Master will be evaluated by a skill check.
-The most common light activities are given below.
+During these 8 hours, characters will engage in a mix of sleeping and a single Rest Activity.
+Any Rest Activity permitted by the Game Master will be evaluated by a skill check.
+The most common Rest Activities are given below.
 
-| Light Activity         | Skill      | Success                                                  |
+| Rest Activity          | Skill      | Success                                                  |
 | ---------------------- | ---------- | -------------------------------------------------------- |
 | Keep watch for enemies | Detection  | Forces the enemy's surprise attack to automatically fail |
 | Heal a character       | Medicine   | Heals the character for a number of HP equal to the roll |
