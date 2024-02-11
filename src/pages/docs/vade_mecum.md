@@ -1,7 +1,24 @@
 # Vade Mecum
 
+_Vade Mecum_ is a TTRPG system that attempts to create a universal rule set for any type of tabletop adventure.
+This core rule book was made to be universe-agnostic, allowing it to plug right into any pre-made or homebrew universe you would like to use.
+At its core, _Vade Mecum_ is a definition of general RPG mechanics, rather than a pre-baked system that must be twisted and bent to work for your adventure.
+
+Although, we also know that the most important part of any RPG is its world.
+It's what gives the characters life and the adventures meaning.
+This is why _Vade Mecum_ provides a number of official World Kits that give you all the resources you need to start adventuring with our system.
+And once you're ready, we encourage you to tweak our World Kits or build your own to make a truly unique _Vade Mecum_ experience.
+
+Foundationally, _Vade Mecum_ is a system of mechanics that defines how characters adventure in the world.
+The core characters are those controlled by the players, each of which are motivated to achieve their own personal goals.
+These characters form an Adventuring Party that share a higher, mutual goal, driving them on a challenging adventure through the world.
+The world is defined and controlled by a Game Master that acts as both the game's arbiter and storyteller, motivated to make the adventure as fun and engaging as possible.
+
+## Contents
+
 - [1. World](#1.-World)
-  - [1.1 Currency](#1.1-Currency)
+  - [1.1 World Kits](#1.1-World-Kits)
+  - [1.2 Currency](#1.2-Currency)
 - [2. Characters](#2.-Characters)
   - [2.1 Attributes](#2.1-Attributes)
   - [2.2 Skills](#2.2-Skills)
@@ -22,44 +39,33 @@
 
 # 1. World
 
-The most important part of every RPG is its world. It's what gives the characters life and the adventures meaning.
-By design, _Vade Mecum_ is world-agnostic, meaning it is built to work in any universe with any theme in any time period.
-But this doesn't mean we leave you out to dry.
+The world is the universe the characters exist to adventure in, forming the most critical part of the role-playing aspect of your game.
+Based on the world, there will be different races and adventuring classes, different weapons, armor, and items used by the characters, and different adventures and enemies that can be faced.
 
-_Vade Mecum_ provides a number of pre-built "World Kits" that provide the resources you need to start adventuring.
-This includes classes, races, items, people, places, adventures, and more.
+## 1.1 World Kits
+
+World Kits are pre-configured worlds that have been built to plug right into the core _Vade Mecum_ rule set.
+These kits provide all the resources a Game Master will need to start an adventure, including races, classes, items, and creatures.
 We will highlight some of these kits below, but their complete documentation can be found in the kit itself.
 
-## _Vale of Myths_ (High Fantasy)
+### _Vale of Myths_ (High Fantasy)
 
-This high fantasy kit is set in a kingdom-controlled dominion where characters will face the dangers of evil kings, dark magic users, and monsters only found in myth and legend.
+This high fantasy kit is set in a kingdom-controlled dominion where characters will face the dangers of evil kings, dark magic users, and mythical monsters.
 
-| Focus        | Class         | Description                                                           |
-| ------------ | ------------- | --------------------------------------------------------------------- |
-| Strength     | **Knight**    | A stalwart force on the battlefield that fights for honor and glory.  |
-| Strength     | **Barbarian** | A fierce and frightening warrior driven by pure rage.                 |
-| Dexterity    | **Ranger**    | A master of range weapons and the natural environment.                |
-| Dexterity    | **Monk**      | A disciple of peace who deflects rather than attacks.                 |
-| Intelligence | **Mage**      | A student of magic who bends the forces of nature to their will.      |
-| Intelligence | **Forge**     | A tinkerer that combines metal and magic to make powerful gear.       |
-| Charisma     | **Herald**    | A messenger that seeks diplomatic solutions over deadly battles.      |
-| Charisma     | **Bard**      | A performer whose music and storytelling goes beyond just art.        |
-| Perception   | **Sage**      | A practitioner of the natural arts to heal and protect their friends. |
-| Perception   | **Druid**     | A protector of nature who harnesses the earth and its creatures.      |
+| Focus        | Class         | Description                                                                   |
+| ------------ | ------------- | ----------------------------------------------------------------------------- |
+| Strength     | **Knight**    | A stalwart force on the battlefield that fights for honor and glory.          |
+| Strength     | **Barbarian** | A fierce and frightening warrior driven by pure rage.                         |
+| Dexterity    | **Ranger**    | A master of range weapons and the natural environment.                        |
+| Dexterity    | **Monk**      | A disciple of peace who deflects rather than attacks.                         |
+| Intelligence | **Mage**      | A student of magic who bends the forces of nature to their will.              |
+| Intelligence | **Forge**     | A tinkerer that combines metal and magic to make powerful gear.               |
+| Charisma     | **Herald**    | A messenger that influences people towards diplomacy and away from battle.    |
+| Charisma     | **Enchanter** | A master of manipulation that can bend others unknowingly to their will.      |
+| Perception   | **Sage**      | A practitioner of the natural arts that can call upon nature through rituals. |
+| Perception   | **Druid**     | A protector of nature who harnesses the earth and its creatures.              |
 
-## _Vega Matrix_ (Science Fiction)
-
-This science fiction kit is set in a distance galaxy where the politics between planets and the evil actors within will challenge the resolve of the party's spaceship crew.
-
-| Focus        | Class         | Description                                                                    |
-| ------------ | ------------- | ------------------------------------------------------------------------------ |
-| Strength     | **Marine**    | A trained killing machine prepared to die to protect their crew.               |
-| Dexterity    | **Explorer**  | A foolhardy adventurer that dares to venture where others do not.              |
-| Intelligence | **Android**   | A sentient robot that wanders beyond of its main directive.                    |
-| Charisma     | **Diplomat**  | A leader charged with negotiating the socio-political landscape of the galaxy. |
-| Perception   | **Navigator** | A pilot capable of charting the stars and navigating between systems.          |
-
-## 1.1 Currency
+## 1.2 Currency
 
 No matter what World is being used, there exists an economic system that uses a single denomination of currency to buy and sell items.
 This currency will vary based on the World, using pieces such as coins, dollars, credits, or bottlecaps as stores of value.

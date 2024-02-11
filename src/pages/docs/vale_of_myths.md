@@ -16,18 +16,18 @@ This high fantasy kit is set in a kingdom-controlled dominion where characters w
 
 # 1. Classes
 
-| Focus        | Class         | Description                                                                |
-| ------------ | ------------- | -------------------------------------------------------------------------- |
-| Strength     | **Knight**    | A stalwart force on the battlefield that fights for honor and glory.       |
-| Strength     | **Barbarian** | A fierce and frightening warrior driven by pure rage.                      |
-| Dexterity    | **Ranger**    | A master of range weapons and the natural environment.                     |
-| Dexterity    | **Monk**      | A disciple of peace who deflects rather than attacks.                      |
-| Intelligence | **Mage**      | A student of magic who bends the forces of nature to their will.           |
-| Intelligence | **Forge**     | A tinkerer that combines metal and magic to make powerful gear.            |
-| Charisma     | **Herald**    | A messenger that influences people towards diplomacy and away from battle. |
-| Charisma     | **Enchanter** | A master of manipulation that can bend others unknowingly to their will.   |
-| Perception   | **Sage**      | A practitioner of the natural arts to heal and protect their friends.      |
-| Perception   | **Druid**     | A protector of nature who harnesses the earth and its creatures.           |
+| Focus        | Class         | Description                                                                   |
+| ------------ | ------------- | ----------------------------------------------------------------------------- |
+| Strength     | **Knight**    | A stalwart force on the battlefield that fights for honor and glory.          |
+| Strength     | **Barbarian** | A fierce and frightening warrior driven by pure rage.                         |
+| Dexterity    | **Ranger**    | A master of range weapons and the natural environment.                        |
+| Dexterity    | **Monk**      | A disciple of peace who deflects rather than attacks.                         |
+| Intelligence | **Mage**      | A student of magic who bends the forces of nature to their will.              |
+| Intelligence | **Forge**     | A tinkerer that combines metal and magic to make powerful gear.               |
+| Charisma     | **Herald**    | A messenger that influences people towards diplomacy and away from battle.    |
+| Charisma     | **Enchanter** | A master of manipulation that can bend others unknowingly to their will.      |
+| Perception   | **Sage**      | A practitioner of the natural arts that can call upon nature through rituals. |
+| Perception   | **Druid**     | A protector of nature who harnesses the earth and its creatures.              |
 
 ## Knight
 
