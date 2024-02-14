@@ -70,6 +70,12 @@ const StyledComponent = styled.div`
     padding: 1px 5px;
   }
 
+  img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 0 0 2px #fcfcfc;
+  }
+
   a {
     color: #03a9f7;
   }

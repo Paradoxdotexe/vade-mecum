@@ -14,6 +14,8 @@ This high fantasy kit is set in a kingdom-controlled dominion where characters w
   - [Sage](#Sage)
   - [Druid](#Druid)
 
+![Map of the Vale](/images/vale_of_myths_map.jpg)
+
 # 1. Classes
 
 | Focus        | Class         | Description                                                                   |
