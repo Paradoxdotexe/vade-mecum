@@ -3,6 +3,28 @@ import { Markdown, MarkdownProps } from '../../components/Markdown';
 import styled from 'styled-components';
 
 const StyledComponent = styled.div`
+  padding: 64px;
+  width: 964px;
+
+  @media print {
+    padding: 0;
+    width: 742px;
+
+    h1 {
+      page-break-before: always;
+    }
+
+    h2,
+    h4 {
+      page-break-after: avoid;
+    }
+
+    tr,
+    blockquote {
+      page-break-inside: avoid;
+    }
+  }
+
   h1,
   h2,
   h3 {
@@ -72,8 +94,8 @@ const StyledComponent = styled.div`
 
   img {
     width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 0 0 2px #fcfcfc;
+    border-radius: 4px;
+    box-shadow: 0 0 0 2px #5f5f5f;
   }
 
   a {

@@ -2,7 +2,21 @@
 
 This high fantasy kit is set in a kingdom-controlled dominion where characters will face the dangers of evil kings, dark magic users, and monsters only found in myth and legend.
 
-- [1. Classes](#1.-Classes)
+- [1. Lore](#1.-Lore)
+  - [1.1 Races](#1.1-Races)
+    - [Humans](#Humans)
+    - [Elves](#Elves)
+    - [Dwarves](#Dwarves)
+    - [Halflings](#Halflings)
+    - [Fay](#Fay)
+  - [1.2 Countries](#1.2-Countries)
+    - [Valeria](<#Valeria-(Humans)>)
+    - [Valantis](<#Valantis-(Humans)>)
+    - [Odenheim](<#Odenheim-(Dwarves)>)
+    - [Calestriel](<#Calestriel-(Elves)>)
+    - [Sylvantis](<#Sylvantis-(Fay)>)
+    - [Yoren](<#Yoren-(Halfings)>)
+- [2. Classes](#2.-Classes)
   - [Knight](#Knight)
   - [Barbarian](#Barbarian)
   - [Ranger](#Ranger)
@@ -13,10 +27,117 @@ This high fantasy kit is set in a kingdom-controlled dominion where characters w
   - [Enchanter](#Enchanter)
   - [Sage](#Sage)
   - [Druid](#Druid)
+- [3. Items](#3.-Items)
+  - [Weapons](#Weapons)
+  - [Armor](#Armor)
+  - [Tools](#Tools)
+  - [Services](#Services)
 
-![Map of the Vale](/images/vale_of_myths_map.jpg)
+# 1. Lore
 
-# 1. Classes
+This kits takes place in _the Vale_, a temperate continent with a diverse range of people and places.
+
+## 1.1 Races
+
+The Vale is home to five intelligent races: humans, halflings, dwarves, elves, and fay.
+
+## Humans
+
+Humans thrive on adaptability and ambition, forming the backbone of society through their resourcefulness and drive. Their strength lies in their versatility and innovation, allowing them to excel in various disciplines, from magic to technology. However, their ambition often leads to internal conflicts and a susceptibility to self-destructive behavior, which can undermine their achievements and unity.
+
+> Human characters get 2 skill points to distribute into Intelligence.
+
+## Halflings
+
+Halflings are a small, nimble race known for their love for comfort and peace, often living in tight-knit communities in the countryside or within the hidden nooks of larger cities. Their strength lies in their incredible agility and surprising luck, allowing them to navigate through challenges and dangers with ease and grace. However, their size and non-confrontational nature make them vulnerable in physical and social situations.
+
+> Halfling characters get 2 skill points to distribute into Dexterity.
+
+## Dwarves
+
+Dwarves are renowned for their craftsmanship and sturdiness, dwelling in mountainous fortresses and underground cities built in the deepest parts of the world. Their strength is in their resilience, both physically and in their unwavering determination and loyalty. However, their insular and reluctant nature can lead to a lack of perspective and a vulnerability to being outmaneuvered.
+
+> Dwarven characters get 2 skill points to distribute into Strength.
+
+## Elves
+
+Elves are deeply connected to nature and the arcane, living in harmonious and often secluded communities that value tradition and the natural world. Their longevity grants them humble wisdom and the ability to perceive the world in ways that most other creatures cannot. Their weakness lies in their aloofness and a certain rigidity to change, which can isolate them from the outside world and make adaptation challenging.
+
+> Elven characters get 2 skill points to distribute into Perception.
+
+## Fay
+
+The Fay race, with their otherworldly charm and enigmatic personalities, influence the world through diplomacy and government. Their strength lies in their grounded nature and their ability to sway the hearts of those around them with their irresistible charisma. However, their manipulative behavior and capricious nature often leads them to be untrusted and shunned by those around them.
+
+> Fayan characters get 2 skill points to distribute into Charisma.
+
+## 1.2 Countries
+
+Overtime, the Vale organized itself into six countries, divided by mountains, rivers, and seas.
+
+### Valeria (Humans)
+
+At the root of the Vale is Valeria, the original home of humans and the largest country in the world.
+Valeria spans roughly 160,000 square miles with an estimated 1.3 million humans living within its borders.
+
+Valeria's capitol is the city of High Vale, located at the tip of its southern peninsula.
+Here is where the Council of Valeria convenes to oversee world affairs, as established after the War of Wild Wood.
+
+![Valeria](/images/vale_of_myths/valeria.png)
+
+### Valantis (Humans)
+
+Hugging the Northern Shores of the Vale is the country of Valantis.
+Valantis spans the 45,000 square miles of land between the Nordonian Peaks and the Wild Wind Peaks and is home to an estimated 350 thousand humans.
+
+Valantis' capitol is the city of Vork, located on its northwestern coast.
+Once part of Valeria proper, Valantis represents the humans that divided itself from Valeria and fought on the side of Sylvantis during the War of Wild Wood.
+
+![Valantis](/images/vale_of_myths/valantis.png)
+
+### Odenheim (Dwarves)
+
+Surrounded on three sides by towering mountain ranges is the country of Odenheim, the original home and fortified stronghold of the dwarves.
+Odenheim spans roughly 30,000 square miles above ground with another 10,000 square miles of tunnels below, together housing an estimated 250 thousand dwarves.
+
+Odenheim's capitol is the city of Ordenthall, located in the lower hills of Mount Ode and built directly into the rock around it.
+After the Retchan Purge and the War of Wild Wood, Odenheim divided itself from the rest of the Vale with Dor Minthor and Dor Manthor, two gates that seal the country from outside influence.
+
+![Odenheim](/images/vale_of_myths/odenheim.png)
+
+### Calestriel (Elves)
+
+The large island on the southwest side of the Vale is the country of Calestriel, the secluded home of the elves.
+Calestriel spans roughly 70,000 square miles with an estimated 600 thousand elves calling it home.
+
+Calestriel's capitol is the city of Camalon, located in the heart of the island at the tip of the Camalon River.
+After fighting alongside Valeria in the War of Wild Wood, Calestriel plays a major role in world affairs as part of the Council of Valeria.
+
+![Calestriel](/images/vale_of_myths/calestriel.png)
+
+### Sylvantis (Fay)
+
+Spanning the west side of the Vale is the country of Sylvantis, the wooded home of the fay and the second largest country in the world.
+Sylvantis spans roughly 120,000 square miles with an estimated 1 million fay living within its borders.
+
+Sylvantis' capitol is the city of Syriel, located deep within the country's homeland.
+After being overthrown by the will of the dark fay and raging the War of Wild Wood against Valeria, Sylvantis and the fay within have become an untrusted player on the world stage.
+
+![Sylvantis](/images/vale_of_myths/sylvantis.png)
+
+### Yoren (Halfings)
+
+The small island chain on the southeast corner of the Vale is the country of Yoren, the peaceful home of the halflings.
+Yoren spans roughly 25,000 square miles and is home to an estimated 150 thousand halflings.
+
+Yoren's capitol is the city of Yenich, located on the western shore of the main island.
+Even as the Vale was being ravaged by evil forces, Yoren has managed to stay out of world affairs and live in peaceful ignorance.
+
+![Yoren](/images/vale_of_myths/yoren.png)
+
+# 2. Classes
+
+Adventurers in the _Vale of Myths_ have ten classes to choose from.
 
 | Focus        | Class         | Description                                                                   |
 | ------------ | ------------- | ----------------------------------------------------------------------------- |
@@ -456,40 +577,6 @@ Druids can unlock new Untamed Beasts to call upon through their perks.
 | Perception | **Vengeful Eagle** | Nature 2    | Spend 2 BP to summon an eagle to attack a target, dealing 4D6 damage.                              |
 | Perception | **Rushing Bear**   | Nature 3    | Spend 3 BP to summon a bear to attack a target, dealing 6D6 damage.                                |
 | Perception | **Pack of Wolves** | Nature 3    | Spend 3 BP to summon a pack of wolves to attack up to three targets. Each target takes 2D6 damage. |
-
-# 2. Races
-
-The Vale is home to five intelligent races: humans, elves, dwarves, halflings, and fey.
-
-## Human
-
-Humans thrive on adaptability and ambition, forming the backbone of society through their resourcefulness and drive. Their strength lies in their versatility and innovation, allowing them to excel in various disciplines, from magic to technology. However, their ambition often leads to internal conflicts and a susceptibility to self-destructive behavior, which can undermine their achievements and unity.
-
-Humans get 2 skill points to distribute into Intelligence.
-
-## Elf
-
-Elves are deeply connected to nature and the arcane, living in harmonious and often secluded communities that value tradition and the natural world. Their longevity grants them humble wisdom and the ability to perceive the world in ways that most other creatures cannot. Their weakness lies in their aloofness and a certain rigidity to change, which can isolate them from the outside world and make adaptation challenging.
-
-Elves get 2 skill points to distribute into Perception.
-
-## Dwarf
-
-Dwarves are renowned for their craftsmanship and sturdiness, dwelling in mountainous fortresses and underground cities built in the deepest parts of the world. Their strength is in their resilience, both physically and in their unwavering determination and loyalty. However, their insular and reluctant nature can lead to a lack of perspective and a vulnerability to being outmaneuvered.
-
-Dwarves get 2 skill points to distribute into Strength.
-
-## Halfling
-
-Halflings are a small, nimble race known for their love for comfort and peace, often living in tight-knit communities in the countryside or within the hidden nooks of larger cities. Their strength lies in their incredible agility and surprising luck, allowing them to navigate through challenges and dangers with ease and grace. However, their size and non-confrontational nature make them vulnerable in physical and social situations.
-
-Halflings get 2 skill points to distribute into Dexterity.
-
-## Fey
-
-The Fey race, with their otherworldly charm and enigmatic personalities, influence the world through diplomacy and government. Their strength lies in their grounded nature and their ability to sway the hearts of those around them with their irresistible charisma. However, their manipulative behavior and capricious nature often leads to unpredictable interactions, making alliances with them as fleeting as their moods.
-
-Fey get 2 skill points to distribute into Charisma.
 
 # 3. Items
 
