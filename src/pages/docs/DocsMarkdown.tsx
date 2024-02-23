@@ -66,7 +66,7 @@ const StyledComponent = styled.div`
   ol {
     line-height: 150%;
     padding-inline-start: 32px;
-    margin-block: 6px 24px;
+    margin-block: 6px;
 
     // checkbox list
     &:has(input[type='checkbox']) {
@@ -83,6 +83,14 @@ const StyledComponent = styled.div`
         margin: 0 3px -1px 0;
       }
     }
+
+    li {
+      margin-block: 2px;
+    }
+  }
+
+  li > ul {
+    margin: 0;
   }
 
   code {

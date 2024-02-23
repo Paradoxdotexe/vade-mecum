@@ -45,31 +45,21 @@ The Vale is home to five intelligent races: humans, halflings, dwarves, elves, a
 
 Humans thrive on adaptability and ambition, forming the backbone of society through their resourcefulness and drive. Their strength lies in their versatility and innovation, allowing them to excel in various disciplines, from magic to technology. However, their ambition often leads to internal conflicts and a susceptibility to self-destructive behavior, which can undermine their achievements and unity.
 
-> Human characters get 2 skill points to distribute into Intelligence.
-
 ## Halflings
 
 Halflings are a small, nimble race known for their love for comfort and peace, often living in tight-knit communities in the countryside or within the hidden nooks of larger cities. Their strength lies in their incredible agility and surprising luck, allowing them to navigate through challenges and dangers with ease and grace. However, their size and non-confrontational nature make them vulnerable in physical and social situations.
-
-> Halfling characters get 2 skill points to distribute into Dexterity.
 
 ## Dwarves
 
 Dwarves are renowned for their craftsmanship and sturdiness, dwelling in mountainous fortresses and underground cities built in the deepest parts of the world. Their strength is in their resilience, both physically and in their unwavering determination and loyalty. However, their insular and reluctant nature can lead to a lack of perspective and a vulnerability to being outmaneuvered.
 
-> Dwarven characters get 2 skill points to distribute into Strength.
-
 ## Elves
 
 Elves are deeply connected to nature and the arcane, living in harmonious and often secluded communities that value tradition and the natural world. Their longevity grants them humble wisdom and the ability to perceive the world in ways that most other creatures cannot. Their weakness lies in their aloofness and a certain rigidity to change, which can isolate them from the outside world and make adaptation challenging.
 
-> Elven characters get 2 skill points to distribute into Perception.
-
 ## Fay
 
 The Fay race, with their otherworldly charm and enigmatic personalities, influence the world through diplomacy and government. Their strength lies in their grounded nature and their ability to sway the hearts of those around them with their irresistible charisma. However, their manipulative behavior and capricious nature often leads them to be untrusted and shunned by those around them.
-
-> Fayan characters get 2 skill points to distribute into Charisma.
 
 ## 1.2 Countries
 

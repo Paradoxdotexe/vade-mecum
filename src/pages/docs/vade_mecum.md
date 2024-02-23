@@ -29,6 +29,7 @@ The world is defined and controlled by a Game Master that acts as both the game'
   - [2.7 Movement Speed](#2.7-Movement-Speed)
   - [2.8 Carrying Capacity](#2.8-Carrying-Capacity)
   - [2.9 Renown](#2.9-Renown)
+  - [2.10 Building a Character](#2.10-Building-a-Character)
 - [3. Adventuring](#3.-Adventuring)
   - [3.1 Skill Checks](#3.1-Skill-Checks)
   - [3.2 Weapons and Tools](#3.2-Weapons-and-Tools)
@@ -281,7 +282,7 @@ The Game Master may also choose to award additional XP beyond the criteria for s
 - On every 6th level, the character will evolve their class item.
 - On every 8th level the character gains renown.
 
-At Level 24, a character will have become a legendary adventurer in the eyes of the world.
+At Level 24, a character will have become a Legendary adventurer in the eyes of the world (see [2.9 Renown](#2.9-Renown)).
 
 | Level | Reward(s)                                                                             |
 | ----- | ------------------------------------------------------------------------------------- |
@@ -369,6 +370,36 @@ Based on their renown, characters gain advantage when making Speech checks again
 | **Very Rare** | +2               | People know a full story about one of your adventures |
 | **Legendary** | +3               | People think of you when thinking of an adventurer    |
 
+## 2.10 Building a Character
+
+To build a character ready to start adventuring, define its background, abilities, and equipment using the steps provide below.
+For the best experience, focus on making a unique and interesting adventurer that you will have fun playing and that will compliment your expected Adventuring Party.
+
+> **Background**
+>
+> - Name your character
+> - Choose your character's race from the World Kit being used
+> - Describe your character's appearance
+> - Define your character's personal goal
+>   - This can evolve over the course of an adventure
+
+> **Abilities**
+>
+> - Choose your character's class from the World Kit being used
+>   - Describe your character's class item
+> - Allocate 15 points into your character's attributes in the amounts of 1, 2, 3, 4, and 5
+>   - The 5 must be placed into your class's Focus attribute
+>   - The 1 will be considered your character's Flaw attribute
+> - Allocate 1 point into 6 different skills
+>   - Points cannot be put into skills under your Flaw attribute
+> - Acquire one perk that you meet the requirements of
+
+> **Equipment**
+>
+> - Calculate your character's carrying capacity based on their Strength and Fortitude
+> - Add 40 Currency Units to your character's inventory
+>   - You can spend these Currency Units to purchase items from the World Kit being used
+
 # 3. Adventuring
 
 Once you've established your Adventuring Party of characters, there's only one thing left do: adventure!
@@ -436,14 +467,14 @@ During combat (when stakes are higher), failure will often give the enemy the up
 ### Group Skill Checks
 
 When a group of players is required to pass the same skill check, they will all make their own rolls.
-To determine the outcome, evaluate the results of each individual skill check and cancel out any failures with any successes.
+To determine the outcome, evaluate the results of each individual skill check, ignore any stalemates, and cancel out any failures with any successes.
 The final result can then be determined by taking the highest result.
 
 > **Example:** A Party of 4 characters attempt to collectively sneak into a building.
 > The Game Master calls for a group Stealth check.
 > Two characters roll a success, one character rolls a stalemate, and one character rolls a failure.
-> After canceling out the one failure with one success, there remains a success and a stalemate.
-> Taking the highest result, the group Stealth check is ruled a success.
+> After ignoring the stalemate and canceling out the one failure with one success, there remains one success.
+> The group Stealth check is ruled a success.
 
 ### Probability
 
