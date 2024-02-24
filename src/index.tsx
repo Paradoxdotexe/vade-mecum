@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import {
   createBrowserRouter,
   createRoutesFromElements,
+  redirect,
   Route,
   RouterProvider
 } from 'react-router-dom';
@@ -15,6 +16,7 @@ import { ValeOfMythsDocsPage } from './pages/docs/ValeOfMythsDocsPage';
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/">
+      <Route path="" loader={() => redirect('/docs')} />
       <Route path="docs" element={<VadeMecumDocsPage />} />
       <Route path="docs/vale-of-myths" element={<ValeOfMythsDocsPage />} />
     </Route>

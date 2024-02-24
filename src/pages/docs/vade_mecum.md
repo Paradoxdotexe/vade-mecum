@@ -49,7 +49,7 @@ World Kits are pre-configured worlds that have been built to plug right into the
 These kits provide all the resources a Game Master will need to start an adventure, including races, classes, items, and creatures.
 We will highlight some of these kits below, but their complete documentation can be found in the kit itself.
 
-### _Vale of Myths_ (High Fantasy)
+### _[Vale of Myths (High Fantasy)](/docs/vale-of-myths)_
 
 This high fantasy kit is set in a kingdom-controlled dominion where characters will face the dangers of evil kings, dark magic users, and mythical monsters.
 
