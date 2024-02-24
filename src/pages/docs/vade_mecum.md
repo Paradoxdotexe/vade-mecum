@@ -451,13 +451,13 @@ In the examples below, we look at a Speech check where the Game Master may decla
 ### Success, Stalemate, and Failure
 
 After a player rolls their dice, they can evaluate the outcome based on the highest die they rolled.
-In the examples below, we look at a player rolling an Athletics check to scale a cliff.
+In the examples below, we look at a player rolling a Power check to force open a locked door.
 
-| Max D6     | Result        | Outcome                                          | Example                                      |
-| ---------- | ------------- | ------------------------------------------------ | -------------------------------------------- |
-| 6          | **Success**   | The character completes the action successfully. | The character reaches the top of the cliff.  |
-| 5          | **Stalemate** | The character is ineffectual in their attempt.   | The character is stuck on the ground.        |
-| 1, 2, 3, 4 | **Failure**   | The character fails the action detrimentally.    | The character slips and falls off the cliff. |
+| Max D6     | Result        | Outcome                                          | Example                                              |
+| ---------- | ------------- | ------------------------------------------------ | ---------------------------------------------------- |
+| 6          | **Success**   | The character completes the action successfully. | The character forces the door open and gets inside.  |
+| 5          | **Stalemate** | The character is ineffectual in their attempt.   | The character must try again or find another way in. |
+| 1, 2, 3, 4 | **Failure**   | The character fails the action detrimentally.    | The character jams the door permanently closed.      |
 
 If a character is unsuccessful, they are allowed to attempt the skill check again with the disadvantage increased by 1 (as the character is frustrated and discouraged).
 In many cases, failure will mean the character botches the attempt and it can longer be attempted by them or other members of the Adventuring Party.
