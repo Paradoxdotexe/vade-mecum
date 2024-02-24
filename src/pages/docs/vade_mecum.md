@@ -114,7 +114,7 @@ Characters are chiefly defined by attributes, skills, and perks, all of which ar
 ## 2.1 Attributes
 
 Each character has 5 core attributes that define its physical and mental ability.
-These attributes are scored on a scale from 1 to 6, with the average human being a 2.
+These attributes are scored on a scale from 1 to 6, with the average person being a 2.
 When a character performs an action, these attribute scores are used to determine how well they do.
 
 | Attribute        | Description                                             |
@@ -268,11 +268,11 @@ The Game Master may also choose to award additional XP beyond the criteria for s
 ### XP Criteria
 
 - [ ] Did you participate in the session?
-- [ ] Did you roleplay to build on your character's personality/backstory?
+- [ ] Did you build on your character's personality/backstory?
 - [ ] Did you defeat an enemy that posed a threat to yourself, your ideals, or your personal goal?
 - [ ] Did you defeat an enemy that posed a threat to your party, its companions, or its group goal?
-- [ ] Did you make progress towards your personal goal?
-- [ ] Did you make progress towards your party's goal?
+- [ ] Did you make strategic progress towards your personal goal?
+- [ ] Did you make strategic progress towards your party's goal?
 
 ### Level Rewards
 
@@ -459,10 +459,15 @@ In the examples below, we look at a player rolling an Athletics check to scale a
 | 5          | **Stalemate** | The character is ineffectual in their attempt.   | The character is stuck on the ground.        |
 | 1, 2, 3, 4 | **Failure**   | The character fails the action detrimentally.    | The character slips and falls off the cliff. |
 
-Out of combat, failure will often mean the action can no longer be attempted by other members of the party.
-For example, failing to force open a door may jam it closed, failing to pick a lock may ruin its keyhole, or failing to search a bookcase may ruin the books.
+If a character is unsuccessful, they are allowed to attempt the skill check again with the disadvantage increased by 1 (as the character is frustrated and discouraged).
+In many cases, failure will mean the character botches the attempt and it can longer be attempted by them or other members of the Adventuring Party.
 
-During combat (when stakes are higher), failure will often give the enemy the upper hand or result in the weapon or tool being used taking a point of damage (see [3.2 Weapons and Tools](#3.2-Weapons-and-Tools)).
+> **Example:** A character rolls a Precision check to pick a lock and gets a stalemate.
+> The character decides to try again and rolls a Precision check with one less D6.
+> This time, they get a failure. The Game Master rules the keyhole of the lock has been ruined and is now unpickable.
+
+> Skill checks made to attack during combat are special.
+> Failure will result in the weapon or tool being used taking a point of damage (see [3.2 Weapons and Tools](#3.2-Weapons-and-Tools)).
 
 ### Group Skill Checks
 
