@@ -16,6 +16,7 @@ This high fantasy kit is set in a kingdom-controlled dominion where characters w
     - [Calestriel](<#Calestriel-(Elves)>)
     - [Sylvantis](<#Sylvantis-(Fay)>)
     - [Yoren](<#Yoren-(Halfings)>)
+  - [1.3 History](#1.3-History)
 - [2. Classes](#2.-Classes)
   - [Knight](#Knight)
   - [Barbarian](#Barbarian)
@@ -124,6 +125,128 @@ Yoren's capitol is the city of Yenich, located on the western shore of the main 
 Even as the Vale was being ravaged by evil forces, Yoren has managed to stay out of world affairs and live in peaceful ignorance.
 
 ![Yoren](/images/vale_of_myths/yoren.png)
+
+## 1.3 History
+
+Over the recorded history of the Vale, threats to civilized life have risen and fallen, bringing some people together and driving others apart.
+
+> In present day, history is recorded based on the pivotal creation of the Council of Valeria.
+>
+> - `BCV` = Before the Council of Valeria
+> - `ACV` = After the Council of Valeria
+
+### 1000 BCV
+
+Mutated creatures, called retches, are first spotted in the distant Outer Reaches.
+Unbeknownst to the rest of the Vale, a toxic gas called the Rot has began spewing from several mysterious craters deep in the northwest.
+Slowly, the Rot has begun deteriorating the minds and bodies of local creatures, turning them into feral beasts with gruesome appearances.
+
+### 900 BCV
+
+Retches have spread throughout the Outer Reaches and begun to organize themselves into dangerous hordes.
+
+### 800 BCV
+
+Hordes of retches flow south towards Valeria and east towards Odenheim.
+The humans manage to fend off the retches at Purgatory Chasm and the dwarves do the same at Oden's Pass.
+
+### 700 BCV
+
+The humans of Valeria and Dwarves of Odenheim work together to drive the retches back.
+In a campaign called the Retchan Purge, Valeria and Odenheim manage to push the retchan hordes back into the Outer Reaches.
+Afterwards, several Valerian outposts are built to keep the remaining retches at bay and watch for any future offensives.
+The dwarves construct Dor Minthor, a massive wall to blockade Oden's Pass from westward threats.
+
+### 200 BCV
+
+From deep within the Outer Wilds, the dark fay emerge as a small contingent of powerful enchanters and sages that seek to expand the Wild Wood, a magically unyielding forest of deep-rooted trees.
+
+### 100 BCV
+
+The dark fay seed their influence in Sylvantis, slowly spreading the dogma of Wild Wood to the fayan population.
+
+### 50 BCV
+
+The dark fay penetrate the government of Sylvantis, gaining powerful influence over the country's oligarchy.
+Sylvaxus begins to rise as the face of the Wild Wood movement, as well as the leader of the secretive dark fay.
+
+### 30 BCV
+
+By the will of the dark fay, the government of Sylvantis declare that humans living on the southwestern coasts are killing the Wild Wood.
+Humans are expelled from their settlements and those that refuse are imprisoned, building up tensions between Valeria and Sylvantis.
+
+### 25 BCV
+
+Fayan missionaries spread of the dogma of Wild Wood into northern Valeria, including rumors of the forest's ability to prolong life.
+The Will of the Wild Wood emerge as a human activist group in Sylton.
+
+### 20 BCV
+
+Seeds of the Wild Wood are planted in the area between Sylton and the Wild Wind Peaks by fayan missionaries and human activists.
+
+### 15 BCV
+
+Wild wood has taken root and spread at an incredible rate throughout northern Valeria, entrenching land in thick trees and brush.
+King Alazar of Valeria orders the wild wood to be destroyed, declaring it a hostile invader planted by Sylvantis.
+In a skirmish near Sylton, Valerian soldiers clash against fayan missionaries and human activists, sparking a standoff.
+
+### 14 BCV
+
+Sylvantis lands soldiers in Sylton, beginning a major offensive to defend the wild wood, kicking off the War of Wild Wood.
+Being caught off guard, Valerian soldiers suffer significant losses and are pushed back across the Azir River, out of northern Valeria.
+
+### 13 BCV
+
+Reinforcements from Sylvantis arrive on the eastern shores of Valeria, near Valemore.
+Valerian forces struggle to defend against both the army of Sylvantis and the rebels of northern Valeria.
+Wild wood continues to spread, entrenching the position of its defenders.
+
+### 12 BCV
+
+King Alazar of Valeria seeks help from the dwarves of Odenheim, but they refuse, instead constructing Dor Manthor to defend against the foreign invaders.
+
+King Alazar seeks council with the elves of Calestriel, claiming that if Valeria falls to the wild wood, the rest of the Vale will follow.
+Queen Carmen of Calestriel sends an envoy to Sylvantis to negotiate towards peace but discovers the evil power of the dark fay that has corrupted its government.
+Calestriel joins the Valerian war effort soon after.
+
+### 1 BCV
+
+After a decade of war throughout central and northern Valeria, the Battle of Lake Vead, the Slaughter at Dor Manthor, and the Standoff at Vaseri turned the tide against Sylvantis.
+The rebels of northern Valeria broker for peace, agreeing to stop their fighting and spread of wild wood in return for becoming the sovereign country of Valantis.
+Together with the elves, Sylvantin forces are pushed back to Gale's Gorge where they put up their last stand.
+There, Sylvaxus is killed by an elven mage and the dark fay contingent began to collapse.
+
+### 0 BCV
+
+With the help of human and elven enchanters, the government of Sylvantis is cleared of dark fay influence and a peace treaty is signed.
+In conclusion of the War of Wild Wood, the Council of Valeria is formed as safeguard to prevent rising threats within the Vale.
+
+### 400 ACV
+
+From deep in the Outer Waters, an evil, parasitic force called the Brine surfaces as a mutated form of sea algae.
+The Brine is capable of taking over any organic creature, reducing its innards to algae but retaining its outward appearance.
+After being consumed by a brineling slug, the creature's mind and memories is melded into the Brine's hive mind.
+
+### 500 ACV
+
+An adventurer named Isabel is the first intelligent creature to be consumed by a brineling slug while exploring what is now called Brineland.
+
+### 550 ACV
+
+The crew of a Valerian pirate ship is consumed by a swarm of brineling slugs and ports at Arlo on an island off the coast of Yoren.
+In the night, the brine slaves consume helpless halflings, but a small group manages to escape.
+Before the Brine can spread further, the Council of Valeria sends a fleet of ships to encircle the island.
+After a confusing skirmish, the brine slaves are killed and studied.
+
+### 551 ACV
+
+After multiple more Brine attacks in the Outer Waters, the Council of Valeria declares the area illegal to journey into.
+Any ship spotted venturing into the territory faces inspection and possibly destruction.
+The Council of Valeria also distributes warnings to not consume water originating from the Outer Reaches, even if it has been treated.
+
+### 600 ACV
+
+Present day. Anything can happen.
 
 # 2. Classes
 

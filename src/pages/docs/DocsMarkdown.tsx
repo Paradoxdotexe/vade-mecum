@@ -119,11 +119,6 @@ const StyledComponent = styled.div`
 
     p {
       margin: 0;
-
-      &:first-child:not(:last-child) {
-        margin-block-end: 8px;
-        font-family: 'Noto Sans Display', sans-serif;
-      }
     }
   }
 
