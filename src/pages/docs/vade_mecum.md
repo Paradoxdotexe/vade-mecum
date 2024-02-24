@@ -114,7 +114,7 @@ Characters are chiefly defined by attributes, skills, and perks, all of which ar
 ## 2.1 Attributes
 
 Each character has 5 core attributes that define its physical and mental ability.
-These attributes are scored on a scale from 1 to 6, with the average human being a 3.
+These attributes are scored on a scale from 1 to 6, with the average human being a 2.
 When a character performs an action, these attribute scores are used to determine how well they do.
 
 | Attribute        | Description                                             |
@@ -387,8 +387,8 @@ For the best experience, focus on making a unique and interesting adventurer tha
 >
 > - Choose your character's class from the World Kit being used
 >   - Describe your character's class item
-> - Allocate 15 points into your character's attributes in the amounts of 1, 2, 3, 4, and 5
->   - The 5 must be placed into your class's Focus attribute
+> - Allocate 12 points into your character's attributes in the amounts of 1, 2, 2, 3, and 4
+>   - The 4 must be placed into your class's Focus attribute
 >   - The 1 will be considered your character's Flaw attribute
 > - Allocate 1 point into 6 different skills
 >   - Points cannot be put into skills under your Flaw attribute
