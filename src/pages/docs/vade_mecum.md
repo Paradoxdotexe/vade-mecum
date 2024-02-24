@@ -127,7 +127,7 @@ When a character performs an action, these attribute scores are used to determin
 
 Within the 5 attributes, each character has one Flaw and one Focus.
 A character's Flaw is their glaring weakness—the quality that holds them back from being the perfect adventurer.
-And oppositely, a character's Focus is their greatest power—the quality that makes them a master of their class.
+Conversely, a character's Focus is their greatest power—the quality that makes them a master of their class.
 
 ## 2.2 Skills
 
@@ -155,57 +155,57 @@ Skills allow characters to specialize themselves towards specific types of actio
 
 ## 2.3 Perks
 
-Based on skill proficiencies, characters can adopt perks that serve as an expansion of their overall abilities.
+Based on skill proficiencies, characters can acquire perks that serve as an expansion of their overall abilities (see [Experience Levels](#2.5-Experience-Levels) for when perks can be acquired).
 Each perk falls under a specific skill and will require a minimum level in that skill to acquire.
 As such, perks give characters a way to accentuate their strengths in ways that compliment their play style.
 
 | Attribute    | Perk                 | Requirement     | Description                                                                                                               |
 | ------------ | -------------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| Strength     | **Bloody Knuckles**  | Power 1         | You get +1 advantage on Power checks to melee attack without a weapon.                                                    |
-| Strength     | **Dead Lift**        | Power 2         | You get +2 advantage on Power checks to lift or move a heavy object.                                                      |
-| Strength     | **Battering Ram**    | Power 3         | You get +3 advantage on Power checks to force your way through an obstacle.                                               |
+| Strength     | **Bloody Knuckles**  | Power 1         | You double your Power bonus on skill checks to make a melee attack without a weapon.                                      |
+| Strength     | **Dead Lift**        | Power 2         | You double your Power bonus on skill checks to lift or move a heavy object.                                               |
+| Strength     | **Battering Ram**    | Power 3         | You double your Power bonus on skill checks to force your way through an obstacle.                                        |
 | Strength     | **Human Shield**     | Fortitude 1     | You act as light cover in combat for all characters within 10ft behind you.                                               |
 | Strength     | **Pack Mule**        | Fortitude 2     | Your carrying capacity is increased by a number of slots equal to your `(Strength + Fortitude)`.                          |
 | Strength     | **Night Owl**        | Fortitude 3     | During your Rest, you can complete a second Rest Activity with -1 disadvantage.                                           |
 | Strength     | **Trainer**          | Athletics 1     | You give allies +1 advantage on Athletics checks.                                                                         |
-| Strength     | **Free Solo**        | Athletics 2     | You get +2 advantage on Athletics checks to climb without equipment.                                                      |
+| Strength     | **Free Solo**        | Athletics 2     | You double your Athletics bonus on skill checks to climb without equipment.                                               |
 | Strength     | **Big Brother**      | Athletics 3     | If an ally within 10ft is hit with an attack, you can leap in to switch places, taking all damage.                        |
-| Dexterity    | **Locksmith**        | Precision 1     | You get +1 advantage when picking locks.                                                                                  |
-| Dexterity    | **Bipod**            | Precision 2     | You get +2 advantage when attacking with a ranged weapon from behind cover.                                               |
-| Dexterity    | **Sniper**           | Precision 3     | You get +3 advantage when attacking with a ranged weapon from an elevated position.                                       |
-| Dexterity    | **Lone Wolf**        | Stealth 1       | You get +1 advantage when making Stealth checks on your own.                                                              |
-| Dexterity    | **Assassin**         | Stealth 2       | When an enemy is surprised, you can make a weapon attack using Stealth instead with +2 advantage.                         |
-| Dexterity    | **Black Mass**       | Stealth 3       | You get +3 advantage when making Stealth checks in natural darkness.                                                      |
-| Dexterity    | **Escapist**         | Agility 1       | You get +1 advantage on Agility checks to escape someone or a situation.                                                  |
-| Dexterity    | **Fleet Foot**       | Agility 2       | You are not impeded by Rough Terrain.                                                                                     |
-| Dexterity    | **Evasion**          | Agility 3       | Opportunity attacks on you have -3 disadvantage.                                                                          |
-| Intelligence | **Book Worm**        | Comprehension 1 | You get +1 advantage on Comprehension checks to comprehend written information.                                           |
-| Intelligence | **Linguist**         | Comprehension 2 | You get +2 advantage on Comprehension to comprehend a foreign language.                                                   |
-| Intelligence | **Strategist**       | Comprehension 3 | When you plan a surprise attack, you give +3 advantage to the Stealth roll to surprise the enemy.                         |
-| Intelligence | **Junk Collector**   | Innovation 1    | You get +1 advantage on Innovation checks to craft an item using junk.                                                    |
-| Intelligence | **Repairman**        | Innovation 2    | On a successful Innovation check to repair an item, you can also repair a second item.                                    |
-| Intelligence | **Inventor**         | Innovation 3    | You get +3 advantage on Innovation checks to build something unique.                                                      |
+| Dexterity    | **Locksmith**        | Precision 1     | You double your Precision bonus on skill checks to pick a lock.                                                           |
+| Dexterity    | **Steady Aim**       | Precision 2     | You double your Precision bonus on skill checks to make a ranged attack from behind cover.                                |
+| Dexterity    | **Sniper's Nest**    | Precision 3     | You double your Precision bonus on skill checks to make a ranged attack from an elevated position.                        |
+| Dexterity    | **Black Mass**       | Stealth 1       | You double your Stealth bonus on skill checks when cloaked by natural darkness.                                           |
+| Dexterity    | **Lone Wolf**        | Stealth 2       | You double your Stealth bonus on skill checks while on your own.                                                          |
+| Dexterity    | **Assassin**         | Stealth 3       | When an enemy is surprised, you can make a weapon attack with advantage equivalent to your Stealth.                       |
+| Dexterity    | **Escapist**         | Agility 1       | You double your Agility bonus on skill checks to escape someone or a situation.                                           |
+| Dexterity    | **Evasion**          | Agility 2       | Opportunity attacks on you have disadvantage equivalent to your Evasion.                                                  |
+| Dexterity    | **Fleet Foot**       | Agility 3       | You are not impeded by Rough Terrain.                                                                                     |
+| Intelligence | **Book Worm**        | Comprehension 1 | You double your Comprehension bonus on skill checks to comprehend written information.                                    |
+| Intelligence | **Linguist**         | Comprehension 2 | You double your Comprehension bonus on skill checks to comprehend a foreign language.                                     |
+| Intelligence | **Strategist**       | Comprehension 3 | When you plan a surprise attack, you add +3 advantage to the Stealth roll to surprise the enemy.                          |
+| Intelligence | **Junk Collector**   | Innovation 1    | You double your Innovation bonus on skill checks to craft an item using junk.                                             |
+| Intelligence | **Inventor**         | Innovation 2    | You double your Innovation bonus on skill checks to build something unique.                                               |
+| Intelligence | **Repairman**        | Innovation 3    | On a successful Innovation check to repair an item, you can also repair a second item.                                    |
 | Intelligence | **Spiritual Healer** | Medicine 1      | You can stabilize allies from up to 15 ft away.                                                                           |
 | Intelligence | **Field Medic**      | Medicine 2      | On a stalemate Medicine check to stabilize an ally, you decrease the injury level by one.                                 |
 | Intelligence | **Witch Doctor**     | Medicine 3      | Even when incapacitated with a deadly injury, you can roll to stabilize yourself.                                         |
-| Charisma     | **Polygraph**        | Intuition 1     | You get +1 advantage on Intuition checks to determine if an NPC is lying.                                                 |
-| Charisma     | **Empath**           | Intuition 2     | You get +2 advantage on Intuition checks to determine an NPC's true emotional state.                                      |
+| Charisma     | **Polygraph**        | Intuition 1     | You double your Intuition bonus on skill checks to determine if an NPC is lying.                                          |
+| Charisma     | **Empath**           | Intuition 2     | You double your Intuition bonus on skill checks to determine an NPC's true emotional state.                               |
 | Charisma     | **Counselor**        | Intuition 3     | After a successful Intuition check against an NPC, you get +3 advantage on your next Speech check using that information. |
-| Charisma     | **Tourist**          | Speech 1        | You find meals and lodging for you and your party for one rarity level cheaper.                                           |
-| Charisma     | **Relatable**        | Speech 2        | You get +2 advantage on Speech checks against NPC's from the same race or class.                                          |
-| Charisma     | **Identity Theft**   | Speech 3        | You get +3 advantage when making Speech checks while impersonating someone else.                                          |
+| Charisma     | **Relatable**        | Speech 1        | You double your Speech bonus on skill checks against NPC's from the same race or class.                                   |
+| Charisma     | **Identity Theft**   | Speech 2        | You double your Speech bonus on skill checks while impersonating someone else.                                            |
+| Charisma     | **Folk Hero**        | Speech 3        | You double the advantage given to Speech checks by Renown.                                                                |
 | Charisma     | **Deep Pockets**     | Barter 1        | Tiny items don’t contribute towards your carrying capacity.                                                               |
 | Charisma     | **Peddler**          | Barter 2        | You always know where the closest merchant or marketplace is.                                                             |
 | Charisma     | **Negotiator**       | Barter 3        | A successful barter check haggles the prices an additional 10% in your favor.                                             |
-| Perception   | **Architect**        | Insight 1       | You get +1 advantage on Insight checks against manmade structures.                                                        |
-| Perception   | **Ecologist**        | Insight 2       | You get +2 advantage on Insight checks against natural phenomena, such as animals, plants, weather, and terrain.          |
+| Perception   | **Architect**        | Insight 1       | You double your Insight bonus on skill checks against man-made structures.                                                |
+| Perception   | **Ecologist**        | Insight 2       | You double your Insight bonus on skill checks against natural phenomena, such as animals, plants, weather, and terrain.   |
 | Perception   | **Inspector**        | Insight 3       | After a successful Insight check, you get +3 advantage on your next Investigation/Detection check using that information. |
 | Perception   | **Combat Ready**     | Detection 1     | You add 6 to your initiative roll.                                                                                        |
 | Perception   | **Sixth Sense**      | Detection 2     | You can't be surprised during combat.                                                                                     |
 | Perception   | **One Eye Open**     | Detection 3     | You can keep watch for enemies during a Rest without expending a Rest Activity.                                           |
-| Perception   | **Loot Goblin**      | Investigation 1 | You get +1 advantage on Investigation checks to loot after combat.                                                        |
-| Perception   | **Emergency Exit**   | Investigation 2 | You get +2 advantage on Investigation checks to find an exit or escape route.                                             |
-| Perception   | **Detective**        | Investigation 3 | You get +3 advantage when searching for clues in pursuit of your personal or party's goal.                                |
+| Perception   | **Loot Goblin**      | Investigation 1 | You double your Investigation bonus on skill checks to loot after combat.                                                 |
+| Perception   | **Emergency Exit**   | Investigation 2 | You double your Investigation bonus on skill checks to find an exit or escape route.                                      |
+| Perception   | **Detective**        | Investigation 3 | You double your Investigation bonus on skill checks to search for clues in pursuit of your personal or party's goal.      |
 
 ## 2.4 Classes
 
@@ -325,12 +325,12 @@ Each character has a movement speed that regulates how far they can move during 
 Movement speed is measured in terms of grid tiles which are roughly 5ft squares.
 A character's movement speed is equal to `(Dexterity + Agility) x 2`.
 
-> **Example:** A character with Dexterity 3 and Movement 1 will have a movement speed of 8 tiles, or 40 feet.
+> **Example:** A character with Dexterity 3 and Agility 1 will have a movement speed of 8 tiles, or 40 feet.
 
-Out of combat, all characters have the same movement speed of 10 miles per hour when traversing long distances.
-This speed can be increased by vehicles provided if available in the chosen World Kit.
+Out of combat, all characters have the same movement speed of 2 miles per hour or 24 miles per day when traversing long distances.
+This speed can be increased by vehicles if available in the chosen World Kit.
 
-> Movement in combat through Rough Terrain, such as rocks, mud, or debris, consumes twice the amount of movement speed.
+> Movement in combat through Rough Terrain, such as rocks, mud, debris, or water, consumes twice the amount of movement speed.
 
 ## 2.8 Carrying Capacity
 
