@@ -687,14 +687,44 @@ During these 8 hours, characters will engage in a mix of sleeping and a single R
 Any Rest Activity permitted by the Game Master will be evaluated by a skill check.
 The most common Rest Activities are given below.
 
-| Rest Activity          | Skill      | Success                                                  |
-| ---------------------- | ---------- | -------------------------------------------------------- |
-| Keep watch for enemies | Detection  | Forces the enemy's surprise attack to automatically fail |
-| Heal a character       | Medicine   | Heals the character for a number of HP equal to the roll |
-| Repair a damaged item  | Innovation | Restores the item's bonus by one                         |
-
-During a Rest, characters can recover HP by satiating themselves with food and water.
-Food and water can be provided by adventuring rations or by meals provided by NPC's.
-Those that are satiated will roll a number of D6 equal to `(Strength + Fortitude)` and heal that number of HP at the conclusion of the Rest.
+| Rest Activity          | Skill      | Success                                                             |
+| ---------------------- | ---------- | ------------------------------------------------------------------- |
+| Keep watch for enemies | Detection  | Force an enemy's surprise attack to automatically fail (if present) |
+| Heal a character       | Medicine   | Double the HP gained by a character who is satiated                 |
+| Repair a damaged item  | Innovation | Restore a damaged item's bonus by 1                                 |
 
 > If a Rest is interrupted for more than 4 hours, it must be restarted.
+
+### Lodging
+
+In order to rest, the Adventuring Party must find lodging in the embrace of nature or in the civilized world.
+Finding established lodging will grant advantage on Rest Activities and can stave off the dangers of the wild.
+The Game Master will decide whether NPC-provided lodging is available in any given location.
+
+| Lodging              | Rarity     | Cost   | Description                                               |
+| -------------------- | ---------- | ------ | --------------------------------------------------------- |
+| **Adventuring Camp** | Ubiquitous | Free   | A cold place to sleep                                     |
+| **Simple Lodging**   | Average    | 20 CU  | A warm place to sleep, +1 to Rest Activity rolls          |
+| **Fancy Lodging**    | Rare       | 100 CU | A warm and safe place to sleep, +3 to Rest Activity rolls |
+
+### Meals
+
+To recover HP naturally during a Rest, characters can consume meals to satiate themselves with food and drink.
+Depending on the quality, a meal will satiate a character for one or more Rests.
+The Game Master will decide whether NPC-cooked meals are available in any given location.
+
+| Meal                   | Rarity      | Cost  | Description                                          |
+| ---------------------- | ----------- | ----- | ---------------------------------------------------- |
+| **Adventuring Ration** | Very Common | 1 CU  | Satiates a character for 1 Rest, carried in 1/4 slot |
+| **Simple Meal**        | Common      | 5 CU  | Satiates a character for 2 Rests, cannot be carried  |
+| **Fancy Meal**         | Average     | 20 CU | Satiates a character for 4 Rests, cannot be carried  |
+
+Characters that are satiated at the end of a Rest will heal a number of HP equal to `(Strength + Fortitude) x D6`.
+
+> A character does not gain any benefit from eating additional meals while already satiated.
+
+### Exhaustion
+
+If an Adventuring Party cannot complete a Rest for any reason, they will gain a level of Exhaustion.
+For each level, a character suffers -1 disadvantage on rolls for Strength, Intelligence, and Perception.
+A character can at most have 3 levels of Exhaustion.
