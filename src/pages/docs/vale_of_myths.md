@@ -273,13 +273,14 @@ Knights are soldiers sworn to uphold the code of chivalry and defend the realm a
 They are a stalwart force on the battlefield, often clad in heavy armor and weaponry and leading the charge against the enemy.
 Knights fight for honor and glory, using their strength and martial prowess to defend the helpless from evil.
 
-| Attribute | Skill     | Description                                                                    |
-| --------- | --------- | ------------------------------------------------------------------------------ |
-| Strength  | **Honor** | Persuade others using morality and might, follow-up attack with a melee weapon |
+| Attribute | Skill     | Description                                                          |
+| --------- | --------- | -------------------------------------------------------------------- |
+| Strength  | **Honor** | Persuade others using morality, follow-up attack with a melee weapon |
+
+### Class Item
 
 Every Knight carries a Honorific Banner that bolsters their confidence and allows them to fight with Honor.
-This piece of gear most often manifests itself as a physical banner with a meaningful coat of arms.
-While this banner flies during battle, a Knight can use their second action to make a melee attack using Honor.
+This piece of gear is commonly a physical banner with a coat of arms from the house they are sworn to defend.
 
 | Level | Honorific Banner Effect |
 | ----- | ----------------------- |
@@ -289,11 +290,17 @@ While this banner flies during battle, a Knight can use their second action to m
 | 18    | Honor +3                |
 | 24    | Honor +4                |
 
+### Class Abilities
+
+After making a melee attack using Power, Knights can use an action to make a melee attack using Honor.
+
+### Class Perks
+
 Knights have access to perks built on top of the core commandments of chivalry.
 
 | Attribute | Perk             | Requirement | Description                                                                                                                                       |
 | --------- | ---------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Strength  | **Pledged Word** | Honor 1     | _Thou shalt never lie and shalt remain faithful to thy pledged word._ You get +3 to Speech when making a promise.                                 |
+| Strength  | **Pledged Word** | Honor 1     | _Thou shalt never lie and shalt remain faithful to thy pledged word._ You double your Speech bonus when making a promise.                         |
 | Strength  | **Charge**       | Honor 2     | _Thou shalt not recoil before thine enemy._ Your movement speed is doubled for the first round of combat.                                         |
 | Strength  | **Champion**     | Honor 2     | _Thou shalt be the champion of the good against evil._ Your initiative roll is automatically doubled.                                             |
 | Strength  | **Bulwark**      | Honor 3     | _Thou shalt make war without cessation and without mercy._ You take only half damage when hit by an enemy with over half of its health remaining. |
@@ -304,15 +311,14 @@ Barbarians are formidable warriors that harness untamed fury against their enemi
 They excel in chaotic combat, often entering a battle rage and unleashing savage attacks that strike fear in the most powerful of opponents.
 Barbarians fight with a deep loyalty for their tribe, standing between them and the outside world.
 
-| Attribute | Skill    | Description                                                                  |
-| --------- | -------- | ---------------------------------------------------------------------------- |
-| Strength  | **Rage** | Persuade others using fear and intimidation, rage attack with a melee weapon |
+| Attribute | Skill    | Description                                                         |
+| --------- | -------- | ------------------------------------------------------------------- |
+| Strength  | **Rage** | Persuade others using intimidation, rage attack with a melee weapon |
+
+### Class Item
 
 Every Barbarian carries a Tribal Marking that reminds them of who they are fighting for.
-This Tribal Marking most often manifests itself as a tattoo, branding, or carving in a sacred pattern.
-While they display their Tribal Marking, a Barbarian can use their second action to enter a Combat Rage.
-
-While in a Combat Rage, Barbarians can make melee attacks using Rage instead of Power and can use an action to throw a Very Heavy item within 10 feet at an enemy within 30 feet using Rage. On a hit, they deal 2d6 damage.
+This Tribal Marking is commonly a sacred tattoo, branding, or carving etched on their skin.
 
 | Level | Tribal Marking Effect |
 | ----- | --------------------- |
@@ -322,13 +328,27 @@ While in a Combat Rage, Barbarians can make melee attacks using Rage instead of 
 | 18    | Rage +3               |
 | 24    | Rage +4               |
 
-Barbarians have access to perks that empower their Combat Rage.
+### Class Abilities
 
-| Attribute | Perk              | Requirement | Description                                                                                                                                 |
-| --------- | ----------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| Strength  | **Boiling Blood** | Rage 1      | _You run hotter than other barbarians._ You start combat in a Combat Rage.                                                                  |
-| Strength  | **Blood Rush**    | Rage 1      | _Nothing stops your advance._ Your movement speed increases by 2 and you can traverse obstacles using Rage instead of Athletics or Agility. |
-| Strength  | **Beserker**      | Rage 3      | After landing a melee attack with Rage, you can use your second action to make another.                                                     |
+Barbarians have the ability to enter a Combat Rage, enhancing their combat ability.
+
+| Action                  | Description                  |
+| ----------------------- | ---------------------------- |
+| **Enter a Combat Rage** | Enter a state of Combat Rage |
+
+While in a Combat Rage, Barbarians can make melee attacks using Rage instead of Power.
+Additionally, they can use an action to throw a Very Heavy item within 5 feet at an enemy within 30 feet.
+On a successful Rage check, the item hits its target and deals 2d6 damage.
+
+### Class Perks
+
+Barbarians have access to perks that further empower their Combat Rage.
+
+| Attribute | Perk              | Requirement | Description                                                                                                                                                               |
+| --------- | ----------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Strength  | **Boiling Blood** | Rage 1      | _You run hotter than other barbarians._ You start combat in a Combat Rage.                                                                                                |
+| Strength  | **Blood Rush**    | Rage 2      | _Nothing stops your advance._ While in a Combat Rage, your movement speed is increased by 10ft and you can traverse obstacles using Rage instead of Athletics or Agility. |
+| Strength  | **Beserker**      | Rage 3      | After landing a melee attack with Rage, you can use your second action to make another.                                                                                   |
 
 ## Ranger
 
@@ -340,9 +360,10 @@ Rangers feels a responsibility towards the natural order of the world and never 
 | --------- | ------------ | ---------------------------------------------------------------- |
 | Dexterity | **Survival** | Navigate natural obstacles, set traps, pickup a creature's trail |
 
+### Class Item
+
 Every Ranger carries a Survival Toolkit that enables them to wield the natural world as a tool.
-This Survival Toolkit most often manifests itself as a small bag where they have collected a range of tools from their experience.
-While they have their Survival Toolkit, a Ranger doubles their movement speed and can make Agility checks using Survival instead.
+This Survival Toolkit is commonly a small bag holding a range of tools and equipment collected in their training.
 
 | Level | Survival Toolkit Effect |
 | ----- | ----------------------- |
@@ -352,13 +373,22 @@ While they have their Survival Toolkit, a Ranger doubles their movement speed an
 | 18    | Survival +3             |
 | 24    | Survival +4             |
 
+### Class Abilities
+
+Rangers have double the normal movement speed and can traverse natural obstacles using Survival instead of Athletics or Agility.
+
+### Class Perks
+
 Rangers have access to perks that add new items to their Survival Toolkit.
 
-| Attribute | Perk              | Requirement | Description                                                               |
-| --------- | ----------------- | ----------- | ------------------------------------------------------------------------- |
-| Dexterity | **Scouting Lens** | Survival 1  | You get +2 to Detection when scouting from an elevated vantage point.     |
-| Dexterity | **Tripwire**      | Survival 2  | You get +2 to Detection when watching for enemies during your Rest.       |
-| Dexterity | **Camouflage**    | Survival 3  | You get +2 to Stealth when launching a surprise attack against the enemy. |
+| Attribute | Perk                 | Requirement | Description                                                                              |
+| --------- | -------------------- | ----------- | ---------------------------------------------------------------------------------------- |
+| Dexterity | **Scouting Lens**    | Survival 1  | When rolling Detection to scout from an elevated vantage point, add your Survival bonus. |
+| Dexterity | **Field Notes**      | Survival 1  | When rolling Insight against natural phenomena, add your Survival bonus.                 |
+| Dexterity | **Tripwire**         | Survival 2  | When rolling Detection to watch for enemies during a rest, add your Survival bonus.      |
+| Dexterity | **Survival Shelter** | Survival 2  | You get the bonus of Simple Lodging when resting in an Adventuring Camp.                 |
+| Dexterity | **Trauma Kit**       | Survival 3  | When rolling Medicine to heal or stabilize, add your Survival bonus.                     |
+| Dexterity | **Camouflage**       | Survival 3  | When rolling Stealth to launch a surprise attack, add your Survival bonus.               |
 
 ## Monk
 
@@ -370,12 +400,10 @@ Monks are devoted to self-control and harmony, only intervening when the balance
 | --------- | ------- | ----------------------------------------- |
 | Dexterity | **Chi** | Deescalate conflict, channel inner energy |
 
+### Class Item
+
 Every Monk carries a Spiritual Talisman that enhances their ability to harness their inner Chi.
 This Spiritual Talisman most often manifests itself as a bracelet, pendant, or ring of beads that is inscribed with their temple's tenants.
-While they carry their Spiritual Talisman, a Monk has access to a number of Chi Points and can also spend their reaction to deflect an attack using a successful Chi check.
-
-Monks can expend Chi Points to reroll a failed skill check or utilize feats from their perks.
-During a Rest, they can spend their light activity to find peace and restore all of their Chi Points.
 
 | Level | Spiritual Talisman Effect        |
 | ----- | -------------------------------- |
@@ -385,13 +413,28 @@ During a Rest, they can spend their light activity to find peace and restore all
 | 18    | Chi +3, maximum of 12 Chi Points |
 | 24    | Chi +4, maximum of 15 Chi Points |
 
+### Class Abilities
+
+Monks have access to a number of Chi Points, or CP, they can use to perform impressive feats.
+They also gain the Chi Deflection reaction.
+
+| Reaction           | Description                                                                           |
+| ------------------ | ------------------------------------------------------------------------------------- |
+| **Chi Deflection** | When hit with a melee attack, roll a Chi check. On a success, you deflect all damage. |
+
+Monks start with the maximum number of Chi Points allowed by their Spiritual Talisman.
+At any time, Monks can expend a Chi Point to reroll an unsuccessful skill check.
+During a Rest, a Monk can spend a Rest Activity finding inner peace to restore all of their Chi Points.
+
+### Class Perks
+
 Monks have access to perks that give them new ways to harness their Chi Points.
 
-| Attribute | Perk                 | Requirement | Description                                                                                          |
-| --------- | -------------------- | ----------- | ---------------------------------------------------------------------------------------------------- |
-| Dexterity | **Zen**              | Chi 1       | You can expend a Chi Point to calm a group of people, giving +2 to all Speech checks against them.   |
-| Dexterity | **Reflexive**        | Chi 2       | You get two reactions during combat.                                                                 |
-| Dexterity | **Return to Sender** | Chi 3       | After deflecting an attack, you can spend a Chi Point to deal the intended damage back on the enemy. |
+| Attribute | Perk                 | Requirement | Description                                                                                                                                          |
+| --------- | -------------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Dexterity | **Zen**              | Chi 1       | With a successful Chi check, you can expend a Chi Point to calm a group of people, giving advantage on Speech checks against them equal to your Chi. |
+| Dexterity | **Reflexive**        | Chi 2       | You get a second reaction during combat.                                                                                                             |
+| Dexterity | **Return to Sender** | Chi 3       | After deflecting an attack, you can spend a Chi Point to deal the intended damage back on the enemy.                                                 |
 
 ## Mage
 
@@ -403,9 +446,10 @@ Mages are on a constant pursuit for knowledge, devoting themselves to the discov
 | ------------ | --------- | --------------------------------------------------------- |
 | Intelligence | **Magic** | Commune with magical forces, attack a target with a spell |
 
+### Class Item
+
 Every Mage carries a Magical Channel that empowers them to wield magical energy.
-This Magical Channel most often manifests as a staff, book, wand, or ring imbued with knowledge or magic itself.
-While they carry their Magical Channel, a Mage has access to a number of Magic Points (MP) they can use to cast spells.
+This Magical Channel is commonly a staff, book, wand, or ring imbued with knowledge or magic itself.
 
 | Level | Magical Channel Effect             |
 | ----- | ---------------------------------- |
@@ -415,13 +459,27 @@ While they carry their Magical Channel, a Mage has access to a number of Magic P
 | 18    | Magic +3, enables Legendary spells |
 | 24    | Magic +4                           |
 
-Mages gain access to schools of magic through their perks and can learn a new spell on each level.
-Mages have a maximum number of Magic Points they can hold equal to their level.
-Casting a spell requires a successful Magic check and a number of MP equal to the Magic requirement of its school and the spell's rarity.
+### Class Abilities
 
-> **Example:** Casting an Average Prestidigitation spell would cost 0 MP while casting a Legendary Chronomancy spell would cost 6 MP.
+Mages have access to a number of Magic Points, or MP, they can use to cast spells.
 
-During a Rest, Mages can spend their light activity to roll for Magic and regain that number of Magic Points.
+| Action           | Description                                                                 |
+| ---------------- | --------------------------------------------------------------------------- |
+| **Cast a Spell** | With a successful Magic check, cast a known spell and expend its cost in MP |
+
+Mages can hold a maximum number of Magic Points equal to their `Level x 2`.
+During a Rest, a Mage can spend a Rest Activity to restore all of their missing Magic Points.
+
+Mages can only learn spells from a school of magic they know (see Class Perks) and that meet the Rarity threshold of their Magical Channel.
+Upon character creation, Mages choose 1 spell to learn, and on each level gained, they learn 1 new spell.
+
+### Class Perks
+
+Mages gain access to the different schools of magic through their perks.
+Each school of magic has a collection of learnable spells ranging from Average to Legendary rarity.
+These spells will have an MP cost determined by the Magic requirement of its school and the spell's rarity.
+
+> **Example:** An Average Prestidigitation spell would cost 0 MP while a Legendary Chronomancy spell would cost 6 MP.
 
 | Attribute    | Perk                 | Requirement | Description                                                                                               |
 | ------------ | -------------------- | ----------- | --------------------------------------------------------------------------------------------------------- |
@@ -435,35 +493,40 @@ During a Rest, Mages can spend their light activity to roll for Magic and regain
 
 The study of minor illusions and tricks that are subtle and harmless.
 
-| Spell      | Rarity  | MP  | Description                                                                                                                                     |
-| ---------- | ------- | --- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Murmur** | Average | 0   | Create a small sensory effect, such as an image, sound, or smell. This could be a tattoo, the sound of a barking dog, or the smell of gasoline. |
+| Spell      | Rarity    | MP  | Description                                                                                                                                                                                                                                             |
+| ---------- | --------- | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Murmur** | Average   | 0   | Create a small sensory effect, such as an image, sound, or smell. For example: the appearance of a tattoo, the sound of a barking dog, or the smell of oil. Characters can roll an Insight check against your Magic bonus to determine it's legitimacy. |
+| **Voices** | Rare      | 1   | Create a voice in someone's head that speaks one desired sentence. Characters can roll an Intuition check against your Magic bonus to determine it's legitimacy.                                                                                        |
+| **Mimic**  | Very Rare | 2   | Disguise you or another character as someone else until your next Rest. Characters can roll an Insight check against your Magic bonus to determine it's legitimacy.                                                                                     |
 
 ### School of Abjuration
 
 The study of protection and defense magic to stave off attacks.
 
-| Spell                 | Rarity    | MP  | Description                                |
-| --------------------- | --------- | --- | ------------------------------------------ |
-| **Light Mage Armor**  | Average   | 1   | Surround yourself in magical Light Armor.  |
-| **Medium Mage Armor** | Rare      | 2   | Surround yourself in magical Medium Armor. |
-| **Heavy Mage Armor**  | Very Rare | 3   | Surround yourself in magical Heavy Armor   |
+| Spell                 | Rarity    | MP  | Description                                                     |
+| --------------------- | --------- | --- | --------------------------------------------------------------- |
+| **Light Mage Armor**  | Average   | 1   | Surround yourself in magical Light Armor until your next Rest.  |
+| **Medium Mage Armor** | Rare      | 2   | Surround yourself in magical Medium Armor until your next Rest. |
+| **Heavy Mage Armor**  | Very Rare | 3   | Surround yourself in magical Heavy Armor until your next Rest.  |
 
 ### School of Elementalism
 
 The study of the natural elements and how to wield them.
 
-| Spell          | Rarity | MP  | Description                                                                                                                                                                                                 |
-| -------------- | ------ | --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Tidal Wave** | Rare   | 4   | Create a tidal wave of water that hits a 40 foot cubic area within 20 feet. All characters make an Agility check, taking 2d6 damage on a success and 4d6 damage otherwise. Any fire in the area is put out. |
+| Spell            | Rarity    | MP  | Description                                                                                                                                                                                                             |
+| ---------------- | --------- | --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Wall of Fire** | Average   | 3   | Create a wall of fire that covers a 5ft x 30ft area within 30ft for 6 turns. Any character hit by the fire make a Fortitude check, taking 3d6 damage on a success and 6d6 damage otherwise.                             |
+| **Tidal Wave**   | Rare      | 4   | Create a tidal wave of water that hits a 15ft x 30ft area within 30ft. All characters hits by the wave make an Agility check, taking 2d6 damage on a success and 4d6 damage otherwise. Any fire in the area is put out. |
+| **Sink Hole**    | Very Rare | 5   | Crumble the earth below a 30ft x 30ft area within 30ft. All characters caught within the area make an Agility check, taking 3d6 damage on a success and 6d6 damage otherwise. The area becomes Rough Terrain.           |
 
 ### School of Necromancy
 
 The study of life and death and how to bring about either in expedited fashion.
 
-| Spell       | Rarity    | MP  | Description                                                                                                                                 |
-| ----------- | --------- | --- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Revival** | Legendary | 6   | Revive a character that has been dead for less than 24 hours. The revived character permanently loses 6d6 hit points (with a minimum of 1). |
+| Spell          | Rarity    | MP  | Description                                                                                                                      |
+| -------------- | --------- | --- | -------------------------------------------------------------------------------------------------------------------------------- |
+| **Life Steal** | Average   | 3   | Steal 3d6 HP from a character you can touch.                                                                                     |
+| **Revival**    | Legendary | 6   | Revive a character that has been dead for less than 24 hours. The revived character has their Strength permanently reduced by 1. |
 
 ### School of Chronomancy
 
@@ -471,6 +534,7 @@ The study of the flow of time and how it can be manipulated. Often considered th
 
 | Spell         | Rarity    | MP  | Description                                                                                                                                                                                      |
 | ------------- | --------- | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Time Slow** | Average   | 3   | Slows the flow time for 2 turns for all enemies with a 120 foot radius. In that time, their Movement Speed is reduced by half and their Dexterity checks have -1 disadvantage.                   |
 | **Time Stop** | Legendary | 6   | Stops the flow of time until your next turn for all enemies within a 120 foot radius. For one round, the party can take their turn with attacks at a +3 advantage while the enemies stand still. |
 
 ## Forge
@@ -719,21 +783,11 @@ In _Vale of Myths_, valerian pieces (abbreviated as "pcs") are the main denomina
 
 ## Tools
 
-| Item                   | Rarity      | Cost   | Size     | Description                                |
-| ---------------------- | ----------- | ------ | -------- | ------------------------------------------ |
-| **Adventuring Ration** | Very Common | 1 pc   | 1/4 slot | Satiates a character for a single Rest     |
-| **Rope**               | Common      | 5 pcs  | 1 slot   | +1 Athletics to climb                      |
-| **Grappling Hook**     | Common      | 5 pcs  | 1/2 slot | +1 Athletics to climb                      |
-| **Lantern**            | Common      | 5 pcs  | 1/2 slot | +1 Investigation/Detection to search       |
-| **Medical Pouch**      | Average     | 20 pcs | 1/2 slot | +1 Medicine to heal                        |
-| **Tool Belt**          | Average     | 20 pcs | 1 slot   | +1 Innovation to repair or craft           |
-| **World Map**          | Common      | 5 pcs  | 1/4 slot | +1 Insight to interpret a location or path |
-
-## Services
-
-| Item               | Rarity  | Cost    | Description                                            |
-| ------------------ | ------- | ------- | ------------------------------------------------------ |
-| **Simple Meal**    | Common  | 5 pcs   | Satiates a character for 2 Rests                       |
-| **Fancy Meal**     | Average | 20 pcs  | Satiates a character for 2 + 1D6 Rests                 |
-| **Simple Lodging** | Average | 20 pcs  | A simple place to stay for the night, +1 to Rest rolls |
-| **Fancy Lodging**  | Rare    | 100 pcs | A simple place to stay for the night, +3 to Rest rolls |
+| Item               | Rarity  | Cost   | Size     | Description                                |
+| ------------------ | ------- | ------ | -------- | ------------------------------------------ |
+| **Rope**           | Common  | 5 pcs  | 1 slot   | +1 Athletics to climb                      |
+| **Grappling Hook** | Common  | 5 pcs  | 1/2 slot | +1 Athletics to climb                      |
+| **Lantern**        | Common  | 5 pcs  | 1/2 slot | +1 Investigation/Detection to search       |
+| **Medical Pouch**  | Average | 20 pcs | 1/2 slot | +1 Medicine to heal or stabilize           |
+| **Tool Belt**      | Average | 20 pcs | 1 slot   | +1 Innovation to repair or craft           |
+| **World Map**      | Common  | 5 pcs  | 1/4 slot | +1 Insight to interpret a location or path |

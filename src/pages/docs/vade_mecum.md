@@ -231,13 +231,14 @@ Knights are soldiers sworn to uphold the code of chivalry and defend the realm a
 They are a stalwart force on the battlefield, often clad in heavy armor and weaponry and leading the charge against the enemy.
 Knights fight for honor and glory, using their strength and martial prowess to defend the helpless from evil.
 
-| Attribute | Skill     | Description                                                                    |
-| --------- | --------- | ------------------------------------------------------------------------------ |
-| Strength  | **Honor** | Persuade others using morality and might, follow-up attack with a melee weapon |
+| Attribute | Skill     | Description                                                          |
+| --------- | --------- | -------------------------------------------------------------------- |
+| Strength  | **Honor** | Persuade others using morality, follow-up attack with a melee weapon |
+
+### Class Item
 
 Every Knight carries a Honorific Banner that bolsters their confidence and allows them to fight with Honor.
-This piece of gear most often manifests itself as a physical banner with a meaningful coat of arms.
-While this banner flies during battle, a Knight can use their second action to make a melee attack using Honor.
+This piece of gear is commonly a physical banner with a coat of arms from the house they are sworn to defend.
 
 | Level | Honorific Banner Effect |
 | ----- | ----------------------- |
@@ -247,11 +248,17 @@ While this banner flies during battle, a Knight can use their second action to m
 | 18    | Honor +3                |
 | 24    | Honor +4                |
 
+### Class Abilities
+
+After making a melee attack using Power, Knights can use an action to make a melee attack using Honor.
+
+### Class Perks
+
 Knights have access to perks built on top of the core commandments of chivalry.
 
 | Attribute | Perk             | Requirement | Description                                                                                                                                       |
 | --------- | ---------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Strength  | **Pledged Word** | Honor 1     | _Thou shalt never lie and shalt remain faithful to thy pledged word._ You get +3 to Speech when making a promise.                                 |
+| Strength  | **Pledged Word** | Honor 1     | _Thou shalt never lie and shalt remain faithful to thy pledged word._ You double your Speech bonus when making a promise.                         |
 | Strength  | **Charge**       | Honor 2     | _Thou shalt not recoil before thine enemy._ Your movement speed is doubled for the first round of combat.                                         |
 | Strength  | **Champion**     | Honor 2     | _Thou shalt be the champion of the good against evil._ Your initiative roll is automatically doubled.                                             |
 | Strength  | **Bulwark**      | Honor 3     | _Thou shalt make war without cessation and without mercy._ You take only half damage when hit by an enemy with over half of its health remaining. |
