@@ -24,7 +24,7 @@
     "build": "react-scripts build",
     "deploy:s3": "aws s3 sync ./build s3://vademecum.thenjk.com",
     "deploy:cloudfront": "aws cloudfront create-invalidation --distribution-id E21FM4AG66XKGE --paths \"/*\"",
-    "deploy": "npm run build && deploy:s3 && deploy:cloudfront",
+    "deploy": "npm run build && npm run deploy:s3 && npm run deploy:cloudfront",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prepare": "husky install"
