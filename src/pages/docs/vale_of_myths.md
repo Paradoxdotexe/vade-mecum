@@ -619,13 +619,14 @@ Heralds are messengers with a profound belief in diplomacy and dialogue, always 
 They wield the art of communication like a masterful instrument, forming alliances, resolving conflicts, and inspiring those around them.
 Heralds often find themselves as the voice of reason, guiding their allies towards success and their enemies towards failure.
 
-| Attribute | Skill         | Description                                                    |
-| --------- | ------------- | -------------------------------------------------------------- |
-| Charisma  | **Influence** | Persuade using peaceful logic, inspire allies, inhibit enemies |
+| Attribute | Skill         | Description                                           |
+| --------- | ------------- | ----------------------------------------------------- |
+| Charisma  | **Influence** | Persuade using logic, inspire allies, inhibit enemies |
+
+### Class Item
 
 Every Herald carries a Beacon of Influence that enables them to sway the thoughts and actions of those around them.
-This Beacon of Influence most often manifests itself as a scroll, whistle, trumpet, or other instrument.
-While they carry their Beacon of Influence, a Herald has a number of Influence Points, or IP, that can be spent to inspire allies towards success or inhibit enemies towards failure.
+This Beacon of Influence is commonly a whistle, trumpet, or other instrument.
 
 | Level | Beacon of Influence Effect |
 | ----- | -------------------------- |
@@ -635,21 +636,25 @@ While they carry their Beacon of Influence, a Herald has a number of Influence P
 | 18    | Influence +3               |
 | 24    | Influence +4               |
 
-Heralds have a maximum number of Influence Points they can hold equal to their level.
-At any point in time, Heralds can spend Influence Points to force an enemy or ally to reroll a skill check.
-The Herald first rolls an Influence check against their target and then resolves the outcome.
+### Class Abilities
+
+Heralds have access to a number of Influence Points, or IP, they can use to inspire allies towards success or inhibit enemies towards failure.
+They can hold a maximum number of Influence Points equal to their level and regain all of their missing Influence Points after a Rest.
+
+At any time, Heralds can expend Influence Points to force an enemy or ally to reroll a skill check.
+To do this, The Herald first rolls an Influence check against their target and then resolves the outcome.
 
 | Result    | Outcome                                                                                                                          |
 | --------- | -------------------------------------------------------------------------------------------------------------------------------- |
 | Success   | The target must reroll their skill check with an additional advantage or disadvantage equal to a number of IP spent (minimum 1). |
 | Stalemate | The target keeps their roll.                                                                                                     |
-| Failure   | The target keeps their roll and you lose 1 IP.                                                                                   |
+| Failure   | The target keeps their roll and 1 IP is expended.                                                                                |
 
 > **Example:** An enemy rolls a Power check against a character and hits.
 > The Herald rolls an Influence check to inhibit the enemy and succeeds.
 > They choose to spend 2 IP to have the enemy reroll their Power check with -2 disadvantage.
 
-Heralds regain all of their Influence Points after a Rest.
+### Class Perks
 
 Heralds can unlock unique ways to influence others through their perks.
 
@@ -669,9 +674,10 @@ Enchanters often lurk in the shadows, preferring subtlety over direct confrontat
 | --------- | --------------- | --------------------------------------------------- |
 | Charisma  | **Enchantment** | Persuade by enchanting the mind, bestow enchantment |
 
+### Class Item
+
 Every Enchanter carries an Enchantment Charm that enhances their sway over the minds others.
-This Enchantment Charm most often manifests itself as a unique, ornate ring, locket, diadem, or amulet.
-While they carry their Enchantment Charm, an Enchanter can use an action to bestow an enchantment on a target.
+This Enchantment Charm is commonly a unique, ornate ring, locket, diadem, or amulet.
 
 | Level | Enchantment Charm Effect                      |
 | ----- | --------------------------------------------- |
@@ -681,9 +687,14 @@ While they carry their Enchantment Charm, an Enchanter can use an action to best
 | 18    | Enchantment +3, maximum 4 enchantment targets |
 | 24    | Enchantment +4, maximum 5 enchantment targets |
 
-To bestow an enchantment, the Enchanter must roll a successful Enchantment check.
-Once bestowed, an enchantment lasts until the Enchanter rests.
-When an Enchanter tries to enchant a new target while currently enchanting the maximum, they must choose a target to free of their enchantment.
+### Class Abilities
+
+Enchanters can use an action to bestow an enchantment on a target.
+After rolling a successful Enchantment check, an enchantment is applied and lasts until the Enchanter's next Rest.
+
+If an Enchanter wants to enchant a target while currently enchanting the maximum (as dictated by their Enchantment Charm), they must choose a target to free of their enchantment.
+
+### Class perks
 
 Enchanters can unlock new enchantments through their perks.
 
@@ -704,9 +715,10 @@ Sages are often wise beyond their years, seeking to understand the deeper truths
 | ---------- | ---------- | ------------------------------------ |
 | Perception | **Nature** | Commune with nature, perform rituals |
 
+### Class Item
+
 Every Sage carries a Ritual Totem that infuses their ritual circles with nature's essence.
-This Ritual Totem most often manifests itself as a sacred drum, book, or pole that has been inscribed with nature's teachings.
-While they have their Ritual Totem, a sage can spend their light activity during their Rest to cast a ritual.
+This Ritual Totem is commonly a sacred drum, book, or pole that has been inscribed with nature's teachings.
 
 | Level | Ritual Totem Effect |
 | ----- | ------------------- |
@@ -716,11 +728,25 @@ While they have their Ritual Totem, a sage can spend their light activity during
 | 18    | Nature +3           |
 | 24    | Nature +4           |
 
-Rituals give Sages access to a number of ritual acts that can be performed while it is in effect.
-Performing a ritual act requires a successful Nature check and a number of Nature Points, or NP, equal to the Nature requirement of its ritual and the act's rarity.
-Sages have a maximum number of Nature Points they can hold equal to their level that are regained after a Rest.
+### Class Abilities
 
-Sages gain access to new rituals through their perks.
+During a Rest, Sages can spend their Rest Activity casting a known ritual.
+This ritual will give Sages access to specific ritual acts they perform while it is in effect.
+
+| Rest Activity | Skill | Outcome                                                        |
+| ------------- | ----- | -------------------------------------------------------------- |
+| Cast a Ritual | /     | Choose a known ritual to put into effect until your next Rest. |
+
+Sages have access to a number of Nature Points, or NP, they can spend on ritual acts.
+They can hold a maximum number of Nature Points equal to their level and regain all of their missing Nature Points after a Rest.
+
+### Class Perks
+
+Sages gain access to different rituals through their perks.
+Each ritual has a collection of ritual acts ranging from Average to Legendary rarity.
+These ritual acts will have an NP cost determined by the Nature requirement of its ritual and the acts's rarity.
+
+> **Example:** An Average Ritual of the Shield Guardian spell would cost 1 MP while a Legendary Ritual of the Stormcaller spell would cost 6 MP.
 
 | Attribute  | Perk                              | Requirement | Description                                                                                          |
 | ---------- | --------------------------------- | ----------- | ---------------------------------------------------------------------------------------------------- |
@@ -764,9 +790,10 @@ Druids serve as the bridge between the untamed wilderness and the civilized worl
 | ---------- | --------- | -------------------------------------------------------- |
 | Perception | **Beast** | Control beast companion, commune with nature's creatures |
 
+### Class Item
+
 Every Druid is accompanied by a Tamed Beast that is a fiercely loyal friend and protector.
 This Tamed Beast can be a large creature, such as a wolf or hawk, or a small creature, such as a spider or snake, that has a deep connection with the Druid.
-While they are with their Tamed Beast, a Druid can call them to action or beckon for its fellow beasts to come to its aid.
 
 | Tamed Beast Size | Description                                                                           |
 | ---------------- | ------------------------------------------------------------------------------------- |
@@ -781,14 +808,21 @@ While they are with their Tamed Beast, a Druid can call them to action or beckon
 | 18    | Beast +3, 40 HP Tamed Beast, 4 Beast Points |
 | 24    | Beast +4, 50 HP Tamed Beast, 5 Beast Points |
 
-Once per turn, druids can expand an action to have their Tamed Beast perform a skill check (this includes making a second attack using a Beast check).
+### Class Abilities
 
-Additionally, druids have access to a number of Beast Points, or BP, that they can use to call upon Untamed Beasts from nature.
-To call upon an Untamed Beast, druids must make a successful Beast check and expend the specified number of Beast Points.
-Druids regain all lost Beast Points after a Rest.
+Druids can call their Tamed Beast to action or beckon for nature's Untamed Beasts to come to their aid.
+
+During combat, druids can expand an action to have their Tamed Beast perform a skill check.
+When making an attack with the Tamed Beast, the druid rolls a Beast check and deals damage based on the beast's size.
 
 > Tamed Beasts follow the same rules of injury and death when reduced to 0 hit points.
 > If a Tamed Beast dies, a new one is found upon reaching the next level milestone.
+
+Additionally, druids have access to a number of Beast Points, or BP, that they can use to call upon Untamed Beasts from nature.
+To call upon an Untamed Beast, druids must make a successful Beast check and expend the specified number of Beast Points.
+Druids have a maximum number of Beast Points provided by their Tamed Beast and regain all lost Beast Points after a Rest.
+
+### Class Perks
 
 Druids can unlock new Untamed Beasts to call upon through their perks.
 
