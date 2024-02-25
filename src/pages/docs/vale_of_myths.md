@@ -547,13 +547,10 @@ Forges prefer the company of their hammer, but are fiercely loyal to the few the
 | ------------ | ------------ | -------------------------------------------- |
 | Intelligence | **Smithing** | Craft, enchant, and repair weapons and armor |
 
-Every Forge carries a Smithing Hammer that enables them to merge metal and runes through pure friction.
-This Smithing Hammer most often manifests itself as a dwarven warhammer weighing roughly 25 pounds with two broad faces.
-While they carry their Smithing Hammer, a Forge can repair gear using Smithing instead of Innovation and has the ability to earn Smithing Points that can be expended to create or enhance gear.
+### Class Item
 
-During a Rest, a Forge can spend their light activity learning, experimenting, and smithing.
-They will make a Smithing Check and on a success, earn 1 Smithing Point.
-Once a Forge has enough Smithing Points, they can expend them to complete a creation or enhancement.
+Every Forge carries a Smithing Hammer that enables them to merge metal and runes through pure friction.
+This Smithing Hammer is commonly a dwarven warhammer weighing roughly 25 pounds with two broad faces.
 
 | Level | Smithing Hammer Effect                     |
 | ----- | ------------------------------------------ |
@@ -561,15 +558,60 @@ Once a Forge has enough Smithing Points, they can expend them to complete a crea
 | 6     | Smithing +1, maximum of 6 Smithing Points  |
 | 12    | Smithing +2, maximum of 9 Smithing Points  |
 | 18    | Smithing +3, maximum of 12 Smithing Points |
-| 24    | Smithing +4, maximum of 15 Smithing Points |
+| 24    | Smithing +4                                |
 
-Forges can unlock new weapons and gear they can spending Smithing Points on through perks.
+### Class Abilities
 
-| Attribute    | Perk  | Requirement | Description |
-| ------------ | ----- | ----------- | ----------- |
-| Intelligence | **-** | Smithing 1  |             |
-| Intelligence | **-** | Smithing 2  |             |
-| Intelligence | **-** | Smithing 3  |             |
+During a Rest, Forges have the ability to repair damaged items using Smithing instead of Innovation, and they can experiment with smithing to build up Smithing Points, or SP.
+
+| Rest Activity | Skill    | Success   | Stalemate | Failure   |
+| ------------- | -------- | --------- | --------- | --------- |
+| Smith         | Smithing | Gain 2 SP | Gain 1 SP | Gain 0 SP |
+
+Forges can store a maximum number of Smithing Points dictated by their Smithing Hammer.
+Once they have earned enough Smithing Points, Forges can expend them to enhance a melee weapon.
+Any one weapon can only have a single enchantment of each type (see Class Perks).
+
+> **Example:** A longsword could be enhanced with Hardened Steel and Ethereal Oil, but not with Eldritch Edge and Ethereal Oil.
+
+Upon character creation, Forges can smith one weapon they have purchased with 4 SP worth of enhancements.
+
+### Class Perks
+
+Forges gain access to new types of gear enhancements through their perks.
+
+| Attribute    | Perk                       | Requirement | Description                                                                           |
+| ------------ | -------------------------- | ----------- | ------------------------------------------------------------------------------------- |
+| Intelligence | **Metallurgic Processing** | Smithing 1  | Unlock metallurgical enhancements, forging steel into its strongest and hardest form. |
+| Intelligence | **Magical Channeling**     | Smithing 2  | Unlock magical enhancements, channeling magical forces into an item's very structure. |
+| Intelligence | **Runic Infusion**         | Smithing 3  | Unlock runic enhancements, infusing the supernatural power of runes into an item.     |
+
+### Metallurgic Enhancements
+
+| Enhancement        | SP  | Description                                        |
+| ------------------ | --- | -------------------------------------------------- |
+| **Heated Steel**   | 1   | This weapon's bonus can never fall below 1.        |
+| **Hardened Steel** | 4   | This weapon's bonus is permanently increased by 1. |
+| **Tempered Steel** | 7   | This weapon's bonus is permanently increased by 2. |
+| **Alloy Steel**    | 10  | This weapon's bonus is permanently increased by 3. |
+
+### Magical Enhancements
+
+| Enhancement            | SP  | Description                                                |
+| ---------------------- | --- | ---------------------------------------------------------- |
+| **Innate Restoration** | 2   | Innovation checks to repair this weapon have +1 advantage. |
+| **Arcane Point**       | 5   | This weapon's damage is increased by 1D6.                  |
+| **Ethereal Oil**       | 8   | This weapon's damage is increased by 2D6.                  |
+| **Eldritch Edge**      | 11  | This weapon's damage is increased by 3D6.                  |
+
+### Runic Enhancements
+
+| Enhancement                | SP  | Description                                                                          |
+| -------------------------- | --- | ------------------------------------------------------------------------------------ |
+| **Grip of Weightlessness** | 3   | Attacks with this weapon can be made using Precision instead of Power.               |
+| **Flaming Blade**          | 6   | This weapon's damage is increased by 3D6 for attacks made against unarmored enemies. |
+| **Pommel of Protection**   | 9   | This weapon gives -1 disadvantage to melee attacks made against its wielder.         |
+| **Necrotic Edge**          | 12  | This weapon heals its wielder the same number of HP as damage dealt to its target.   |
 
 ## Herald
 
