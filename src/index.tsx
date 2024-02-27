@@ -12,6 +12,7 @@ import { VadeMecumDocsPage } from './pages/docs/VadeMecumDocsPage';
 import reportWebVitals from './reportWebVitals';
 import styled from 'styled-components';
 import { ValeOfMythsDocsPage } from './pages/docs/ValeOfMythsDocsPage';
+import { EncounterEnginePage } from './pages/engine/EncounterEnginePage';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -19,6 +20,7 @@ const router = createBrowserRouter(
       <Route path="" loader={() => redirect('/docs')} />
       <Route path="docs" element={<VadeMecumDocsPage />} />
       <Route path="docs/vale-of-myths" element={<ValeOfMythsDocsPage />} />
+      <Route path="engine" element={<EncounterEnginePage />} />
     </Route>
   )
 );
