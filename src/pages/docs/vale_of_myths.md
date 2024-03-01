@@ -22,8 +22,8 @@ This high fantasy kit is set in a kingdom-controlled dominion where characters w
 - [2. Classes](#2.-Classes)
   - [Knight](#Knight)
   - [Barbarian](#Barbarian)
-  - [Ranger](#Ranger)
   - [Monk](#Monk)
+  - [Ranger](#Ranger)
   - [Mage](#Mage)
   - [Forge](#Forge)
   - [Herald](#Herald)
@@ -252,7 +252,7 @@ Present day. Anything can happen.
 
 # 2. Classes
 
-Adventurers in the _Vale of Myths_ have ten classes to choose from.
+Adventurers in _Vale of Myths_ have ten classes to choose from.
 
 | Focus        | Class         | Description                                                                   |
 | ------------ | ------------- | ----------------------------------------------------------------------------- |
@@ -350,46 +350,6 @@ Barbarians have access to perks that further empower their Combat Rage.
 | Strength  | **Blood Rush**    | Rage 2      | _Nothing stops your advance._ While in a Combat Rage, your movement speed is increased by 10ft and you can traverse obstacles using Rage instead of Athletics or Agility. |
 | Strength  | **Beserker**      | Rage 3      | After landing a melee attack with Rage, you can use your second action to make another.                                                                                   |
 
-## Ranger
-
-Rangers are skilled marksmen and adept survivalists, ambushing their target from unseen vantage points when they least expect it.
-They specialize in navigating enemy territory, setting clever traps, finding high ground, and striking from afar.
-Rangers feels a responsibility towards the natural order of the world and never underestimate their environment in a fight.
-
-| Attribute | Skill        | Description                                                      |
-| --------- | ------------ | ---------------------------------------------------------------- |
-| Dexterity | **Survival** | Navigate natural obstacles, set traps, pickup a creature's trail |
-
-### Class Item
-
-Every Ranger carries a Survival Toolkit that enables them to wield the natural world as a tool.
-This Survival Toolkit is commonly a small bag holding a range of tools and equipment collected in their training.
-
-| Level | Survival Toolkit Effect |
-| ----- | ----------------------- |
-| 1     | Survival +0             |
-| 6     | Survival +1             |
-| 12    | Survival +2             |
-| 18    | Survival +3             |
-| 24    | Survival +4             |
-
-### Class Abilities
-
-Rangers have double the normal movement speed and can traverse natural obstacles using Survival instead of Athletics or Agility.
-
-### Class Perks
-
-Rangers have access to perks that add new items to their Survival Toolkit.
-
-| Attribute | Perk                 | Requirement | Description                                                                              |
-| --------- | -------------------- | ----------- | ---------------------------------------------------------------------------------------- |
-| Dexterity | **Scouting Lens**    | Survival 1  | When rolling Detection to scout from an elevated vantage point, add your Survival bonus. |
-| Dexterity | **Field Notes**      | Survival 1  | When rolling Insight against natural phenomena, add your Survival bonus.                 |
-| Dexterity | **Tripwire**         | Survival 2  | When rolling Detection to watch for enemies during a rest, add your Survival bonus.      |
-| Dexterity | **Survival Shelter** | Survival 2  | You get the bonus of Simple Lodging when resting in an Adventuring Camp.                 |
-| Dexterity | **Trauma Kit**       | Survival 3  | When rolling Medicine to heal or stabilize, add your Survival bonus.                     |
-| Dexterity | **Camouflage**       | Survival 3  | When rolling Stealth to launch a surprise attack, add your Survival bonus.               |
-
 ## Monk
 
 Monks are disciplined guardians of peace with a deep understanding of physical and spiritual balance.
@@ -435,6 +395,46 @@ Monks have access to perks that give them new ways to harness their Chi Points.
 | Dexterity | **Zen**              | Chi 1       | With a successful Chi check, you can expend a Chi Point to calm a group of people, giving advantage on Speech checks against them equal to your Chi. |
 | Dexterity | **Reflexive**        | Chi 2       | You get a second reaction during combat.                                                                                                             |
 | Dexterity | **Return to Sender** | Chi 3       | After deflecting an attack, you can spend a Chi Point to deal the intended damage back on the enemy.                                                 |
+
+## Ranger
+
+Rangers are skilled marksmen and adept survivalists, ambushing their target from unseen vantage points when they least expect it.
+They specialize in navigating enemy territory, setting clever traps, finding high ground, and striking from afar.
+Rangers feels a responsibility towards the natural order of the world and never underestimate their environment in a fight.
+
+| Attribute | Skill        | Description                                                      |
+| --------- | ------------ | ---------------------------------------------------------------- |
+| Dexterity | **Survival** | Navigate natural obstacles, set traps, pickup a creature's trail |
+
+### Class Item
+
+Every Ranger carries a Survival Toolkit that enables them to wield the natural world as a tool.
+This Survival Toolkit is commonly a small bag holding a range of tools and equipment collected in their training.
+
+| Level | Survival Toolkit Effect |
+| ----- | ----------------------- |
+| 1     | Survival +0             |
+| 6     | Survival +1             |
+| 12    | Survival +2             |
+| 18    | Survival +3             |
+| 24    | Survival +4             |
+
+### Class Abilities
+
+Rangers have double the normal movement speed and can traverse natural obstacles using Survival instead of Athletics or Agility.
+
+### Class Perks
+
+Rangers have access to perks that add new items to their Survival Toolkit.
+
+| Attribute | Perk                 | Requirement | Description                                                                              |
+| --------- | -------------------- | ----------- | ---------------------------------------------------------------------------------------- |
+| Dexterity | **Scouting Lens**    | Survival 1  | When rolling Detection to scout from an elevated vantage point, add your Survival bonus. |
+| Dexterity | **Field Notes**      | Survival 1  | When rolling Insight against natural phenomena, add your Survival bonus.                 |
+| Dexterity | **Tripwire**         | Survival 2  | When rolling Detection to watch for enemies during a rest, add your Survival bonus.      |
+| Dexterity | **Survival Shelter** | Survival 2  | You get the bonus of Simple Lodging when resting in an Adventuring Camp.                 |
+| Dexterity | **Trauma Kit**       | Survival 3  | When rolling Medicine to heal or stabilize, add your Survival bonus.                     |
+| Dexterity | **Camouflage**       | Survival 3  | When rolling Stealth to launch a surprise attack, add your Survival bonus.               |
 
 ## Mage
 

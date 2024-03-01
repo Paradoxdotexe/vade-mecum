@@ -13,6 +13,7 @@ import reportWebVitals from './reportWebVitals';
 import styled from 'styled-components';
 import { ValeOfMythsDocsPage } from './pages/docs/ValeOfMythsDocsPage';
 import { EncounterEnginePage } from './pages/engine/EncounterEnginePage';
+import { VestigesOfMankindDocsPage } from './pages/docs/VestigesOfMankindDocsPage';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -20,6 +21,7 @@ const router = createBrowserRouter(
       <Route path="" loader={() => redirect('/docs')} />
       <Route path="docs" element={<VadeMecumDocsPage />} />
       <Route path="docs/vale-of-myths" element={<ValeOfMythsDocsPage />} />
+      <Route path="docs/vestiges-of-mankind" element={<VestigesOfMankindDocsPage />} />
       <Route path="engine" element={<EncounterEnginePage />} />
     </Route>
   )
