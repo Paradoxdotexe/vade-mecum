@@ -82,11 +82,65 @@ Scavengers have access to perks that reflect their experience in the wasteland.
 | Attribute | Perk                      | Requirement  | Description                                                                                            |
 | --------- | ------------------------- | ------------ | ------------------------------------------------------------------------------------------------------ |
 | Strength  | **Wasteland Wisdom**      | Scavenging 1 | When rolling Insight to understand the wastes, add your Scavenging bonus.                              |
-| Strength  | **Picking at the Scraps** | Scavenging 1 | On an unsuccessful Investigation check to loot after combat, you still find `Scavenging x D6` bullets. |
+| Strength  | **Picking up the Scraps** | Scavenging 1 | On an unsuccessful Investigation check to loot after combat, you still find `Scavenging x D6` bullets. |
 | Strength  | **Combat Vision**         | Scavenging 2 | When using a Read a Target action, you can read a number of enemies equal to your Scavenging bonus.    |
 | Strength  | **Natural Predator**      | Scavenging 2 | You can mark a maximum number of targets equal to your Scavenging bonus.                               |
 | Strength  | **Marked for Death**      | Scavenging 2 | After a market target is killed, you can target another without expending an action.                   |
 | Strength  | **Combat Strategist**     | Scavenging 3 | Your Adventuring Party gains the same bonus as you do from attacking a marked target.                  |
+
+## Believer
+
+Believers are charismatic zealots, drawing the desperate and hopeful into their fold with promises of salvation and renewal.
+They wield their belief like a weapon, turning survivors towards their cause through the divine presence that surrounds them.
+Believers rely on unpredictable signs and portents to guide their journey, often letting their unwavering belief blind them to pragmatic concerns.
+
+| Attribute | Skill      | Description                                          |
+| --------- | ---------- | ---------------------------------------------------- |
+| Charisma  | **Belief** | Persuade others through belief, spark a divine event |
+
+### Class Item
+
+Every Believer carries a Divine Belief for something bigger than themselves, guiding them on their journey through the wastes.
+This belief is commonly Divine Salvation, Divine Guidance, or Divine Anarchy and is something rooted in every fiber of their being.
+
+| Divine Belief    | Description                                                                                                                                                                                                                                                              |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Divine Salvation | The apocalypse is just a part of the endless cycle of destruction and creation by the gods to cleanse the world of the unworthy. Those willing to continue their mission of putting down the faithless and uplifting the faithful shall be rewarded with a new paradise. |
+| Divine Guidance  | The apocalypse has been come to steer mankind towards a new, unknown mission. Those willing to undertake this mission can hear the voices of the gods in the howling winds, guiding them towards the hidden truths of the wastes.                                        |
+| Divine Anarchy   | The apocalypse is proof that the gods have fallen and their divine power has been ceded. Those bold enough to venture to ground zero shall be able to claim the divine power for themselves and shape the new world by their hand.                                       |
+
+| Level | Divine Belief Effect                               |
+| ----- | -------------------------------------------------- |
+| 1     | Belief +0, 1 Divination Point, 2 Divination Dice   |
+| 6     | Belief +1, 2 Divination Points, 4 Divination Dice  |
+| 12    | Belief +2, 3 Divination Points, 6 Divination Dice  |
+| 18    | Belief +3, 4 Divination Points, 8 Divination Dice  |
+| 24    | Belief +4, 5 Divination Points, 10 Divination Dice |
+
+### Class Abilities
+
+Believers have access to Divination Points, or DP, that they can use to spark supernatural events.
+
+| Action             | Description                                                                                                       |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------- |
+| **Spark Divinity** | With a successful Belief check, expend a number of DP to spark a divine event provided by an acquired class perk. |
+
+Believers start with the maximum number of Divination Points allowed by their Divine Belief.
+During a Rest, a Believer can spend a Rest Activity in prayer to restore all of their missing Divination Points.
+
+Believers also have a number of Divination Dice that they can use to shape their divine journey.
+During a Rest, Believers roll a number of Divination Dice provided by their Divine Belief and record the results.
+At any time, Believers can replace a rolled die by a character with one of their Divination Dice.
+
+### Class Perks
+
+Believers can unlock new ways to use their Divination Points through their perks.
+
+| Attribute | Perk              | Requirement | Description                                                                                                                                                         |
+| --------- | ----------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Charisma  | **Manifestation** | Belief 1    | Spend 1 DP to manifest a divine sign in the world. You guarantee success on your next roll.                                                                         |
+| Charisma  | **Revelation**    | Belief 2    | Spend 2 DP to get a vision revealing the way towards success. What is revealed is at the DM's discretion.                                                           |
+| Charisma  | **Rapture**       | Belief 3    | Spend 3 DP to stabilize an incapacitated character or revive a character that has been dead for less than 1 hour. The character immediately heals `6D6` hit points. |
 
 # 3. Items
 
