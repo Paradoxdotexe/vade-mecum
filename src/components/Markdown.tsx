@@ -13,7 +13,6 @@ const processMarkdown = (markdown: string) => {
     const id = match[2].replace(/ /g, '-');
     markdown = markdown.slice(0, match.index + 3) + ` id='${id}'` + markdown.slice(match.index + 3);
   }
-  console.log(markdown);
   return markdown;
 };
 

@@ -17,6 +17,8 @@ const Page = styled.div`
       padding: 6px;
       border-radius: 6px;
       float: right;
+      font-family: 'Noto Sans Mono', monospace;
+      font-size: 14px;
     }
   }
 `;
