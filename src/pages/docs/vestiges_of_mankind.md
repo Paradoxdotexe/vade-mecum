@@ -88,6 +88,51 @@ Scavengers have access to perks that reflect their experience in the wasteland.
 | Strength  | **Marked for Death**      | Scavenging 2 | After a market target is killed, you can target another without expending an action.                   |
 | Strength  | **Combat Strategist**     | Scavenging 3 | Your Adventuring Party gains the same bonus as you do from attacking a marked target.                  |
 
+## Mutant
+
+Mutants are survivors twisted and reshaped by the wasteland, bearing grotesque alterations that imbue them with abilities as fearsome as their appearances.
+Using the chaotic energy of their mutations, they defy the laws of nature to withstand the harsh realities of the deep wastes.
+Mutants are shunned and feared by the unmutated, forcing them to live on the fringes of what remains of society and band together for survival.
+
+| Attribute | Skill        | Description         |
+| --------- | ------------ | ------------------- |
+| Strength  | **Mutation** | Activate a mutation |
+
+### Class Item
+
+Every Mutant carries a Radioactive Relic, an item from the old world that is unknowingly imbued with outrageous amounts of radiation.
+This relic is commonly a piece of clothing they have stretched around their mutated bodies or a benign artifact such as a metal spoon, a teddy bear, or sunglasses.
+
+| Level | Radioactive Relic Effect |
+| ----- | ------------------------ |
+| 1     | Mutation +1              |
+| 6     | Mutation +2              |
+| 12    | Mutation +3              |
+| 18    | Mutation +4              |
+| 24    | Mutation +5              |
+
+### Class Abilities
+
+Mutants have access to Mutation Points, or MP, that they can use to wield their mutant abilities.
+
+| Action                | Description                                                                                                        |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| **Activate Mutation** | With a successful Mutation check, expend a number of MP to activate a mutation provided by an acquired class perk. |
+
+Mutants can hold a maximum number of Mutation Points equal to their level.
+During a Rest, a Mutant can spend a Rest Activity to restore all of their missing Mutation Points.
+
+### Class Perks
+
+Mutants gain new mutations that they can activate through their perks.
+
+| Attribute | Perk                | Requirement | Description                                                                                                       |
+| --------- | ------------------- | ----------- | ----------------------------------------------------------------------------------------------------------------- |
+| Strength  | **Armored Skin**    | Mutation 1  | Spend 1 MP to decrease your next source of incoming damage by 1D6.                                                |
+| Strength  | **Clawed Hand**     | Mutation 1  | Spend up to 3 MP to claw at a target within 5ft. For each MP spent, the target takes `1D6` damage.                |
+| Strength  | **Behemoth's Arm**  | Mutation 2  | Spend 4 MP to grab a target within 5ft and throw them 20ft away. They are knocked prone and take `2D6` damage.    |
+| Strength  | **Nuclear Reactor** | Mutation 3  | Spend 6 MP to release a radioactive blast from your chest at a target within 30ft. The target takes `5D6` damage. |
+
 ## Believer
 
 Believers are charismatic zealots, drawing the desperate and hopeful into their fold with promises of salvation and renewal.

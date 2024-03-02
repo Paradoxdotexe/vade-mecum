@@ -467,7 +467,7 @@ Mages have access to a number of Magic Points, or MP, they can use to cast spell
 | ---------------- | --------------------------------------------------------------------------- |
 | **Cast a Spell** | With a successful Magic check, cast a known spell and expend its cost in MP |
 
-Mages can hold a maximum number of Magic Points equal to their `Level x 2`.
+Mages can hold a maximum number of Magic Points equal to their level.
 During a Rest, a Mage can spend a Rest Activity to restore all of their missing Magic Points.
 
 Mages can only learn spells from a school of magic they know (see Class Perks) and that meet the Rarity threshold of their Magical Channel.
@@ -523,10 +523,11 @@ The study of the natural elements and how to wield them.
 
 The study of life and death and how to bring about either in expedited fashion.
 
-| Spell          | Rarity    | MP  | Description                                                                                                                      |
-| -------------- | --------- | --- | -------------------------------------------------------------------------------------------------------------------------------- |
-| **Life Steal** | Average   | 3   | Steal 3d6 HP from a character you can touch.                                                                                     |
-| **Revival**    | Legendary | 6   | Revive a character that has been dead for less than 24 hours. The revived character has their Strength permanently reduced by 1. |
+| Spell              | Rarity    | MP  | Description                                                                                                                      |
+| ------------------ | --------- | --- | -------------------------------------------------------------------------------------------------------------------------------- |
+| **Necrotic Touch** | Average   | 3   | Deal `3d6` damage to a character you can touch.                                                                                  |
+| **Life Steal**     | Legendary | 6   | Deal `4d6` damage to a character you can touch and heal `2d6` hit points.                                                        |
+| **Revival**        | Legendary | 6   | Revive a character that has been dead for less than 24 hours. The revived character has their Strength permanently reduced by 1. |
 
 ### School of Chronomancy
 
@@ -611,7 +612,7 @@ Forges gain access to new types of gear enhancements through their perks.
 | **Grip of Weightlessness** | 3   | Attacks with this weapon can be made using Precision instead of Power.               |
 | **Flaming Blade**          | 6   | This weapon's damage is increased by 3D6 for attacks made against unarmored enemies. |
 | **Pommel of Protection**   | 9   | This weapon gives -1 disadvantage to melee attacks made against its wielder.         |
-| **Necrotic Edge**          | 12  | This weapon heals its wielder the same number of HP as damage dealt to its target.   |
+| **Necrotic Edge**          | 12  | This weapon heals its wielder half the amount of HP as damage dealt to its target.   |
 
 ## Herald
 
@@ -778,7 +779,7 @@ This ritual uses nature's essence to harness the electric energy of the storms a
 
 | Act             | Rarity        | NP  | Description                                                                                                           |
 | --------------- | ------------- | --- | --------------------------------------------------------------------------------------------------------------------- |
-| Lightning Storm | **Legendary** | 6   | You control three lightning bolts that strike one or more chosen targets. For each bolt, the target takes 4D6 damage. |
+| Lightning Storm | **Legendary** | 6   | You control three lightning bolts that strike one or more chosen targets. For each bolt, the target takes 2D6 damage. |
 
 ## Druid
 
