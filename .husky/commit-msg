@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# Installed by semantic-commits.
+npx semantic-commits commit-msg $1

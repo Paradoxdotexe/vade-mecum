@@ -3,9 +3,7 @@ import { Markdown, MarkdownProps } from '../../components/Markdown';
 import styled from 'styled-components';
 
 const StyledComponent = styled.div`
-  padding: 64px;
   width: 100%;
-  max-width: 964px;
 
   @media only screen and (max-width: 800px) {
     padding: 32px;

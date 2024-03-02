@@ -27,7 +27,7 @@
     "deploy": "npm run build && npm run deploy:s3 && npm run deploy:cloudfront",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prepare": "husky install"
+    "prepare": "husky install && semantic-commits install"
   },
   "lint-staged": {
     "*.tsx": "eslint",
@@ -55,6 +55,11 @@
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "husky": "^8.0.3",
     "lint-staged": "^15.2.0",
-    "prettier": "3.2.4"
+    "prettier": "3.2.4",
+    "semantic-commits": "^0.7.4"
+  },
+  "semanticCommits": {
+    "indent": 2,
+    "versionFilePath": "src/version.json"
   }
 }
