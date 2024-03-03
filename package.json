@@ -23,8 +23,8 @@
     "dev": "react-scripts start",
     "build": "react-scripts build",
     "deploy:s3": "aws s3 sync ./build s3://vademecum.thenjk.com",
-    "deploy:cloudfront": "aws cloudfront create-invalidation --distribution-id E21FM4AG66XKGE --paths \"/*\"",
-    "deploy": "npm run build && npm run deploy:s3 && npm run deploy:cloudfront",
+    "deploy:cloudfront": "aws cloudfront create-invalidation --distribution-id E21FM4AG66XKGE --paths \"/*\" --quiet",
+    "deploy": "npm run build && npm run deploy:s3 && npm run deploy:cloudfront && echo Deployed to https://vademecum.thenjk.com",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prepare": "husky install && semantic-commits install"

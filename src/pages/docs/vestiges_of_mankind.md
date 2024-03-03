@@ -24,7 +24,7 @@ This post-apocalyptic kit is set decades after a world-ending disaster where cha
 
 # 1. Lore
 
-This kits takes place in _the Wasteland_, the destroyed remnants of the civilized world.
+This kit takes place in the _Wasteland_, the destroyed remnants of the civilized world, nearly 200 years after nuclear war decimated mankind.
 
 # 2. Classes
 
@@ -55,7 +55,7 @@ Scavengers honorably risk life and limb to bring back vital resources to those t
 
 ### Class Item
 
-Every Scavenger carries a Survival Handbook that they use to record the creatures and locations they have encountered to aid them in Scavenging.
+Every Scavenger carries a Survival Handbook that they use to record the creatures and locations they have encountered while scavenging.
 This piece of gear is commonly a notebook from the old world or a hand-crafted journal made from scrap stationary.
 
 | Level | Survival Handbook Effect |
@@ -68,7 +68,7 @@ This piece of gear is commonly a notebook from the old world or a hand-crafted j
 
 ### Class Abilities
 
-Scavengers have the ability to use their Scavenging ability to read enemies and their surroundings to gain the advantage in combat.
+Scavengers have the ability to read enemies and their surroundings to gain an advantage in wasteland combat.
 
 | Action            | Description                                                                                                                                                                                                                                                                   |
 | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -87,6 +87,54 @@ Scavengers have access to perks that reflect their experience in the wasteland.
 | Strength  | **Natural Predator**      | Scavenging 2 | You can mark a maximum number of targets equal to your Scavenging bonus.                               |
 | Strength  | **Marked for Death**      | Scavenging 2 | After a market target is killed, you can target another without expending an action.                   |
 | Strength  | **Combat Strategist**     | Scavenging 3 | Your Adventuring Party gains the same bonus as you do from attacking a marked target.                  |
+
+## Scribe
+
+Scribes are the custodians of history, piecing together the fragmented past to guide the present and inspire the future.
+They use their deep intelligence and insatiable curiosity to decipher the ways of the old world, unlocking technologies, philosophies, and strategies from a bygone era.
+Scribes are invaluable advisors for their ability to solve complex problems and lay the foundation of the new world.
+
+| Attribute    | Skill       | Description                             |
+| ------------ | ----------- | --------------------------------------- |
+| Intelligence | **History** | Understand artifacts from the old world |
+
+### Class Item
+
+Every Scribe carries a Historical Codex that they use to record the artifacts they have found from the old world.
+This codex is commonly an old textbook or bible that has been repurposed by bleaching its pages.
+
+| Level | Historical Codex Effect                   |
+| ----- | ----------------------------------------- |
+| 1     | History +0, maximum of 3 Artifact Points  |
+| 6     | History +1, maximum of 6 Artifact Points  |
+| 12    | History +2, maximum of 9 Artifact Points  |
+| 18    | History +3, maximum of 12 Artifact Points |
+| 24    | History +4                                |
+
+### Class Abilities
+
+Scribes have the ability to comprehend artifacts from the old world using History instead of Comprehension.
+During a Rest, Scribes can study artifacts to build up Artifact Points, or AP.
+
+| Rest Activity   | Skill   | Success   | Stalemate | Failure   |
+| --------------- | ------- | --------- | --------- | --------- |
+| Study artifacts | History | Gain 2 AP | Gain 1 AP | Gain 0 SP |
+
+Scribes can store a maximum number of Artifact Points dictated by their Historical Codex.
+Once they have earned enough Artifact Points, Scribes can expend them to use an artifact.
+
+### Class Perks
+
+Scribes have access to perks that represent new artifacts they have discovered in the world.
+
+| Attribute    | Perk              | Requirement  | Description                                                                                                                                                                                                                            |
+| ------------ | ----------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Intelligence | **Defibrillator** | History 1    | Spend 1 AP to make a Defibrillator operational for `1D6` uses. The Defibrillator can stabilize an incapacitated character without a roll, and revive a character that has been dead for less than 1 minute on a successful `1D6` roll. |
+| Intelligence | **Chainsaw**      | History 2    | Spend 2 AP to make a Chainsaw operational for 2 turns. The Chainsaw can be used to attack a target within 5ft for `4D6` damage. No attack roll is required.                                                                            |
+| Intelligence | **Motorcycle**    | History 3    | Spend 4 AP to operate a Motorcycle for a day. It has a speed of 30 miles per hour or 360 miles per day and can carry 2 characters.                                                                                                     |
+| Intelligence | **Automobile**    | History 3    | Spend 6 AP to operate a Automobile for a day. It has a speed of 20 miles per hour or 240 miles per day and can carry 10 characters.                                                                                                    |
+| Intelligence | **Motorboat**     | History 3    | Spend 6 AP to operate a Motorboat for a day. It has a speed of 30 miles per hour or 360 miles per day and can carry 10 characters.                                                                                                     |
+| Intelligence | **Mechanic**      | Innovation 3 | The AP cost of the Motorcycle, Automobile, and Motorboat artifacts are reduced by half.                                                                                                                                                |
 
 ## Mutant
 

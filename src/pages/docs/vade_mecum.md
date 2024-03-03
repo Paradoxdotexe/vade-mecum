@@ -152,23 +152,23 @@ Below attributes, characters have 15 core skills that represent proficiencies wi
 These skills are scored on a scale from 0 to 3, with the average human being a 1.
 Skills allow characters to specialize themselves towards specific types of actions.
 
-| Attribute    | Skill             | Description                                                  |
-| ------------ | ----------------- | ------------------------------------------------------------ |
-| Strength     | **Power**         | Move a heavy object, attack with a melee weapon              |
-| Strength     | **Fortitude**     | Endure physical hardship, resist physical exhaustion         |
-| Strength     | **Athletics**     | Climb an obstacle, jump a gap, sprint a long distance        |
-| Dexterity    | **Precision**     | Pick a lock, disarm a trap, attack with a ranged weapon      |
-| Dexterity    | **Stealth**       | Move quietly, hide oneself, evade detection                  |
-| Dexterity    | **Agility**       | Dodge a hazard, react quickly, manuever acrobatically        |
-| Intelligence | **Comprehension** | Understand written information, operate a complex system     |
-| Intelligence | **Innovation**    | Solve a mechanic problem, fix a damaged item                 |
-| Intelligence | **Medicine**      | Diagnose and treat injuries and illnesses                    |
-| Charisma     | **Intuition**     | Understand unspoken motives and feelings, catch lies         |
-| Charisma     | **Speech**        | Persuade or deceive a person                                 |
-| Charisma     | **Barter**        | Haggle for better prices or terms, assess an item's value    |
-| Perception   | **Insight**       | Understand sensory symbols or signs, recognize places        |
-| Perception   | **Detection**     | Detect the presence of a creature, identify traps or hazards |
-| Perception   | **Investigation** | Search for clues or objects, scan for details                |
+| Attribute    | Skill             | Description                                                        |
+| ------------ | ----------------- | ------------------------------------------------------------------ |
+| Strength     | **Power**         | Move a heavy object, attack with a melee weapon                    |
+| Strength     | **Fortitude**     | Endure physical hardship, resist physical exhaustion               |
+| Strength     | **Athletics**     | Climb an obstacle, jump a gap, sprint a long distance              |
+| Dexterity    | **Precision**     | Pick a lock, disarm a trap, attack with a ranged weapon            |
+| Dexterity    | **Stealth**       | Move quietly, hide oneself, evade detection                        |
+| Dexterity    | **Agility**       | Dodge a hazard, react quickly, manuever acrobatically              |
+| Intelligence | **Comprehension** | Understand written or spoken information, operate a complex system |
+| Intelligence | **Innovation**    | Solve mechanical or technical problems, fix damaged items          |
+| Intelligence | **Medicine**      | Diagnose and treat injuries and illnesses                          |
+| Charisma     | **Intuition**     | Understand unspoken motives and feelings, catch lies               |
+| Charisma     | **Speech**        | Persuade or deceive a person                                       |
+| Charisma     | **Barter**        | Haggle for better prices or terms, assess an item's value          |
+| Perception   | **Insight**       | Understand sensory symbols or signs, recognize places              |
+| Perception   | **Detection**     | Detect the presence of a creature, identify traps or hazards       |
+| Perception   | **Investigation** | Search for clues or objects, scan for details                      |
 
 ## 2.3 Perks
 
@@ -401,27 +401,27 @@ For the best experience, focus on making a unique and interesting adventurer tha
 
 > **Background**
 >
-> - Name your character
-> - Choose your character's race from the World Kit being used
-> - Describe your character's appearance
-> - Define your character's personal goal
+> - [ ] Name your character
+> - [ ] Choose your character's race from the World Kit being used
+> - [ ] Describe your character's appearance
+> - [ ] Define your character's personal goal
 >   - This can evolve over the course of an adventure
 
 > **Abilities**
 >
-> - Choose your character's class from the World Kit being used
+> - [ ] Choose your character's class from the World Kit being used
 >   - Describe your character's class item
-> - Allocate 12 points into your character's attributes in the amounts of 1, 2, 2, 3, and 4
+> - [ ] Allocate 12 points into your character's attributes in the amounts of 1, 2, 2, 3, and 4
 >   - The 4 must be placed into your class's Focus attribute
 >   - The 1 will be considered your character's Flaw attribute
-> - Allocate 1 point into 6 different skills
+> - [ ] Allocate 1 point into 6 different skills
 >   - Points cannot be put into skills under your Flaw attribute
-> - Acquire one perk that you meet the requirements of
+> - [ ] Acquire one general perk that you meet the requirements of
+> - [ ] Acquire one class perk that you meet the requirements of
 
 > **Equipment**
 >
-> - Calculate your character's carrying capacity based on their Strength and Fortitude
-> - Add 40 Currency Units to your character's inventory
+> - [ ] Add 40 Currency Units to your character's inventory
 >   - You can spend these Currency Units to purchase items from the World Kit being used
 
 # 3. Adventuring

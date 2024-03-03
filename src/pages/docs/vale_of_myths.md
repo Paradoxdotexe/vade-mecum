@@ -38,7 +38,7 @@ This high fantasy kit is set in a kingdom-controlled dominion where characters w
 
 # 1. Lore
 
-This kits takes place in _the Vale_, a temperate continent with a diverse range of people and places.
+This kits takes place in the _Vale_, a temperate continent with a diverse range of people and places.
 
 ## 1.1 Races
 
@@ -421,7 +421,7 @@ This Survival Toolkit is commonly a small bag holding a range of tools and equip
 
 ### Class Abilities
 
-Rangers have double the normal movement speed and can traverse natural obstacles using Survival instead of Athletics or Agility.
+Rangers add their Survival bonus to their Movement Speed and can traverse natural obstacles using Survival instead of Athletics or Agility.
 
 ### Class Perks
 
