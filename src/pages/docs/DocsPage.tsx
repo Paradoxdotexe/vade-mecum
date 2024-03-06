@@ -10,6 +10,16 @@ const Page = styled.div`
   .page__docs {
     padding: 64px;
     max-width: 964px;
+    width: 100%;
+
+    @media only screen and (max-width: 800px) {
+      padding: 32px;
+    }
+
+    @media print {
+      padding: 0;
+      max-width: 742px;
+    }
 
     .docs__version {
       background: #585858;

@@ -88,54 +88,6 @@ Scavengers have access to perks that reflect their experience in the wasteland.
 | Strength  | **Marked for Death**      | Scavenging 2 | After a market target is killed, you can target another without expending an action.                   |
 | Strength  | **Combat Strategist**     | Scavenging 3 | Your Adventuring Party gains the same bonus as you do from attacking a marked target.                  |
 
-## Scribe
-
-Scribes are the custodians of history, piecing together the fragmented past to guide the present and inspire the future.
-They use their deep intelligence and insatiable curiosity to decipher the ways of the old world, unlocking technologies, philosophies, and strategies from a bygone era.
-Scribes are invaluable advisors for their ability to solve complex problems and lay the foundation of the new world.
-
-| Attribute    | Skill       | Description                             |
-| ------------ | ----------- | --------------------------------------- |
-| Intelligence | **History** | Understand artifacts from the old world |
-
-### Class Item
-
-Every Scribe carries a Historical Codex that they use to record the artifacts they have found from the old world.
-This codex is commonly an old textbook or bible that has been repurposed by bleaching its pages.
-
-| Level | Historical Codex Effect                   |
-| ----- | ----------------------------------------- |
-| 1     | History +0, maximum of 3 Artifact Points  |
-| 6     | History +1, maximum of 6 Artifact Points  |
-| 12    | History +2, maximum of 9 Artifact Points  |
-| 18    | History +3, maximum of 12 Artifact Points |
-| 24    | History +4                                |
-
-### Class Abilities
-
-Scribes have the ability to comprehend artifacts from the old world using History instead of Comprehension.
-During a Rest, Scribes can study artifacts to build up Artifact Points, or AP.
-
-| Rest Activity   | Skill   | Success   | Stalemate | Failure   |
-| --------------- | ------- | --------- | --------- | --------- |
-| Study artifacts | History | Gain 2 AP | Gain 1 AP | Gain 0 SP |
-
-Scribes can store a maximum number of Artifact Points dictated by their Historical Codex.
-Once they have earned enough Artifact Points, Scribes can expend them to use an artifact.
-
-### Class Perks
-
-Scribes have access to perks that represent new artifacts they have discovered in the world.
-
-| Attribute    | Perk              | Requirement  | Description                                                                                                                                                                                                                            |
-| ------------ | ----------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Intelligence | **Defibrillator** | History 1    | Spend 1 AP to make a Defibrillator operational for `1D6` uses. The Defibrillator can stabilize an incapacitated character without a roll, and revive a character that has been dead for less than 1 minute on a successful `1D6` roll. |
-| Intelligence | **Chainsaw**      | History 2    | Spend 2 AP to make a Chainsaw operational for 2 turns. The Chainsaw can be used to attack a target within 5ft for `4D6` damage. No attack roll is required.                                                                            |
-| Intelligence | **Motorcycle**    | History 3    | Spend 4 AP to operate a Motorcycle for a day. It has a speed of 30 miles per hour or 360 miles per day and can carry 2 characters.                                                                                                     |
-| Intelligence | **Automobile**    | History 3    | Spend 6 AP to operate a Automobile for a day. It has a speed of 20 miles per hour or 240 miles per day and can carry 10 characters.                                                                                                    |
-| Intelligence | **Motorboat**     | History 3    | Spend 6 AP to operate a Motorboat for a day. It has a speed of 30 miles per hour or 360 miles per day and can carry 10 characters.                                                                                                     |
-| Intelligence | **Mechanic**      | Innovation 3 | The AP cost of the Motorcycle, Automobile, and Motorboat artifacts are reduced by half.                                                                                                                                                |
-
 ## Mutant
 
 Mutants are survivors twisted and reshaped by the wasteland, bearing grotesque alterations that imbue them with abilities as fearsome as their appearances.
@@ -180,6 +132,55 @@ Mutants gain new mutations that they can activate through their perks.
 | Strength  | **Clawed Hand**     | Mutation 1  | Spend up to 3 MP to claw at a target within 5ft. For each MP spent, the target takes `1D6` damage.                |
 | Strength  | **Behemoth's Arm**  | Mutation 2  | Spend 4 MP to grab a target within 5ft and throw them 20ft away. They are knocked prone and take `2D6` damage.    |
 | Strength  | **Nuclear Reactor** | Mutation 3  | Spend 6 MP to release a radioactive blast from your chest at a target within 30ft. The target takes `5D6` damage. |
+
+## Scribe
+
+Scribes are the custodians of history, piecing together the fragmented past to guide the present and inspire the future.
+They use their deep intelligence and insatiable curiosity to decipher the ways of the old world, unlocking technologies, philosophies, and strategies from a bygone era.
+Scribes are invaluable advisors for their ability to solve complex problems and lay the foundation of the new world.
+
+| Attribute    | Skill       | Description                             |
+| ------------ | ----------- | --------------------------------------- |
+| Intelligence | **History** | Understand artifacts from the old world |
+
+### Class Item
+
+Every Scribe carries a Historical Codex that they use to record the artifacts they have found from the old world.
+This codex is commonly an old textbook or bible that has been repurposed by bleaching its pages.
+
+| Level | Historical Codex Effect                   |
+| ----- | ----------------------------------------- |
+| 1     | History +0, maximum of 3 Artifact Points  |
+| 6     | History +1, maximum of 6 Artifact Points  |
+| 12    | History +2, maximum of 9 Artifact Points  |
+| 18    | History +3, maximum of 12 Artifact Points |
+| 24    | History +4                                |
+
+### Class Abilities
+
+Scribes have the ability to comprehend artifacts from the old world using History instead of Comprehension.
+During a Rest, Scribes can study artifacts to build up Artifact Points, or AP.
+
+| Rest Activity   | Skill   | Success   | Stalemate | Failure   |
+| --------------- | ------- | --------- | --------- | --------- |
+| Study artifacts | History | Gain 2 AP | Gain 1 AP | Gain 0 SP |
+
+Scribes can store a maximum number of Artifact Points dictated by their Historical Codex.
+Once they have earned enough Artifact Points, Scribes can expend them to use an artifact.
+
+### Class Perks
+
+Scribes have access to perks that represent new artifacts they have discovered in the world.
+
+| Attribute    | Perk              | Requirement  | Description                                                                                                                                                                                                                            |
+| ------------ | ----------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Intelligence | **Defibrillator** | History 1    | Spend 1 AP to make a Defibrillator operational for `1D6` uses. The Defibrillator can stabilize an incapacitated character without a roll, and revive a character that has been dead for less than 1 minute on a successful `1D6` roll. |
+| Intelligence | **Rebreather**    | History 1    | Spend 1 AP to make a Rebreather operational for `1D6` hours. The Rebreather allows the wearer to stay submerged underwater indefinitely.                                                                                               |
+| Intelligence | **Chainsaw**      | History 2    | Spend 2 AP to make a Chainsaw operational for 2 turns. The Chainsaw can be used to attack a target within 5ft for `4D6` damage. No attack roll is required.                                                                            |
+| Intelligence | **Motorcycle**    | History 3    | Spend 4 AP to operate a Motorcycle for a day. It has a speed of 30 miles per hour or 360 miles per day and can carry 2 characters.                                                                                                     |
+| Intelligence | **Automobile**    | History 3    | Spend 6 AP to operate a Automobile for a day. It has a speed of 20 miles per hour or 240 miles per day and can carry 10 characters.                                                                                                    |
+| Intelligence | **Motorboat**     | History 3    | Spend 6 AP to operate a Motorboat for a day. It has a speed of 30 miles per hour or 360 miles per day and can carry 10 characters.                                                                                                     |
+| Intelligence | **Mechanic**      | Innovation 3 | The AP cost of the Motorcycle, Automobile, and Motorboat artifacts are reduced by half.                                                                                                                                                |
 
 ## Believer
 

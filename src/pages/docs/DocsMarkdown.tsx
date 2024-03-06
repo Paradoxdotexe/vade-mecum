@@ -3,16 +3,7 @@ import { Markdown, MarkdownProps } from '../../components/Markdown';
 import styled from 'styled-components';
 
 const StyledComponent = styled.div`
-  width: 100%;
-
-  @media only screen and (max-width: 800px) {
-    padding: 32px;
-  }
-
   @media print {
-    padding: 0;
-    width: 742px;
-
     h1 {
       page-break-before: always;
     }
