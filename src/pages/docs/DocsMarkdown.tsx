@@ -118,8 +118,9 @@ const StyledComponent = styled.div`
 
   table {
     border-spacing: 0;
-    width: 100%;
     margin-block: 24px;
+    display: block;
+    overflow-x: auto;
 
     tr {
       th,
@@ -130,6 +131,11 @@ const StyledComponent = styled.div`
         &:not(:last-child) {
           white-space: nowrap;
           vertical-align: baseline;
+        }
+
+        &:last-child {
+          min-width: 240px;
+          width: 100%;
         }
       }
 
