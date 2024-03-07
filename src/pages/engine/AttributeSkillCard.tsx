@@ -8,6 +8,7 @@ const Card = styled.div`
   border-radius: 4px;
   display: flex;
   padding: 12px;
+  box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.1);
 
   .card__attribute {
     display: flex;
@@ -28,12 +29,23 @@ const Card = styled.div`
     flex-direction: column;
     padding-left: 12px;
     gap: 6px;
+    flex: 1;
 
     .skills__skill {
       display: flex;
       align-items: center;
       gap: 6px;
       font-size: 14px;
+
+      .skill__label {
+        flex: 1;
+        padding-block: 3px;
+
+        &:hover {
+          color: #43a6ec;
+          cursor: pointer;
+        }
+      }
     }
   }
 `;
@@ -41,6 +53,7 @@ const Card = styled.div`
 type AttributeSkillCardProps = {
   attribute: Attribute;
   onChange: (attribute: Attribute) => void;
+  onClick?: (attribute: Attribute) => void;
 };
 
 export const AttributeSkillCard: React.FC<AttributeSkillCardProps> = props => {
@@ -70,7 +83,12 @@ export const AttributeSkillCard: React.FC<AttributeSkillCardProps> = props => {
               }}
               max={3}
             />
-            {skill.label}
+            <div
+              className="skill__label"
+              onClick={() => props.onClick?.({ ...props.attribute, skills: [skill] })}
+            >
+              {skill.label}
+            </div>
           </div>
         ))}
       </div>

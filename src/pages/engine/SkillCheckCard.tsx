@@ -12,6 +12,7 @@ const SkillCheckCardDiv = styled.div`
   width: 200px;
   overflow: hidden;
   font-size: 14px;
+  box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.1);
 
   .card__header {
     font-family: 'Noto Sans Display', sans-serif;
@@ -107,6 +108,9 @@ type DiceFactor = {
 type SkillCheckCardProps = {
   name: string;
   diceFactors?: DiceFactor[];
+  minimized?: boolean;
+  diceRoll?: number[];
+  onRoll?: (diceRoll: number[]) => void;
 };
 
 export const SkillCheckCard: React.FC<SkillCheckCardProps> = props => {
@@ -115,16 +119,14 @@ export const SkillCheckCard: React.FC<SkillCheckCardProps> = props => {
     { type: 'A', label: 'Advantage', value: 0 },
     { type: 'D', label: 'Disadvantage', value: 0 }
   ]);
-  const [diceRoll, setDiceRoll] = useState<number[]>();
-
-  useEffect(() => {
-    setDiceRoll(undefined);
-  }, [diceFactors]);
+  const [diceRoll, setDiceRoll] = useState<number[] | undefined>(props.diceRoll);
 
   const roll = () => {
     const rollSound = new Audio('/sounds/roll.mp3');
     rollSound.play();
-    setDiceRoll([...new Array(total)].map(() => rollDie()).sort((a, b) => b - a));
+    const diceRoll = [...new Array(total)].map(() => rollDie()).sort((a, b) => b - a);
+    setDiceRoll(diceRoll);
+    props.onRoll?.(diceRoll);
   };
 
   const total = Math.max(
@@ -140,37 +142,41 @@ export const SkillCheckCard: React.FC<SkillCheckCardProps> = props => {
         {props.name}
       </div>
       <div className="card__body">
-        <div className="body__factors">
-          {diceFactors.map((diceFactor, i) => (
-            <DiceFactorInput
-              key={i}
-              prefix={i === 0 ? undefined : diceFactor.type === 'A' ? '+' : '-'}
-              label={diceFactor.label}
-              value={diceFactor.value}
-              max={diceFactor.max}
-              onChange={value => {
-                setDiceFactors(diceFactors => {
-                  diceFactors[i].value = value;
-                  return [...diceFactors];
-                });
-              }}
-            />
-          ))}
-        </div>
+        {!props.minimized && (
+          <>
+            <div className="body__factors">
+              {diceFactors.map((diceFactor, i) => (
+                <DiceFactorInput
+                  key={i}
+                  prefix={i === 0 ? undefined : diceFactor.type === 'A' ? '+' : '-'}
+                  label={diceFactor.label}
+                  value={diceFactor.value}
+                  max={diceFactor.max}
+                  onChange={value => {
+                    setDiceFactors(diceFactors => {
+                      diceFactors[i].value = value;
+                      return [...diceFactors];
+                    });
+                  }}
+                />
+              ))}
+            </div>
 
-        <div className="body__divider" />
+            <div className="body__divider" />
 
-        <div className="body__total">
-          <DiceFactorInput prefix="=" label="Total" value={total} disabled />
-          <button onClick={() => roll()} disabled={total === 0}>
-            {diceRoll ? 'Re-roll' : 'Roll'}
-          </button>
-        </div>
+            <div className="body__total">
+              <DiceFactorInput prefix="=" label="Total" value={total} disabled />
+              <button onClick={() => roll()} disabled={total === 0}>
+                Roll
+              </button>
+            </div>
 
-        <div className="body__divider" />
+            <div className="body__divider" />
+          </>
+        )}
 
         <div className="body__dice">
-          {[...new Array(total)].map((_, i) => {
+          {[...new Array(diceRoll?.length ?? total)].map((_, i) => {
             const die = diceRoll?.[i];
             const outcome = die !== undefined ? getDieOutcome(die) : undefined;
 
