@@ -12,7 +12,7 @@ import { VadeMecumDocsPage } from './pages/docs/VadeMecumDocsPage';
 import reportWebVitals from './reportWebVitals';
 import styled from 'styled-components';
 import { ValeOfMythsDocsPage } from './pages/docs/ValeOfMythsDocsPage';
-import { EncounterEnginePage } from './pages/engine/EncounterEnginePage';
+import { EnginePage } from './pages/engine/EnginePage';
 import { VestigesOfMankindDocsPage } from './pages/docs/VestigesOfMankindDocsPage';
 
 const router = createBrowserRouter(
@@ -22,7 +22,7 @@ const router = createBrowserRouter(
       <Route path="docs" element={<VadeMecumDocsPage />} />
       <Route path="docs/vale-of-myths" element={<ValeOfMythsDocsPage />} />
       <Route path="docs/vestiges-of-mankind" element={<VestigesOfMankindDocsPage />} />
-      <Route path="engine" element={<EncounterEnginePage />} />
+      <Route path="engine" element={<EnginePage />} />
     </Route>
   )
 );

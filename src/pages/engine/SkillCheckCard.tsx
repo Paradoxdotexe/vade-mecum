@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import styled from 'styled-components';
 import { rollDie } from '../../utils/rollDie';
 import { getDieOutcome } from '../../utils/getDieOutcome';
+import { NumberInput } from './NumberInput';
 
 const SkillCheckCardDiv = styled.div`
   background: #3b3b3b;
@@ -205,61 +206,25 @@ const DiceFactorInputDiv = styled.div`
     justify-content: center;
     width: 6px;
   }
-
-  .factor__value {
-    font-family: 'Noto Sans Display', sans-serif;
-    padding: 0;
-    border: none;
-    color: #fff;
-    width: 20px;
-    height: 20px;
-    background: #585858;
-    border-radius: 4px;
-    outline: none;
-    text-align: center;
-
-    &.value--error {
-      border: 1px solid #ec4343;
-    }
-  }
 `;
 
 type DiceFactorInputProps = {
   prefix?: string;
   label: string;
   value: number;
-  max?: number;
   onChange?: (value: number) => void;
+  max?: number;
   disabled?: boolean;
 };
 
 const DiceFactorInput: React.FC<DiceFactorInputProps> = props => {
-  const [value, setValue] = useState(props.value.toString());
-
-  const validated = useMemo(() => {
-    const newValue = parseInt(value);
-    return !Number.isNaN(newValue) && (!props.max || newValue <= props.max);
-  }, [value]);
-
-  useEffect(() => {
-    if (validated) {
-      props.onChange?.(parseInt(value));
-    }
-  }, [value]);
-
-  useEffect(() => {
-    if (props.value !== parseInt(value)) {
-      setValue(props.value.toString());
-    }
-  }, [props.value]);
-
   return (
     <DiceFactorInputDiv>
       <div className="factor__prefix">{props.prefix}</div>
-      <input
-        className={`factor__value ${!validated ? 'value--error' : ''}`}
-        value={value}
-        onChange={event => setValue(event.target.value.slice(0, 1))}
+      <NumberInput
+        value={props.value}
+        onChange={props.onChange}
+        max={props.max}
         disabled={props.disabled}
       />
       <div className="factor__label">{props.label}</div>
