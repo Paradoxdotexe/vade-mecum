@@ -45,6 +45,7 @@ const Page = styled.div`
       justify-content: flex-end;
       overflow: hidden;
       position: relative;
+      flex: 1;
 
       &::before {
         content: '';
