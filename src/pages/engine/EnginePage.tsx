@@ -9,12 +9,42 @@ const Page = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
+  width: fit-content;
 
-  .page__attributes {
+  .page__section {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    width: fit-content;
+    gap: 12px;
+
+    .section__header {
+      font-family: 'Noto Sans Display', sans-serif;
+      font-size: 18px;
+    }
+
+    .section__name {
+      background: #3b3b3b;
+      border-radius: 0 0 4px 4px;
+      padding: 6px 12px;
+      box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.1);
+      border-top: 1px solid #fff;
+      line-height: 1.4;
+
+      input {
+        padding: 0;
+        border: none;
+        color: #fff;
+        outline: none;
+        background: transparent;
+        font-size: 16px;
+        font-family: 'Noto Sans';
+      }
+    }
+
+    .section__attributes {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
   }
 
   .page__rollLog {
@@ -99,19 +129,35 @@ export const EnginePage: React.FC = () => {
 
   return (
     <Page>
-      <div className="page__attributes">
-        {character.attributes.map((attribute, i) => (
-          <AttributeSkillCard
-            key={attribute.label}
-            attribute={attribute}
-            onChange={attribute => {
-              // update character attribute
-              character.attributes.splice(i, 1, attribute);
+      <div className="page__section">
+        <div className="section__header">Name</div>
+        <div className="section__name">
+          <input
+            value={character.name}
+            onChange={event => {
+              character.name = event.target.value;
               engineState.update({ characters: [character] });
             }}
-            onClick={setNewRollAttribute}
+            placeholder="Anonymous"
           />
-        ))}
+        </div>
+      </div>
+      <div className="page__section">
+        <div className="section__header">Attributes / Skills</div>
+        <div className="section__attributes">
+          {character.attributes.map((attribute, i) => (
+            <AttributeSkillCard
+              key={attribute.label}
+              attribute={attribute}
+              onChange={attribute => {
+                // update character attribute
+                character.attributes.splice(i, 1, attribute);
+                engineState.update({ characters: [character] });
+              }}
+              onClick={setNewRollAttribute}
+            />
+          ))}
+        </div>
       </div>
       <div className="page__rollLog">
         <div className="rollLog__header">Roll Log</div>
@@ -148,7 +194,7 @@ export const EnginePage: React.FC = () => {
                 onRoll={roll => {
                   const diceRoll = { label: newRollLabel, roll };
                   engineState.update({
-                    diceRolls: [diceRoll, ...engineState.diceRolls]
+                    diceRolls: [diceRoll, ...engineState.diceRolls].slice(0, 100)
                   });
                   setNewRollAttribute(undefined);
                 }}
