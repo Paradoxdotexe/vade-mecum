@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import {
   createBrowserRouter,
   createRoutesFromElements,
-  redirect,
   Route,
   RouterProvider
 } from 'react-router-dom';
@@ -14,11 +13,12 @@ import styled from 'styled-components';
 import { ValeOfMythsDocsPage } from './pages/docs/ValeOfMythsDocsPage';
 import { EnginePageController } from './pages/engine/EnginePageController';
 import { VestigesOfMankindDocsPage } from './pages/docs/VestigesOfMankindDocsPage';
+import { HomePage } from './pages/HomePage';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/">
-      <Route path="" loader={() => redirect('/docs')} />
+      <Route path="" element={<HomePage />} />
       <Route path="docs" element={<VadeMecumDocsPage />} />
       <Route path="docs/vale-of-myths" element={<ValeOfMythsDocsPage />} />
       <Route path="docs/vestiges-of-mankind" element={<VestigesOfMankindDocsPage />} />
