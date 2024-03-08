@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { NumberInput } from './NumberInput';
-import { Attribute } from './EnginePage';
+import { Attribute } from './EngineStateContext';
 
 const Card = styled.div`
   background: #3b3b3b;
@@ -52,7 +52,7 @@ const Card = styled.div`
 
 type AttributeSkillCardProps = {
   attribute: Attribute;
-  onChange: (attribute: Attribute) => void;
+  onChange?: (attribute: Attribute) => void;
   onClick?: (attribute: Attribute) => void;
 };
 
@@ -65,7 +65,7 @@ export const AttributeSkillCard: React.FC<AttributeSkillCardProps> = props => {
           value={props.attribute.value}
           onChange={value => {
             // update attribute value
-            props.onChange({ ...props.attribute, value });
+            props.onChange?.({ ...props.attribute, value });
           }}
           max={6}
           size={48}
@@ -79,7 +79,7 @@ export const AttributeSkillCard: React.FC<AttributeSkillCardProps> = props => {
               onChange={value => {
                 // update skill value
                 props.attribute.skills[i].value = value;
-                props.onChange({ ...props.attribute });
+                props.onChange?.({ ...props.attribute });
               }}
               max={3}
             />

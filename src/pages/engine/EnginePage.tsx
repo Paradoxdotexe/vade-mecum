@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { SkillCheckCard } from './SkillCheckCard';
+import { DiceRollCard } from './DiceRollCard';
 import { AttributeSkillCard } from './AttributeSkillCard';
+import { Attribute, useEngineState } from './EngineStateContext';
 
 const Page = styled.div`
   padding: 48px;
@@ -59,13 +60,14 @@ const Page = styled.div`
 
       .log__rolls {
         display: flex;
-        flex-direction: column;
+        flex-direction: column-reverse;
         align-items: center;
         gap: 24px;
         padding: 24px;
         border-bottom: 1px solid #585858;
         width: 100%;
-        overflow: auto;
+        overflow-y: auto;
+        overflow-x: hidden;
         scrollbar-gutter: stable both-edges;
 
         > div {
@@ -87,81 +89,25 @@ const Page = styled.div`
   }
 `;
 
-export type Skill = {
-  label: string;
-  value: number;
-};
-
-export type Attribute = {
-  label: string;
-  value: number;
-  skills: Skill[];
-};
-
-const DEFAULT_ATTRIBUTES: Attribute[] = [
-  {
-    label: 'Strength',
-    value: 0,
-    skills: [
-      { label: 'Power', value: 0 },
-      { label: 'Fortitude', value: 0 },
-      { label: 'Athletics', value: 0 }
-    ]
-  },
-  {
-    label: 'Dexterity',
-    value: 0,
-    skills: [
-      { label: 'Precision', value: 0 },
-      { label: 'Stealth', value: 0 },
-      { label: 'Agility', value: 0 }
-    ]
-  },
-  {
-    label: 'Intelligence',
-    value: 0,
-    skills: [
-      { label: 'Comprehension', value: 0 },
-      { label: 'Medicine', value: 0 },
-      { label: 'Innovation', value: 0 }
-    ]
-  },
-  {
-    label: 'Persuasion',
-    value: 0,
-    skills: [
-      { label: 'Intuition', value: 0 },
-      { label: 'Speech', value: 0 },
-      { label: 'Barter', value: 0 }
-    ]
-  },
-  {
-    label: 'Perception',
-    value: 0,
-    skills: [
-      { label: 'Insight', value: 0 },
-      { label: 'Detection', value: 0 },
-      { label: 'Investigation', value: 0 }
-    ]
-  }
-];
-
 export const EnginePage: React.FC = () => {
-  const [attributes, setAttributes] = useState(DEFAULT_ATTRIBUTES);
+  const engineState = useEngineState();
+  const character = engineState.characters[0];
+
   const [newRollAttribute, setNewRollAttribute] = useState<Attribute>();
-  const [diceRolls, setDiceRolls] = useState<number[][]>([]);
+
+  const newRollLabel = `${character.name || 'Anonymous'} (${newRollAttribute?.skills[0].label})`;
 
   return (
     <Page>
       <div className="page__attributes">
-        {attributes.map((attribute, i) => (
+        {character.attributes.map((attribute, i) => (
           <AttributeSkillCard
             key={attribute.label}
             attribute={attribute}
             onChange={attribute => {
-              // update attribute
-              attributes.splice(i, 1, attribute);
-              setAttributes([...attributes]);
+              // update character attribute
+              character.attributes.splice(i, 1, attribute);
+              engineState.update({ characters: [character] });
             }}
             onClick={setNewRollAttribute}
           />
@@ -171,15 +117,20 @@ export const EnginePage: React.FC = () => {
         <div className="rollLog__header">Roll Log</div>
         <div className="rollLog__log">
           <div className="log__rolls">
-            {diceRolls.map((diceRoll, i) => (
-              <SkillCheckCard key={i} name="Character" minimized diceRoll={diceRoll} />
+            {engineState.diceRolls.map(diceRoll => (
+              <DiceRollCard
+                key={JSON.stringify(diceRoll)}
+                label={diceRoll.label}
+                roll={diceRoll.roll}
+                minimized
+              />
             ))}
           </div>
           {newRollAttribute ? (
             <div className="log__newRoll">
-              <SkillCheckCard
+              <DiceRollCard
                 key={newRollAttribute.skills[0].label}
-                name="Character"
+                label={newRollLabel}
                 diceFactors={[
                   {
                     type: 'A',
@@ -194,8 +145,11 @@ export const EnginePage: React.FC = () => {
                     max: 3
                   }
                 ]}
-                onRoll={diceRoll => {
-                  setDiceRolls([...diceRolls, diceRoll]);
+                onRoll={roll => {
+                  const diceRoll = { label: newRollLabel, roll };
+                  engineState.update({
+                    diceRolls: [diceRoll, ...engineState.diceRolls]
+                  });
                   setNewRollAttribute(undefined);
                 }}
               />

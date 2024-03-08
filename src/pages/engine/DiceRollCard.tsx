@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { rollDie } from '../../utils/rollDie';
 import { getDieOutcome } from '../../utils/getDieOutcome';
@@ -105,28 +105,34 @@ type DiceFactor = {
   max?: number;
 };
 
-type SkillCheckCardProps = {
-  name: string;
+type DiceRollCardProps = {
   diceFactors?: DiceFactor[];
+  label: string;
+  roll?: number[];
+  onRoll?: (roll: number[]) => void;
   minimized?: boolean;
-  diceRoll?: number[];
-  onRoll?: (diceRoll: number[]) => void;
 };
 
-export const SkillCheckCard: React.FC<SkillCheckCardProps> = props => {
+export const DiceRollCard: React.FC<DiceRollCardProps> = props => {
   const [diceFactors, setDiceFactors] = useState<DiceFactor[]>([
     ...(props.diceFactors ?? []),
     { type: 'A', label: 'Advantage', value: 0 },
     { type: 'D', label: 'Disadvantage', value: 0 }
   ]);
-  const [diceRoll, setDiceRoll] = useState<number[] | undefined>(props.diceRoll);
+  const [roll, setRoll] = useState<number[] | undefined>(props.roll);
 
-  const roll = () => {
+  const rollDice = () => {
     const rollSound = new Audio('/sounds/roll.mp3');
-    rollSound.play();
-    const diceRoll = [...new Array(total)].map(() => rollDie()).sort((a, b) => b - a);
-    setDiceRoll(diceRoll);
-    props.onRoll?.(diceRoll);
+    rollSound.addEventListener(
+      'canplaythrough',
+      () => {
+        rollSound.play();
+        const roll = [...new Array(total)].map(() => rollDie()).sort((a, b) => b - a);
+        setRoll(roll);
+        props.onRoll?.(roll);
+      },
+      false
+    );
   };
 
   const total = Math.max(
@@ -134,12 +140,12 @@ export const SkillCheckCard: React.FC<SkillCheckCardProps> = props => {
     sum(diceFactors.map(factor => (factor.type === 'A' ? factor.value : -factor.value)))
   );
 
-  const outcome = diceRoll && getDieOutcome(Math.max(...diceRoll));
+  const outcome = roll && getDieOutcome(Math.max(...roll));
 
   return (
     <SkillCheckCardDiv>
       <div className="card__header" style={{ background: outcome?.color }}>
-        {props.name}
+        {props.label}
       </div>
       <div className="card__body">
         {!props.minimized && (
@@ -166,7 +172,7 @@ export const SkillCheckCard: React.FC<SkillCheckCardProps> = props => {
 
             <div className="body__total">
               <DiceFactorInput prefix="=" label="Total" value={total} disabled />
-              <button onClick={() => roll()} disabled={total === 0}>
+              <button onClick={() => rollDice()} disabled={total === 0}>
                 Roll
               </button>
             </div>
@@ -176,8 +182,8 @@ export const SkillCheckCard: React.FC<SkillCheckCardProps> = props => {
         )}
 
         <div className="body__dice">
-          {[...new Array(diceRoll?.length ?? total)].map((_, i) => {
-            const die = diceRoll?.[i];
+          {[...new Array(roll?.length ?? total)].map((_, i) => {
+            const die = roll?.[i];
             const outcome = die !== undefined ? getDieOutcome(die) : undefined;
 
             return (
