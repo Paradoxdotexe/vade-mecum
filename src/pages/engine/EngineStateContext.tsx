@@ -17,7 +17,7 @@ export type Character = {
   attributes: Attribute[];
 };
 
-const DEFAULT_CHARACTER: Character = {
+export const DEFAULT_CHARACTER: Character = {
   name: '',
   attributes: [
     {
@@ -79,7 +79,7 @@ type EngineState = {
 };
 
 const DEFAULT_ENGINE_STATE: EngineState = {
-  characters: [DEFAULT_CHARACTER],
+  characters: [structuredClone(DEFAULT_CHARACTER)],
   diceRolls: []
 };
 
