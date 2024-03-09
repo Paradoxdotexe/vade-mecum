@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useEngineState } from '../EngineStateContext';
 import { CharacterAttributesPanel } from './CharacterAttributesPanel';
+import { ClassSelect } from './ClassSelect';
 
 const Sheet = styled.div`
   display: flex;
@@ -40,6 +41,11 @@ const Sheet = styled.div`
         font-family: 'Noto Sans';
       }
     }
+
+    .section__class {
+      border-radius: 0 0 4px 4px;
+      border-top: 1px solid #fff;
+    }
   }
 `;
 
@@ -50,7 +56,7 @@ export const CharacterSheet: React.FC = () => {
     <Sheet>
       <div className="sheet__left">
         <div className="sheet__section">
-          <div className="section__header">Name</div>
+          <div className="section__header">Name / Class</div>
           <div className="section__name">
             <input
               value={character.name}
@@ -58,6 +64,7 @@ export const CharacterSheet: React.FC = () => {
               placeholder="Anonymous"
             />
           </div>
+          <ClassSelect />
         </div>
 
         <div className="sheet__section">

@@ -16,9 +16,71 @@ export type Attribute = {
   skills: Skill[];
 };
 
+export type Class = {
+  label: string;
+  attribute: string;
+  skill: string;
+};
+
+export const CLASSES: { [kitKey: string]: Class[] } = {
+  vale_of_myths: [
+    {
+      label: 'Knight',
+      attribute: 'Strength',
+      skill: 'Honor'
+    },
+    {
+      label: 'Barbarian',
+      attribute: 'Strength',
+      skill: 'Rage'
+    },
+    {
+      label: 'Monk',
+      attribute: 'Dexterity',
+      skill: 'Chi'
+    },
+    {
+      label: 'Ranger',
+      attribute: 'Dexterity',
+      skill: 'Survival'
+    },
+    {
+      label: 'Mage',
+      attribute: 'Intelligence',
+      skill: 'Magic'
+    },
+    {
+      label: 'Force',
+      attribute: 'Intelligence',
+      skill: 'Smithing'
+    },
+    {
+      label: 'Herald',
+      attribute: 'Charisma',
+      skill: 'Enchantment'
+    },
+    {
+      label: 'Enchanter',
+      attribute: 'Charisma',
+      skill: 'Honor'
+    },
+    {
+      label: 'Sage',
+      attribute: 'Perception',
+      skill: 'Nature'
+    },
+    {
+      label: 'Druid',
+      attribute: 'Perception',
+      skill: 'Beast'
+    }
+  ]
+};
+
 export type Character = {
   key: string;
   name: string;
+  class?: Class;
   attributes: Attribute[];
 };
 
