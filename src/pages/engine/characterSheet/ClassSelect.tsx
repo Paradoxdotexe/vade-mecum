@@ -16,7 +16,29 @@ export const ClassSelect: React.FC = () => {
       }))}
       className="section__class"
       value={character.class?.label}
-      onChange={classLabel => updateCharacter({ class: classes.find(c => c.label === classLabel) })}
+      onChange={classLabel => {
+        const currentClass = character.class;
+
+        const newClass = classes.find(c => c.label === classLabel);
+        const newAttributes = [...character.attributes];
+
+        // remove current class skill
+        if (currentClass) {
+          const currentClassAttribute = newAttributes.find(a => a.label === currentClass.attribute);
+          currentClassAttribute?.skills.splice(3, 1);
+        }
+
+        // add new class skill
+        if (newClass) {
+          const newClassAttribute = newAttributes.find(a => a.label === newClass.attribute);
+          newClassAttribute?.skills.push({
+            label: newClass.skill,
+            value: 0
+          });
+        }
+
+        updateCharacter({ class: newClass, attributes: newAttributes });
+      }}
     />
   );
 };

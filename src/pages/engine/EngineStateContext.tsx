@@ -50,19 +50,19 @@ export const CLASSES: { [kitKey: string]: Class[] } = {
       skill: 'Magic'
     },
     {
-      label: 'Force',
+      label: 'Forge',
       attribute: 'Intelligence',
       skill: 'Smithing'
     },
     {
       label: 'Herald',
       attribute: 'Charisma',
-      skill: 'Enchantment'
+      skill: 'Influence'
     },
     {
       label: 'Enchanter',
       attribute: 'Charisma',
-      skill: 'Honor'
+      skill: 'Enchantment'
     },
     {
       label: 'Sage',
@@ -116,7 +116,7 @@ export const DEFAULT_CHARACTER: Character = {
       ]
     },
     {
-      label: 'Persuasion',
+      label: 'Charisma',
       value: 0,
       skills: [
         { label: 'Intuition', value: 0 },
@@ -150,7 +150,7 @@ type EngineState = {
 };
 
 const DEFAULT_ENGINE_STATE: EngineState = {
-  version: '2.0',
+  version: '3.0',
   characters: { [DEFAULT_CHARACTER.key]: structuredClone(DEFAULT_CHARACTER) },
   characterKey: DEFAULT_CHARACTER.key,
   diceRolls: []
