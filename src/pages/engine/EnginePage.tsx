@@ -126,22 +126,8 @@ const Page = styled.div`
 `;
 
 export const EnginePage: React.FC = () => {
-  const { characters, characterIndex, diceRolls, update } = useEngineState();
-
-  const addCharacter = () => {
-    update({
-      characters: [...characters, structuredClone(DEFAULT_CHARACTER)],
-      characterIndex: characters.length
-    });
-  };
-
-  const removeCharacter = () => {
-    characters.splice(characterIndex, 1);
-    update({
-      characters: [...characters],
-      characterIndex: Math.max(0, characterIndex - 1)
-    });
-  };
+  const { characters, characterIndex, diceRolls, update, addCharacter, removeCharacter } =
+    useEngineState();
 
   return (
     <Page>
@@ -178,7 +164,7 @@ export const EnginePage: React.FC = () => {
             {diceRolls.map(diceRoll => (
               <DiceRollCard
                 key={JSON.stringify(diceRoll)}
-                label={diceRoll.label}
+                label={`${characters[diceRoll.characterIndex].name || 'Anonymous'} (${diceRoll.type})`}
                 roll={diceRoll.roll}
                 minimized
               />

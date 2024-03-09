@@ -1,6 +1,9 @@
 import React, { ReactNode, useContext, useMemo } from 'react';
 import { useLocalStorage } from '../../utils/useLocalStorage';
 
+const parseVersion = (version: string) =>
+  version.split('.').map(v => parseInt(v)) as [number, number];
+
 export type Skill = {
   label: string;
   value: number;
@@ -69,19 +72,20 @@ export const DEFAULT_CHARACTER: Character = {
 };
 
 export type DiceRoll = {
-  label: string;
+  characterIndex: number;
+  type: string;
   roll: number[];
 };
 
 type EngineState = {
-  version: number;
+  version: string;
   characters: Character[];
   characterIndex: number;
   diceRolls: DiceRoll[];
 };
 
 const DEFAULT_ENGINE_STATE: EngineState = {
-  version: 0,
+  version: '1.0',
   characters: [structuredClone(DEFAULT_CHARACTER)],
   characterIndex: 0,
   diceRolls: []
@@ -91,13 +95,17 @@ interface ESC extends EngineState {
   character: Character;
   update: (partialEngineState: Partial<EngineState>) => void;
   updateCharacter: (partialCharacter: Partial<Character>) => void;
+  addCharacter: () => void;
+  removeCharacter: () => void;
 }
 
 const EngineStateContext = React.createContext<ESC>({
   ...DEFAULT_ENGINE_STATE,
   character: DEFAULT_ENGINE_STATE.characters[0],
   update: () => {},
-  updateCharacter: () => {}
+  updateCharacter: () => {},
+  addCharacter: () => {},
+  removeCharacter: () => {}
 });
 
 export const EngineStateProvider: React.FC<{ children?: ReactNode }> = props => {
@@ -107,8 +115,24 @@ export const EngineStateProvider: React.FC<{ children?: ReactNode }> = props => 
 
   useMemo(() => {
     // ensure engineState in LocalStorage is up to date
-    if (engineState.version === undefined || DEFAULT_ENGINE_STATE.version > engineState.version) {
-      setEngineState({ ...DEFAULT_ENGINE_STATE, ...engineState });
+    if (!engineState.version) {
+      console.warn('Resetting engine state due to missing version.');
+      setEngineState({ ...DEFAULT_ENGINE_STATE });
+    } else {
+      const [majorVersion, minorVersion] = parseVersion(engineState.version);
+      const [currentMajorVersion, currentMinorVersion] = parseVersion(DEFAULT_ENGINE_STATE.version);
+
+      if (currentMajorVersion > majorVersion) {
+        console.warn('Resetting engine state due to major version update.');
+        setEngineState({ ...DEFAULT_ENGINE_STATE });
+      } else if (currentMinorVersion > minorVersion) {
+        console.warn('Updating engine state due to minor version update.');
+        setEngineState({
+          ...DEFAULT_ENGINE_STATE,
+          ...engineState,
+          version: DEFAULT_ENGINE_STATE.version
+        });
+      }
     }
   }, [engineState]);
 
@@ -122,11 +146,45 @@ export const EngineStateProvider: React.FC<{ children?: ReactNode }> = props => 
     update({ characters });
   };
 
+  const addCharacter = () => {
+    // add new default character
+    const characters = [...engineState.characters, structuredClone(DEFAULT_CHARACTER)];
+
+    update({
+      characters,
+      characterIndex: characters.length - 1
+    });
+  };
+
+  const removeCharacter = () => {
+    // remove current character from characters
+    const characters = [...engineState.characters];
+    characters.splice(engineState.characterIndex, 1);
+
+    // remove character's dice rolls and update characterIndex of other dice rolls as needed
+    const diceRolls = engineState.diceRolls
+      .filter(diceRoll => diceRoll.characterIndex !== engineState.characterIndex)
+      .map(diceRoll => {
+        if (diceRoll.characterIndex > engineState.characterIndex) {
+          diceRoll.characterIndex--;
+        }
+        return diceRoll;
+      });
+
+    update({
+      characters,
+      characterIndex: Math.max(0, engineState.characterIndex - 1),
+      diceRolls
+    });
+  };
+
   const engineStateContext: ESC = {
     ...engineState,
     character,
     update,
-    updateCharacter
+    updateCharacter,
+    addCharacter,
+    removeCharacter
   };
 
   return (
