@@ -8,6 +8,7 @@ import { CharacterSheet } from './characterSheet/CharacterSheet';
 
 const Page = styled.div`
   padding: 48px;
+  margin-right: 248px;
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -70,6 +71,7 @@ const Page = styled.div`
     justify-content: space-between;
     box-shadow: -3px 6px 12px rgba(0, 0, 0, 0.1);
     width: 248px;
+    background: #2c2c2c;
 
     .rollLog__header {
       display: flex;

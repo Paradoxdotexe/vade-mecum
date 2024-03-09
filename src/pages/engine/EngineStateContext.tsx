@@ -86,6 +86,7 @@ export type Character = {
   name: string;
   class?: Class;
   race?: string;
+  description?: string;
   attributes: Attribute[];
 };
 

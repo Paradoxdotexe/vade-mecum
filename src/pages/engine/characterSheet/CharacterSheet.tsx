@@ -4,9 +4,12 @@ import { CharacterAttributesPanel } from './CharacterAttributesPanel';
 import { ClassSelect } from './ClassSelect';
 import { NameInput } from './NameInput';
 import { RaceSelect } from './RaceSelect';
+import { DescriptionTextArea } from './DescriptionTextArea';
 
 const Sheet = styled.div`
   display: flex;
+  gap: 24px;
+  width: 100%;
 
   .sheet__left {
     display: flex;
@@ -14,10 +17,27 @@ const Sheet = styled.div`
     gap: 24px;
   }
 
+  .sheet__right {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    flex: 1;
+
+    .right__top {
+      display: flex;
+      gap: 24px;
+      height: 112px;
+    }
+  }
+
   .sheet__section {
     display: flex;
     flex-direction: column;
     gap: 12px;
+
+    &.section--flex {
+      flex: 1;
+    }
 
     .section__header {
       font-family: 'Noto Sans Display', sans-serif;
@@ -36,6 +56,7 @@ const Sheet = styled.div`
     .section__item {
       border-radius: 0 0 4px 4px;
       border-top: 1px solid #fff;
+      flex: 1;
     }
   }
 `;
@@ -56,6 +77,15 @@ export const CharacterSheet: React.FC = () => {
         <div className="sheet__section">
           <div className="section__header">Attributes / Skills</div>
           <CharacterAttributesPanel />
+        </div>
+      </div>
+
+      <div className="sheet__right">
+        <div className="right__top">
+          <div className="sheet__section section--flex">
+            <div className="section__header">Description</div>
+            <DescriptionTextArea className="section__item" />
+          </div>
         </div>
       </div>
     </Sheet>

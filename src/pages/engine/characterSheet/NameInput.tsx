@@ -13,7 +13,7 @@ export const NameInput: React.FC<NameInputProps> = props => {
     <VInput
       placeholder="Name"
       value={character.name}
-      onChange={value => updateCharacter({ name: value })}
+      onChange={name => updateCharacter({ name })}
       className={props.className}
     />
   );
