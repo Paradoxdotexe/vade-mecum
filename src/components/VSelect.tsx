@@ -20,7 +20,7 @@ const Select = styled.div`
   box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.1);
 
   &.select--empty {
-    color: #a3a3a3;
+    color: #868686;
   }
 
   svg {

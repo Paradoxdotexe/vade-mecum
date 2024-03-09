@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useEngineState } from '../EngineStateContext';
 import { CharacterAttributesPanel } from './CharacterAttributesPanel';
 import { ClassSelect } from './ClassSelect';
+import { NameInput } from './NameInput';
 
 const Sheet = styled.div`
   display: flex;
@@ -23,25 +23,7 @@ const Sheet = styled.div`
       font-size: 18px;
     }
 
-    .section__name {
-      background: #3b3b3b;
-      border-radius: 0 0 4px 4px;
-      padding: 6px 12px;
-      box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.1);
-      border-top: 1px solid #fff;
-      line-height: 1.4;
-
-      input {
-        padding: 0;
-        border: none;
-        color: #fff;
-        outline: none;
-        background: transparent;
-        font-size: 16px;
-        font-family: 'Noto Sans';
-      }
-    }
-
+    .section__name,
     .section__class {
       border-radius: 0 0 4px 4px;
       border-top: 1px solid #fff;
@@ -50,21 +32,13 @@ const Sheet = styled.div`
 `;
 
 export const CharacterSheet: React.FC = () => {
-  const { character, updateCharacter } = useEngineState();
-
   return (
     <Sheet>
       <div className="sheet__left">
         <div className="sheet__section">
           <div className="section__header">Name / Class</div>
-          <div className="section__name">
-            <input
-              value={character.name}
-              onChange={event => updateCharacter({ name: event.target.value })}
-              placeholder="Anonymous"
-            />
-          </div>
-          <ClassSelect />
+          <NameInput className="section__name" />
+          <ClassSelect className="section__class" />
         </div>
 
         <div className="sheet__section">

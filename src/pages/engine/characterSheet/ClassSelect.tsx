@@ -2,7 +2,11 @@ import { VSelect } from '@/components/VSelect';
 import React from 'react';
 import { CLASSES, useEngineState } from '../EngineStateContext';
 
-export const ClassSelect: React.FC = () => {
+type ClassSelectProps = {
+  className?: string;
+};
+
+export const ClassSelect: React.FC<ClassSelectProps> = props => {
   const { character, updateCharacter } = useEngineState();
 
   const classes = CLASSES.vale_of_myths;
@@ -14,7 +18,7 @@ export const ClassSelect: React.FC = () => {
         value: c.label,
         label: c.label
       }))}
-      className="section__class"
+      className={props.className}
       value={character.class?.label}
       onChange={classLabel => {
         const currentClass = character.class;
