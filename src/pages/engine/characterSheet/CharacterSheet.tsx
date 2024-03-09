@@ -52,12 +52,6 @@ const Sheet = styled.div`
         flex: 1;
       }
     }
-
-    .section__item {
-      border-radius: 0 0 4px 4px;
-      border-top: 1px solid #fff;
-      flex: 1;
-    }
   }
 `;
 
@@ -67,10 +61,10 @@ export const CharacterSheet: React.FC = () => {
       <div className="sheet__left">
         <div className="sheet__section">
           <div className="section__header">Name / Race / Class</div>
-          <NameInput className="section__item" />
+          <NameInput />
           <div className="section__row">
-            <RaceSelect className="section__item" />
-            <ClassSelect className="section__item" />
+            <RaceSelect />
+            <ClassSelect />
           </div>
         </div>
 
@@ -84,7 +78,7 @@ export const CharacterSheet: React.FC = () => {
         <div className="right__top">
           <div className="sheet__section section--flex">
             <div className="section__header">Description</div>
-            <DescriptionTextArea className="section__item" />
+            <DescriptionTextArea />
           </div>
         </div>
       </div>

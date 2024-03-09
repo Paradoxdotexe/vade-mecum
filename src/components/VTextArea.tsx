@@ -2,10 +2,6 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 const TextArea = styled.div`
-  background: #3b3b3b;
-  border-radius: 4px;
-  box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.1);
-
   textarea {
     padding: 6px 12px;
     border: none;
@@ -26,9 +22,9 @@ const TextArea = styled.div`
 
 type VTextAreaProps = {
   placeholder: string;
-  className?: string;
   value?: string;
   onChange?: (value?: string) => void;
+  style?: React.CSSProperties;
 };
 
 export const VTextArea: React.FC<VTextAreaProps> = props => {
@@ -47,7 +43,7 @@ export const VTextArea: React.FC<VTextAreaProps> = props => {
   }, [value]);
 
   return (
-    <TextArea className={props.className}>
+    <TextArea style={props.style}>
       <textarea
         value={value}
         onChange={event => setValue(event.target.value)}

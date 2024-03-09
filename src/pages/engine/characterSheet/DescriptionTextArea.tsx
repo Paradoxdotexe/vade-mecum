@@ -1,20 +1,19 @@
 import React from 'react';
 import { useEngineState } from '../EngineStateContext';
 import { VTextArea } from '@/components/VTextArea';
+import { VCard } from '@/components/VCard';
 
-type DescriptionTextAreaProps = {
-  className?: string;
-};
-
-export const DescriptionTextArea: React.FC<DescriptionTextAreaProps> = props => {
+export const DescriptionTextArea: React.FC = () => {
   const { character, updateCharacter } = useEngineState();
 
   return (
-    <VTextArea
-      placeholder="Description"
-      value={character.description}
-      onChange={description => updateCharacter({ description })}
-      className={props.className}
-    />
+    <VCard style={{ padding: 0, flex: 1 }}>
+      <VTextArea
+        placeholder="Description"
+        value={character.description}
+        onChange={description => updateCharacter({ description })}
+        style={{ height: '100%' }}
+      />
+    </VCard>
   );
 };

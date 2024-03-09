@@ -2,14 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import { NumberInput } from './NumberInput';
 import { Attribute } from './EngineStateContext';
+import { VCard } from '@/components/VCard';
 
-const Card = styled.div`
-  background: #3b3b3b;
-  border-radius: 0 0 4px 4px;
+const Card = styled(VCard)`
   display: flex;
   padding: 12px;
-  box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.1);
-  border-top: 1px solid #fff;
 
   .card__attribute {
     display: flex;

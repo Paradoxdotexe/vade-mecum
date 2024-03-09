@@ -1,20 +1,18 @@
 import React from 'react';
 import { useEngineState } from '../EngineStateContext';
 import { VInput } from '@/components/VInput';
+import { VCard } from '@/components/VCard';
 
-type NameInputProps = {
-  className?: string;
-};
-
-export const NameInput: React.FC<NameInputProps> = props => {
+export const NameInput: React.FC = () => {
   const { character, updateCharacter } = useEngineState();
 
   return (
-    <VInput
-      placeholder="Name"
-      value={character.name}
-      onChange={name => updateCharacter({ name })}
-      className={props.className}
-    />
+    <VCard style={{ padding: 0 }}>
+      <VInput
+        placeholder="Name"
+        value={character.name}
+        onChange={name => updateCharacter({ name })}
+      />
+    </VCard>
   );
 };

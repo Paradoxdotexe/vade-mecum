@@ -2,10 +2,6 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 const Input = styled.div`
-  background: #3b3b3b;
-  border-radius: 4px;
-  box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.1);
-
   input {
     padding: 6px 12px;
     border: none;

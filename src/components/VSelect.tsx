@@ -12,12 +12,8 @@ const Select = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 3px 0;
   user-select: none;
-  background: #3b3b3b;
-  border-radius: 4px;
   padding: 9px 12px;
-  box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.1);
 
   &.select--empty {
     color: #868686;
@@ -101,7 +97,6 @@ type VSelectOption = {
 type VSelectProps = {
   placeholder: string;
   options: VSelectOption[];
-  className?: string;
   value?: string;
   onChange?: (value?: string) => void;
 };
@@ -130,7 +125,7 @@ export const VSelect: React.FC<VSelectProps> = props => {
       onClick={() => setActive(!active)}
       onBlur={() => setActive(false)}
       tabIndex={1}
-      className={`${props.className} ${!value ? 'select--empty' : ''}`}
+      className={` ${!value ? 'select--empty' : ''}`}
     >
       {option?.label ?? props.placeholder}
       <ChevronDownIcon />
