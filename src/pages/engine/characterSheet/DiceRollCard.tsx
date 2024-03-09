@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { rollDie } from '../../utils/rollDie';
-import { getDieOutcome } from '../../utils/getDieOutcome';
-import { NumberInput } from './NumberInput';
+import { rollDie } from '../../../utils/rollDie';
+import { getDieOutcome } from '../../../utils/getDieOutcome';
+import { NumberInput } from '../NumberInput';
 
 const SkillCheckCardDiv = styled.div`
   background: #3b3b3b;
@@ -18,6 +18,10 @@ const SkillCheckCardDiv = styled.div`
     font-family: 'Noto Sans Display', sans-serif;
     padding: 6px 12px;
     background: #585858;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 12px;
   }
 
   .card__body {
@@ -172,7 +176,7 @@ export const DiceRollCard: React.FC<DiceRollCardProps> = props => {
 
             <div className="body__total">
               <DiceFactorInput prefix="=" label="Total" value={total} disabled />
-              <button onClick={() => rollDice()} disabled={total === 0}>
+              <button onClick={() => rollDice()} disabled={total === 0 || !!roll}>
                 Roll
               </button>
             </div>

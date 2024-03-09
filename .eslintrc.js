@@ -26,7 +26,6 @@ module.exports = {
   },
   plugins: ['@typescript-eslint', 'react'],
   rules: {
-    '@typescript-eslint/no-empty-function': 'off',
-    '@typescript-eslint/no-unused-vars': 'error'
+    '@typescript-eslint/no-empty-function': 'off'
   }
 };

@@ -1,4 +1,4 @@
-import React, { ReactNode, useContext } from 'react';
+import React, { ReactNode, useContext, useMemo } from 'react';
 import { useLocalStorage } from '../../utils/useLocalStorage';
 
 export type Skill = {
@@ -74,30 +74,59 @@ export type DiceRoll = {
 };
 
 type EngineState = {
+  version: number;
   characters: Character[];
+  characterIndex: number;
   diceRolls: DiceRoll[];
 };
 
 const DEFAULT_ENGINE_STATE: EngineState = {
+  version: 0,
   characters: [structuredClone(DEFAULT_CHARACTER)],
+  characterIndex: 0,
   diceRolls: []
 };
 
 interface ESC extends EngineState {
-  update: (engineState: Partial<EngineState>) => void;
+  character: Character;
+  update: (partialEngineState: Partial<EngineState>) => void;
+  updateCharacter: (partialCharacter: Partial<Character>) => void;
 }
 
 const EngineStateContext = React.createContext<ESC>({
   ...DEFAULT_ENGINE_STATE,
-  update: () => {}
+  character: DEFAULT_ENGINE_STATE.characters[0],
+  update: () => {},
+  updateCharacter: () => {}
 });
 
 export const EngineStateProvider: React.FC<{ children?: ReactNode }> = props => {
   const [engineState, setEngineState] = useLocalStorage('vc-engine', DEFAULT_ENGINE_STATE);
 
+  const character = engineState.characters[engineState.characterIndex];
+
+  useMemo(() => {
+    // ensure engineState in LocalStorage is up to date
+    if (engineState.version === undefined || DEFAULT_ENGINE_STATE.version > engineState.version) {
+      setEngineState({ ...DEFAULT_ENGINE_STATE, ...engineState });
+    }
+  }, [engineState]);
+
+  const update = (partialEngineState: Partial<EngineState>) =>
+    setEngineState({ ...engineState, ...partialEngineState });
+
+  const updateCharacter = (partialCharacter: Partial<Character>) => {
+    const newCharacter = { ...character, ...partialCharacter };
+    const characters = [...engineState.characters];
+    characters[engineState.characterIndex] = newCharacter;
+    update({ characters });
+  };
+
   const engineStateContext: ESC = {
     ...engineState,
-    update: partialEngineState => setEngineState({ ...engineState, ...partialEngineState })
+    character,
+    update,
+    updateCharacter
   };
 
   return (
