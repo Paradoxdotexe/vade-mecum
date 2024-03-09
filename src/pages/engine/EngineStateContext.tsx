@@ -1,5 +1,6 @@
 import React, { ReactNode, useContext, useMemo } from 'react';
-import { useLocalStorage } from '../../utils/useLocalStorage';
+import { useLocalStorage } from '@/utils/useLocalStorage';
+import { v4 as uuid } from 'uuid';
 
 const parseVersion = (version: string) =>
   version.split('.').map(v => parseInt(v)) as [number, number];
@@ -16,11 +17,13 @@ export type Attribute = {
 };
 
 export type Character = {
+  key: string;
   name: string;
   attributes: Attribute[];
 };
 
 export const DEFAULT_CHARACTER: Character = {
+  key: uuid(),
   name: '',
   attributes: [
     {
@@ -72,22 +75,22 @@ export const DEFAULT_CHARACTER: Character = {
 };
 
 export type DiceRoll = {
-  characterIndex: number;
+  characterKey: string;
   type: string;
   roll: number[];
 };
 
 type EngineState = {
   version: string;
-  characters: Character[];
-  characterIndex: number;
+  characters: { [key: string]: Character };
+  characterKey: string;
   diceRolls: DiceRoll[];
 };
 
 const DEFAULT_ENGINE_STATE: EngineState = {
-  version: '1.0',
-  characters: [structuredClone(DEFAULT_CHARACTER)],
-  characterIndex: 0,
+  version: '2.0',
+  characters: { [DEFAULT_CHARACTER.key]: structuredClone(DEFAULT_CHARACTER) },
+  characterKey: DEFAULT_CHARACTER.key,
   diceRolls: []
 };
 
@@ -111,7 +114,7 @@ const EngineStateContext = React.createContext<ESC>({
 export const EngineStateProvider: React.FC<{ children?: ReactNode }> = props => {
   const [engineState, setEngineState] = useLocalStorage('vc-engine', DEFAULT_ENGINE_STATE);
 
-  const character = engineState.characters[engineState.characterIndex];
+  const character = engineState.characters[engineState.characterKey];
 
   useMemo(() => {
     // ensure engineState in LocalStorage is up to date
@@ -141,39 +144,35 @@ export const EngineStateProvider: React.FC<{ children?: ReactNode }> = props => 
 
   const updateCharacter = (partialCharacter: Partial<Character>) => {
     const newCharacter = { ...character, ...partialCharacter };
-    const characters = [...engineState.characters];
-    characters[engineState.characterIndex] = newCharacter;
+    const characters = { ...engineState.characters };
+    characters[engineState.characterKey] = newCharacter;
     update({ characters });
   };
 
   const addCharacter = () => {
     // add new default character
-    const characters = [...engineState.characters, structuredClone(DEFAULT_CHARACTER)];
+    const key = uuid();
+    const characters = {
+      ...engineState.characters,
+      [key]: { ...structuredClone(DEFAULT_CHARACTER), key }
+    };
 
-    update({
-      characters,
-      characterIndex: characters.length - 1
-    });
+    update({ characters, characterKey: key });
   };
 
   const removeCharacter = () => {
     // remove current character from characters
-    const characters = [...engineState.characters];
-    characters.splice(engineState.characterIndex, 1);
+    const characters = { ...engineState.characters };
+    delete characters[engineState.characterKey];
 
-    // remove character's dice rolls and update characterIndex of other dice rolls as needed
-    const diceRolls = engineState.diceRolls
-      .filter(diceRoll => diceRoll.characterIndex !== engineState.characterIndex)
-      .map(diceRoll => {
-        if (diceRoll.characterIndex > engineState.characterIndex) {
-          diceRoll.characterIndex--;
-        }
-        return diceRoll;
-      });
+    // remove character's dice rolls
+    const diceRolls = engineState.diceRolls.filter(
+      diceRoll => diceRoll.characterKey !== engineState.characterKey
+    );
 
     update({
       characters,
-      characterIndex: Math.max(0, engineState.characterIndex - 1),
+      characterKey: Object.keys(characters)[0],
       diceRolls
     });
   };

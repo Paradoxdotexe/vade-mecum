@@ -11,20 +11,21 @@
     "react-transition-group": "^4.4.5",
     "styled-components": "^6.1.8",
     "typescript": "^4.9.5",
+    "uuid": "^9.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "dev": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
     "deploy:s3": "aws s3 sync ./build s3://vademecum.thenjk.com",
     "deploy:cloudfront": "aws cloudfront create-invalidation --distribution-id E21FM4AG66XKGE --paths \"/*\"",
     "deploy": "npm run build && npm run deploy:s3 && npm run deploy:cloudfront && echo Deployed to https://vademecum.thenjk.com",
-    "test": "react-scripts test",
+    "test": "react-app-rewired test",
     "eject": "react-scripts eject",
     "prepare": "husky install && semantic-commits install"
   },
   "lint-staged": {
-    "*.tsx": "eslint",
+    "*.tsx": "eslint --max-warnings 0",
     "**/*": "prettier --write --ignore-unknown"
   },
   "eslintConfig": {
@@ -55,9 +56,11 @@
     "@types/react": "^18.2.64",
     "@types/react-dom": "^18.2.21",
     "@types/react-transition-group": "^4.4.10",
+    "@types/uuid": "^9.0.8",
     "husky": "^8.0.3",
     "lint-staged": "^15.2.0",
     "prettier": "3.2.4",
+    "react-app-rewired": "^2.2.1",
     "semantic-commits": "^0.7.4"
   },
   "semanticCommits": {

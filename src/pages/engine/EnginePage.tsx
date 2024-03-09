@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { DiceRollCard } from './characterSheet/DiceRollCard';
-import { Attribute, DEFAULT_CHARACTER, useEngineState } from './EngineStateContext';
-import { ReactComponent as PlusIcon } from '../../icons/Plus.svg';
-import { ReactComponent as TrashCanIcon } from '../../icons/TrashCan.svg';
+import { useEngineState } from './EngineStateContext';
+import { ReactComponent as PlusIcon } from '@/icons/Plus.svg';
+import { ReactComponent as TrashCanIcon } from '@/icons/TrashCan.svg';
 import { CharacterSheet } from './characterSheet/CharacterSheet';
 
 const Page = styled.div`
@@ -126,20 +126,20 @@ const Page = styled.div`
 `;
 
 export const EnginePage: React.FC = () => {
-  const { characters, characterIndex, diceRolls, update, addCharacter, removeCharacter } =
+  const { characters, characterKey, diceRolls, update, addCharacter, removeCharacter } =
     useEngineState();
 
   return (
     <Page>
       <div className="page__tabs">
-        {characters.map((character, i) => (
+        {Object.values(characters).map(character => (
           <div
-            key={i}
-            className={`tabs__tab ${i === characterIndex ? 'tab--active' : ''}`}
-            onClick={() => update({ characterIndex: i })}
+            key={character.key}
+            className={`tabs__tab ${character.key === characterKey ? 'tab--active' : ''}`}
+            onClick={() => update({ characterKey: character.key })}
           >
             {character.name || 'Anonymous'}
-            {i === characterIndex && characters.length > 1 && (
+            {character.key === characterKey && Object.keys(characters).length > 1 && (
               <TrashCanIcon
                 className="tab__delete"
                 onClick={event => {
@@ -164,7 +164,7 @@ export const EnginePage: React.FC = () => {
             {diceRolls.map(diceRoll => (
               <DiceRollCard
                 key={JSON.stringify(diceRoll)}
-                label={`${characters[diceRoll.characterIndex].name || 'Anonymous'} (${diceRoll.type})`}
+                label={`${characters[diceRoll.characterKey].name || 'Anonymous'} (${diceRoll.type})`}
                 roll={diceRoll.roll}
                 minimized
               />

@@ -12,7 +12,7 @@ const Panel = styled.div`
 `;
 
 export const CharacterAttributesPanel: React.FC = () => {
-  const { characterIndex, character, updateCharacter, update, diceRolls } = useEngineState();
+  const { characterKey, character, updateCharacter, update, diceRolls } = useEngineState();
 
   const [rolledAttribute, setRolledAttribute] = useState<Attribute>();
   const [rolledAttributeActive, setRolledAttributeActive] = useState(false);
@@ -66,7 +66,7 @@ export const CharacterAttributesPanel: React.FC = () => {
           }
           onRoll={roll => {
             const diceRoll: DiceRoll = {
-              characterIndex: characterIndex,
+              characterKey,
               type: rolledAttributeType,
               roll
             };
