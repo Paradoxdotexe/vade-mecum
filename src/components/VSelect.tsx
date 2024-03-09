@@ -70,7 +70,8 @@ const Select = styled.div`
 
   .select__dropdown-enter {
     opacity: 0;
-    transform: translateY(-12px);
+    transform: translateY(-6px) scaleY(0);
+    transform-origin: top;
   }
 
   .select__dropdown-enter-active {
@@ -82,11 +83,12 @@ const Select = styled.div`
   .select__dropdown-exit {
     opacity: 1;
     transform: translateY(0);
+    transform-origin: top;
   }
 
   .select__dropdown-exit-active {
     opacity: 0;
-    transform: translateY(-12px);
+    transform: translateY(-6px) scaleY(0);
     transition: all ${TIMEOUT}ms ease;
   }
 `;

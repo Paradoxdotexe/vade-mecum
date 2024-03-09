@@ -77,10 +77,15 @@ export const CLASSES: { [kitKey: string]: Class[] } = {
   ]
 };
 
+export const RACES = {
+  vale_of_myths: ['Human', 'Dwarf', 'Elf', 'Fay', 'Halfling']
+};
+
 export type Character = {
   key: string;
   name: string;
   class?: Class;
+  race?: string;
   attributes: Attribute[];
 };
 

@@ -1,4 +1,4 @@
-### [🡰 Back to Vade Vecum](/docs)
+### [🠈 Back to Vade Vecum](/docs)
 
 # Vestiges of Mankind
 
