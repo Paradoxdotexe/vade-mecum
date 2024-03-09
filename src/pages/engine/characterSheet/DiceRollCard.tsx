@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { rollDie } from '../../../utils/rollDie';
 import { getDieOutcome } from '../../../utils/getDieOutcome';
-import { NumberInput } from '../NumberInput';
+import { VNumberInput } from '../../../components/VNumberInput';
 
 const SkillCheckCardDiv = styled.div`
   background: #3b3b3b;
@@ -237,7 +237,7 @@ const DiceFactorInput: React.FC<DiceFactorInputProps> = props => {
   return (
     <DiceFactorInputDiv>
       <div className="factor__prefix">{props.prefix}</div>
-      <NumberInput
+      <VNumberInput
         value={props.value}
         onChange={props.onChange}
         max={props.max}

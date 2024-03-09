@@ -5,6 +5,7 @@ import { ClassSelect } from './ClassSelect';
 import { NameInput } from './NameInput';
 import { RaceSelect } from './RaceSelect';
 import { DescriptionTextArea } from './DescriptionTextArea';
+import { LevelInput } from './LevelInput';
 
 const Sheet = styled.div`
   display: flex;
@@ -79,6 +80,10 @@ export const CharacterSheet: React.FC = () => {
           <div className="sheet__section section--flex">
             <div className="section__header">Description</div>
             <DescriptionTextArea />
+          </div>
+          <div className="sheet__section">
+            <div className="section__header">Level</div>
+            <LevelInput />
           </div>
         </div>
       </div>

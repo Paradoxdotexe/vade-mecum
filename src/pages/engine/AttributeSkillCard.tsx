@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { NumberInput } from './NumberInput';
+import { VNumberInput } from '../../components/VNumberInput';
 import { Attribute } from './EngineStateContext';
 import { VCard } from '@/components/VCard';
 
@@ -59,7 +59,7 @@ export const AttributeSkillCard: React.FC<AttributeSkillCardProps> = props => {
     <Card>
       <div className="card__attribute">
         <div className="attribute__label">{props.attribute.label.toUpperCase()}</div>
-        <NumberInput
+        <VNumberInput
           value={props.attribute.value}
           onChange={value => {
             // update attribute value
@@ -72,7 +72,7 @@ export const AttributeSkillCard: React.FC<AttributeSkillCardProps> = props => {
       <div className="card__skills">
         {props.attribute.skills.map((skill, i) => (
           <div key={skill.label} className="skills__skill">
-            <NumberInput
+            <VNumberInput
               value={skill.value}
               onChange={value => {
                 // update skill value
