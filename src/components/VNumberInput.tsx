@@ -20,7 +20,7 @@ const Input = styled.div<{ $width: number; $height: number; $fontSize: number }>
 
     &.input--error {
       border: 1px solid #ec4343;
-      background-color: #ec434322;
+      background-color: #ec434344;
     }
   }
 `;

@@ -85,6 +85,7 @@ export type Character = {
   key: string;
   name: string;
   level: number;
+  hitPoints: number;
   class?: Class;
   race?: string;
   description?: string;
@@ -95,6 +96,7 @@ export const DEFAULT_CHARACTER: Character = {
   key: uuid(),
   name: '',
   level: 1,
+  hitPoints: 6,
   attributes: [
     {
       label: 'Strength',
@@ -158,7 +160,7 @@ type EngineState = {
 };
 
 const DEFAULT_ENGINE_STATE: EngineState = {
-  version: '4.0',
+  version: '5.0',
   characters: { [DEFAULT_CHARACTER.key]: structuredClone(DEFAULT_CHARACTER) },
   characterKey: DEFAULT_CHARACTER.key,
   diceRolls: []
