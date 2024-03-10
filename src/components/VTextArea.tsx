@@ -23,16 +23,16 @@ const TextArea = styled.div`
 type VTextAreaProps = {
   placeholder: string;
   value?: string;
-  onChange?: (value?: string) => void;
+  onChange?: (value: string) => void;
   style?: React.CSSProperties;
 };
 
 export const VTextArea: React.FC<VTextAreaProps> = props => {
-  const [value, setValue] = useState<string | undefined>(props.value);
+  const [value, setValue] = useState<string>(props.value ?? '');
 
   useEffect(() => {
     if (props.value !== value) {
-      setValue(props.value);
+      setValue(props.value ?? '');
     }
   }, [props.value]);
 

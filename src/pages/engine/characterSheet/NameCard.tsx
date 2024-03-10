@@ -1,17 +1,17 @@
 import React from 'react';
-import { useEngineState } from '../EngineStateContext';
 import { VInput } from '@/components/VInput';
 import { VCard } from '@/components/VCard';
+import { useCharacters } from '../useCharacters';
 
 export const NameCard: React.FC = () => {
-  const { character, updateCharacter } = useEngineState();
+  const { currentCharacter } = useCharacters();
 
   return (
     <VCard style={{ padding: 0 }}>
       <VInput
         placeholder="Name"
-        value={character.name}
-        onChange={name => updateCharacter({ name })}
+        value={currentCharacter.name}
+        onChange={currentCharacter.setName}
       />
     </VCard>
   );

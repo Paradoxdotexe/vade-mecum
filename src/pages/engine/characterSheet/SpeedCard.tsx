@@ -1,7 +1,7 @@
 import React from 'react';
-import { useEngineState } from '../EngineStateContext';
 import { VCard } from '@/components/VCard';
 import styled from 'styled-components';
+import { useCharacters } from '../useCharacters';
 
 const StyledSpeedCard = styled(VCard)`
   flex: 1;
@@ -12,17 +12,7 @@ const StyledSpeedCard = styled(VCard)`
 `;
 
 export const SpeedCard: React.FC = () => {
-  const { character } = useEngineState();
+  const { currentCharacter } = useCharacters();
 
-  const dexterityAttribute = character.attributes.find(
-    attribute => attribute.label === 'Dexterity'
-  );
-  const agilitySkill = dexterityAttribute?.skills.find(skill => skill.label === 'Agility');
-
-  const dexterity = dexterityAttribute?.value ?? 0;
-  const agility = agilitySkill?.value ?? 0;
-
-  const speed = (dexterity + agility + 3) * 5;
-
-  return <StyledSpeedCard>{speed}ft</StyledSpeedCard>;
+  return <StyledSpeedCard>{currentCharacter.speed * 5}ft</StyledSpeedCard>;
 };

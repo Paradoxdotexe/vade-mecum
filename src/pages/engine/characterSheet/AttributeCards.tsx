@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
-import { Attribute, DiceRoll, useEngineState } from '../EngineStateContext';
 import styled from 'styled-components';
 import { AttributeCard } from './AttributeCard';
-import { DiceRollCard } from './DiceRollCard';
-import { VPopup } from '../../../components/VPopup';
+import { RollCard } from '../RollCard';
+import { VPopup } from '@/components/VPopup';
+import { useCharacters } from '../useCharacters';
+import { Attribute, AttributeKey } from '@/types/Character';
+import { useRolls } from '../useRolls';
+import { DateTime } from 'luxon';
 
 const StyledAttributeCards = styled.div`
   display: flex;
@@ -12,26 +15,21 @@ const StyledAttributeCards = styled.div`
 `;
 
 export const AttributeCards: React.FC = () => {
-  const { characterKey, character, updateCharacter, update, diceRolls } = useEngineState();
+  const { addRoll } = useRolls();
+  const { currentCharacter } = useCharacters();
 
   const [rolledAttribute, setRolledAttribute] = useState<Attribute>();
   const [rolledAttributeActive, setRolledAttributeActive] = useState(false);
 
-  const rolledAttributeType = rolledAttribute?.skills[0].label ?? '';
+  const rolledSkill = rolledAttribute && Object.values(rolledAttribute.skills)[0];
 
   return (
     <>
       <StyledAttributeCards>
-        {character.attributes.map((attribute, i) => (
+        {Object.keys(currentCharacter.attributes).map(attributeKey => (
           <AttributeCard
-            key={attribute.label}
-            attribute={attribute}
-            onChange={attribute => {
-              // update character attribute
-              const attributes = [...character.attributes];
-              attributes[i] = attribute;
-              updateCharacter({ attributes });
-            }}
+            key={attributeKey}
+            attributeKey={attributeKey as AttributeKey}
             onClick={attribute => {
               setRolledAttribute(attribute);
               setRolledAttributeActive(true);
@@ -46,10 +44,11 @@ export const AttributeCards: React.FC = () => {
           setRolledAttributeActive(false);
         }}
       >
-        <DiceRollCard
-          label={`${character.name || 'Anonymous'} (${rolledAttributeType})`}
+        <RollCard
+          title={`${currentCharacter.name || 'Anonymous'} (${rolledSkill?.label})`}
           diceFactors={
-            rolledAttribute && [
+            rolledAttribute &&
+            rolledSkill && [
               {
                 type: 'A',
                 label: rolledAttribute.label,
@@ -58,20 +57,18 @@ export const AttributeCards: React.FC = () => {
               },
               {
                 type: 'A',
-                label: rolledAttribute.skills[0].label,
-                value: rolledAttribute.skills[0].value,
+                label: rolledSkill.label,
+                value: rolledSkill.value,
                 max: 3
               }
             ]
           }
-          onRoll={roll => {
-            const diceRoll: DiceRoll = {
-              characterKey,
-              type: rolledAttributeType,
-              roll
-            };
-            update({
-              diceRolls: [diceRoll, ...diceRolls].slice(0, 100)
+          onRoll={dice => {
+            addRoll({
+              characterKey: currentCharacter.key,
+              label: rolledSkill!.label,
+              dice,
+              timestamp: DateTime.now().toISO()
             });
             setTimeout(() => setRolledAttributeActive(false), 1500);
           }}

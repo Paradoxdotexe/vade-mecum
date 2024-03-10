@@ -1,17 +1,17 @@
 import React from 'react';
-import { useEngineState } from '../EngineStateContext';
 import { VTextArea } from '@/components/VTextArea';
 import { VCard } from '@/components/VCard';
+import { useCharacters } from '../useCharacters';
 
 export const DescriptionCard: React.FC = () => {
-  const { character, updateCharacter } = useEngineState();
+  const { currentCharacter } = useCharacters();
 
   return (
     <VCard style={{ padding: 0, flex: 1 }}>
       <VTextArea
         placeholder="Description"
-        value={character.description}
-        onChange={description => updateCharacter({ description })}
+        value={currentCharacter.description}
+        onChange={currentCharacter.setDescription}
         style={{ height: '100%' }}
       />
     </VCard>

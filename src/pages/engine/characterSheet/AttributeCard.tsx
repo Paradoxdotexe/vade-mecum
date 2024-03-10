@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { VNumberInput } from '../../../components/VNumberInput';
-import { Attribute } from '../EngineStateContext';
 import { VCard } from '@/components/VCard';
+import { Attribute, AttributeKey } from '@/types/Character';
+import { useCharacters } from '../useCharacters';
 
 const StyledAttributeCard = styled(VCard)`
   display: flex;
@@ -49,41 +50,47 @@ const StyledAttributeCard = styled(VCard)`
 `;
 
 type AttributeCardProps = {
-  attribute: Attribute;
-  onChange?: (attribute: Attribute) => void;
+  attributeKey: AttributeKey;
   onClick?: (attribute: Attribute) => void;
 };
 
 export const AttributeCard: React.FC<AttributeCardProps> = props => {
+  const { currentCharacter } = useCharacters();
+
+  const attribute = currentCharacter.attributes[props.attributeKey];
+
   return (
     <StyledAttributeCard>
       <div className="card__attribute">
-        <div className="attribute__label">{props.attribute.label.toUpperCase()}</div>
+        <div className="attribute__label">{attribute.label.toUpperCase()}</div>
         <VNumberInput
-          value={props.attribute.value}
-          onChange={value => {
-            // update attribute value
-            props.onChange?.({ ...props.attribute, value });
-          }}
+          value={attribute.value}
+          onChange={value => currentCharacter.setAttributeValue(props.attributeKey, value)}
           max={6}
           size={48}
         />
       </div>
+
       <div className="card__skills">
-        {props.attribute.skills.map((skill, i) => (
+        {Object.entries(attribute.skills).map(([skillKey, skill]) => (
           <div key={skill.label} className="skills__skill">
             <VNumberInput
               value={skill.value}
-              onChange={value => {
-                // update skill value
-                props.attribute.skills[i].value = value;
-                props.onChange?.({ ...props.attribute });
-              }}
+              onChange={value =>
+                currentCharacter.setSkillValue(props.attributeKey, skillKey, value)
+              }
               max={3}
             />
             <div
               className="skill__label"
-              onClick={() => props.onClick?.({ ...props.attribute, skills: [skill] })}
+              onClick={() =>
+                props.onClick?.({
+                  ...attribute,
+                  skills: Object.fromEntries(
+                    Object.entries(attribute.skills).filter(([key]) => key === skillKey)
+                  )
+                })
+              }
             >
               {skill.label}
             </div>

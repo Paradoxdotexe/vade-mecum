@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import { DiceRollCard } from './characterSheet/DiceRollCard';
-import { useEngineState } from './EngineStateContext';
+import { RollCard } from './RollCard';
 import { ReactComponent as PlusIcon } from '@/icons/Plus.svg';
 import { ReactComponent as TrashCanIcon } from '@/icons/TrashCan.svg';
 import { CharacterSheet } from './characterSheet/CharacterSheet';
+import { useCharacters } from './useCharacters';
+import { useRolls } from './useRolls';
 
 const Page = styled.div`
   padding: 48px;
@@ -128,30 +129,34 @@ const Page = styled.div`
 `;
 
 export const EnginePage: React.FC = () => {
-  const { characters, characterKey, diceRolls, update, addCharacter, removeCharacter } =
-    useEngineState();
+  const { rolls } = useRolls();
+  const { characters, currentCharacter, setCurrentCharacter, addCharacter, removeCharacter } =
+    useCharacters();
 
   return (
     <Page>
       <div className="page__tabs">
-        {Object.values(characters).map(character => (
-          <div
-            key={character.key}
-            className={`tabs__tab ${character.key === characterKey ? 'tab--active' : ''}`}
-            onClick={() => update({ characterKey: character.key })}
-          >
-            {character.name || 'Anonymous'}
-            {character.key === characterKey && Object.keys(characters).length > 1 && (
-              <TrashCanIcon
-                className="tab__delete"
-                onClick={event => {
-                  event.stopPropagation();
-                  removeCharacter();
-                }}
-              />
-            )}
-          </div>
-        ))}
+        {Object.values(characters).map(character => {
+          const active = character.key === currentCharacter.key;
+          return (
+            <div
+              key={character.key}
+              className={`tabs__tab ${active ? 'tab--active' : ''}`}
+              onClick={() => setCurrentCharacter(character.key)}
+            >
+              {character.name || 'Anonymous'}
+              {active && Object.keys(characters).length > 1 && (
+                <TrashCanIcon
+                  className="tab__delete"
+                  onClick={event => {
+                    event.stopPropagation();
+                    removeCharacter(character.key);
+                  }}
+                />
+              )}
+            </div>
+          );
+        })}
         <div className="tabs__tab" onClick={() => addCharacter()}>
           <PlusIcon />
         </div>
@@ -163,11 +168,11 @@ export const EnginePage: React.FC = () => {
         <div className="rollLog__header">Roll Log</div>
         <div className="rollLog__log">
           <div className="log__rolls">
-            {diceRolls.map(diceRoll => (
-              <DiceRollCard
-                key={JSON.stringify(diceRoll)}
-                label={`${characters[diceRoll.characterKey].name || 'Anonymous'} (${diceRoll.type})`}
-                roll={diceRoll.roll}
+            {rolls.map(roll => (
+              <RollCard
+                key={`${roll.characterKey}#${roll.timestamp}`}
+                title={`${characters[roll.characterKey]?.name || 'Anonymous'} (${roll.label})`}
+                dice={roll.dice}
                 minimized
               />
             ))}

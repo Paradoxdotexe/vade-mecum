@@ -161,8 +161,8 @@ Skills allow characters to specialize themselves towards specific types of actio
 | Dexterity    | **Stealth**       | Move quietly, hide oneself, evade detection                        |
 | Dexterity    | **Agility**       | Dodge a hazard, react quickly, manuever acrobatically              |
 | Intelligence | **Comprehension** | Understand written or spoken information, operate a complex system |
-| Intelligence | **Innovation**    | Solve mechanical or technical problems, fix damaged items          |
 | Intelligence | **Medicine**      | Diagnose and treat injuries and illnesses                          |
+| Intelligence | **Innovation**    | Solve mechanical or technical problems, fix damaged items          |
 | Charisma     | **Intuition**     | Understand unspoken motives and feelings, catch lies               |
 | Charisma     | **Speech**        | Persuade or deceive a person                                       |
 | Charisma     | **Barter**        | Haggle for better prices or terms, assess an item's value          |
@@ -199,12 +199,12 @@ As such, perks give characters a way to accentuate their strengths in ways that 
 | Intelligence | **Book Worm**        | Comprehension 1 | You double your Comprehension bonus on skill checks to comprehend written information.                                    |
 | Intelligence | **Linguist**         | Comprehension 2 | You double your Comprehension bonus on skill checks to comprehend a foreign language.                                     |
 | Intelligence | **Strategist**       | Comprehension 3 | When you plan a surprise attack, you add +3 advantage to the Stealth roll to surprise the enemy.                          |
-| Intelligence | **Junk Collector**   | Innovation 1    | You double your Innovation bonus on skill checks to craft an item using junk.                                             |
-| Intelligence | **Inventor**         | Innovation 2    | You double your Innovation bonus on skill checks to build something unique.                                               |
-| Intelligence | **Repairman**        | Innovation 3    | On a successful Innovation check to repair an item, you can also repair a second item.                                    |
 | Intelligence | **Spiritual Healer** | Medicine 1      | You can stabilize allies from up to 15 ft away.                                                                           |
 | Intelligence | **Field Medic**      | Medicine 2      | On a stalemate Medicine check to stabilize an ally, you decrease the injury level by one.                                 |
 | Intelligence | **Witch Doctor**     | Medicine 3      | Even when incapacitated with a deadly injury, you can roll to stabilize yourself.                                         |
+| Intelligence | **Junk Collector**   | Innovation 1    | You double your Innovation bonus on skill checks to craft an item using junk.                                             |
+| Intelligence | **Inventor**         | Innovation 2    | You double your Innovation bonus on skill checks to build something unique.                                               |
+| Intelligence | **Repairman**        | Innovation 3    | On a successful Innovation check to repair an item, you can also repair a second item.                                    |
 | Charisma     | **Polygraph**        | Intuition 1     | You double your Intuition bonus on skill checks to determine if an NPC is lying.                                          |
 | Charisma     | **Empath**           | Intuition 2     | You double your Intuition bonus on skill checks to determine an NPC's true emotional state.                               |
 | Charisma     | **Counselor**        | Intuition 3     | After a successful Intuition check against an NPC, you get +3 advantage on your next Speech check using that information. |

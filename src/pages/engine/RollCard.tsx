@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { rollDie } from '../../../utils/rollDie';
-import { getDieOutcome } from '../../../utils/getDieOutcome';
-import { VNumberInput } from '../../../components/VNumberInput';
+import { rollDie } from '../../utils/rollDie';
+import { getDieOutcome } from '../../utils/getDieOutcome';
+import { VNumberInput } from '../../components/VNumberInput';
 import { VCard } from '@/components/VCard';
 
-const StyledDiceRollCard = styled(VCard)`
+const StyledRollCard = styled(VCard)`
   display: flex;
   flex-direction: column;
   width: 200px;
@@ -109,21 +109,21 @@ type DiceFactor = {
   max?: number;
 };
 
-type DiceRollCardProps = {
+type RollCardProps = {
   diceFactors?: DiceFactor[];
-  label: string;
-  roll?: number[];
+  title: string;
+  dice?: number[];
   onRoll?: (roll: number[]) => void;
   minimized?: boolean;
 };
 
-export const DiceRollCard: React.FC<DiceRollCardProps> = props => {
+export const RollCard: React.FC<RollCardProps> = props => {
   const [diceFactors, setDiceFactors] = useState<DiceFactor[]>([
     ...(props.diceFactors ?? []),
     { type: 'A', label: 'Advantage', value: 0 },
     { type: 'D', label: 'Disadvantage', value: 0 }
   ]);
-  const [roll, setRoll] = useState<number[] | undefined>(props.roll);
+  const [dice, setDice] = useState<number[] | undefined>(props.dice);
 
   const rollDice = () => {
     const rollSound = new Audio('/sounds/roll.mp3');
@@ -131,9 +131,9 @@ export const DiceRollCard: React.FC<DiceRollCardProps> = props => {
       'canplaythrough',
       () => {
         rollSound.play();
-        const roll = [...new Array(total)].map(() => rollDie()).sort((a, b) => b - a);
-        setRoll(roll);
-        props.onRoll?.(roll);
+        const newDice = [...new Array(total)].map(() => rollDie()).sort((a, b) => b - a);
+        setDice(newDice);
+        props.onRoll?.(newDice);
       },
       false
     );
@@ -144,12 +144,12 @@ export const DiceRollCard: React.FC<DiceRollCardProps> = props => {
     sum(diceFactors.map(factor => (factor.type === 'A' ? factor.value : -factor.value)))
   );
 
-  const outcome = roll && getDieOutcome(Math.max(...roll));
+  const outcome = dice && getDieOutcome(Math.max(...dice));
 
   return (
-    <StyledDiceRollCard>
+    <StyledRollCard>
       <div className="card__header" style={{ background: outcome?.color }}>
-        {props.label}
+        {props.title}
       </div>
       <div className="card__body">
         {!props.minimized && (
@@ -176,7 +176,7 @@ export const DiceRollCard: React.FC<DiceRollCardProps> = props => {
 
             <div className="body__total">
               <DiceFactorInput prefix="=" label="Total" value={total} disabled />
-              <button onClick={() => rollDice()} disabled={total === 0 || !!roll}>
+              <button onClick={() => rollDice()} disabled={total === 0 || !!dice}>
                 Roll
               </button>
             </div>
@@ -186,8 +186,8 @@ export const DiceRollCard: React.FC<DiceRollCardProps> = props => {
         )}
 
         <div className="body__dice">
-          {[...new Array(roll?.length ?? total)].map((_, i) => {
-            const die = roll?.[i];
+          {[...new Array(dice?.length ?? total)].map((_, i) => {
+            const die = dice?.[i];
             const outcome = die !== undefined ? getDieOutcome(die) : undefined;
 
             return (
@@ -208,7 +208,7 @@ export const DiceRollCard: React.FC<DiceRollCardProps> = props => {
           </div>
         )}
       </div>
-    </StyledDiceRollCard>
+    </StyledRollCard>
   );
 };
 

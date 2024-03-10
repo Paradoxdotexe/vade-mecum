@@ -22,15 +22,15 @@ type VInputProps = {
   placeholder: string;
   className?: string;
   value?: string;
-  onChange?: (value?: string) => void;
+  onChange?: (value: string) => void;
 };
 
 export const VInput: React.FC<VInputProps> = props => {
-  const [value, setValue] = useState<string | undefined>(props.value);
+  const [value, setValue] = useState(props.value ?? '');
 
   useEffect(() => {
     if (props.value !== value) {
-      setValue(props.value);
+      setValue(props.value ?? '');
     }
   }, [props.value]);
 
