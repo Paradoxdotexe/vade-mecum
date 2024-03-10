@@ -347,9 +347,9 @@ As a character engages in combat, they will take damage, lose HP, and face conse
 
 Each character has a movement speed that regulates how far they can move during combat.
 Movement speed is measured in terms of grid tiles which are roughly 5ft squares.
-A character's movement speed is equal to `(Dexterity + Agility) x 2`.
+A character's movement speed is equal to `Dexterity + Agility + 3`.
 
-> **Example:** A character with Dexterity 3 and Agility 1 will have a movement speed of 8 tiles, or 40 feet.
+> **Example:** A character with Dexterity 3 and Agility 2 will have a movement speed of 8 tiles, or 40 feet.
 
 Out of combat, all characters have the same movement speed of 2 miles per hour or 24 miles per day when traversing long distances.
 This speed can be increased by vehicles if available in the chosen World Kit.

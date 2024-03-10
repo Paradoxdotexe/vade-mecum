@@ -7,6 +7,7 @@ import { RaceSelect } from './RaceSelect';
 import { DescriptionTextArea } from './DescriptionTextArea';
 import { LevelInput } from './LevelInput';
 import { HitPointsInput } from './HitPointsInput';
+import { SpeedCard } from './SpeedCard';
 
 const Sheet = styled.div`
   display: flex;
@@ -89,6 +90,10 @@ export const CharacterSheet: React.FC = () => {
           <div className="sheet__section">
             <div className="section__header">Hit Points</div>
             <HitPointsInput />
+          </div>
+          <div className="sheet__section">
+            <div className="section__header">Speed</div>
+            <SpeedCard />
           </div>
         </div>
       </div>
