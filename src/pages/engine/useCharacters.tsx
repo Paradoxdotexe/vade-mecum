@@ -110,16 +110,20 @@ const useCurrentCharacter = () => {
   };
 
   const characterClass = character.classKey
-    ? WORLD_KITS.vale_of_myths.classes[character.classKey]
+    ? {
+        ...WORLD_KITS.vale_of_myths.classes[character.classKey],
+        classItemBonus: Math.floor(character.level / 6)
+      }
     : undefined;
-
-  const classItemBonus = Math.floor(character.level / 6);
 
   const computationVariables = useMemo(() => {
     const computationVariables: { [key: string]: number } = {
-      level: character.level,
-      classItemBonus
+      level: character.level
     };
+
+    if (characterClass) {
+      computationVariables.classItemBonus = characterClass.classItemBonus;
+    }
 
     for (const [attributeKey, attribute] of Object.entries(character.attributes)) {
       computationVariables[`attribute.${attributeKey}`] = attribute.value;
@@ -134,21 +138,22 @@ const useCurrentCharacter = () => {
 
   const getSpeed = () => {
     return parseComputation(
-      characterClass?.speed ?? '3 + [attribute.dexterity] + [skill.agility]',
+      characterClass?.computed?.speed ?? '3 + [attribute.dexterity] + [skill.agility]',
       computationVariables
     );
   };
 
   const getMaxHitPoints = () => {
     return parseComputation(
-      characterClass?.maxHitPoints ?? '([level] + [attribute.strength] + [skill.fortitude]) * 6',
+      characterClass?.computed?.maxHitPoints ??
+        '([level] + [attribute.strength] + [skill.fortitude]) * 6',
       computationVariables
     );
   };
 
   const getMaxClassPoints = () => {
-    if (characterClass?.maxClassPoints) {
-      return parseComputation(characterClass.maxClassPoints, computationVariables);
+    if (characterClass?.computed?.maxClassPoints) {
+      return parseComputation(characterClass.computed.maxClassPoints, computationVariables);
     }
 
     return 0;
@@ -196,7 +201,7 @@ const useCurrentCharacter = () => {
 
   return {
     ...character,
-    classLabel: character.classKey && capitalize(character.classKey),
+    class: characterClass,
     speed: getSpeed(),
     maxHitPoints: getMaxHitPoints(),
     maxClassPoints: getMaxClassPoints(),

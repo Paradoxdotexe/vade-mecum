@@ -102,10 +102,11 @@ const StyledRollCard = styled(VCard)`
 
 const sum = (numbers: number[]) => numbers.reduce((sum, n) => sum + n, 0);
 
-type DiceFactor = {
+export type DiceFactor = {
   type: 'A' | 'D';
   label: string;
   value: number;
+  disabled?: boolean;
   max?: number;
 };
 
@@ -161,6 +162,7 @@ export const RollCard: React.FC<RollCardProps> = props => {
                   prefix={i === 0 ? undefined : diceFactor.type === 'A' ? '+' : '-'}
                   label={diceFactor.label}
                   value={diceFactor.value}
+                  disabled={diceFactor.disabled}
                   max={diceFactor.max}
                   onChange={value => {
                     setDiceFactors(diceFactors => {

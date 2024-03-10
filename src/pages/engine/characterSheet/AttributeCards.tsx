@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { AttributeCard } from './AttributeCard';
-import { RollCard } from '../RollCard';
+import { DiceFactor, RollCard } from '../RollCard';
 import { VPopup } from '@/components/VPopup';
 import { useCharacters } from '../useCharacters';
 import { Attribute, AttributeKey } from '@/pages/engine/Character';
@@ -21,7 +21,41 @@ export const AttributeCards: React.FC = () => {
   const [rolledAttribute, setRolledAttribute] = useState<Attribute>();
   const [rolledAttributeActive, setRolledAttributeActive] = useState(false);
 
-  const rolledSkill = rolledAttribute && Object.values(rolledAttribute.skills)[0];
+  const rolledSkillKey = rolledAttribute && Object.keys(rolledAttribute.skills)[0];
+  const rolledSkill = rolledSkillKey ? rolledAttribute.skills[rolledSkillKey] : undefined;
+
+  const diceFactors: DiceFactor[] = [];
+
+  if (rolledAttribute && rolledSkillKey && rolledSkill) {
+    // add attribute and skill advantages
+    diceFactors.push(
+      {
+        type: 'A',
+        label: rolledAttribute.label,
+        value: rolledAttribute.value,
+        max: 6,
+        disabled: true
+      },
+      {
+        type: 'A',
+        label: rolledSkill.label,
+        value: rolledSkill.value,
+        max: 3,
+        disabled: true
+      }
+    );
+
+    // add class item advantage if applicable
+    if (currentCharacter.class?.skillKey === rolledSkillKey) {
+      diceFactors.push({
+        type: 'A',
+        label: currentCharacter.class.classItemLabel,
+        value: currentCharacter.class.classItemBonus,
+        max: 4,
+        disabled: true
+      });
+    }
+  }
 
   return (
     <>
@@ -46,23 +80,7 @@ export const AttributeCards: React.FC = () => {
       >
         <RollCard
           title={`${currentCharacter.name || 'Anonymous'} (${rolledSkill?.label})`}
-          diceFactors={
-            rolledAttribute &&
-            rolledSkill && [
-              {
-                type: 'A',
-                label: rolledAttribute.label,
-                value: rolledAttribute.value,
-                max: 6
-              },
-              {
-                type: 'A',
-                label: rolledSkill.label,
-                value: rolledSkill.value,
-                max: 3
-              }
-            ]
-          }
+          diceFactors={diceFactors}
           onRoll={dice => {
             addRoll({
               characterKey: currentCharacter.key,

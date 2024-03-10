@@ -10,9 +10,12 @@ type CharacterClass = {
   label: string;
   attributeKey: AttributeKey;
   skillKey: string;
-  speed?: string;
-  maxHitPoints?: string;
-  maxClassPoints?: string;
+  classItemLabel: string;
+  computed?: {
+    speed?: string;
+    maxHitPoints?: string;
+    maxClassPoints?: string;
+  };
 };
 
 const VALE_OF_MYTHS: WorldKit = {
@@ -22,59 +25,83 @@ const VALE_OF_MYTHS: WorldKit = {
     knight: {
       label: 'Knight',
       attributeKey: 'strength',
-      skillKey: 'honor'
+      skillKey: 'honor',
+      classItemLabel: 'Honorific Banner'
     },
     barbarian: {
       label: 'Barbarian',
       attributeKey: 'strength',
-      skillKey: 'rage'
+      skillKey: 'rage',
+      classItemLabel: 'Tribal Marking'
     },
     monk: {
       label: 'Monk',
       attributeKey: 'dexterity',
       skillKey: 'chi',
-      maxClassPoints: '3 + [classItemBonus] * 3'
+      classItemLabel: 'Spiritual Talisman',
+      computed: {
+        maxClassPoints: '3 + [classItemBonus] * 3'
+      }
     },
     ranger: {
       label: 'Ranger',
       attributeKey: 'dexterity',
       skillKey: 'survival',
-      speed: '3 + [attribute.dexterity] + [skill.agility] + [skill.survival]'
+      classItemLabel: 'Survival Toolkit',
+      computed: {
+        speed: '3 + [attribute.dexterity] + [skill.agility] + [skill.survival]'
+      }
     },
     mage: {
       label: 'Mage',
       attributeKey: 'intelligence',
       skillKey: 'magic',
-      maxClassPoints: '[level]'
+      classItemLabel: 'Magical Channel',
+      computed: {
+        maxClassPoints: '[level]'
+      }
     },
     forge: {
       label: 'Forge',
       attributeKey: 'intelligence',
       skillKey: 'smithing',
-      maxClassPoints: '3 + [classItemBonus] * 3'
+      classItemLabel: 'Smithing Hammer',
+      computed: {
+        maxClassPoints: '3 + [classItemBonus] * 3'
+      }
     },
     herald: {
       label: 'Herald',
       attributeKey: 'charisma',
       skillKey: 'influence',
-      maxClassPoints: '[level]'
+      classItemLabel: 'Beacon of Influence',
+      computed: {
+        maxClassPoints: '[level]'
+      }
     },
     enchanter: {
       label: 'Enchanter',
       attributeKey: 'charisma',
-      skillKey: 'enchantment'
+      skillKey: 'enchantment',
+      classItemLabel: 'Enchantment Charm'
     },
     sage: {
       label: 'Sage',
       attributeKey: 'perception',
       skillKey: 'nature',
-      maxClassPoints: '[level]'
+      classItemLabel: 'Ritual Totem',
+      computed: {
+        maxClassPoints: '[level]'
+      }
     },
     druid: {
       label: 'Druid',
       attributeKey: 'perception',
       skillKey: 'beast',
-      maxClassPoints: '[classItemBonus] + 1'
+      classItemLabel: 'Tamed Beast',
+      computed: {
+        maxClassPoints: '[classItemBonus] + 1'
+      }
     }
   }
 };
