@@ -66,6 +66,7 @@ export const AttributeCard: React.FC<AttributeCardProps> = props => {
         <VNumberInput
           value={attribute.value}
           onChange={value => currentCharacter.setAttributeValue(props.attributeKey, value)}
+          min={1}
           max={6}
           size={48}
         />

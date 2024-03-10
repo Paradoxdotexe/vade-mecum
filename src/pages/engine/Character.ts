@@ -66,7 +66,7 @@ export type AttributeKey = keyof Attributes;
 const DEFAULT_ATTRIBUTES: Attributes = {
   strength: {
     label: 'Strength',
-    value: 0,
+    value: 1,
     skills: {
       power: { label: 'Power', value: 0 },
       fortitude: { label: 'Fortitude', value: 0 },
@@ -75,7 +75,7 @@ const DEFAULT_ATTRIBUTES: Attributes = {
   },
   dexterity: {
     label: 'Dexterity',
-    value: 0,
+    value: 1,
     skills: {
       precision: { label: 'Precision', value: 0 },
       stealth: { label: 'Stealth', value: 0 },
@@ -85,7 +85,7 @@ const DEFAULT_ATTRIBUTES: Attributes = {
 
   intelligence: {
     label: 'Intelligence',
-    value: 0,
+    value: 1,
     skills: {
       comprehension: { label: 'Comprehension', value: 0 },
       medicine: { label: 'Medicine', value: 0 },
@@ -94,7 +94,7 @@ const DEFAULT_ATTRIBUTES: Attributes = {
   },
   charisma: {
     label: 'Charisma',
-    value: 0,
+    value: 1,
     skills: {
       intuition: { label: 'Intuition', value: 0 },
       speech: { label: 'Speech', value: 0 },
@@ -103,7 +103,7 @@ const DEFAULT_ATTRIBUTES: Attributes = {
   },
   perception: {
     label: 'Perception',
-    value: 0,
+    value: 1,
     skills: {
       insight: { label: 'Insight', value: 0 },
       detection: { label: 'Detection', value: 0 },
@@ -130,6 +130,6 @@ export const DEFAULT_CHARACTER: Character = {
   description: '',
   level: 1,
   attributes: DEFAULT_ATTRIBUTES,
-  hitPoints: 6,
+  hitPoints: 12,
   classPoints: 0
 };
