@@ -112,54 +112,6 @@ const DEFAULT_ATTRIBUTES: Attributes = {
   }
 };
 
-type Class = {
-  attributeKey: AttributeKey;
-  skillKey: string;
-};
-
-export const CLASSES: { [key: string]: Class } = {
-  knight: {
-    attributeKey: 'strength',
-    skillKey: 'honor'
-  },
-  barbarian: {
-    attributeKey: 'strength',
-    skillKey: 'rage'
-  },
-  monk: {
-    attributeKey: 'dexterity',
-    skillKey: 'chi'
-  },
-  ranger: {
-    attributeKey: 'dexterity',
-    skillKey: 'survival'
-  },
-  mage: {
-    attributeKey: 'intelligence',
-    skillKey: 'magic'
-  },
-  forge: {
-    attributeKey: 'intelligence',
-    skillKey: 'smithing'
-  },
-  herald: {
-    attributeKey: 'charisma',
-    skillKey: 'influence'
-  },
-  enchanter: {
-    attributeKey: 'charisma',
-    skillKey: 'enchantment'
-  },
-  sage: {
-    attributeKey: 'perception',
-    skillKey: 'nature'
-  },
-  druid: {
-    attributeKey: 'perception',
-    skillKey: 'beast'
-  }
-};
-
 export type Character = {
   key: string;
   name: string;

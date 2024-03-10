@@ -39,6 +39,7 @@ const Page = styled.div`
         border-top: 1px solid #585858;
         border-left: 1px solid #585858;
         border-right: 1px solid #585858;
+        box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.1);
 
         &:not(.tab--active) {
           opacity: 0.6;

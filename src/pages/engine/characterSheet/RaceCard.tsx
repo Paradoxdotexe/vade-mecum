@@ -2,8 +2,7 @@ import { VSelect } from '@/components/VSelect';
 import React from 'react';
 import { VCard } from '@/components/VCard';
 import { useCharacters } from '../useCharacters';
-
-const RACES = ['Human', 'Dwarf', 'Elf', 'Fay', 'Halfling'];
+import { WORLD_KITS } from '../WorldKit';
 
 export const RaceCard: React.FC = () => {
   const { currentCharacter } = useCharacters();
@@ -12,7 +11,7 @@ export const RaceCard: React.FC = () => {
     <VCard style={{ padding: 0 }}>
       <VSelect
         placeholder="Race"
-        options={RACES.map(race => ({
+        options={WORLD_KITS.vale_of_myths.races.map(race => ({
           value: race,
           label: race
         }))}

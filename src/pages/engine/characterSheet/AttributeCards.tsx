@@ -4,7 +4,7 @@ import { AttributeCard } from './AttributeCard';
 import { RollCard } from '../RollCard';
 import { VPopup } from '@/components/VPopup';
 import { useCharacters } from '../useCharacters';
-import { Attribute, AttributeKey } from '@/types/Character';
+import { Attribute, AttributeKey } from '@/pages/engine/Character';
 import { useRolls } from '../useRolls';
 import { DateTime } from 'luxon';
 

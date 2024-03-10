@@ -10,8 +10,8 @@ import { HitPointsCard } from './HitPointsCard';
 import { SpeedCard } from './SpeedCard';
 import { ClassPointsCard } from './ClassPointsCard';
 import { useCharacters } from '../useCharacters';
-import { CLASSES } from '@/types/Character';
 import { capitalize } from '@/utils/capitalize';
+import { WORLD_KITS } from '../WorldKit';
 
 const Sheet = styled.div`
   display: flex;
@@ -103,7 +103,8 @@ export const CharacterSheet: React.FC = () => {
           {currentCharacter.maxClassPoints > 0 && (
             <div className="sheet__section">
               <div className="section__header">
-                {capitalize(CLASSES[currentCharacter.classKey!].skillKey)} Points
+                {capitalize(WORLD_KITS.vale_of_myths.classes[currentCharacter.classKey!].skillKey)}{' '}
+                Points
               </div>
               <ClassPointsCard />
             </div>

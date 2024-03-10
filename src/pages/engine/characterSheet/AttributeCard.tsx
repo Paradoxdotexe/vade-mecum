@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { VNumberInput } from '../../../components/VNumberInput';
+import { VNumberInput } from '@/components/VNumberInput';
 import { VCard } from '@/components/VCard';
-import { Attribute, AttributeKey } from '@/types/Character';
+import { Attribute, AttributeKey } from '@/pages/engine/Character';
 import { useCharacters } from '../useCharacters';
 
 const StyledAttributeCard = styled(VCard)`

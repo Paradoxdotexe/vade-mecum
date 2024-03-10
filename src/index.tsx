@@ -28,7 +28,6 @@ const router = createBrowserRouter(
 );
 
 const PageWrapper = styled.div`
-  background: #2c2c2c;
   color: #fcfcfc;
   min-height: 100vh;
   overflow: auto;

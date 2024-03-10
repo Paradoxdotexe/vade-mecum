@@ -1,9 +1,11 @@
-import React, { ReactNode, useContext } from 'react';
+import React, { ReactNode, useContext, useMemo } from 'react';
 import { useLocalStorage } from '@/utils/useLocalStorage';
-import { AttributeKey, CLASSES, Character, DEFAULT_CHARACTER } from '@/types/Character';
+import { AttributeKey, Character, DEFAULT_CHARACTER } from '@/pages/engine/Character';
 import { capitalize } from '@/utils/capitalize';
 import { v4 as uuid } from 'uuid';
 import { useStateVersioner } from '@/utils/useStateVersioner';
+import { WORLD_KITS } from './WorldKit';
+import { parseComputation } from '@/utils/parseComputation';
 
 type CharactersState = {
   version: string;
@@ -107,41 +109,46 @@ const useCurrentCharacter = () => {
     charactersState.update({ characters });
   };
 
-  const getSpeed = () => {
-    let speed =
-      3 +
-      character.attributes.dexterity.value +
-      character.attributes.dexterity.skills.agility.value;
-
-    // a ranger adds their class skill to their speed
-    if (character.classKey === 'ranger') {
-      const { attributeKey, skillKey } = CLASSES[character.classKey];
-      speed += character.attributes[attributeKey].skills[skillKey].value;
-    }
-
-    return speed;
-  };
-
-  const getMaxHitPoints = () => {
-    return (
-      (character.level +
-        character.attributes.strength.value +
-        character.attributes.strength.skills.fortitude.value) *
-      6
-    );
-  };
+  const characterClass = character.classKey
+    ? WORLD_KITS.vale_of_myths.classes[character.classKey]
+    : undefined;
 
   const classItemBonus = Math.floor(character.level / 6);
 
-  const getMaxClassPoints = () => {
-    if (character.classKey) {
-      if (['mage', 'herald', 'sage'].includes(character.classKey)) {
-        return character.level;
-      } else if (['monk', 'forge'].includes(character.classKey)) {
-        return 3 + classItemBonus * 3;
-      } else if (['druid'].includes(character.classKey)) {
-        return classItemBonus + 1;
+  const computationVariables = useMemo(() => {
+    const computationVariables: { [key: string]: number } = {
+      level: character.level,
+      classItemBonus
+    };
+
+    for (const [attributeKey, attribute] of Object.entries(character.attributes)) {
+      computationVariables[`attribute.${attributeKey}`] = attribute.value;
+
+      for (const [skillKey, skill] of Object.entries(attribute.skills)) {
+        computationVariables[`skill.${skillKey}`] = skill.value;
       }
+    }
+
+    return computationVariables;
+  }, [character]);
+
+  const getSpeed = () => {
+    return parseComputation(
+      characterClass?.speed ?? '3 + [attribute.dexterity] + [skill.agility]',
+      computationVariables
+    );
+  };
+
+  const getMaxHitPoints = () => {
+    return parseComputation(
+      characterClass?.maxHitPoints ?? '([level] + [attribute.strength] + [skill.fortitude]) * 6',
+      computationVariables
+    );
+  };
+
+  const getMaxClassPoints = () => {
+    if (characterClass?.maxClassPoints) {
+      return parseComputation(characterClass.maxClassPoints, computationVariables);
     }
 
     return 0;
@@ -159,13 +166,13 @@ const useCurrentCharacter = () => {
 
     // delete current class skill
     if (character.classKey) {
-      const { attributeKey, skillKey } = CLASSES[character.classKey];
+      const { attributeKey, skillKey } = WORLD_KITS.vale_of_myths.classes[character.classKey];
       delete attributes[attributeKey].skills[skillKey];
     }
 
     // add new class skill
     if (classKey) {
-      const { attributeKey, skillKey } = CLASSES[classKey];
+      const { attributeKey, skillKey } = WORLD_KITS.vale_of_myths.classes[classKey];
       attributes[attributeKey].skills[skillKey] = {
         label: capitalize(skillKey),
         value: 0
