@@ -131,11 +131,28 @@ const useCurrentCharacter = () => {
     );
   };
 
+  const classItemBonus = Math.floor(character.level / 6);
+
+  const getMaxClassPoints = () => {
+    if (character.classKey) {
+      if (['mage', 'herald', 'sage'].includes(character.classKey)) {
+        return character.level;
+      } else if (['monk', 'forge'].includes(character.classKey)) {
+        return 3 + classItemBonus * 3;
+      } else if (['druid'].includes(character.classKey)) {
+        return classItemBonus + 1;
+      }
+    }
+
+    return 0;
+  };
+
   const setName = (name: string) => updateCharacter({ name });
   const setDescription = (description: string) => updateCharacter({ description });
   const setRace = (race?: string) => updateCharacter({ race });
   const setLevel = (level: number) => updateCharacter({ level });
   const setHitPoints = (hitPoints: number) => updateCharacter({ hitPoints });
+  const setClassPoints = (classPoints: number) => updateCharacter({ classPoints });
 
   const setClass = (classKey?: string) => {
     const attributes = structuredClone(character.attributes);
@@ -175,11 +192,13 @@ const useCurrentCharacter = () => {
     classLabel: character.classKey && capitalize(character.classKey),
     speed: getSpeed(),
     maxHitPoints: getMaxHitPoints(),
+    maxClassPoints: getMaxClassPoints(),
     setName,
     setDescription,
     setRace,
     setLevel,
     setHitPoints,
+    setClassPoints,
     setClass,
     setAttributeValue,
     setSkillValue

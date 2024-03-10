@@ -8,11 +8,14 @@ import { DescriptionCard } from './DescriptionCard';
 import { LevelCard } from './LevelCard';
 import { HitPointsCard } from './HitPointsCard';
 import { SpeedCard } from './SpeedCard';
+import { ClassPointsCard } from './ClassPointsCard';
+import { useCharacters } from '../useCharacters';
+import { CLASSES } from '@/types/Character';
+import { capitalize } from '@/utils/capitalize';
 
 const Sheet = styled.div`
   display: flex;
   gap: 24px;
-  width: 100%;
 
   .sheet__left {
     display: flex;
@@ -59,6 +62,8 @@ const Sheet = styled.div`
 `;
 
 export const CharacterSheet: React.FC = () => {
+  const { currentCharacter } = useCharacters();
+
   return (
     <Sheet>
       <div className="sheet__left">
@@ -95,6 +100,14 @@ export const CharacterSheet: React.FC = () => {
             <div className="section__header">Speed</div>
             <SpeedCard />
           </div>
+          {currentCharacter.maxClassPoints > 0 && (
+            <div className="sheet__section">
+              <div className="section__header">
+                {capitalize(CLASSES[currentCharacter.classKey!].skillKey)} Points
+              </div>
+              <ClassPointsCard />
+            </div>
+          )}
         </div>
       </div>
     </Sheet>

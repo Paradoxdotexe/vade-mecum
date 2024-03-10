@@ -559,7 +559,7 @@ This Smithing Hammer is commonly a dwarven warhammer weighing roughly 25 pounds 
 | 6     | Smithing +1, maximum of 6 Smithing Points  |
 | 12    | Smithing +2, maximum of 9 Smithing Points  |
 | 18    | Smithing +3, maximum of 12 Smithing Points |
-| 24    | Smithing +4                                |
+| 24    | Smithing +4, maximum of 15 Smithing Points |
 
 ### Class Abilities
 
