@@ -61,7 +61,7 @@ export const VNumberInput: React.FC<VNumberInputProps> = props => {
     }
   };
 
-  useEffect(() => onBlur(), [max]);
+  useEffect(() => onBlur(), [min, max]);
 
   useEffect(() => {
     const newValue = parseInt(rawValue);
