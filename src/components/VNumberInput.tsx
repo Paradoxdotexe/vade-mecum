@@ -48,7 +48,20 @@ export const VNumberInput: React.FC<VNumberInputProps> = props => {
   const validated = useMemo(() => {
     const newValue = parseInt(rawValue);
     return !Number.isNaN(newValue) && newValue <= max && newValue >= min;
-  }, [rawValue]);
+  }, [rawValue, max, min]);
+
+  const onBlur = () => {
+    if (!validated) {
+      const newValue = parseInt(rawValue);
+      if (Number.isNaN(newValue) || newValue < min) {
+        setRawValue(min.toString());
+      } else {
+        setRawValue(max.toString());
+      }
+    }
+  };
+
+  useEffect(() => onBlur(), [max]);
 
   useEffect(() => {
     const newValue = parseInt(rawValue);
@@ -70,16 +83,7 @@ export const VNumberInput: React.FC<VNumberInputProps> = props => {
         onChange={event => setRawValue(event.target.value.slice(0, max.toString().length))}
         disabled={props.disabled}
         className={`${!validated ? 'input--error' : ''}`}
-        onBlur={() => {
-          if (!validated) {
-            const newValue = parseInt(rawValue);
-            if (Number.isNaN(newValue) || newValue < min) {
-              setRawValue(min.toString());
-            } else {
-              setRawValue(max.toString());
-            }
-          }
-        }}
+        onBlur={onBlur}
       />
     </Input>
   );
