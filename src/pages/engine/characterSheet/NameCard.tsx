@@ -3,7 +3,7 @@ import { useEngineState } from '../EngineStateContext';
 import { VInput } from '@/components/VInput';
 import { VCard } from '@/components/VCard';
 
-export const NameInput: React.FC = () => {
+export const NameCard: React.FC = () => {
   const { character, updateCharacter } = useEngineState();
 
   return (

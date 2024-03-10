@@ -1,5 +1,5 @@
 import React from 'react';
-import { Markdown, MarkdownProps } from '../../components/Markdown';
+import { VMarkdown, VMarkdownProps } from '../../components/VMarkdown';
 import styled from 'styled-components';
 
 const StyledComponent = styled.div`
@@ -164,10 +164,10 @@ const StyledComponent = styled.div`
   }
 `;
 
-export const DocsMarkdown: React.FC<MarkdownProps> = props => {
+export const DocsMarkdown: React.FC<VMarkdownProps> = props => {
   return (
     <StyledComponent>
-      <Markdown {...props} />
+      <VMarkdown {...props} />
     </StyledComponent>
   );
 };

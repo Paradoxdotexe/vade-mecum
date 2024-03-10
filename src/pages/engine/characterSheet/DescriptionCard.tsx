@@ -3,7 +3,7 @@ import { useEngineState } from '../EngineStateContext';
 import { VTextArea } from '@/components/VTextArea';
 import { VCard } from '@/components/VCard';
 
-export const DescriptionTextArea: React.FC = () => {
+export const DescriptionCard: React.FC = () => {
   const { character, updateCharacter } = useEngineState();
 
   return (

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import * as marked from 'marked';
 
-export type MarkdownProps = {
+export type VMarkdownProps = {
   src: string;
 };
 
@@ -16,7 +16,7 @@ const processMarkdown = (markdown: string) => {
   return markdown;
 };
 
-export const Markdown: React.FC<MarkdownProps> = props => {
+export const VMarkdown: React.FC<VMarkdownProps> = props => {
   const [markdown, setMarkdown] = useState('');
 
   useEffect(() => {

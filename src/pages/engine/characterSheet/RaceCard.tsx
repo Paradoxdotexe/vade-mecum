@@ -3,7 +3,7 @@ import React from 'react';
 import { RACES, useEngineState } from '../EngineStateContext';
 import { VCard } from '@/components/VCard';
 
-export const RaceSelect: React.FC = () => {
+export const RaceCard: React.FC = () => {
   const { character, updateCharacter } = useEngineState();
 
   const races = RACES.vale_of_myths;

@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import { Attribute, DiceRoll, useEngineState } from '../EngineStateContext';
 import styled from 'styled-components';
-import { AttributeSkillCard } from '../AttributeSkillCard';
+import { AttributeCard } from './AttributeCard';
 import { DiceRollCard } from './DiceRollCard';
 import { VPopup } from '../../../components/VPopup';
 
-const Panel = styled.div`
+const StyledAttributeCards = styled.div`
   display: flex;
   flex-direction: column;
   gap: 18px;
 `;
 
-export const CharacterAttributesPanel: React.FC = () => {
+export const AttributeCards: React.FC = () => {
   const { characterKey, character, updateCharacter, update, diceRolls } = useEngineState();
 
   const [rolledAttribute, setRolledAttribute] = useState<Attribute>();
@@ -21,9 +21,9 @@ export const CharacterAttributesPanel: React.FC = () => {
 
   return (
     <>
-      <Panel>
+      <StyledAttributeCards>
         {character.attributes.map((attribute, i) => (
-          <AttributeSkillCard
+          <AttributeCard
             key={attribute.label}
             attribute={attribute}
             onChange={attribute => {
@@ -38,7 +38,7 @@ export const CharacterAttributesPanel: React.FC = () => {
             }}
           />
         ))}
-      </Panel>
+      </StyledAttributeCards>
       <VPopup
         open={rolledAttributeActive}
         onClose={() => {

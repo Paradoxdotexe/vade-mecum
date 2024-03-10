@@ -4,17 +4,17 @@ import { VCard } from '@/components/VCard';
 import { VNumberInput } from '@/components/VNumberInput';
 import styled from 'styled-components';
 
-const Styled = styled(VCard)`
+const StyledLevelCard = styled(VCard)`
   flex: 1;
   display: flex;
   align-items: center;
 `;
 
-export const LevelInput: React.FC = () => {
+export const LevelCard: React.FC = () => {
   const { character, updateCharacter } = useEngineState();
 
   return (
-    <Styled>
+    <StyledLevelCard>
       <VNumberInput
         size={48}
         min={1}
@@ -22,6 +22,6 @@ export const LevelInput: React.FC = () => {
         value={character.level}
         onChange={level => updateCharacter({ level })}
       />
-    </Styled>
+    </StyledLevelCard>
   );
 };

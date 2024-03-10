@@ -3,16 +3,16 @@ import styled from 'styled-components';
 import { rollDie } from '../../../utils/rollDie';
 import { getDieOutcome } from '../../../utils/getDieOutcome';
 import { VNumberInput } from '../../../components/VNumberInput';
+import { VCard } from '@/components/VCard';
 
-const SkillCheckCardDiv = styled.div`
-  background: #3b3b3b;
-  border-radius: 4px;
+const StyledDiceRollCard = styled(VCard)`
   display: flex;
   flex-direction: column;
   width: 200px;
   overflow: hidden;
   font-size: 14px;
-  box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.1);
+  padding: 0;
+  border: none;
 
   .card__header {
     font-family: 'Noto Sans Display', sans-serif;
@@ -147,7 +147,7 @@ export const DiceRollCard: React.FC<DiceRollCardProps> = props => {
   const outcome = roll && getDieOutcome(Math.max(...roll));
 
   return (
-    <SkillCheckCardDiv>
+    <StyledDiceRollCard>
       <div className="card__header" style={{ background: outcome?.color }}>
         {props.label}
       </div>
@@ -208,11 +208,11 @@ export const DiceRollCard: React.FC<DiceRollCardProps> = props => {
           </div>
         )}
       </div>
-    </SkillCheckCardDiv>
+    </StyledDiceRollCard>
   );
 };
 
-const DiceFactorInputDiv = styled.div`
+const StyledDiceFactorInput = styled.div`
   display: flex;
   align-items: center;
   gap: 6px;
@@ -235,7 +235,7 @@ type DiceFactorInputProps = {
 
 const DiceFactorInput: React.FC<DiceFactorInputProps> = props => {
   return (
-    <DiceFactorInputDiv>
+    <StyledDiceFactorInput>
       <div className="factor__prefix">{props.prefix}</div>
       <VNumberInput
         value={props.value}
@@ -244,6 +244,6 @@ const DiceFactorInput: React.FC<DiceFactorInputProps> = props => {
         disabled={props.disabled}
       />
       <div className="factor__label">{props.label}</div>
-    </DiceFactorInputDiv>
+    </StyledDiceFactorInput>
   );
 };

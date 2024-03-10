@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import { CharacterAttributesPanel } from './CharacterAttributesPanel';
-import { ClassSelect } from './ClassSelect';
-import { NameInput } from './NameInput';
-import { RaceSelect } from './RaceSelect';
-import { DescriptionTextArea } from './DescriptionTextArea';
-import { LevelInput } from './LevelInput';
-import { HitPointsInput } from './HitPointsInput';
+import { AttributeCards } from './AttributeCards';
+import { ClassCard } from './ClassCard';
+import { NameCard } from './NameCard';
+import { RaceCard } from './RaceCard';
+import { DescriptionCard } from './DescriptionCard';
+import { LevelCard } from './LevelCard';
+import { HitPointsCard } from './HitPointsCard';
 import { SpeedCard } from './SpeedCard';
 
 const Sheet = styled.div`
@@ -64,16 +64,16 @@ export const CharacterSheet: React.FC = () => {
       <div className="sheet__left">
         <div className="sheet__section">
           <div className="section__header">Name / Race / Class</div>
-          <NameInput />
+          <NameCard />
           <div className="section__row">
-            <RaceSelect />
-            <ClassSelect />
+            <RaceCard />
+            <ClassCard />
           </div>
         </div>
 
         <div className="sheet__section">
           <div className="section__header">Attributes / Skills</div>
-          <CharacterAttributesPanel />
+          <AttributeCards />
         </div>
       </div>
 
@@ -81,15 +81,15 @@ export const CharacterSheet: React.FC = () => {
         <div className="right__top">
           <div className="sheet__section section--flex">
             <div className="section__header">Description</div>
-            <DescriptionTextArea />
+            <DescriptionCard />
           </div>
           <div className="sheet__section">
             <div className="section__header">Level</div>
-            <LevelInput />
+            <LevelCard />
           </div>
           <div className="sheet__section">
             <div className="section__header">Hit Points</div>
-            <HitPointsInput />
+            <HitPointsCard />
           </div>
           <div className="sheet__section">
             <div className="section__header">Speed</div>

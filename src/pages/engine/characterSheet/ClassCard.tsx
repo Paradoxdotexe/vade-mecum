@@ -3,7 +3,7 @@ import React from 'react';
 import { CLASSES, useEngineState } from '../EngineStateContext';
 import { VCard } from '@/components/VCard';
 
-export const ClassSelect: React.FC = () => {
+export const ClassCard: React.FC = () => {
   const { character, updateCharacter } = useEngineState();
 
   const classes = CLASSES.vale_of_myths;

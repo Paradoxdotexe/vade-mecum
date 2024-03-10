@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { VNumberInput } from '../../components/VNumberInput';
-import { Attribute } from './EngineStateContext';
+import { VNumberInput } from '../../../components/VNumberInput';
+import { Attribute } from '../EngineStateContext';
 import { VCard } from '@/components/VCard';
 
-const Card = styled(VCard)`
+const StyledAttributeCard = styled(VCard)`
   display: flex;
   padding: 12px;
 
@@ -48,15 +48,15 @@ const Card = styled(VCard)`
   }
 `;
 
-type AttributeSkillCardProps = {
+type AttributeCardProps = {
   attribute: Attribute;
   onChange?: (attribute: Attribute) => void;
   onClick?: (attribute: Attribute) => void;
 };
 
-export const AttributeSkillCard: React.FC<AttributeSkillCardProps> = props => {
+export const AttributeCard: React.FC<AttributeCardProps> = props => {
   return (
-    <Card>
+    <StyledAttributeCard>
       <div className="card__attribute">
         <div className="attribute__label">{props.attribute.label.toUpperCase()}</div>
         <VNumberInput
@@ -90,6 +90,6 @@ export const AttributeSkillCard: React.FC<AttributeSkillCardProps> = props => {
           </div>
         ))}
       </div>
-    </Card>
+    </StyledAttributeCard>
   );
 };
