@@ -165,6 +165,8 @@ const useCurrentCharacter = () => {
   const setLevel = (level: number) => updateCharacter({ level });
   const setHitPoints = (hitPoints: number) => updateCharacter({ hitPoints });
   const setClassPoints = (classPoints: number) => updateCharacter({ classPoints });
+  const setClassItemDescription = (classItemDescription?: string) =>
+    updateCharacter({ classItemDescription });
 
   const setClass = (classKey?: string) => {
     const attributes = structuredClone(character.attributes);
@@ -184,7 +186,7 @@ const useCurrentCharacter = () => {
       };
     }
 
-    updateCharacter({ classKey, attributes });
+    updateCharacter({ classKey, classItemDescription: '', attributes });
   };
 
   const setAttributeValue = (attributeKey: AttributeKey, value: number) => {
@@ -211,6 +213,7 @@ const useCurrentCharacter = () => {
     setLevel,
     setHitPoints,
     setClassPoints,
+    setClassItemDescription,
     setClass,
     setAttributeValue,
     setSkillValue

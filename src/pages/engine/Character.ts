@@ -118,6 +118,7 @@ export type Character = {
   description: string;
   level: number;
   classKey?: string;
+  classItemDescription?: string;
   race?: string;
   attributes: Attributes;
   hitPoints: number;

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import TextareaAutosize from 'react-textarea-autosize';
 
 const TextArea = styled.div`
   textarea {
@@ -12,7 +13,6 @@ const TextArea = styled.div`
     font-family: 'Noto Sans';
     resize: none;
     width: 100%;
-    height: 100%;
 
     &::placeholder {
       color: #868686;
@@ -25,6 +25,8 @@ type VTextAreaProps = {
   value?: string;
   onChange?: (value: string) => void;
   style?: React.CSSProperties;
+  minRows?: number;
+  maxRows?: number;
 };
 
 export const VTextArea: React.FC<VTextAreaProps> = props => {
@@ -44,11 +46,13 @@ export const VTextArea: React.FC<VTextAreaProps> = props => {
 
   return (
     <TextArea style={props.style}>
-      <textarea
+      <TextareaAutosize
         value={value}
         onChange={event => setValue(event.target.value)}
         placeholder={props.placeholder}
         spellCheck="false"
+        minRows={props.minRows}
+        maxRows={props.maxRows}
       />
     </TextArea>
   );

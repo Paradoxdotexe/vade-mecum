@@ -12,6 +12,7 @@ import { ClassPointsCard } from './ClassPointsCard';
 import { useCharacters } from '../useCharacters';
 import { capitalize } from '@/utils/capitalize';
 import { WORLD_KITS } from '../WorldKit';
+import { ClassItemCard } from './ClassItemCard';
 
 const Sheet = styled.div`
   display: flex;
@@ -33,6 +34,12 @@ const Sheet = styled.div`
       display: flex;
       gap: 24px;
       height: 112px;
+    }
+
+    .right__bottom {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
     }
   }
 
@@ -107,6 +114,15 @@ export const CharacterSheet: React.FC = () => {
                 Points
               </div>
               <ClassPointsCard />
+            </div>
+          )}
+        </div>
+
+        <div className="right__bottom">
+          {currentCharacter.class && (
+            <div className="sheet__section">
+              <div className="section__header">Class Item</div>
+              <ClassItemCard />
             </div>
           )}
         </div>

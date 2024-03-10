@@ -218,6 +218,7 @@ const StyledDiceFactorInput = styled.div`
   display: flex;
   align-items: center;
   gap: 6px;
+  white-space: nowrap;
 
   .factor__prefix {
     display: flex;
