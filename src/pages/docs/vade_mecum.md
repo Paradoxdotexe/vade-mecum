@@ -183,7 +183,7 @@ As such, perks give characters a way to accentuate their strengths in ways that 
 | Strength     | **Battering Ram**    | Power 3         | You double your Power bonus on skill checks to force your way through an obstacle.                                        |
 | Strength     | **Human Shield**     | Fortitude 1     | You act as light cover in combat for all characters within 10ft behind you.                                               |
 | Strength     | **Pack Mule**        | Fortitude 2     | Your carrying capacity is increased by a number of slots equal to your `(Strength + Fortitude)`.                          |
-| Strength     | **Night Owl**        | Fortitude 3     | During your Rest, you can complete a second Rest Activity with -1 disadvantage.                                           |
+| Strength     | **Night Owl**        | Fortitude 3     | During a Rest, you can complete a second Rest Activity with -1 disadvantage.                                              |
 | Strength     | **Trainer**          | Athletics 1     | You give allies +1 advantage on Athletics checks.                                                                         |
 | Strength     | **Free Solo**        | Athletics 2     | You double your Athletics bonus on skill checks to climb without equipment.                                               |
 | Strength     | **Big Brother**      | Athletics 3     | If an ally within 10ft is hit with an attack, you can leap in to switch places, taking all damage.                        |
@@ -213,7 +213,7 @@ As such, perks give characters a way to accentuate their strengths in ways that 
 | Charisma     | **Folk Hero**        | Speech 3        | You double the advantage given to Speech checks by Renown.                                                                |
 | Charisma     | **Deep Pockets**     | Barter 1        | Tiny items don’t contribute towards your carrying capacity.                                                               |
 | Charisma     | **Peddler**          | Barter 2        | You always know where the closest merchant or marketplace is.                                                             |
-| Charisma     | **Negotiator**       | Barter 3        | A successful barter check haggles the prices an additional 10% in your favor.                                             |
+| Charisma     | **Negotiator**       | Barter 3        | A successful barter check haggles the price an additional 10% in your favor.                                              |
 | Perception   | **Architect**        | Insight 1       | You double your Insight bonus on skill checks against man-made structures.                                                |
 | Perception   | **Ecologist**        | Insight 2       | You double your Insight bonus on skill checks against natural phenomena, such as animals, plants, weather, and terrain.   |
 | Perception   | **Inspector**        | Insight 3       | After a successful Insight check, you get +3 advantage on your next Investigation/Detection check using that information. |
