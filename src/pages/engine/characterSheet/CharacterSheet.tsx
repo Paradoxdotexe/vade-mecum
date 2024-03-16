@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { AttributeCards } from './AttributeCards';
 import { ClassCard } from './ClassCard';
@@ -15,6 +15,7 @@ import { WORLD_KITS } from '../WorldKit';
 import { ClassItemCard } from './ClassItemCard';
 import { PerksCard } from './PerksCard';
 import { ReactComponent as EditIcon } from '@/icons/Edit.svg';
+import { EditPerksDrawer } from './EditPerksDrawer';
 
 const Sheet = styled.div`
   display: flex;
@@ -99,6 +100,8 @@ const Sheet = styled.div`
 export const CharacterSheet: React.FC = () => {
   const { currentCharacter } = useCharacters();
 
+  const [editingPerks, setEditingPerks] = useState(false);
+
   return (
     <Sheet>
       <div className="sheet__left">
@@ -156,12 +159,13 @@ export const CharacterSheet: React.FC = () => {
           <div className="sheet__section">
             <div className="section__header">
               Perks
-              <button>
+              <button onClick={() => setEditingPerks(true)}>
                 <EditIcon />
                 Edit perks
               </button>
             </div>
             <PerksCard />
+            <EditPerksDrawer open={editingPerks} onClose={() => setEditingPerks(false)} />
           </div>
         </div>
       </div>
