@@ -14,6 +14,7 @@ import { capitalize } from '@/utils/capitalize';
 import { WORLD_KITS } from '../WorldKit';
 import { ClassItemCard } from './ClassItemCard';
 import { PerksCard } from './PerksCard';
+import { ReactComponent as EditIcon } from '@/icons/Edit.svg';
 
 const Sheet = styled.div`
   display: flex;
@@ -56,6 +57,32 @@ const Sheet = styled.div`
     .section__header {
       font-family: 'Noto Sans Display', sans-serif;
       font-size: 18px;
+      height: 18px;
+      display: flex;
+      justify-content: space-between;
+
+      button {
+        background: none;
+        outline: none;
+        border: none;
+        color: #a0a0a0;
+        display: flex;
+        align-items: center;
+        padding: 0;
+        font-family: 'Noto Sans', sans-serif;
+        gap: 3px;
+        transition: color 150ms ease;
+        font-size: 14px;
+
+        &:hover {
+          cursor: pointer;
+          color: #fff;
+        }
+
+        svg {
+          font-size: 16px;
+        }
+      }
     }
 
     .section__row {
@@ -127,7 +154,13 @@ export const CharacterSheet: React.FC = () => {
             </div>
           )}
           <div className="sheet__section">
-            <div className="section__header">Perks</div>
+            <div className="section__header">
+              Perks
+              <button>
+                <EditIcon />
+                Edit perks
+              </button>
+            </div>
             <PerksCard />
           </div>
         </div>

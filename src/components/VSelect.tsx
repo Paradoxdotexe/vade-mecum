@@ -17,7 +17,7 @@ const Select = styled.div`
   outline: none;
 
   &.select--empty {
-    color: #868686;
+    color: #747474;
   }
 
   svg {

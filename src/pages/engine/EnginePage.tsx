@@ -47,7 +47,7 @@ const Page = styled.div`
           padding: 9px;
 
           &:hover {
-            opacity: 0.8;
+            opacity: 1;
           }
         }
 

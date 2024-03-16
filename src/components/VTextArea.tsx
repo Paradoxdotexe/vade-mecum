@@ -15,7 +15,7 @@ const TextArea = styled.div`
     width: 100%;
 
     &::placeholder {
-      color: #868686;
+      color: #747474;
     }
   }
 `;
