@@ -14,6 +14,7 @@ const Select = styled.div`
   align-items: center;
   user-select: none;
   padding: 9px 12px;
+  outline: none;
 
   &.select--empty {
     color: #868686;
@@ -28,7 +29,7 @@ const Select = styled.div`
     position: absolute;
     background-color: #3b3b3b;
     border-radius: 4px;
-    box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
     top: calc(100% + 6px);
     left: 0;
     z-index: 500;

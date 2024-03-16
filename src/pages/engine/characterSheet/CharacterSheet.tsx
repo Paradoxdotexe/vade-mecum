@@ -13,6 +13,7 @@ import { useCharacters } from '../useCharacters';
 import { capitalize } from '@/utils/capitalize';
 import { WORLD_KITS } from '../WorldKit';
 import { ClassItemCard } from './ClassItemCard';
+import { PerksCard } from './PerksCard';
 
 const Sheet = styled.div`
   display: flex;
@@ -125,6 +126,10 @@ export const CharacterSheet: React.FC = () => {
               <ClassItemCard />
             </div>
           )}
+          <div className="sheet__section">
+            <div className="section__header">Perks</div>
+            <PerksCard />
+          </div>
         </div>
       </div>
     </Sheet>

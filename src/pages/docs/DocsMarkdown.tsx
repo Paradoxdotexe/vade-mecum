@@ -58,7 +58,7 @@ const StyledComponent = styled.div`
 
   ul,
   ol {
-    line-height: 150%;
+    line-height: 1.5;
     padding-inline-start: 32px;
     margin-block: 6px;
 
@@ -126,7 +126,7 @@ const StyledComponent = styled.div`
       th,
       td {
         padding: 12px;
-        line-height: 150%;
+        line-height: 1.5;
 
         &:not(:last-child) {
           white-space: nowrap;

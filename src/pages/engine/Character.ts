@@ -123,6 +123,7 @@ export type Character = {
   attributes: Attributes;
   hitPoints: number;
   classPoints: number;
+  perkKeys: string[];
 };
 
 export const DEFAULT_CHARACTER: Character = {
@@ -132,5 +133,6 @@ export const DEFAULT_CHARACTER: Character = {
   level: 1,
   attributes: DEFAULT_ATTRIBUTES,
   hitPoints: 12,
-  classPoints: 0
+  classPoints: 0,
+  perkKeys: []
 };

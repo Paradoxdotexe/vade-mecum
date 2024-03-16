@@ -6,6 +6,7 @@ import { v4 as uuid } from 'uuid';
 import { useStateVersioner } from '@/utils/useStateVersioner';
 import { WORLD_KITS } from './WorldKit';
 import { parseComputation } from '@/utils/parseComputation';
+import { PERKS } from './Perk';
 
 type CharactersState = {
   version: string;
@@ -14,7 +15,7 @@ type CharactersState = {
 };
 
 const DEFAULT_CHARACTERS_STATE: CharactersState = {
-  version: '1.0',
+  version: '2.0',
   characters: { [DEFAULT_CHARACTER.key]: structuredClone(DEFAULT_CHARACTER) },
   currentCharacterKey: DEFAULT_CHARACTER.key
 };
@@ -116,6 +117,8 @@ const useCurrentCharacter = () => {
       }
     : undefined;
 
+  const perks = PERKS.filter(perk => character.perkKeys.includes(perk.key));
+
   const computationVariables = useMemo(() => {
     const computationVariables: { [key: string]: number } = {
       level: character.level
@@ -201,9 +204,15 @@ const useCurrentCharacter = () => {
     updateCharacter({ attributes });
   };
 
+  const addPerk = (perkKey: string) =>
+    updateCharacter({ perkKeys: [...character.perkKeys, perkKey] });
+  const removePerk = (perkKey: string) =>
+    updateCharacter({ perkKeys: character.perkKeys.filter(key => key !== perkKey) });
+
   return {
     ...character,
     class: characterClass,
+    perks,
     speed: getSpeed(),
     maxHitPoints: getMaxHitPoints(),
     maxClassPoints: getMaxClassPoints(),
@@ -216,6 +225,8 @@ const useCurrentCharacter = () => {
     setClassItemDescription,
     setClass,
     setAttributeValue,
-    setSkillValue
+    setSkillValue,
+    addPerk,
+    removePerk
   };
 };
