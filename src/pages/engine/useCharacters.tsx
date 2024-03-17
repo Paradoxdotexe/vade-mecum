@@ -167,6 +167,14 @@ const useCurrentCharacter = () => {
     return 0;
   };
 
+  const getCarryingCapacity = () => {
+    return parseComputation('([attribute.strength] + [skill.fortitude]) * 3', computationVariables);
+  };
+
+  const getItemWeight = () => {
+    return items.reduce((sum, item) => sum + item.weight * item.quantity, 0);
+  };
+
   const setName = (name: string) => updateCharacter({ name });
   const setDescription = (description: string) => updateCharacter({ description });
   const setRace = (race?: string) => updateCharacter({ race });
@@ -241,9 +249,11 @@ const useCurrentCharacter = () => {
     class: characterClass,
     perks,
     items,
+    itemWeight: getItemWeight(),
     speed: getSpeed(),
     maxHitPoints: getMaxHitPoints(),
     maxClassPoints: getMaxClassPoints(),
+    carryingCapacity: getCarryingCapacity(),
     setName,
     setDescription,
     setRace,

@@ -18,6 +18,7 @@ import { ReactComponent as EditIcon } from '@/icons/Edit.svg';
 import { EditPerksDrawer } from './EditPerksDrawer';
 import { InventoryCard } from './InventoryCard';
 import { EditItemsDrawer } from './EditItemsDrawer';
+import { ReactComponent as WeightIcon } from '@/icons/Weight.svg';
 
 const Sheet = styled.div`
   display: flex;
@@ -63,6 +64,16 @@ const Sheet = styled.div`
       height: 18px;
       display: flex;
       justify-content: space-between;
+
+      > div {
+        display: flex;
+        align-items: center;
+        gap: 3px;
+
+        svg {
+          font-size: 20px;
+        }
+      }
 
       button {
         background: none;
@@ -161,22 +172,36 @@ export const CharacterSheet: React.FC = () => {
           )}
           <div className="sheet__section">
             <div className="section__header">
-              Perks
-              <button onClick={() => setEditingPerks(true)}>
-                <EditIcon />
-                Edit perks
-              </button>
+              <div>
+                Perks
+                <button onClick={() => setEditingPerks(true)}>
+                  <EditIcon />
+                </button>
+              </div>
             </div>
             <PerksCard />
             <EditPerksDrawer open={editingPerks} onClose={() => setEditingPerks(false)} />
           </div>
           <div className="sheet__section">
             <div className="section__header">
-              Inventory
-              <button onClick={() => setEditingItems(true)}>
-                <EditIcon />
-                Edit items
-              </button>
+              <div>
+                Inventory
+                <button onClick={() => setEditingItems(true)}>
+                  <EditIcon />
+                </button>
+              </div>
+              <div
+                style={{
+                  color:
+                    currentCharacter.itemWeight > currentCharacter.carryingCapacity
+                      ? '#ec4343'
+                      : undefined
+                }}
+              >
+                {currentCharacter.itemWeight.toFixed(2)} /{' '}
+                {currentCharacter.carryingCapacity.toFixed(2)}
+                <WeightIcon />
+              </div>
             </div>
             <InventoryCard />
             <EditItemsDrawer open={editingItems} onClose={() => setEditingItems(false)} />
