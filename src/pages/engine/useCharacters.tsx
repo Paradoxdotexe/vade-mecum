@@ -214,7 +214,12 @@ const useCurrentCharacter = () => {
       };
     }
 
-    updateCharacter({ classKey, classItemDescription: '', attributes });
+    updateCharacter({
+      classKey,
+      classItemDescription: '',
+      attributes,
+      perkKeys: perks.filter(perk => perk.type !== 'CLASS').map(perk => perk.key)
+    });
   };
 
   const setAttributeValue = (attributeKey: AttributeKey, value: number) => {
