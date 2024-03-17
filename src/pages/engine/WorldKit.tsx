@@ -1,11 +1,5 @@
 import { AttributeKey } from './Character';
 
-type WorldKit = {
-  label: string;
-  races: string[];
-  classes: { [key: string]: CharacterClass };
-};
-
 type CharacterClass = {
   label: string;
   attributeKey: AttributeKey;
@@ -16,6 +10,20 @@ type CharacterClass = {
     maxHitPoints?: string;
     maxClassPoints?: string;
   };
+};
+
+type InventoryItem = {
+  name: string;
+  description: string;
+  cost: number;
+  slots: number;
+};
+
+type WorldKit = {
+  label: string;
+  races: string[];
+  classes: { [key: string]: CharacterClass };
+  items: { [key: string]: InventoryItem };
 };
 
 const VALE_OF_MYTHS: WorldKit = {
@@ -102,6 +110,20 @@ const VALE_OF_MYTHS: WorldKit = {
       computed: {
         maxClassPoints: '[classItemBonus] + 1'
       }
+    }
+  },
+  items: {
+    currency: {
+      name: 'Valerian Pieces',
+      description: '',
+      cost: 1,
+      slots: 1 / 20
+    },
+    dagger: {
+      name: 'Dagger',
+      description: '+1 Power to attack, 1d6 damage, 5ft range',
+      cost: 5,
+      slots: 1 / 2
     }
   }
 };

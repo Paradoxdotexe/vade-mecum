@@ -43,7 +43,7 @@ export const EditPerksDrawer: React.FC<EditPerksDrawerProps> = props => {
       key: 'skill',
       render: perk => `${capitalize(perk.skillKey)} ${perk.skillRequirement}`
     },
-    { key: 'description', dataKey: 'description' }
+    { key: 'description', dataKey: 'description', width: '100%' }
   ];
 
   let perks = PERKS;

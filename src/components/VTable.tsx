@@ -36,10 +36,6 @@ const StyledVTable = styled.table`
       &:first-child {
         font-weight: 700;
       }
-
-      &:last-child:not(:first-child) {
-        width: 100%;
-      }
     }
   }
 `;
@@ -52,6 +48,7 @@ export type VTableColumn<T extends VTableRow> = {
   key: string;
   dataKey?: keyof T;
   render?: (row: T) => ReactNode;
+  width?: string;
 };
 
 type VTableProps<T extends VTableRow> = {
@@ -72,7 +69,7 @@ export const VTable = <T extends VTableRow>(props: VTableProps<T>) => {
             className={props.onRowClick ? 'row--clickable' : ''}
           >
             {props.columns.map(column => (
-              <td key={column.key}>
+              <td key={column.key} style={{ width: column.width }}>
                 {column.dataKey ? `${row[column.dataKey]}` : column.render?.(row)}
               </td>
             ))}

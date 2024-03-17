@@ -1,27 +1,24 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import styled from 'styled-components';
 
-const Input = styled.div<{ $width: number; $height: number; $fontSize: number }>`
-  background: #585858;
+const StyledVNumberInput = styled.input<{ $width: number; $height: number; $fontSize: number }>`
+  font-family: 'Noto Sans Display', sans-serif;
+  padding: 0;
+  border: none;
+  color: #fff;
+  width: ${props => `${props.$width}px`};
+  height: ${props => `${props.$height}px`};
+  outline: none;
+  text-align: center;
+  font-size: ${props => `${props.$fontSize}px`};
+  background: transparent;
   border-radius: 4px;
+  background: #585858;
+  line-height: 1.4;
 
-  input {
-    font-family: 'Noto Sans Display', sans-serif;
-    padding: 0;
-    border: none;
-    color: #fff;
-    width: ${props => `${props.$width}px`};
-    height: ${props => `${props.$height}px`};
-    outline: none;
-    text-align: center;
-    font-size: ${props => `${props.$fontSize}px`};
-    background: transparent;
-    border-radius: 4px;
-
-    &.input--error {
-      border: 1px solid #ec4343;
-      background-color: #ec434344;
-    }
+  &.input--error {
+    border: 1px solid #ec4343;
+    background-color: #ec434344;
   }
 `;
 
@@ -38,22 +35,24 @@ export const VNumberInput: React.FC<VNumberInputProps> = props => {
   const [rawValue, setRawValue] = useState(props.value.toString());
 
   const min = props.min ?? 0;
-  const max = props.max ?? 99;
+  const max = props.max;
 
   const size = props.size ?? 20;
   const height = size;
   const fontSize = size - 6;
-  const width = Math.max(size, Math.ceil(fontSize * 0.67 * max.toString().length));
+
+  const characters = (max ? max.toString() : rawValue).length;
+  const width = Math.max(size, Math.ceil(fontSize * 0.55 * characters) + 6);
 
   const validated = useMemo(() => {
     const newValue = parseInt(rawValue);
-    return !Number.isNaN(newValue) && newValue <= max && newValue >= min;
+    return !Number.isNaN(newValue) && (!max || newValue <= max) && newValue >= min;
   }, [rawValue, max, min]);
 
   const onBlur = () => {
     if (!validated) {
       const newValue = parseInt(rawValue);
-      if (Number.isNaN(newValue) || newValue < min) {
+      if (Number.isNaN(newValue) || newValue < min || !max) {
         setRawValue(min.toString());
       } else {
         setRawValue(max.toString());
@@ -77,14 +76,18 @@ export const VNumberInput: React.FC<VNumberInputProps> = props => {
   }, [props.value]);
 
   return (
-    <Input $width={width} $height={height} $fontSize={fontSize}>
-      <input
-        value={rawValue}
-        onChange={event => setRawValue(event.target.value.slice(0, max.toString().length))}
-        disabled={props.disabled}
-        className={`${!validated ? 'input--error' : ''}`}
-        onBlur={onBlur}
-      />
-    </Input>
+    <StyledVNumberInput
+      $width={width}
+      $height={height}
+      $fontSize={fontSize}
+      value={rawValue}
+      onChange={event => {
+        const value = event.target.value;
+        setRawValue(max ? value.slice(0, characters) : value);
+      }}
+      disabled={props.disabled}
+      className={`${!validated ? 'input--error' : ''}`}
+      onBlur={onBlur}
+    />
   );
 };

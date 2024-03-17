@@ -16,6 +16,7 @@ import { ClassItemCard } from './ClassItemCard';
 import { PerksCard } from './PerksCard';
 import { ReactComponent as EditIcon } from '@/icons/Edit.svg';
 import { EditPerksDrawer } from './EditPerksDrawer';
+import { InventoryCard } from './InventoryCard';
 
 const Sheet = styled.div`
   display: flex;
@@ -166,6 +167,10 @@ export const CharacterSheet: React.FC = () => {
             </div>
             <PerksCard />
             <EditPerksDrawer open={editingPerks} onClose={() => setEditingPerks(false)} />
+          </div>
+          <div className="sheet__section">
+            <div className="section__header">Inventory</div>
+            <InventoryCard />
           </div>
         </div>
       </div>

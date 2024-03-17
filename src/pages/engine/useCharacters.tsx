@@ -15,7 +15,7 @@ type CharactersState = {
 };
 
 const DEFAULT_CHARACTERS_STATE: CharactersState = {
-  version: '2.0',
+  version: '3.0',
   characters: { [DEFAULT_CHARACTER.key]: structuredClone(DEFAULT_CHARACTER) },
   currentCharacterKey: DEFAULT_CHARACTER.key
 };
@@ -119,6 +119,11 @@ const useCurrentCharacter = () => {
 
   const perks = PERKS.filter(perk => character.perkKeys.includes(perk.key));
 
+  const items = character.itemQuantities.map(item => ({
+    ...item,
+    ...WORLD_KITS.vale_of_myths.items[item.key]
+  }));
+
   const computationVariables = useMemo(() => {
     const computationVariables: { [key: string]: number } = {
       level: character.level
@@ -209,10 +214,28 @@ const useCurrentCharacter = () => {
   const removePerk = (perkKey: string) =>
     updateCharacter({ perkKeys: character.perkKeys.filter(key => key !== perkKey) });
 
+  const addItem = (itemKey: string) =>
+    updateCharacter({
+      itemQuantities: [...character.itemQuantities, { key: itemKey, quantity: 1 }]
+    });
+  const removeItem = (itemKey: string) =>
+    updateCharacter({
+      itemQuantities: character.itemQuantities.filter(item => item.key !== itemKey)
+    });
+  const updateItemQuantity = (itemKey: string, quantity: number) => {
+    const itemQuantities = [...character.itemQuantities];
+    const item = itemQuantities.find(item => item.key === itemKey);
+    if (item) {
+      item.quantity = quantity;
+      updateCharacter({ itemQuantities });
+    }
+  };
+
   return {
     ...character,
     class: characterClass,
     perks,
+    items,
     speed: getSpeed(),
     maxHitPoints: getMaxHitPoints(),
     maxClassPoints: getMaxClassPoints(),
@@ -227,6 +250,9 @@ const useCurrentCharacter = () => {
     setAttributeValue,
     setSkillValue,
     addPerk,
-    removePerk
+    removePerk,
+    addItem,
+    removeItem,
+    updateItemQuantity
   };
 };
