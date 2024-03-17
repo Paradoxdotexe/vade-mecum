@@ -20,6 +20,10 @@ const StyledVTable = styled.table`
       }
     }
 
+    &.row--clickable {
+      cursor: pointer;
+    }
+
     td {
       padding: 12px;
       line-height: 1.5;
@@ -54,6 +58,7 @@ type VTableProps<T extends VTableRow> = {
   columns: VTableColumn<T>[];
   rows: T[];
   emptyMessage?: string | null;
+  onRowClick?: (row: T) => void;
 };
 
 export const VTable = <T extends VTableRow>(props: VTableProps<T>) => {
@@ -61,7 +66,11 @@ export const VTable = <T extends VTableRow>(props: VTableProps<T>) => {
     <StyledVTable>
       <tbody>
         {props.rows.map(row => (
-          <tr key={row.key}>
+          <tr
+            key={row.key}
+            onClick={() => props.onRowClick?.(row)}
+            className={props.onRowClick ? 'row--clickable' : ''}
+          >
             {props.columns.map(column => (
               <td key={column.key}>
                 {column.dataKey ? `${row[column.dataKey]}` : column.render?.(row)}
