@@ -26,10 +26,9 @@ const StyledVDrawerContainer = styled.div<{ $width: string }>`
   .drawerContainer__drawer {
     width: ${props => props.$width};
     height: 100%;
-    background-color: #3b3b3b;
+    background-color: #2c2c2c;
     display: flex;
     flex-direction: column;
-    gap: 24px;
     box-shadow: -3px 6px 12px rgba(0, 0, 0, 0.1);
 
     .drawer__header {
@@ -67,6 +66,7 @@ export type VDrawerProps = {
   children: ReactNode;
   width: number;
   header?: ReactNode;
+  className?: string;
 };
 
 export const VDrawer: React.FC<VDrawerProps> = props => {
@@ -78,7 +78,7 @@ export const VDrawer: React.FC<VDrawerProps> = props => {
   return (
     <StyledVDrawerContainer
       $width={`${props.width}px`}
-      className={open ? 'drawerContainer--open' : ''}
+      className={`${props.className ?? ''} ${open ? 'drawerContainer--open' : ''}`}
       onClick={() => setOpen(false)}
     >
       <CSSTransition

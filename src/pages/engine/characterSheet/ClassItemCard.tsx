@@ -32,7 +32,7 @@ export const ClassItemCard: React.FC = () => {
   const characterClass = currentCharacter.class;
 
   return (
-    <StyledClassItemCard style={{ padding: 0 }}>
+    <StyledClassItemCard>
       {characterClass && (
         <div className="card__item">
           <div className="item__label">{characterClass.classItemLabel}</div>

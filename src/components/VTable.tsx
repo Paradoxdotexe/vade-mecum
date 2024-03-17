@@ -59,20 +59,22 @@ type VTableProps<T extends VTableRow> = {
 export const VTable = <T extends VTableRow>(props: VTableProps<T>) => {
   return (
     <StyledVTable>
-      {props.rows.map(row => (
-        <tr key={row.key}>
-          {props.columns.map(column => (
-            <td key={column.key}>
-              {column.dataKey ? `${row[column.dataKey]}` : column.render?.(row)}
-            </td>
-          ))}
-        </tr>
-      ))}
-      {!props.rows.length && props.emptyMessage !== null && (
-        <tr className="row--empty">
-          <td>{props.emptyMessage ?? 'No data.'}</td>
-        </tr>
-      )}
+      <tbody>
+        {props.rows.map(row => (
+          <tr key={row.key}>
+            {props.columns.map(column => (
+              <td key={column.key}>
+                {column.dataKey ? `${row[column.dataKey]}` : column.render?.(row)}
+              </td>
+            ))}
+          </tr>
+        ))}
+        {!props.rows.length && props.emptyMessage !== null && (
+          <tr className="row--empty">
+            <td>{props.emptyMessage ?? 'No data.'}</td>
+          </tr>
+        )}
+      </tbody>
     </StyledVTable>
   );
 };
