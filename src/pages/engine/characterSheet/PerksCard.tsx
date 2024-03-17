@@ -26,7 +26,7 @@ export const PerksCard: React.FC = () => {
 
   return (
     <StyledPerksCard>
-      <VTable columns={columns} rows={currentCharacter.perks} emptyMessage="You have no perks" />
+      <VTable columns={columns} rows={currentCharacter.perks} emptyMessage="You have no perks." />
     </StyledPerksCard>
   );
 };

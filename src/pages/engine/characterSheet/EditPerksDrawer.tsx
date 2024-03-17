@@ -64,7 +64,7 @@ export const EditPerksDrawer: React.FC<EditPerksDrawerProps> = props => {
           <VTable
             columns={columns}
             rows={perks}
-            emptyMessage="You have no perks"
+            emptyMessage="No perks match your query."
             onRowClick={row => togglePerk(row.key)}
           />
         </VCard>
