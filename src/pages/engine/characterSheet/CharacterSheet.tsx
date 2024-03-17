@@ -19,6 +19,7 @@ import { EditPerksDrawer } from './EditPerksDrawer';
 import { InventoryCard } from './InventoryCard';
 import { EditItemsDrawer } from './EditItemsDrawer';
 import { ReactComponent as WeightIcon } from '@/icons/Weight.svg';
+import { VHeader } from '@/components/VHeader';
 
 const Sheet = styled.div`
   display: flex;
@@ -59,10 +60,6 @@ const Sheet = styled.div`
     }
 
     .section__header {
-      font-family: 'Noto Sans Display', sans-serif;
-      font-size: 18px;
-      height: 18px;
-      display: flex;
       justify-content: space-between;
 
       > div {
@@ -120,7 +117,7 @@ export const CharacterSheet: React.FC = () => {
     <Sheet>
       <div className="sheet__left">
         <div className="sheet__section">
-          <div className="section__header">Name / Race / Class</div>
+          <VHeader>Name / Race / Class</VHeader>
           <NameCard />
           <div className="section__row">
             <RaceCard />
@@ -129,7 +126,7 @@ export const CharacterSheet: React.FC = () => {
         </div>
 
         <div className="sheet__section">
-          <div className="section__header">Attributes / Skills</div>
+          <VHeader>Attributes / Skills</VHeader>
           <AttributeCards />
         </div>
       </div>
@@ -137,27 +134,27 @@ export const CharacterSheet: React.FC = () => {
       <div className="sheet__right">
         <div className="right__top">
           <div className="sheet__section section--flex">
-            <div className="section__header">Description</div>
+            <VHeader>Description</VHeader>
             <DescriptionCard />
           </div>
           <div className="sheet__section">
-            <div className="section__header">Level</div>
+            <VHeader>Level</VHeader>
             <LevelCard />
           </div>
           <div className="sheet__section">
-            <div className="section__header">Hit Points</div>
+            <VHeader>Hit Points</VHeader>
             <HitPointsCard />
           </div>
           <div className="sheet__section">
-            <div className="section__header">Speed</div>
+            <VHeader>Speed</VHeader>
             <SpeedCard />
           </div>
           {currentCharacter.maxClassPoints > 0 && (
             <div className="sheet__section">
-              <div className="section__header">
+              <VHeader>
                 {capitalize(WORLD_KITS.vale_of_myths.classes[currentCharacter.classKey!].skillKey)}{' '}
                 Points
-              </div>
+              </VHeader>
               <ClassPointsCard />
             </div>
           )}
@@ -166,24 +163,24 @@ export const CharacterSheet: React.FC = () => {
         <div className="right__bottom">
           {currentCharacter.class && (
             <div className="sheet__section">
-              <div className="section__header">Class Item</div>
+              <VHeader>Class Item</VHeader>
               <ClassItemCard />
             </div>
           )}
           <div className="sheet__section">
-            <div className="section__header">
+            <VHeader className="section__header">
               <div>
                 Perks
                 <button onClick={() => setEditingPerks(true)}>
                   <EditIcon />
                 </button>
               </div>
-            </div>
+            </VHeader>
             <PerksCard />
             <EditPerksDrawer open={editingPerks} onClose={() => setEditingPerks(false)} />
           </div>
           <div className="sheet__section">
-            <div className="section__header">
+            <VHeader className="section__header">
               <div>
                 Inventory
                 <button onClick={() => setEditingItems(true)}>
@@ -202,7 +199,7 @@ export const CharacterSheet: React.FC = () => {
                 {currentCharacter.carryingCapacity.toFixed(2)}
                 <WeightIcon />
               </div>
-            </div>
+            </VHeader>
             <InventoryCard />
             <EditItemsDrawer open={editingItems} onClose={() => setEditingItems(false)} />
           </div>

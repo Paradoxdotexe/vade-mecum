@@ -1,13 +1,15 @@
 import { VCard } from '@/components/VCard';
 import { VDrawer, VDrawerProps } from '@/components/VDrawer';
 import { VInput } from '@/components/VInput';
-import { VTable, VTableColumn } from '@/components/VTable';
+import { VTable } from '@/components/VTable';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { PERKS, Perk } from '../Perk';
 import { capitalize } from '@/utils/capitalize';
 import { VCheckbox } from '@/components/VCheckbox';
 import { useCharacters } from '../useCharacters';
+import { VHeader } from '@/components/VHeader';
+import { searchObjects } from '@/utils/searchObjects';
 
 const StyledEditPerksDrawer = styled(VDrawer)`
   .drawer__content {
@@ -17,6 +19,12 @@ const StyledEditPerksDrawer = styled(VDrawer)`
     padding: 24px 6px 24px 24px;
     overflow: auto;
     scrollbar-gutter: stable;
+
+    .content__section {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
   }
 `;
 
@@ -37,26 +45,44 @@ export const EditPerksDrawer: React.FC<EditPerksDrawerProps> = props => {
     }
   };
 
-  const columns: VTableColumn<Perk>[] = [
-    {
-      key: 'selected',
-      render: perk => <VCheckbox checked={isSelected(perk.key)} />
-    },
-    { key: 'name', dataKey: 'name' },
-    {
-      key: 'skill',
-      render: perk => `${capitalize(perk.skillKey)} ${perk.skillRequirement}`
-    },
-    { key: 'description', dataKey: 'description', width: '100%' }
-  ];
+  const generalPerks = searchObjects(
+    PERKS,
+    ['name', 'description', 'attributeKey', 'skillKey'],
+    searchQuery
+  );
 
-  let perks = PERKS;
-  if (searchQuery) {
-    const regex = new RegExp(searchQuery, 'i');
-    perks = perks.filter(perk =>
-      [perk.name, perk.description, perk.attributeKey, perk.skillKey].some(str => regex.test(str))
+  const classPerks = searchObjects(
+    Object.values(currentCharacter.class?.perks ?? {}),
+    ['name', 'description', 'attributeKey', 'skillKey'],
+    searchQuery
+  );
+
+  const PerksSection = (props: { label: string; perks: Perk[] }) => {
+    return (
+      <div className="content__section">
+        <VHeader>{props.label}</VHeader>
+        <VCard style={{ padding: 0 }}>
+          <VTable
+            columns={[
+              {
+                key: 'selected',
+                render: perk => <VCheckbox checked={isSelected(perk.key)} />
+              },
+              { key: 'name', dataKey: 'name' },
+              {
+                key: 'skill',
+                render: perk => `${capitalize(perk.skillKey)} ${perk.skillRequirement}`
+              },
+              { key: 'description', dataKey: 'description', width: '100%' }
+            ]}
+            rows={props.perks}
+            emptyMessage="No perks match your query."
+            onRowClick={row => togglePerk(row.key)}
+          />
+        </VCard>
+      </div>
     );
-  }
+  };
 
   return (
     <StyledEditPerksDrawer {...props} width={800} header={'Edit Perks'}>
@@ -64,14 +90,8 @@ export const EditPerksDrawer: React.FC<EditPerksDrawerProps> = props => {
         <VCard style={{ padding: 0 }}>
           <VInput placeholder="Search perks..." value={searchQuery} onChange={setSearchQuery} />
         </VCard>
-        <VCard style={{ padding: 0 }}>
-          <VTable
-            columns={columns}
-            rows={perks}
-            emptyMessage="No perks match your query."
-            onRowClick={row => togglePerk(row.key)}
-          />
-        </VCard>
+        <PerksSection label="General Perks" perks={generalPerks} />
+        <PerksSection label="Class Perks" perks={classPerks} />
       </div>
     </StyledEditPerksDrawer>
   );

@@ -6,7 +6,11 @@ import { v4 as uuid } from 'uuid';
 import { useStateVersioner } from '@/utils/useStateVersioner';
 import { WORLD_KITS } from './WorldKit';
 import { parseComputation } from '@/utils/parseComputation';
-import { PERKS } from './Perk';
+import { PERKS, Perk } from './Perk';
+
+type CharacterPerk = Perk & {
+  type: 'GENERAL' | 'CLASS';
+};
 
 type CharactersState = {
   version: string;
@@ -117,7 +121,15 @@ const useCurrentCharacter = () => {
       }
     : undefined;
 
-  const perks = PERKS.filter(perk => character.perkKeys.includes(perk.key));
+  const generalPerks: CharacterPerk[] = PERKS.filter(perk =>
+    character.perkKeys.includes(perk.key)
+  ).map(perk => ({ ...perk, type: 'GENERAL' }));
+  const classPerks: CharacterPerk[] = characterClass
+    ? Object.values(characterClass.perks)
+        .filter(perk => character.perkKeys.includes(perk.key))
+        .map(perk => ({ ...perk, type: 'CLASS' }))
+    : [];
+  const perks = [...generalPerks, ...classPerks];
 
   const items = character.itemQuantities.map(item => ({
     ...item,

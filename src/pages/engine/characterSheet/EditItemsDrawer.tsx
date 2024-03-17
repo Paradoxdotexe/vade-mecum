@@ -7,6 +7,8 @@ import styled from 'styled-components';
 import { VCheckbox } from '@/components/VCheckbox';
 import { useCharacters } from '../useCharacters';
 import { InventoryItemType, WORLD_KITS } from '../WorldKit';
+import { VHeader } from '@/components/VHeader';
+import { searchObjects } from '@/utils/searchObjects';
 
 const StyledEditItemsDrawer = styled(VDrawer)`
   .drawer__content {
@@ -21,11 +23,6 @@ const StyledEditItemsDrawer = styled(VDrawer)`
       display: flex;
       flex-direction: column;
       gap: 12px;
-
-      .section__header {
-        font-family: 'Noto Sans Display', sans-serif;
-        font-size: 18px;
-      }
     }
   }
 `;
@@ -64,21 +61,21 @@ export const EditItemsDrawer: React.FC<EditItemsDrawerProps> = props => {
     }
   };
 
-  let items = Object.entries(WORLD_KITS.vale_of_myths.items).map(([key, item]) => ({
-    key,
-    ...item
-  }));
-  if (searchQuery) {
-    const regex = new RegExp(searchQuery, 'i');
-    items = items.filter(item => [item.name, item.description].some(str => regex.test(str)));
-  }
+  const items = searchObjects(
+    Object.entries(WORLD_KITS.vale_of_myths.items).map(([key, item]) => ({
+      key,
+      ...item
+    })),
+    ['name', 'description'],
+    searchQuery
+  );
 
   const renderItemTypeSection = (section: ItemTypeSection) => {
     const itemsOfType = items.filter(item => item.type === section.type);
 
     return itemsOfType.length ? (
       <div className="content__section">
-        <div className="section__header">{section.label}</div>
+        <VHeader>{section.label}</VHeader>
         <VCard style={{ padding: 0 }}>
           <VTable
             columns={[
