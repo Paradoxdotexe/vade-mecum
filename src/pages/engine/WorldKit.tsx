@@ -12,7 +12,10 @@ type CharacterClass = {
   };
 };
 
+export type InventoryItemType = 'WEAPON' | 'ARMOR' | 'TOOL';
+
 type InventoryItem = {
+  type?: InventoryItemType;
   name: string;
   description: string;
   cost: number;
@@ -120,10 +123,116 @@ const VALE_OF_MYTHS: WorldKit = {
       slots: 1 / 20
     },
     dagger: {
+      type: 'WEAPON',
       name: 'Dagger',
       description: '+1 Power to attack, 1d6 damage, 5ft range',
       cost: 5,
       slots: 1 / 2
+    },
+    shortsword: {
+      type: 'WEAPON',
+      name: 'Shortsword',
+      description: '+1 Power to attack, 2d6 damage, 5ft range',
+      cost: 20,
+      slots: 1
+    },
+    longsword: {
+      type: 'WEAPON',
+      name: 'Longsword',
+      description: '+2 Power to attack, 3d6 damage, 5ft range',
+      cost: 100,
+      slots: 2
+    },
+    greatsword: {
+      type: 'WEAPON',
+      name: 'Greatsword',
+      description: '+3 Power to attack, 4d6 damage, 5ft range',
+      cost: 200,
+      slots: 2
+    },
+    shortbow: {
+      type: 'WEAPON',
+      name: 'Shortbow',
+      description: '+1 Precision to attack, 1d6 damage, 40ft range',
+      cost: 20,
+      slots: 2
+    },
+    crossbow: {
+      type: 'WEAPON',
+      name: 'Crossbow',
+      description: '+2 Precision to attack, 2d6 damage, 40ft range',
+      cost: 100,
+      slots: 2
+    },
+    longbow: {
+      type: 'WEAPON',
+      name: 'Longbow',
+      description: '+3 Precision to attack, 3d6 damage, 80ft range',
+      cost: 200,
+      slots: 2
+    },
+    leather_armor: {
+      type: 'ARMOR',
+      name: 'Leather Armor',
+      description: 'Light armor',
+      cost: 20,
+      slots: 0
+    },
+    chainmail_armor: {
+      type: 'ARMOR',
+      name: 'Chainmail Armor',
+      description: 'Medium armor',
+      cost: 100,
+      slots: 0
+    },
+    plate_armor: {
+      type: 'ARMOR',
+      name: 'Plate Armor',
+      description: 'Heavy armor',
+      cost: 200,
+      slots: 0
+    },
+    rope: {
+      type: 'TOOL',
+      name: 'Rope',
+      description: '+1 Athletics to climb',
+      cost: 5,
+      slots: 1
+    },
+    grappling_hook: {
+      type: 'TOOL',
+      name: 'Grappling Hook',
+      description: '+1 Athletics to climb',
+      cost: 5,
+      slots: 1 / 2
+    },
+    lantern: {
+      type: 'TOOL',
+      name: 'Lantern',
+      description: '+1 Investigation/Detection to search',
+      cost: 5,
+      slots: 1 / 2
+    },
+    medical_pouch: {
+      type: 'TOOL',
+      name: 'Medical Pouch',
+      description: '+1 Medicine to heal or stabilize',
+      cost: 20,
+      slots: 1 / 2
+    },
+    tool_belt: {
+      type: 'TOOL',
+      name: 'Tool Belt',
+      description: '+1 Innovation to repair or craft',
+      cost: 20,
+      slots: 1
+    },
+    world_map: {
+      type: 'TOOL',
+      name: 'World Map',
+      description: '+1 Insight to interpret a location or path',
+      cost: 5,
+      slots: 1 / 4
     }
   }
 };

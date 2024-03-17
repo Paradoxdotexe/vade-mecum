@@ -30,7 +30,11 @@ export const EditPerksDrawer: React.FC<EditPerksDrawerProps> = props => {
   const isSelected = (perkKey: string) => currentCharacter.perkKeys.includes(perkKey);
 
   const togglePerk = (perkKey: string) => {
-    isSelected(perkKey) ? currentCharacter.removePerk(perkKey) : currentCharacter.addPerk(perkKey);
+    if (isSelected(perkKey)) {
+      currentCharacter.removePerk(perkKey);
+    } else {
+      currentCharacter.addPerk(perkKey);
+    }
   };
 
   const columns: VTableColumn<Perk>[] = [

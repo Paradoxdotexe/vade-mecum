@@ -223,11 +223,16 @@ const useCurrentCharacter = () => {
       itemQuantities: character.itemQuantities.filter(item => item.key !== itemKey)
     });
   const updateItemQuantity = (itemKey: string, quantity: number) => {
-    const itemQuantities = [...character.itemQuantities];
-    const item = itemQuantities.find(item => item.key === itemKey);
-    if (item) {
-      item.quantity = quantity;
-      updateCharacter({ itemQuantities });
+    if (quantity === 0 && items.find(item => item.key === itemKey)?.type) {
+      removeItem(itemKey);
+    } else {
+      const itemQuantities = [...character.itemQuantities];
+      const item = itemQuantities.find(item => item.key === itemKey);
+
+      if (item) {
+        item.quantity = quantity;
+        updateCharacter({ itemQuantities });
+      }
     }
   };
 

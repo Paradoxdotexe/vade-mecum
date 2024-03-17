@@ -17,6 +17,7 @@ import { PerksCard } from './PerksCard';
 import { ReactComponent as EditIcon } from '@/icons/Edit.svg';
 import { EditPerksDrawer } from './EditPerksDrawer';
 import { InventoryCard } from './InventoryCard';
+import { EditItemsDrawer } from './EditItemsDrawer';
 
 const Sheet = styled.div`
   display: flex;
@@ -102,6 +103,7 @@ export const CharacterSheet: React.FC = () => {
   const { currentCharacter } = useCharacters();
 
   const [editingPerks, setEditingPerks] = useState(false);
+  const [editingItems, setEditingItems] = useState(false);
 
   return (
     <Sheet>
@@ -169,8 +171,15 @@ export const CharacterSheet: React.FC = () => {
             <EditPerksDrawer open={editingPerks} onClose={() => setEditingPerks(false)} />
           </div>
           <div className="sheet__section">
-            <div className="section__header">Inventory</div>
+            <div className="section__header">
+              Inventory
+              <button onClick={() => setEditingItems(true)}>
+                <EditIcon />
+                Edit items
+              </button>
+            </div>
             <InventoryCard />
+            <EditItemsDrawer open={editingItems} onClose={() => setEditingItems(false)} />
           </div>
         </div>
       </div>
