@@ -275,11 +275,11 @@ Knights fight for honor and glory, using their strength and martial prowess to d
 
 | Attribute | Skill     | Description                                                          |
 | --------- | --------- | -------------------------------------------------------------------- |
-| Strength  | **Honor** | Persuade others using morality, follow-up attack with a melee weapon |
+| Strength  | **Honor** | Persuade others using morality, attack honorably with a melee weapon |
 
 ### Class Item
 
-Every Knight carries a Honorific Banner that bolsters their confidence and allows them to fight with Honor.
+Every Knight carries a _Honorific Banner_ that bolsters their confidence and allows them to fight with Honor.
 This piece of gear is commonly a physical banner with a coat of arms from the house they are sworn to defend.
 
 | Level | Honorific Banner Effect |
@@ -292,7 +292,11 @@ This piece of gear is commonly a physical banner with a coat of arms from the ho
 
 ### Class Abilities
 
-After making a melee attack using Power, Knights can use an action to make a melee attack using Honor.
+Knights gain the _Honorific Strike_ Bonus Action.
+
+| Bonus Action         | Description                                                  |
+| -------------------- | ------------------------------------------------------------ |
+| **Honorific Strike** | Roll an Honor check to make a melee attack against an enemy. |
 
 ### Class Perks
 
@@ -301,7 +305,7 @@ Knights have access to perks built on top of the core commandments of chivalry.
 | Attribute | Perk             | Requirement | Description                                                                                                                                       |
 | --------- | ---------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Strength  | **Pledged Word** | Honor 1     | _Thou shalt never lie and shalt remain faithful to thy pledged word._ You double your Speech bonus when making a promise.                         |
-| Strength  | **Charge**       | Honor 2     | _Thou shalt not recoil before thine enemy._ Your movement speed is doubled for the first round of combat.                                         |
+| Strength  | **Charge**       | Honor 2     | _Thou shalt not recoil before thine enemy._ Your Movement Speed is doubled for the first round of combat.                                         |
 | Strength  | **Champion**     | Honor 2     | _Thou shalt be the champion of the good against evil._ Your initiative roll is automatically doubled.                                             |
 | Strength  | **Bulwark**      | Honor 3     | _Thou shalt make war without cessation and without mercy._ You take only half damage when hit by an enemy with over half of its health remaining. |
 
@@ -311,13 +315,13 @@ Barbarians are formidable warriors that harness untamed fury against their enemi
 They excel in chaotic combat, often entering a battle rage and unleashing savage attacks that strike fear in the most powerful of opponents.
 Barbarians fight with a deep loyalty for their tribe, standing between them and the outside world.
 
-| Attribute | Skill    | Description                                                         |
-| --------- | -------- | ------------------------------------------------------------------- |
-| Strength  | **Rage** | Persuade others using intimidation, rage attack with a melee weapon |
+| Attribute | Skill    | Description                                             |
+| --------- | -------- | ------------------------------------------------------- |
+| Strength  | **Rage** | Persuade others using intimidation, throw heavy objects |
 
 ### Class Item
 
-Every Barbarian carries a Tribal Marking that reminds them of who they are fighting for.
+Every Barbarian carries a _Tribal Marking_ that reminds them of who they are fighting for.
 This Tribal Marking is commonly a sacred tattoo, branding, or carving etched on their skin.
 
 | Level | Tribal Marking Effect |
@@ -330,25 +334,21 @@ This Tribal Marking is commonly a sacred tattoo, branding, or carving etched on 
 
 ### Class Abilities
 
-Barbarians have the ability to enter a Combat Rage, enhancing their combat ability.
+Barbarians gain the _Rampage_ Bonus Action.
 
-| Action                  | Description                  |
-| ----------------------- | ---------------------------- |
-| **Enter a Combat Rage** | Enter a state of Combat Rage |
-
-While in a Combat Rage, Barbarians can make melee attacks using Rage instead of Power.
-Additionally, they can use an action to throw a Very Heavy item within 5 feet at an enemy within 30 feet.
-On a successful Rage check, the item hits its target and deals 2d6 damage.
+| Bonus Action | Description                                                                                                                                  |
+| ------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Rampage**  | Roll a Rage check to throw a Very Heavy item within 5 feet at an enemy within 30 feet. On a success, the target is hit and takes 2d6 damage. |
 
 ### Class Perks
 
-Barbarians have access to perks that further empower their Combat Rage.
+Barbarians have access to perks that enhance their combat ability.
 
-| Attribute | Perk              | Requirement | Description                                                                                                                                                               |
-| --------- | ----------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Strength  | **Boiling Blood** | Rage 1      | _You run hotter than other barbarians._ You start combat in a Combat Rage.                                                                                                |
-| Strength  | **Blood Rush**    | Rage 2      | _Nothing stops your advance._ While in a Combat Rage, your movement speed is increased by 10ft and you can traverse obstacles using Rage instead of Athletics or Agility. |
-| Strength  | **Beserker**      | Rage 3      | After landing a melee attack with Rage, you can use your second action to make another.                                                                                   |
+| Attribute | Perk                 | Requirement | Description                                                                                                         |
+| --------- | -------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------- |
+| Strength  | **Ready to Rampage** | Rage 1      | You always start combat with a Very Heavy item within 5 feet of you.                                                |
+| Strength  | **Blood Rush**       | Rage 2      | Your Movement Speed is increased by 10ft and you can traverse obstacles using Rage instead of Athletics or Agility. |
+| Strength  | **Beserker**         | Rage 3      | After landing a melee attack using Power, you can use your Bonus Action to make another using Rage.                 |
 
 ## Monk
 
@@ -362,7 +362,7 @@ Monks are devoted to self-control and harmony, only intervening when the balance
 
 ### Class Item
 
-Every Monk carries a Spiritual Talisman that enhances their ability to harness their inner Chi.
+Every Monk carries a _Spiritual Talisman_ that enhances their ability to harness their inner Chi.
 This Spiritual Talisman most often manifests itself as a bracelet, pendant, or ring of beads that is inscribed with their temple's tenants.
 
 | Level | Spiritual Talisman Effect        |
@@ -376,13 +376,13 @@ This Spiritual Talisman most often manifests itself as a bracelet, pendant, or r
 ### Class Abilities
 
 Monks have access to a number of Chi Points, or CP, they can use to perform impressive feats.
-They also gain the Chi Deflection reaction.
+They also gain the _Chi Deflection_ Reaction.
 
 | Reaction           | Description                                                                           |
 | ------------------ | ------------------------------------------------------------------------------------- |
 | **Chi Deflection** | When hit with a melee attack, roll a Chi check. On a success, you deflect all damage. |
 
-Monks start with the maximum number of Chi Points allowed by their Spiritual Talisman.
+Monks start with the maximum number of Chi Points allowed by their _Spiritual Talisman_.
 At any time, Monks can expend a Chi Point to reroll an unsuccessful skill check.
 During a Rest, a Monk can spend a Rest Activity finding inner peace to restore all of their Chi Points.
 
@@ -408,7 +408,7 @@ Rangers feels a responsibility towards the natural order of the world and never 
 
 ### Class Item
 
-Every Ranger carries a Survival Toolkit that enables them to wield the natural world as a tool.
+Every Ranger carries a _Survival Toolkit_ that enables them to wield the natural world as a tool.
 This Survival Toolkit is commonly a small bag holding a range of tools and equipment collected in their training.
 
 | Level | Survival Toolkit Effect |
@@ -425,7 +425,7 @@ Rangers add their Survival bonus to their Movement Speed and can traverse natura
 
 ### Class Perks
 
-Rangers have access to perks that add new items to their Survival Toolkit.
+Rangers have access to perks that add new items to their _Survival Toolkit_.
 
 | Attribute | Perk                 | Requirement | Description                                                                              |
 | --------- | -------------------- | ----------- | ---------------------------------------------------------------------------------------- |
@@ -448,7 +448,7 @@ Mages are on a constant pursuit for knowledge, devoting themselves to the discov
 
 ### Class Item
 
-Every Mage carries a Magical Channel that empowers them to wield magical energy.
+Every Mage carries a _Magical Channel_ that empowers them to wield magical energy.
 This Magical Channel is commonly a staff, book, wand, or ring imbued with knowledge or magic itself.
 
 | Level | Magical Channel Effect             |
@@ -461,16 +461,17 @@ This Magical Channel is commonly a staff, book, wand, or ring imbued with knowle
 
 ### Class Abilities
 
-Mages have access to a number of Magic Points, or MP, they can use to cast spells.
+Mages gain access to a number of Magic Points, or MP, they can use to cast spells.
+They also gain the _Cast Spell_ Main Action.
 
-| Action           | Description                                                                 |
-| ---------------- | --------------------------------------------------------------------------- |
-| **Cast a Spell** | With a successful Magic check, cast a known spell and expend its cost in MP |
+| Main Action    | Description                                                                                                                    |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| **Cast Spell** | Roll a Magic check to cast a known spell on a target within range. On a success, expend its cost in MP and resolve its effect. |
 
 Mages can hold a maximum number of Magic Points equal to their level.
 During a Rest, a Mage can spend a Rest Activity to restore all of their missing Magic Points.
 
-Mages can only learn spells from a school of magic they know (see Class Perks) and that meet the Rarity threshold of their Magical Channel.
+Mages can only learn spells from a school of magic they know (see Class Perks) and that meet the Rarity threshold of their _Magical Channel_.
 Upon character creation, Mages choose 1 spell to learn, and on each level gained, they learn 1 new spell.
 
 ### Class Perks
@@ -550,7 +551,7 @@ Forges prefer the company of their hammer, but are fiercely loyal to the few the
 
 ### Class Item
 
-Every Forge carries a Smithing Hammer that enables them to merge metal and runes through pure friction.
+Every Forge carries a _Smithing Hammer_ that enables them to merge metal and runes through pure friction.
 This Smithing Hammer is commonly a dwarven warhammer weighing roughly 25 pounds with two broad faces.
 
 | Level | Smithing Hammer Effect                     |
@@ -563,13 +564,14 @@ This Smithing Hammer is commonly a dwarven warhammer weighing roughly 25 pounds 
 
 ### Class Abilities
 
-During a Rest, Forges have the ability to repair damaged items using Smithing instead of Innovation, and they can experiment with smithing to build up Smithing Points, or SP.
+Forges gain the _Smith Weapons_ Rest Activity they can use to build up Smithing Points, or SP.
+They also have the ability to repair damaged weapons using Smithing instead of Innovation.
 
-| Rest Activity | Skill    | Success   | Stalemate | Failure   |
-| ------------- | -------- | --------- | --------- | --------- |
-| Smith         | Smithing | Gain 2 SP | Gain 1 SP | Gain 0 SP |
+| Rest Activity     | Skill    | Success   | Stalemate | Failure   |
+| ----------------- | -------- | --------- | --------- | --------- |
+| **Smith Weapons** | Smithing | Gain 2 SP | Gain 1 SP | Gain 0 SP |
 
-Forges can store a maximum number of Smithing Points dictated by their Smithing Hammer.
+Forges can store a maximum number of Smithing Points dictated by their _Smithing Hammer_.
 Once they have earned enough Smithing Points, Forges can expend them to enhance a melee weapon.
 Any one weapon can only have a single enchantment of each type (see Class Perks).
 
@@ -579,7 +581,7 @@ Upon character creation, Forges can smith one weapon they have purchased with 4 
 
 ### Class Perks
 
-Forges gain access to new types of gear enhancements through their perks.
+Forges gain access to new types of weapon enhancements through their perks.
 
 | Attribute    | Perk                       | Requirement | Description                                                                           |
 | ------------ | -------------------------- | ----------- | ------------------------------------------------------------------------------------- |
@@ -626,7 +628,7 @@ Heralds often find themselves as the voice of reason, guiding their allies towar
 
 ### Class Item
 
-Every Herald carries a Beacon of Influence that enables them to sway the thoughts and actions of those around them.
+Every Herald carries a _Beacon of Influence_ that enables them to sway the thoughts and actions of those around them.
 This Beacon of Influence is commonly a whistle, trumpet, or other instrument.
 
 | Level | Beacon of Influence Effect |
@@ -677,7 +679,7 @@ Enchanters often lurk in the shadows, preferring subtlety over direct confrontat
 
 ### Class Item
 
-Every Enchanter carries an Enchantment Charm that enhances their sway over the minds others.
+Every Enchanter carries an _Enchantment Charm_ that enhances their sway over the minds others.
 This Enchantment Charm is commonly a unique, ornate ring, locket, diadem, or amulet.
 
 | Level | Enchantment Charm Effect                      |
@@ -690,10 +692,13 @@ This Enchantment Charm is commonly a unique, ornate ring, locket, diadem, or amu
 
 ### Class Abilities
 
-Enchanters can use an action to bestow an enchantment on a target.
-After rolling a successful Enchantment check, an enchantment is applied and lasts until the Enchanter's next Rest.
+Enchanters gain the _Bestow Enchantment_ Bonus Action.
 
-If an Enchanter wants to enchant a target while currently enchanting the maximum (as dictated by their Enchantment Charm), they must choose a target to free of their enchantment.
+| Main Action            | Description                                                                                                                                        |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Bestow Enchantment** | Roll an Enchantment check to bestow a known enchantment on a target within 60 feet. On a success, the enchantment is applied until your next Rest. |
+
+If an Enchanter wants to enchant a target while currently enchanting the maximum (as dictated by their _Enchantment Charm_), they must choose a target to free of their enchantment.
 
 ### Class perks
 
@@ -718,7 +723,7 @@ Sages are often wise beyond their years, seeking to understand the deeper truths
 
 ### Class Item
 
-Every Sage carries a Ritual Totem that infuses their ritual circles with nature's essence.
+Every Sage carries a _Ritual Totem_ that infuses their ritual circles with nature's essence.
 This Ritual Totem is commonly a sacred drum, book, or pole that has been inscribed with nature's teachings.
 
 | Level | Ritual Totem Effect |
@@ -731,12 +736,13 @@ This Ritual Totem is commonly a sacred drum, book, or pole that has been inscrib
 
 ### Class Abilities
 
-During a Rest, Sages can spend their Rest Activity casting a known ritual.
-This ritual will give Sages access to specific ritual acts they perform while it is in effect.
+Sages gain the _Cast Ritual_ Rest Activity.
 
-| Rest Activity | Skill | Outcome                                                        |
-| ------------- | ----- | -------------------------------------------------------------- |
-| Cast a Ritual | /     | Choose a known ritual to put into effect until your next Rest. |
+| Rest Activity   | Skill | Outcome                                                        |
+| --------------- | ----- | -------------------------------------------------------------- |
+| **Cast Ritual** | N/A   | Choose a known ritual to put into effect until your next Rest. |
+
+Rituals will give Sages access to specific ritual acts they perform while it is in effect.
 
 Sages have access to a number of Nature Points, or NP, they can spend on ritual acts.
 They can hold a maximum number of Nature Points equal to their level and regain all of their missing Nature Points after a Rest.
@@ -787,13 +793,13 @@ Druids are truly one with nature, carrying an innate bond with the fauna that po
 They travel with a loyal beast companion that is always by their side, anchoring them with the strength and cunning of the wild.
 Druids serve as the bridge between the untamed wilderness and the civilized world, guiding their party with primal wisdom and fierce loyalty.
 
-| Attribute  | Skill     | Description                                              |
-| ---------- | --------- | -------------------------------------------------------- |
-| Perception | **Beast** | Control beast companion, commune with nature's creatures |
+| Attribute  | Skill     | Description                                                         |
+| ---------- | --------- | ------------------------------------------------------------------- |
+| Perception | **Beast** | Commune with nature's creatures, call upon tamed and untamed beasts |
 
 ### Class Item
 
-Every Druid is accompanied by a Tamed Beast that is a fiercely loyal friend and protector.
+Every Druid is accompanied by a _Tamed Beast_ that is a fiercely loyal friend and protector.
 This Tamed Beast can be a large creature, such as a wolf or hawk, or a small creature, such as a spider or snake, that has a deep connection with the Druid.
 
 | Tamed Beast Size | Description                                                                           |
@@ -811,17 +817,19 @@ This Tamed Beast can be a large creature, such as a wolf or hawk, or a small cre
 
 ### Class Abilities
 
-Druids can call their Tamed Beast to action or beckon for nature's Untamed Beasts to come to their aid.
+Sages gain access to a number of Beast Points, or BP, that they can use to call upon Untamed Beasts from nature.
+They also gain the _Summon Tamed Beast_ and _Summon Untamed Beast_ Bonus Actions.
 
-During combat, druids can expand an action to have their Tamed Beast perform a skill check.
-When making an attack with the Tamed Beast, the druid rolls a Beast check and deals damage based on the beast's size.
+| Bonus Action             | Description                                                                                                                                          |
+| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Summon Tamed Beast**   | Summon your _Tamed Beast_ to perform a skill check. When making an attack, the Druid rolls a Beast check and deals damage based on the beast's size. |
+| **Summon Untamed Beast** | Roll a Beast check to summon a known Untamed Beast. On a success, expend the specified number of BP and resolve its effect.                          |
 
-> Tamed Beasts follow the same rules of injury and death when reduced to 0 hit points.
-> If a Tamed Beast dies, a new one is found upon reaching the next level milestone.
+Druids have a maximum number of Beast Points dictated by their _Tamed Beast_ and regain all lost Beast Points after a Rest.
+Also, _Tamed Beasts_ regain all lost hit points after a Rest.
 
-Additionally, druids have access to a number of Beast Points, or BP, that they can use to call upon Untamed Beasts from nature.
-To call upon an Untamed Beast, druids must make a successful Beast check and expend the specified number of Beast Points.
-Druids have a maximum number of Beast Points provided by their Tamed Beast and regain all lost Beast Points after a Rest.
+> _Tamed Beasts_ follow the same rules of injury and death when reduced to 0 hit points.
+> If a _Tamed Beast_ dies, a new one is found upon reaching the next _Tamed Beast_ level milestone.
 
 ### Class Perks
 

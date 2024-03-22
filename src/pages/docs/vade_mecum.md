@@ -573,11 +573,11 @@ There are 3 tiers of armor and cover that incrementally increase the disadvantag
 > For example, someone wearing medium armor behind medium cover would have -4 disadvantage to being hit.
 
 While armor protects the wearer from melee and ranged attacks, cover only protects at range.
-Additionally, those in cover cannot take Movement or Actions (see [3.4 Combat](#3.4-Combat)).
+Additionally, those in cover cannot take Movement or a Main Action (see [3.4 Combat](#3.4-Combat)).
 
 ## 3.4 Combat
 
-When a situation reaches a point than can no longer be resolved by words, the Party will enter combat.
+When a situation reaches a point than can no longer be resolved by words, the Adventuring Party will enter combat.
 Combat begins by determining each character's turn order by rolling for initiative. Each character
 rolls a number of D6 equal to `(Dexterity + Perception)` and sums the roll to resolve their initiative.
 
@@ -585,29 +585,36 @@ rolls a number of D6 equal to `(Dexterity + Perception)` and sums the roll to re
 > Characters with a higher initiative will go before them and characters with a lower initiative will go after.
 
 Combat will persist for a number of rounds until one side concedes or parishes.
-In every round of combat, each character will take a turn in order of initiative.
-During their turn, a character can take Movement and up to two Actions (in any order or configuration).
+In every round of combat, each character will take their turn in the order of initiative.
 
 > Each round of combat is roughly equivalent to 6 seconds of world time.
 
+During their turn, a character can use Movement, a Main Action, and a Bonus Action in any order or configuration.
+
 ### Movement
 
-Characters can utilize their movement speed to navigate the combat area and seek cover from the enemy.
+Characters can move a number of tiles up to their Movement Speed within the combat area.
 
-| Type           | Description                                                       |
-| -------------- | ----------------------------------------------------------------- |
-| **Move**       | Move a number of tiles up to your movement speed                  |
-| **Take Cover** | Take cover behind an object by consuming half your movement speed |
+> Movement through Rough Terrain, such as rocks, mud, debris, or water, consumes twice the amount of movement speed.
 
-### Action (2x)
+### Main Action
 
-Characters can use an action to perform a skill check or interact with objects in the combat area.
-Of there two actions, a character can only use one to make an attack (unless otherwise specified by a perk or class.)
+Characters can use their Main Action to attack the enemy. Most often, this will be a Power or Precision skill check to attack an enemy with a melee or ranged weapon, respectively.
 
-| Type                        | Example                                                                     |
-| --------------------------- | --------------------------------------------------------------------------- |
-| **Roll a Skill Check**      | Roll Power to make a melee attack, roll Investigation to search for an exit |
-| **Interact with an Object** | Consume a potion, open a door, throw an object                              |
+> An attack qualifies as any skill check that is intended to deal direct damage against the enemy.
+
+If an attack is not made, the character may forfeit their Main Action to perform an additional Bonus Action.
+
+### Bonus Action
+
+Characters can use their Bonus Action to perform auxiliary actions with their environment.
+
+| Bonus Action           | Example                                                                         |
+| ---------------------- | ------------------------------------------------------------------------------- |
+| **Skill Check**        | Roll Investigation to search for an exit, roll Intuition to understand an enemy |
+| **Object Interaction** | Consume a potion, open a door, swap weapons                                     |
+| **Dash**               | Regain all expended Movement Speed                                              |
+| **Take Cover**         | Gain protection from ranged attacks using cover                                 |
 
 ### Reaction
 
@@ -620,8 +627,8 @@ By default, all characters can perform an opportunity attack as a reaction, but 
 
 ### Surprise
 
-In some cases, the Party may attempt to surprise their enemy to gain an advantage.
-To do this, one character from the party will roll a Stealth check with a difficulty modifier equivalent to the highest enemy Detection.
+In some cases, the Adventuring Party may attempt to surprise their enemy to gain an advantage.
+To do this, one character will roll a Stealth check with a difficulty modifier equivalent to the highest enemy Detection.
 
 | Result        | Outcome                                                                              |
 | ------------- | ------------------------------------------------------------------------------------ |

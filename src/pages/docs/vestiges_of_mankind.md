@@ -55,7 +55,7 @@ Scavengers honorably risk life and limb to bring back vital resources to those t
 
 ### Class Item
 
-Every Scavenger carries a Survival Handbook that they use to record the creatures and locations they have encountered while scavenging.
+Every Scavenger carries a _Survival Handbook_ that they use to record the creatures and locations they have encountered while scavenging.
 This piece of gear is commonly a notebook from the old world or a hand-crafted journal made from scrap stationary.
 
 | Level | Survival Handbook Effect |
@@ -68,12 +68,12 @@ This piece of gear is commonly a notebook from the old world or a hand-crafted j
 
 ### Class Abilities
 
-Scavengers have the ability to read enemies and their surroundings to gain an advantage in wasteland combat.
+Scavengers gain the _Read Target_ and _Mark Target_ Bonus Actions.
 
-| Action            | Description                                                                                                                                                                                                                                                                   |
-| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Read a Target** | Read a target using knowledge from your Survival Handbook. With a successful Scavenging check, you determine the target's current HP, Focus and Flaw attributes, class ability, and current weapon.                                                                           |
-| **Mark a Target** | Strategize against a target and mark them as your quarry. With a successful Scavenging check, you gain +2 advantage on attacks against them and deal an additional 1D6 damage on a hit. This lasts for the combat's duration and can only be applied to one target at a time. |
+| Bonus Action    | Description                                                                                                                                                                                                                                                                   |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Read Target** | Read a target using knowledge from your _Survival Handbook_. With a successful Scavenging check, you determine the target's current HP, Focus and Flaw attributes, class abilities, or current weapon.                                                                        |
+| **Mark Target** | Strategize against a target and mark them as your quarry. With a successful Scavenging check, you gain +2 advantage on attacks against them and deal an additional 1D6 damage on a hit. This lasts for the combat's duration and can only be applied to one target at a time. |
 
 ### Class Perks
 
@@ -100,7 +100,7 @@ Mutants are shunned and feared by the unmutated, forcing them to live on the fri
 
 ### Class Item
 
-Every Mutant carries a Radioactive Relic, an item from the old world that is unknowingly imbued with outrageous amounts of radiation.
+Every Mutant carries a _Radioactive Relic_, an item from the old world that is unknowingly imbued with outrageous amounts of radiation.
 This relic is commonly a piece of clothing they have stretched around their mutated bodies or a benign artifact such as a metal spoon, a teddy bear, or sunglasses.
 
 | Level | Radioactive Relic Effect |
@@ -113,11 +113,12 @@ This relic is commonly a piece of clothing they have stretched around their muta
 
 ### Class Abilities
 
-Mutants have access to Mutation Points, or MP, that they can use to wield their mutant abilities.
+Mutants gain access to Mutation Points, or MP, that they can use to wield their mutant abilities.
+They also gain the _Activate Mutation_ Main Action.
 
-| Action                | Description                                                                                                        |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| **Activate Mutation** | With a successful Mutation check, expend a number of MP to activate a mutation provided by an acquired class perk. |
+| Action                | Description                                                                                                     |
+| --------------------- | --------------------------------------------------------------------------------------------------------------- |
+| **Activate Mutation** | Roll a Mutation check to activate a known mutation. On a success, expend its cost in MP and resolve its effect. |
 
 Mutants can hold a maximum number of Mutation Points equal to their level.
 During a Rest, a Mutant can spend a Rest Activity to restore all of their missing Mutation Points.
@@ -145,7 +146,7 @@ Scribes are invaluable advisors for their ability to solve complex problems and 
 
 ### Class Item
 
-Every Scribe carries a Historical Codex that they use to record the artifacts they have found from the old world.
+Every Scribe carries a _Historical Codex_ that they use to record the artifacts they have found from the old world.
 This codex is commonly an old textbook or bible that has been repurposed by bleaching its pages.
 
 | Level | Historical Codex Effect                   |
@@ -158,14 +159,14 @@ This codex is commonly an old textbook or bible that has been repurposed by blea
 
 ### Class Abilities
 
-Scribes have the ability to comprehend artifacts from the old world using History instead of Comprehension.
-During a Rest, Scribes can study artifacts to build up Artifact Points, or AP.
+Scribes gain the _Study Artifacts_ Rest Activity to build up Artifact Points, or AP.
+They also gain the ability to comprehend artifacts from the old world using History instead of Comprehension.
 
-| Rest Activity   | Skill   | Success   | Stalemate | Failure   |
-| --------------- | ------- | --------- | --------- | --------- |
-| Study artifacts | History | Gain 2 AP | Gain 1 AP | Gain 0 SP |
+| Rest Activity       | Skill   | Success   | Stalemate | Failure   |
+| ------------------- | ------- | --------- | --------- | --------- |
+| **Study Artifacts** | History | Gain 2 AP | Gain 1 AP | Gain 0 SP |
 
-Scribes can store a maximum number of Artifact Points dictated by their Historical Codex.
+Scribes can store a maximum number of Artifact Points dictated by their _Historical Codex_.
 Once they have earned enough Artifact Points, Scribes can expend them to use an artifact.
 
 ### Class Perks
@@ -194,7 +195,7 @@ Believers rely on unpredictable signs and portents to guide their journey, often
 
 ### Class Item
 
-Every Believer carries a Divine Belief for something bigger than themselves, guiding them on their journey through the wastes.
+Every Believer carries a _Divine Belief_ for something bigger than themselves, guiding them on their journey through the wastes.
 This belief is commonly Divine Salvation, Divine Guidance, or Divine Anarchy and is something rooted in every fiber of their being.
 
 | Divine Belief    | Description                                                                                                                                                                                                                                                              |
@@ -213,13 +214,14 @@ This belief is commonly Divine Salvation, Divine Guidance, or Divine Anarchy and
 
 ### Class Abilities
 
-Believers have access to Divination Points, or DP, that they can use to spark supernatural events.
+Believers gain access to Divination Points, or DP, that they can use to spark supernatural events.
+They also gain the _Spark Divinity_ Bonus Action.
 
-| Action             | Description                                                                                                       |
-| ------------------ | ----------------------------------------------------------------------------------------------------------------- |
-| **Spark Divinity** | With a successful Belief check, expend a number of DP to spark a divine event provided by an acquired class perk. |
+| Bonus Action       | Description                                                                                                  |
+| ------------------ | ------------------------------------------------------------------------------------------------------------ |
+| **Spark Divinity** | Roll a Belief check to spark a known divine act. On a success, expend its cost in DP and resolve its effect. |
 
-Believers start with the maximum number of Divination Points allowed by their Divine Belief.
+Believers start with the maximum number of Divination Points allowed by their _Divine Belief_.
 During a Rest, a Believer can spend a Rest Activity in prayer to restore all of their missing Divination Points.
 
 Believers also have a number of Divination Dice that they can use to shape their divine journey.
