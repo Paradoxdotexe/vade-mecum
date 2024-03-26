@@ -227,15 +227,15 @@ As such, perks give characters a way to accentuate their strengths in ways that 
 ## 2.4 Classes
 
 While attributes, skills, and perks are the foundation of a character's abilities, classes are the foundation of a character's identity and nature.
-Classes define a character's Focus attribute, as well as gives them access to skills, perks, and items that are otherwise inaccessible to other classes.
+Classes define a character's Focus attribute, as well as gives them access to skills, items, and abilities that are otherwise inaccessible to other classes.
 
 > Specific character classes are defined by the World Kit being used, but all classes follow a universal pattern for how they are structured.
 
 Classes grant a character a unique 16th skill that falls under the designated Focus attribute.
 This class skill is used to perform class-specific actions and give the character an edge in a specialized area of the world.
 
-Each class provides a unique list of perks that fall under this class skill.
-These class perks will often allow the character to evolve its abilities in different ways.
+Each class provides unique class abilities that harness this class skill.
+These class abilities will often allow the character to evolve its combat ability in different ways.
 
 Additionally, each class has a unique type of gear associated with them that serves as a channel for the class's power.
 This piece of gear is only attainable by leveling up and will provide bonuses to the class skill.
@@ -250,11 +250,11 @@ Knights fight for honor and glory, using their strength and martial prowess to d
 
 | Attribute | Skill     | Description                                                          |
 | --------- | --------- | -------------------------------------------------------------------- |
-| Strength  | **Honor** | Persuade others using morality, follow-up attack with a melee weapon |
+| Strength  | **Honor** | Persuade others using chivalry, attack honorably with a melee weapon |
 
-### Class Item
+#### Class Item
 
-Every Knight carries a Honorific Banner that bolsters their confidence and allows them to fight with Honor.
+Every Knight carries a _Honorific Banner_ that bolsters their confidence and allows them to fight with Honor.
 This piece of gear is commonly a physical banner with a coat of arms from the house they are sworn to defend.
 
 | Level | Honorific Banner Effect |
@@ -265,20 +265,27 @@ This piece of gear is commonly a physical banner with a coat of arms from the ho
 | 18    | Honor +3                |
 | 24    | Honor +4                |
 
-### Class Abilities
+#### Class Abilities
 
-After making a melee attack using Power, Knights can use an action to make a melee attack using Honor.
+Knights innately gain the _Honorific Strike_ Bonus Action, allowing them to attack twice in one turn.
 
-### Class Perks
+| Class Ability        | Type         | Description                              |
+| -------------------- | ------------ | ---------------------------------------- |
+| **Honorific Strike** | Bonus Action | You can make a melee attack using Honor. |
 
-Knights have access to perks built on top of the core commandments of chivalry.
+Knights can acquire other class abilities that enhance their abilities on the battlefield while maintaining the core commandments of chivalry.
 
-| Attribute | Perk             | Requirement | Description                                                                                                                                       |
-| --------- | ---------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Strength  | **Pledged Word** | Honor 1     | _Thou shalt never lie and shalt remain faithful to thy pledged word._ You double your Speech bonus when making a promise.                         |
-| Strength  | **Charge**       | Honor 2     | _Thou shalt not recoil before thine enemy._ Your movement speed is doubled for the first round of combat.                                         |
-| Strength  | **Champion**     | Honor 2     | _Thou shalt be the champion of the good against evil._ Your initiative roll is automatically doubled.                                             |
-| Strength  | **Bulwark**      | Honor 3     | _Thou shalt make war without cessation and without mercy._ You take only half damage when hit by an enemy with over half of its health remaining. |
+| Class Ability          | Type         | Requirement | Description                                                                                                                                                                                |
+| ---------------------- | ------------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Battle Knowledge**   | Passive      | Level 1     | You can make Insight and Intuition checks using Honor instead when gauging an upcoming battle.                                                                                             |
+| **Battle Charge**      | Passive      | Level 1     | Your Movement Speed is doubled for the first round of combat.                                                                                                                              |
+| **Indomitable Spirit** | Passive      | Level 1     | While a member of your Adventuring Party is incapacitated, you gain +1 advantage on melee attacks.                                                                                         |
+| **King's Champion**    | Passive      | Level 1     | Your initiative roll is automatically doubled.                                                                                                                                             |
+| **Last Stand**         | Passive      | Level 6     | When you have 12 hit points or less, your attack damage is doubled.                                                                                                                        |
+| **Bulwark**            | Passive      | Level 6     | You take only half damage when hit by an enemy with over half of its health remaining.                                                                                                     |
+| **Formal Decree**      | Bonus Action | Level 12    | You can make an Honor check against an enemy's Intuition to command them to stand down. On a success, they will not attack unless otherwise provoked.                                      |
+| **Honorable Duel**     | Bonus Action | Level 12    | You can make an Honor check to command an enemy to duel. On a success, they cannot make attacks on characters other than you. The duel ends if they are attacked by anyone other than you. |
+| **Shield Bash**        | Bonus Action | Level 18    | You can make an Honor check to bash an enemy within 5ft. On a success, they are knocked prone.                                                                                             |
 
 ## 2.5 Experience Levels
 
@@ -301,38 +308,39 @@ The Game Master may also choose to award additional XP beyond the criteria for s
 ### Level Rewards
 
 - On every level, the character will gain one skill point.
-- One every 2nd level, the character will choose a new perk.
+- On every 2nd level, the character will choose a new perk.
+- On every 3rd level, the character will choose a new class ability.
 - On every 4th level, the character will gain one attribute point.
 - On every 6th level, the character will evolve their class item.
 - On every 8th level the character gains renown.
 
 At Level 24, a character will have become a Legendary adventurer in the eyes of the world (see [2.9 Renown](#2.9-Renown)).
 
-| Level | Reward(s)                                                                             |
-| ----- | ------------------------------------------------------------------------------------- |
-| 2     | `+1 skill point` `+1 perk`                                                            |
-| 3     | `+1 skill point`                                                                      |
-| 4     | `+1 skill point` `+1 perk` `+1 attribute point`                                       |
-| 5     | `+1 skill point`                                                                      |
-| 6     | `+1 skill point` `+1 perk` `+1 class item evolution`                                  |
-| 7     | `+1 skill point`                                                                      |
-| 8     | `+1 skill point` `+1 perk` `+1 attribute point` `+1 renown`                           |
-| 9     | `+1 skill point`                                                                      |
-| 10    | `+1 skill point` `+1 perk`                                                            |
-| 11    | `+1 skill point`                                                                      |
-| 12    | `+1 skill point` `+1 perk` `+1 attribute point` `+1 class item evolution`             |
-| 13    | `+1 skill point`                                                                      |
-| 14    | `+1 skill point` `+1 perk`                                                            |
-| 15    | `+1 skill point`                                                                      |
-| 16    | `+1 skill point` `+1 perk` `+1 attribute point` `+1 renown`                           |
-| 17    | `+1 skill point`                                                                      |
-| 18    | `+1 skill point` `+1 perk` `+1 class item evolution`                                  |
-| 19    | `+1 skill point`                                                                      |
-| 20    | `+1 skill point` `+1 perk` `+1 attribute point`                                       |
-| 21    | `+1 skill point`                                                                      |
-| 22    | `+1 skill point` `+1 perk`                                                            |
-| 23    | `+1 skill point`                                                                      |
-| 24    | `+1 skill point` `+1 perk` `+1 attribute point` `+1 class item evolution` `+1 renown` |
+| Level | Reward(s)                                                                                                |
+| ----- | -------------------------------------------------------------------------------------------------------- |
+| 2     | `+1 skill point` `+1 perk`                                                                               |
+| 3     | `+1 skill point` `+1 class ability`                                                                      |
+| 4     | `+1 skill point` `+1 perk` `+1 attribute point`                                                          |
+| 5     | `+1 skill point`                                                                                         |
+| 6     | `+1 skill point` `+1 perk` `+1 class item evolution` `+1 class ability`                                  |
+| 7     | `+1 skill point`                                                                                         |
+| 8     | `+1 skill point` `+1 perk` `+1 attribute point` `+1 renown`                                              |
+| 9     | `+1 skill point` `+1 class ability`                                                                      |
+| 10    | `+1 skill point` `+1 perk`                                                                               |
+| 11    | `+1 skill point`                                                                                         |
+| 12    | `+1 skill point` `+1 perk` `+1 attribute point` `+1 class item evolution` `+1 class ability`             |
+| 13    | `+1 skill point`                                                                                         |
+| 14    | `+1 skill point` `+1 perk`                                                                               |
+| 15    | `+1 skill point` `+1 class ability`                                                                      |
+| 16    | `+1 skill point` `+1 perk` `+1 attribute point` `+1 renown`                                              |
+| 17    | `+1 skill point`                                                                                         |
+| 18    | `+1 skill point` `+1 perk` `+1 class item evolution` `+1 class ability`                                  |
+| 19    | `+1 skill point`                                                                                         |
+| 20    | `+1 skill point` `+1 perk` `+1 attribute point`                                                          |
+| 21    | `+1 skill point` `+1 class ability`                                                                      |
+| 22    | `+1 skill point` `+1 perk`                                                                               |
+| 23    | `+1 skill point`                                                                                         |
+| 24    | `+1 skill point` `+1 perk` `+1 attribute point` `+1 class item evolution` `+1 renown` `+1 class ability` |
 
 ## 2.6 Health Points
 
@@ -416,8 +424,8 @@ For the best experience, focus on making a unique and interesting adventurer tha
 >   - The 1 will be considered your character's Flaw attribute
 > - [ ] Allocate 1 point into 6 different skills
 >   - Points cannot be put into skills under your Flaw attribute
-> - [ ] Acquire one general perk that you meet the requirements of
-> - [ ] Acquire one class perk that you meet the requirements of
+> - [ ] Acquire one perk that you meet the requirements of
+> - [ ] Acquire one class ability that you meet the requirements of
 
 > **Equipment**
 >

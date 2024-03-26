@@ -14,6 +14,23 @@ type CharacterClass = {
   };
 };
 
+// enum ClassAbilityType {
+//   PASSIVE = 'PASSIVE',
+//   MAIN_ACTION = 'MAIN_ACTION',
+//   BONUS_ACTION = 'BONUS_ACTION',
+//   REACTION = 'REACTION',
+//   REST_ACTIVITY = 'REST_ACTIVITY'
+// }
+
+// type ClassAbility = {
+//   key: string;
+//   type: ClassAbilityType;
+//   name: string;
+//   description: string;
+//   attributeKey?: AttributeKey;
+//   skillKey?: string;
+// };
+
 export type InventoryItemType = 'WEAPON' | 'ARMOR' | 'TOOL';
 
 type InventoryItem = {

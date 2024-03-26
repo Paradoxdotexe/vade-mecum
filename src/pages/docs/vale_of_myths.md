@@ -275,7 +275,7 @@ Knights fight for honor and glory, using their strength and martial prowess to d
 
 | Attribute | Skill     | Description                                                          |
 | --------- | --------- | -------------------------------------------------------------------- |
-| Strength  | **Honor** | Persuade others using morality, attack honorably with a melee weapon |
+| Strength  | **Honor** | Persuade others using chivalry, attack honorably with a melee weapon |
 
 ### Class Item
 
@@ -292,22 +292,25 @@ This piece of gear is commonly a physical banner with a coat of arms from the ho
 
 ### Class Abilities
 
-Knights gain the _Honorific Strike_ Bonus Action.
+Knights innately gain the _Honorific Strike_ Bonus Action, allowing them to attack twice in one turn.
 
-| Bonus Action         | Description                                                  |
-| -------------------- | ------------------------------------------------------------ |
-| **Honorific Strike** | Roll an Honor check to make a melee attack against an enemy. |
+| Class Ability        | Type         | Description                              |
+| -------------------- | ------------ | ---------------------------------------- |
+| **Honorific Strike** | Bonus Action | You can make a melee attack using Honor. |
 
-### Class Perks
+Knights can acquire other class abilities that enhance their abilities on the battlefield while maintaining the core commandments of chivalry.
 
-Knights have access to perks built on top of the core commandments of chivalry.
-
-| Attribute | Perk             | Requirement | Description                                                                                                                                       |
-| --------- | ---------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Strength  | **Pledged Word** | Honor 1     | _Thou shalt never lie and shalt remain faithful to thy pledged word._ You double your Speech bonus when making a promise.                         |
-| Strength  | **Charge**       | Honor 2     | _Thou shalt not recoil before thine enemy._ Your Movement Speed is doubled for the first round of combat.                                         |
-| Strength  | **Champion**     | Honor 2     | _Thou shalt be the champion of the good against evil._ Your initiative roll is automatically doubled.                                             |
-| Strength  | **Bulwark**      | Honor 3     | _Thou shalt make war without cessation and without mercy._ You take only half damage when hit by an enemy with over half of its health remaining. |
+| Class Ability          | Type         | Requirement | Description                                                                                                                                                                                |
+| ---------------------- | ------------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Battle Knowledge**   | Passive      | Level 1     | You can make Insight and Intuition checks using Honor instead when gauging an upcoming battle.                                                                                             |
+| **Battle Charge**      | Passive      | Level 1     | Your Movement Speed is doubled for the first round of combat.                                                                                                                              |
+| **Indomitable Spirit** | Passive      | Level 1     | While a member of your Adventuring Party is incapacitated, you gain +1 advantage on melee attacks.                                                                                         |
+| **King's Champion**    | Passive      | Level 1     | Your initiative roll is automatically doubled.                                                                                                                                             |
+| **Last Stand**         | Passive      | Level 6     | When you have 12 hit points or less, your attack damage is doubled.                                                                                                                        |
+| **Bulwark**            | Passive      | Level 6     | You take only half damage when hit by an enemy with over half of its health remaining.                                                                                                     |
+| **Formal Decree**      | Bonus Action | Level 12    | You can make an Honor check against an enemy's Intuition to command them to stand down. On a success, they will not attack unless otherwise provoked.                                      |
+| **Honorable Duel**     | Bonus Action | Level 12    | You can make an Honor check to command an enemy to duel. On a success, they cannot make attacks on characters other than you. The duel ends if they are attacked by anyone other than you. |
+| **Shield Bash**        | Bonus Action | Level 18    | You can make an Honor check to bash an enemy within 5ft. On a success, they are knocked prone.                                                                                             |
 
 ## Barbarian
 
@@ -334,21 +337,25 @@ This Tribal Marking is commonly a sacred tattoo, branding, or carving etched on 
 
 ### Class Abilities
 
-Barbarians gain the _Rampage_ Bonus Action.
+Barbarians innately gain the _Rampage_ Bonus Action, allowing them to attack again by destroying their environment.
 
-| Bonus Action | Description                                                                                                                                  |
-| ------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Rampage**  | Roll a Rage check to throw a Very Heavy item within 5 feet at an enemy within 30 feet. On a success, the target is hit and takes 2d6 damage. |
+| Class Ability | Type         | Description                                                                                                                                          |
+| ------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Rampage**   | Bonus Action | You can make a Rage check to throw a Very Heavy item within 5 feet at an enemy within 30 feet. On a success, the target is hit and takes 2d6 damage. |
 
-### Class Perks
+Barbarians can acquire other class abilities that use their rage to cause havoc.
 
-Barbarians have access to perks that enhance their combat ability.
-
-| Attribute | Perk                 | Requirement | Description                                                                                                         |
-| --------- | -------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------- |
-| Strength  | **Ready to Rampage** | Rage 1      | You always start combat with a Very Heavy item within 5 feet of you.                                                |
-| Strength  | **Blood Rush**       | Rage 2      | Your Movement Speed is increased by 10ft and you can traverse obstacles using Rage instead of Athletics or Agility. |
-| Strength  | **Beserker**         | Rage 3      | After landing a melee attack using Power, you can use your Bonus Action to make another using Rage.                 |
+| Class Ability         | Type         | Requirement | Description                                                                                                                                                                                        |
+| --------------------- | ------------ | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Ready to Rampage**  | Passive      | Level 1     | You always start combat with a Very Heavy item within 5 feet of you.                                                                                                                               |
+| **Blood Rush**        | Passive      | Level 1     | Your Movement Speed is increased by 10ft and you can traverse obstacles using Rage instead of Athletics or Agility.                                                                                |
+| **Bloodlust**         | Passive      | Level 1     | After killing an enemy, your next attack deals double damage.                                                                                                                                      |
+| **Feral Instincts**   | Passive      | Level 6     | You get +2 advantage on opportunity attacks.                                                                                                                                                       |
+| **Feral Presence**    | Passive      | Level 6     | When an enemy is within 10ft of you, they must make a Fortitude check at the beginning of their turn. On a failure, they are frightened and have -1 disadvantage on attacks until their next turn. |
+| **Reckless Attack**   | Bonus Action | Level 12    | You can make a melee attack using Rage. Until your next turn, attacks on you have +2 advantage.                                                                                                    |
+| **Reckless Beserker** | Passive      | Level 12    | After landing a melee attack using Power, your following Reckless Attack does not grant advantage on attacks made against you.                                                                     |
+| **Furious Hurl**      | Bonus Action | Level 18    | You can make a Rage check to grab and throw an enemy within 5ft. On a success, the target lands prone 20ft away and takes `2D6` damage.                                                            |
+| **Furious Frenzy**    | Main Action  | Level 18    | You double your Movement Speed this turn and make four attacks using Rage. Afterwards, you are stunned until the end of your next turn.                                                            |
 
 ## Monk
 
@@ -362,7 +369,7 @@ Monks are devoted to self-control and harmony, only intervening when the balance
 
 ### Class Item
 
-Every Monk carries a _Spiritual Talisman_ that enhances their ability to harness their inner Chi.
+Every Monk carries a _Spiritual Talisman_ that enhances their ability to harness their Chi.
 This Spiritual Talisman most often manifests itself as a bracelet, pendant, or ring of beads that is inscribed with their temple's tenants.
 
 | Level | Spiritual Talisman Effect        |
@@ -375,26 +382,27 @@ This Spiritual Talisman most often manifests itself as a bracelet, pendant, or r
 
 ### Class Abilities
 
-Monks have access to a number of Chi Points, or CP, they can use to perform impressive feats.
-They also gain the _Chi Deflection_ Reaction.
+Monks have access to a number of Chi Points, or CP, granted by their _Spiritual Talisman_. They innately gain the _Chi Surge_ Passive, _Chi Deflection_ Reaction, and _Channel Chi_ Rest Activity, allowing them to harness their inner energy to overcome challenges.
 
-| Reaction           | Description                                                                           |
-| ------------------ | ------------------------------------------------------------------------------------- |
-| **Chi Deflection** | When hit with a melee attack, roll a Chi check. On a success, you deflect all damage. |
+| Class Ability      | Type          | Description                                                                                                                      |
+| ------------------ | ------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| **Chi Surge**      | Passive       | At any time, you can spend 1 CP to reroll an unsuccessful skill check. You cannot use _Chi Surge_ twice on the same skill check. |
+| **Chi Deflection** | Reaction      | When hit with an attack, roll a Chi check. On a success, you deflect all damage.                                                 |
+| **Channel Chi**    | Rest Activity | You find inner peace and restore all of your missing Chi Points.                                                                 |
 
-Monks start with the maximum number of Chi Points allowed by their _Spiritual Talisman_.
-At any time, Monks can expend a Chi Point to reroll an unsuccessful skill check.
-During a Rest, a Monk can spend a Rest Activity finding inner peace to restore all of their Chi Points.
+Monks can acquire other class abilities that harness their inner energy.
 
-### Class Perks
-
-Monks have access to perks that give them new ways to harness their Chi Points.
-
-| Attribute | Perk                 | Requirement | Description                                                                                                                                          |
-| --------- | -------------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Dexterity | **Zen**              | Chi 1       | With a successful Chi check, you can expend a Chi Point to calm a group of people, giving advantage on Speech checks against them equal to your Chi. |
-| Dexterity | **Reflexive**        | Chi 2       | You get a second reaction during combat.                                                                                                             |
-| Dexterity | **Return to Sender** | Chi 3       | After deflecting an attack, you can spend a Chi Point to deal the intended damage back on the enemy.                                                 |
+| Class Ability          | Type         | Requirement | Description                                                                                                                                                                                            |
+| ---------------------- | ------------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Reflexive**          | Passive      | Level 1     | You gain a second reaction during combat.                                                                                                                                                              |
+| **Pacifist Pacing**    | Passive      | Level 1     | Before you make your first attack in combat, you double your Movement Speed.                                                                                                                           |
+| **Inspire Zen**        | Bonus Action | Level 1     | You can make a Chi check to calm a group of people. On a success, you gain advantage on Speech checks against them equal to your Chi.                                                                  |
+| **Credence**           | Passive      | Level 6     | If you fail a skill check after using _Chi Surge_, you regain the lost Chi Point.                                                                                                                      |
+| **Karmic Retribution** | Passive      | Level 6     | Before you make your first attack in combat, all attacks made against you have -2 disadvantage.                                                                                                        |
+| **Spirit Walk**        | Bonus Action | Level 12    | You enter or leave the spirit plane. While in the spirit plane, you become intangible to all characters in the physical plane and the effect of Rough Terrain is nullified.                            |
+| **Healing Hand**       | Bonus Action | Level 12    | You can stabilize an incapacitated character using Chi instead of Medicine. On a success, the character is stabilized with `1D6` hit points. For each Chi Point spent, increase this healing by `2D6`. |
+| **Return to Sender**   | Passive      | Level 18    | After using _Chi Deflection_ to deflect an attack, you can spend 1 CP to deal the intended damage back on the attacker.                                                                                |
+| **Chi Discharge**      | Main Action  | Level 18    | You can roll a Chi check to release a forceful wave of Chi in all directions. On a success, all characters within 20ft take `2D6` damage. For each Chi Point spent, increase this damage by `2D6`.     |
 
 ## Ranger
 
@@ -402,9 +410,9 @@ Rangers are skilled marksmen and adept survivalists, ambushing their target from
 They specialize in navigating enemy territory, setting clever traps, finding high ground, and striking from afar.
 Rangers feels a responsibility towards the natural order of the world and never underestimate their environment in a fight.
 
-| Attribute | Skill        | Description                                                      |
-| --------- | ------------ | ---------------------------------------------------------------- |
-| Dexterity | **Survival** | Navigate natural obstacles, set traps, pickup a creature's trail |
+| Attribute | Skill        | Description                                        |
+| --------- | ------------ | -------------------------------------------------- |
+| Dexterity | **Survival** | Navigate natural obstacles, utilize survival items |
 
 ### Class Item
 
@@ -421,20 +429,26 @@ This Survival Toolkit is commonly a small bag holding a range of tools and equip
 
 ### Class Abilities
 
-Rangers add their Survival bonus to their Movement Speed and can traverse natural obstacles using Survival instead of Athletics or Agility.
+Rangers innately gain the _Ranger Training_ Passive and _Ranger Vision_ Passive, giving them the edge when traversing difficult and dangerous conditions.
 
-### Class Perks
+| Class Ability       | Type    | Description                                                                                                                            |
+| ------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| **Ranger Training** | Passive | You add your Survival bonus to your Movement speed and can traverse natural obstacles using Survival instead of Athletics or Agility.  |
+| **Ranger Vision**   | Passive | While you are alert, Stealth checks made by enemies to surprise your Adventuring Party have disadvantage equal to your Survival bonus. |
 
-Rangers have access to perks that add new items to their _Survival Toolkit_.
+Rangers can acquire other class abilities that add useful items to their _Survival Toolkit_.
 
-| Attribute | Perk                 | Requirement | Description                                                                              |
-| --------- | -------------------- | ----------- | ---------------------------------------------------------------------------------------- |
-| Dexterity | **Scouting Lens**    | Survival 1  | When rolling Detection to scout from an elevated vantage point, add your Survival bonus. |
-| Dexterity | **Field Notes**      | Survival 1  | When rolling Insight against natural phenomena, add your Survival bonus.                 |
-| Dexterity | **Tripwire**         | Survival 2  | When rolling Detection to watch for enemies during a rest, add your Survival bonus.      |
-| Dexterity | **Survival Shelter** | Survival 2  | You get the bonus of Simple Lodging when resting in an Adventuring Camp.                 |
-| Dexterity | **Trauma Kit**       | Survival 3  | When rolling Medicine to heal or stabilize, add your Survival bonus.                     |
-| Dexterity | **Camouflage**       | Survival 3  | When rolling Stealth to launch a surprise attack, add your Survival bonus.               |
+| Class Ability          | Type         | Requirement | Description                                                                                                                                                                          |
+| ---------------------- | ------------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Scouting Lens**      | Passive      | Level 1     | When rolling Detection or Investigation to scout or search from a vantage point, add your Survival bonus.                                                                            |
+| **Field Notes**        | Passive      | Level 1     | When rolling Insight against natural phenomena, such as plants, animals, weather, or terrain, add your Survival bonus.                                                               |
+| **Climbing Kit**       | Passive      | Level 1     | When rolling Athletics to climb, add your Survival bonus.                                                                                                                            |
+| **Splintering Arrows** | Passive      | Level 6     | The damage inflicted by bows in increased by `1D6`.                                                                                                                                  |
+| **Camouflage**         | Passive      | Level 6     | When rolling Stealth to avoid being seen, add your Survival bonus.                                                                                                                   |
+| **Tripwire**           | Passive      | Level 12    | When rolling Detection to watch for enemies during a Rest or in a prepared area, add your Survival bonus.                                                                            |
+| **Survival Shelter**   | Passive      | Level 12    | You get the bonus of Simple Lodging when resting in an Adventuring Camp. When rolling Fortitude against natural phenomena, add your Survival bonus.                                  |
+| **Healing Salve**      | Passive      | Level 18    | When rolling Medicine to stabilize an incapacitated character or heal a character during a Rest, add your Survival bonus. Characters healed or stabilized you gain `2D6` hit points. |
+| **Speed Quiver**       | Bonus Action | Level 18    | You can make a ranged attack with a bow using Survival.                                                                                                                              |
 
 ## Mage
 
