@@ -465,93 +465,49 @@ Mages are on a constant pursuit for knowledge, devoting themselves to the discov
 Every Mage carries a _Magical Channel_ that empowers them to wield magical energy.
 This Magical Channel is commonly a staff, book, wand, or ring imbued with knowledge or magic itself.
 
-| Level | Magical Channel Effect             |
-| ----- | ---------------------------------- |
-| 1     | Magic +0, enables Average spells   |
-| 6     | Magic +1, enables Rare spells      |
-| 12    | Magic +2, enables Very Rare spells |
-| 18    | Magic +3, enables Legendary spells |
-| 24    | Magic +4                           |
+| Level | Magical Channel Effect |
+| ----- | ---------------------- |
+| 1     | Magic +0               |
+| 6     | Magic +1               |
+| 12    | Magic +2               |
+| 18    | Magic +3               |
+| 24    | Magic +4               |
 
 ### Class Abilities
 
-Mages gain access to a number of Magic Points, or MP, they can use to cast spells.
-They also gain the _Cast Spell_ Main Action.
+Mages have access to a number of Magic Points, or MP, equal to their level. They innately gain the _Channel Magic_ Rest Activity, _Prestidigitation_ Passive, and all spells granted by the _Prestidigitation_ Passive, allowing them to wield magical forces against their opponents.
 
-| Main Action    | Description                                                                                                                    |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| **Cast Spell** | Roll a Magic check to cast a known spell on a target within range. On a success, expend its cost in MP and resolve its effect. |
+| Class Ability        | Type          | Description                                                                                                                                                                                                                                     |
+| -------------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Channel Magic**    | Rest Activity | You study your magic and regain all missing Magic Points.                                                                                                                                                                                       |
+| **Prestidigitation** | Passive       | You unlock all spells from the School of Prestidigitation, giving the ability to cast minor illusions and tricks.                                                                                                                               |
+| **Murmur**           | Main Action   | You can create a small sensory effect of an image, sound, or smell, such as the image of a tattoo, the sound of a barking dog, or the smell of oil. Characters can roll an Insight check against your Magic bonus to determine it's legitimacy. |
+| **Voices**           | Main Action   | You can spend 1 MP to create a voice in someone's head that speaks one desired sentence. Characters can roll an Intuition check against your Magic bonus to determine it's legitimacy.                                                          |
+| **Mimic**            | Main Action   | You can spend 2 MP to disguise you or another character as someone else until your next Rest. Characters can roll an Insight check against your Magic bonus to determine it's legitimacy.                                                       |
 
-Mages can hold a maximum number of Magic Points equal to their level.
-During a Rest, a Mage can spend a Rest Activity to restore all of their missing Magic Points.
+Mages can acquire other class abilities that unlock new schools of magic and enhance their control over magic.
 
-Mages can only learn spells from a school of magic they know (see Class Perks) and that meet the Rarity threshold of their _Magical Channel_.
-Upon character creation, Mages choose 1 spell to learn, and on each level gained, they learn 1 new spell.
-
-### Class Perks
-
-Mages gain access to the different schools of magic through their perks.
-Each school of magic has a collection of learnable spells ranging from Average to Legendary rarity.
-These spells will have an MP cost determined by the Magic requirement of its school and the spell's rarity.
-
-> **Example:** An Average Prestidigitation spell would cost 0 MP while a Legendary Chronomancy spell would cost 6 MP.
-
-| Attribute    | Perk                 | Requirement | Description                                                                                               |
-| ------------ | -------------------- | ----------- | --------------------------------------------------------------------------------------------------------- |
-| Intelligence | **Prestidigitation** | Magic 0     | Unlock spells from the School of Prestidigitation, giving the ability to cast minor illusions and tricks. |
-| Intelligence | **Abjuration**       | Magic 1     | Unlock spells from the School of Abjuration, giving the ability to protect and defend.                    |
-| Intelligence | **Elementalism**     | Magic 2     | Unlock spells from the School of Elementalism, giving the ability to wield the natural elements.          |
-| Intelligence | **Necromancy**       | Magic 3     | Unlock spells from the School of Necromancy, giving the ability to wield vitality and death.              |
-| Intelligence | **Chronomancy**      | Magic 3     | Unlock spells from the School of Chronomancy, giving the ability to bend the flow of time.                |
-
-### School of Prestidigitation
-
-The study of minor illusions and tricks that are subtle and harmless.
-
-| Spell      | Rarity    | MP  | Description                                                                                                                                                                                                                                             |
-| ---------- | --------- | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Murmur** | Average   | 0   | Create a small sensory effect, such as an image, sound, or smell. For example: the appearance of a tattoo, the sound of a barking dog, or the smell of oil. Characters can roll an Insight check against your Magic bonus to determine it's legitimacy. |
-| **Voices** | Rare      | 1   | Create a voice in someone's head that speaks one desired sentence. Characters can roll an Intuition check against your Magic bonus to determine it's legitimacy.                                                                                        |
-| **Mimic**  | Very Rare | 2   | Disguise you or another character as someone else until your next Rest. Characters can roll an Insight check against your Magic bonus to determine it's legitimacy.                                                                                     |
-
-### School of Abjuration
-
-The study of protection and defense magic to stave off attacks.
-
-| Spell                 | Rarity    | MP  | Description                                                     |
-| --------------------- | --------- | --- | --------------------------------------------------------------- |
-| **Light Mage Armor**  | Average   | 1   | Surround yourself in magical Light Armor until your next Rest.  |
-| **Medium Mage Armor** | Rare      | 2   | Surround yourself in magical Medium Armor until your next Rest. |
-| **Heavy Mage Armor**  | Very Rare | 3   | Surround yourself in magical Heavy Armor until your next Rest.  |
-
-### School of Elementalism
-
-The study of the natural elements and how to wield them.
-
-| Spell            | Rarity    | MP  | Description                                                                                                                                                                                                             |
-| ---------------- | --------- | --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Wall of Fire** | Average   | 3   | Create a wall of fire that covers a 5ft x 30ft area within 30ft for 6 turns. Any character hit by the fire make a Fortitude check, taking 3d6 damage on a success and 6d6 damage otherwise.                             |
-| **Tidal Wave**   | Rare      | 4   | Create a tidal wave of water that hits a 15ft x 30ft area within 30ft. All characters hits by the wave make an Agility check, taking 2d6 damage on a success and 4d6 damage otherwise. Any fire in the area is put out. |
-| **Sink Hole**    | Very Rare | 5   | Crumble the earth below a 30ft x 30ft area within 30ft. All characters caught within the area make an Agility check, taking 3d6 damage on a success and 6d6 damage otherwise. The area becomes Rough Terrain.           |
-
-### School of Necromancy
-
-The study of life and death and how to bring about either in expedited fashion.
-
-| Spell              | Rarity    | MP  | Description                                                                                                                      |
-| ------------------ | --------- | --- | -------------------------------------------------------------------------------------------------------------------------------- |
-| **Necrotic Touch** | Average   | 3   | Deal `3d6` damage to a character you can touch.                                                                                  |
-| **Life Steal**     | Legendary | 6   | Deal `4d6` damage to a character you can touch and heal `2d6` hit points.                                                        |
-| **Revival**        | Legendary | 6   | Revive a character that has been dead for less than 24 hours. The revived character has their Strength permanently reduced by 1. |
-
-### School of Chronomancy
-
-The study of the flow of time and how it can be manipulated. Often considered the holy grail of magic.
-
-| Spell         | Rarity    | MP  | Description                                                                                                                                                                                      |
-| ------------- | --------- | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Time Slow** | Average   | 3   | Slows the flow time for 2 turns for all enemies with a 120 foot radius. In that time, their Movement Speed is reduced by half and their Dexterity checks have -1 disadvantage.                   |
-| **Time Stop** | Legendary | 6   | Stops the flow of time until your next turn for all enemies within a 120 foot radius. For one round, the party can take their turn with attacks at a +3 advantage while the enemies stand still. |
+| Class Ability         | Type         | Requirement  | Description                                                                                                                                                                                                                                                                                                                                            |
+| --------------------- | ------------ | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Silent Mage**       | Passive      | Level 1      | When casting a spell, you can roll a Deception check to hide your casting. Characters can roll an Insight check against your Magic bonus to spot the casting.                                                                                                                                                                                          |
+| **Magical Eminence**  | Passive      | Level 1      | Allies within 15ft of you have +1 advantage on attacks and deal an additional `1D6` damage.                                                                                                                                                                                                                                                            |
+| **Abjuration**        | Passive      | Level 1      | You unlock all spells from the School of Abjuration, giving the ability to defend yourself and your party.                                                                                                                                                                                                                                             |
+| **Mage Armor**        | Main Action  | Abjuration   | You can spend 1 to 3 MP to surround you or another character in magical armor until your next Rest. Spend 1 MP for Light Armor, 2 MP for Medium Armor, and 4 MP for Heavy Armor.                                                                                                                                                                       |
+| **Magic Shield**      | Reaction     | Abjuration   | When you or another character is hit by an attack, you can roll a Magic check to shield them from the hit. On a success, you reduce the damage by `2D6` for each MP spent.                                                                                                                                                                             |
+| **Magical Discharge** | Passive      | Level 6      | After consuming your last Magic Point, you can discharge your residual magic energy into a single attack. This attack deals an additional D6 for each Magic Point spent since your last Rest.                                                                                                                                                          |
+| **Elementalism**      | Passive      | Level 6      | You unlock all spells from the School of Elementalism, giving the ability to wield the natural elements.                                                                                                                                                                                                                                               |
+| **Wall of Fire**      | Main Action  | Elementalism | You can roll a Magic check to create a wall of fire that covers a 5ft x 30ft area within 30ft until the end of combat. On a success, spend 3 MP. The wall blocks line of sight for ranged attacks and any character hit by the fire must make a Fortitude check against your Magic bonus, taking `3d6` damage on a success and `6d6` damage otherwise. |
+| **Tidal Wave**        | Main Action  | Elementalism | You can roll a Magic check to create a tidal wave of water that hits a 15ft x 30ft area within 30ft. On a success, spend 4 MP. Any character hit by the wave must make a Fortitude check against your Magic bonus, taking `2d6` damage on a success and `4d6` damage otherwise.                                                                        |
+| **Sink Hole**         | Main Action  | Elementalism | You can roll a Magic check to crumble the earth in a 30ft x 30ft area within 30ft. On a success, spend 6 MP. All characters caught within the area must make an Agility check against your Magic bonus, taking `3d6` damage on a success and `6d6` damage otherwise. The area becomes Rough Terrain until the end of combat.                           |
+| **Magical Recharge**  | Passive      | Level 12     | Once per Rest, you can recharge your magic by focusing your remaining Magic Points. You regain `1D6` Magic Points for each Magic Point remaining.                                                                                                                                                                                                      |
+| **Necromancy**        | Passive      | Level 12     | You unlock all spells from the School of Necromancy, giving the ability to wield vitality and death.                                                                                                                                                                                                                                                   |
+| **Necrotic Touch**    | Main Action  | Necromancy   | You can roll a Magic check to steal the life force from an enemy within 5ft. On a success, spend 3 MP. The enemy takes `3d6` damage.                                                                                                                                                                                                                   |
+| **Life Steal**        | Main Action  | Necromancy   | You can roll a Magic check to steal the life force from an enemy within 5ft. On a success, spend 6 MP. The enemy takes `4d6` damage and you heal `2d6` hit points.                                                                                                                                                                                     |
+| **Revival**           | Main Action  | Necromancy   | You can spend 12 MP to revive a character that has been dead for less than 24 hours. The revived character has one attribute permanently reduced by 1.                                                                                                                                                                                                 |
+| **War Mage**          | Bonus Action | Level 18     | You can cast any spell that requires a Main Action with -1 disadvantage.                                                                                                                                                                                                                                                                               |
+| **Chronomancy**       | Passive      | Level 18     | You unlock all spells from the School of Chronomancy, giving the ability to wield the flow of time.                                                                                                                                                                                                                                                    |
+| **Time Slow**         | Main Action  | Chronomancy  | You can roll a Magic check to slows the flow of time within a 120ft radius for 2 turns. On a success, spend 3 MP. For 2 turns, the Movement Speed of all enemies is reduced by half and all of their skill checks have -1 disadvantage.                                                                                                                |
+| **Time Stop**         | Main Action  | Chronomancy  | You can roll a Magic check to stop the flow of time within a 120ft radius. On a success, spend 6 MP. All enemies are frozen in time for 1 turn. All attacks made against them have +3 advantage.                                                                                                                                                       |
 
 ## Forge
 
