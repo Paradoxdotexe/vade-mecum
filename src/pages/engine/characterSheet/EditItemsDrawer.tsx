@@ -74,7 +74,7 @@ export const EditItemsDrawer: React.FC<EditItemsDrawerProps> = props => {
     const itemsOfType = items.filter(item => item.type === section.type);
 
     return itemsOfType.length ? (
-      <div className="content__section">
+      <div key={section.type} className="content__section">
         <VHeader>{section.label}</VHeader>
         <VCard style={{ padding: 0 }}>
           <VTable

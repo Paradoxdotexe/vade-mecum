@@ -18,10 +18,6 @@ export const ClassAbilitiesCard: React.FC = () => {
       <VTable
         columns={[
           { key: 'name', dataKey: 'name' },
-          {
-            key: 'level',
-            render: classAbility => `Level ${classAbility.levelRequirement}`
-          },
           { key: 'description', dataKey: 'description', width: '100%' }
         ]}
         rows={currentCharacter.classAbilities}

@@ -8,6 +8,7 @@ const StyledClassPointsCard = styled(VCard)`
   flex: 1;
   display: flex;
   align-items: center;
+  justify-content: center;
 
   .card__slash {
     font-size: 36px;

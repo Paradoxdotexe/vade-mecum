@@ -118,9 +118,15 @@ const useCurrentCharacter = () => {
     : undefined;
 
   const classAbilities =
-    characterClass?.classAbilities.filter(ability =>
-      character.classAbilityKeys.includes(ability.key)
-    ) ?? [];
+    characterClass?.classAbilities.filter(ability => {
+      const isInnate = ability.requirement === 'INNATE';
+      const isAcquired = character.classAbilityKeys.includes(ability.key);
+      const isAcquiredByClassAbility =
+        typeof ability.requirement === 'string' &&
+        character.classAbilityKeys.includes(ability.requirement);
+
+      return isInnate || isAcquired || isAcquiredByClassAbility;
+    }) ?? [];
 
   const perks = PERKS.filter(perk => character.perkKeys.includes(perk.key));
 

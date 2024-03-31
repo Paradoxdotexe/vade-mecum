@@ -24,6 +24,12 @@ const StyledVTable = styled.table`
       cursor: pointer;
     }
 
+    &.row--disabled {
+      cursor: default;
+      pointer-events: none;
+      opacity: 0.5;
+    }
+
     td {
       padding: 12px;
       line-height: 1.5;
@@ -42,6 +48,7 @@ const StyledVTable = styled.table`
 
 type VTableRow = {
   key: string;
+  disabled?: boolean;
 };
 
 export type VTableColumn<T extends VTableRow> = {
@@ -56,6 +63,7 @@ type VTableProps<T extends VTableRow> = {
   rows: T[];
   emptyMessage?: string | null;
   onRowClick?: (row: T) => void;
+  rowDisabled?: (row: T) => boolean;
 };
 
 export const VTable = <T extends VTableRow>(props: VTableProps<T>) => {
@@ -66,7 +74,7 @@ export const VTable = <T extends VTableRow>(props: VTableProps<T>) => {
           <tr
             key={row.key}
             onClick={() => props.onRowClick?.(row)}
-            className={props.onRowClick ? 'row--clickable' : ''}
+            className={`${props.onRowClick ? 'row--clickable' : ''} ${props.rowDisabled?.(row) ? 'row--disabled' : ''}`}
           >
             {props.columns.map(column => (
               <td key={column.key} style={{ width: column.width }}>

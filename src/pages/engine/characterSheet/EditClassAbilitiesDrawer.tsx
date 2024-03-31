@@ -34,7 +34,7 @@ export const EditClassAbilitiesDrawer: React.FC<EditClassAbilitiesDrawerProps> =
   const [searchQuery, setSearchQuery] = useState('');
 
   const isSelected = (classAbilityKey: string) =>
-    currentCharacter.classAbilityKeys.includes(classAbilityKey);
+    currentCharacter.classAbilities.some(ability => ability.key === classAbilityKey);
 
   const toggleClassAbility = (classAbilityKey: string) => {
     if (isSelected(classAbilityKey)) {
@@ -45,7 +45,8 @@ export const EditClassAbilitiesDrawer: React.FC<EditClassAbilitiesDrawerProps> =
   };
 
   const classAbilities = searchObjects(
-    currentCharacter.class?.classAbilities ?? [],
+    currentCharacter.class?.classAbilities.filter(ability => ability.requirement !== 'INNATE') ??
+      [],
     ['name', 'description'],
     searchQuery
   );
@@ -71,14 +72,25 @@ export const EditClassAbilitiesDrawer: React.FC<EditClassAbilitiesDrawerProps> =
                 },
                 { key: 'name', dataKey: 'name' },
                 {
-                  key: 'level',
-                  render: classAbility => `Level ${classAbility.levelRequirement}`
+                  key: 'requirement',
+                  render: classAbility => {
+                    if (typeof classAbility.requirement === 'number') {
+                      return `Level ${classAbility.requirement}`;
+                    }
+                    return currentCharacter.class?.classAbilities.find(
+                      ability => ability.key === classAbility.requirement
+                    )?.name;
+                  }
                 },
                 { key: 'description', dataKey: 'description', width: '100%' }
               ]}
               rows={classAbilities}
               emptyMessage="No class abilities match your query."
-              onRowClick={row => toggleClassAbility(row.key)}
+              onRowClick={ability => toggleClassAbility(ability.key)}
+              rowDisabled={ability =>
+                typeof ability.requirement !== 'number' ||
+                ability.requirement > currentCharacter.level
+              }
             />
           </VCard>
         </div>
