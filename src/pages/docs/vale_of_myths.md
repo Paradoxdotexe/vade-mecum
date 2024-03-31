@@ -481,9 +481,9 @@ Mages have access to a number of Magic Points, or MP, equal to their level. They
 | -------------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Channel Magic**    | Rest Activity | You study your magic and regain all missing Magic Points.                                                                                                                                                                                       |
 | **Prestidigitation** | Passive       | You unlock all spells from the School of Prestidigitation, giving the ability to cast minor illusions and tricks.                                                                                                                               |
-| **Murmur**           | Main Action   | You can create a small sensory effect of an image, sound, or smell, such as the image of a tattoo, the sound of a barking dog, or the smell of oil. Characters can roll an Insight check against your Magic bonus to determine it's legitimacy. |
-| **Voices**           | Main Action   | You can spend 1 MP to create a voice in someone's head that speaks one desired sentence. Characters can roll an Intuition check against your Magic bonus to determine it's legitimacy.                                                          |
-| **Mimic**            | Main Action   | You can spend 2 MP to disguise you or another character as someone else until your next Rest. Characters can roll an Insight check against your Magic bonus to determine it's legitimacy.                                                       |
+| **Murmur**           | Bonus Action  | You can create a small sensory effect of an image, sound, or smell, such as the image of a tattoo, the sound of a barking dog, or the smell of oil. Characters can roll an Insight check against your Magic bonus to determine it's legitimacy. |
+| **Voices**           | Bonus Action  | You can spend 1 MP to create a voice in someone's head that speaks one desired sentence. Characters can roll an Intuition check against your Magic bonus to determine it's legitimacy.                                                          |
+| **Mimic**            | Bonus Action  | You can spend 2 MP to disguise you or another character as someone else until your next Rest. Characters can roll an Insight check against your Magic bonus to determine it's legitimacy.                                                       |
 
 Mages can acquire other class abilities that unlock new schools of magic and enhance their control over magic.
 
@@ -611,31 +611,26 @@ This Beacon of Influence is commonly a whistle, trumpet, or other instrument.
 
 ### Class Abilities
 
-Heralds have access to a number of Influence Points, or IP, they can use to inspire allies towards success or inhibit enemies towards failure.
-They can hold a maximum number of Influence Points equal to their level and regain all of their missing Influence Points after a Rest.
+Heralds have access to a number of Influence Points, or IP, equal to their level. They innately gain the _Influence_ Passive and _Influential Nature_ Passive, allowing them to inspire allies towards success or inhibit enemies towards failure.
 
-At any time, Heralds can expend Influence Points to force an enemy or ally to reroll a skill check.
-To do this, The Herald first rolls an Influence check against their target and then resolves the outcome.
+| Class Ability          | Type    | Description                                                                                                                                                                                                                                                                                                                  |
+| ---------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Influence Others**   | Passive | At any time, you can make an Influence check to force an enemy or ally to reroll a skill check. On a success, the target must reroll with advantage or disadvantage equal to the number of IP spent (minimum 1). On a stalemate, the target keeps their roll. On a failure, the target keeps their roll and you expend 1 IP. |
+| **Influential Nature** | Passive | You regain of your missing Influence Points after a Rest.                                                                                                                                                                                                                                                                    |
 
-| Result    | Outcome                                                                                                                          |
-| --------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| Success   | The target must reroll their skill check with an additional advantage or disadvantage equal to a number of IP spent (minimum 1). |
-| Stalemate | The target keeps their roll.                                                                                                     |
-| Failure   | The target keeps their roll and 1 IP is expended.                                                                                |
+Heralds can acquire other class abilities that enhance their influence over others.
 
-> **Example:** An enemy rolls a Power check against a character and hits.
-> The Herald rolls an Influence check to inhibit the enemy and succeeds.
-> They choose to spend 2 IP to have the enemy reroll their Power check with -2 disadvantage.
-
-### Class Perks
-
-Heralds can unlock unique ways to influence others through their perks.
-
-| Attribute | Perk             | Requirement | Description                                                                                                                                                                                |
-| --------- | ---------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Charisma  | **Whisper**      | Influence 1 | You go unnoticed when influencing others.                                                                                                                                                  |
-| Charisma  | **Rallying Cry** | Influence 2 | You can make an Influence check to rally your allies in combat. On a success, you spend IP equal to the number of allies rallied and they all get +1 advantage on attacks for three turns. |
-| Charisma  | **Turncoat**     | Influence 3 | You can make an Influence check against an enemy's Intuition to convince them to join your cause. On a success, you spend IP equal to the enemy's level and they change sides.             |
+| Class Ability             | Type         | Requirement | Description                                                                                                                                                                                                                                                                       |
+| ------------------------- | ------------ | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Whisper**               | Passive      | Level 1     | You go unnoticed when influencing others.                                                                                                                                                                                                                                         |
+| **Captivating Speech**    | Bonus Action | Level 1     | You can roll an Influence check to captivate a group of people with a speech. On a success, spend 2 IP. All characters within 60ft are captivated by your speech, giving you and your allies +advantage on Speech and Deception checks made against them equal to your Influence. |
+| **Charming Presence**     | Bonus Action | Level 1     | You can roll an Influence check to charm those around you with your presence. On a success, spend 2 IP. All characters within 10ft become charmed by your presence, compelling them to obey any simple commands that do not harm themselves or others.                            |
+| **Combat Knowledge**      | Passive      | Level 6     | When you influence an ally to succeed on an attack roll, they deal an additional `1D6` damage.                                                                                                                                                                                    |
+| **Rallying Cry**          | Main Action  | Level 6     | You can make an Influence check to rally your allies in combat. On a success, you spend IP equal to the number of allies rallied and they all gain +1 advantage on attacks for 3 turns.                                                                                           |
+| **Psychological Warfare** | Passive      | Level 12    | When you influence an enemy to fail on an attack roll, they take `1D6` damage.                                                                                                                                                                                                    |
+| **Combat Guidance**       | Bonus Action | Level 12    | You can roll an Influence check to give an ally within 30ft guidance. On a success, that ally has advantage equal to your Influence on all attack checks for 1 turn.                                                                                                              |
+| **Student of Life**       | Passive      | Level 18    | On a failure to Influence Others, you gain 1 IP instead of losing 1 IP.                                                                                                                                                                                                           |
+| **Turncoat**              | Main Action  | Level 18    | You can make an Influence check against an enemy's Intuition to convince them to join your cause. On a success, you spend IP equal to the enemy's level and they change sides until the end of combat.                                                                            |
 
 ## Enchanter
 

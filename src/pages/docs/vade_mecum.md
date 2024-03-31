@@ -668,13 +668,13 @@ A table of all injuries are given at the end of this section.
 ### Recoverable Injuries
 
 If a character incurs an injury that is Minor (6), Moderate (5), or Serious (4), they will recover in a given number of rounds.
-To accelerate their recovery, the injured player themself or another player within 5ft can roll a Medicine check with the given advantage/disadvantage.
+To accelerate their recovery, the injured player themself or another player within 5ft can roll a Medicine check with the specified difficulty.
 If the roll is successful, the character is stabilized with 1 HP and they are back in the fight.
 
 ### Deadly Injuries
 
 If a character incurs an injury that is Severe (3), Critical (2), or Fatal (1), they will die in a give number of rounds.
-To prevent their death, another player within 5ft must roll a Medicine check with the given advantage/disadvantage.
+To prevent their death, another player within 5ft must roll a Medicine check with the specified difficulty.
 If the roll is successful, the character is stabilized with 1 HP and they are back in the fight, but wounded.
 A wounded character has their movement speed reduced by half until their next Rest.
 
