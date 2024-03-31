@@ -6,11 +6,7 @@ import { v4 as uuid } from 'uuid';
 import { useStateVersioner } from '@/utils/useStateVersioner';
 import { WORLD_KITS } from './WorldKit';
 import { parseComputation } from '@/utils/parseComputation';
-import { PERKS, Perk } from './Perk';
-
-type CharacterPerk = Perk & {
-  type: 'GENERAL' | 'CLASS';
-};
+import { PERKS } from './Perk';
 
 type CharactersState = {
   version: string;
@@ -19,7 +15,7 @@ type CharactersState = {
 };
 
 const DEFAULT_CHARACTERS_STATE: CharactersState = {
-  version: '3.0',
+  version: '4.0',
   characters: { [DEFAULT_CHARACTER.key]: structuredClone(DEFAULT_CHARACTER) },
   currentCharacterKey: DEFAULT_CHARACTER.key
 };
@@ -121,15 +117,12 @@ const useCurrentCharacter = () => {
       }
     : undefined;
 
-  const generalPerks: CharacterPerk[] = PERKS.filter(perk =>
-    character.perkKeys.includes(perk.key)
-  ).map(perk => ({ ...perk, type: 'GENERAL' }));
-  const classPerks: CharacterPerk[] = characterClass
-    ? Object.values(characterClass.perks)
-        .filter(perk => character.perkKeys.includes(perk.key))
-        .map(perk => ({ ...perk, type: 'CLASS' }))
-    : [];
-  const perks = [...generalPerks, ...classPerks];
+  const classAbilities =
+    characterClass?.classAbilities.filter(ability =>
+      character.classAbilityKeys.includes(ability.key)
+    ) ?? [];
+
+  const perks = PERKS.filter(perk => character.perkKeys.includes(perk.key));
 
   const items = character.itemQuantities.map(item => ({
     ...item,
@@ -218,7 +211,7 @@ const useCurrentCharacter = () => {
       classKey,
       classItemDescription: '',
       attributes,
-      perkKeys: perks.filter(perk => perk.type !== 'CLASS').map(perk => perk.key)
+      classAbilityKeys: []
     });
   };
 
@@ -233,6 +226,13 @@ const useCurrentCharacter = () => {
     attributes[attributeKey].skills[skillKey].value = value;
     updateCharacter({ attributes });
   };
+
+  const addClassAbility = (classAbilityKey: string) =>
+    updateCharacter({ classAbilityKeys: [...character.classAbilityKeys, classAbilityKey] });
+  const removeClassAbility = (classAbilityKey: string) =>
+    updateCharacter({
+      classAbilityKeys: character.classAbilityKeys.filter(key => key !== classAbilityKey)
+    });
 
   const addPerk = (perkKey: string) =>
     updateCharacter({ perkKeys: [...character.perkKeys, perkKey] });
@@ -264,6 +264,7 @@ const useCurrentCharacter = () => {
   return {
     ...character,
     class: characterClass,
+    classAbilities,
     perks,
     items,
     itemWeight: getItemWeight(),
@@ -281,6 +282,8 @@ const useCurrentCharacter = () => {
     setClass,
     setAttributeValue,
     setSkillValue,
+    addClassAbility,
+    removeClassAbility,
     addPerk,
     removePerk,
     addItem,

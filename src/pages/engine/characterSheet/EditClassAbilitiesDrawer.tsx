@@ -4,14 +4,12 @@ import { VInput } from '@/components/VInput';
 import { VTable } from '@/components/VTable';
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { PERKS } from '../Perk';
-import { capitalize } from '@/utils/capitalize';
 import { VCheckbox } from '@/components/VCheckbox';
 import { useCharacters } from '../useCharacters';
 import { VHeader } from '@/components/VHeader';
 import { searchObjects } from '@/utils/searchObjects';
 
-const StyledEditPerksDrawer = styled(VDrawer)`
+const StyledEditClassAbilitiesDrawer = styled(VDrawer)`
   .drawer__content {
     display: flex;
     flex-direction: column;
@@ -28,58 +26,63 @@ const StyledEditPerksDrawer = styled(VDrawer)`
   }
 `;
 
-type EditPerksDrawerProps = Pick<VDrawerProps, 'open' | 'onClose'>;
+type EditClassAbilitiesDrawerProps = Pick<VDrawerProps, 'open' | 'onClose'>;
 
-export const EditPerksDrawer: React.FC<EditPerksDrawerProps> = props => {
+export const EditClassAbilitiesDrawer: React.FC<EditClassAbilitiesDrawerProps> = props => {
   const { currentCharacter } = useCharacters();
 
   const [searchQuery, setSearchQuery] = useState('');
 
-  const isSelected = (perkKey: string) => currentCharacter.perkKeys.includes(perkKey);
+  const isSelected = (classAbilityKey: string) =>
+    currentCharacter.classAbilityKeys.includes(classAbilityKey);
 
-  const togglePerk = (perkKey: string) => {
-    if (isSelected(perkKey)) {
-      currentCharacter.removePerk(perkKey);
+  const toggleClassAbility = (classAbilityKey: string) => {
+    if (isSelected(classAbilityKey)) {
+      currentCharacter.removeClassAbility(classAbilityKey);
     } else {
-      currentCharacter.addPerk(perkKey);
+      currentCharacter.addClassAbility(classAbilityKey);
     }
   };
 
-  const perks = searchObjects(
-    PERKS,
-    ['name', 'description', 'attributeKey', 'skillKey'],
+  const classAbilities = searchObjects(
+    currentCharacter.class?.classAbilities ?? [],
+    ['name', 'description'],
     searchQuery
   );
 
   return (
-    <StyledEditPerksDrawer {...props} width={800} header={'Edit Perks'}>
+    <StyledEditClassAbilitiesDrawer {...props} width={800} header={'Edit Class Abilities'}>
       <div className="drawer__content">
         <VCard style={{ padding: 0 }}>
-          <VInput placeholder="Search perks..." value={searchQuery} onChange={setSearchQuery} />
+          <VInput
+            placeholder="Search class abilities..."
+            value={searchQuery}
+            onChange={setSearchQuery}
+          />
         </VCard>
         <div className="content__section">
-          <VHeader>Perks</VHeader>
+          <VHeader>Class Abilities</VHeader>
           <VCard style={{ padding: 0 }}>
             <VTable
               columns={[
                 {
                   key: 'selected',
-                  render: perk => <VCheckbox checked={isSelected(perk.key)} />
+                  render: classAbility => <VCheckbox checked={isSelected(classAbility.key)} />
                 },
                 { key: 'name', dataKey: 'name' },
                 {
-                  key: 'skill',
-                  render: perk => `${capitalize(perk.skillKey)} ${perk.skillRequirement}`
+                  key: 'level',
+                  render: classAbility => `Level ${classAbility.levelRequirement}`
                 },
                 { key: 'description', dataKey: 'description', width: '100%' }
               ]}
-              rows={perks}
-              emptyMessage="No perks match your query."
-              onRowClick={row => togglePerk(row.key)}
+              rows={classAbilities}
+              emptyMessage="No class abilities match your query."
+              onRowClick={row => toggleClassAbility(row.key)}
             />
           </VCard>
         </div>
       </div>
-    </StyledEditPerksDrawer>
+    </StyledEditClassAbilitiesDrawer>
   );
 };

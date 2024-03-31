@@ -20,6 +20,8 @@ import { InventoryCard } from './InventoryCard';
 import { EditItemsDrawer } from './EditItemsDrawer';
 import { ReactComponent as WeightIcon } from '@/icons/Weight.svg';
 import { VHeader } from '@/components/VHeader';
+import { ClassAbilitiesCard } from './ClassAbilitiesCard';
+import { EditClassAbilitiesDrawer } from './EditClassAbilitiesDrawer';
 
 const Sheet = styled.div`
   display: flex;
@@ -110,6 +112,7 @@ const Sheet = styled.div`
 export const CharacterSheet: React.FC = () => {
   const { currentCharacter } = useCharacters();
 
+  const [editingClassAbilities, setEditingClassAbilities] = useState(false);
   const [editingPerks, setEditingPerks] = useState(false);
   const [editingItems, setEditingItems] = useState(false);
 
@@ -162,10 +165,27 @@ export const CharacterSheet: React.FC = () => {
 
         <div className="right__bottom">
           {currentCharacter.class && (
-            <div className="sheet__section">
-              <VHeader>Class Item</VHeader>
-              <ClassItemCard />
-            </div>
+            <>
+              <div className="sheet__section">
+                <VHeader>Class Item</VHeader>
+                <ClassItemCard />
+              </div>
+              <div className="sheet__section">
+                <VHeader className="section__header">
+                  <div>
+                    Class Abilities
+                    <button onClick={() => setEditingClassAbilities(true)}>
+                      <EditIcon />
+                    </button>
+                  </div>
+                </VHeader>
+                <ClassAbilitiesCard />
+                <EditClassAbilitiesDrawer
+                  open={editingClassAbilities}
+                  onClose={() => setEditingClassAbilities(false)}
+                />
+              </div>
+            </>
           )}
           <div className="sheet__section">
             <VHeader className="section__header">

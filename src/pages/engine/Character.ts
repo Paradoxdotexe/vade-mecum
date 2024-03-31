@@ -124,6 +124,7 @@ export type Character = {
   hitPoints: number;
   classPoints: number;
   perkKeys: string[];
+  classAbilityKeys: string[];
   itemQuantities: { key: string; quantity: number }[];
 };
 
@@ -136,5 +137,6 @@ export const DEFAULT_CHARACTER: Character = {
   hitPoints: 12,
   classPoints: 0,
   perkKeys: [],
+  classAbilityKeys: [],
   itemQuantities: [{ key: 'currency', quantity: 0 }]
 };
