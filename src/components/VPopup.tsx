@@ -1,5 +1,5 @@
 import React, { ReactNode, useEffect, useRef, useState } from 'react';
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import { CSSTransition } from 'react-transition-group';
 
 const Popup = styled.div<{ $timeout: number }>`
@@ -45,6 +45,13 @@ const Popup = styled.div<{ $timeout: number }>`
   }
 `;
 
+const FrozenScrollStyle = createGlobalStyle`
+  body {
+    overflow: hidden;
+    padding-right: 18px;
+  }
+`;
+
 type VPopupProps = {
   open: boolean;
   onClose?: () => void;
@@ -62,6 +69,7 @@ export const VPopup: React.FC<VPopupProps> = props => {
 
   return (
     <Popup $timeout={timeout} className={open ? 'popup--open' : ''} onClick={() => setOpen(false)}>
+      {open && <FrozenScrollStyle />}
       <CSSTransition
         in={open}
         timeout={timeout}

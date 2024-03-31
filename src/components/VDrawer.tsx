@@ -1,5 +1,5 @@
 import React, { ReactNode, useEffect, useRef, useState } from 'react';
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import { CSSTransition } from 'react-transition-group';
 
 const TIMEOUT = 250;
@@ -60,6 +60,13 @@ const StyledVDrawerContainer = styled.div<{ $width: string }>`
   }
 `;
 
+const FrozenScrollStyle = createGlobalStyle`
+  body {
+    overflow: hidden;
+    padding-right: 18px;
+  }
+`;
+
 export type VDrawerProps = {
   open: boolean;
   onClose?: () => void;
@@ -81,6 +88,7 @@ export const VDrawer: React.FC<VDrawerProps> = props => {
       className={`${props.className ?? ''} ${open ? 'drawerContainer--open' : ''}`}
       onClick={() => setOpen(false)}
     >
+      {open && <FrozenScrollStyle />}
       <CSSTransition
         in={open}
         timeout={TIMEOUT}
