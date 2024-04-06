@@ -15,7 +15,7 @@ type CharactersState = {
 };
 
 const DEFAULT_CHARACTERS_STATE: CharactersState = {
-  version: '4.0',
+  version: '5.0',
   characters: { [DEFAULT_CHARACTER.key]: structuredClone(DEFAULT_CHARACTER) },
   currentCharacterKey: DEFAULT_CHARACTER.key
 };
@@ -189,11 +189,24 @@ const useCurrentCharacter = () => {
   const setName = (name: string) => updateCharacter({ name });
   const setDescription = (description: string) => updateCharacter({ description });
   const setRace = (race?: string) => updateCharacter({ race });
-  const setLevel = (level: number) => updateCharacter({ level });
   const setHitPoints = (hitPoints: number) => updateCharacter({ hitPoints });
   const setClassPoints = (classPoints: number) => updateCharacter({ classPoints });
   const setClassItemDescription = (classItemDescription?: string) =>
     updateCharacter({ classItemDescription });
+
+  const setLevelPoints = (levelPoints: number) => {
+    updateCharacter({ levelPoints: levelPoints });
+  };
+  const addLevel = () => {
+    if (character.level < 24) {
+      updateCharacter({ level: character.level + 1, levelPoints: 0 });
+    }
+  };
+  const removeLevel = () => {
+    if (character.level > 1) {
+      updateCharacter({ level: character.level - 1 });
+    }
+  };
 
   const setClass = (classKey?: string) => {
     const attributes = structuredClone(character.attributes);
@@ -281,8 +294,10 @@ const useCurrentCharacter = () => {
     setName,
     setDescription,
     setRace,
-    setLevel,
     setHitPoints,
+    setLevelPoints,
+    addLevel,
+    removeLevel,
     setClassPoints,
     setClassItemDescription,
     setClass,

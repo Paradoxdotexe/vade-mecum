@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import versionJson from '../version.json';
 import { useNavigate } from 'react-router-dom';
+import { VButton } from '@/components/VButton';
 
 const Page = styled.div`
   display: flex;
@@ -43,45 +44,6 @@ const Page = styled.div`
     align-items: center;
     gap: 12px;
     width: 200px;
-
-    button {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #1697f4;
-      border: none;
-      cursor: pointer;
-      color: #fff;
-      border-radius: 4px;
-      padding: 9px 0;
-      font-family: 'Noto Sans Display', sans-serif;
-      font-size: 16px;
-      width: 100%;
-      z-index: 1;
-      box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.1);
-
-      &::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        height: 100%;
-        width: 0;
-        background-color: rgba(0, 0, 0, 0.15);
-        z-index: -1;
-        transition: width ease 450ms;
-      }
-
-      &:hover::before {
-        width: 100%;
-      }
-
-      &:not(:first-child) {
-        background-color: transparent;
-        border: 1px solid #585858;
-      }
-    }
   }
 `;
 
@@ -100,8 +62,12 @@ export const HomePage: React.FC = () => {
       </div>
 
       <div className="page__routes">
-        <button onClick={() => navigate('/docs')}>Documentation</button>
-        <button onClick={() => navigate('/engine')}>Game Engine</button>
+        <VButton type="primary" size="large" onClick={() => navigate('/docs')}>
+          Documentation
+        </VButton>
+        <VButton size="large" onClick={() => navigate('/engine')}>
+          Game Engine
+        </VButton>
       </div>
     </Page>
   );
