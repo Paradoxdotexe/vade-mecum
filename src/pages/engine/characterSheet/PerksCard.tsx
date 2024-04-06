@@ -2,9 +2,9 @@ import React from 'react';
 import { VCard } from '@/components/VCard';
 import { useCharacters } from '../useCharacters';
 import styled from 'styled-components';
-import { capitalize } from '@/utils/capitalize';
 import { VTable, VTableColumn } from '@/components/VTable';
 import { Perk } from '../Perk';
+import { capitalize } from 'lodash-es';
 
 const StyledPerksCard = styled(VCard)`
   padding: 0;

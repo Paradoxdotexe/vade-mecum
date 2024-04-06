@@ -10,7 +10,6 @@ import { HitPointsCard } from './HitPointsCard';
 import { SpeedCard } from './SpeedCard';
 import { ClassPointsCard } from './ClassPointsCard';
 import { useCharacters } from '../useCharacters';
-import { capitalize } from '@/utils/capitalize';
 import { WORLD_KITS } from '../WorldKit';
 import { ClassItemCard } from './ClassItemCard';
 import { PerksCard } from './PerksCard';
@@ -24,6 +23,7 @@ import { ClassAbilitiesCard } from './ClassAbilitiesCard';
 import { EditClassAbilitiesDrawer } from './EditClassAbilitiesDrawer';
 import { pulsingBackground } from '@/styles/pulsingBackground';
 import { pluralize } from '@/utils/pluralize';
+import { capitalize } from 'lodash-es';
 
 const Sheet = styled.div`
   display: flex;

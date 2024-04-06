@@ -3,7 +3,7 @@ import { VTextArea } from '@/components/VTextArea';
 import { VCard } from '@/components/VCard';
 import { useCharacters } from '../useCharacters';
 import styled from 'styled-components';
-import { capitalize } from '@/utils/capitalize';
+import { capitalize } from 'lodash-es';
 
 const StyledClassItemCard = styled(VCard)`
   padding: 0;

@@ -1,12 +1,12 @@
 import React, { ReactNode, useContext, useMemo } from 'react';
 import { useLocalStorage } from '@/utils/useLocalStorage';
 import { AttributeKey, Character, DEFAULT_CHARACTER } from '@/pages/engine/Character';
-import { capitalize } from '@/utils/capitalize';
 import { v4 as uuid } from 'uuid';
 import { useStateVersioner } from '@/utils/useStateVersioner';
 import { WORLD_KITS } from './WorldKit';
 import { parseComputation } from '@/utils/parseComputation';
 import { PERKS } from './Perk';
+import { capitalize } from 'lodash-es';
 
 type CharactersState = {
   version: string;

@@ -5,11 +5,11 @@ import { VTable } from '@/components/VTable';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { PERKS } from '../Perk';
-import { capitalize } from '@/utils/capitalize';
 import { VCheckbox } from '@/components/VCheckbox';
 import { useCharacters } from '../useCharacters';
 import { VHeader } from '@/components/VHeader';
 import { searchObjects } from '@/utils/searchObjects';
+import { capitalize } from 'lodash-es';
 
 const StyledEditPerksDrawer = styled(VDrawer)`
   .drawer__content {

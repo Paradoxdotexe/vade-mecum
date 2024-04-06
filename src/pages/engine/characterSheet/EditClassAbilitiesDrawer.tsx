@@ -8,6 +8,7 @@ import { VCheckbox } from '@/components/VCheckbox';
 import { useCharacters } from '../useCharacters';
 import { VHeader } from '@/components/VHeader';
 import { searchObjects } from '@/utils/searchObjects';
+import { startCase } from 'lodash-es';
 
 const StyledEditClassAbilitiesDrawer = styled(VDrawer)`
   .drawer__content {
@@ -52,7 +53,7 @@ export const EditClassAbilitiesDrawer: React.FC<EditClassAbilitiesDrawerProps> =
   );
 
   return (
-    <StyledEditClassAbilitiesDrawer {...props} width={800} header={'Edit Class Abilities'}>
+    <StyledEditClassAbilitiesDrawer {...props} width={900} header={'Edit Class Abilities'}>
       <div className="drawer__content">
         <VCard style={{ padding: 0 }}>
           <VInput
@@ -71,6 +72,7 @@ export const EditClassAbilitiesDrawer: React.FC<EditClassAbilitiesDrawerProps> =
                   render: classAbility => <VCheckbox checked={isSelected(classAbility.key)} />
                 },
                 { key: 'name', dataKey: 'name' },
+                { key: 'type', render: ability => startCase(ability.type.toLowerCase()) },
                 {
                   key: 'requirement',
                   render: classAbility => {

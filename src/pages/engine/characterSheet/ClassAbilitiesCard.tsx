@@ -3,6 +3,7 @@ import { VCard } from '@/components/VCard';
 import { useCharacters } from '../useCharacters';
 import styled from 'styled-components';
 import { VTable } from '@/components/VTable';
+import { startCase } from 'lodash-es';
 
 const StyledClassAbilitiesCard = styled(VCard)`
   padding: 0;
@@ -18,6 +19,7 @@ export const ClassAbilitiesCard: React.FC = () => {
       <VTable
         columns={[
           { key: 'name', dataKey: 'name' },
+          { key: 'type', render: ability => startCase(ability.type.toLowerCase()) },
           { key: 'description', dataKey: 'description', width: '100%' }
         ]}
         rows={currentCharacter.classAbilities}
