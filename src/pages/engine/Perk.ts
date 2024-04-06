@@ -34,7 +34,7 @@ export const PERKS: Perk[] = [
       'You double your Power bonus on skill checks to force your way through an obstacle.',
     attributeKey: 'strength',
     skillKey: 'power',
-    skillRequirement: 1
+    skillRequirement: 3
   },
   {
     key: 'human_shield',
