@@ -21,7 +21,7 @@ import { ReactComponent as WeightIcon } from '@/icons/Weight.svg';
 import { VHeader } from '@/components/VHeader';
 import { ClassAbilitiesCard } from './ClassAbilitiesCard';
 import { EditClassAbilitiesDrawer } from './EditClassAbilitiesDrawer';
-import { pulsingBackground } from '@/styles/pulsingBackground';
+import { pulsingFailure, pulsingSuccess } from '@/styles/pulsingBackground';
 import { pluralize } from '@/utils/pluralize';
 import { capitalize } from 'lodash-es';
 
@@ -76,14 +76,6 @@ const Sheet = styled.div`
         }
       }
 
-      .header__indicator {
-        font-family: 'Noto Sans', sans-serif;
-        font-size: 14px;
-        padding: 3px 6px;
-        border-radius: 3px;
-        ${pulsingBackground}
-      }
-
       button {
         background: none;
         outline: none;
@@ -119,10 +111,19 @@ const Sheet = styled.div`
   }
 `;
 
+const StyledAvailabilityIndicator = styled.div<{ $success: boolean }>`
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 14px;
+  padding: 3px 6px;
+  border-radius: 3px;
+  ${props => (props.$success ? pulsingSuccess : pulsingFailure)}
+`;
+
 const AvailabilityIndicator: React.FC<{ label: string; count: number }> = props => (
-  <div className="header__indicator">
-    +{props.count} {pluralize(props.label, props.count)}
-  </div>
+  <StyledAvailabilityIndicator $success={props.count > 0}>
+    {props.count > 0 ? '+' : '-'}
+    {Math.abs(props.count)} {pluralize(props.label, Math.abs(props.count))}
+  </StyledAvailabilityIndicator>
 );
 
 export const CharacterSheet: React.FC = () => {
@@ -164,10 +165,10 @@ export const CharacterSheet: React.FC = () => {
         <div className="sheet__section">
           <VHeader className="section__header">
             <div>Attributes / Skills</div>
-            {attributePointsAvailable > 0 && (
+            {attributePointsAvailable !== 0 && (
               <AvailabilityIndicator label="attribute" count={attributePointsAvailable} />
             )}
-            {attributePointsAvailable === 0 && skillPointsAvailable > 0 && (
+            {attributePointsAvailable === 0 && skillPointsAvailable !== 0 && (
               <AvailabilityIndicator label="skill" count={skillPointsAvailable} />
             )}
           </VHeader>
@@ -219,7 +220,7 @@ export const CharacterSheet: React.FC = () => {
                       <EditIcon />
                     </button>
                   </div>
-                  {classAbilitiesAvailable > 0 && (
+                  {classAbilitiesAvailable !== 0 && (
                     <AvailabilityIndicator label="class ability" count={classAbilitiesAvailable} />
                   )}
                 </VHeader>
@@ -239,7 +240,9 @@ export const CharacterSheet: React.FC = () => {
                   <EditIcon />
                 </button>
               </div>
-              {perksAvailable > 0 && <AvailabilityIndicator label="perk" count={perksAvailable} />}
+              {perksAvailable !== 0 && (
+                <AvailabilityIndicator label="perk" count={perksAvailable} />
+              )}
             </VHeader>
             <PerksCard />
             <EditPerksDrawer open={editingPerks} onClose={() => setEditingPerks(false)} />

@@ -1,8 +1,8 @@
 import { css } from 'styled-components';
 
-export const pulsingBackground = css`
+export const pulsingBackground = (color: string, lightColor: string, darkColor: string) => css`
   position: relative;
-  background: #3485fe !important;
+  background: ${darkColor} !important;
   z-index: 1;
   overflow: hidden;
   animation: pulseBackground linear 2s infinite;
@@ -14,9 +14,9 @@ export const pulsingBackground = css`
     position: absolute;
     background: linear-gradient(
       90deg,
-      rgba(52, 212, 254, 0) 0%,
-      rgba(52, 212, 254, 1) 50%,
-      rgba(52, 212, 254, 0) 100%
+      ${lightColor + '00'} 0%,
+      ${lightColor} 50%,
+      ${lightColor + '00'} 100%
     );
     width: 400%;
     height: 100%;
@@ -37,7 +37,10 @@ export const pulsingBackground = css`
 
   @keyframes pulseBackground {
     50% {
-      background: #34a9fe !important;
+      background: ${color} !important;
     }
   }
 `;
+
+export const pulsingSuccess = pulsingBackground('#34a9fe', '#34d6fe', '#3485fe');
+export const pulsingFailure = pulsingBackground('#F48E16', '#f4d316', '#f45516');

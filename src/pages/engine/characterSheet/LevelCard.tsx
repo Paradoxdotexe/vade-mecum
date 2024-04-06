@@ -4,7 +4,7 @@ import { VNumberInput } from '@/components/VNumberInput';
 import styled from 'styled-components';
 import { useCharacters } from '../useCharacters';
 import { VButton } from '@/components/VButton';
-import { pulsingBackground } from '@/styles/pulsingBackground';
+import { pulsingSuccess } from '@/styles/pulsingBackground';
 
 const StyledLevelCard = styled(VCard)`
   flex: 1;
@@ -27,13 +27,13 @@ const StyledLevelCard = styled(VCard)`
       cursor: pointer;
 
       &.point--gained {
-        ${pulsingBackground}
+        ${pulsingSuccess}
       }
     }
   }
 
   button {
-    ${pulsingBackground}
+    ${pulsingSuccess}
   }
 `;
 
