@@ -33,14 +33,12 @@ export const AttributeCards: React.FC = () => {
         type: 'A',
         label: rolledAttribute.label,
         value: rolledAttribute.value,
-        max: 6,
         disabled: true
       },
       {
         type: 'A',
         label: rolledSkill.label,
         value: rolledSkill.value,
-        max: 3,
         disabled: true
       }
     );
@@ -51,7 +49,6 @@ export const AttributeCards: React.FC = () => {
         type: 'A',
         label: currentCharacter.class.classItemLabel,
         value: currentCharacter.class.classItemBonus,
-        max: 4,
         disabled: true
       });
     }

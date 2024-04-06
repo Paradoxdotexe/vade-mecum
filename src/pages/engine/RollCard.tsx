@@ -107,7 +107,6 @@ export type DiceFactor = {
   label: string;
   value: number;
   disabled?: boolean;
-  max?: number;
 };
 
 type RollCardProps = {
@@ -163,7 +162,6 @@ export const RollCard: React.FC<RollCardProps> = props => {
                   label={diceFactor.label}
                   value={diceFactor.value}
                   disabled={diceFactor.disabled}
-                  max={diceFactor.max}
                   onChange={value => {
                     setDiceFactors(diceFactors => {
                       diceFactors[i].value = value;
@@ -232,7 +230,6 @@ type DiceFactorInputProps = {
   label: string;
   value: number;
   onChange?: (value: number) => void;
-  max?: number;
   disabled?: boolean;
 };
 
@@ -243,7 +240,7 @@ const DiceFactorInput: React.FC<DiceFactorInputProps> = props => {
       <VNumberInput
         value={props.value}
         onChange={props.onChange}
-        max={props.max}
+        max={6}
         disabled={props.disabled}
       />
       <div className="factor__label">{props.label}</div>
