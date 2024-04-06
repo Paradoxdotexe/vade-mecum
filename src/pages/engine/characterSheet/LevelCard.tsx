@@ -4,6 +4,7 @@ import { VNumberInput } from '@/components/VNumberInput';
 import styled from 'styled-components';
 import { useCharacters } from '../useCharacters';
 import { VButton } from '@/components/VButton';
+import { pulsingBackground } from '@/styles/pulsingBackground';
 
 const StyledLevelCard = styled(VCard)`
   flex: 1;
@@ -26,12 +27,13 @@ const StyledLevelCard = styled(VCard)`
       cursor: pointer;
 
       &.point--gained {
-        background-color: #34a9fe;
+        ${pulsingBackground}
       }
     }
   }
 
   button {
+    ${pulsingBackground}
   }
 `;
 
@@ -58,21 +60,23 @@ export const LevelCard: React.FC = () => {
     >
       <VNumberInput size={48} min={1} max={24} value={currentCharacter.level} disabled />
 
-      <div className="card__levelPoints">
-        {[...new Array(6)].map((_, i) => (
-          <div
-            key={i}
-            className={`levelPoints__point ${currentCharacter.levelPoints > i ? 'point--gained' : ''}`}
-            onClick={() => {
-              if (i + 1 === currentCharacter.levelPoints) {
-                currentCharacter.setLevelPoints(0);
-              } else {
-                currentCharacter.setLevelPoints(i + 1);
-              }
-            }}
-          />
-        ))}
-      </div>
+      {currentCharacter.level < 24 && (
+        <div className="card__levelPoints">
+          {[...new Array(6)].map((_, i) => (
+            <div
+              key={i}
+              className={`levelPoints__point ${currentCharacter.levelPoints > i ? 'point--gained' : ''}`}
+              onClick={() => {
+                if (i + 1 === currentCharacter.levelPoints) {
+                  currentCharacter.setLevelPoints(0);
+                } else {
+                  currentCharacter.setLevelPoints(i + 1);
+                }
+              }}
+            />
+          ))}
+        </div>
+      )}
 
       <VButton
         type="primary"

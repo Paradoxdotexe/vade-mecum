@@ -22,6 +22,8 @@ import { ReactComponent as WeightIcon } from '@/icons/Weight.svg';
 import { VHeader } from '@/components/VHeader';
 import { ClassAbilitiesCard } from './ClassAbilitiesCard';
 import { EditClassAbilitiesDrawer } from './EditClassAbilitiesDrawer';
+import { pulsingBackground } from '@/styles/pulsingBackground';
+import { pluralize } from '@/utils/pluralize';
 
 const Sheet = styled.div`
   display: flex;
@@ -74,6 +76,14 @@ const Sheet = styled.div`
         }
       }
 
+      .header__indicator {
+        font-family: 'Noto Sans', sans-serif;
+        font-size: 14px;
+        padding: 3px 6px;
+        border-radius: 3px;
+        ${pulsingBackground}
+      }
+
       button {
         background: none;
         outline: none;
@@ -109,12 +119,35 @@ const Sheet = styled.div`
   }
 `;
 
+const AvailabilityIndicator: React.FC<{ label: string; count: number }> = props => (
+  <div className="header__indicator">
+    +{props.count} {pluralize(props.label, props.count)}
+  </div>
+);
+
 export const CharacterSheet: React.FC = () => {
   const { currentCharacter } = useCharacters();
 
   const [editingClassAbilities, setEditingClassAbilities] = useState(false);
   const [editingPerks, setEditingPerks] = useState(false);
   const [editingItems, setEditingItems] = useState(false);
+
+  const attributePointsAvailable =
+    currentCharacter.maxAttributePointCount -
+    Object.values(currentCharacter.attributes).reduce(
+      (attrPoints, attr) => attrPoints + attr.value,
+      0
+    );
+  const skillPointsAvailable =
+    currentCharacter.maxSkillPointCount -
+    Object.values(currentCharacter.attributes).reduce(
+      (skillPoints, attr) =>
+        skillPoints + Object.values(attr.skills).reduce((points, skill) => points + skill.value, 0),
+      0
+    );
+  const classAbilitiesAvailable =
+    currentCharacter.maxClassAbilityCount - currentCharacter.classAbilityKeys.length;
+  const perksAvailable = currentCharacter.maxPerkCount - currentCharacter.perkKeys.length;
 
   return (
     <Sheet>
@@ -129,7 +162,15 @@ export const CharacterSheet: React.FC = () => {
         </div>
 
         <div className="sheet__section">
-          <VHeader>Attributes / Skills</VHeader>
+          <VHeader className="section__header">
+            <div>Attributes / Skills</div>
+            {attributePointsAvailable > 0 && (
+              <AvailabilityIndicator label="attribute" count={attributePointsAvailable} />
+            )}
+            {attributePointsAvailable === 0 && skillPointsAvailable > 0 && (
+              <AvailabilityIndicator label="skill" count={skillPointsAvailable} />
+            )}
+          </VHeader>
           <AttributeCards />
         </div>
       </div>
@@ -178,6 +219,9 @@ export const CharacterSheet: React.FC = () => {
                       <EditIcon />
                     </button>
                   </div>
+                  {classAbilitiesAvailable > 0 && (
+                    <AvailabilityIndicator label="class ability" count={classAbilitiesAvailable} />
+                  )}
                 </VHeader>
                 <ClassAbilitiesCard />
                 <EditClassAbilitiesDrawer
@@ -195,6 +239,7 @@ export const CharacterSheet: React.FC = () => {
                   <EditIcon />
                 </button>
               </div>
+              {perksAvailable > 0 && <AvailabilityIndicator label="perk" count={perksAvailable} />}
             </VHeader>
             <PerksCard />
             <EditPerksDrawer open={editingPerks} onClose={() => setEditingPerks(false)} />

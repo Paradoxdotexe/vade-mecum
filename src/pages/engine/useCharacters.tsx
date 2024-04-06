@@ -130,6 +130,11 @@ const useCurrentCharacter = () => {
 
   const perks = PERKS.filter(perk => character.perkKeys.includes(perk.key));
 
+  const maxSkillPointCount = 6 + character.level - 1;
+  const maxAttributePointCount = 12 + Math.floor(character.level / 4);
+  const maxClassAbilityCount = 1 + Math.floor(character.level / 3);
+  const maxPerkCount = 1 + Math.floor(character.level / 2);
+
   const items = character.itemQuantities.map(item => ({
     ...item,
     ...WORLD_KITS.vale_of_myths.items[item.key]
@@ -291,6 +296,10 @@ const useCurrentCharacter = () => {
     maxHitPoints: getMaxHitPoints(),
     maxClassPoints: getMaxClassPoints(),
     carryingCapacity: getCarryingCapacity(),
+    maxSkillPointCount,
+    maxAttributePointCount,
+    maxClassAbilityCount,
+    maxPerkCount,
     setName,
     setDescription,
     setRace,
