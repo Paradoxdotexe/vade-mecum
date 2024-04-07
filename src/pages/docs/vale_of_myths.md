@@ -388,7 +388,7 @@ Monks have access to a number of Chi Points, or CP, granted by their _Spiritual 
 | ------------------ | ------------- | -------------------------------------------------------------------------------------------------------------------------------- |
 | **Chi Surge**      | Passive       | At any time, you can spend 1 CP to reroll an unsuccessful skill check. You cannot use _Chi Surge_ twice on the same skill check. |
 | **Chi Deflection** | Reaction      | When hit with an attack, roll a Chi check. On a success, you deflect all damage.                                                 |
-| **Channel Chi**    | Rest Activity | You find inner peace and restore all of your missing Chi Points.                                                                 |
+| **Channel Chi**    | Rest Activity | You find inner peace and regain all of your missing Chi Points.                                                                  |
 
 Monks can acquire other class abilities that harness their inner energy.
 
@@ -475,11 +475,11 @@ This Magical Channel is commonly a staff, book, wand, or ring imbued with knowle
 
 ### Class Abilities
 
-Mages have access to a number of Magic Points, or MP, equal to their level. They also innately gain the _Channel Magic_ Rest Activity, _Prestidigitation_ Passive, and all spells granted by the _Prestidigitation_ Passive, allowing them to wield magical forces against their opponents.
+Mages have access to a number of Magic Points, or MP, equal to their level. They also innately gain the _Study Magic_ Rest Activity, _Prestidigitation_ Passive, and all spells granted by the _Prestidigitation_ Passive, allowing them to wield magical forces against their opponents.
 
 | Class Ability        | Type          | Description                                                                                                                                                                                                                                     |
 | -------------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Channel Magic**    | Rest Activity | You study your magic and regain all missing Magic Points.                                                                                                                                                                                       |
+| **Study Magic**      | Rest Activity | You study magical theory and regain all of your missing Magic Points.                                                                                                                                                                           |
 | **Prestidigitation** | Passive       | You unlock all spells from the School of Prestidigitation, giving the ability to cast minor illusions and tricks.                                                                                                                               |
 | **Murmur**           | Bonus Action  | You can create a small sensory effect of an image, sound, or smell, such as the image of a tattoo, the sound of a barking dog, or the smell of oil. Characters can roll an Insight check against your Magic bonus to determine it's legitimacy. |
 | **Voices**           | Bonus Action  | You can spend 1 MP to create a voice in someone's head that speaks one desired sentence. Characters can roll an Intuition check against your Magic bonus to determine it's legitimacy.                                                          |
@@ -769,47 +769,40 @@ Druids serve as the bridge between the untamed wilderness and the civilized worl
 ### Class Item
 
 Every Druid is accompanied by a _Tamed Beast_ that is a fiercely loyal friend and protector.
-This Tamed Beast can be a large creature, such as a wolf or hawk, or a small creature, such as a spider or snake, that has a deep connection with the Druid.
+This Tamed Beast can be a small creature, such as a rat or spider, a medium creature, such as a hawk or snake, or a large creature, such as a wolf or panther.
 
-| Tamed Beast Size | Description                                                                           |
-| ---------------- | ------------------------------------------------------------------------------------- |
-| Small            | Attack for 1D6 damage, 40ft of movement, +2 to Stealth checks, +1 to Detection checks |
-| Large            | Attack for 2D6 damage, 20ft of movement, +2 to Speech checks, +1 to Detection checks  |
-
-| Level | Tamed Beast Effect                          |
-| ----- | ------------------------------------------- |
-| 1     | Beast +0, 10 HP Tamed Beast, 1 Beast Point  |
-| 6     | Beast +1, 20 HP Tamed Beast, 2 Beast Points |
-| 12    | Beast +2, 30 HP Tamed Beast, 3 Beast Points |
-| 18    | Beast +3, 40 HP Tamed Beast, 4 Beast Points |
-| 24    | Beast +4, 50 HP Tamed Beast, 5 Beast Points |
+| Level | Tamed Beast Effect                  |
+| ----- | ----------------------------------- |
+| 1     | Beast +0, maximum of 1 Beast Point  |
+| 6     | Beast +1, maximum of 2 Beast Points |
+| 12    | Beast +2, maximum of 3 Beast Points |
+| 18    | Beast +3, maximum of 4 Beast Points |
+| 24    | Beast +4, maximum of 5 Beast Points |
 
 ### Class Abilities
 
-Sages gain access to a number of Beast Points, or BP, that they can use to call upon Untamed Beasts from nature.
-They gain the _Summon Tamed Beast_ and _Summon Untamed Beast_ Bonus Actions.
+Druids have access to a number of Beast Points, or BP, granted by their _Tamed Beast_.
+They also innately gain the _Foster Companionship_ Rest Activity, _Summon Tamed Beast_ Bonus Action, and _Swarm of Bees_ Main Action, allowing them to call natural beasts to their aid.
 
-| Bonus Action             | Description                                                                                                                                          |
-| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Summon Tamed Beast**   | Summon your _Tamed Beast_ to perform a skill check. When making an attack, the Druid rolls a Beast check and deals damage based on the beast's size. |
-| **Summon Untamed Beast** | Roll a Beast check to summon a known Untamed Beast. On a success, expend the specified number of BP and resolve its effect.                          |
+| Class Ability            | Type          | Description                                                                                                                                                                                                                                                                                         |
+| ------------------------ | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Foster Companionship** | Rest Activity | You foster companionship with your Tamed Beast and regain all of your missing Beast Points. You can optionally adopt a new Tamed Beast.                                                                                                                                                             |
+| **Summon Tamed Beast**   | Bonus Action  | You can roll a Beast check to summon your Tamed Beast to attack a target or perform an object interaction within range. Small beasts have a range of 60ft and deal `1D6` damage. Medium beasts have a range of 30ft and deal `2D6` damage. Large beasts have a range of 15ft and deal `3D6` damage. |
+| **Swarm of Bees**        | Main Action   | You can roll a Beast check to summon a swarm of bees to attack a target within 120ft. On a success, spend 1 BP. The target takes `2D6` damage.                                                                                                                                                      |
 
-Druids have a maximum number of Beast Points dictated by their _Tamed Beast_ and regain all lost Beast Points after a Rest.
-Also, _Tamed Beasts_ regain all lost hit points after a Rest.
+Druids can acquire other class abilities that unlock new untamed beasts to call upon and enhance their cooperation with natural beasts.
 
-> _Tamed Beasts_ follow the same rules of injury and death when reduced to 0 hit points.
-> If a _Tamed Beast_ dies, a new one is found upon reaching the next _Tamed Beast_ level milestone.
-
-### Class Perks
-
-Druids can unlock new Untamed Beasts to call upon through their perks.
-
-| Attribute  | Perk               | Requirement | Description                                                                                        |
-| ---------- | ------------------ | ----------- | -------------------------------------------------------------------------------------------------- |
-| Perception | **Swarm of Bees**  | Nature 1    | Spend 1 BP to summon a swarm of bees to attack a target, dealing 2D6 damage.                       |
-| Perception | **Vengeful Eagle** | Nature 2    | Spend 2 BP to summon an eagle to attack a target, dealing 4D6 damage.                              |
-| Perception | **Rushing Bear**   | Nature 3    | Spend 3 BP to summon a bear to attack a target, dealing 6D6 damage.                                |
-| Perception | **Pack of Wolves** | Nature 3    | Spend 3 BP to summon a pack of wolves to attack up to three targets. Each target takes 2D6 damage. |
+| Class Ability            | Type         | Requirement | Description                                                                                                                                                                          |
+| ------------------------ | ------------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Beast Speech**         | Passive      | Level 1     | You can communicate with nature's beasts through their unique visual and auditory cues. Communication is effectively limited to very basic one-word messages.                        |
+| **Beast Protection**     | Reaction     | Level 1     | When you are targeted with a melee attack, you can roll a Beast check to have your Tamed Beast protect you. On a success, incoming damage is reduced by `1D6`.                       |
+| **Vengeful Eagle**       | Main Action  | Level 1     | You can roll a Beast check to summon an eagle to attack a target within 90ft. On a success, spend 2 BP. The target takes `5D6` damage.                                               |
+| **Giant Companion**      | Bonus Action | Level 6     | You can roll a Beast check to transform your Tamed Beast into a giant version of itself. On a success, spend 1 BP. For 1 turn, your Tamed Beast is enlarged and deals double damage. |
+| **Charging Bear**        | Main Action  | Level 6     | You can roll a Beast check to summon a bear to attack a target within 60ft. On a success, spend 3 BP. The target takes `6D6` damage and is knocked prone.                            |
+| **Beast Shape**          | Bonus Action | Level 12    | You can spend 1 BP to transform into the same form as your Tamed Beast for 1 hour. While transformed, you share the same speed and attack damage as your Tamed Beast.                |
+| **Pack of Wolves**       | Main Action  | Level 12    | You can roll a Beast check to summon a pack of wolves to attack up to three targets within 60ft. On a success, spend 3 BP. Each target takes `3D6` damage.                           |
+| **Enhanced Beast Shape** | Passive      | Level 18    | When using Beast Shape, you can transform into any small, medium, or large creature and the transformation lasts for 4 hours.                                                        |
+| **Prideful Lion**        | Main Action  | Level 18    | You can roll a Beast check to summon a lion to attack a target within 30ft. On a success, spend 4 BP. The target takes `10D6` damage is a stunned for 1 turn.                        |
 
 # 3. Items
 

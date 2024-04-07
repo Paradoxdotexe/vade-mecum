@@ -251,7 +251,7 @@ const VALE_OF_MYTHS: WorldKit = {
           key: 'channel_chi',
           name: 'Channel Chi',
           type: ClassAbilityType.REST_ACTIVITY,
-          description: 'You find inner peace and restore all of your missing Chi Points.',
+          description: 'You find inner peace and regain all of your missing Chi Points.',
           requirement: 'INNATE'
         },
         {
@@ -432,10 +432,10 @@ const VALE_OF_MYTHS: WorldKit = {
       classItemLabel: 'Magical Channel',
       classAbilities: [
         {
-          key: 'channel_magic',
-          name: 'Channel Magic',
+          key: 'study_magic',
+          name: 'Study Magic',
           type: ClassAbilityType.REST_ACTIVITY,
-          description: 'You study your magic and regain all missing Magic Points.',
+          description: 'You study magical theory and regain all of your missing Magic Points.',
           requirement: 'INNATE'
         },
         {
@@ -848,7 +848,104 @@ const VALE_OF_MYTHS: WorldKit = {
       attributeKey: 'perception',
       skillKey: 'beast',
       classItemLabel: 'Tamed Beast',
-      classAbilities: [],
+      classAbilities: [
+        {
+          key: 'foster_companionship',
+          name: 'Foster Companionship',
+          type: ClassAbilityType.REST_ACTIVITY,
+          description:
+            'You foster companionship with your Tamed Beast and regain all of your missing Beast Points. You can optionally adopt a new Tamed Beast.',
+          requirement: 'INNATE'
+        },
+        {
+          key: 'summon_tamed_beast',
+          name: 'Summon Tamed Beast',
+          type: ClassAbilityType.BONUS_ACTION,
+          description:
+            'You can roll a Beast check to summon your Tamed Beast to attack a target or perform an object interaction within range. Small beasts have a range of 60ft and deal 1D6 damage. Medium beasts have a range of 30ft and deal 2D6 damage. Large beasts have a range of 15ft and deal 3D6 damage.',
+          requirement: 'INNATE'
+        },
+        {
+          key: 'swarm_of_bees',
+          name: 'Swarm of Bees',
+          type: ClassAbilityType.MAIN_ACTION,
+          description:
+            'You can roll a Beast check to summon a swarm of bees to attack a target within 120ft. On a success, spend 1 BP. The target takes 2D6 damage.',
+          requirement: 'INNATE'
+        },
+        {
+          key: 'beast_speech',
+          name: 'Beast Speech',
+          type: ClassAbilityType.PASSIVE,
+          description:
+            "You can communicate with nature's beasts through their unique visual and auditory cues. Communication is effectively limited to very basic one-word messages.",
+          requirement: 1
+        },
+        {
+          key: 'beast_protection',
+          name: 'Beast Protection',
+          type: ClassAbilityType.REACTION,
+          description:
+            'When you are targeted with a melee attack, you can roll a Beast check to have your Tamed Beast protect you. On a success, incoming damage is reduced by 1D6.',
+          requirement: 1
+        },
+        {
+          key: 'vengeful_eagle',
+          name: 'Vengeful Eagle',
+          type: ClassAbilityType.MAIN_ACTION,
+          description:
+            'You can roll a Beast check to summon an eagle to attack a target within 90ft. On a success, spend 2 BP. The target takes 5D6 damage.',
+          requirement: 1
+        },
+        {
+          key: 'giant_companion',
+          name: 'Giant Companion',
+          type: ClassAbilityType.BONUS_ACTION,
+          description:
+            'You can roll a Beast check to transform your Tamed Beast into a giant version of itself. On a success, spend 1 BP. For 1 turn, your Tamed Beast is enlarged and deals double damage.',
+          requirement: 6
+        },
+        {
+          key: 'charging_bear',
+          name: 'Charging Bear',
+          type: ClassAbilityType.MAIN_ACTION,
+          description:
+            '	You can roll a Beast check to summon a bear to attack a target within 60ft. On a success, spend 3 BP. The target takes 6D6 damage and is knocked prone.',
+          requirement: 6
+        },
+        {
+          key: 'beast_shape',
+          name: 'Beast Shape',
+          type: ClassAbilityType.BONUS_ACTION,
+          description:
+            'You can spend 1 BP to transform into the same form as your Tamed Beast for 1 hour. While transformed, you share the same speed and attack damage as your Tamed Beast.',
+          requirement: 12
+        },
+        {
+          key: 'pack_of_wolves',
+          name: 'Pack of Wolves',
+          type: ClassAbilityType.MAIN_ACTION,
+          description:
+            'You can roll a Beast check to summon a pack of wolves to attack up to three targets within 60ft. On a success, spend 3 BP. Each target takes 3D6 damage.',
+          requirement: 12
+        },
+        {
+          key: 'enhanced_beast_shape',
+          name: 'Enhanced Beast Shape',
+          type: ClassAbilityType.PASSIVE,
+          description:
+            'When using Beast Shape, you can transform into any small, medium, or large creature and the transformation lasts for 4 hours.',
+          requirement: 18
+        },
+        {
+          key: 'prideful_lion',
+          name: 'Prideful Lion',
+          type: ClassAbilityType.MAIN_ACTION,
+          description:
+            'You can roll a Beast check to summon a lion to attack a target within 30ft. On a success, spend 4 BP. The target takes 10D6 damage is a stunned for 1 turn.',
+          requirement: 18
+        }
+      ],
       computed: {
         maxClassPoints: '[classItemBonus] + 1'
       }
