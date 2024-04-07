@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import * as marked from 'marked';
+import { useLocation } from 'react-router-dom';
 
 export type VMarkdownProps = {
   src: string;
@@ -18,6 +19,7 @@ const processMarkdown = (markdown: string) => {
 
 export const VMarkdown: React.FC<VMarkdownProps> = props => {
   const [markdown, setMarkdown] = useState('');
+  const location = useLocation();
 
   useEffect(() => {
     fetch(props.src)
@@ -25,6 +27,17 @@ export const VMarkdown: React.FC<VMarkdownProps> = props => {
       .then(marked.parse)
       .then(markdown => setMarkdown(processMarkdown(markdown)));
   }, [props.src]);
+
+  useEffect(() => {
+    if (markdown && location.hash) {
+      setTimeout(() => {
+        const anchor = document.getElementById(location.hash.slice(1));
+        if (anchor) {
+          anchor.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 10);
+    }
+  }, [markdown]);
 
   return <div dangerouslySetInnerHTML={{ __html: markdown }} />;
 };
