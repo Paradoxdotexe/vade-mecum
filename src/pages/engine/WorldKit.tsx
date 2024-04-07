@@ -627,14 +627,101 @@ const VALE_OF_MYTHS: WorldKit = {
         maxClassPoints: '[level]'
       }
     },
-    forge: {
-      label: 'Forge',
+    mancer: {
+      label: 'Mancer',
       attributeKey: 'intelligence',
-      skillKey: 'smithing',
-      classItemLabel: 'Smithing Hammer',
-      classAbilities: [],
+      skillKey: 'magichanics',
+      classItemLabel: 'Portable Workshop',
+      classAbilities: [
+        {
+          key: 'magichanical_experimentation',
+          name: 'Magichanical Experimentation',
+          type: ClassAbilityType.REST_ACTIVITY,
+          description:
+            'You experiment with your magichanical inventions. Roll a Magichanics check. On a success, you gain 2 MP. On a stalemate, you gain 1 MP.',
+          requirement: 'INNATE'
+        },
+        {
+          key: 'arcane_aegis_armor',
+          name: 'Arcane Aegis Armor',
+          type: ClassAbilityType.PASSIVE,
+          description: 'During a Rest, you can spend 1 MP to build a set of Arcane Aegis Armor.',
+          requirement: 'INNATE'
+        },
+        {
+          key: 'blessed_blunderbuss',
+          name: 'Blessed Blunderbuss',
+          type: ClassAbilityType.PASSIVE,
+          description: 'During a Rest, you can spend 2 MP to build a Blessed Blunderbuss.',
+          requirement: 'INNATE'
+        },
+        {
+          key: 'mad_scientist',
+          name: 'Mad Scientist',
+          type: ClassAbilityType.PASSIVE,
+          description: 'When using Magichanical Experimentation, you gain 1 MP even on a failure.',
+          requirement: 1
+        },
+        {
+          key: 'hexed_cartridges',
+          name: 'Hexed Cartridges',
+          type: ClassAbilityType.PASSIVE,
+          description: 'You deal an additional 1D6 of damage when using a magichanical weapon.',
+          requirement: 1
+        },
+        {
+          key: 'mystic_masterkey',
+          name: 'Mystic Masterkey',
+          type: ClassAbilityType.PASSIVE,
+          description:
+            'During a Rest, you can spend 1 MP to build a Mystic Masterkey. You can use this device one time to roll a Magichanics check to open any door. On a success, the door is opened.',
+          requirement: 1
+        },
+        {
+          key: 'mystic_mail_armor',
+          name: 'Mystic Mail Armor',
+          type: ClassAbilityType.PASSIVE,
+          description: 'During a Rest, you can spend 2 MP to build a set of Mystic Mail Armor.',
+          requirement: 6
+        },
+        {
+          key: 'frost_flintlock',
+          name: 'Frost Flintlock',
+          type: ClassAbilityType.PASSIVE,
+          description: 'During a Rest, you can spend 3 MP to build a Frost Flintlock.',
+          requirement: 6
+        },
+        {
+          key: 'eldritch_exo_armor',
+          name: 'Eldritch Exo Armor',
+          type: ClassAbilityType.PASSIVE,
+          description: 'During a Rest, you can spend 3 MP to build a set of Eldritch Exo Armor.',
+          requirement: 12
+        },
+        {
+          key: 'radiant_revolver',
+          name: 'Radiant Revolver',
+          type: ClassAbilityType.PASSIVE,
+          description: 'During a Rest, you can spend 4 MP to build a Radiant Revolver.',
+          requirement: 12
+        },
+        {
+          key: 'recycled_materials',
+          name: 'Recycled Materials',
+          type: ClassAbilityType.PASSIVE,
+          description: 'All magichanical inventions cost 1 MP less.',
+          requirement: 18
+        },
+        {
+          key: 'resonant_repeater',
+          name: 'Resonant Repeater',
+          type: ClassAbilityType.PASSIVE,
+          description: 'During a Rest, you can spend 5 MP to build a Resonant Repeater.',
+          requirement: 18
+        }
+      ],
       computed: {
-        maxClassPoints: '3 + [classItemBonus] * 3'
+        maxClassPoints: '(1 + [classItemBonus]) * 2'
       }
     },
     herald: {
@@ -1216,23 +1303,51 @@ const VALE_OF_MYTHS: WorldKit = {
     shortbow: {
       type: 'WEAPON',
       name: 'Shortbow',
-      description: '+1 Precision to attack, 1d6 damage, 40ft range',
+      description: '+1 Precision to attack, 1d6 damage, 60ft range',
       cost: 20,
       weight: 2
     },
     crossbow: {
       type: 'WEAPON',
       name: 'Crossbow',
-      description: '+2 Precision to attack, 2d6 damage, 40ft range',
+      description: '+2 Precision to attack, 2d6 damage, 60ft range',
       cost: 100,
       weight: 2
     },
     longbow: {
       type: 'WEAPON',
       name: 'Longbow',
-      description: '+3 Precision to attack, 3d6 damage, 80ft range',
+      description: '+3 Precision to attack, 3d6 damage, 90ft range',
       cost: 200,
       weight: 2
+    },
+    blessed_blunderbuss: {
+      type: 'WEAPON',
+      name: 'Blessed Blunderbuss',
+      description: '+1 Precision to attack, 2d6 damage, 15ft range',
+      cost: 20,
+      weight: 1 / 2
+    },
+    frost_flintlock: {
+      type: 'WEAPON',
+      name: 'Frost Flintlock',
+      description: '+2 Precision to attack, 3d6 damage, 30ft range',
+      cost: 100,
+      weight: 1 / 2
+    },
+    radiant_revolver: {
+      type: 'WEAPON',
+      name: 'Radiant Revolver',
+      description: '+3 Precision to attack, 3d6 damage, 60ft range',
+      cost: 200,
+      weight: 1 / 2
+    },
+    resonant_repeater: {
+      type: 'WEAPON',
+      name: 'Resonant Repeater',
+      description: '+3 Precision to attack, 4d6 damage, 60ft range',
+      cost: 400,
+      weight: 1
     },
     leather_armor: {
       type: 'ARMOR',
@@ -1251,6 +1366,27 @@ const VALE_OF_MYTHS: WorldKit = {
     plate_armor: {
       type: 'ARMOR',
       name: 'Plate Armor',
+      description: 'Heavy armor',
+      cost: 200,
+      weight: 0
+    },
+    arcane_aegis_armor: {
+      type: 'ARMOR',
+      name: 'Arcane Aegis Armor',
+      description: 'Light armor',
+      cost: 20,
+      weight: 0
+    },
+    mystic_mail_armor: {
+      type: 'ARMOR',
+      name: 'Mystic Mail Armor',
+      description: 'Medium armor',
+      cost: 100,
+      weight: 0
+    },
+    eldritch_exo_armor: {
+      type: 'ARMOR',
+      name: 'Eldritch Exo Armor',
       description: 'Heavy armor',
       cost: 200,
       weight: 0

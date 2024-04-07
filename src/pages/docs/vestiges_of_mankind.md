@@ -1,6 +1,6 @@
 ### [🠈 Back to Vade Vecum](/docs)
 
-# Vestiges of Mankind
+# Vestiges of Mankind (WIP)
 
 This post-apocalyptic kit is set decades after a world-ending disaster where characters find themselves in the scarred wasteland and twisted civilization that remains.
 

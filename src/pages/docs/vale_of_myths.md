@@ -25,7 +25,7 @@ This high fantasy kit is set in a kingdom-controlled dominion where characters w
   - [Monk](#Monk)
   - [Ranger](#Ranger)
   - [Mage](#Mage)
-  - [Forge](#Forge)
+  - [Mancer](#Mancer)
   - [Herald](#Herald)
   - [Enchanter](#Enchanter)
   - [Sage](#Sage)
@@ -261,7 +261,7 @@ Adventurers in _Vale of Myths_ have ten classes to choose from.
 | Dexterity    | **Ranger**    | A master of range weapons and the natural environment.                        |
 | Dexterity    | **Monk**      | A disciple of peace who deflects rather than attacks.                         |
 | Intelligence | **Mage**      | A student of magic who bends the forces of nature to their will.              |
-| Intelligence | **Forge**     | A tinkerer that combines metal and magic to make powerful gear.               |
+| Intelligence | **Mancer**    | A tinkerer that combines metal and magic to harness the arcane forces.        |
 | Charisma     | **Herald**    | A messenger that influences people towards diplomacy and away from battle.    |
 | Charisma     | **Enchanter** | A master of manipulation that can bend others unknowingly to their will.      |
 | Perception   | **Sage**      | A practitioner of the natural arts that can call upon nature through rituals. |
@@ -509,82 +509,53 @@ Mages can acquire other class abilities that unlock new schools of magic and enh
 | **Time Slow**         | Main Action  | Chronomancy  | You can roll a Magic check to slows the flow of time within a 120ft radius for 2 turns. On a success, spend 3 MP. For 2 turns, the Movement Speed of all enemies is reduced by half and all of their skill checks have -1 disadvantage.                                                                                                                |
 | **Time Stop**         | Main Action  | Chronomancy  | You can roll a Magic check to stop the flow of time within a 120ft radius. On a success, spend 6 MP. All enemies are frozen in time for 1 turn. All attacks made against them have +3 advantage.                                                                                                                                                       |
 
-## Forge
+## Mancer
 
-Forges are masters of metalwork and enchantment, combining their knowledge of both metallurgy and magic to craft gear that far surpasses ordinary craftsmanship.
-They spend countless hours in the workshop, experimenting with rare metals and powerful runes to create weapons and armor of great renown.
-Forges prefer the company of their hammer, but are fiercely loyal to the few they call friends.
+Mancers are masters of mechanical innovation, using their knowledge of technology to invent powerful devices capable of harnessing magical energy.
+They spend countless hours in the workshop, pushing the boundaries of what is possible by combining science with sorcery.
+Mancers live for the thrill of innovation, risking their life to pave the way for the instruments of the future.
 
-| Attribute    | Skill        | Description                                  |
-| ------------ | ------------ | -------------------------------------------- |
-| Intelligence | **Smithing** | Craft, enchant, and repair weapons and armor |
+| Attribute    | Skill           | Description                                      |
+| ------------ | --------------- | ------------------------------------------------ |
+| Intelligence | **Magichanics** | Invent devices that harness magic with mechanics |
 
 ### Class Item
 
-Every Forge carries a _Smithing Hammer_ that enables them to merge metal and runes through pure friction.
-This Smithing Hammer is commonly a dwarven warhammer weighing roughly 25 pounds with two broad faces.
+Every Mancer carries a _Portable Workshop_ that enables them to construct magichanical inventions.
+This Portable Workshop is commonly a small workbench that collapses into a wearable backpack.
 
-| Level | Smithing Hammer Effect                     |
-| ----- | ------------------------------------------ |
-| 1     | Smithing +0, maximum of 3 Smithing Points  |
-| 6     | Smithing +1, maximum of 6 Smithing Points  |
-| 12    | Smithing +2, maximum of 9 Smithing Points  |
-| 18    | Smithing +3, maximum of 12 Smithing Points |
-| 24    | Smithing +4, maximum of 15 Smithing Points |
+| Level | Portable Workshop Effect                      |
+| ----- | --------------------------------------------- |
+| 1     | Smithing +0, maximum of 2 Magichanics Points  |
+| 6     | Smithing +1, maximum of 4 Magichanics Points  |
+| 12    | Smithing +2, maximum of 6 Magichanics Points  |
+| 18    | Smithing +3, maximum of 8 Magichanics Points  |
+| 24    | Smithing +4, maximum of 10 Magichanics Points |
 
 ### Class Abilities
 
-Forges gain the _Smith Weapons_ Rest Activity they can use to build up Smithing Points, or SP.
-They have the ability to repair damaged weapons using Smithing instead of Innovation.
+Mancers have access to a number of Magichanics Points, or MP, granted by their _Portable Workshop_.
+They also innately gain the _Magichanical Experimentation_ Rest Activity, _Arcane Aegis Armor_ Passive, and _Blessed Blunderbuss_ Passive, allowing them to build new magichanical inventions.
 
-| Rest Activity     | Skill    | Success   | Stalemate | Failure   |
-| ----------------- | -------- | --------- | --------- | --------- |
-| **Smith Weapons** | Smithing | Gain 2 SP | Gain 1 SP | Gain 0 SP |
+| Class Ability                    | Type          | Description                                                                                                                             |
+| -------------------------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| **Magichanical Experimentation** | Rest Activity | You experiment with your magichanical inventions. Roll a Magichanics check. On a success, you gain 2 MP. On a stalemate, you gain 1 MP. |
+| **Arcane Aegis Armor**           | Passive       | During a Rest, you can spend 1 MP to build a set of Arcane Aegis Armor.                                                                 |
+| **Blessed Blunderbuss**          | Passive       | During a Rest, you can spend 2 MP to build a Blessed Blunderbuss.                                                                       |
 
-Forges can store a maximum number of Smithing Points dictated by their _Smithing Hammer_.
-Once they have earned enough Smithing Points, Forges can expend them to enhance a melee weapon.
-Any one weapon can only have a single enchantment of each type (see Class Perks).
+Mancers can acquire other class abilities that unlock new magichanical inventions and enhance their use of their existing ones.
 
-> **Example:** A longsword could be enhanced with Hardened Steel and Ethereal Oil, but not with Eldritch Edge and Ethereal Oil.
-
-Upon character creation, Forges can smith one weapon they have purchased with 4 SP worth of enhancements.
-
-### Class Perks
-
-Forges gain access to new types of weapon enhancements through their perks.
-
-| Attribute    | Perk                       | Requirement | Description                                                                           |
-| ------------ | -------------------------- | ----------- | ------------------------------------------------------------------------------------- |
-| Intelligence | **Metallurgic Processing** | Smithing 1  | Unlock metallurgical enhancements, forging steel into its strongest and hardest form. |
-| Intelligence | **Magical Channeling**     | Smithing 2  | Unlock magical enhancements, channeling magical forces into an item's very structure. |
-| Intelligence | **Runic Infusion**         | Smithing 3  | Unlock runic enhancements, infusing the supernatural power of runes into an item.     |
-
-### Metallurgic Enhancements
-
-| Enhancement        | SP  | Description                                        |
-| ------------------ | --- | -------------------------------------------------- |
-| **Heated Steel**   | 1   | This weapon's bonus can never fall below 1.        |
-| **Hardened Steel** | 4   | This weapon's bonus is permanently increased by 1. |
-| **Tempered Steel** | 7   | This weapon's bonus is permanently increased by 2. |
-| **Alloy Steel**    | 10  | This weapon's bonus is permanently increased by 3. |
-
-### Magical Enhancements
-
-| Enhancement            | SP  | Description                                                |
-| ---------------------- | --- | ---------------------------------------------------------- |
-| **Innate Restoration** | 2   | Innovation checks to repair this weapon have +1 advantage. |
-| **Arcane Point**       | 5   | This weapon's damage is increased by 1D6.                  |
-| **Ethereal Oil**       | 8   | This weapon's damage is increased by 2D6.                  |
-| **Eldritch Edge**      | 11  | This weapon's damage is increased by 3D6.                  |
-
-### Runic Enhancements
-
-| Enhancement                | SP  | Description                                                                          |
-| -------------------------- | --- | ------------------------------------------------------------------------------------ |
-| **Grip of Weightlessness** | 3   | Attacks with this weapon can be made using Precision instead of Power.               |
-| **Flaming Blade**          | 6   | This weapon's damage is increased by 3D6 for attacks made against unarmored enemies. |
-| **Pommel of Protection**   | 9   | This weapon gives -1 disadvantage to melee attacks made against its wielder.         |
-| **Necrotic Edge**          | 12  | This weapon heals its wielder half the amount of HP as damage dealt to its target.   |
+| Class Ability          | Type    | Requirement | Description                                                                                                                                                                     |
+| ---------------------- | ------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Mad Scientist**      | Passive | Level 1     | When using Magichanical Experimentation, you gain 1 MP even on a failure.                                                                                                       |
+| **Hexed Cartridges**   | Passive | Level 1     | You deal an additional `1D6` of damage when using a magichanical weapon.                                                                                                        |
+| **Mystic Masterkey**   | Passive | Level 1     | During a Rest, you can spend 1 MP to build a Mystic Masterkey. You can use this device one time to roll a Magichanics check to open any door. On a success, the door is opened. |
+| **Mystic Mail Armor**  | Passive | Level 6     | During a Rest, you can spend 2 MP to build a set of Mystic Mail Armor.                                                                                                          |
+| **Frost Flintlock**    | Passive | Level 6     | During a Rest, you can spend 3 MP to build a Frost Flintlock.                                                                                                                   |
+| **Eldritch Exo Armor** | Passive | Level 12    | During a Rest, you can spend 3 MP to build a set of Eldritch Exo Armor.                                                                                                         |
+| **Radiant Revolver**   | Passive | Level 12    | During a Rest, you can spend 4 MP to build a Radiant Revolver.                                                                                                                  |
+| **Recycled Materials** | Passive | Level 18    | All magichanical inventions cost 1 MP less.                                                                                                                                     |
+| **Resonant Repeater**  | Passive | Level 18    | During a Rest, you can spend 5 MP to build a Resonant Repeater.                                                                                                                 |
 
 ## Herald
 
@@ -798,23 +769,30 @@ In _Vale of Myths_, valerian pieces (abbreviated as "pcs") are the main denomina
 
 ## Weapons
 
-| Item           | Rarity    | Cost    | Size     | Description                                    |
-| -------------- | --------- | ------- | -------- | ---------------------------------------------- |
-| **Dagger**     | Common    | 5 pcs   | 1/2 slot | +1 Power to attack, 1d6 damage, 5ft range      |
-| **Shortsword** | Average   | 20 pcs  | 1 slot   | +1 Power to attack, 2d6 damage, 5ft range      |
-| **Longsword**  | Rare      | 100 pcs | 2 slots  | +2 Power to attack, 3d6 damage, 5ft range      |
-| **Greatsword** | Very Rare | 200 pcs | 2 slots  | +3 Power to attack, 4d6 damage, 5ft range      |
-| **Shortbow**   | Average   | 20 pcs  | 2 slots  | +1 Precision to attack, 1d6 damage, 40ft range |
-| **Crossbow**   | Rare      | 100 pcs | 2 slots  | +2 Precision to attack, 2d6 damage, 40ft range |
-| **Longbow**    | Very Rare | 200 pcs | 2 slots  | +3 Precision to attack, 3d6 damage, 80ft range |
+| Item                    | Rarity    | Cost    | Size     | Description                                    |
+| ----------------------- | --------- | ------- | -------- | ---------------------------------------------- |
+| **Dagger**              | Common    | 5 pcs   | 1/2 slot | +1 Power to attack, 1d6 damage, 5ft range      |
+| **Shortsword**          | Average   | 20 pcs  | 1 slot   | +1 Power to attack, 2d6 damage, 5ft range      |
+| **Longsword**           | Rare      | 100 pcs | 2 slots  | +2 Power to attack, 3d6 damage, 5ft range      |
+| **Greatsword**          | Very Rare | 200 pcs | 2 slots  | +3 Power to attack, 4d6 damage, 5ft range      |
+| **Shortbow**            | Average   | 20 pcs  | 2 slots  | +1 Precision to attack, 1d6 damage, 60ft range |
+| **Crossbow**            | Rare      | 100 pcs | 2 slots  | +2 Precision to attack, 2d6 damage, 60ft range |
+| **Longbow**             | Very Rare | 200 pcs | 2 slots  | +3 Precision to attack, 3d6 damage, 90ft range |
+| **Blessed Blunderbuss** | Average   | 20 pcs  | 1/2 slot | +1 Precision to attack, 2d6 damage, 15ft range |
+| **Frost Flintlock**     | Rare      | 100 pcs | 1/2 slot | +2 Precision to attack, 3d6 damage, 30ft range |
+| **Radiant Revolver**    | Very Rare | 200 pcs | 1/2 slot | +3 Precision to attack, 3d6 damage, 60ft range |
+| **Resonant Repeater**   | Legendary | 400 pcs | 1 slot   | +3 Precision to attack, 4d6 damage, 90ft range |
 
 ## Armor
 
-| Item                | Rarity    | Cost    | Tier   |
-| ------------------- | --------- | ------- | ------ |
-| **Leather Armor**   | Average   | 20 pcs  | Light  |
-| **Chainmail armor** | Rare      | 100 pcs | Medium |
-| **Plate armor**     | Very Rare | 200 pcs | Heavy  |
+| Item                   | Rarity    | Cost    | Tier   |
+| ---------------------- | --------- | ------- | ------ |
+| **Leather Armor**      | Average   | 20 pcs  | Light  |
+| **Chainmail Armor**    | Rare      | 100 pcs | Medium |
+| **Plate Armor**        | Very Rare | 200 pcs | Heavy  |
+| **Arcane Aegis Armor** | Average   | 20 pcs  | Light  |
+| **Mystic Mail Armor**  | Rare      | 100 pcs | Medium |
+| **Eldritch Exo Armor** | Very rare | 200 pcs | Heavy  |
 
 ## Tools
 

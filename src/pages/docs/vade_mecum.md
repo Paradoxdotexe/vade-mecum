@@ -60,13 +60,13 @@ This high fantasy kit is set in a kingdom-controlled dominion where characters w
 | Dexterity    | **Monk**      | A disciple of peace who deflects rather than attacks.                         |
 | Dexterity    | **Ranger**    | A master of range weapons and the natural environment.                        |
 | Intelligence | **Mage**      | A student of magic who bends the forces of nature to their will.              |
-| Intelligence | **Forge**     | A tinkerer that combines metal and magic to make powerful gear.               |
+| Intelligence | **Mancer**    | A tinkerer that combines metal and magic to harness the arcane forces.        |
 | Charisma     | **Herald**    | A messenger that influences people towards diplomacy and away from battle.    |
 | Charisma     | **Enchanter** | A master of manipulation that can bend others unknowingly to their will.      |
 | Perception   | **Sage**      | A practitioner of the natural arts that can call upon nature through rituals. |
 | Perception   | **Druid**     | A protector of nature who harnesses the earth and its creatures.              |
 
-### _[Vestiges of Mankind](/docs/vestiges-of-mankind)_
+### _[Vestiges of Mankind](/docs/vestiges-of-mankind)_ (WIP)
 
 This post-apocalyptic kit is set decades after a world-ending disaster where characters find themselves in the scarred wasteland and twisted civilization that remains.
 
