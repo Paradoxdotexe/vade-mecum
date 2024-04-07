@@ -161,23 +161,50 @@ const useCurrentCharacter = () => {
   }, [character]);
 
   const getSpeed = () => {
-    return parseComputation(
+    const baseSpeed = parseComputation(
       characterClass?.computed?.speed ?? '3 + [attribute.dexterity] + [skill.agility]',
       computationVariables
     );
+
+    // check for class ability enhancement
+    const classAbilitySpeedComputation = classAbilities.find(ability => ability.computed?.speed)
+      ?.computed?.speed;
+    if (classAbilitySpeedComputation) {
+      return parseComputation(classAbilitySpeedComputation, {
+        base: baseSpeed,
+        ...computationVariables
+      });
+    }
+
+    return baseSpeed;
   };
 
   const getMaxHitPoints = () => {
     return parseComputation(
-      characterClass?.computed?.maxHitPoints ??
-        '([level] + [attribute.strength] + [skill.fortitude]) * 6',
+      '([level] + [attribute.strength] + [skill.fortitude]) * 6',
       computationVariables
     );
   };
 
   const getMaxClassPoints = () => {
     if (characterClass?.computed?.maxClassPoints) {
-      return parseComputation(characterClass.computed.maxClassPoints, computationVariables);
+      const baseMaxClassPoints = parseComputation(
+        characterClass.computed.maxClassPoints,
+        computationVariables
+      );
+
+      // check for class ability enhancement
+      const classAbilityMaxClassPointsComputation = classAbilities.find(
+        ability => ability.computed?.maxClassPoints
+      )?.computed?.maxClassPoints;
+      if (classAbilityMaxClassPointsComputation) {
+        return parseComputation(classAbilityMaxClassPointsComputation, {
+          base: baseMaxClassPoints,
+          ...computationVariables
+        });
+      }
+
+      return baseMaxClassPoints;
     }
 
     return 0;

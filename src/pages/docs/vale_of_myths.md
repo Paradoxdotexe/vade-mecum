@@ -382,7 +382,7 @@ This Spiritual Talisman most often manifests itself as a bracelet, pendant, or r
 
 ### Class Abilities
 
-Monks have access to a number of Chi Points, or CP, granted by their _Spiritual Talisman_. They innately gain the _Chi Surge_ Passive, _Chi Deflection_ Reaction, and _Channel Chi_ Rest Activity, allowing them to harness their inner energy to overcome challenges.
+Monks have access to a number of Chi Points, or CP, granted by their _Spiritual Talisman_. They also innately gain the _Chi Surge_ Passive, _Chi Deflection_ Reaction, and _Channel Chi_ Rest Activity, allowing them to harness their inner energy to overcome challenges.
 
 | Class Ability      | Type          | Description                                                                                                                      |
 | ------------------ | ------------- | -------------------------------------------------------------------------------------------------------------------------------- |
@@ -475,7 +475,7 @@ This Magical Channel is commonly a staff, book, wand, or ring imbued with knowle
 
 ### Class Abilities
 
-Mages have access to a number of Magic Points, or MP, equal to their level. They innately gain the _Channel Magic_ Rest Activity, _Prestidigitation_ Passive, and all spells granted by the _Prestidigitation_ Passive, allowing them to wield magical forces against their opponents.
+Mages have access to a number of Magic Points, or MP, equal to their level. They also innately gain the _Channel Magic_ Rest Activity, _Prestidigitation_ Passive, and all spells granted by the _Prestidigitation_ Passive, allowing them to wield magical forces against their opponents.
 
 | Class Ability        | Type          | Description                                                                                                                                                                                                                                     |
 | -------------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -535,7 +535,7 @@ This Smithing Hammer is commonly a dwarven warhammer weighing roughly 25 pounds 
 ### Class Abilities
 
 Forges gain the _Smith Weapons_ Rest Activity they can use to build up Smithing Points, or SP.
-They also have the ability to repair damaged weapons using Smithing instead of Innovation.
+They have the ability to repair damaged weapons using Smithing instead of Innovation.
 
 | Rest Activity     | Skill    | Success   | Stalemate | Failure   |
 | ----------------- | -------- | --------- | --------- | --------- |
@@ -611,12 +611,13 @@ This Beacon of Influence is commonly a whistle, trumpet, or other instrument.
 
 ### Class Abilities
 
-Heralds have access to a number of Influence Points, or IP, equal to their level. They innately gain the _Influence_ Passive and _Influential Nature_ Passive, allowing them to inspire allies towards success or inhibit enemies towards failure.
+Heralds have access to a number of Influence Points, or IP, equal to their level.
+They also innately gain the _Influence_ Passive and _Influential Nature_ Passive, allowing them to inspire allies towards success or inhibit enemies towards failure.
 
 | Class Ability          | Type    | Description                                                                                                                                                                                                                                                                                                                  |
 | ---------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Influence Others**   | Passive | At any time, you can make an Influence check to force an enemy or ally to reroll a skill check. On a success, the target must reroll with advantage or disadvantage equal to the number of IP spent (minimum 1). On a stalemate, the target keeps their roll. On a failure, the target keeps their roll and you expend 1 IP. |
-| **Influential Nature** | Passive | You regain of your missing Influence Points after a Rest.                                                                                                                                                                                                                                                                    |
+| **Influential Nature** | Passive | You regain all of your missing Influence Points after a Rest.                                                                                                                                                                                                                                                                |
 
 Heralds can acquire other class abilities that enhance their influence over others.
 
@@ -638,43 +639,46 @@ Enchanters are master of manipulation, wielding the subtle arts of mind control 
 They are capable of infiltrating the hearts and minds of their targets, turning enemies into allies without them ever knowing.
 Enchanters often lurk in the shadows, preferring subtlety over direct confrontation to prevent being ostracized for their dangerous abilities.
 
-| Attribute | Skill           | Description                                         |
-| --------- | --------------- | --------------------------------------------------- |
-| Charisma  | **Enchantment** | Persuade by enchanting the mind, bestow enchantment |
+| Attribute | Skill           | Description              |
+| --------- | --------------- | ------------------------ |
+| Charisma  | **Enchantment** | Bestow mind enchantments |
 
 ### Class Item
 
 Every Enchanter carries an _Enchantment Charm_ that enhances their sway over the minds others.
 This Enchantment Charm is commonly a unique, ornate ring, locket, diadem, or amulet.
 
-| Level | Enchantment Charm Effect                      |
-| ----- | --------------------------------------------- |
-| 1     | Enchantment +0, maximum 1 enchantment target  |
-| 6     | Enchantment +1, maximum 2 enchantment targets |
-| 12    | Enchantment +2, maximum 3 enchantment targets |
-| 18    | Enchantment +3, maximum 4 enchantment targets |
-| 24    | Enchantment +4, maximum 5 enchantment targets |
+| Level | Enchantment Charm Effect                        |
+| ----- | ----------------------------------------------- |
+| 1     | Enchantment +0, maximum of 1 Enchantment Points |
+| 6     | Enchantment +1, maximum of 2 Enchantment Points |
+| 12    | Enchantment +2, maximum of 3 Enchantment Points |
+| 18    | Enchantment +3, maximum of 4 Enchantment Points |
+| 24    | Enchantment +4, maximum of 5 Enchantment Points |
 
 ### Class Abilities
 
-Enchanters gain the _Bestow Enchantment_ Bonus Action.
+Enchanters have access to a number of Enchantment Points, or EP, granted by their _Enchantment Charm_.
+They also innately gain the _Recall Enchantment_ Passive and _Enchantment of Hallucination_ Bonus Action, allowing them to enchant the minds of those around them.
 
-| Main Action            | Description                                                                                                                                        |
-| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Bestow Enchantment** | Roll an Enchantment check to bestow a known enchantment on a target within 60 feet. On a success, the enchantment is applied until your next Rest. |
+| Class Ability                    | Type         | Description                                                                                                                                                                                                                                                                                                                                                                                                                |
+| -------------------------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Recall Enchantment**           | Passive      | At any time, you can recall one your enchantments to regain 1 Enchantment Point.                                                                                                                                                                                                                                                                                                                                           |
+| **Enchantment of Hallucination** | Bonus Action | You can make an Enchantment check to enchant a target within 120ft with hallucinations. On a success, spend 1 EP. Until recalled, the target believes they see, smell, or hear something that isn't there. The target can roll an Insight check against your Enchantment bonus to see through the hallucination. This effect can grant advantage and disadvantage on related skill checks equal to your Enchantment bonus. |
 
-If an Enchanter wants to enchant a target while currently enchanting the maximum (as dictated by their _Enchantment Charm_), they must choose a target to free of their enchantment.
+Enchanters can acquire other class abilities that unlock new forms of enchantment and enhance their control over the minds of others.
 
-### Class perks
-
-Enchanters can unlock new enchantments through their perks.
-
-| Attribute | Perk                             | Requirement   | Description                                                               |
-| --------- | -------------------------------- | ------------- | ------------------------------------------------------------------------- |
-| Charisma  | **Enchantment of Hallucination** | Enchantment 1 | The target sees a small illusion of your making, equivalent to Murmur.    |
-| Charisma  | **Enchantment of Fear**          | Enchantment 1 | The target cannot move within 10 feet of you or make attacks against you. |
-| Charisma  | **Enchantment of Exhaustion**    | Enchantment 2 | The target's movement speed is reduced by half.                           |
-| Charisma  | **Enchantment of Weakness**      | Enchantment 3 | The target makes all attack checks with -2 disadvantage.                  |
+| Class Ability                 | Type         | Requirement | Description                                                                                                                                                                                                                                                                                                                                                                       |
+| ----------------------------- | ------------ | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Mental Attunement**         | Passive      | Level 1     | You permanently increase your Enchantment Points by 1.                                                                                                                                                                                                                                                                                                                            |
+| **Enthralling Aura**          | Passive      | Level 1     | You automatically succeed on enchanting a target within 15ft of you.                                                                                                                                                                                                                                                                                                              |
+| **Enchantment of Fear**       | Bonus Action | Level 1     | You can make an Enchantment check to enchant a target within 120ft with harrowing fear. On a success, spend 1 EP and select a character or object for the target to fear. Until recalled, the target cannot move within 15ft of their fear or target their fear with an attack.                                                                                                   |
+| **Mind Fog**                  | Passive      | Level 6     | When you bestow an enchantment, you can target a 15ft x 15ft area instead of person. All characters within this area suffer the effect of your enchantment.                                                                                                                                                                                                                       |
+| **Enchantment of Impotence**  | Bonus Action | Level 6     | You can make an Enchantment check to enchant a target within 60ft with unnerving impotence. On a success, spend 1 EP. Until recalled, the target makes all attack checks with disadvantage equal to your Enchantment bonus.                                                                                                                                                       |
+| **Enchantment of Confidence** | Bonus Action | Level 6     | You can make an enchantment check to enchant a target within 60ft with empowering confidence. On a success, spend 1 EP. Until recalled, the target makes all attack checks with advantage equal to your Enchantment Bonus.                                                                                                                                                        |
+| **Enchantment of Confusion**  | Bonus Action | Level 12    | You can make an Enchantment check to enchant a target within 60ft with disorienting confusion. On a success, spend 1 EP. Until recalled, the target must roll a Fortitude check against your Enchantment bonus at the start of each turn. On a stalemate, they are confused and cannot make any attacks. On a failure, they mistake an ally for an enemy and move to attack them. |
+| **Enchanter's Cant**          | Main Action  | Level 18    | You can make an Enchantment check to speak an ancient cant against all of your enchanted targets. On a success, all enchanted targets take `1D6` damage.                                                                                                                                                                                                                          |
+| **Enchantment of Death**      | Bonus Actin  | Level 18    | You can make an Enchantment check to enchant a target within 30ft with deadly psychological pain. On a success, spend 1 EP. Until recalled, the target takes `1D6` damage at the start of each turn.                                                                                                                                                                              |
 
 ## Sage
 
@@ -783,7 +787,7 @@ This Tamed Beast can be a large creature, such as a wolf or hawk, or a small cre
 ### Class Abilities
 
 Sages gain access to a number of Beast Points, or BP, that they can use to call upon Untamed Beasts from nature.
-They also gain the _Summon Tamed Beast_ and _Summon Untamed Beast_ Bonus Actions.
+They gain the _Summon Tamed Beast_ and _Summon Untamed Beast_ Bonus Actions.
 
 | Bonus Action             | Description                                                                                                                                          |
 | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
