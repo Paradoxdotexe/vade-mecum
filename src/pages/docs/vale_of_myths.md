@@ -433,7 +433,7 @@ Rangers innately gain the _Ranger Training_ Passive and _Ranger Vision_ Passive,
 
 | Class Ability       | Type    | Description                                                                                                                            |
 | ------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| **Ranger Training** | Passive | You add your Survival bonus to your Movement speed and can traverse natural obstacles using Survival instead of Athletics or Agility.  |
+| **Ranger Training** | Passive | You add your Survival bonus to your Movement Speed and can traverse natural obstacles using Survival instead of Athletics or Agility.  |
 | **Ranger Vision**   | Passive | While you are alert, Stealth checks made by enemies to surprise your Adventuring Party have disadvantage equal to your Survival bonus. |
 
 Rangers can acquire other class abilities that add useful items to their _Survival Toolkit_.
@@ -492,7 +492,7 @@ Mages can acquire other class abilities that unlock new schools of magic and enh
 | **Silent Mage**       | Passive      | Level 1      | When casting a spell, you can roll a Deception check to hide your casting. Characters can roll an Insight check against your Magic bonus to spot the casting.                                                                                                                                                                                          |
 | **Magical Eminence**  | Passive      | Level 1      | Allies within 15ft of you have +1 advantage on attacks and deal an additional `1D6` damage.                                                                                                                                                                                                                                                            |
 | **Abjuration**        | Passive      | Level 1      | You unlock all spells from the School of Abjuration, giving the ability to defend yourself and your party.                                                                                                                                                                                                                                             |
-| **Mage Armor**        | Bonus Action | Abjuration   | You can spend 1 to 3 MP to surround you or another character in magical armor until your next Rest. Spend 1 MP for Light Armor, 2 MP for Medium Armor, and 4 MP for Heavy Armor.                                                                                                                                                                       |
+| **Mage Armor**        | Bonus Action | Abjuration   | You can spend 1 to 4 MP to surround you or another character in magical armor until your next Rest. Spend 1 MP for Light Armor, 2 MP for Medium Armor, and 4 MP for Heavy Armor.                                                                                                                                                                       |
 | **Magic Shield**      | Reaction     | Abjuration   | When you or another character is hit by an attack, you can roll a Magic check to shield them from the hit. On a success, you reduce the damage by `2D6` for each MP spent.                                                                                                                                                                             |
 | **Magical Discharge** | Passive      | Level 6      | After consuming your last Magic Point, you can discharge your residual magic energy into a single attack. This attack deals an additional D6 for each Magic Point spent since your last Rest.                                                                                                                                                          |
 | **Elementalism**      | Passive      | Level 6      | You unlock all spells from the School of Elementalism, giving the ability to wield the natural elements.                                                                                                                                                                                                                                               |
@@ -695,66 +695,54 @@ Sages are often wise beyond their years, seeking to understand the deeper truths
 Every Sage carries a _Ritual Totem_ that infuses their ritual circles with nature's essence.
 This Ritual Totem is commonly a sacred drum, book, or pole that has been inscribed with nature's teachings.
 
-| Level | Ritual Totem Effect |
-| ----- | ------------------- |
-| 1     | Nature +0           |
-| 6     | Nature +1           |
-| 12    | Nature +2           |
-| 18    | Nature +3           |
-| 24    | Nature +4           |
+| Level | Ritual Totem Effect                    |
+| ----- | -------------------------------------- |
+| 1     | Nature +0, maximum of 2 Nature Points  |
+| 6     | Nature +1, maximum of 4 Nature Points  |
+| 12    | Nature +2, maximum of 5 Nature Points  |
+| 18    | Nature +3, maximum of 6 Nature Points  |
+| 24    | Nature +4, maximum of 10 Nature Points |
 
 ### Class Abilities
 
-Sages gain the _Cast Ritual_ Rest Activity.
+Sages have access to a number of Nature Points, or NP, granted by their `Ritual Totem`.
+They also innately gain the _Ritual of Guidance_ Rest Activity and all class abilities granted by the _Ritual of Guidance_ Rest Activity, allowing them to wield nature's influence to their advantage.
 
-| Rest Activity   | Skill | Outcome                                                        |
-| --------------- | ----- | -------------------------------------------------------------- |
-| **Cast Ritual** | N/A   | Choose a known ritual to put into effect until your next Rest. |
+| Class Ability          | Type          | Description                                                                                                                                                                                                        |
+| ---------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Ritual of Guidance** | Rest Activity | You cast a ritual to call upon nature to guide you on your journey. Until your next rest, you have access to all class abilities granted by Ritual of Guidance. You regain all of your missing Nature Points.      |
+| **Natural Charisma**   | Passive       | While Ritual of Guidance is in effect, you gain advantage on Speech checks equal to your Nature bonus.                                                                                                             |
+| **Nature's Tongue**    | Passive       | While Ritual of Guidance is in effect, you can communicate with nature's beasts through their unique visual and auditory cues. Communication is effectively limited to basic one-word messages.                    |
+| **Veil of Mist**       | Bonus Action  | While Ritual of Guidance is in effect, you can spend 1 NP to create a dense mist that masks your movements. You and all characters within 15ft of you have advantage on Stealth checks equal to your Nature bonus. |
+| **Freezing Touch**     | Main Action   | While Ritual of Guidance is in effect, you can roll a Nature check to freeze a target within 5ft. On a success, spend 2 NP. The target is frozen for 2 turns or 12 seconds.                                        |
 
-Rituals will give Sages access to specific ritual acts they perform while it is in effect.
+Sages can acquire other class abilities that unlock new rituals and enhance their ability to call upon nature.
 
-Sages have access to a number of Nature Points, or NP, they can spend on ritual acts.
-They can hold a maximum number of Nature Points equal to their level and regain all of their missing Nature Points after a Rest.
-
-### Class Perks
-
-Sages gain access to different rituals through their perks.
-Each ritual has a collection of ritual acts ranging from Average to Legendary rarity.
-These ritual acts will have an NP cost determined by the Nature requirement of its ritual and the acts's rarity.
-
-> **Example:** An Average Ritual of the Shield Guardian spell would cost 1 MP while a Legendary Ritual of the Stormcaller spell would cost 6 MP.
-
-| Attribute  | Perk                              | Requirement | Description                                                                                          |
-| ---------- | --------------------------------- | ----------- | ---------------------------------------------------------------------------------------------------- |
-| Perception | **Ritual of the Shield Guardian** | Nature 1    | Unlock the Ritual of the Shield Guardian, giving the ability to shield allies from enemies.          |
-| Perception | **Ritual of the Spirit Path**     | Nature 2    | Unlock the Ritual of the Spirit Path, giving the ability to navigate difficult situations.           |
-| Perception | **Ritual of the Stormcaller**     | Nature 3    | Unlock the Ritual of the Stormcaller, giving the ability to call down nature's fury from the clouds. |
-
-### Ritual of the Spirit Guardian
-
-This ritual uses nature's essence to shield allies from attack and create powerful shield guardians.
-
-| Act              | Rarity        | NP  | Description                                                                               |
-| ---------------- | ------------- | --- | ----------------------------------------------------------------------------------------- |
-| Glancing Wind    | **Average**   | 1   | When a character is hit by an attack, use the wind to reduce the incoming damage by half. |
-| Tornado Guardian | **Legendary** | 4   | Call down a Tornado Guardian that fights by your side. You control its actions.           |
-
-### Ritual of the Spirit Path
-
-This ritual uses nature's essence to guide the Sage through unsafe and unknown journeys.
-
-| Act               | Rarity      | NP  | Description                                                                |
-| ----------------- | ----------- | --- | -------------------------------------------------------------------------- |
-| Veil of the Wind  | **Average** | 2   | You and your party gain +3 advantage to all Stealth checks.                |
-| Nature's Blessing | **Average** | 2   | You gain +3 to Speech checks when progressing your personal or party goal. |
-
-### Ritual of the Stormcaller
-
-This ritual uses nature's essence to harness the electric energy of the storms above.
-
-| Act             | Rarity        | NP  | Description                                                                                                           |
-| --------------- | ------------- | --- | --------------------------------------------------------------------------------------------------------------------- |
-| Lightning Storm | **Legendary** | 6   | You control three lightning bolts that strike one or more chosen targets. For each bolt, the target takes 2D6 damage. |
+| Class Ability            | Type          | Requirement          | Description                                                                                                                                                                                                                                                                                                      |
+| ------------------------ | ------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Gust of Wind**         | Passive       | Level 1              | You add your Nature bonus to your Movement Speed.                                                                                                                                                                                                                                                                |
+| **Fortress of Thorns**   | Rest Activity | Level 1              | You call forth nature to construct a fortress of thorns to rest in. You and your companions get the bonus of Simple Lodging and all surprise attacks instantly fail.                                                                                                                                             |
+| **Ritual of Protection** | Rest Activity | Level 1              | You cast a ritual to call upon nature to protect you from danger. Until your next rest, you have access to all class abilities granted by Ritual of Protection. You regain all of your missing Nature Points.                                                                                                    |
+| **Stone Skin**           | Passive       | Ritual of Protection | While Ritual of Protection is in effect, you are surrounded by natural Heavy Armor.                                                                                                                                                                                                                              |
+| **Natural Armor**        | Bonus Action  | Ritual of Protection | While Ritual of Protection is in effect, you can spend 1 to 4 NP to surround another character in natural armor until your next Rest. Spend 1 NP for Light Armor, 2 NP for Medium Armor, and 4 NP for Heavy Armor.                                                                                               |
+| **Glancing Wind**        | Reaction      | Ritual of Protection | While Ritual of Protection is in effect, you can roll a Nature check when a character is hit with an attack. On a success, you can spend 1 NP to reduce the incoming damage by half or 2 NP to deflect all damage.                                                                                               |
+| **Nature's Blessing**    | Passive       | Level 6              | When you are incapacitated, you can roll a Nature check to determine if nature intervenes. On a success, spend 1 NP. Instead of being incapacitated, you are reduced to 1 hit point.                                                                                                                             |
+| **Ritual of Fury**       | Rest Activity | Level 6              | You cast a ritual to call upon nature to empower you with its fury. Until your next rest, you have access to all class abilities granted by Ritual of Fury. You regain all of your missing Nature Points.                                                                                                        |
+| **Wind Strike**          | Passive       | Ritual of Fury       | While Ritual of Fury in effect, you gain advantage on melee and ranged attacks equal to your Nature bonus.                                                                                                                                                                                                       |
+| **Solar Smite**          | Passive       | Ritual of Fury       | While Ritual of Fury is in effect, melee and ranged attacks deal an additional `1D6` damage.                                                                                                                                                                                                                     |
+| **Wind Flurry**          | Bonus Action  | Ritual of Fury       | While Ritual of Fury is in effect, you can roll a Nature check to summon a flurry of wind gusts. On a success, spend 2 NP. All enemies within 30ft are knocked prone.                                                                                                                                            |
+| **Sun Burst**            | Bonus Action  | Ritual of Fury       | While Ritual of Fury is in effect, you can roll a Nature check to summon a burst of solar energy. On a success, spend 2 NP. All enemies within 15ft take `3D6` damage.                                                                                                                                           |
+| **Breach of Rites**      | Passive       | Level 12             | Once per Rest, you can use a ritual act that requires a ritual that is not in effect.                                                                                                                                                                                                                            |
+| **Ritual of Chaos**      | Rest Activity | Level 12             | You cast a ritual to call upon nature to give you its chaotic energy to wield. Until your next rest, you have access to all class abilities granted by Ritual of Chaos. You regain all of your missing Nature Points.                                                                                            |
+| **Chaotic Recharge**     | Passive       | Ritual of Chaos      | While Ritual of Chaos is in effect, you gain 1 Nature Point whenever you are unsuccessful summoning a ritual act.                                                                                                                                                                                                |
+| **Lightning Storm**      | Main Action   | Ritual of Chaos      | While Ritual of Chaos is in effect, you can roll a Nature check to strike up to 3 targets within 120ft with lightning. On a success, spend 2 NP. Each lightning bolt deals `2D6` damage.                                                                                                                         |
+| **Blizzard**             | Main Action   | Ritual of Chaos      | While Ritual of Chaos is in effect, you can roll a Nature check to target up to 3 targets within 60ft with a freezing blizzard. On a success, spend 2 NP. All targets take `1D6` damage and are stunned for 1 turn.                                                                                              |
+| **Impromptu Ritual**     | Main Action   | Level 18             | Once per Rest, you can cast a ritual that would otherwise require a Rest Activity. Your ongoing ritual is ended and the new ritual is put into effect.                                                                                                                                                           |
+| **Ritual of Foresight**  | Rest Activity | Level 18             | You cast a ritual to call upon nature to lend you its prescient wisdom. Until your next rest, you have access to all class abilities granted by Ritual of Foresight. You regain all of your missing Nature Points.                                                                                               |
+| **Nature's Wisdom**      | Passive       | Ritual of Foresight  | While Ritual of Foresight is in effect, you gain advantage on Intuition and Insight checks equal to your Nature bonus.                                                                                                                                                                                           |
+| **Temporal Pincer**      | Passive       | Ritual of Foresight  | While Ritual of Foresight is in effect, all surprise attacks lead by you immediately succeed.                                                                                                                                                                                                                    |
+| **Premonition**          | Main Action   | Ritual of Foresight  | While Ritual of Foresight is in effect, you can roll a Nature check to turn the last minute into a premonition. On a success, spend 4 NP. You are returned to the point of time exactly 60 seconds ago with the knowledge of what is to come. This ability cannot be used after 10 rounds have passed in combat. |
+| **Clairvoyance**         | Bonus Action  | Ritual of Foresight  | While Ritual of Foresight is in effect, you can roll a Nature check to forsee the perfect moments to strike and deflect attacks. On a success, spend 2 NP. For the next 2 turns, you gain advantage on melee and ranged attacks equal to your Nature bonus and get the bonus of Heavy Armor.                     |
 
 ## Druid
 
@@ -794,13 +782,13 @@ Druids can acquire other class abilities that unlock new untamed beasts to call 
 
 | Class Ability            | Type         | Requirement | Description                                                                                                                                                                          |
 | ------------------------ | ------------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Beast Speech**         | Passive      | Level 1     | You can communicate with nature's beasts through their unique visual and auditory cues. Communication is effectively limited to very basic one-word messages.                        |
+| **Beast Speech**         | Passive      | Level 1     | You can communicate with nature's beasts through their unique visual and auditory cues. Communication is effectively limited to basic one-word messages.                             |
 | **Beast Protection**     | Reaction     | Level 1     | When you are targeted with a melee attack, you can roll a Beast check to have your Tamed Beast protect you. On a success, incoming damage is reduced by `1D6`.                       |
 | **Vengeful Eagle**       | Main Action  | Level 1     | You can roll a Beast check to summon an eagle to attack a target within 90ft. On a success, spend 2 BP. The target takes `5D6` damage.                                               |
 | **Giant Companion**      | Bonus Action | Level 6     | You can roll a Beast check to transform your Tamed Beast into a giant version of itself. On a success, spend 1 BP. For 1 turn, your Tamed Beast is enlarged and deals double damage. |
 | **Charging Bear**        | Main Action  | Level 6     | You can roll a Beast check to summon a bear to attack a target within 60ft. On a success, spend 3 BP. The target takes `6D6` damage and is knocked prone.                            |
 | **Beast Shape**          | Bonus Action | Level 12    | You can spend 1 BP to transform into the same form as your Tamed Beast for 1 hour. While transformed, you share the same speed and attack damage as your Tamed Beast.                |
-| **Pack of Wolves**       | Main Action  | Level 12    | You can roll a Beast check to summon a pack of wolves to attack up to three targets within 60ft. On a success, spend 3 BP. Each target takes `3D6` damage.                           |
+| **Pack of Wolves**       | Main Action  | Level 12    | You can roll a Beast check to summon a pack of 3 wolves to attack up to 3 targets within 60ft. On a success, spend 3 BP. Each wolf deals `3D6` damage.                               |
 | **Enhanced Beast Shape** | Passive      | Level 18    | When using Beast Shape, you can transform into any small, medium, or large creature and the transformation lasts for 4 hours.                                                        |
 | **Prideful Lion**        | Main Action  | Level 18    | You can roll a Beast check to summon a lion to attack a target within 30ft. On a success, spend 4 BP. The target takes `10D6` damage is a stunned for 1 turn.                        |
 

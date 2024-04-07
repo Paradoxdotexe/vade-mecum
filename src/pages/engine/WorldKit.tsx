@@ -499,7 +499,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Mage Armor',
           type: ClassAbilityType.BONUS_ACTION,
           description:
-            'You can spend 1 to 3 MP to surround you or another character in magical armor until your next Rest. Spend 1 MP for Light Armor, 2 MP for Medium Armor, and 4 MP for Heavy Armor.',
+            'You can spend 1 to 4 MP to surround you or another character in magical armor until your next Rest. Spend 1 MP for Light Armor, 2 MP for Medium Armor, and 4 MP for Heavy Armor.',
           requirement: 'abjuration'
         },
         {
@@ -838,9 +838,236 @@ const VALE_OF_MYTHS: WorldKit = {
       attributeKey: 'perception',
       skillKey: 'nature',
       classItemLabel: 'Ritual Totem',
-      classAbilities: [],
+      classAbilities: [
+        {
+          key: 'ritual_of_guidance',
+          name: 'Ritual of Guidance',
+          type: ClassAbilityType.REST_ACTIVITY,
+          description:
+            'You cast a ritual to call upon nature to guide you on your journey. Until your next rest, you have access to all class abilities granted by Ritual of Guidance. You regain all of your missing Nature Points.',
+          requirement: 'INNATE'
+        },
+        {
+          key: 'natural_charisma',
+          name: 'Natural Charisma',
+          type: ClassAbilityType.PASSIVE,
+          description:
+            'While Ritual of Guidance is in effect, you gain advantage on Speech checks equal to your Nature bonus.',
+          requirement: 'INNATE'
+        },
+        {
+          key: 'natures_tongue',
+          name: "Nature's Tongue",
+          type: ClassAbilityType.PASSIVE,
+          description:
+            "While Ritual of Guidance is in effect, you can communicate with nature's beasts through their unique visual and auditory cues. Communication is effectively limited to basic one-word messages.",
+          requirement: 'INNATE'
+        },
+        {
+          key: 'veil_of_mist',
+          name: 'Veil of Mist',
+          type: ClassAbilityType.BONUS_ACTION,
+          description:
+            'While Ritual of Guidance is in effect, you can spend 1 NP to create a dense mist that masks your movements. You and all characters within 15ft of you have advantage on Stealth checks equal to your Nature bonus.',
+          requirement: 'INNATE'
+        },
+        {
+          key: 'freezing_touch',
+          name: 'Freezing Touch',
+          type: ClassAbilityType.MAIN_ACTION,
+          description:
+            'While Ritual of Guidance is in effect, you can roll a Nature check to freeze a target within 5ft. On a success, spend 2 NP. The target is frozen for 2 turns or 12 seconds.',
+          requirement: 'INNATE'
+        },
+        {
+          key: 'gust_of_wind',
+          name: 'Gust of Wind',
+          type: ClassAbilityType.PASSIVE,
+          description: 'You add your Nature bonus to your Movement Speed.',
+          requirement: 1,
+          computed: {
+            speed: '[base] + [skill.nature]'
+          }
+        },
+        {
+          key: 'fortress_of_thorns',
+          name: 'Fortress of Thorns',
+          type: ClassAbilityType.REST_ACTIVITY,
+          description:
+            'You call forth nature to construct a fortress of thorns to rest in. You and your companions get the bonus of Simple Lodging and all surprise attacks instantly fail.',
+          requirement: 1
+        },
+        {
+          key: 'ritual_of_protection',
+          name: 'Ritual of Protection',
+          type: ClassAbilityType.REST_ACTIVITY,
+          description:
+            'You cast a ritual to call upon nature to protect you from danger. Until your next rest, you have access to all class abilities granted by Ritual of Protection. You regain all of your missing Nature Points.',
+          requirement: 1
+        },
+        {
+          key: 'stone_skin',
+          name: 'Stone Skin',
+          type: ClassAbilityType.PASSIVE,
+          description:
+            'While Ritual of Protection is in effect, you are surrounded by natural Heavy Armor.',
+          requirement: 'ritual_of_protection'
+        },
+        {
+          key: 'natural_armor',
+          name: 'Natural Armor',
+          type: ClassAbilityType.BONUS_ACTION,
+          description:
+            'While Ritual of Protection is in effect, you can spend 1 to 4 NP to surround another character in natural armor until your next Rest. Spend 1 NP for Light Armor, 2 NP for Medium Armor, and 4 NP for Heavy Armor.',
+          requirement: 'ritual_of_protection'
+        },
+        {
+          key: 'glancing_wind',
+          name: 'Glancing Wind',
+          type: ClassAbilityType.REACTION,
+          description:
+            'While Ritual of Protection is in effect, you can roll a Nature check when a character is hit with an attack. On a success, you can spend 1 NP to reduce the incoming damage by half or 2 NP to deflect all damage.',
+          requirement: 'ritual_of_protection'
+        },
+        {
+          key: 'natures_blessing',
+          name: "Nature's Blessing",
+          type: ClassAbilityType.PASSIVE,
+          description:
+            'When you are incapacitated, you can roll a Nature check to determine if nature intervenes. On a success, spend 1 NP. Instead of being incapacitated, you are reduced to 1 hit point.',
+          requirement: 6
+        },
+        {
+          key: 'ritual_of_fury',
+          name: 'Ritual of Fury',
+          type: ClassAbilityType.REST_ACTIVITY,
+          description:
+            'You cast a ritual to call upon nature to empower you with its fury. Until your next rest, you have access to all class abilities granted by Ritual of Fury. You regain all of your missing Nature Points.',
+          requirement: 6
+        },
+        {
+          key: 'wind_strike',
+          name: 'Wind Strike',
+          type: ClassAbilityType.PASSIVE,
+          description:
+            'While Ritual of Fury in effect, you gain advantage on melee and ranged attacks equal to your Nature bonus.',
+          requirement: 'ritual_of_fury'
+        },
+        {
+          key: 'solar_smite',
+          name: 'Solar Smite',
+          type: ClassAbilityType.PASSIVE,
+          description:
+            'While Ritual of Fury is in effect, melee and ranged attacks deal an additional 1D6 damage.',
+          requirement: 'ritual_of_fury'
+        },
+        {
+          key: 'wind_flurry',
+          name: 'Wind Flurry',
+          type: ClassAbilityType.BONUS_ACTION,
+          description:
+            'While Ritual of Fury is in effect, you can roll a Nature check to summon a flurry of wind gusts. On a success, spend 2 NP. All enemies within 30ft are knocked prone.',
+          requirement: 'ritual_of_fury'
+        },
+        {
+          key: 'sun_burst',
+          name: 'Sun Burst',
+          type: ClassAbilityType.BONUS_ACTION,
+          description:
+            'While Ritual of Fury is in effect, you can roll a Nature check to summon a burst of solar energy. On a success, spend 2 NP. All enemies within 15ft take 3D6 damage.',
+          requirement: 'ritual_of_fury'
+        },
+        {
+          key: 'breach_of_rites',
+          name: 'Breach of Rites',
+          type: ClassAbilityType.PASSIVE,
+          description:
+            'Once per Rest, you can use a ritual act that requires a ritual that is not in effect.',
+          requirement: 12
+        },
+        {
+          key: 'ritual_of_chaos',
+          name: 'Ritual of Chaos',
+          type: ClassAbilityType.REST_ACTIVITY,
+          description:
+            'You cast a ritual to call upon nature to give you its chaotic energy to wield. Until your next rest, you have access to all class abilities granted by Ritual of Chaos. You regain all of your missing Nature Points.',
+          requirement: 12
+        },
+        {
+          key: 'chaotic_recharge',
+          name: 'Chaotic Recharge',
+          type: ClassAbilityType.PASSIVE,
+          description:
+            'While Ritual of Chaos is in effect, you gain 1 Nature Point whenever you are unsuccessful summoning a ritual act.',
+          requirement: 'ritual_of_chaos'
+        },
+        {
+          key: 'lightning_storm',
+          name: 'Lightning Storm',
+          type: ClassAbilityType.MAIN_ACTION,
+          description:
+            'While Ritual of Chaos is in effect, you can roll a Nature check to strike up to 3 targets within 120ft with lightning. On a success, spend 2 NP. Each lightning bolt deals 2D6 damage.',
+          requirement: 'ritual_of_chaos'
+        },
+        {
+          key: 'blizzard',
+          name: 'Blizzard',
+          type: ClassAbilityType.MAIN_ACTION,
+          description:
+            'While Ritual of Chaos is in effect, you can roll a Nature check to target up to 3 targets within 60ft with a freezing blizzard. On a success, spend 2 NP. All targets take 1D6 damage and are stunned for 1 turn.',
+          requirement: 'ritual_of_chaos'
+        },
+        {
+          key: 'impromptu_ritual',
+          name: 'Impromptu Ritual',
+          type: ClassAbilityType.MAIN_ACTION,
+          description:
+            'Once per Rest, you can cast a ritual that would otherwise require a Rest Activity. Your ongoing ritual is ended and the new ritual is put into effect.',
+          requirement: 18
+        },
+        {
+          key: 'ritual_of_foresight',
+          name: 'Ritual of Foresight',
+          type: ClassAbilityType.REST_ACTIVITY,
+          description:
+            'You cast a ritual to call upon nature to lend you its prescient wisdom. Until your next rest, you have access to all class abilities granted by Ritual of Foresight. You regain all of your missing Nature Points.',
+          requirement: 18
+        },
+        {
+          key: 'natures_wisdom',
+          name: "Nature's Wisdom",
+          type: ClassAbilityType.PASSIVE,
+          description:
+            'While Ritual of Foresight is in effect, you gain advantage on Intuition and Insight checks equal to your Nature bonus.',
+          requirement: 'ritual_of_foresight'
+        },
+        {
+          key: 'temporal_pincer',
+          name: 'Temporal Pincer',
+          type: ClassAbilityType.PASSIVE,
+          description:
+            'While Ritual of Foresight is in effect, all surprise attacks lead by you immediately succeed.',
+          requirement: 'ritual_of_foresight'
+        },
+        {
+          key: 'premonition',
+          name: 'Premonition',
+          type: ClassAbilityType.MAIN_ACTION,
+          description:
+            'While Ritual of Foresight is in effect, you can roll a Nature check to turn the last minute into a premonition. On a success, spend 4 NP. You are returned to the point of time exactly 60 seconds ago with the knowledge of what is to come. This ability cannot be used after 10 rounds have passed in combat.',
+          requirement: 'ritual_of_foresight'
+        },
+        {
+          key: 'clairvoyance',
+          name: 'Clairvoyance',
+          type: ClassAbilityType.BONUS_ACTION,
+          description:
+            'While Ritual of Foresight is in effect, you can roll a Nature check to forsee the perfect moments to strike and deflect attacks. On a success, spend 2 NP. For the next 2 turns, you gain advantage on melee and ranged attacks equal to your Nature bonus and get the bonus of Heavy Armor.',
+          requirement: 'ritual_of_foresight'
+        }
+      ],
       computed: {
-        maxClassPoints: '[level]'
+        maxClassPoints: '([classItemBonus] + 1) * 2'
       }
     },
     druid: {
@@ -878,7 +1105,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Beast Speech',
           type: ClassAbilityType.PASSIVE,
           description:
-            "You can communicate with nature's beasts through their unique visual and auditory cues. Communication is effectively limited to very basic one-word messages.",
+            "You can communicate with nature's beasts through their unique visual and auditory cues. Communication is effectively limited to basic one-word messages.",
           requirement: 1
         },
         {
@@ -926,7 +1153,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Pack of Wolves',
           type: ClassAbilityType.MAIN_ACTION,
           description:
-            'You can roll a Beast check to summon a pack of wolves to attack up to three targets within 60ft. On a success, spend 3 BP. Each target takes 3D6 damage.',
+            ' You can roll a Beast check to summon a pack of 3 wolves to attack up to 3 targets within 60ft. On a success, spend 3 BP. Each wolf deals 3D6 damage.',
           requirement: 12
         },
         {
