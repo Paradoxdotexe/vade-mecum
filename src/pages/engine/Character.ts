@@ -40,7 +40,7 @@ type IntelligenceAttribute = Attribute & {
 type CharismaAttribute = Attribute & {
   skills: {
     intuition: Skill;
-    speech: Skill;
+    influence: Skill;
     barter: Skill;
   };
 };
@@ -97,7 +97,7 @@ const DEFAULT_ATTRIBUTES: Attributes = {
     value: 1,
     skills: {
       intuition: { label: 'Intuition', value: 0 },
-      speech: { label: 'Speech', value: 0 },
+      influence: { label: 'Influence', value: 0 },
       barter: { label: 'Barter', value: 0 }
     }
   },

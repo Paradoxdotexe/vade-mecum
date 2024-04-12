@@ -1,4 +1,5 @@
 import { AttributeKey } from './Character';
+import { CharacterComputations } from './WorldKit';
 
 export type Perk = {
   key: string;
@@ -7,6 +8,7 @@ export type Perk = {
   attributeKey: AttributeKey;
   skillKey: string;
   skillRequirement: number;
+  computed?: CharacterComputations;
 };
 
 export const PERKS: Perk[] = [
@@ -260,7 +262,7 @@ export const PERKS: Perk[] = [
     key: 'counselor',
     name: 'Counselor',
     description:
-      'After a successful Intuition check against an NPC, you get +3 advantage on your next Speech check using that information.',
+      'After a successful Intuition check against an NPC, you get +3 advantage on your next Influence check using that information.',
     attributeKey: 'charisma',
     skillKey: 'intuition',
     skillRequirement: 3
@@ -269,25 +271,26 @@ export const PERKS: Perk[] = [
     key: 'relatable',
     name: 'Relatable',
     description:
-      "You double your Speech bonus on skill checks against NPC's from the same race or class.",
+      "You double your Influence bonus on skill checks against NPC's from the same race or class.",
     attributeKey: 'charisma',
-    skillKey: 'speech',
+    skillKey: 'influence',
     skillRequirement: 1
   },
   {
     key: 'identity_theft',
     name: 'Identity Theft',
-    description: 'You double your Speech bonus on skill checks while impersonating someone else.',
+    description:
+      'You double your Influence bonus on skill checks while impersonating someone else.',
     attributeKey: 'charisma',
-    skillKey: 'speech',
+    skillKey: 'influence',
     skillRequirement: 2
   },
   {
     key: 'folk_hero',
     name: 'Folk Hero',
-    description: 'You double the advantage given to Speech checks by Renown.',
+    description: 'You double the advantage given to Influence checks by Renown.',
     attributeKey: 'charisma',
-    skillKey: 'speech',
+    skillKey: 'influence',
     skillRequirement: 3
   },
   {
@@ -343,10 +346,13 @@ export const PERKS: Perk[] = [
   {
     key: 'combat_ready',
     name: 'Combat Ready',
-    description: 'You add 6 to your initiative roll.',
+    description: 'You add 2D6 to your initiative roll.',
     attributeKey: 'perception',
     skillKey: 'detection',
-    skillRequirement: 1
+    skillRequirement: 1,
+    computed: {
+      initiative: '[base] + 2'
+    }
   },
   {
     key: 'sixth_sense',

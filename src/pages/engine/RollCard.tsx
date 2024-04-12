@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { rollDie } from '../../utils/rollDie';
-import { getDieOutcome } from '../../utils/getDieOutcome';
+import { DIE_OUTCOMES, getDieOutcome } from '../../utils/getDieOutcome';
 import { VNumberInput } from '../../components/VNumberInput';
 import { VCard } from '@/components/VCard';
+import { RollEvaluation } from './useRolls';
 
 const StyledRollCard = styled(VCard)`
   display: flex;
@@ -83,7 +84,7 @@ const StyledRollCard = styled(VCard)`
         font-size: 16px;
         border: 1px solid #fff;
 
-        &.die--rolled:not(:first-child) {
+        &.die--ignored {
           opacity: 0.6;
         }
       }
@@ -113,16 +114,13 @@ type RollCardProps = {
   diceFactors?: DiceFactor[];
   title: string;
   dice?: number[];
+  evaluation: RollEvaluation;
   onRoll?: (roll: number[]) => void;
   minimized?: boolean;
 };
 
 export const RollCard: React.FC<RollCardProps> = props => {
-  const [diceFactors, setDiceFactors] = useState<DiceFactor[]>([
-    ...(props.diceFactors ?? []),
-    { type: 'A', label: 'Advantage', value: 0 },
-    { type: 'D', label: 'Disadvantage', value: 0 }
-  ]);
+  const [diceFactors, setDiceFactors] = useState<DiceFactor[]>(props.diceFactors ?? []);
   const [dice, setDice] = useState<number[] | undefined>(props.dice);
 
   const rollDice = () => {
@@ -131,7 +129,12 @@ export const RollCard: React.FC<RollCardProps> = props => {
       'canplaythrough',
       () => {
         rollSound.play();
-        const newDice = [...new Array(total)].map(() => rollDie()).sort((a, b) => b - a);
+
+        const newDice = [...new Array(total)].map(() => rollDie());
+        if (props.evaluation === RollEvaluation.CHECK) {
+          newDice.sort((a, b) => b - a);
+        }
+
         setDice(newDice);
         props.onRoll?.(newDice);
       },
@@ -144,7 +147,11 @@ export const RollCard: React.FC<RollCardProps> = props => {
     sum(diceFactors.map(factor => (factor.type === 'A' ? factor.value : -factor.value)))
   );
 
-  const outcome = dice && getDieOutcome(Math.max(...dice));
+  const outcome =
+    dice &&
+    (props.evaluation === RollEvaluation.CHECK
+      ? getDieOutcome(Math.max(...dice))
+      : DIE_OUTCOMES.success);
 
   return (
     <StyledRollCard>
@@ -161,6 +168,7 @@ export const RollCard: React.FC<RollCardProps> = props => {
                   prefix={i === 0 ? undefined : diceFactor.type === 'A' ? '+' : '-'}
                   label={diceFactor.label}
                   value={diceFactor.value}
+                  max={6}
                   disabled={diceFactor.disabled}
                   onChange={value => {
                     setDiceFactors(diceFactors => {
@@ -193,8 +201,13 @@ export const RollCard: React.FC<RollCardProps> = props => {
             return (
               <div
                 key={i}
-                className={`dice__die ${outcome ? 'die--rolled' : undefined}`}
-                style={{ background: outcome?.color }}
+                className={`dice__die ${outcome && props.evaluation === RollEvaluation.CHECK && i > 0 ? 'die--ignored' : undefined}`}
+                style={{
+                  background:
+                    props.evaluation === RollEvaluation.CHECK
+                      ? outcome?.color
+                      : DIE_OUTCOMES.success.color
+                }}
               >
                 {die ?? '?'}
               </div>
@@ -204,7 +217,7 @@ export const RollCard: React.FC<RollCardProps> = props => {
 
         {outcome && (
           <div className="body__outcome" style={{ color: outcome.color }}>
-            {outcome.label}
+            {props.evaluation === RollEvaluation.CHECK ? outcome.label : sum(dice)}
           </div>
         )}
       </div>
@@ -231,6 +244,7 @@ type DiceFactorInputProps = {
   value: number;
   onChange?: (value: number) => void;
   disabled?: boolean;
+  max?: number;
 };
 
 const DiceFactorInput: React.FC<DiceFactorInputProps> = props => {
@@ -240,7 +254,7 @@ const DiceFactorInput: React.FC<DiceFactorInputProps> = props => {
       <VNumberInput
         value={props.value}
         onChange={props.onChange}
-        max={6}
+        max={props.max}
         disabled={props.disabled}
       />
       <div className="factor__label">{props.label}</div>

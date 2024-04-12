@@ -6,10 +6,13 @@ type CharacterClass = {
   skillKey: string;
   classItemLabel: string;
   classAbilities: ClassAbility[];
-  computed?: {
-    speed?: string;
-    maxClassPoints?: string;
-  };
+  computed?: CharacterComputations;
+};
+
+export type CharacterComputations = {
+  speed?: string;
+  maxClassPoints?: string;
+  initiative?: string;
 };
 
 enum ClassAbilityType {
@@ -26,10 +29,7 @@ type ClassAbility = {
   name: string;
   description: string;
   requirement: string | number;
-  computed?: {
-    speed?: string;
-    maxClassPoints?: string;
-  };
+  computed?: CharacterComputations;
 };
 
 export type InventoryItemType = 'WEAPON' | 'ARMOR' | 'TOOL';

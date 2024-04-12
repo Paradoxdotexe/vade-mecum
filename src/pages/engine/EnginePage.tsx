@@ -181,6 +181,7 @@ export const EnginePage: React.FC = () => {
                   key={`${roll.characterKey}#${roll.timestamp}`}
                   title={`${characters[roll.characterKey]?.name || 'Anonymous'} (${roll.label})`}
                   dice={roll.dice}
+                  evaluation={roll.evaluation}
                   minimized
                 />
               ))}

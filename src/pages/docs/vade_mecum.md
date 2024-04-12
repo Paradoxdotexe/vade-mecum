@@ -217,7 +217,7 @@ As such, perks give characters a way to accentuate their strengths in ways that 
 | Perception   | **Architect**        | Insight 1       | You double your Insight bonus on skill checks against man-made structures.                                                   |
 | Perception   | **Ecologist**        | Insight 2       | You double your Insight bonus on skill checks against natural phenomena, such as animals, plants, weather, and terrain.      |
 | Perception   | **Inspector**        | Insight 3       | After a successful Insight check, you get +3 advantage on your next Investigation/Detection check using that information.    |
-| Perception   | **Combat Ready**     | Detection 1     | You add 6 to your initiative roll.                                                                                           |
+| Perception   | **Combat Ready**     | Detection 1     | You add `2D6` to your initiative roll.                                                                                       |
 | Perception   | **Sixth Sense**      | Detection 2     | You can't be surprised during combat.                                                                                        |
 | Perception   | **One Eye Open**     | Detection 3     | You can keep watch for enemies during a Rest without expending a Rest Activity.                                              |
 | Perception   | **Loot Goblin**      | Investigation 1 | You double your Investigation bonus on skill checks to loot after combat.                                                    |
@@ -587,9 +587,9 @@ Additionally, those in cover cannot take Movement or a Main Action (see [3.4 Com
 
 When a situation reaches a point than can no longer be resolved by words, the Adventuring Party will enter combat.
 Combat begins by determining each character's turn order by rolling for initiative. Each character
-rolls a number of D6 equal to `(Dexterity + Perception)` and sums the roll to resolve their initiative.
+rolls a number of D6 equal to `(Dexterity + Agility) + (Perception + Detection)` and sums the roll to resolve their initiative.
 
-> **Example:** A character with Dexterity 4 and Perception 2 rolls 6D6 and sums the value to 23.
+> **Example:** A character with Dexterity 4 / Agility 2 and Perception 2 / Detection 1 rolls for initiative with 9D6. After rolling, they sum the outcome to 32.
 > Characters with a higher initiative will go before them and characters with a lower initiative will go after.
 
 Combat will persist for a number of rounds until one side concedes or parishes.

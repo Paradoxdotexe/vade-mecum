@@ -5,8 +5,9 @@ import { DiceFactor, RollCard } from '../RollCard';
 import { VPopup } from '@/components/VPopup';
 import { useCharacters } from '../useCharacters';
 import { Attribute, AttributeKey } from '@/pages/engine/Character';
-import { useRolls } from '../useRolls';
+import { RollEvaluation, useRolls } from '../useRolls';
 import { DateTime } from 'luxon';
+import { InitiativeCard } from './InitiativeCard';
 
 const StyledAttributeCards = styled.div`
   display: flex;
@@ -52,6 +53,11 @@ export const AttributeCards: React.FC = () => {
         disabled: true
       });
     }
+
+    diceFactors.push(
+      { type: 'A', label: 'Advantage', value: 0 },
+      { type: 'D', label: 'Disadvantage', value: 0 }
+    );
   }
 
   return (
@@ -67,6 +73,7 @@ export const AttributeCards: React.FC = () => {
             }}
           />
         ))}
+        <InitiativeCard />
       </StyledAttributeCards>
       <VPopup
         open={rolledAttributeActive}
@@ -78,12 +85,14 @@ export const AttributeCards: React.FC = () => {
         <RollCard
           title={`${currentCharacter.name || 'Anonymous'} (${rolledSkill?.label})`}
           diceFactors={diceFactors}
+          evaluation={RollEvaluation.CHECK}
           onRoll={dice => {
             addRoll({
               characterKey: currentCharacter.key,
               label: rolledSkill!.label,
               dice,
-              timestamp: DateTime.now().toISO()
+              timestamp: DateTime.now().toISO(),
+              evaluation: RollEvaluation.CHECK
             });
             setTimeout(() => setRolledAttributeActive(false), 1500);
           }}

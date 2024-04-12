@@ -3,7 +3,7 @@ type DieOutcome = {
   color: string;
 };
 
-const DIE_OUTCOMES = {
+export const DIE_OUTCOMES = {
   success: {
     label: 'Success',
     color: '#34a9fe'

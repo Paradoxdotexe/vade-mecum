@@ -214,6 +214,26 @@ const useCurrentCharacter = () => {
     return parseComputation('([attribute.strength] + [skill.fortitude]) * 3', computationVariables);
   };
 
+  const getInitiative = () => {
+    const baseInitiative = parseComputation(
+      characterClass?.computed?.initiative ??
+        '[attribute.dexterity] + [skill.agility] + [attribute.perception] + [skill.detection]',
+      computationVariables
+    );
+
+    // check for perk enhancement
+    const perkInitiativeComputation = perks.find(perk => perk.computed?.initiative)?.computed
+      ?.initiative;
+    if (perkInitiativeComputation) {
+      return parseComputation(perkInitiativeComputation, {
+        base: baseInitiative,
+        ...computationVariables
+      });
+    }
+
+    return baseInitiative;
+  };
+
   const getItemWeight = () => {
     return items.reduce((sum, item) => sum + item.weight * item.quantity, 0);
   };
@@ -323,6 +343,7 @@ const useCurrentCharacter = () => {
     maxHitPoints: getMaxHitPoints(),
     maxClassPoints: getMaxClassPoints(),
     carryingCapacity: getCarryingCapacity(),
+    initiative: getInitiative(),
     maxSkillPointCount,
     maxAttributePointCount,
     maxClassAbilityCount,

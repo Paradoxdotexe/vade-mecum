@@ -48,6 +48,7 @@ const Popup = styled.div<{ $timeout: number }>`
 const FrozenScrollStyle = createGlobalStyle`
   body {
     overflow: hidden;
+    padding-right: 18px;
   }
 `;
 

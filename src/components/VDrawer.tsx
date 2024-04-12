@@ -63,6 +63,7 @@ const StyledVDrawerContainer = styled.div<{ $width: string }>`
 const FrozenScrollStyle = createGlobalStyle`
   body {
     overflow: hidden;
+    padding-right: 18px;
   }
 `;
 

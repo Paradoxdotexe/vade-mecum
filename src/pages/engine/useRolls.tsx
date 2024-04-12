@@ -2,11 +2,17 @@ import React, { ReactNode, useContext } from 'react';
 import { useLocalStorage } from '@/utils/useLocalStorage';
 import { useStateVersioner } from '@/utils/useStateVersioner';
 
+export enum RollEvaluation {
+  CHECK = 'CHECK',
+  SUM = 'SUM'
+}
+
 export type Roll = {
   characterKey: string;
   label: string;
   dice: number[];
   timestamp: string;
+  evaluation: RollEvaluation;
 };
 
 type RollsState = {
@@ -15,7 +21,7 @@ type RollsState = {
 };
 
 const DEFAULT_ROLLS_STATE: RollsState = {
-  version: '1.0',
+  version: '2.0',
   rolls: []
 };
 
