@@ -396,7 +396,7 @@ Monks can acquire other class abilities that harness their inner energy.
 | ---------------------- | ------------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **Reflexive**          | Passive      | Level 1     | You gain a second reaction during combat.                                                                                                                                                              |
 | **Pacifist Pacing**    | Passive      | Level 1     | Before you make your first attack in combat, you double your Movement Speed.                                                                                                                           |
-| **Inspire Zen**        | Bonus Action | Level 1     | You can make a Chi check to calm a group of people. On a success, you gain advantage on Speech checks against them equal to your Chi.                                                                  |
+| **Inspire Zen**        | Bonus Action | Level 1     | You can make a Chi check to calm a group of people. On a success, you gain advantage on Influence checks against them equal to your Chi.                                                               |
 | **Credence**           | Passive      | Level 6     | If you fail a skill check after using _Chi Surge_, you regain the lost Chi Point.                                                                                                                      |
 | **Karmic Retribution** | Passive      | Level 6     | Before you make your first attack in combat, all attacks made against you have -2 disadvantage.                                                                                                        |
 | **Spirit Walk**        | Bonus Action | Level 12    | You enter or leave the spirit plane. While in the spirit plane, you become intangible to all characters in the physical plane and the effect of Rough Terrain is nullified.                            |
@@ -489,7 +489,7 @@ Mages can acquire other class abilities that unlock new schools of magic and enh
 
 | Class Ability         | Type         | Requirement  | Description                                                                                                                                                                                                                                                                                                                                            |
 | --------------------- | ------------ | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Silent Mage**       | Passive      | Level 1      | When casting a spell, you can roll a Deception check to hide your casting. Characters can roll an Insight check against your Magic bonus to spot the casting.                                                                                                                                                                                          |
+| **Silent Mage**       | Passive      | Level 1      | When casting a spell, you can roll a Stealth check to hide your casting. Characters can roll an Insight check against your Magic bonus to spot the casting.                                                                                                                                                                                            |
 | **Magical Eminence**  | Passive      | Level 1      | Allies within 15ft of you have +1 advantage on attacks and deal an additional `1D6` damage.                                                                                                                                                                                                                                                            |
 | **Abjuration**        | Passive      | Level 1      | You unlock all spells from the School of Abjuration, giving the ability to defend yourself and your party.                                                                                                                                                                                                                                             |
 | **Mage Armor**        | Bonus Action | Abjuration   | You can spend 1 to 4 MP to surround you or another character in magical armor until your next Rest. Spend 1 MP for Light Armor, 2 MP for Medium Armor, and 4 MP for Heavy Armor.                                                                                                                                                                       |
@@ -565,44 +565,44 @@ Heralds often find themselves as the voice of reason, guiding their allies towar
 
 | Attribute | Skill         | Description                                           |
 | --------- | ------------- | ----------------------------------------------------- |
-| Charisma  | **Influence** | Persuade using logic, inspire allies, inhibit enemies |
+| Charisma  | **Diplomacy** | Influence using tact, inspire allies, inhibit enemies |
 
 ### Class Item
 
-Every Herald carries a _Beacon of Influence_ that enables them to sway the thoughts and actions of those around them.
-This Beacon of Influence is commonly a whistle, trumpet, or other instrument.
+Every Herald carries a _Beacon of Diplomacy_ that enables them to sway the thoughts and actions of those around them.
+This Beacon of Diplomacy is commonly an instrument, such as a flute or trumpet, or a treatise, such as a book or scroll.
 
-| Level | Beacon of Influence Effect |
+| Level | Beacon of Diplomacy Effect |
 | ----- | -------------------------- |
-| 1     | Influence +0               |
-| 6     | Influence +1               |
-| 12    | Influence +2               |
-| 18    | Influence +3               |
-| 24    | Influence +4               |
+| 1     | Diplomacy +0               |
+| 6     | Diplomacy +1               |
+| 12    | Diplomacy +2               |
+| 18    | Diplomacy +3               |
+| 24    | Diplomacy +4               |
 
 ### Class Abilities
 
-Heralds have access to a number of Influence Points, or IP, equal to their level.
-They also innately gain the _Influence_ Passive and _Influential Nature_ Passive, allowing them to inspire allies towards success or inhibit enemies towards failure.
+Heralds have access to a number of Diplomacy Points, or DP, equal to their level.
+They also innately gain the _Call for Diplomacy_ Passive and _Diplomatic Nature_ Passive, allowing them to inspire allies towards success or inhibit enemies towards failure.
 
-| Class Ability          | Type    | Description                                                                                                                                                                                                                                                                                                                  |
-| ---------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Influence Others**   | Passive | At any time, you can make an Influence check to force an enemy or ally to reroll a skill check. On a success, the target must reroll with advantage or disadvantage equal to the number of IP spent (minimum 1). On a stalemate, the target keeps their roll. On a failure, the target keeps their roll and you expend 1 IP. |
-| **Influential Nature** | Passive | You regain all of your missing Influence Points after a Rest.                                                                                                                                                                                                                                                                |
+| Class Ability          | Type    | Description                                                                                                                                                                                                                                                                                                                 |
+| ---------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Call for Diplomacy** | Passive | At any time, you can make a Diplomacy check to force an enemy or ally to reroll a skill check. On a success, the target must reroll with advantage or disadvantage equal to the number of DP spent (minimum 1). On a stalemate, the target keeps their roll. On a failure, the target keeps their roll and you expend 1 DP. |
+| **Diplomatic Nature**  | Passive | You regain all of your missing Diplomacy Points after a Rest.                                                                                                                                                                                                                                                               |
 
-Heralds can acquire other class abilities that enhance their influence over others.
+Heralds can acquire other class abilities that enhance their diplomatic influence over others.
 
-| Class Ability             | Type         | Requirement | Description                                                                                                                                                                                                                                                                       |
-| ------------------------- | ------------ | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Whisper**               | Passive      | Level 1     | You go unnoticed when influencing others.                                                                                                                                                                                                                                         |
-| **Captivating Speech**    | Bonus Action | Level 1     | You can roll an Influence check to captivate a group of people with a speech. On a success, spend 2 IP. All characters within 60ft are captivated by your speech, giving you and your allies +advantage on Speech and Deception checks made against them equal to your Influence. |
-| **Charming Presence**     | Bonus Action | Level 1     | You can roll an Influence check to charm those around you with your presence. On a success, spend 2 IP. All characters within 10ft become charmed by your presence, compelling them to obey any simple commands that do not harm themselves or others.                            |
-| **Combat Knowledge**      | Passive      | Level 6     | When you influence an ally to succeed on an attack roll, they deal an additional `1D6` damage.                                                                                                                                                                                    |
-| **Rallying Cry**          | Main Action  | Level 6     | You can make an Influence check to rally your allies in combat. On a success, you spend IP equal to the number of allies rallied and they all gain +1 advantage on attacks for 3 turns.                                                                                           |
-| **Psychological Warfare** | Passive      | Level 12    | When you influence an enemy to fail on an attack roll, they take `1D6` damage.                                                                                                                                                                                                    |
-| **Combat Guidance**       | Bonus Action | Level 12    | You can roll an Influence check to give an ally within 30ft guidance. On a success, that ally has advantage equal to your Influence on all attack checks for 1 turn.                                                                                                              |
-| **Student of Life**       | Passive      | Level 18    | On a failure to Influence Others, you gain 1 IP instead of losing 1 IP.                                                                                                                                                                                                           |
-| **Turncoat**              | Main Action  | Level 18    | You can make an Influence check against an enemy's Intuition to convince them to join your cause. On a success, you spend IP equal to the enemy's level and they change sides until the end of combat.                                                                            |
+| Class Ability             | Type         | Requirement | Description                                                                                                                                                                                                                                                                            |
+| ------------------------- | ------------ | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Whisper**               | Passive      | Level 1     | You go unnoticed when using Call for Diplomacy.                                                                                                                                                                                                                                        |
+| **Captivating Speech**    | Bonus Action | Level 1     | You can roll a Diplomacy check to captivate a group of people with a speech. On a success, spend 2 DP. All characters within 60ft are captivated by your speech, giving you and your allies advantage on Influence and Stealth checks made against them equal to your Diplomacy bonus. |
+| **Charming Presence**     | Bonus Action | Level 1     | You can roll a Diplomacy check to charm those around you with your presence. On a success, spend 2 DP. All characters within 10ft become charmed by your presence, compelling them to obey any simple commands that do not harm themselves or others.                                  |
+| **Combat Knowledge**      | Passive      | Level 6     | When you use Call for Diplomacy to make an ally succeed on an attack roll, they deal an additional `1D6` damage.                                                                                                                                                                       |
+| **Rallying Cry**          | Main Action  | Level 6     | You can make a Diplomacy check to rally your allies in combat. On a success, you spend DP equal to the number of allies rallied and they all gain +1 advantage on attacks for 3 turns.                                                                                                 |
+| **Psychological Warfare** | Passive      | Level 12    | When you use Call for Diplomacy to make an enemy fail on an attack roll, they take `1D6` damage.                                                                                                                                                                                       |
+| **Combat Guidance**       | Bonus Action | Level 12    | You can roll a Diplomacy check to give an ally within 30ft guidance. On a success, that ally has advantage equal to your Diplomacy on all attack checks for 1 turn.                                                                                                                    |
+| **Student of Life**       | Passive      | Level 18    | On a failure to Call for Diplomacy, you gain 1 DP instead of losing 1 DP.                                                                                                                                                                                                              |
+| **Turncoat**              | Main Action  | Level 18    | You can make a Diplomacy check against an enemy's Intuition to convince them to join your cause. On a success, you spend DP equal to the enemy's level and they change sides until the end of combat.                                                                                  |
 
 ## Enchanter
 
@@ -682,7 +682,7 @@ They also innately gain the _Ritual of Guidance_ Rest Activity and all class abi
 | Class Ability          | Type          | Description                                                                                                                                                                                                        |
 | ---------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **Ritual of Guidance** | Rest Activity | You cast a ritual to call upon nature to guide you on your journey. Until your next rest, you have access to all class abilities granted by Ritual of Guidance. You regain all of your missing Nature Points.      |
-| **Natural Charisma**   | Passive       | While Ritual of Guidance is in effect, you gain advantage on Speech checks equal to your Nature bonus.                                                                                                             |
+| **Natural Charisma**   | Passive       | While Ritual of Guidance is in effect, you gain advantage on Influence checks equal to your Nature bonus.                                                                                                          |
 | **Nature's Tongue**    | Passive       | While Ritual of Guidance is in effect, you can communicate with nature's beasts through their unique visual and auditory cues. Communication is effectively limited to basic one-word messages.                    |
 | **Veil of Mist**       | Bonus Action  | While Ritual of Guidance is in effect, you can spend 1 NP to create a dense mist that masks your movements. You and all characters within 15ft of you have advantage on Stealth checks equal to your Nature bonus. |
 | **Freezing Touch**     | Main Action   | While Ritual of Guidance is in effect, you can roll a Nature check to freeze a target within 5ft. On a success, spend 2 NP. The target is frozen for 2 turns or 12 seconds.                                        |

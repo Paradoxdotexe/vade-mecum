@@ -274,7 +274,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Inspire Zen',
           type: ClassAbilityType.BONUS_ACTION,
           description:
-            'You can make a Chi check to calm a group of people. On a success, you gain advantage on Speech checks against them equal to your Chi.',
+            'You can make a Chi check to calm a group of people. On a success, you gain advantage on Influence checks against them equal to your Chi.',
           requirement: 1
         },
         {
@@ -475,7 +475,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Silent Mage',
           type: ClassAbilityType.PASSIVE,
           description:
-            'When casting a spell, you can roll a Deception check to hide your casting. Characters can roll an Insight check against your Magic bonus to spot the casting.',
+            'When casting a spell, you can roll a Stealth check to hide your casting. Characters can roll an Insight check against your Magic bonus to spot the casting.',
           requirement: 1
         },
         {
@@ -727,29 +727,29 @@ const VALE_OF_MYTHS: WorldKit = {
     herald: {
       label: 'Herald',
       attributeKey: 'charisma',
-      skillKey: 'influence',
-      classItemLabel: 'Beacon of Influence',
+      skillKey: 'diplomacy',
+      classItemLabel: 'Beacon of Diplomacy',
       classAbilities: [
         {
-          key: 'influence_others',
-          name: 'Influence Others',
+          key: 'call_for_diplomacy',
+          name: 'Call for Diplomacy',
           type: ClassAbilityType.PASSIVE,
           description:
-            'At any time, you can make an Influence check to force an enemy or ally to reroll a skill check. On a success, the target must reroll with advantage or disadvantage equal to the number of IP spent (minimum 1). On a stalemate, the target keeps their roll. On a failure, the target keeps their roll and you expend 1 IP.',
+            'At any time, you can make a Diplomacy check to force an enemy or ally to reroll a skill check. On a success, the target must reroll with advantage or disadvantage equal to the number of DP spent (minimum 1). On a stalemate, the target keeps their roll. On a failure, the target keeps their roll and you expend 1 DP.',
           requirement: 'INNATE'
         },
         {
-          key: 'influential_nature',
-          name: 'Influential Nature',
+          key: 'diplomatic_nature',
+          name: 'Diplomatic Nature',
           type: ClassAbilityType.PASSIVE,
-          description: 'You regain of your missing Influence Points after a Rest.',
+          description: 'You regain all of your missing Diplomacy Points after a Rest.',
           requirement: 'INNATE'
         },
         {
           key: 'whisper',
           name: 'Whisper',
           type: ClassAbilityType.PASSIVE,
-          description: 'You go unnoticed when influencing others.',
+          description: 'You go unnoticed when using Call for Diplomacy.',
           requirement: 1
         },
         {
@@ -757,7 +757,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Captivating Speech',
           type: ClassAbilityType.BONUS_ACTION,
           description:
-            'You can roll an Influence check to captivate a group of people with a speech. On a success, spend 2 IP. All characters within 60ft are captivated by your speech, giving you and your allies +advantage on Speech and Deception checks made against them equal to your Influence.',
+            'You can roll a Diplomacy check to captivate a group of people with a speech. On a success, spend 2 DP. All characters within 60ft are captivated by your speech, giving you and your allies advantage on Influence and Stealth checks made against them equal to your Diplomacy bonus.',
           requirement: 1
         },
         {
@@ -765,7 +765,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Charming Presence',
           type: ClassAbilityType.BONUS_ACTION,
           description:
-            'You can roll an Influence check to charm those around you with your presence. On a success, spend 2 IP. All characters within 10ft become charmed by your presence, compelling them to obey any simple commands that do not harm themselves or others.',
+            'You can roll a Diplomacy check to charm those around you with your presence. On a success, spend 2 DP. All characters within 10ft become charmed by your presence, compelling them to obey any simple commands that do not harm themselves or others.',
           requirement: 1
         },
         {
@@ -773,7 +773,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Combat Knowledge',
           type: ClassAbilityType.PASSIVE,
           description:
-            'When you influence an ally to succeed on an attack roll, they deal an additional 1D6 damage.',
+            'When you use Call for Diplomacy to make an ally succeed on an attack roll, they deal an additional 1D6 damage.',
           requirement: 6
         },
         {
@@ -781,7 +781,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Rallying Cry',
           type: ClassAbilityType.MAIN_ACTION,
           description:
-            'You can make an Influence check to rally your allies in combat. On a success, you spend IP equal to the number of allies rallied and they all gain +1 advantage on attacks for 3 turns.',
+            'You can make a Diplomacy check to rally your allies in combat. On a success, you spend DP equal to the number of allies rallied and they all gain +1 advantage on attacks for 3 turns.',
           requirement: 6
         },
         {
@@ -789,7 +789,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Psychological Warfare',
           type: ClassAbilityType.PASSIVE,
           description:
-            'When you influence an enemy to fail on an attack roll, they take 1D6 damage.',
+            'When you use Call for Diplomacy to make an enemy fail on an attack roll, they take 1D6 damage.',
           requirement: 12
         },
         {
@@ -797,14 +797,14 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Combat Guidance',
           type: ClassAbilityType.BONUS_ACTION,
           description:
-            'You can roll an Influence check to give an ally within 30ft guidance. On a success, that ally has advantage equal to your Influence on all attack checks for 1 turn.',
+            'You can roll a Diplomacy check to give an ally within 30ft guidance. On a success, that ally has advantage equal to your Diplomacy on all attack checks for 1 turn.',
           requirement: 12
         },
         {
           key: 'student_of_life',
           name: 'Student of Life',
           type: ClassAbilityType.PASSIVE,
-          description: 'On a failure to Influence Others, you gain 1 IP instead of losing 1 IP.',
+          description: 'On a failure to Call for Diplomacy, you gain 1 DP instead of losing 1 DP.',
           requirement: 18
         },
         {
@@ -812,7 +812,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Turncoat',
           type: ClassAbilityType.MAIN_ACTION,
           description:
-            "You can make an Influence check against an enemy's Intuition to convince them to join your cause. On a success, you spend IP equal to the enemy's level and they change sides until the end of combat.",
+            "You can make a Diplomacy check against an enemy's Intuition to convince them to join your cause. On a success, you spend DP equal to the enemy's level and they change sides until the end of combat.",
           requirement: 18
         }
       ],
@@ -939,7 +939,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Natural Charisma',
           type: ClassAbilityType.PASSIVE,
           description:
-            'While Ritual of Guidance is in effect, you gain advantage on Speech checks equal to your Nature bonus.',
+            'While Ritual of Guidance is in effect, you gain advantage on Influence checks equal to your Nature bonus.',
           requirement: 'INNATE'
         },
         {
