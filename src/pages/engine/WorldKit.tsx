@@ -34,12 +34,18 @@ type ClassAbility = {
 
 export type InventoryItemType = 'WEAPON' | 'ARMOR' | 'TOOL';
 
-type InventoryItem = {
+export type InventoryItem = {
   type?: InventoryItemType;
   name: string;
-  description: string;
   cost: number;
   weight: number;
+  bonus?: {
+    attributeKey: AttributeKey;
+    skillKey: string;
+    skillBonus: number;
+  };
+  damage?: number;
+  notes?: string;
 };
 
 type WorldKit = {
@@ -148,7 +154,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Rampage',
           type: ClassAbilityType.BONUS_ACTION,
           description:
-            'You can make a Rage check to throw a Very Heavy item within 5 feet at an enemy within 30 feet. On a success, the target is hit and takes 2d6 damage.',
+            'You can make a Rage check to throw a Very Heavy item within 5 feet at an enemy within 30 feet. On a success, the target is hit and takes 2D6 damage.',
           requirement: 'INNATE'
         },
         {
@@ -531,7 +537,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Wall of Fire',
           type: ClassAbilityType.MAIN_ACTION,
           description:
-            'You can roll a Magic check to create a wall of fire that covers a 5ft x 30ft area within 30ft until the end of combat. On a success, spend 3 MP. The wall blocks line of sight for ranged attacks and any character hit by the fire must make a Fortitude check against your Magic bonus, taking 3d6 damage on a success and 6d6 damage otherwise.',
+            'You can roll a Magic check to create a wall of fire that covers a 5ft x 30ft area within 30ft until the end of combat. On a success, spend 3 MP. The wall blocks line of sight for ranged attacks and any character hit by the fire must make a Fortitude check against your Magic bonus, taking 3D6 damage on a success and 6D6 damage otherwise.',
           requirement: 'elementalism'
         },
         {
@@ -539,7 +545,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Tidal Wave',
           type: ClassAbilityType.MAIN_ACTION,
           description:
-            'You can roll a Magic check to create a tidal wave of water that hits a 15ft x 30ft area within 30ft. On a success, spend 4 MP. Any character hit by the wave must make a Fortitude check against your Magic bonus, taking 2d6 damage on a success and 4d6 damage otherwise.',
+            'You can roll a Magic check to create a tidal wave of water that hits a 15ft x 30ft area within 30ft. On a success, spend 4 MP. Any character hit by the wave must make a Fortitude check against your Magic bonus, taking 2D6 damage on a success and 4D6 damage otherwise.',
           requirement: 'elementalism'
         },
         {
@@ -547,7 +553,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Sink Hole',
           type: ClassAbilityType.MAIN_ACTION,
           description:
-            'You can roll a Magic check to crumble the earth in a 30ft x 30ft area within 30ft. On a success, spend 6 MP. All characters caught within the area must make an Agility check against your Magic bonus, taking 3d6 damage on a success and 6d6 damage otherwise. The area becomes Rough Terrain until the end of combat.',
+            'You can roll a Magic check to crumble the earth in a 30ft x 30ft area within 30ft. On a success, spend 6 MP. All characters caught within the area must make an Agility check against your Magic bonus, taking 3D6 damage on a success and 6D6 damage otherwise. The area becomes Rough Terrain until the end of combat.',
           requirement: 'elementalism'
         },
         {
@@ -571,7 +577,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Necrotic Touch',
           type: ClassAbilityType.MAIN_ACTION,
           description:
-            'You can roll a Magic check to steal the life force from an enemy within 5ft. On a success, spend 3 MP. The enemy takes 3d6 damage.',
+            'You can roll a Magic check to steal the life force from an enemy within 5ft. On a success, spend 3 MP. The enemy takes 3D6 damage.',
           requirement: 'necromancy'
         },
         {
@@ -579,7 +585,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Life Steal',
           type: ClassAbilityType.MAIN_ACTION,
           description:
-            'You can roll a Magic check to steal the life force from an enemy within 5ft. On a success, spend 6 MP. The enemy takes 4d6 damage and you heal 2d6 hit points.',
+            'You can roll a Magic check to steal the life force from an enemy within 5ft. On a success, spend 6 MP. The enemy takes 4D6 damage and you heal 2D6 hit points.',
           requirement: 'necromancy'
         },
         {
@@ -1268,170 +1274,248 @@ const VALE_OF_MYTHS: WorldKit = {
   items: {
     currency: {
       name: 'Valerian Pieces',
-      description: '',
       cost: 1,
       weight: 1 / 20
     },
     dagger: {
       type: 'WEAPON',
       name: 'Dagger',
-      description: '+1 Power to attack, 1d6 damage, 5ft range',
       cost: 5,
-      weight: 1 / 2
+      weight: 1 / 2,
+      bonus: {
+        attributeKey: 'strength',
+        skillKey: 'power',
+        skillBonus: 1
+      },
+      damage: 1,
+      notes: '5ft range'
     },
     shortsword: {
       type: 'WEAPON',
       name: 'Shortsword',
-      description: '+1 Power to attack, 2d6 damage, 5ft range',
       cost: 20,
-      weight: 1
+      weight: 1,
+      bonus: {
+        attributeKey: 'strength',
+        skillKey: 'power',
+        skillBonus: 1
+      },
+      damage: 2,
+      notes: '5ft range'
     },
     longsword: {
       type: 'WEAPON',
       name: 'Longsword',
-      description: '+2 Power to attack, 3d6 damage, 5ft range',
       cost: 100,
-      weight: 2
+      weight: 2,
+      bonus: {
+        attributeKey: 'strength',
+        skillKey: 'power',
+        skillBonus: 2
+      },
+      damage: 3,
+      notes: '5ft range'
     },
     greatsword: {
       type: 'WEAPON',
       name: 'Greatsword',
-      description: '+3 Power to attack, 4d6 damage, 5ft range',
       cost: 200,
-      weight: 2
+      weight: 2,
+      bonus: {
+        attributeKey: 'strength',
+        skillKey: 'power',
+        skillBonus: 3
+      },
+      damage: 4,
+      notes: '5ft range'
     },
     shortbow: {
       type: 'WEAPON',
       name: 'Shortbow',
-      description: '+1 Precision to attack, 1d6 damage, 60ft range',
       cost: 20,
-      weight: 2
+      weight: 2,
+      bonus: {
+        attributeKey: 'dexterity',
+        skillKey: 'precision',
+        skillBonus: 1
+      },
+      damage: 1,
+      notes: '60ft range'
     },
     crossbow: {
       type: 'WEAPON',
       name: 'Crossbow',
-      description: '+2 Precision to attack, 2d6 damage, 60ft range',
       cost: 100,
-      weight: 2
+      weight: 2,
+      bonus: {
+        attributeKey: 'dexterity',
+        skillKey: 'precision',
+        skillBonus: 2
+      },
+      damage: 2,
+      notes: '60ft range'
     },
     longbow: {
       type: 'WEAPON',
       name: 'Longbow',
-      description: '+3 Precision to attack, 3d6 damage, 90ft range',
       cost: 200,
-      weight: 2
+      weight: 2,
+      bonus: {
+        attributeKey: 'dexterity',
+        skillKey: 'precision',
+        skillBonus: 3
+      },
+      damage: 3,
+      notes: '90ft range'
     },
     blessed_blunderbuss: {
       type: 'WEAPON',
       name: 'Blessed Blunderbuss',
-      description: '+1 Precision to attack, 2d6 damage, 15ft range',
       cost: 20,
-      weight: 1 / 2
+      weight: 1 / 2,
+      bonus: {
+        attributeKey: 'dexterity',
+        skillKey: 'precision',
+        skillBonus: 1
+      },
+      damage: 2,
+      notes: '15ft range'
     },
     frost_flintlock: {
       type: 'WEAPON',
       name: 'Frost Flintlock',
-      description: '+2 Precision to attack, 3d6 damage, 30ft range',
       cost: 100,
-      weight: 1 / 2
+      weight: 1 / 2,
+      bonus: {
+        attributeKey: 'dexterity',
+        skillKey: 'precision',
+        skillBonus: 2
+      },
+      damage: 3,
+      notes: '30ft range'
     },
     radiant_revolver: {
       type: 'WEAPON',
       name: 'Radiant Revolver',
-      description: '+3 Precision to attack, 3d6 damage, 60ft range',
       cost: 200,
-      weight: 1 / 2
+      weight: 1 / 2,
+      bonus: {
+        attributeKey: 'dexterity',
+        skillKey: 'precision',
+        skillBonus: 3
+      },
+      damage: 3,
+      notes: '60ft range'
     },
     resonant_repeater: {
       type: 'WEAPON',
       name: 'Resonant Repeater',
-      description: '+3 Precision to attack, 4d6 damage, 60ft range',
       cost: 400,
-      weight: 1
+      weight: 1,
+      bonus: {
+        attributeKey: 'dexterity',
+        skillKey: 'precision',
+        skillBonus: 3
+      },
+      damage: 4,
+      notes: '60ft range'
     },
     leather_armor: {
       type: 'ARMOR',
       name: 'Leather Armor',
-      description: 'Light armor',
       cost: 20,
-      weight: 0
+      weight: 0,
+      notes: 'Light armor'
     },
     chainmail_armor: {
       type: 'ARMOR',
       name: 'Chainmail Armor',
-      description: 'Medium armor',
       cost: 100,
-      weight: 0
+      weight: 0,
+      notes: 'Medium armor'
     },
     plate_armor: {
       type: 'ARMOR',
       name: 'Plate Armor',
-      description: 'Heavy armor',
       cost: 200,
-      weight: 0
+      weight: 0,
+      notes: 'Heavy armor'
     },
     arcane_aegis_armor: {
       type: 'ARMOR',
       name: 'Arcane Aegis Armor',
-      description: 'Light armor',
       cost: 20,
-      weight: 0
+      weight: 0,
+      notes: 'Light armor'
     },
     mystic_mail_armor: {
       type: 'ARMOR',
       name: 'Mystic Mail Armor',
-      description: 'Medium armor',
       cost: 100,
-      weight: 0
+      weight: 0,
+      notes: 'Medium armor'
     },
     eldritch_exo_armor: {
       type: 'ARMOR',
       name: 'Eldritch Exo Armor',
-      description: 'Heavy armor',
       cost: 200,
-      weight: 0
+      weight: 0,
+      notes: 'Heavy armor'
     },
     rope: {
       type: 'TOOL',
       name: 'Rope',
-      description: '+1 Athletics to climb',
       cost: 5,
-      weight: 1
+      weight: 1 / 2,
+      bonus: {
+        attributeKey: 'strength',
+        skillKey: 'athletics',
+        skillBonus: 1
+      }
     },
-    grappling_hook: {
+    rope_and_grappling_hook: {
       type: 'TOOL',
-      name: 'Grappling Hook',
-      description: '+1 Athletics to climb',
-      cost: 5,
-      weight: 1 / 2
-    },
-    lantern: {
-      type: 'TOOL',
-      name: 'Lantern',
-      description: '+1 Investigation/Detection to search',
-      cost: 5,
-      weight: 1 / 2
+      name: 'Rope and Grappling Hook',
+      cost: 20,
+      weight: 1 / 2,
+      bonus: {
+        attributeKey: 'strength',
+        skillKey: 'athletics',
+        skillBonus: 2
+      }
     },
     medical_pouch: {
       type: 'TOOL',
       name: 'Medical Pouch',
-      description: '+1 Medicine to heal or stabilize',
       cost: 20,
-      weight: 1 / 2
+      weight: 1 / 2,
+      bonus: {
+        attributeKey: 'intelligence',
+        skillKey: 'medicine',
+        skillBonus: 1
+      }
     },
     tool_belt: {
       type: 'TOOL',
       name: 'Tool Belt',
-      description: '+1 Innovation to repair or craft',
       cost: 20,
-      weight: 1
+      weight: 1,
+      bonus: {
+        attributeKey: 'intelligence',
+        skillKey: 'innovation',
+        skillBonus: 1
+      }
     },
     world_map: {
       type: 'TOOL',
       name: 'World Map',
-      description: '+1 Insight to interpret a location or path',
       cost: 5,
-      weight: 1 / 4
+      weight: 1 / 4,
+      bonus: {
+        attributeKey: 'perception',
+        skillKey: 'insight',
+        skillBonus: 1
+      }
     }
   }
 };

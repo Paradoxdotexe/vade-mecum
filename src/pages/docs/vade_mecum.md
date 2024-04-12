@@ -194,7 +194,7 @@ As such, perks give characters a way to accentuate their strengths in ways that 
 | Dexterity    | **Lone Wolf**        | Stealth 2       | You double your Stealth bonus on skill checks while on your own.                                                             |
 | Dexterity    | **Assassin**         | Stealth 3       | When an enemy is surprised, you can make a weapon attack with advantage equivalent to your Stealth.                          |
 | Dexterity    | **Escapist**         | Agility 1       | You double your Agility bonus on skill checks to escape someone or a situation.                                              |
-| Dexterity    | **Evasion**          | Agility 2       | Opportunity attacks on you have disadvantage equivalent to your Evasion.                                                     |
+| Dexterity    | **Untouchable**      | Agility 2       | Opportunity attacks on you have disadvantage equivalent to your Agility.                                                     |
 | Dexterity    | **Fleet Foot**       | Agility 3       | You are not impeded by Rough Terrain.                                                                                        |
 | Intelligence | **Book Worm**        | Comprehension 1 | You double your Comprehension bonus on skill checks to comprehend written information.                                       |
 | Intelligence | **Linguist**         | Comprehension 2 | You double your Comprehension bonus on skill checks to comprehend a foreign language.                                        |
@@ -556,10 +556,9 @@ Weapons, additionally, will specify the attack range and the amount of damage de
 | Item              | Rarity    | Cost    | Size     | Description                               |
 | ----------------- | --------- | ------- | -------- | ----------------------------------------- |
 | **Rope**          | Common    | 5 pcs   | 1 slot   | +1 Athletics to climb                     |
-| **Lantern**       | Common    | 5 pcs   | 1/2 slot | +1 Investigation/Detection to search      |
 | **Medical Pouch** | Average   | 20 pcs  | 1/2 slot | +1 Medicine to heal                       |
-| **Shortsword**    | Average   | 20 pcs  | 1 slot   | +1 Power to attack, 2d6 damage, 5ft range |
-| **Greatsword**    | Very Rare | 200 pcs | 2 slots  | +3 Power to attack, 4d6 damage, 5ft range |
+| **Shortsword**    | Average   | 20 pcs  | 1 slot   | +1 Power to attack, 2D6 damage, 5ft range |
+| **Greatsword**    | Very Rare | 200 pcs | 2 slots  | +3 Power to attack, 4D6 damage, 5ft range |
 
 When using a tool or weapon, a failed skill check will result in the item taking damage.
 Damage results in the item's advantage modifier decreasing by one.

@@ -15,7 +15,7 @@ type CharactersState = {
 };
 
 const DEFAULT_CHARACTERS_STATE: CharactersState = {
-  version: '5.0',
+  version: '6.0',
   characters: { [DEFAULT_CHARACTER.key]: structuredClone(DEFAULT_CHARACTER) },
   currentCharacterKey: DEFAULT_CHARACTER.key
 };
@@ -135,10 +135,14 @@ const useCurrentCharacter = () => {
   const maxClassAbilityCount = 1 + Math.floor(character.level / 3);
   const maxPerkCount = 1 + Math.floor(character.level / 2);
 
-  const items = character.itemQuantities.map(item => ({
-    ...item,
-    ...WORLD_KITS.vale_of_myths.items[item.key]
-  }));
+  const items = character.itemQuantities.map(({ key, quantity }) => {
+    const item = WORLD_KITS.vale_of_myths.items[key];
+    return {
+      key,
+      quantity,
+      ...item
+    };
+  });
 
   const computationVariables = useMemo(() => {
     const computationVariables: { [key: string]: number } = {

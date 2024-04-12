@@ -77,7 +77,6 @@ const Page = styled.div`
       flex-direction: column;
       justify-content: space-between;
       box-shadow: -3px 6px 12px rgba(0, 0, 0, 0.1);
-      width: 248px;
       background: #2c2c2c;
 
       .rollLog__header {
@@ -113,12 +112,13 @@ const Page = styled.div`
           flex-direction: column-reverse;
           align-items: center;
           gap: 24px;
-          padding: 24px;
+          padding: 24px 6px;
           border-bottom: 1px solid #585858;
           width: 100%;
           overflow-y: auto;
           overflow-x: hidden;
           scrollbar-gutter: stable both-edges;
+          min-width: 282px;
 
           > div {
             flex-shrink: 0;

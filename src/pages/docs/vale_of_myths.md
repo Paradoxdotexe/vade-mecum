@@ -339,9 +339,9 @@ This Tribal Marking is commonly a sacred tattoo, branding, or carving etched on 
 
 Barbarians innately gain the _Rampage_ Bonus Action, allowing them to attack again by destroying their environment.
 
-| Class Ability | Type         | Description                                                                                                                                          |
-| ------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Rampage**   | Bonus Action | You can make a Rage check to throw a Very Heavy item within 5 feet at an enemy within 30 feet. On a success, the target is hit and takes 2d6 damage. |
+| Class Ability | Type         | Description                                                                                                                                            |
+| ------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Rampage**   | Bonus Action | You can make a Rage check to throw a Very Heavy item within 5 feet at an enemy within 30 feet. On a success, the target is hit and takes `2D6` damage. |
 
 Barbarians can acquire other class abilities that use their rage to cause havoc.
 
@@ -496,13 +496,13 @@ Mages can acquire other class abilities that unlock new schools of magic and enh
 | **Magic Shield**      | Reaction     | Abjuration   | When you or another character is hit by an attack, you can roll a Magic check to shield them from the hit. On a success, you reduce the damage by `2D6` for each MP spent.                                                                                                                                                                             |
 | **Magical Discharge** | Passive      | Level 6      | After consuming your last Magic Point, you can discharge your residual magic energy into a single attack. This attack deals an additional D6 for each Magic Point spent since your last Rest.                                                                                                                                                          |
 | **Elementalism**      | Passive      | Level 6      | You unlock all spells from the School of Elementalism, giving the ability to wield the natural elements.                                                                                                                                                                                                                                               |
-| **Wall of Fire**      | Main Action  | Elementalism | You can roll a Magic check to create a wall of fire that covers a 5ft x 30ft area within 30ft until the end of combat. On a success, spend 3 MP. The wall blocks line of sight for ranged attacks and any character hit by the fire must make a Fortitude check against your Magic bonus, taking `3d6` damage on a success and `6d6` damage otherwise. |
-| **Tidal Wave**        | Main Action  | Elementalism | You can roll a Magic check to create a tidal wave of water that hits a 15ft x 30ft area within 30ft. On a success, spend 4 MP. Any character hit by the wave must make a Fortitude check against your Magic bonus, taking `2d6` damage on a success and `4d6` damage otherwise.                                                                        |
-| **Sink Hole**         | Main Action  | Elementalism | You can roll a Magic check to crumble the earth in a 30ft x 30ft area within 30ft. On a success, spend 6 MP. All characters caught within the area must make an Agility check against your Magic bonus, taking `3d6` damage on a success and `6d6` damage otherwise. The area becomes Rough Terrain until the end of combat.                           |
+| **Wall of Fire**      | Main Action  | Elementalism | You can roll a Magic check to create a wall of fire that covers a 5ft x 30ft area within 30ft until the end of combat. On a success, spend 3 MP. The wall blocks line of sight for ranged attacks and any character hit by the fire must make a Fortitude check against your Magic bonus, taking `3D6` damage on a success and `6D6` damage otherwise. |
+| **Tidal Wave**        | Main Action  | Elementalism | You can roll a Magic check to create a tidal wave of water that hits a 15ft x 30ft area within 30ft. On a success, spend 4 MP. Any character hit by the wave must make a Fortitude check against your Magic bonus, taking `2D6` damage on a success and `4D6` damage otherwise.                                                                        |
+| **Sink Hole**         | Main Action  | Elementalism | You can roll a Magic check to crumble the earth in a 30ft x 30ft area within 30ft. On a success, spend 6 MP. All characters caught within the area must make an Agility check against your Magic bonus, taking `3D6` damage on a success and `6D6` damage otherwise. The area becomes Rough Terrain until the end of combat.                           |
 | **Magical Recharge**  | Passive      | Level 12     | Once per Rest, you can recharge your magic by focusing your remaining Magic Points. You regain `1D6` Magic Points for each Magic Point remaining.                                                                                                                                                                                                      |
 | **Necromancy**        | Passive      | Level 12     | You unlock all spells from the School of Necromancy, giving the ability to wield vitality and death.                                                                                                                                                                                                                                                   |
-| **Necrotic Touch**    | Main Action  | Necromancy   | You can roll a Magic check to steal the life force from an enemy within 5ft. On a success, spend 3 MP. The enemy takes `3d6` damage.                                                                                                                                                                                                                   |
-| **Life Steal**        | Main Action  | Necromancy   | You can roll a Magic check to steal the life force from an enemy within 5ft. On a success, spend 6 MP. The enemy takes `4d6` damage and you heal `2d6` hit points.                                                                                                                                                                                     |
+| **Necrotic Touch**    | Main Action  | Necromancy   | You can roll a Magic check to steal the life force from an enemy within 5ft. On a success, spend 3 MP. The enemy takes `3D6` damage.                                                                                                                                                                                                                   |
+| **Life Steal**        | Main Action  | Necromancy   | You can roll a Magic check to steal the life force from an enemy within 5ft. On a success, spend 6 MP. The enemy takes `4D6` damage and you heal `2D6` hit points.                                                                                                                                                                                     |
 | **Revival**           | Main Action  | Necromancy   | You can spend 12 MP to revive a character that has been dead for less than 24 hours. The revived character has one attribute permanently reduced by 1.                                                                                                                                                                                                 |
 | **War Mage**          | Passive      | Level 18     | You can cast any spell that requires a Main Action as a Bonus Action with -1 disadvantage.                                                                                                                                                                                                                                                             |
 | **Chronomancy**       | Passive      | Level 18     | You unlock all spells from the School of Chronomancy, giving the ability to wield the flow of time.                                                                                                                                                                                                                                                    |
@@ -771,17 +771,17 @@ In _Vale of Myths_, valerian pieces (abbreviated as "pcs") are the main denomina
 
 | Item                    | Rarity    | Cost    | Size     | Description                                    |
 | ----------------------- | --------- | ------- | -------- | ---------------------------------------------- |
-| **Dagger**              | Common    | 5 pcs   | 1/2 slot | +1 Power to attack, 1d6 damage, 5ft range      |
-| **Shortsword**          | Average   | 20 pcs  | 1 slot   | +1 Power to attack, 2d6 damage, 5ft range      |
-| **Longsword**           | Rare      | 100 pcs | 2 slots  | +2 Power to attack, 3d6 damage, 5ft range      |
-| **Greatsword**          | Very Rare | 200 pcs | 2 slots  | +3 Power to attack, 4d6 damage, 5ft range      |
-| **Shortbow**            | Average   | 20 pcs  | 2 slots  | +1 Precision to attack, 1d6 damage, 60ft range |
-| **Crossbow**            | Rare      | 100 pcs | 2 slots  | +2 Precision to attack, 2d6 damage, 60ft range |
-| **Longbow**             | Very Rare | 200 pcs | 2 slots  | +3 Precision to attack, 3d6 damage, 90ft range |
-| **Blessed Blunderbuss** | Average   | 20 pcs  | 1/2 slot | +1 Precision to attack, 2d6 damage, 15ft range |
-| **Frost Flintlock**     | Rare      | 100 pcs | 1/2 slot | +2 Precision to attack, 3d6 damage, 30ft range |
-| **Radiant Revolver**    | Very Rare | 200 pcs | 1/2 slot | +3 Precision to attack, 3d6 damage, 60ft range |
-| **Resonant Repeater**   | Legendary | 400 pcs | 1 slot   | +3 Precision to attack, 4d6 damage, 90ft range |
+| **Dagger**              | Common    | 5 pcs   | 1/2 slot | +1 Power to attack, 1D6 damage, 5ft range      |
+| **Shortsword**          | Average   | 20 pcs  | 1 slot   | +1 Power to attack, 2D6 damage, 5ft range      |
+| **Longsword**           | Rare      | 100 pcs | 2 slots  | +2 Power to attack, 3D6 damage, 5ft range      |
+| **Greatsword**          | Very Rare | 200 pcs | 2 slots  | +3 Power to attack, 4D6 damage, 5ft range      |
+| **Shortbow**            | Average   | 20 pcs  | 2 slots  | +1 Precision to attack, 1D6 damage, 60ft range |
+| **Crossbow**            | Rare      | 100 pcs | 2 slots  | +2 Precision to attack, 2D6 damage, 60ft range |
+| **Longbow**             | Very Rare | 200 pcs | 2 slots  | +3 Precision to attack, 3D6 damage, 90ft range |
+| **Blessed Blunderbuss** | Average   | 20 pcs  | 1/2 slot | +1 Precision to attack, 2D6 damage, 15ft range |
+| **Frost Flintlock**     | Rare      | 100 pcs | 1/2 slot | +2 Precision to attack, 3D6 damage, 30ft range |
+| **Radiant Revolver**    | Very Rare | 200 pcs | 1/2 slot | +3 Precision to attack, 3D6 damage, 60ft range |
+| **Resonant Repeater**   | Legendary | 400 pcs | 1 slot   | +3 Precision to attack, 4D6 damage, 90ft range |
 
 ## Armor
 
@@ -796,11 +796,10 @@ In _Vale of Myths_, valerian pieces (abbreviated as "pcs") are the main denomina
 
 ## Tools
 
-| Item               | Rarity  | Cost   | Size     | Description                                |
-| ------------------ | ------- | ------ | -------- | ------------------------------------------ |
-| **Rope**           | Common  | 5 pcs  | 1 slot   | +1 Athletics to climb                      |
-| **Grappling Hook** | Common  | 5 pcs  | 1/2 slot | +1 Athletics to climb                      |
-| **Lantern**        | Common  | 5 pcs  | 1/2 slot | +1 Investigation/Detection to search       |
-| **Medical Pouch**  | Average | 20 pcs | 1/2 slot | +1 Medicine to heal or stabilize           |
-| **Tool Belt**      | Average | 20 pcs | 1 slot   | +1 Innovation to repair or craft           |
-| **World Map**      | Common  | 5 pcs  | 1/4 slot | +1 Insight to interpret a location or path |
+| Item                      | Rarity  | Cost   | Size     | Description                                |
+| ------------------------- | ------- | ------ | -------- | ------------------------------------------ |
+| **Rope**                  | Common  | 5 pcs  | 1/2 slot | +1 Athletics to climb                      |
+| **Rope & Grappling Hook** | Average | 20 pcs | 1 slot   | +2 Athletics to climb                      |
+| **Medical Pouch**         | Average | 20 pcs | 1/2 slot | +1 Medicine to heal or stabilize           |
+| **Tool Belt**             | Average | 20 pcs | 1 slot   | +1 Innovation to repair or craft           |
+| **World Map**             | Common  | 5 pcs  | 1/4 slot | +1 Insight to interpret a location or path |

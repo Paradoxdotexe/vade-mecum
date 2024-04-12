@@ -9,7 +9,7 @@ import { RollEvaluation } from './useRolls';
 const StyledRollCard = styled(VCard)`
   display: flex;
   flex-direction: column;
-  width: 200px;
+  width: 234px;
   overflow: hidden;
   font-size: 14px;
   padding: 0;
@@ -22,7 +22,7 @@ const StyledRollCard = styled(VCard)`
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-    font-size: 12px;
+    font-size: 13px;
   }
 
   .card__body {
@@ -130,10 +130,7 @@ export const RollCard: React.FC<RollCardProps> = props => {
       () => {
         rollSound.play();
 
-        const newDice = [...new Array(total)].map(() => rollDie());
-        if (props.evaluation === RollEvaluation.CHECK) {
-          newDice.sort((a, b) => b - a);
-        }
+        const newDice = [...new Array(total)].map(() => rollDie()).sort((a, b) => b - a);
 
         setDice(newDice);
         props.onRoll?.(newDice);
@@ -203,10 +200,7 @@ export const RollCard: React.FC<RollCardProps> = props => {
                 key={i}
                 className={`dice__die ${outcome && props.evaluation === RollEvaluation.CHECK && i > 0 ? 'die--ignored' : undefined}`}
                 style={{
-                  background:
-                    props.evaluation === RollEvaluation.CHECK
-                      ? outcome?.color
-                      : DIE_OUTCOMES.success.color
+                  background: outcome?.color
                 }}
               >
                 {die ?? '?'}
@@ -256,6 +250,7 @@ const DiceFactorInput: React.FC<DiceFactorInputProps> = props => {
         onChange={props.onChange}
         max={props.max}
         disabled={props.disabled}
+        size={22}
       />
       <div className="factor__label">{props.label}</div>
     </StyledDiceFactorInput>

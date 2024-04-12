@@ -9,6 +9,7 @@ import { useCharacters } from '../useCharacters';
 import { InventoryItemType, WORLD_KITS } from '../WorldKit';
 import { VHeader } from '@/components/VHeader';
 import { searchObjects } from '@/utils/searchObjects';
+import { getInventoryItemDescription } from '@/utils/getInventoryItemDescription';
 
 const StyledEditItemsDrawer = styled(VDrawer)`
   .drawer__content {
@@ -66,7 +67,7 @@ export const EditItemsDrawer: React.FC<EditItemsDrawerProps> = props => {
       key,
       ...item
     })),
-    ['name', 'description'],
+    ['name'],
     searchQuery
   );
 
@@ -87,7 +88,15 @@ export const EditItemsDrawer: React.FC<EditItemsDrawerProps> = props => {
                 key: 'name',
                 dataKey: 'name'
               },
-              { key: 'description', dataKey: 'description', width: '100%' }
+              {
+                key: 'cost',
+                render: item => `${item.cost} pcs`
+              },
+              {
+                key: 'description',
+                render: item => getInventoryItemDescription(item),
+                width: '100%'
+              }
             ]}
             rows={itemsOfType}
             onRowClick={row => toggleItem(row.key)}

@@ -148,9 +148,9 @@ export const PERKS: Perk[] = [
     skillRequirement: 1
   },
   {
-    key: 'evasion',
-    name: 'Evasion',
-    description: 'Opportunity attacks on you have disadvantage equivalent to your Evasion.',
+    key: 'untouchable',
+    name: 'Untouchable',
+    description: 'Opportunity attacks on you have disadvantage equivalent to your Agility.',
     attributeKey: 'dexterity',
     skillKey: 'agility',
     skillRequirement: 2
