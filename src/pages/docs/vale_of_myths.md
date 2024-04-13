@@ -796,10 +796,10 @@ In _Vale of Myths_, valerian pieces (abbreviated as "pcs") are the main denomina
 
 ## Tools
 
-| Item                      | Rarity  | Cost   | Size     | Description                                |
-| ------------------------- | ------- | ------ | -------- | ------------------------------------------ |
-| **Rope**                  | Common  | 5 pcs  | 1/2 slot | +1 Athletics to climb                      |
-| **Rope & Grappling Hook** | Average | 20 pcs | 1 slot   | +2 Athletics to climb                      |
-| **Medical Pouch**         | Average | 20 pcs | 1/2 slot | +1 Medicine to heal or stabilize           |
-| **Tool Belt**             | Average | 20 pcs | 1 slot   | +1 Innovation to repair or craft           |
-| **World Map**             | Common  | 5 pcs  | 1/4 slot | +1 Insight to interpret a location or path |
+| Item                      | Rarity  | Cost   | Size     | Description   |
+| ------------------------- | ------- | ------ | -------- | ------------- |
+| **Rope**                  | Common  | 5 pcs  | 1/2 slot | +1 Athletics  |
+| **Rope & Grappling Hook** | Average | 20 pcs | 1 slot   | +2 Athletics  |
+| **Medical Pouch**         | Average | 20 pcs | 1/2 slot | +1 Medicine   |
+| **Tool Belt**             | Average | 20 pcs | 1 slot   | +1 Innovation |
+| **World Map**             | Common  | 5 pcs  | 1/4 slot | +1 Insight    |
