@@ -5,7 +5,24 @@ import { DynamoDBDocumentClient, ScanCommand } from '@aws-sdk/lib-dynamodb';
 const client = new DynamoDBClient({});
 const docClient = DynamoDBDocumentClient.from(client);
 
-const handler: APIGatewayProxyHandler = async (event, context) => {
+const RESPONSE_HEADERS = {
+  'Content-Type': 'application/json',
+  'Access-Control-Allow-Methods': 'GET'
+};
+
+const ALLOWED_ORIGINS = ['http://localhost:3000', 'https://vademecum.thenjk.com'];
+
+const handler: APIGatewayProxyHandler = async event => {
+  if (event.headers.origin && !ALLOWED_ORIGINS.includes(event.headers.origin)) {
+    return {
+      statusCode: 403,
+      headers: RESPONSE_HEADERS,
+      body: JSON.stringify({ detail: 'Unauthorized request origin.' })
+    };
+  } else {
+    RESPONSE_HEADERS['Access-Control-Allow-Origin'] = event.headers.origin;
+  }
+
   // scan for all "session" items
   const scanCommand = new ScanCommand({
     TableName: 'vade-mecum-sessions',
@@ -21,23 +38,17 @@ const handler: APIGatewayProxyHandler = async (event, context) => {
 
   const response = await docClient.send(scanCommand);
 
-  if (!response.Items || !response.Items) {
-    return {
-      statusCode: 404,
-      body: 'No sessions found.'
-    };
-  }
-
   return {
     statusCode: 200,
+    headers: RESPONSE_HEADERS,
     body: JSON.stringify(
-      response.Items.map(item => {
+      response.Items?.map(item => {
         // rename "sessionId" to "id"
         item.id = item.sessionId;
         delete item.sessionId;
 
         return item;
-      })
+      }) ?? []
     )
   };
 };

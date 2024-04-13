@@ -14,6 +14,7 @@ import { ValeOfMythsDocsPage } from './pages/docs/ValeOfMythsDocsPage';
 import { EnginePageController } from './pages/engine/EnginePageController';
 import { VestigesOfMankindDocsPage } from './pages/docs/VestigesOfMankindDocsPage';
 import { HomePage } from './pages/HomePage';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -39,11 +40,21 @@ const PageWrapper = styled.div`
   }
 `;
 
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: 1
+    }
+  }
+});
+
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <PageWrapper>
-      <RouterProvider router={router} />
-    </PageWrapper>
+    <QueryClientProvider client={queryClient}>
+      <PageWrapper>
+        <RouterProvider router={router} />
+      </PageWrapper>
+    </QueryClientProvider>
   </React.StrictMode>
 );
 

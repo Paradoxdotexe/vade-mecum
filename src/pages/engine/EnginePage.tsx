@@ -78,6 +78,7 @@ const Page = styled.div`
       justify-content: space-between;
       box-shadow: -3px 6px 12px rgba(0, 0, 0, 0.1);
       background: #2c2c2c;
+      z-index: 100;
 
       .rollLog__header {
         display: flex;
@@ -139,6 +140,10 @@ export const EnginePage: React.FC = () => {
   const { rolls } = useRolls();
   const { characters, currentCharacter, setCurrentCharacter, addCharacter, removeCharacter } =
     useCharacters();
+
+  // const { data: sessions } = useQuery(['GET_SESSIONS'], () =>
+  //   fetch('https://api.vademecum.thenjk.com/sessions').then(response => response.json())
+  // );
 
   return (
     <Page>
