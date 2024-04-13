@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 
-const Card = styled.div`
+const StyledVCard = styled.div`
   background: #3b3b3b;
   border-radius: 0 0 4px 4px;
   box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.1);
@@ -17,8 +17,8 @@ type VCardProps = {
 
 export const VCard: React.FC<VCardProps> = props => {
   return (
-    <Card style={props.style} className={props.className}>
+    <StyledVCard style={props.style} className={props.className}>
       {props.children}
-    </Card>
+    </StyledVCard>
   );
 };

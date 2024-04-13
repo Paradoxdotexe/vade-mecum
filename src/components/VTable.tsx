@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const StyledVTable = styled.table`
   border-spacing: 0;
+  width: 100%;
 
   tr {
     &:not(:last-child) {
@@ -22,6 +23,10 @@ const StyledVTable = styled.table`
 
     &.row--clickable {
       cursor: pointer;
+
+      &:hover {
+        background: #444444;
+      }
     }
 
     &.row--disabled {
@@ -47,7 +52,7 @@ const StyledVTable = styled.table`
 `;
 
 type VTableRow = {
-  key: string;
+  [key: string]: unknown;
   disabled?: boolean;
 };
 
@@ -61,6 +66,7 @@ export type VTableColumn<T extends VTableRow> = {
 type VTableProps<T extends VTableRow> = {
   columns: VTableColumn<T>[];
   rows: T[];
+  rowKey?: keyof T;
   emptyMessage?: string | null;
   onRowClick?: (row: T) => void;
   rowDisabled?: (row: T) => boolean;
@@ -72,7 +78,7 @@ export const VTable = <T extends VTableRow>(props: VTableProps<T>) => {
       <tbody>
         {props.rows.map(row => (
           <tr
-            key={row.key}
+            key={row[props.rowKey ?? 'key'] as string}
             onClick={() => props.onRowClick?.(row)}
             className={`${props.onRowClick ? 'row--clickable' : ''} ${props.rowDisabled?.(row) ? 'row--disabled' : ''}`}
           >

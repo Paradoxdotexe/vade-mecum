@@ -12,6 +12,14 @@ const RESPONSE_HEADERS = {
 
 const ALLOWED_ORIGINS = ['http://localhost:3000', 'https://vademecum.thenjk.com'];
 
+const formatSession = (item: Record<string, any>) => {
+  // rename "sessionId" to "id"
+  item.id = item.sessionId;
+  delete item.sessionId;
+
+  return item;
+};
+
 const handler: APIGatewayProxyHandler = async event => {
   if (event.headers.origin && !ALLOWED_ORIGINS.includes(event.headers.origin)) {
     return {
@@ -38,18 +46,12 @@ const handler: APIGatewayProxyHandler = async event => {
 
   const response = await docClient.send(scanCommand);
 
+  const gameSessions = response.Items?.map(formatSession) ?? [];
+
   return {
     statusCode: 200,
     headers: RESPONSE_HEADERS,
-    body: JSON.stringify(
-      response.Items?.map(item => {
-        // rename "sessionId" to "id"
-        item.id = item.sessionId;
-        delete item.sessionId;
-
-        return item;
-      }) ?? []
-    )
+    body: JSON.stringify(gameSessions)
   };
 };
 

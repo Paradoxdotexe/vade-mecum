@@ -15,8 +15,8 @@ const Button = styled.button`
   box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.1);
   background-color: transparent;
   border: 1px solid #585858;
-  padding: 0;
-  font-size: 12px;
+  padding: 1px 6px;
+  font-size: 13px;
   user-select: none;
 
   &.button--primary {
@@ -25,8 +25,8 @@ const Button = styled.button`
   }
 
   &.button--large {
-    font-size: 16px;
-    padding: 9px 0;
+    font-size: 15px;
+    padding: 5px 12px;
   }
 
   &::before {

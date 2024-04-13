@@ -43,7 +43,8 @@ const PageWrapper = styled.div`
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      retry: 1
+      retry: 1,
+      staleTime: 1200000
     }
   }
 });

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { RollCard } from './RollCard';
 import { ReactComponent as PlusIcon } from '@/icons/Plus.svg';
@@ -6,6 +6,8 @@ import { ReactComponent as TrashCanIcon } from '@/icons/TrashCan.svg';
 import { CharacterSheet } from './characterSheet/CharacterSheet';
 import { useCharacters } from './useCharacters';
 import { useRolls } from './useRolls';
+import { VButton } from '@/components/VButton';
+import { SessionsDrawer } from './SessionsDrawer';
 
 const Page = styled.div`
   display: flex;
@@ -126,10 +128,9 @@ const Page = styled.div`
           }
         }
 
-        .log__hint {
-          font-size: 12px;
-          color: #a3a3a3;
+        .log__session {
           padding: 18px;
+          width: 100%;
         }
       }
     }
@@ -144,6 +145,8 @@ export const EnginePage: React.FC = () => {
   // const { data: sessions } = useQuery(['GET_SESSIONS'], () =>
   //   fetch('https://api.vademecum.thenjk.com/sessions').then(response => response.json())
   // );
+
+  const [viewingSessions, setViewingSessions] = useState(false);
 
   return (
     <Page>
@@ -191,7 +194,12 @@ export const EnginePage: React.FC = () => {
                 />
               ))}
             </div>
-            <div className="log__hint">Click on a skill to roll</div>
+            <div className="log__session">
+              <VButton size="large" onClick={() => setViewingSessions(true)}>
+                Join Game Session
+              </VButton>
+              <SessionsDrawer open={viewingSessions} onClose={() => setViewingSessions(false)} />
+            </div>
           </div>
         </div>
       </div>
