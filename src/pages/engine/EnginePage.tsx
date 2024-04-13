@@ -8,6 +8,8 @@ import { useCharacters } from './useCharacters';
 import { useRolls } from './useRolls';
 import { VButton } from '@/components/VButton';
 import { SessionsDrawer } from './SessionsDrawer';
+import { useSession } from './useSession';
+import { VLoader } from '@/components/VLoader';
 
 const Page = styled.div`
   display: flex;
@@ -131,6 +133,18 @@ const Page = styled.div`
         .log__session {
           padding: 18px;
           width: 100%;
+          min-height: 68px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          .session__name {
+            font-size: 14px;
+
+            span {
+              font-weight: 600;
+            }
+          }
         }
       }
     }
@@ -141,6 +155,7 @@ export const EnginePage: React.FC = () => {
   const { rolls } = useRolls();
   const { characters, currentCharacter, setCurrentCharacter, addCharacter, removeCharacter } =
     useCharacters();
+  const { session, sessionId } = useSession();
 
   // const { data: sessions } = useQuery(['GET_SESSIONS'], () =>
   //   fetch('https://api.vademecum.thenjk.com/sessions').then(response => response.json())
@@ -195,9 +210,17 @@ export const EnginePage: React.FC = () => {
               ))}
             </div>
             <div className="log__session">
-              <VButton size="large" onClick={() => setViewingSessions(true)}>
-                Join Game Session
-              </VButton>
+              {sessionId && !session && <VLoader style={{ padding: 0 }} />}
+              {session && (
+                <div className="session__name">
+                  <span>{session.name}</span> (#{session.id.split('-')[2]})
+                </div>
+              )}
+              {!sessionId && (
+                <VButton size="large" onClick={() => setViewingSessions(true)}>
+                  Join Game Session
+                </VButton>
+              )}
               <SessionsDrawer open={viewingSessions} onClose={() => setViewingSessions(false)} />
             </div>
           </div>

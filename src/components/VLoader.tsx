@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const StyledVLoader = styled.div`
   display: flex;
   justify-content: center;
-  padding: 36px 24px;
+  padding: 24px;
 
   .loader__dots {
     height: 24px;

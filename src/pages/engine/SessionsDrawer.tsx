@@ -8,6 +8,7 @@ import { useQuery } from 'react-query';
 import { VInput } from '@/components/VInput';
 import { searchObjects } from '@/utils/searchObjects';
 import { VLoader } from '@/components/VLoader';
+import { Session, useSession } from './useSession';
 
 const StyledSessionsDrawer = styled(VDrawer)`
   .drawer__content {
@@ -26,18 +27,13 @@ const StyledSessionsDrawer = styled(VDrawer)`
   }
 `;
 
-type GameSession = {
-  id: string;
-  name: string;
-  createdAt: string;
-};
-
 type SessionsDrawerProps = Pick<VDrawerProps, 'open' | 'onClose'>;
 
 export const SessionsDrawer: React.FC<SessionsDrawerProps> = props => {
   const [searchQuery, setSearchQuery] = useState('');
+  const { setSessionId } = useSession();
 
-  const { data: _sessions } = useQuery<GameSession[]>(
+  const { data: _sessions } = useQuery<Session[]>(
     ['GET_SESSIONS'],
     () => fetch('https://api.vademecum.thenjk.com/sessions').then(response => response.json()),
     {
@@ -82,7 +78,10 @@ export const SessionsDrawer: React.FC<SessionsDrawerProps> = props => {
                     ? 'No game sessions match your query.'
                     : 'There are no game sessions available.'
                 }
-                onRowClick={row => console.log(row)}
+                onRowClick={session => {
+                  setSessionId(session.id);
+                  props.onClose?.();
+                }}
               />
             </VCard>
           </div>
