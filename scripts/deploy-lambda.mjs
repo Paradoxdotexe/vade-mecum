@@ -19,8 +19,17 @@ console.log('Zipping lambda function...');
 execSync('cd lambda_build && npx bestzip index.zip index.js && cd ..');
 
 console.log('Deploying lambda function...');
-execSync(
-  `aws lambda update-function-code --function-name vade-mecum__${fnName} --zip-file fileb://lambda_build/index.zip`
-);
+try {
+  execSync(
+    `aws lambda update-function-code --function-name vade-mecum__${fnName} --zip-file fileb://lambda_build/index.zip`
+  );
+} catch (err) {
+  if (err.stderr.toString().includes('Function not found')) {
+    console.log('Creating new lambda function...');
+    execSync(
+      `aws lambda create-function --function-name vade-mecum__${fnName} --runtime nodejs20.x --role arn:aws:iam::662280876471:role/vade-mecum-dynamo-db-role --handler index.handler --zip-file fileb://lambda_build/index.zip`
+    );
+  }
+}
 
 console.log(`Lambda function vade-mecum__${fnName} deployed.`);
