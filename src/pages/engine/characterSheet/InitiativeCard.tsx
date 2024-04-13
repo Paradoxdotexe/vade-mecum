@@ -85,7 +85,7 @@ export const InitiativeCard: React.FC = () => {
           evaluation={RollEvaluation.SUM}
           onRoll={dice => {
             addRoll({
-              characterKey: currentCharacter.key,
+              characterId: currentCharacter.id,
               label: 'Initiative',
               dice,
               timestamp: DateTime.now().toISO(),

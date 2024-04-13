@@ -10,14 +10,14 @@ import { capitalize } from 'lodash-es';
 
 type CharactersState = {
   version: string;
-  characters: { [key: string]: Character };
-  currentCharacterKey: string;
+  characters: { [id: string]: Character };
+  currentCharacterId: string;
 };
 
 const DEFAULT_CHARACTERS_STATE: CharactersState = {
-  version: '6.0',
-  characters: { [DEFAULT_CHARACTER.key]: structuredClone(DEFAULT_CHARACTER) },
-  currentCharacterKey: DEFAULT_CHARACTER.key
+  version: '7.0',
+  characters: { [DEFAULT_CHARACTER.id]: structuredClone(DEFAULT_CHARACTER) },
+  currentCharacterId: DEFAULT_CHARACTER.id
 };
 
 interface CSC extends CharactersState {
@@ -57,35 +57,35 @@ export const useCharacters = () => {
   const charactersState = useContext(CharactersStateContext);
 
   const currentCharacter = useCurrentCharacter();
-  const setCurrentCharacter = (characterKey: string) => {
-    charactersState.update({ currentCharacterKey: characterKey });
+  const setCurrentCharacter = (characterId: string) => {
+    charactersState.update({ currentCharacterId: characterId });
   };
 
   const addCharacter = () => {
     // add new default character
-    const characterKey = uuid();
+    const characterId = uuid();
     const characters = {
       ...charactersState.characters,
-      [characterKey]: { ...structuredClone(DEFAULT_CHARACTER), key: characterKey }
+      [characterId]: { ...structuredClone(DEFAULT_CHARACTER), id: characterId }
     };
 
-    charactersState.update({ characters, currentCharacterKey: characterKey });
+    charactersState.update({ characters, currentCharacterId: characterId });
   };
 
-  const removeCharacter = (characterKey: string) => {
+  const removeCharacter = (characterId: string) => {
     // remove character from characters
     const characters = { ...charactersState.characters };
-    delete characters[characterKey];
+    delete characters[characterId];
 
-    // update characterKey if current character was removed
-    let newCharacterKey = currentCharacter.key;
-    if (characterKey === currentCharacter.key) {
-      newCharacterKey = Object.keys(characters)[0];
+    // update characterId if current character was removed
+    let newCharacterId = currentCharacter.id;
+    if (newCharacterId === currentCharacter.id) {
+      newCharacterId = Object.keys(characters)[0];
     }
 
     charactersState.update({
       characters,
-      currentCharacterKey: newCharacterKey
+      currentCharacterId: newCharacterId
     });
   };
 
@@ -101,12 +101,12 @@ export const useCharacters = () => {
 const useCurrentCharacter = () => {
   const charactersState = useContext(CharactersStateContext);
 
-  const character = charactersState.characters[charactersState.currentCharacterKey];
+  const character = charactersState.characters[charactersState.currentCharacterId];
 
   const updateCharacter = (partialCharacter: Partial<Character>) => {
     const newCharacter = { ...character, ...partialCharacter };
     const characters = { ...charactersState.characters };
-    characters[charactersState.currentCharacterKey] = newCharacter;
+    characters[charactersState.currentCharacterId] = newCharacter;
     charactersState.update({ characters });
   };
 

@@ -33,7 +33,7 @@ export const SessionsDrawer: React.FC<SessionsDrawerProps> = props => {
   const [searchQuery, setSearchQuery] = useState('');
   const { setSessionId } = useSession();
 
-  const { data: _sessions } = useQuery<Session[]>(
+  const { data: sessions } = useQuery<Session[]>(
     ['GET_SESSIONS'],
     () => fetch('https://api.vademecum.thenjk.com/sessions').then(response => response.json()),
     {
@@ -41,12 +41,12 @@ export const SessionsDrawer: React.FC<SessionsDrawerProps> = props => {
     }
   );
 
-  const sessions = searchObjects(_sessions ?? [], ['name'], searchQuery);
+  const filteredSessions = searchObjects(sessions ?? [], ['name'], searchQuery);
 
   return (
     <StyledSessionsDrawer {...props} width={500} header={'Join Game Session'}>
-      {!_sessions && <VLoader />}
-      {_sessions && (
+      {!sessions && <VLoader />}
+      {sessions && (
         <div className="drawer__content">
           <VCard style={{ padding: 0 }}>
             <VInput
@@ -71,10 +71,10 @@ export const SessionsDrawer: React.FC<SessionsDrawerProps> = props => {
                     width: '100%'
                   }
                 ]}
-                rows={sessions}
+                rows={filteredSessions}
                 rowKey="id"
                 emptyMessage={
-                  _sessions.length
+                  sessions.length
                     ? 'No game sessions match your query.'
                     : 'There are no game sessions available.'
                 }

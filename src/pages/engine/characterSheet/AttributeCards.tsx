@@ -88,7 +88,7 @@ export const AttributeCards: React.FC = () => {
           evaluation={RollEvaluation.CHECK}
           onRoll={dice => {
             addRoll({
-              characterKey: currentCharacter.key,
+              characterId: currentCharacter.id,
               label: rolledSkill!.label,
               dice,
               timestamp: DateTime.now().toISO(),

@@ -168,7 +168,7 @@ export const InventoryCard: React.FC = () => {
           evaluation={rolledItemEvaluation}
           onRoll={dice => {
             addRoll({
-              characterKey: currentCharacter.key,
+              characterId: currentCharacter.id,
               label: rolledItem?.name ?? '',
               dice,
               timestamp: DateTime.now().toISO(),

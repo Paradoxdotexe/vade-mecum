@@ -168,12 +168,12 @@ export const EnginePage: React.FC = () => {
       <div className="page__content">
         <div className="content__tabs">
           {Object.values(characters).map(character => {
-            const active = character.key === currentCharacter.key;
+            const active = character.id === currentCharacter.id;
             return (
               <div
-                key={character.key}
+                key={character.id}
                 className={`tabs__tab ${active ? 'tab--active' : ''}`}
-                onClick={() => setCurrentCharacter(character.key)}
+                onClick={() => setCurrentCharacter(character.id)}
               >
                 {character.name || 'Anonymous'}
                 {active && Object.keys(characters).length > 1 && (
@@ -181,7 +181,7 @@ export const EnginePage: React.FC = () => {
                     className="tab__delete"
                     onClick={event => {
                       event.stopPropagation();
-                      removeCharacter(character.key);
+                      removeCharacter(character.id);
                     }}
                   />
                 )}
@@ -201,8 +201,8 @@ export const EnginePage: React.FC = () => {
             <div className="log__rolls">
               {rolls.map(roll => (
                 <RollCard
-                  key={`${roll.characterKey}#${roll.timestamp}`}
-                  title={`${characters[roll.characterKey]?.name || 'Anonymous'} (${roll.label})`}
+                  key={roll.id}
+                  title={`${characters[roll.characterId]?.name || 'Anonymous'} (${roll.label})`}
                   dice={roll.dice}
                   evaluation={roll.evaluation}
                   minimized

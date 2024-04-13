@@ -1,6 +1,9 @@
 import React, { ReactNode, useContext } from 'react';
 import { useLocalStorage } from '@/utils/useLocalStorage';
 import { useStateVersioner } from '@/utils/useStateVersioner';
+import { useSession } from './useSession';
+import { useQuery } from 'react-query';
+import { v4 as uuid } from 'uuid';
 
 export enum RollEvaluation {
   CHECK = 'CHECK',
@@ -8,7 +11,8 @@ export enum RollEvaluation {
 }
 
 export type Roll = {
-  characterKey: string;
+  id: string;
+  characterId: string;
   label: string;
   dice: number[];
   timestamp: string;
@@ -21,7 +25,7 @@ type RollsState = {
 };
 
 const DEFAULT_ROLLS_STATE: RollsState = {
-  version: '2.0',
+  version: '3.0',
   rolls: []
 };
 
@@ -59,13 +63,27 @@ const MAX_ROLLS = 100;
 
 export const useRolls = () => {
   const rollsState = useContext(RollsStateContext);
+  const { sessionId } = useSession();
 
-  const addRoll = (roll: Roll) => {
-    rollsState.update({ rolls: [roll, ...rollsState.rolls].slice(0, MAX_ROLLS) });
+  const { data: sessionRolls } = useQuery<Roll[]>(
+    ['GET_SESSION_ROLLS'],
+    () =>
+      fetch(`https://api.vademecum.thenjk.com/sessions/${sessionId}/rolls`).then(response =>
+        response.json()
+      ),
+    {
+      enabled: !!sessionId
+    }
+  );
+
+  const addRoll = (roll: Omit<Roll, 'id'>) => {
+    rollsState.update({
+      rolls: [{ id: uuid(), ...roll }, ...rollsState.rolls].slice(0, MAX_ROLLS)
+    });
   };
 
   return {
-    rolls: rollsState.rolls,
+    rolls: sessionId ? sessionRolls ?? [] : rollsState.rolls,
     addRoll
   };
 };
