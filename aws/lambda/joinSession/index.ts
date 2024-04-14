@@ -1,6 +1,12 @@
 import { APIGatewayProxyEvent, APIGatewayProxyWebsocketEventV2 } from 'aws-lambda';
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
-import { DynamoDBDocumentClient, PutCommand, ScanCommand } from '@aws-sdk/lib-dynamodb';
+import {
+  DeleteCommand,
+  DynamoDBDocumentClient,
+  GetCommand,
+  PutCommand,
+  ScanCommand
+} from '@aws-sdk/lib-dynamodb';
 import {
   ApiGatewayManagementApi,
   PostToConnectionCommand
@@ -20,7 +26,31 @@ const handler = async (event: APIGatewayProxyWebsocketEventV2 & APIGatewayProxyE
     };
   }
 
-  // store user in database with current connectionId, this will indicate they are online
+  // get user item
+  let getCommand = new GetCommand({
+    TableName: 'vade-mecum-sessions',
+    Key: {
+      sessionId: sessionId,
+      itemId: `user#${userId}`
+    },
+    ProjectionExpression: 'connectionId'
+  });
+  const userResponse = await docClient.send(getCommand);
+
+  // check if user already has an open connection
+  if (userResponse.Item?.connectionId) {
+    // delete current connection item
+    const deleteCommand = new DeleteCommand({
+      TableName: 'vade-mecum-sessions',
+      Key: {
+        sessionId: sessionId,
+        itemId: `connection#${userResponse.Item.connectionId}`
+      }
+    });
+    await docClient.send(deleteCommand);
+  }
+
+  // store user in database with new connectionId, this will indicate they are online
   let putCommand = new PutCommand({
     TableName: 'vade-mecum-sessions',
     Item: {
@@ -31,7 +61,7 @@ const handler = async (event: APIGatewayProxyWebsocketEventV2 & APIGatewayProxyE
   });
   await docClient.send(putCommand);
 
-  // store connection in database, this will allow us to terminate the connection
+  // store new connection in database, this will allow us to terminate the connection
   putCommand = new PutCommand({
     TableName: 'vade-mecum-sessions',
     Item: {
@@ -50,7 +80,7 @@ const handler = async (event: APIGatewayProxyWebsocketEventV2 & APIGatewayProxyE
       ':sessionId': sessionId,
       ':itemIdPrefix': `connection`
     },
-    ProjectionExpression: 'sessionId, itemId, userId'
+    ProjectionExpression: 'itemId'
   });
   const response = await docClient.send(scanCommand);
 
