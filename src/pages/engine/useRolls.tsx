@@ -1,8 +1,8 @@
-import React, { ReactNode, useContext } from 'react';
+import React, { ReactNode, useContext, useEffect } from 'react';
 import { useLocalStorage } from '@/utils/useLocalStorage';
 import { useStateVersioner } from '@/utils/useStateVersioner';
 import { useSession } from './useSession';
-import { useMutation, useQuery } from 'react-query';
+import { useQuery, useQueryClient } from 'react-query';
 import { v4 as uuid } from 'uuid';
 import { DateTime } from 'luxon';
 
@@ -55,6 +55,25 @@ export const RollsStateProvider: React.FC<{ children?: ReactNode }> = props => {
     update
   };
 
+  const { webSocket } = useSession();
+
+  const queryClient = useQueryClient();
+
+  useEffect(() => {
+    if (webSocket) {
+      webSocket.addEventListener('message', event => {
+        const message = JSON.parse(event.data);
+        if (message.event === 'NEW_ROLL') {
+          // update GET_SESSION_ROLLS cache with new roll
+          queryClient.setQueryData('GET_SESSION_ROLLS', (sessionRolls: Roll[] | undefined) => [
+            ...(sessionRolls ?? []),
+            message.data.roll
+          ]);
+        }
+      });
+    }
+  }, [webSocket]);
+
   return (
     <RollsStateContext.Provider value={rollsContext}>{props.children}</RollsStateContext.Provider>
   );
@@ -64,7 +83,9 @@ const MAX_ROLLS = 100;
 
 export const useRolls = () => {
   const rollsState = useContext(RollsStateContext);
-  const { sessionId } = useSession();
+  const { sessionId, userId, webSocket } = useSession();
+
+  const queryClient = useQueryClient();
 
   const { data: sessionRolls } = useQuery<Roll[]>(
     ['GET_SESSION_ROLLS'],
@@ -77,21 +98,15 @@ export const useRolls = () => {
     }
   );
 
-  const createSessionRoll = useMutation((roll: Roll) => {
-    return fetch(`https://api.vademecum.thenjk.com/sessions/${sessionId}/rolls`, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(roll)
-    });
-  });
-
-  const addRoll = (roll: Omit<Roll, 'id'>) => {
+  const addRoll = async (roll: Omit<Roll, 'id'>) => {
     const newRoll = { id: uuid(), ...roll };
-    if (sessionId) {
-      createSessionRoll.mutate(newRoll);
+    if (webSocket) {
+      webSocket.send(JSON.stringify({ action: 'addRoll', sessionId, userId, roll: newRoll }));
+      // update GET_SESSION_ROLLS cache with new roll
+      queryClient.setQueryData('GET_SESSION_ROLLS', (sessionRolls: Roll[] | undefined) => [
+        ...(sessionRolls ?? []),
+        newRoll
+      ]);
     } else {
       rollsState.update({
         rolls: [...rollsState.rolls, newRoll].slice(0, MAX_ROLLS)

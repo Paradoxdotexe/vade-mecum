@@ -1,4 +1,4 @@
-import { APIGatewayProxyEvent, APIGatewayProxyWebsocketEventV2 } from 'aws-lambda';
+import { APIGatewayProxyHandler } from 'aws-lambda';
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { DynamoDBDocumentClient, PutCommand, ScanCommand } from '@aws-sdk/lib-dynamodb';
 import {
@@ -9,35 +9,23 @@ import {
 const client = new DynamoDBClient({});
 const docClient = DynamoDBDocumentClient.from(client);
 
-const handler = async (event: APIGatewayProxyWebsocketEventV2 & APIGatewayProxyEvent) => {
-  const sessionId = event.queryStringParameters?.sessionId;
-  const userId = event.queryStringParameters?.userId;
+const handler: APIGatewayProxyHandler = async event => {
+  const body = event.body && JSON.parse(event.body);
 
-  if (!sessionId || !userId) {
+  if (!body || !body.sessionId || !body.userId || !body.roll) {
     return {
       statusCode: 400,
-      body: JSON.stringify({ detail: 'Missing sessionId or userId query parameters.' })
+      body: JSON.stringify({ detail: 'Missing message contents.' })
     };
   }
 
-  // store user in database with current connectionId, this will indicate they are online
-  let putCommand = new PutCommand({
+  // store roll in database
+  const putCommand = new PutCommand({
     TableName: 'vade-mecum-sessions',
     Item: {
-      sessionId: sessionId,
-      itemId: `user#${userId}`,
-      connectionId: event.requestContext.connectionId
-    }
-  });
-  await docClient.send(putCommand);
-
-  // store connection in database, this will allow us to terminate the connection
-  putCommand = new PutCommand({
-    TableName: 'vade-mecum-sessions',
-    Item: {
-      sessionId: sessionId,
-      itemId: `connection#${event.requestContext.connectionId}`,
-      userId: userId
+      sessionId: body.sessionId,
+      itemId: `roll#${body.roll.id}`,
+      ...body.roll
     }
   });
   await docClient.send(putCommand);
@@ -47,26 +35,25 @@ const handler = async (event: APIGatewayProxyWebsocketEventV2 & APIGatewayProxyE
     TableName: 'vade-mecum-sessions',
     FilterExpression: 'sessionId = :sessionId and begins_with(itemId, :itemIdPrefix)',
     ExpressionAttributeValues: {
-      ':sessionId': sessionId,
+      ':sessionId': body.sessionId,
       ':itemIdPrefix': `connection`
     },
-    ProjectionExpression: 'sessionId, itemId, userId'
+    ProjectionExpression: 'itemId, userId'
   });
   const response = await docClient.send(scanCommand);
 
   const connections = response.Items ?? [];
 
-  // send USER_ONLINE message
+  // send NEW_ROLL message
   const webSocketClient = new ApiGatewayManagementApi({
     endpoint: `https://${event.requestContext.domainName}`
   });
   const message = JSON.stringify({
-    event: 'USER_ONLINE',
-    data: { userId: userId }
+    event: 'NEW_ROLL',
+    data: { roll: body.roll }
   });
   for (const connection of connections) {
-    const otherConnection = connection.itemId !== `connection#${event.requestContext.connectionId}`;
-    if (otherConnection) {
+    if (connection.userId !== body.userId) {
       const postToConnectionCommand = new PostToConnectionCommand({
         ConnectionId: connection.itemId.split('#')[1],
         Data: message
@@ -76,7 +63,8 @@ const handler = async (event: APIGatewayProxyWebsocketEventV2 & APIGatewayProxyE
   }
 
   return {
-    statusCode: 200
+    statusCode: 200,
+    body: ''
   };
 };
 

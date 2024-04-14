@@ -70,7 +70,9 @@ const handler = async (event: APIGatewayProxyWebsocketEventV2 & APIGatewayProxyE
     data: { userId: terminatedConnectionId }
   });
   for (const connection of connections) {
-    if (connection.userId !== terminatedConnection.userId) {
+    const sameSession = connection.sessionId === terminatedConnection.sessionId;
+    const otherConnection = connection.itemId !== `connection#${event.requestContext.connectionId}`;
+    if (sameSession && otherConnection) {
       const postToConnectionCommand = new PostToConnectionCommand({
         ConnectionId: connection.itemId.split('#')[1],
         Data: message

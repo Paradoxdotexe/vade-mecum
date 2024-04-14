@@ -52,9 +52,10 @@ export const SessionStateProvider: React.FC<{ children?: ReactNode }> = props =>
       const webSocket = new WebSocket(
         `wss://ws.vademecum.thenjk.com?sessionId=${sessionState.sessionId}&userId=${sessionState.userId}`
       );
-      //   webSocket.onmessage = event => {
-      //     console.log(JSON.parse(event.data));
-      //   };
+      webSocket.onmessage = event => {
+        const message = JSON.parse(event.data);
+        console.log(message.event);
+      };
       webSocket.onopen = () => {
         console.log(`Connected to session #${sessionState.sessionId}.`);
         setWebSocket(webSocket);
@@ -104,6 +105,8 @@ export const useSession = () => {
   return {
     sessionId: sessionState.sessionId,
     setSessionId,
-    session
+    session,
+    webSocket: sessionState.webSocket,
+    userId: sessionState.userId
   };
 };
