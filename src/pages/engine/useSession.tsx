@@ -1,7 +1,8 @@
 import { useLocalStorage } from '@/utils/useLocalStorage';
 import { useStateVersioner } from '@/utils/useStateVersioner';
-import React, { ReactNode, useContext } from 'react';
+import React, { ReactNode, useContext, useEffect, useMemo, useState } from 'react';
 import { useQuery } from 'react-query';
+import { v4 as uuid } from 'uuid';
 
 export type Session = {
   id: string;
@@ -12,20 +13,24 @@ export type Session = {
 type SessionState = {
   version: string;
   sessionId: string;
+  userId: string;
 };
 
 const DEFAULT_SESSION_STATE: SessionState = {
-  version: '1.0',
-  sessionId: ''
+  version: '2.0',
+  sessionId: '',
+  userId: uuid()
 };
 
 interface SSC extends SessionState {
   update: (partialSessionState: Partial<SessionState>) => void;
+  webSocket: WebSocket | undefined;
 }
 
 const SessionStateContext = React.createContext<SSC>({
   ...structuredClone(DEFAULT_SESSION_STATE),
-  update: () => {}
+  update: () => {},
+  webSocket: undefined
 });
 
 export const SessionStateProvider: React.FC<{ children?: ReactNode }> = props => {
@@ -39,9 +44,34 @@ export const SessionStateProvider: React.FC<{ children?: ReactNode }> = props =>
   const update = (partialSessionState: Partial<SessionState>) =>
     setSessionState({ ...sessionState, ...partialSessionState });
 
+  const [webSocket, setWebSocket] = useState<WebSocket>();
+
+  // open WebSocket connection for session
+  useEffect(() => {
+    if (sessionState.sessionId && !webSocket) {
+      const webSocket = new WebSocket(
+        `wss://ws.vademecum.thenjk.com?sessionId=${sessionState.sessionId}&userId=${sessionState.userId}`
+      );
+      //   webSocket.onmessage = event => {
+      //     console.log(JSON.parse(event.data));
+      //   };
+      webSocket.onopen = () => {
+        console.log(`Connected to session #${sessionState.sessionId}.`);
+        setWebSocket(webSocket);
+      };
+      webSocket.onclose = () => {
+        console.log(`Disconnected from session #${sessionState.sessionId}.`);
+        setWebSocket(undefined);
+      };
+    } else if (!sessionState.sessionId && webSocket) {
+      webSocket.close();
+    }
+  }, [sessionState.sessionId]);
+
   const sessionStateContext: SSC = {
     ...sessionState,
-    update
+    update,
+    webSocket
   };
 
   return (
@@ -54,7 +84,7 @@ export const SessionStateProvider: React.FC<{ children?: ReactNode }> = props =>
 export const useSession = () => {
   const sessionState = useContext(SessionStateContext);
 
-  const { data: _sessions } = useQuery<Session[]>(
+  const { data: sessions } = useQuery<Session[]>(
     ['GET_SESSIONS'],
     () => fetch('https://api.vademecum.thenjk.com/sessions').then(response => response.json()),
     {
@@ -66,7 +96,10 @@ export const useSession = () => {
     sessionState.update({ sessionId });
   };
 
-  const session = _sessions?.find(session => session.id === sessionState.sessionId);
+  const session = useMemo(
+    () => sessions?.find(session => session.id === sessionState.sessionId),
+    [sessions, sessionState.sessionId]
+  );
 
   return {
     sessionId: sessionState.sessionId,

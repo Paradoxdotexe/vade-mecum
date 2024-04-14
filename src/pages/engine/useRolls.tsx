@@ -64,16 +64,16 @@ const MAX_ROLLS = 100;
 
 export const useRolls = () => {
   const rollsState = useContext(RollsStateContext);
-  const { sessionId, session } = useSession();
+  const { sessionId } = useSession();
 
   const { data: sessionRolls } = useQuery<Roll[]>(
     ['GET_SESSION_ROLLS'],
     () =>
-      fetch(`https://api.vademecum.thenjk.com/sessions/${session!.id}/rolls`).then(response =>
+      fetch(`https://api.vademecum.thenjk.com/sessions/${sessionId}/rolls`).then(response =>
         response.json()
       ),
     {
-      enabled: !!session
+      enabled: !!sessionId
     }
   );
 
@@ -85,12 +85,12 @@ export const useRolls = () => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(roll)
-    }).then(response => response.json());
+    });
   });
 
   const addRoll = (roll: Omit<Roll, 'id'>) => {
     const newRoll = { id: uuid(), ...roll };
-    if (session) {
+    if (sessionId) {
       createSessionRoll.mutate(newRoll);
     } else {
       rollsState.update({

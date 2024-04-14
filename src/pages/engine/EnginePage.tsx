@@ -157,10 +157,6 @@ export const EnginePage: React.FC = () => {
     useCharacters();
   const { session, sessionId } = useSession();
 
-  // const { data: sessions } = useQuery(['GET_SESSIONS'], () =>
-  //   fetch('https://api.vademecum.thenjk.com/sessions').then(response => response.json())
-  // );
-
   const [viewingSessions, setViewingSessions] = useState(false);
 
   return (
@@ -208,6 +204,7 @@ export const EnginePage: React.FC = () => {
                   minimized
                 />
               ))}
+              {sessionId && !session && <VLoader style={{ padding: 0 }} />}
             </div>
             <div className="log__session">
               {sessionId && !session && <VLoader style={{ padding: 0 }} />}

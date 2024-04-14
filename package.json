@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@aws-sdk/client-apigatewaymanagementapi": "^3.554.0",
     "@types/lodash-es": "^4.17.12",
     "lodash-es": "^4.17.21",
     "luxon": "^3.4.4",
