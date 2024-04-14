@@ -64,11 +64,20 @@ export const RollsStateProvider: React.FC<{ children?: ReactNode }> = props => {
       webSocket.addEventListener('message', event => {
         const message = JSON.parse(event.data);
         if (message.event === 'NEW_ROLL') {
-          // update GET_SESSION_ROLLS cache with new roll
-          queryClient.setQueryData('GET_SESSION_ROLLS', (sessionRolls: Roll[] | undefined) => [
-            ...(sessionRolls ?? []),
-            message.data.roll
-          ]);
+          const rollSound = new Audio('/sounds/roll.mp3');
+          rollSound.addEventListener(
+            'canplaythrough',
+            () => {
+              rollSound.play();
+
+              // update GET_SESSION_ROLLS cache with new roll
+              queryClient.setQueryData('GET_SESSION_ROLLS', (sessionRolls: Roll[] | undefined) => [
+                ...(sessionRolls ?? []),
+                message.data.roll
+              ]);
+            },
+            false
+          );
         }
       });
     }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { RollCard } from './RollCard';
 import { ReactComponent as PlusIcon } from '@/icons/Plus.svg';
 import { ReactComponent as TrashCanIcon } from '@/icons/TrashCan.svg';
@@ -10,6 +10,7 @@ import { VButton } from '@/components/VButton';
 import { SessionsDrawer } from './SessionsDrawer';
 import { useSession } from './useSession';
 import { VLoader } from '@/components/VLoader';
+import { VTransition } from '@/components/VTransition';
 
 const Page = styled.div`
   display: flex;
@@ -196,13 +197,27 @@ export const EnginePage: React.FC = () => {
           <div className="rollLog__log">
             <div className="log__rolls">
               {rolls.map(roll => (
-                <RollCard
+                <VTransition
                   key={roll.id}
-                  title={`${characters[roll.characterId]?.name || 'Anonymous'} (${roll.label})`}
-                  dice={roll.dice}
-                  evaluation={roll.evaluation}
-                  minimized
-                />
+                  in
+                  outStyle={css`
+                    opacity: 0;
+                    transform: translateY(200px);
+                  `}
+                  inStyle={css`
+                    opacity: 1;
+                    transform: translateY(0);
+                  `}
+                  initialTransition
+                  timeout={300}
+                >
+                  <RollCard
+                    title={`${characters[roll.characterId]?.name || 'Anonymous'} (${roll.label})`}
+                    dice={roll.dice}
+                    evaluation={roll.evaluation}
+                    minimized
+                  />
+                </VTransition>
               ))}
               {sessionId && !session && <VLoader style={{ padding: 0 }} />}
             </div>

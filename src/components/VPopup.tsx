@@ -1,8 +1,8 @@
-import React, { ReactNode, useEffect, useRef, useState } from 'react';
-import styled, { createGlobalStyle } from 'styled-components';
-import { CSSTransition } from 'react-transition-group';
+import React, { ReactNode, useEffect, useState } from 'react';
+import styled, { createGlobalStyle, css } from 'styled-components';
+import { VTransition } from './VTransition';
 
-const Popup = styled.div<{ $timeout: number }>`
+const StyledVPopup = styled.div`
   position: fixed;
   width: 100vw;
   height: 100vh;
@@ -12,7 +12,7 @@ const Popup = styled.div<{ $timeout: number }>`
   justify-content: center;
   align-items: center;
   z-index: 1000;
-  transition: background-color ${props => props.$timeout}ms ease;
+  transition: background-color 150ms ease;
 
   &.popup--open {
     background-color: rgba(0, 0, 0, 0.5);
@@ -20,28 +20,6 @@ const Popup = styled.div<{ $timeout: number }>`
 
   &:not(.popup--open) {
     pointer-events: none;
-  }
-
-  .popup__child-enter {
-    opacity: 0;
-    transform: scale(0.25);
-  }
-
-  .popup__child-enter-active {
-    opacity: 1;
-    transform: scale(1);
-    transition: all ${props => props.$timeout}ms;
-  }
-
-  .popup__child-exit {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  .popup__child-exit-active {
-    opacity: 0;
-    transform: scale(0.25);
-    transition: all ${props => props.$timeout}ms;
   }
 `;
 
@@ -56,33 +34,30 @@ type VPopupProps = {
   open: boolean;
   onClose?: () => void;
   children: ReactNode;
-  timeout?: number;
 };
 
 export const VPopup: React.FC<VPopupProps> = props => {
   const [open, setOpen] = useState(false);
-  const nodeRef = useRef(null);
-
-  const timeout = props.timeout ?? 150;
 
   useEffect(() => setOpen(props.open), [props.open]);
 
   return (
-    <Popup $timeout={timeout} className={open ? 'popup--open' : ''} onClick={() => setOpen(false)}>
+    <StyledVPopup className={open ? 'popup--open' : ''} onClick={() => setOpen(false)}>
       {open && <FrozenScrollStyle />}
-      <CSSTransition
+      <VTransition
         in={open}
-        timeout={timeout}
-        mountOnEnter
-        unmountOnExit
+        outStyle={css`
+          opacity: 0;
+          transform: scale(0.25);
+        `}
+        inStyle={css`
+          opacity: 1;
+          transform: scale(1);
+        `}
         onExited={props.onClose}
-        classNames="popup__child"
-        nodeRef={nodeRef}
       >
-        <div ref={nodeRef} className="popup__child" onClick={event => event.stopPropagation()}>
-          {props.children}
-        </div>
-      </CSSTransition>
-    </Popup>
+        {props.children}
+      </VTransition>
+    </StyledVPopup>
   );
 };
