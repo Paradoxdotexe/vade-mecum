@@ -15,7 +15,7 @@ type CharactersState = {
 };
 
 const DEFAULT_CHARACTERS_STATE: CharactersState = {
-  version: '7.0',
+  version: '9.0',
   characters: { [DEFAULT_CHARACTER.id]: structuredClone(DEFAULT_CHARACTER) },
   currentCharacterId: DEFAULT_CHARACTER.id
 };
@@ -128,7 +128,13 @@ const useCurrentCharacter = () => {
       return isInnate || isAcquired || isAcquiredByClassAbility;
     }) ?? [];
 
+  const race = character.raceKey ? WORLD_KITS.vale_of_myths.races[character.raceKey] : undefined;
+
   const perks = PERKS.filter(perk => character.perkKeys.includes(perk.key));
+
+  if (race) {
+    perks.splice(0, 0, race.perk);
+  }
 
   const maxSkillPointCount = 6 + character.level - 1;
   const maxAttributePointCount = 12 + Math.floor(character.level / 4);
@@ -183,11 +189,23 @@ const useCurrentCharacter = () => {
     return baseSpeed;
   };
 
-  const getMaxHitPoints = () => {
-    return parseComputation(
+  const getMaxHealthPoints = () => {
+    const baseMaxHealthPoints = parseComputation(
       '([level] + [attribute.strength] + [skill.fortitude]) * 6',
       computationVariables
     );
+
+    // check for perk enhancement
+    const perkMaxHealthPointsComputation = perks.find(perk => perk.computed?.maxHealthPoints)
+      ?.computed?.maxHealthPoints;
+    if (perkMaxHealthPointsComputation) {
+      return parseComputation(perkMaxHealthPointsComputation, {
+        base: baseMaxHealthPoints,
+        ...computationVariables
+      });
+    }
+
+    return baseMaxHealthPoints;
   };
 
   const getMaxClassPoints = () => {
@@ -215,7 +233,22 @@ const useCurrentCharacter = () => {
   };
 
   const getCarryingCapacity = () => {
-    return parseComputation('([attribute.strength] + [skill.fortitude]) * 3', computationVariables);
+    const baseCarryingCapacity = parseComputation(
+      '([attribute.strength] + [skill.fortitude]) * 3',
+      computationVariables
+    );
+
+    // check for perk enhancement
+    const perkCarryingCapacityComputation = perks.find(perk => perk.computed?.carryingCapacity)
+      ?.computed?.carryingCapacity;
+    if (perkCarryingCapacityComputation) {
+      return parseComputation(perkCarryingCapacityComputation, {
+        base: baseCarryingCapacity,
+        ...computationVariables
+      });
+    }
+
+    return baseCarryingCapacity;
   };
 
   const getInitiative = () => {
@@ -244,8 +277,8 @@ const useCurrentCharacter = () => {
 
   const setName = (name: string) => updateCharacter({ name });
   const setDescription = (description: string) => updateCharacter({ description });
-  const setRace = (race?: string) => updateCharacter({ race });
-  const setHitPoints = (hitPoints: number) => updateCharacter({ hitPoints });
+  const setRace = (raceKey?: string) => updateCharacter({ raceKey });
+  const setHealthPoints = (hitPoints: number) => updateCharacter({ hitPoints });
   const setClassPoints = (classPoints: number) => updateCharacter({ classPoints });
   const setClassItemDescription = (classItemDescription?: string) =>
     updateCharacter({ classItemDescription });
@@ -344,7 +377,7 @@ const useCurrentCharacter = () => {
     items,
     itemWeight: getItemWeight(),
     speed: getSpeed(),
-    maxHitPoints: getMaxHitPoints(),
+    maxHealthPoints: getMaxHealthPoints(),
     maxClassPoints: getMaxClassPoints(),
     carryingCapacity: getCarryingCapacity(),
     initiative: getInitiative(),
@@ -355,7 +388,7 @@ const useCurrentCharacter = () => {
     setName,
     setDescription,
     setRace,
-    setHitPoints,
+    setHealthPoints,
     setLevelPoints,
     addLevel,
     removeLevel,

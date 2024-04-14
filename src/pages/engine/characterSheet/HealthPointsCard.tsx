@@ -4,7 +4,7 @@ import { VNumberInput } from '@/components/VNumberInput';
 import styled from 'styled-components';
 import { useCharacters } from '../useCharacters';
 
-const StyledHitPointsCard = styled(VCard)`
+const StyledHealthPointsCard = styled(VCard)`
   flex: 1;
   display: flex;
   align-items: center;
@@ -20,19 +20,19 @@ const StyledHitPointsCard = styled(VCard)`
   }
 `;
 
-export const HitPointsCard: React.FC = () => {
+export const HealthPointsCard: React.FC = () => {
   const { currentCharacter } = useCharacters();
 
   return (
-    <StyledHitPointsCard>
+    <StyledHealthPointsCard>
       <VNumberInput
         size={48}
-        max={currentCharacter.maxHitPoints}
+        max={currentCharacter.maxHealthPoints}
         value={currentCharacter.hitPoints}
-        onChange={currentCharacter.setHitPoints}
+        onChange={currentCharacter.setHealthPoints}
       />
       <div className="card__slash">/</div>
-      <div className="card__max">{currentCharacter.maxHitPoints}</div>
-    </StyledHitPointsCard>
+      <div className="card__max">{currentCharacter.maxHealthPoints}</div>
+    </StyledHealthPointsCard>
   );
 };

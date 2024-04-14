@@ -11,11 +11,11 @@ export const RaceCard: React.FC = () => {
     <VCard style={{ padding: 0 }}>
       <VSelect
         placeholder="Race"
-        options={WORLD_KITS.vale_of_myths.races.map(race => ({
-          value: race,
-          label: race
+        options={Object.entries(WORLD_KITS.vale_of_myths.races).map(([key, race]) => ({
+          value: key,
+          label: race.name
         }))}
-        value={currentCharacter.race}
+        value={currentCharacter.raceKey}
         onChange={currentCharacter.setRace}
       />
     </VCard>

@@ -48,21 +48,51 @@ The Vale is home to five intelligent races: humans, halflings, dwarves, elves, a
 
 Humans thrive on adaptability and ambition, forming the backbone of society through their resourcefulness and drive. Their strength lies in their versatility and innovation, allowing them to excel in various disciplines, from magic to technology. However, their ambition often leads to internal conflicts and a susceptibility to self-destructive behavior, which can undermine their achievements and unity.
 
+Human characters innately gain the `Human Determination` Perk.
+
+| Perk                    | Description                                         |
+| ----------------------- | --------------------------------------------------- |
+| **Human Determination** | Once per Rest, you can reroll a failed skill check. |
+
 ## Dwarves
 
 Dwarves are renowned for their craftsmanship and sturdiness, dwelling in mountainous fortresses and underground cities built in the deepest parts of the world. Their strength is in their resilience, both physically and in their unwavering determination and loyalty. However, their insular and reluctant nature can lead to a lack of perspective and a vulnerability to being outmaneuvered.
+
+Dwarven characters innately gain the `Dwarven Resilience` Perk.
+
+| Perk                   | Description                     |
+| ---------------------- | ------------------------------- |
+| **Dwarven Resilience** | Your Max HP is increased by 24. |
 
 ## Elves
 
 Elves are deeply connected to nature and the arcane, living in harmonious and often secluded communities that value tradition and the natural world. Their longevity grants them humble wisdom and the ability to perceive the world in ways that most other creatures cannot. Their weakness lies in their aloofness and a certain rigidity to change, which can isolate them from the outside world and make adaptation challenging.
 
+Elven characters innately gain the `Elven Trance` Perk.
+
+| Perk             | Description                                                  |
+| ---------------- | ------------------------------------------------------------ |
+| **Elven Trance** | During a Rest, you can complete an additional Rest Activity. |
+
 ## Fay
 
 The Fay race, with their otherworldly charm and enigmatic personalities, influence the world through diplomacy and government. Their strength lies in their grounded nature and their ability to sway the hearts of those around them with their irresistible charisma. However, their manipulative behavior and capricious nature often leads them to be untrusted and shunned by those around them.
 
+Fayan characters innately gain the `Fayan Charm` Perk.
+
+| Perk            | Description                                              |
+| --------------- | -------------------------------------------------------- |
+| **Fayan Charm** | Once per Rest, you can force a person to tell one truth. |
+
 ## Halflings
 
 Halflings are a small, nimble race known for their love for comfort and peace, often living in tight-knit communities in the countryside or within the hidden nooks of larger cities. Their strength lies in their incredible agility and surprising luck, allowing them to navigate through challenges and dangers with ease and grace. However, their size and non-confrontational nature make them vulnerable in physical and social situations.
+
+Halfling characters innately gain the `Halfling Hospitality` Perk.
+
+| Perk                     | Description                                                                                  |
+| ------------------------ | -------------------------------------------------------------------------------------------- |
+| **Halfling Hospitality** | You and your companions get the bonus of Simple Lodging when resting in an Adventuring Camp. |
 
 ## 1.2 Countries
 
@@ -306,7 +336,7 @@ Knights can acquire other class abilities that enhance their abilities on the ba
 | **Battle Charge**      | Passive      | Level 1     | Your Movement Speed is doubled for the first round of combat.                                                                                                                              |
 | **Indomitable Spirit** | Passive      | Level 1     | While a member of your Adventuring Party is incapacitated, you gain +1 advantage on melee attacks.                                                                                         |
 | **King's Champion**    | Passive      | Level 1     | Your initiative roll is automatically doubled.                                                                                                                                             |
-| **Last Stand**         | Passive      | Level 6     | When you have 12 hit points or less, your attack damage is doubled.                                                                                                                        |
+| **Last Stand**         | Passive      | Level 6     | When you have 12 health points or less, your attack damage is doubled.                                                                                                                     |
 | **Bulwark**            | Passive      | Level 6     | You take only half damage when hit by an enemy with over half of its health remaining.                                                                                                     |
 | **Formal Decree**      | Bonus Action | Level 12    | You can make an Honor check against an enemy's Intuition to command them to stand down. On a success, they will not attack unless otherwise provoked.                                      |
 | **Honorable Duel**     | Bonus Action | Level 12    | You can make an Honor check to command an enemy to duel. On a success, they cannot make attacks on characters other than you. The duel ends if they are attacked by anyone other than you. |
@@ -392,17 +422,17 @@ Monks have access to a number of Chi Points, or CP, granted by their _Spiritual 
 
 Monks can acquire other class abilities that harness their inner energy.
 
-| Class Ability          | Type         | Requirement | Description                                                                                                                                                                                            |
-| ---------------------- | ------------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Reflexive**          | Passive      | Level 1     | You gain a second reaction during combat.                                                                                                                                                              |
-| **Pacifist Pacing**    | Passive      | Level 1     | Before you make your first attack in combat, you double your Movement Speed.                                                                                                                           |
-| **Inspire Zen**        | Bonus Action | Level 1     | You can make a Chi check to calm a group of people. On a success, you gain advantage on Influence checks against them equal to your Chi.                                                               |
-| **Credence**           | Passive      | Level 6     | If you fail a skill check after using _Chi Surge_, you regain the lost Chi Point.                                                                                                                      |
-| **Karmic Retribution** | Passive      | Level 6     | Before you make your first attack in combat, all attacks made against you have -2 disadvantage.                                                                                                        |
-| **Spirit Walk**        | Bonus Action | Level 12    | You enter or leave the spirit plane. While in the spirit plane, you become intangible to all characters in the physical plane and the effect of Rough Terrain is nullified.                            |
-| **Healing Hand**       | Bonus Action | Level 12    | You can stabilize an incapacitated character using Chi instead of Medicine. On a success, the character is stabilized with `1D6` hit points. For each Chi Point spent, increase this healing by `2D6`. |
-| **Return to Sender**   | Passive      | Level 18    | After using _Chi Deflection_ to deflect an attack, you can spend 1 CP to deal the intended damage back on the attacker.                                                                                |
-| **Chi Discharge**      | Main Action  | Level 18    | You can roll a Chi check to release a forceful wave of Chi in all directions. On a success, all characters within 20ft take `2D6` damage. For each Chi Point spent, increase this damage by `2D6`.     |
+| Class Ability          | Type         | Requirement | Description                                                                                                                                                                                               |
+| ---------------------- | ------------ | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Reflexive**          | Passive      | Level 1     | You gain a second reaction during combat.                                                                                                                                                                 |
+| **Pacifist Pacing**    | Passive      | Level 1     | Before you make your first attack in combat, you double your Movement Speed.                                                                                                                              |
+| **Inspire Zen**        | Bonus Action | Level 1     | You can make a Chi check to calm a group of people. On a success, you gain advantage on Influence checks against them equal to your Chi.                                                                  |
+| **Credence**           | Passive      | Level 6     | If you fail a skill check after using _Chi Surge_, you regain the lost Chi Point.                                                                                                                         |
+| **Karmic Retribution** | Passive      | Level 6     | Before you make your first attack in combat, all attacks made against you have -2 disadvantage.                                                                                                           |
+| **Spirit Walk**        | Bonus Action | Level 12    | You enter or leave the spirit plane. While in the spirit plane, you become intangible to all characters in the physical plane and the effect of Rough Terrain is nullified.                               |
+| **Healing Hand**       | Bonus Action | Level 12    | You can stabilize an incapacitated character using Chi instead of Medicine. On a success, the character is stabilized with `1D6` health points. For each Chi Point spent, increase this healing by `2D6`. |
+| **Return to Sender**   | Passive      | Level 18    | After using _Chi Deflection_ to deflect an attack, you can spend 1 CP to deal the intended damage back on the attacker.                                                                                   |
+| **Chi Discharge**      | Main Action  | Level 18    | You can roll a Chi check to release a forceful wave of Chi in all directions. On a success, all characters within 20ft take `2D6` damage. For each Chi Point spent, increase this damage by `2D6`.        |
 
 ## Ranger
 
@@ -438,17 +468,17 @@ Rangers innately gain the _Ranger Training_ Passive and _Ranger Vision_ Passive,
 
 Rangers can acquire other class abilities that add useful items to their _Survival Toolkit_.
 
-| Class Ability          | Type         | Requirement | Description                                                                                                                                                                                      |
-| ---------------------- | ------------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Scouting Lens**      | Passive      | Level 1     | When rolling Detection or Investigation to scout or search from a vantage point, add your Survival bonus.                                                                                        |
-| **Field Notes**        | Passive      | Level 1     | When rolling Insight against natural phenomena, such as plants, animals, weather, or terrain, add your Survival bonus.                                                                           |
-| **Climbing Kit**       | Passive      | Level 1     | When rolling Athletics to climb, add your Survival bonus.                                                                                                                                        |
-| **Splintering Arrows** | Passive      | Level 6     | The damage inflicted by bows is increased by `1D6`.                                                                                                                                              |
-| **Camouflage**         | Passive      | Level 6     | When rolling Stealth to avoid being seen, add your Survival bonus.                                                                                                                               |
-| **Tripwire**           | Passive      | Level 12    | When rolling Detection to watch for enemies during a Rest or in a prepared area, add your Survival bonus.                                                                                        |
-| **Survival Shelter**   | Passive      | Level 12    | You get the bonus of Simple Lodging when resting in an Adventuring Camp. When rolling Fortitude against natural phenomena, add your Survival bonus.                                              |
-| **Healing Salve**      | Passive      | Level 18    | When rolling Medicine to stabilize an incapacitated character or heal an injured character during a Rest, add your Survival bonus. Characters healed or stabilized by you gain `2D6` hit points. |
-| **Speed Quiver**       | Bonus Action | Level 18    | You can make a ranged attack with a bow using Survival.                                                                                                                                          |
+| Class Ability          | Type         | Requirement | Description                                                                                                                                                                                         |
+| ---------------------- | ------------ | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Scouting Lens**      | Passive      | Level 1     | When rolling Detection or Investigation to scout or search from a vantage point, add your Survival bonus.                                                                                           |
+| **Field Notes**        | Passive      | Level 1     | When rolling Insight against natural phenomena, such as plants, animals, weather, or terrain, add your Survival bonus.                                                                              |
+| **Climbing Kit**       | Passive      | Level 1     | When rolling Athletics to climb, add your Survival bonus.                                                                                                                                           |
+| **Splintering Arrows** | Passive      | Level 6     | The damage inflicted by bows is increased by `1D6`.                                                                                                                                                 |
+| **Camouflage**         | Passive      | Level 6     | When rolling Stealth to avoid being seen, add your Survival bonus.                                                                                                                                  |
+| **Tripwire**           | Passive      | Level 12    | When rolling Detection to watch for enemies during a Rest or in a prepared area, add your Survival bonus.                                                                                           |
+| **Survival Shelter**   | Passive      | Level 12    | You get the bonus of Simple Lodging when resting in an Adventuring Camp. When rolling Fortitude against natural phenomena, add your Survival bonus.                                                 |
+| **Healing Salve**      | Passive      | Level 18    | When rolling Medicine to stabilize an incapacitated character or heal an injured character during a Rest, add your Survival bonus. Characters healed or stabilized by you gain `2D6` health points. |
+| **Speed Quiver**       | Bonus Action | Level 18    | You can make a ranged attack with a bow using Survival.                                                                                                                                             |
 
 ## Mage
 
@@ -502,7 +532,7 @@ Mages can acquire other class abilities that unlock new schools of magic and enh
 | **Magical Recharge**  | Passive      | Level 12     | Once per Rest, you can recharge your magic by focusing your remaining Magic Points. You regain `1D6` Magic Points for each Magic Point remaining.                                                                                                                                                                                                      |
 | **Necromancy**        | Passive      | Level 12     | You unlock all spells from the School of Necromancy, giving the ability to wield vitality and death.                                                                                                                                                                                                                                                   |
 | **Necrotic Touch**    | Main Action  | Necromancy   | You can roll a Magic check to steal the life force from an enemy within 5ft. On a success, spend 3 MP. The enemy takes `3D6` damage.                                                                                                                                                                                                                   |
-| **Life Steal**        | Main Action  | Necromancy   | You can roll a Magic check to steal the life force from an enemy within 5ft. On a success, spend 6 MP. The enemy takes `4D6` damage and you heal `2D6` hit points.                                                                                                                                                                                     |
+| **Life Steal**        | Main Action  | Necromancy   | You can roll a Magic check to steal the life force from an enemy within 5ft. On a success, spend 6 MP. The enemy takes `4D6` damage and you heal `2D6` health points.                                                                                                                                                                                  |
 | **Revival**           | Main Action  | Necromancy   | You can spend 12 MP to revive a character that has been dead for less than 24 hours. The revived character has one attribute permanently reduced by 1.                                                                                                                                                                                                 |
 | **War Mage**          | Passive      | Level 18     | You can cast any spell that requires a Main Action as a Bonus Action with -1 disadvantage.                                                                                                                                                                                                                                                             |
 | **Chronomancy**       | Passive      | Level 18     | You unlock all spells from the School of Chronomancy, giving the ability to wield the flow of time.                                                                                                                                                                                                                                                    |
@@ -692,12 +722,12 @@ Sages can acquire other class abilities that unlock new rituals and enhance thei
 | Class Ability            | Type          | Requirement          | Description                                                                                                                                                                                                                                                                                                      |
 | ------------------------ | ------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Gust of Wind**         | Passive       | Level 1              | You add your Nature bonus to your Movement Speed.                                                                                                                                                                                                                                                                |
-| **Fortress of Thorns**   | Rest Activity | Level 1              | You call forth nature to construct a fortress of thorns to rest in. You and your companions get the bonus of Simple Lodging and all surprise attacks instantly fail.                                                                                                                                             |
+| **Fortress of Thorns**   | Rest Activity | Level 1              | You call forth nature to construct a fortress of thorns to rest in. You and your companions get the bonus of Simple Lodging and gain 1 Satiation. All surprise attacks instantly fail.                                                                                                                           |
 | **Ritual of Protection** | Rest Activity | Level 1              | You cast a ritual to call upon nature to protect you from danger. Until your next rest, you have access to all class abilities granted by Ritual of Protection. You regain all of your missing Nature Points.                                                                                                    |
 | **Stone Skin**           | Passive       | Ritual of Protection | While Ritual of Protection is in effect, you are surrounded by natural Heavy Armor.                                                                                                                                                                                                                              |
 | **Natural Armor**        | Bonus Action  | Ritual of Protection | While Ritual of Protection is in effect, you can spend 1 to 4 NP to surround another character in natural armor until your next Rest. Spend 1 NP for Light Armor, 2 NP for Medium Armor, and 4 NP for Heavy Armor.                                                                                               |
 | **Glancing Wind**        | Reaction      | Ritual of Protection | While Ritual of Protection is in effect, you can roll a Nature check when a character is hit with an attack. On a success, you can spend 1 NP to reduce the incoming damage by half or 2 NP to deflect all damage.                                                                                               |
-| **Nature's Blessing**    | Passive       | Level 6              | When you are incapacitated, you can roll a Nature check to determine if nature intervenes. On a success, spend 1 NP. Instead of being incapacitated, you are reduced to 1 hit point.                                                                                                                             |
+| **Nature's Blessing**    | Passive       | Level 6              | When you are incapacitated, you can roll a Nature check to determine if nature intervenes. On a success, spend 1 NP. Instead of being incapacitated, you are reduced to 1 health point.                                                                                                                          |
 | **Ritual of Fury**       | Rest Activity | Level 6              | You cast a ritual to call upon nature to empower you with its fury. Until your next rest, you have access to all class abilities granted by Ritual of Fury. You regain all of your missing Nature Points.                                                                                                        |
 | **Wind Strike**          | Passive       | Ritual of Fury       | While Ritual of Fury in effect, you gain advantage on melee and ranged attacks equal to your Nature bonus.                                                                                                                                                                                                       |
 | **Solar Smite**          | Passive       | Ritual of Fury       | While Ritual of Fury is in effect, melee and ranged attacks deal an additional `1D6` damage.                                                                                                                                                                                                                     |

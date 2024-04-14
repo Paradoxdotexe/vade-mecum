@@ -232,11 +232,11 @@ At any time, Believers can replace a rolled die by a character with one of their
 
 Believers can unlock new ways to use their Divination Points through their perks.
 
-| Attribute | Perk              | Requirement | Description                                                                                                                                                         |
-| --------- | ----------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Charisma  | **Manifestation** | Belief 1    | Spend 1 DP to manifest a divine sign in the world. You guarantee success on your next roll.                                                                         |
-| Charisma  | **Revelation**    | Belief 2    | Spend 2 DP to get a vision revealing the way towards success. What is revealed is at the DM's discretion.                                                           |
-| Charisma  | **Rapture**       | Belief 3    | Spend 3 DP to stabilize an incapacitated character or revive a character that has been dead for less than 1 hour. The character immediately heals `6D6` hit points. |
+| Attribute | Perk              | Requirement | Description                                                                                                                                                            |
+| --------- | ----------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Charisma  | **Manifestation** | Belief 1    | Spend 1 DP to manifest a divine sign in the world. You guarantee success on your next roll.                                                                            |
+| Charisma  | **Revelation**    | Belief 2    | Spend 2 DP to get a vision revealing the way towards success. What is revealed is at the DM's discretion.                                                              |
+| Charisma  | **Rapture**       | Belief 3    | Spend 3 DP to stabilize an incapacitated character or revive a character that has been dead for less than 1 hour. The character immediately heals `6D6` health points. |
 
 # 3. Items
 

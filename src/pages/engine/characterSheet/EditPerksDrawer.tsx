@@ -45,11 +45,7 @@ export const EditPerksDrawer: React.FC<EditPerksDrawerProps> = props => {
     }
   };
 
-  const perks = searchObjects(
-    PERKS,
-    ['name', 'description', 'attributeKey', 'skillKey'],
-    searchQuery
-  );
+  const perks = searchObjects(PERKS, ['name', 'description'], searchQuery);
 
   return (
     <StyledEditPerksDrawer {...props} width={800} header={'Edit Perks'}>
@@ -69,7 +65,9 @@ export const EditPerksDrawer: React.FC<EditPerksDrawerProps> = props => {
                 { key: 'name', dataKey: 'name' },
                 {
                   key: 'skill',
-                  render: perk => `${capitalize(perk.skillKey)} ${perk.skillRequirement}`
+                  render: perk =>
+                    !!perk.requirement &&
+                    `${capitalize(perk.requirement.skillKey)} ${perk.requirement.skillRequirement}`
                 },
                 { key: 'description', dataKey: 'description', width: '100%' }
               ]}
@@ -77,8 +75,10 @@ export const EditPerksDrawer: React.FC<EditPerksDrawerProps> = props => {
               emptyMessage="No perks match your query."
               onRowClick={row => togglePerk(row.key)}
               rowDisabled={perk =>
-                currentCharacter.attributes[perk.attributeKey].skills[perk.skillKey].value <
-                perk.skillRequirement
+                !!perk.requirement &&
+                currentCharacter.attributes[perk.requirement.attributeKey].skills[
+                  perk.requirement.skillKey
+                ].value < perk.requirement.skillRequirement
               }
             />
           </VCard>

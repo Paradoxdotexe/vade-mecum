@@ -41,7 +41,7 @@ type CharismaAttribute = Attribute & {
   skills: {
     intuition: Skill;
     influence: Skill;
-    barter: Skill;
+    luck: Skill;
   };
 };
 
@@ -98,7 +98,7 @@ const DEFAULT_ATTRIBUTES: Attributes = {
     skills: {
       intuition: { label: 'Intuition', value: 0 },
       influence: { label: 'Influence', value: 0 },
-      barter: { label: 'Barter', value: 0 }
+      luck: { label: 'Luck', value: 0 }
     }
   },
   perception: {
@@ -120,7 +120,7 @@ export type Character = {
   levelPoints: number;
   classKey?: string;
   classItemDescription?: string;
-  race?: string;
+  raceKey?: string;
   attributes: Attributes;
   hitPoints: number;
   classPoints: number;

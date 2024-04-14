@@ -6,7 +6,7 @@ import { NameCard } from './NameCard';
 import { RaceCard } from './RaceCard';
 import { DescriptionCard } from './DescriptionCard';
 import { LevelCard } from './LevelCard';
-import { HitPointsCard } from './HitPointsCard';
+import { HealthPointsCard } from './HealthPointsCard';
 import { SpeedCard } from './SpeedCard';
 import { ClassPointsCard } from './ClassPointsCard';
 import { useCharacters } from '../useCharacters';
@@ -187,8 +187,8 @@ export const CharacterSheet: React.FC = () => {
             <LevelCard />
           </div>
           <div className="sheet__section">
-            <VHeader>Hit Points</VHeader>
-            <HitPointsCard />
+            <VHeader>Health Points</VHeader>
+            <HealthPointsCard />
           </div>
           <div className="sheet__section">
             <VHeader>Speed</VHeader>

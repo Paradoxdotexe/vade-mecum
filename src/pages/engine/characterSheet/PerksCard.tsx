@@ -19,7 +19,9 @@ export const PerksCard: React.FC = () => {
     { key: 'name', dataKey: 'name' },
     {
       key: 'skill',
-      render: perk => `${capitalize(perk.skillKey)} ${perk.skillRequirement}`
+      render: perk =>
+        !!perk.requirement &&
+        `${capitalize(perk.requirement.skillKey)} ${perk.requirement.skillRequirement}`
     },
     { key: 'description', dataKey: 'description', width: '100%' }
   ];

@@ -183,7 +183,7 @@ As such, perks give characters a way to accentuate their strengths in ways that 
 | Strength     | **Battering Ram**    | Power 3         | You double your Power bonus on skill checks to force your way through an obstacle.                                                                |
 | Strength     | **Human Shield**     | Fortitude 1     | You act as light cover in combat for all characters within 10ft behind you.                                                                       |
 | Strength     | **Pack Mule**        | Fortitude 2     | Your carrying capacity is increased by a number of slots equal to your `(Strength + Fortitude)`.                                                  |
-| Strength     | **Night Owl**        | Fortitude 3     | During a Rest, you can complete a second Rest Activity with -1 disadvantage.                                                                      |
+| Strength     | **Night Owl**        | Fortitude 3     | During a Rest, you can complete an additional Rest Activity with -1 disadvantage.                                                                 |
 | Strength     | **Trainer**          | Athletics 1     | You give allies +1 advantage on Athletics checks.                                                                                                 |
 | Strength     | **Free Solo**        | Athletics 2     | You double your Athletics bonus on skill checks to climb without equipment.                                                                       |
 | Strength     | **Big Brother**      | Athletics 3     | If an ally within 10ft is hit with an attack, you can leap in to switch places, taking all damage.                                                |
@@ -212,7 +212,7 @@ As such, perks give characters a way to accentuate their strengths in ways that 
 | Charisma     | **Identity Theft**   | Influence 2     | You double your Influence bonus on skill checks while impersonating someone else.                                                                 |
 | Charisma     | **Folk Hero**        | Influence 3     | You double the advantage given to Influence checks by Renown.                                                                                     |
 | Charisma     | **Gold Rush**        | Luck 1          | After passing an Investigation check to loot after combat, you can roll a Luck check. On a success, you find double the amount of currency units. |
-| Charisma     | **Serendipity**      | Luck 2          | Once per Rest, you can replace any failed skill check with a new Luck check.                                                                      |
+| Charisma     | **Serendipity**      | Luck 2          | Once per Rest, you can replace a failed skill check with a new Luck check.                                                                        |
 | Charisma     | **Close Call**       | Luck 3          | Once per Rest, you can roll a Luck check after being incapacitated. On a success, you are reduced to 1 HP instead.                                |
 | Perception   | **Architect**        | Insight 1       | You double your Insight bonus on skill checks against man-made structures.                                                                        |
 | Perception   | **Ecologist**        | Insight 2       | You double your Insight bonus on skill checks against natural phenomena, such as animals, plants, weather, and terrain.                           |
@@ -281,7 +281,7 @@ Knights can acquire other class abilities that enhance their abilities on the ba
 | **Battle Charge**      | Passive      | Level 1     | Your Movement Speed is doubled for the first round of combat.                                                                                                                              |
 | **Indomitable Spirit** | Passive      | Level 1     | While a member of your Adventuring Party is incapacitated, you gain +1 advantage on melee attacks.                                                                                         |
 | **King's Champion**    | Passive      | Level 1     | Your initiative roll is automatically doubled.                                                                                                                                             |
-| **Last Stand**         | Passive      | Level 6     | When you have 12 hit points or less, your attack damage is doubled.                                                                                                                        |
+| **Last Stand**         | Passive      | Level 6     | When you have 12 health points or less, your attack damage is doubled.                                                                                                                     |
 | **Bulwark**            | Passive      | Level 6     | You take only half damage when hit by an enemy with over half of its health remaining.                                                                                                     |
 | **Formal Decree**      | Bonus Action | Level 12    | You can make an Honor check against an enemy's Intuition to command them to stand down. On a success, they will not attack unless otherwise provoked.                                      |
 | **Honorable Duel**     | Bonus Action | Level 12    | You can make an Honor check to command an enemy to duel. On a success, they cannot make attacks on characters other than you. The duel ends if they are attacked by anyone other than you. |
@@ -721,9 +721,11 @@ A wounded character has their movement speed reduced by half until their next Re
 ## 3.6 Rest
 
 After a day of adventuring, the party is required to rest for 8 hours to refresh their minds and bodies.
-During these 8 hours, characters will engage in a mix of sleeping and a single Rest Activity.
+During these 8 hours, characters will engage in a mix of sleeping and Rest Activities.
 Any Rest Activity permitted by the Game Master will be evaluated by a skill check.
 The most common Rest Activities are given below.
+
+> All characters can complete a single Rest Activity by default.
 
 | Rest Activity          | Skill      | Success                                                             |
 | ---------------------- | ---------- | ------------------------------------------------------------------- |
@@ -757,12 +759,12 @@ The Game Master will decide whether NPC-cooked meals are available in any given 
 | **Simple Meal**        | Common      | 5 CU  | Satiates a character for 2 Rests, cannot be carried  |
 | **Fancy Meal**         | Average     | 20 CU | Satiates a character for 4 Rests, cannot be carried  |
 
-Characters that are satiated at the end of a Rest will heal a number of HP equal to `(Strength + Fortitude) x D6`.
+Characters that are satiated at the end of a Rest will heal a number of HP equal to `(Level + Strength + Fortitude) x D6`.
 
 > A character does not gain any benefit from eating additional meals while already satiated.
 
 ### Exhaustion
 
 If an Adventuring Party cannot complete a Rest for any reason, they will gain a level of Exhaustion.
-For each level, a character suffers -1 disadvantage on rolls for Strength, Intelligence, and Perception.
-A character can at most have 3 levels of Exhaustion.
+For each level of exhaustion, a character suffers -1 disadvantage on all skill checks.
+A character can have at most 3 levels of Exhaustion.

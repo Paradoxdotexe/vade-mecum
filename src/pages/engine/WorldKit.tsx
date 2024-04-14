@@ -1,4 +1,5 @@
 import { AttributeKey } from './Character';
+import { Perk } from './Perk';
 
 type CharacterClass = {
   label: string;
@@ -13,6 +14,8 @@ export type CharacterComputations = {
   speed?: string;
   maxClassPoints?: string;
   initiative?: string;
+  maxHealthPoints?: string;
+  carryingCapacity?: string;
 };
 
 enum ClassAbilityType {
@@ -48,16 +51,66 @@ export type InventoryItem = {
   notes?: string;
 };
 
+type Race = {
+  name: string;
+  perk: Perk;
+};
+
 type WorldKit = {
   label: string;
-  races: string[];
+  races: { [key: string]: Race };
   classes: { [key: string]: CharacterClass };
   items: { [key: string]: InventoryItem };
 };
 
 const VALE_OF_MYTHS: WorldKit = {
   label: 'Vale of Myths',
-  races: ['Human', 'Dwarf', 'Elf', 'Fay', 'Halfling'],
+  races: {
+    human: {
+      name: 'Human',
+      perk: {
+        key: 'human_determination',
+        name: 'Human Determination',
+        description: 'Once per Rest, you can reroll a failed skill check.'
+      }
+    },
+    dwarf: {
+      name: 'Dwarf',
+      perk: {
+        key: 'dwarven_resilience',
+        name: 'Dwarven Resilience',
+        description: 'Your Max HP is increased by 24.',
+        computed: {
+          maxHealthPoints: '[base] + 24'
+        }
+      }
+    },
+    elf: {
+      name: 'Elf',
+      perk: {
+        key: 'elven_trance',
+        name: 'Elven Trance',
+        description: 'During a Rest, you can complete an additional Rest Activity.'
+      }
+    },
+    fay: {
+      name: 'Fay',
+      perk: {
+        key: 'fayan_charm',
+        name: 'Fayan Charm',
+        description: 'Once per Rest, you can force a person to tell one truth.'
+      }
+    },
+    halfling: {
+      name: 'Halfling',
+      perk: {
+        key: 'halfling_hospitality',
+        name: 'Halfling Hospitality',
+        description:
+          'You and your companions get the bonus of Simple Lodging when resting in an Adventuring Camp.'
+      }
+    }
+  },
   classes: {
     knight: {
       label: 'Knight',
@@ -106,7 +159,7 @@ const VALE_OF_MYTHS: WorldKit = {
           key: 'last_stand',
           name: 'Last Stand',
           type: ClassAbilityType.PASSIVE,
-          description: 'When you have 12 hit points or less, your attack damage is doubled.',
+          description: 'When you have 12 health points or less, your attack damage is doubled.',
           requirement: 6
         },
         {
@@ -312,7 +365,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Healing Hand',
           type: ClassAbilityType.BONUS_ACTION,
           description:
-            'You can stabilize an incapacitated character using Chi instead of Medicine. On a success, the character is stabilized with 1D6 hit points. For each Chi Point spent, increase this healing by 2D6.',
+            'You can stabilize an incapacitated character using Chi instead of Medicine. On a success, the character is stabilized with 1D6 health points. For each Chi Point spent, increase this healing by 2D6.',
           requirement: 12
         },
         {
@@ -419,7 +472,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Healing Salve',
           type: ClassAbilityType.PASSIVE,
           description:
-            'When rolling Medicine to stabilize an incapacitated character or heal an injured character during a Rest, add your Survival bonus. Characters healed or stabilized by you gain 2D6 hit points.',
+            'When rolling Medicine to stabilize an incapacitated character or heal an injured character during a Rest, add your Survival bonus. Characters healed or stabilized by you gain 2D6 health points.',
           requirement: 18
         },
         {
@@ -585,7 +638,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Life Steal',
           type: ClassAbilityType.MAIN_ACTION,
           description:
-            'You can roll a Magic check to steal the life force from an enemy within 5ft. On a success, spend 6 MP. The enemy takes 4D6 damage and you heal 2D6 hit points.',
+            'You can roll a Magic check to steal the life force from an enemy within 5ft. On a success, spend 6 MP. The enemy takes 4D6 damage and you heal 2D6 health points.',
           requirement: 'necromancy'
         },
         {
@@ -987,7 +1040,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Fortress of Thorns',
           type: ClassAbilityType.REST_ACTIVITY,
           description:
-            'You call forth nature to construct a fortress of thorns to rest in. You and your companions get the bonus of Simple Lodging and all surprise attacks instantly fail.',
+            'You call forth nature to construct a fortress of thorns to rest in. You and your companions get the bonus of Simple Lodging and gain 1 Satiation. All surprise attacks instantly fail. ',
           requirement: 1
         },
         {
@@ -1027,7 +1080,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: "Nature's Blessing",
           type: ClassAbilityType.PASSIVE,
           description:
-            'When you are incapacitated, you can roll a Nature check to determine if nature intervenes. On a success, spend 1 NP. Instead of being incapacitated, you are reduced to 1 hit point.',
+            'When you are incapacitated, you can roll a Nature check to determine if nature intervenes. On a success, spend 1 NP. Instead of being incapacitated, you are reduced to 1 health point.',
           requirement: 6
         },
         {
