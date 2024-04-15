@@ -799,37 +799,37 @@ In _Vale of Myths_, valerian pieces (abbreviated as "pcs") are the main denomina
 
 ## Weapons
 
-| Item                    | Rarity    | Cost    | Size     | Description                                    |
-| ----------------------- | --------- | ------- | -------- | ---------------------------------------------- |
-| **Dagger**              | Common    | 5 pcs   | 1/2 slot | +1 Power to attack, 1D6 damage, 5ft range      |
-| **Shortsword**          | Average   | 20 pcs  | 1 slot   | +1 Power to attack, 2D6 damage, 5ft range      |
-| **Longsword**           | Rare      | 100 pcs | 2 slots  | +2 Power to attack, 3D6 damage, 5ft range      |
-| **Greatsword**          | Very Rare | 200 pcs | 2 slots  | +3 Power to attack, 4D6 damage, 5ft range      |
-| **Shortbow**            | Average   | 20 pcs  | 2 slots  | +1 Precision to attack, 1D6 damage, 60ft range |
-| **Crossbow**            | Rare      | 100 pcs | 2 slots  | +2 Precision to attack, 2D6 damage, 60ft range |
-| **Longbow**             | Very Rare | 200 pcs | 2 slots  | +3 Precision to attack, 3D6 damage, 90ft range |
-| **Blessed Blunderbuss** | Average   | 20 pcs  | 1/2 slot | +1 Precision to attack, 2D6 damage, 15ft range |
-| **Frost Flintlock**     | Rare      | 100 pcs | 1/2 slot | +2 Precision to attack, 3D6 damage, 30ft range |
-| **Radiant Revolver**    | Very Rare | 200 pcs | 1/2 slot | +3 Precision to attack, 3D6 damage, 60ft range |
-| **Resonant Repeater**   | Legendary | 400 pcs | 1 slot   | +3 Precision to attack, 4D6 damage, 90ft range |
+| Item                    | Rarity    | Cost     | Size     | Description                                    |
+| ----------------------- | --------- | -------- | -------- | ---------------------------------------------- |
+| **Dagger**              | Common    | 2D6 pcs  | 1/2 slot | +1 Power to attack, 1D6 damage, 5ft range      |
+| **Shortsword**          | Average   | 4D6 pcs  | 1 slot   | +1 Power to attack, 2D6 damage, 5ft range      |
+| **Longsword**           | Rare      | 8D6 pcs  | 2 slots  | +2 Power to attack, 3D6 damage, 5ft range      |
+| **Greatsword**          | Very Rare | 16D6 pcs | 2 slots  | +3 Power to attack, 4D6 damage, 5ft range      |
+| **Shortbow**            | Average   | 4D6 pcs  | 2 slots  | +1 Precision to attack, 1D6 damage, 60ft range |
+| **Crossbow**            | Rare      | 8D6 pcs  | 2 slots  | +2 Precision to attack, 2D6 damage, 60ft range |
+| **Longbow**             | Very Rare | 16D6 pcs | 2 slots  | +3 Precision to attack, 3D6 damage, 90ft range |
+| **Blessed Blunderbuss** | Average   | 4D6 pcs  | 1/2 slot | +1 Precision to attack, 2D6 damage, 15ft range |
+| **Frost Flintlock**     | Rare      | 8D6 pcs  | 1/2 slot | +2 Precision to attack, 3D6 damage, 30ft range |
+| **Radiant Revolver**    | Very Rare | 16D6 pcs | 1/2 slot | +3 Precision to attack, 3D6 damage, 60ft range |
+| **Resonant Repeater**   | Legendary | 32D6 pcs | 1 slot   | +3 Precision to attack, 4D6 damage, 90ft range |
 
 ## Armor
 
-| Item                   | Rarity    | Cost    | Tier   |
-| ---------------------- | --------- | ------- | ------ |
-| **Leather Armor**      | Average   | 20 pcs  | Light  |
-| **Chainmail Armor**    | Rare      | 100 pcs | Medium |
-| **Plate Armor**        | Very Rare | 200 pcs | Heavy  |
-| **Arcane Aegis Armor** | Average   | 20 pcs  | Light  |
-| **Mystic Mail Armor**  | Rare      | 100 pcs | Medium |
-| **Eldritch Exo Armor** | Very rare | 200 pcs | Heavy  |
+| Item                   | Rarity    | Cost     | Tier   |
+| ---------------------- | --------- | -------- | ------ |
+| **Leather Armor**      | Average   | 4D6 pcs  | Light  |
+| **Chainmail Armor**    | Rare      | 8D6 pcs  | Medium |
+| **Plate Armor**        | Very Rare | 16D6 pcs | Heavy  |
+| **Arcane Aegis Armor** | Average   | 4D6 pcs  | Light  |
+| **Mystic Mail Armor**  | Rare      | 8D6 pcs  | Medium |
+| **Eldritch Exo Armor** | Very rare | 16D6 pcs | Heavy  |
 
 ## Tools
 
-| Item                      | Rarity  | Cost   | Size     | Description   |
-| ------------------------- | ------- | ------ | -------- | ------------- |
-| **Rope**                  | Common  | 5 pcs  | 1/2 slot | +1 Athletics  |
-| **Rope & Grappling Hook** | Average | 20 pcs | 1 slot   | +2 Athletics  |
-| **Medical Pouch**         | Average | 20 pcs | 1/2 slot | +1 Medicine   |
-| **Tool Belt**             | Average | 20 pcs | 1 slot   | +1 Innovation |
-| **World Map**             | Common  | 5 pcs  | 1/4 slot | +1 Insight    |
+| Item                      | Rarity  | Cost    | Size     | Description   |
+| ------------------------- | ------- | ------- | -------- | ------------- |
+| **Rope**                  | Common  | 2D6 pcs | 1/2 slot | +1 Athletics  |
+| **Rope & Grappling Hook** | Average | 4D6 pcs | 1 slot   | +2 Athletics  |
+| **Medical Pouch**         | Average | 4D6 pcs | 1/2 slot | +1 Medicine   |
+| **Tool Belt**             | Average | 4D6 pcs | 1 slot   | +1 Innovation |
+| **World Map**             | Common  | 2D6 pcs | 1/4 slot | +1 Insight    |

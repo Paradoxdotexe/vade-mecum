@@ -7,7 +7,7 @@ import { useCharacters } from '../useCharacters';
 import { Attribute, AttributeKey } from '@/pages/engine/Character';
 import { RollEvaluation, useRolls } from '../useRolls';
 import { DateTime } from 'luxon';
-import { InitiativeCard } from './InitiativeCard';
+import { SideSkillsCard } from './SideSkillsCard';
 
 const StyledAttributeCards = styled.div`
   display: flex;
@@ -73,7 +73,7 @@ export const AttributeCards: React.FC = () => {
             }}
           />
         ))}
-        <InitiativeCard />
+        <SideSkillsCard />
       </StyledAttributeCards>
       <VPopup
         open={rolledAttributeActive}

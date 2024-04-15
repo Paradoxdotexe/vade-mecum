@@ -271,6 +271,10 @@ const useCurrentCharacter = () => {
     return baseInitiative;
   };
 
+  const getLooting = () => {
+    return parseComputation('[level] + [skill.luck]', computationVariables);
+  };
+
   const getItemWeight = () => {
     return items.reduce((sum, item) => sum + item.weight * item.quantity, 0);
   };
@@ -381,6 +385,7 @@ const useCurrentCharacter = () => {
     maxClassPoints: getMaxClassPoints(),
     carryingCapacity: getCarryingCapacity(),
     initiative: getInitiative(),
+    looting: getLooting(),
     maxSkillPointCount,
     maxAttributePointCount,
     maxClassAbilityCount,

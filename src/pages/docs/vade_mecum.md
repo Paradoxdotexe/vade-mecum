@@ -93,30 +93,28 @@ To price items, there are 7 levels of rarity that measure how rare and costly an
 In most adventures, characters begin with the ability to buy items of Average rarity and lower.
 Items that are Rare, Very Rare, and Legendary should require PC's to save up currency or succeed on challenging quests.
 
-| Rarity          | Cost   | Example                    |
-| --------------- | ------ | -------------------------- |
-| **Ubiquitous**  | Free   | Cup of water               |
-| **Very Common** | 1 CU   | Pint of ale                |
-| **Common**      | 5 CU   | Simple meal                |
-| **Average**     | 20 CU  | Fancy meal, simple lodging |
-| **Rare**        | 100 CU | Light armor, fancy lodging |
-| **Very Rare**   | 200 CU | Medium armor               |
-| **Legendary**   | 400 CU | Heavy armor                |
-
-> A single Currency Unit is of little worth by itself, being equivalent to an item of Very Common rarity.
-> Stumbling upon a single CU in the world would be unsurprising and unimpactful.
+| Rarity          | Cost              | Example                    |
+| --------------- | ----------------- | -------------------------- |
+| **Ubiquitous**  | Free              | Cup of water               |
+| **Very Common** | 1D6 CU (~3 CU)    | Pint of ale                |
+| **Common**      | 2D6 CU (~7 CU)    | Simple meal                |
+| **Average**     | 4D6 CU (~14 CU)   | Fancy meal, simple lodging |
+| **Rare**        | 8D6 CU (~28 CU)   | Light Armor, fancy lodging |
+| **Very Rare**   | 16D6 CU (~56 CU)  | Medium Armor               |
+| **Legendary**   | 32D6 CU (~112 CU) | Heavy Armor                |
 
 To purchase an item listed in the given World Kit, a character requires a marketplace or merchant that has that item (as dictated by the Game Master).
-Additionally, if the item is of Rare rarity or higher, an Influence check is required to determine how effective the character is in haggling the price down.
+Additionally, if the item is of Rare rarity or higher, an Influence check is required to determine how effective the character is in haggling the price.
 
 | Result    | Outcome                                |
 | --------- | -------------------------------------- |
-| Success   | You haggle the price down 10%.         |
+| Success   | You haggle the price down 25%.         |
 | Stalemate | You find the item priced as expected.  |
-| Failure   | The merchant haggles the price up 10%. |
+| Failure   | The merchant haggles the price up 25%. |
 
 > **Example:** A character looks to buy some Heavy Armor (Legendary) in a large marketplace and the GM rules that the item is being sold there.
-> The character rolls an Influence check that results in a failure. They have the choice to buy the item for 440 CU or try again tomorrow.
+> The character rolls an Influence check to haggle the price and gets a failure, increasing the price from 32D6 to 40D6.
+> The GM rolls 40D6, finalizing the price at 140 CU.
 
 When selling an item of Rare rarity or higher, the same rules apply but in reverse (the character attempts to haggle the price up).
 
@@ -429,7 +427,7 @@ For the best experience, focus on making a unique and interesting adventurer tha
 
 > **Equipment**
 >
-> - [ ] Add 40 Currency Units to your character's inventory
+> - [ ] Add 25 Currency Units to your character's inventory
 >   - You can spend these Currency Units to purchase items from the World Kit being used
 
 # 3. Adventuring
@@ -650,10 +648,10 @@ To do this, one character will roll a Stealth check with a difficulty modifier e
 ### Looting
 
 After completing a bout of combat, characters have the ability to search for spoils of their labor.
-To do so, each player makes an Investigation check.
-On a success, they either recover a usable item from a fallen enemy or find an amount of currency equal to `(Level + Perception + Investigation) x D6`.
+Each character can make one Investigation check against an unlooted enemy or area.
+On a success, they either find an amount of currency equal to `(Level + Luck) x D6` or recover an item (at the GM's discretion).
 
-> **Example:** A Level 3 character with Perception 4 and Investigation 1 could find between 8 and 48 units of currency after passing an Investigation check.
+> **Example:** A Level 3 character with Luck 1 loots a fallen enemy after a combat. They roll an Investigation check and succeed, finding 4D6 CU.
 
 ## 3.5 Death
 
@@ -744,8 +742,8 @@ The Game Master will decide whether NPC-provided lodging is available in any giv
 | Lodging              | Rarity     | Cost   | Description                                               |
 | -------------------- | ---------- | ------ | --------------------------------------------------------- |
 | **Adventuring Camp** | Ubiquitous | Free   | A cold place to sleep                                     |
-| **Simple Lodging**   | Average    | 20 CU  | A warm place to sleep, +1 to Rest Activity rolls          |
-| **Fancy Lodging**    | Rare       | 100 CU | A warm and safe place to sleep, +3 to Rest Activity rolls |
+| **Simple Lodging**   | Average    | 4D6 CU | A warm place to sleep, +1 to Rest Activity rolls          |
+| **Fancy Lodging**    | Rare       | 8D6 CU | A warm and safe place to sleep, +3 to Rest Activity rolls |
 
 ### Meals
 
@@ -753,11 +751,11 @@ To recover HP naturally during a Rest, characters can consume meals to satiate t
 Depending on the quality, a meal will satiate a character for one or more Rests.
 The Game Master will decide whether NPC-cooked meals are available in any given location.
 
-| Meal                   | Rarity      | Cost  | Description                                          |
-| ---------------------- | ----------- | ----- | ---------------------------------------------------- |
-| **Adventuring Ration** | Very Common | 1 CU  | Satiates a character for 1 Rest, carried in 1/4 slot |
-| **Simple Meal**        | Common      | 5 CU  | Satiates a character for 2 Rests, cannot be carried  |
-| **Fancy Meal**         | Average     | 20 CU | Satiates a character for 4 Rests, cannot be carried  |
+| Meal                   | Rarity      | Cost   | Description                                          |
+| ---------------------- | ----------- | ------ | ---------------------------------------------------- |
+| **Adventuring Ration** | Very Common | 1D6 CU | Satiates a character for 1 Rest, carried in 1/4 slot |
+| **Simple Meal**        | Common      | 2D6 CU | Satiates a character for 2 Rests, cannot be carried  |
+| **Fancy Meal**         | Average     | 4D6 CU | Satiates a character for 4 Rests, cannot be carried  |
 
 Characters that are satiated at the end of a Rest will heal a number of HP equal to `(Level + Strength + Fortitude) x D6`.
 

@@ -40,7 +40,7 @@ export type InventoryItemType = 'WEAPON' | 'ARMOR' | 'TOOL';
 export type InventoryItem = {
   type?: InventoryItemType;
   name: string;
-  cost: number;
+  cost: string;
   weight: number;
   bonus?: {
     attributeKey: AttributeKey;
@@ -1327,13 +1327,13 @@ const VALE_OF_MYTHS: WorldKit = {
   items: {
     currency: {
       name: 'Valerian Pieces',
-      cost: 1,
+      cost: '',
       weight: 1 / 20
     },
     dagger: {
       type: 'WEAPON',
       name: 'Dagger',
-      cost: 5,
+      cost: '2D6',
       weight: 1 / 2,
       bonus: {
         attributeKey: 'strength',
@@ -1346,7 +1346,7 @@ const VALE_OF_MYTHS: WorldKit = {
     shortsword: {
       type: 'WEAPON',
       name: 'Shortsword',
-      cost: 20,
+      cost: '4D6',
       weight: 1,
       bonus: {
         attributeKey: 'strength',
@@ -1359,7 +1359,7 @@ const VALE_OF_MYTHS: WorldKit = {
     longsword: {
       type: 'WEAPON',
       name: 'Longsword',
-      cost: 100,
+      cost: '8D6',
       weight: 2,
       bonus: {
         attributeKey: 'strength',
@@ -1372,7 +1372,7 @@ const VALE_OF_MYTHS: WorldKit = {
     greatsword: {
       type: 'WEAPON',
       name: 'Greatsword',
-      cost: 200,
+      cost: '16D6',
       weight: 2,
       bonus: {
         attributeKey: 'strength',
@@ -1385,7 +1385,7 @@ const VALE_OF_MYTHS: WorldKit = {
     shortbow: {
       type: 'WEAPON',
       name: 'Shortbow',
-      cost: 20,
+      cost: '4D6',
       weight: 2,
       bonus: {
         attributeKey: 'dexterity',
@@ -1398,7 +1398,7 @@ const VALE_OF_MYTHS: WorldKit = {
     crossbow: {
       type: 'WEAPON',
       name: 'Crossbow',
-      cost: 100,
+      cost: '8D6',
       weight: 2,
       bonus: {
         attributeKey: 'dexterity',
@@ -1411,7 +1411,7 @@ const VALE_OF_MYTHS: WorldKit = {
     longbow: {
       type: 'WEAPON',
       name: 'Longbow',
-      cost: 200,
+      cost: '16D6',
       weight: 2,
       bonus: {
         attributeKey: 'dexterity',
@@ -1424,7 +1424,7 @@ const VALE_OF_MYTHS: WorldKit = {
     blessed_blunderbuss: {
       type: 'WEAPON',
       name: 'Blessed Blunderbuss',
-      cost: 20,
+      cost: '4D6',
       weight: 1 / 2,
       bonus: {
         attributeKey: 'dexterity',
@@ -1437,7 +1437,7 @@ const VALE_OF_MYTHS: WorldKit = {
     frost_flintlock: {
       type: 'WEAPON',
       name: 'Frost Flintlock',
-      cost: 100,
+      cost: '8D6',
       weight: 1 / 2,
       bonus: {
         attributeKey: 'dexterity',
@@ -1450,7 +1450,7 @@ const VALE_OF_MYTHS: WorldKit = {
     radiant_revolver: {
       type: 'WEAPON',
       name: 'Radiant Revolver',
-      cost: 200,
+      cost: '16D6',
       weight: 1 / 2,
       bonus: {
         attributeKey: 'dexterity',
@@ -1463,7 +1463,7 @@ const VALE_OF_MYTHS: WorldKit = {
     resonant_repeater: {
       type: 'WEAPON',
       name: 'Resonant Repeater',
-      cost: 400,
+      cost: '32D6',
       weight: 1,
       bonus: {
         attributeKey: 'dexterity',
@@ -1476,49 +1476,49 @@ const VALE_OF_MYTHS: WorldKit = {
     leather_armor: {
       type: 'ARMOR',
       name: 'Leather Armor',
-      cost: 20,
+      cost: '4D6',
       weight: 0,
       notes: 'Light armor'
     },
     chainmail_armor: {
       type: 'ARMOR',
       name: 'Chainmail Armor',
-      cost: 100,
+      cost: '8D6',
       weight: 0,
       notes: 'Medium armor'
     },
     plate_armor: {
       type: 'ARMOR',
       name: 'Plate Armor',
-      cost: 200,
+      cost: '16D6',
       weight: 0,
       notes: 'Heavy armor'
     },
     arcane_aegis_armor: {
       type: 'ARMOR',
       name: 'Arcane Aegis Armor',
-      cost: 20,
+      cost: '4D6',
       weight: 0,
       notes: 'Light armor'
     },
     mystic_mail_armor: {
       type: 'ARMOR',
       name: 'Mystic Mail Armor',
-      cost: 100,
+      cost: '8D6',
       weight: 0,
       notes: 'Medium armor'
     },
     eldritch_exo_armor: {
       type: 'ARMOR',
       name: 'Eldritch Exo Armor',
-      cost: 200,
+      cost: '16D6',
       weight: 0,
       notes: 'Heavy armor'
     },
     rope: {
       type: 'TOOL',
       name: 'Rope',
-      cost: 5,
+      cost: '2D6',
       weight: 1 / 2,
       bonus: {
         attributeKey: 'strength',
@@ -1529,7 +1529,7 @@ const VALE_OF_MYTHS: WorldKit = {
     rope_and_grappling_hook: {
       type: 'TOOL',
       name: 'Rope and Grappling Hook',
-      cost: 20,
+      cost: '4D6',
       weight: 1 / 2,
       bonus: {
         attributeKey: 'strength',
@@ -1540,7 +1540,7 @@ const VALE_OF_MYTHS: WorldKit = {
     medical_pouch: {
       type: 'TOOL',
       name: 'Medical Pouch',
-      cost: 20,
+      cost: '4D6',
       weight: 1 / 2,
       bonus: {
         attributeKey: 'intelligence',
@@ -1551,7 +1551,7 @@ const VALE_OF_MYTHS: WorldKit = {
     tool_belt: {
       type: 'TOOL',
       name: 'Tool Belt',
-      cost: 20,
+      cost: '4D6',
       weight: 1,
       bonus: {
         attributeKey: 'intelligence',
@@ -1562,7 +1562,7 @@ const VALE_OF_MYTHS: WorldKit = {
     world_map: {
       type: 'TOOL',
       name: 'World Map',
-      cost: 5,
+      cost: '2D6',
       weight: 1 / 4,
       bonus: {
         attributeKey: 'perception',
