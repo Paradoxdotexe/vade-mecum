@@ -56,9 +56,13 @@ export const InventoryCard: React.FC = () => {
 
   const diceFactors: DiceFactor[] = [];
 
+  let rolledItemLabel = '';
+
   if (rolledItem && rolledItemEvaluation) {
     // add attribute/skill if applicable
     if (rolledItemEvaluation === RollEvaluation.CHECK && rolledItem.bonus) {
+      rolledItemLabel = rolledItem.name;
+
       const attribute = currentCharacter.attributes[rolledItem.bonus.attributeKey];
       const skill = attribute.skills[rolledItem.bonus.skillKey];
       diceFactors.push(
@@ -84,9 +88,10 @@ export const InventoryCard: React.FC = () => {
         { type: 'D', label: 'Disadvantage', value: 0 }
       );
     }
-
     // add damage if applicable
-    if (rolledItemEvaluation === RollEvaluation.SUM && rolledItem.damage) {
+    else if (rolledItemEvaluation === RollEvaluation.SUM && rolledItem.damage) {
+      rolledItemLabel = `${rolledItem.name} Damage`;
+
       diceFactors.push(
         {
           type: 'A',
@@ -163,13 +168,13 @@ export const InventoryCard: React.FC = () => {
       </StyledInventoryCard>
       <VPopup open={rolledItemActive} onClose={() => setRolledItemActive(false)}>
         <RollCard
-          title={`${currentCharacter.name || 'Anonymous'} (${rolledItem?.name})`}
+          title={`${currentCharacter.name || 'Anonymous'} (${rolledItemLabel})`}
           diceFactors={diceFactors}
           evaluation={rolledItemEvaluation}
           onRoll={dice => {
             addRoll({
               characterId: currentCharacter.id,
-              label: rolledItem?.name ?? '',
+              label: rolledItemLabel,
               dice,
               timestamp: DateTime.now().toISO(),
               evaluation: rolledItemEvaluation

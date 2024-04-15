@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { rollDie } from '../../utils/rollDie';
-import { DIE_OUTCOMES, getDieOutcome } from '../../utils/getDieOutcome';
+import { getDieOutcome } from '../../utils/getDieOutcome';
 import { VNumberInput } from '../../components/VNumberInput';
 import { VCard } from '@/components/VCard';
 import { RollEvaluation } from './useRolls';
@@ -144,15 +144,14 @@ export const RollCard: React.FC<RollCardProps> = props => {
     sum(diceFactors.map(factor => (factor.type === 'A' ? factor.value : -factor.value)))
   );
 
-  const outcome =
-    dice &&
-    (props.evaluation === RollEvaluation.CHECK
-      ? getDieOutcome(Math.max(...dice))
-      : DIE_OUTCOMES.success);
+  const getCheckOutcome = (die: number) =>
+    props.evaluation === RollEvaluation.CHECK ? getDieOutcome(die) : undefined;
+
+  const checkOutcome = dice && getCheckOutcome(Math.max(...dice));
 
   return (
     <StyledRollCard>
-      <div className="card__header" style={{ background: outcome?.color }}>
+      <div className="card__header" style={{ background: checkOutcome?.color }} title={props.title}>
         {props.title}
       </div>
       <div className="card__body">
@@ -193,14 +192,14 @@ export const RollCard: React.FC<RollCardProps> = props => {
         <div className="body__dice">
           {[...new Array(dice?.length ?? total)].map((_, i) => {
             const die = dice?.[i];
-            const outcome = die !== undefined ? getDieOutcome(die) : undefined;
+            const dieCheckOutcome = die ? getCheckOutcome(die) : undefined;
 
             return (
               <div
                 key={i}
-                className={`dice__die ${outcome && props.evaluation === RollEvaluation.CHECK && i > 0 ? 'die--ignored' : undefined}`}
+                className={`dice__die ${die && props.evaluation === RollEvaluation.CHECK && i > 0 ? 'die--ignored' : undefined}`}
                 style={{
-                  background: outcome?.color
+                  background: dieCheckOutcome?.color
                 }}
               >
                 {die ?? '?'}
@@ -209,9 +208,9 @@ export const RollCard: React.FC<RollCardProps> = props => {
           })}
         </div>
 
-        {outcome && (
-          <div className="body__outcome" style={{ color: outcome.color }}>
-            {props.evaluation === RollEvaluation.CHECK ? outcome.label : sum(dice)}
+        {dice && (
+          <div className="body__outcome" style={{ color: checkOutcome?.color }}>
+            {checkOutcome?.label ?? sum(dice)}
           </div>
         )}
       </div>
