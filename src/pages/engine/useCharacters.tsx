@@ -62,12 +62,19 @@ export const CharactersStateProvider: React.FC<{ children?: ReactNode }> = props
 
   let currentCharacterId = charactersState.currentCharacterId;
 
-  // prevent displaying a null character
+  // prevent displaying a character we have no data for
   if (currentCharacterId && !characters[currentCharacterId]) {
     currentCharacterId = undefined;
-  } else if (!currentCharacterId) {
-    currentCharacterId = Object.keys(characters)[0];
   }
+
+  useEffect(() => {
+    // default to first character if needed
+    if (!currentCharacterId) {
+      update(() => ({
+        currentCharacterId: Object.keys(characters)[0]
+      }));
+    }
+  }, [currentCharacterId]);
 
   const charactersStateContext: CSC = {
     ...charactersState,
