@@ -9,6 +9,7 @@ import { PERKS } from './Perk';
 import { capitalize, debounce } from 'lodash-es';
 import { useSession } from './useSession';
 import { useQueryClient } from 'react-query';
+import type { Roll } from './useRolls';
 
 type CharactersState = {
   version: string;
@@ -61,9 +62,11 @@ export const CharactersStateProvider: React.FC<{ children?: ReactNode }> = props
 
   let currentCharacterId = charactersState.currentCharacterId;
 
-  // prevent trying to display a character that we don't have any data for (like a session character that hasn't loaded)
+  // prevent displaying a null character
   if (currentCharacterId && !characters[currentCharacterId]) {
     currentCharacterId = undefined;
+  } else if (!currentCharacterId) {
+    currentCharacterId = Object.keys(characters)[0];
   }
 
   const charactersStateContext: CSC = {
@@ -113,10 +116,22 @@ export const CharactersStateProvider: React.FC<{ children?: ReactNode }> = props
                 const index = sessionCharacters.findIndex(
                   character => character.id === message.data.character.id
                 );
-                sessionCharacters.splice(index, 1, message.data.character);
+                if (index === -1) {
+                  sessionCharacters.push(message.data.character);
+                } else {
+                  sessionCharacters.splice(index, 1, message.data.character);
+                }
               }
               return sessionCharacters ? [...sessionCharacters] : [];
             }
+          );
+        } else if (message.event === 'CHARACTER_REMOVE') {
+          // update GET_SESSION_CHARACTERS cache with removed character
+          queryClient.setQueryData(
+            'GET_SESSION_CHARACTERS',
+            (sessionCharacters: Character[] | undefined) =>
+              sessionCharacters?.filter(character => character.id !== message.data.characterId) ??
+              []
           );
         }
       });
@@ -132,7 +147,9 @@ export const CharactersStateProvider: React.FC<{ children?: ReactNode }> = props
 
 export const useCharacters = () => {
   const charactersState = useContext(CharactersStateContext);
-  const { userId } = useSession();
+  const { userId, sessionId, webSocket } = useSession();
+
+  const queryClient = useQueryClient();
 
   const currentCharacter = useCurrentCharacter();
   const setCurrentCharacter = (characterId: string) => {
@@ -172,6 +189,29 @@ export const useCharacters = () => {
         currentCharacterId: newCharacterId
       };
     });
+
+    if (webSocket) {
+      webSocket.send(
+        JSON.stringify({
+          action: 'removeCharacter',
+          sessionId,
+          userId,
+          characterId: characterId
+        })
+      );
+      // update GET_SESSION_CHARACTERS cache with removed character
+      queryClient.setQueryData(
+        'GET_SESSION_CHARACTERS',
+        (sessionCharacters: Character[] | undefined) =>
+          sessionCharacters?.filter(character => character.id !== characterId) ?? []
+      );
+      // update GET_SESSION_ROLLS cache with removed character rolls
+      queryClient.setQueryData(
+        'GET_SESSION_ROLLS',
+        (sessionRolls: Roll[] | undefined) =>
+          sessionRolls?.filter(roll => roll.characterId !== characterId) ?? []
+      );
+    }
   };
 
   return {

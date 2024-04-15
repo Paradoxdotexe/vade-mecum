@@ -78,6 +78,13 @@ export const RollsStateProvider: React.FC<{ children?: ReactNode }> = props => {
             },
             false
           );
+        } else if (message.event === 'ROLL_REMOVE') {
+          // update GET_SESSION_ROLLS cache with removed roll
+          queryClient.setQueryData(
+            'GET_SESSION_ROLLS',
+            (sessionRolls: Roll[] | undefined) =>
+              sessionRolls?.filter(roll => roll.id !== message.data.rollId) ?? []
+          );
         }
       });
     }

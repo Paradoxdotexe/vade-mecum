@@ -190,7 +190,9 @@ export const EnginePage: React.FC = () => {
           </div>
         </div>
 
-        <CharacterSheet />
+        <div style={{ pointerEvents: currentCharacter?.userId !== userId ? 'none' : 'all' }}>
+          <CharacterSheet />
+        </div>
 
         <div className="content__rollLog">
           <div className="rollLog__header">Roll Log</div>
@@ -219,7 +221,7 @@ export const EnginePage: React.FC = () => {
                   />
                 </VTransition>
               ))}
-              {sessionId && !session && <VLoader style={{ padding: 0 }} />}
+              {sessionId && !rolls && <VLoader style={{ padding: 0 }} />}
             </div>
             <div className="log__session">
               {sessionId && !session && <VLoader style={{ padding: 0 }} />}
