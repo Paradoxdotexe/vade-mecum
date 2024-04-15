@@ -15,7 +15,7 @@ type CharactersState = {
 };
 
 const DEFAULT_CHARACTERS_STATE: CharactersState = {
-  version: '9.0',
+  version: '10.0',
   characters: { [DEFAULT_CHARACTER.id]: structuredClone(DEFAULT_CHARACTER) },
   currentCharacterId: DEFAULT_CHARACTER.id
 };
@@ -284,6 +284,7 @@ const useCurrentCharacter = () => {
   const setRace = (raceKey?: string) => updateCharacter({ raceKey });
   const setHealthPoints = (hitPoints: number) => updateCharacter({ hitPoints });
   const setClassPoints = (classPoints: number) => updateCharacter({ classPoints });
+  const setSatiation = (satiation: number) => updateCharacter({ satiation });
   const setClassItemDescription = (classItemDescription?: string) =>
     updateCharacter({ classItemDescription });
 
@@ -397,6 +398,7 @@ const useCurrentCharacter = () => {
     setLevelPoints,
     addLevel,
     removeLevel,
+    setSatiation,
     setClassPoints,
     setClassItemDescription,
     setClass,

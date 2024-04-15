@@ -421,7 +421,7 @@ For the best experience, focus on making a unique and interesting adventurer tha
 >   - The 4 must be placed into your class's Focus attribute
 >   - The 1 will be considered your character's Flaw attribute
 > - [ ] Allocate 1 point into 6 different skills
->   - Points cannot be put into skills under your Flaw attribute
+>   - Points cannot be allocated into skills under your Flaw attribute
 > - [ ] Acquire one perk that you meet the requirements of
 > - [ ] Acquire one class ability that you meet the requirements of
 
