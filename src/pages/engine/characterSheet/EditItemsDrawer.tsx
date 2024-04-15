@@ -30,22 +30,13 @@ const StyledEditItemsDrawer = styled(VDrawer)`
 
 type EditItemsDrawerProps = Pick<VDrawerProps, 'open' | 'onClose'>;
 
-type ItemTypeSection = { type: InventoryItemType; label: string };
-
-const ITEM_TYPE_SECTIONS: ItemTypeSection[] = [
-  {
-    type: 'WEAPON',
-    label: 'Weapons'
-  },
-  {
-    type: 'ARMOR',
-    label: 'Armor'
-  },
-  {
-    type: 'TOOL',
-    label: 'Tools'
-  }
-];
+const ITEM_TYPE_SECTION_HEADERS: { [key in InventoryItemType]: string } = {
+  WEAPON: 'Weapons',
+  ARMOR: 'Armor',
+  TOOL: 'Tools',
+  MEAL: 'Meals',
+  LODGING: 'Lodging'
+};
 
 export const EditItemsDrawer: React.FC<EditItemsDrawerProps> = props => {
   const { currentCharacter } = useCharacters();
@@ -67,16 +58,16 @@ export const EditItemsDrawer: React.FC<EditItemsDrawerProps> = props => {
       key,
       ...item
     })),
-    ['name'],
+    ['name', 'notes'],
     searchQuery
   );
 
-  const renderItemTypeSection = (section: ItemTypeSection) => {
-    const itemsOfType = items.filter(item => item.type === section.type);
+  const renderItemTypeSection = (type: InventoryItemType) => {
+    const itemsOfType = items.filter(item => item.type === type);
 
     return itemsOfType.length ? (
-      <div key={section.type} className="content__section">
-        <VHeader>{section.label}</VHeader>
+      <div key={type} className="content__section">
+        <VHeader>{ITEM_TYPE_SECTION_HEADERS[type]}</VHeader>
         <VCard style={{ padding: 0 }}>
           <VTable
             columns={[
@@ -90,7 +81,7 @@ export const EditItemsDrawer: React.FC<EditItemsDrawerProps> = props => {
               },
               {
                 key: 'cost',
-                render: item => `${item.cost} pcs`
+                render: item => `${item.cost} ${item.cost !== 'FREE' ? 'pcs' : ''}`
               },
               {
                 key: 'description',
@@ -100,6 +91,7 @@ export const EditItemsDrawer: React.FC<EditItemsDrawerProps> = props => {
             ]}
             rows={itemsOfType}
             onRowClick={row => toggleItem(row.key)}
+            rowDisabled={item => item.type !== InventoryItemType.ARMOR && !item.weight}
           />
         </VCard>
       </div>
@@ -112,7 +104,9 @@ export const EditItemsDrawer: React.FC<EditItemsDrawerProps> = props => {
         <VCard style={{ padding: 0 }}>
           <VInput placeholder="Search items..." value={searchQuery} onChange={setSearchQuery} />
         </VCard>
-        {ITEM_TYPE_SECTIONS.map(renderItemTypeSection)}
+        {Object.keys(InventoryItemType).map(type =>
+          renderItemTypeSection(type as InventoryItemType)
+        )}
       </div>
     </StyledEditItemsDrawer>
   );

@@ -154,12 +154,13 @@ export const InventoryCard: React.FC = () => {
             },
             {
               key: 'weight',
-              render: item => (
-                <div className="cell--weight">
-                  {(item.quantity * item.weight).toFixed(2)}
-                  <WeightIcon />
-                </div>
-              )
+              render: item =>
+                item.weight && (
+                  <div className="cell--weight">
+                    {(item.quantity * item.weight).toFixed(2)}
+                    <WeightIcon />
+                  </div>
+                )
             }
           ]}
           rows={currentCharacter.items}

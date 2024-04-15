@@ -35,13 +35,19 @@ type ClassAbility = {
   computed?: CharacterComputations;
 };
 
-export type InventoryItemType = 'WEAPON' | 'ARMOR' | 'TOOL';
+export enum InventoryItemType {
+  WEAPON = 'WEAPON',
+  ARMOR = 'ARMOR',
+  TOOL = 'TOOL',
+  MEAL = 'MEAL',
+  LODGING = 'LODGING'
+}
 
 export type InventoryItem = {
   type?: InventoryItemType;
   name: string;
   cost: string;
-  weight: number;
+  weight?: number;
   bonus?: {
     attributeKey: AttributeKey;
     skillKey: string;
@@ -1331,7 +1337,7 @@ const VALE_OF_MYTHS: WorldKit = {
       weight: 1 / 20
     },
     dagger: {
-      type: 'WEAPON',
+      type: InventoryItemType.WEAPON,
       name: 'Dagger',
       cost: '2D6',
       weight: 1 / 2,
@@ -1344,7 +1350,7 @@ const VALE_OF_MYTHS: WorldKit = {
       notes: '5ft range'
     },
     shortsword: {
-      type: 'WEAPON',
+      type: InventoryItemType.WEAPON,
       name: 'Shortsword',
       cost: '4D6',
       weight: 1,
@@ -1357,7 +1363,7 @@ const VALE_OF_MYTHS: WorldKit = {
       notes: '5ft range'
     },
     longsword: {
-      type: 'WEAPON',
+      type: InventoryItemType.WEAPON,
       name: 'Longsword',
       cost: '8D6',
       weight: 2,
@@ -1370,7 +1376,7 @@ const VALE_OF_MYTHS: WorldKit = {
       notes: '5ft range'
     },
     greatsword: {
-      type: 'WEAPON',
+      type: InventoryItemType.WEAPON,
       name: 'Greatsword',
       cost: '16D6',
       weight: 2,
@@ -1383,7 +1389,7 @@ const VALE_OF_MYTHS: WorldKit = {
       notes: '5ft range'
     },
     shortbow: {
-      type: 'WEAPON',
+      type: InventoryItemType.WEAPON,
       name: 'Shortbow',
       cost: '4D6',
       weight: 2,
@@ -1396,7 +1402,7 @@ const VALE_OF_MYTHS: WorldKit = {
       notes: '60ft range'
     },
     crossbow: {
-      type: 'WEAPON',
+      type: InventoryItemType.WEAPON,
       name: 'Crossbow',
       cost: '8D6',
       weight: 2,
@@ -1409,7 +1415,7 @@ const VALE_OF_MYTHS: WorldKit = {
       notes: '60ft range'
     },
     longbow: {
-      type: 'WEAPON',
+      type: InventoryItemType.WEAPON,
       name: 'Longbow',
       cost: '16D6',
       weight: 2,
@@ -1422,7 +1428,7 @@ const VALE_OF_MYTHS: WorldKit = {
       notes: '90ft range'
     },
     blessed_blunderbuss: {
-      type: 'WEAPON',
+      type: InventoryItemType.WEAPON,
       name: 'Blessed Blunderbuss',
       cost: '4D6',
       weight: 1 / 2,
@@ -1435,7 +1441,7 @@ const VALE_OF_MYTHS: WorldKit = {
       notes: '15ft range'
     },
     frost_flintlock: {
-      type: 'WEAPON',
+      type: InventoryItemType.WEAPON,
       name: 'Frost Flintlock',
       cost: '8D6',
       weight: 1 / 2,
@@ -1448,7 +1454,7 @@ const VALE_OF_MYTHS: WorldKit = {
       notes: '30ft range'
     },
     radiant_revolver: {
-      type: 'WEAPON',
+      type: InventoryItemType.WEAPON,
       name: 'Radiant Revolver',
       cost: '16D6',
       weight: 1 / 2,
@@ -1461,7 +1467,7 @@ const VALE_OF_MYTHS: WorldKit = {
       notes: '60ft range'
     },
     resonant_repeater: {
-      type: 'WEAPON',
+      type: InventoryItemType.WEAPON,
       name: 'Resonant Repeater',
       cost: '32D6',
       weight: 1,
@@ -1474,49 +1480,49 @@ const VALE_OF_MYTHS: WorldKit = {
       notes: '60ft range'
     },
     leather_armor: {
-      type: 'ARMOR',
+      type: InventoryItemType.ARMOR,
       name: 'Leather Armor',
       cost: '4D6',
       weight: 0,
       notes: 'Light armor'
     },
     chainmail_armor: {
-      type: 'ARMOR',
+      type: InventoryItemType.ARMOR,
       name: 'Chainmail Armor',
       cost: '8D6',
       weight: 0,
       notes: 'Medium armor'
     },
     plate_armor: {
-      type: 'ARMOR',
+      type: InventoryItemType.ARMOR,
       name: 'Plate Armor',
       cost: '16D6',
       weight: 0,
       notes: 'Heavy armor'
     },
     arcane_aegis_armor: {
-      type: 'ARMOR',
+      type: InventoryItemType.ARMOR,
       name: 'Arcane Aegis Armor',
       cost: '4D6',
       weight: 0,
       notes: 'Light armor'
     },
     mystic_mail_armor: {
-      type: 'ARMOR',
+      type: InventoryItemType.ARMOR,
       name: 'Mystic Mail Armor',
       cost: '8D6',
       weight: 0,
       notes: 'Medium armor'
     },
     eldritch_exo_armor: {
-      type: 'ARMOR',
+      type: InventoryItemType.ARMOR,
       name: 'Eldritch Exo Armor',
       cost: '16D6',
       weight: 0,
       notes: 'Heavy armor'
     },
     rope: {
-      type: 'TOOL',
+      type: InventoryItemType.TOOL,
       name: 'Rope',
       cost: '2D6',
       weight: 1 / 2,
@@ -1527,7 +1533,7 @@ const VALE_OF_MYTHS: WorldKit = {
       }
     },
     rope_and_grappling_hook: {
-      type: 'TOOL',
+      type: InventoryItemType.TOOL,
       name: 'Rope and Grappling Hook',
       cost: '4D6',
       weight: 1 / 2,
@@ -1538,7 +1544,7 @@ const VALE_OF_MYTHS: WorldKit = {
       }
     },
     medical_pouch: {
-      type: 'TOOL',
+      type: InventoryItemType.TOOL,
       name: 'Medical Pouch',
       cost: '4D6',
       weight: 1 / 2,
@@ -1548,19 +1554,8 @@ const VALE_OF_MYTHS: WorldKit = {
         skillBonus: 1
       }
     },
-    tool_belt: {
-      type: 'TOOL',
-      name: 'Tool Belt',
-      cost: '4D6',
-      weight: 1,
-      bonus: {
-        attributeKey: 'intelligence',
-        skillKey: 'innovation',
-        skillBonus: 1
-      }
-    },
     world_map: {
-      type: 'TOOL',
+      type: InventoryItemType.TOOL,
       name: 'World Map',
       cost: '2D6',
       weight: 1 / 4,
@@ -1569,6 +1564,43 @@ const VALE_OF_MYTHS: WorldKit = {
         skillKey: 'insight',
         skillBonus: 1
       }
+    },
+    adventuring_ration: {
+      type: InventoryItemType.MEAL,
+      name: 'Adventuring Ration',
+      cost: '1D6',
+      weight: 1 / 4,
+      notes: 'Satiates a character for 1 Rest'
+    },
+    simple_meal: {
+      type: InventoryItemType.MEAL,
+      name: 'Simple Meal',
+      cost: '2D6',
+      notes: 'Satiates a character for 2 Rests'
+    },
+    fancy_meal: {
+      type: InventoryItemType.MEAL,
+      name: 'Fancy Meal',
+      cost: '4D6',
+      notes: 'Satiates a character for 4 Rests'
+    },
+    adventuring_camp: {
+      type: InventoryItemType.LODGING,
+      name: 'Adventuring Camp',
+      cost: 'FREE',
+      notes: 'A cold place to sleep'
+    },
+    simple_lodging: {
+      type: InventoryItemType.LODGING,
+      name: 'Simple Lodging',
+      cost: '4D6 CU',
+      notes: 'A warm place to sleep, +2 to Rest Activity rolls'
+    },
+    fancy_lodging: {
+      type: InventoryItemType.LODGING,
+      name: 'Fancy Lodging',
+      cost: '8D6 CU',
+      notes: 'A warm and safe place to sleep, +3 to Rest Activity rolls'
     }
   }
 };

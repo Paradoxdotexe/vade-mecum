@@ -427,7 +427,8 @@ For the best experience, focus on making a unique and interesting adventurer tha
 
 > **Equipment**
 >
-> - [ ] Add 25 Currency Units to your character's inventory
+> - [ ] Add 3 Adventuring Rations to your character's inventory
+> - [ ] Add 24 Currency Units to your character's inventory
 >   - You can spend these Currency Units to purchase items from the World Kit being used
 
 # 3. Adventuring
@@ -742,7 +743,7 @@ The Game Master will decide whether NPC-provided lodging is available in any giv
 | Lodging              | Rarity     | Cost   | Description                                               |
 | -------------------- | ---------- | ------ | --------------------------------------------------------- |
 | **Adventuring Camp** | Ubiquitous | Free   | A cold place to sleep                                     |
-| **Simple Lodging**   | Average    | 4D6 CU | A warm place to sleep, +1 to Rest Activity rolls          |
+| **Simple Lodging**   | Average    | 4D6 CU | A warm place to sleep, +2 to Rest Activity rolls          |
 | **Fancy Lodging**    | Rare       | 8D6 CU | A warm and safe place to sleep, +3 to Rest Activity rolls |
 
 ### Meals

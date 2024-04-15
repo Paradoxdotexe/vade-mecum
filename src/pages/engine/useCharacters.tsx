@@ -276,7 +276,7 @@ const useCurrentCharacter = () => {
   };
 
   const getItemWeight = () => {
-    return items.reduce((sum, item) => sum + item.weight * item.quantity, 0);
+    return items.reduce((sum, item) => sum + (item.weight ?? 0) * item.quantity, 0);
   };
 
   const setName = (name: string) => updateCharacter({ name });

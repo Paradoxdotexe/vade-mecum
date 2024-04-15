@@ -34,7 +34,8 @@ This high fantasy kit is set in a kingdom-controlled dominion where characters w
   - [Weapons](#Weapons)
   - [Armor](#Armor)
   - [Tools](#Tools)
-  - [Services](#Services)
+  - [Meals](#Meals)
+  - [Lodging](#Lodging)
 
 # 1. Lore
 
@@ -90,9 +91,9 @@ Halflings are a small, nimble race known for their love for comfort and peace, o
 
 Halfling characters innately gain the `Halfling Hospitality` Perk.
 
-| Perk                     | Description                                                                                  |
-| ------------------------ | -------------------------------------------------------------------------------------------- |
-| **Halfling Hospitality** | You and your companions get the bonus of Simple Lodging when resting in an Adventuring Camp. |
+| Perk                     | Description                                                                                          |
+| ------------------------ | ---------------------------------------------------------------------------------------------------- |
+| **Halfling Hospitality** | You and your companions get +1 advantage on Rest Activity rolls when resting in an Adventuring Camp. |
 
 ## 1.2 Countries
 
@@ -476,7 +477,7 @@ Rangers can acquire other class abilities that add useful items to their _Surviv
 | **Splintering Arrows** | Passive      | Level 6     | The damage inflicted by bows is increased by `1D6`.                                                                                                                                                 |
 | **Camouflage**         | Passive      | Level 6     | When rolling Stealth to avoid being seen, add your Survival bonus.                                                                                                                                  |
 | **Tripwire**           | Passive      | Level 12    | When rolling Detection to watch for enemies during a Rest or in a prepared area, add your Survival bonus.                                                                                           |
-| **Survival Shelter**   | Passive      | Level 12    | You get the bonus of Simple Lodging when resting in an Adventuring Camp. When rolling Fortitude against natural phenomena, add your Survival bonus.                                                 |
+| **Survival Shelter**   | Passive      | Level 12    | When resting in an Adventuring Camp, add your Survival bonus to your Rest Activity rolls. When rolling Fortitude against natural phenomena, add your Survival bonus.                                |
 | **Healing Salve**      | Passive      | Level 18    | When rolling Medicine to stabilize an incapacitated character or heal an injured character during a Rest, add your Survival bonus. Characters healed or stabilized by you gain `2D6` health points. |
 | **Speed Quiver**       | Bonus Action | Level 18    | You can make a ranged attack with a bow using Survival.                                                                                                                                             |
 
@@ -722,7 +723,7 @@ Sages can acquire other class abilities that unlock new rituals and enhance thei
 | Class Ability            | Type          | Requirement          | Description                                                                                                                                                                                                                                                                                                      |
 | ------------------------ | ------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Gust of Wind**         | Passive       | Level 1              | You add your Nature bonus to your Movement Speed.                                                                                                                                                                                                                                                                |
-| **Fortress of Thorns**   | Rest Activity | Level 1              | You call forth nature to construct a fortress of thorns to rest in. You and your companions get the bonus of Simple Lodging and gain 1 Satiation. All surprise attacks instantly fail.                                                                                                                           |
+| **Fortress of Thorns**   | Rest Activity | Level 1              | You call forth nature to construct a fortress of thorns to rest in. You and your companions get +2 advantage on Rest Activity rolls. All surprise attacks instantly fail.                                                                                                                                        |
 | **Ritual of Protection** | Rest Activity | Level 1              | You cast a ritual to call upon nature to protect you from danger. Until your next rest, you have access to all class abilities granted by Ritual of Protection. You regain all of your missing Nature Points.                                                                                                    |
 | **Stone Skin**           | Passive       | Ritual of Protection | While Ritual of Protection is in effect, you are surrounded by natural Heavy Armor.                                                                                                                                                                                                                              |
 | **Natural Armor**        | Bonus Action  | Ritual of Protection | While Ritual of Protection is in effect, you can spend 1 to 4 NP to surround another character in natural armor until your next Rest. Spend 1 NP for Light Armor, 2 NP for Medium Armor, and 4 NP for Heavy Armor.                                                                                               |
@@ -826,10 +827,25 @@ In _Vale of Myths_, valerian pieces (abbreviated as "pcs") are the main denomina
 
 ## Tools
 
-| Item                      | Rarity  | Cost    | Size     | Description   |
-| ------------------------- | ------- | ------- | -------- | ------------- |
-| **Rope**                  | Common  | 2D6 pcs | 1/2 slot | +1 Athletics  |
-| **Rope & Grappling Hook** | Average | 4D6 pcs | 1 slot   | +2 Athletics  |
-| **Medical Pouch**         | Average | 4D6 pcs | 1/2 slot | +1 Medicine   |
-| **Tool Belt**             | Average | 4D6 pcs | 1 slot   | +1 Innovation |
-| **World Map**             | Common  | 2D6 pcs | 1/4 slot | +1 Insight    |
+| Item                      | Rarity  | Cost    | Size     | Description  |
+| ------------------------- | ------- | ------- | -------- | ------------ |
+| **Rope**                  | Common  | 2D6 pcs | 1/2 slot | +1 Athletics |
+| **Rope & Grappling Hook** | Average | 4D6 pcs | 1 slot   | +2 Athletics |
+| **Medical Pouch**         | Average | 4D6 pcs | 1/2 slot | +1 Medicine  |
+| **World Map**             | Common  | 2D6 pcs | 1/4 slot | +1 Insight   |
+
+## Meals
+
+| Item                   | Rarity      | Cost   | Size     | Description                      |
+| ---------------------- | ----------- | ------ | -------- | -------------------------------- |
+| **Adventuring Ration** | Very Common | 1D6 CU | 1/4 slot | Satiates a character for 1 Rest  |
+| **Simple Meal**        | Common      | 2D6 CU |          | Satiates a character for 2 Rests |
+| **Fancy Meal**         | Average     | 4D6 CU |          | Satiates a character for 4 Rests |
+
+## Lodging
+
+| Item                 | Rarity     | Cost   | Description                                               |
+| -------------------- | ---------- | ------ | --------------------------------------------------------- |
+| **Adventuring Camp** | Ubiquitous | Free   | A cold place to sleep                                     |
+| **Simple Lodging**   | Average    | 4D6 CU | A warm place to sleep, +2 to Rest Activity rolls          |
+| **Fancy Lodging**    | Rare       | 8D6 CU | A warm and safe place to sleep, +3 to Rest Activity rolls |
