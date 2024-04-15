@@ -1,15 +1,21 @@
 import { useLocalStorage } from '@/utils/useLocalStorage';
 import { useStateVersioner } from '@/utils/useStateVersioner';
 import React, { ReactNode, useContext, useEffect, useMemo, useState } from 'react';
-import { useQuery } from 'react-query';
+import { useQuery, useQueryClient } from 'react-query';
 import { v4 as uuid } from 'uuid';
 import type { Roll } from './useRolls';
 import type { Character } from './Character';
+
+type SessionUser = {
+  id: string;
+  online: boolean;
+};
 
 export type Session = {
   id: string;
   name: string;
   createdAt: string;
+  users: SessionUser[];
 };
 
 type SessionState = {
@@ -70,6 +76,30 @@ export const SessionStateProvider: React.FC<{ children?: ReactNode }> = props =>
       webSocket.close();
     }
   }, [sessionState.sessionId]);
+
+  const queryClient = useQueryClient();
+
+  useEffect(() => {
+    if (webSocket) {
+      webSocket.addEventListener('message', event => {
+        const message = JSON.parse(event.data);
+        if (message.event === 'USER_ONLINE' || message.event === 'USER_OFFLINE') {
+          const online = message.event === 'USER_ONLINE';
+          // update GET_SESSIONS cache with user's new online status
+          queryClient.setQueryData('GET_SESSIONS', (sessions: Session[] | undefined) => {
+            const user = sessions
+              ?.find(session => session.id === sessionState.sessionId)
+              ?.users.find(user => user.id === message.data.userId);
+            console.log(user);
+            if (user) {
+              user.online = online;
+            }
+            return sessions ? [...sessions] : [];
+          });
+        }
+      });
+    }
+  }, [webSocket]);
 
   const sessionStateContext: SSC = {
     ...sessionState,

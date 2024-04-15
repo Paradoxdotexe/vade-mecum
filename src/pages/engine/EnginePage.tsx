@@ -11,6 +11,8 @@ import { SessionsDrawer } from './SessionsDrawer';
 import { useSession } from './useSession';
 import { VLoader } from '@/components/VLoader';
 import { VTransition } from '@/components/VTransition';
+import { keyBy } from 'lodash-es';
+import { pulsingSuccess } from '@/styles/pulsingBackground';
 
 const Page = styled.div`
   display: flex;
@@ -45,14 +47,22 @@ const Page = styled.div`
         border-left: 1px solid #585858;
         border-right: 1px solid #585858;
         box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.1);
+        position: relative;
 
         &:not(.tab--active) {
-          opacity: 0.6;
+          opacity: 0.8;
           font-size: 14px;
           padding: 9px;
 
           &:hover {
             opacity: 1;
+          }
+
+          .tab__activity {
+            width: 4px;
+            height: 4px;
+            right: 5px;
+            top: 5px;
           }
         }
 
@@ -67,6 +77,20 @@ const Page = styled.div`
 
           &:hover {
             color: #fff;
+          }
+        }
+
+        .tab__activity {
+          background-color: #585858;
+          width: 6px;
+          height: 6px;
+          border-radius: 6px;
+          position: absolute;
+          right: 6px;
+          top: 6px;
+
+          &.activity--online {
+            background-color: ${pulsingSuccess};
           }
         }
       }
@@ -158,6 +182,8 @@ export const EnginePage: React.FC = () => {
     useCharacters();
   const { session, sessionId, userId } = useSession();
 
+  const sessionUsersById = keyBy(session?.users, 'id');
+
   const [viewingSessions, setViewingSessions] = useState(false);
 
   return (
@@ -180,6 +206,11 @@ export const EnginePage: React.FC = () => {
                       event.stopPropagation();
                       removeCharacter(character.id);
                     }}
+                  />
+                )}
+                {character.userId !== userId && (
+                  <div
+                    className={`tab__activity ${sessionUsersById[character.userId]?.online ? 'activity--online' : ''}`}
                   />
                 )}
               </div>

@@ -67,7 +67,7 @@ const handler = async (event: APIGatewayProxyWebsocketEventV2 & APIGatewayProxyE
   });
   const message = JSON.stringify({
     event: 'USER_OFFLINE',
-    data: { userId: terminatedConnectionId }
+    data: { userId: terminatedConnection.userId }
   });
   for (const connection of connections) {
     const sameSession = connection.sessionId === terminatedConnection.sessionId;

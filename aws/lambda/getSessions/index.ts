@@ -13,9 +13,16 @@ const RESPONSE_HEADERS = {
 const ALLOWED_ORIGINS = ['http://localhost:3000', 'https://vademecum.thenjk.com'];
 
 const formatSession = (item: Record<string, any>) => {
+  delete item.itemId;
+
   // rename "sessionId" to "id"
   item.id = item.sessionId;
   delete item.sessionId;
+
+  item.users = item.users.map(user => ({
+    id: user.itemId.split('#')[1],
+    online: !!user.connectionId
+  }));
 
   return item;
 };
@@ -31,27 +38,34 @@ const handler: APIGatewayProxyHandler = async event => {
     RESPONSE_HEADERS['Access-Control-Allow-Origin'] = event.headers.origin;
   }
 
-  // scan for all "session" items
+  // scan for all "session" and "user" items
   const scanCommand = new ScanCommand({
     TableName: 'vade-mecum-sessions',
-    FilterExpression: 'itemId = :itemId',
+    FilterExpression: 'itemId = :sessionItemId or begins_with(itemId, :userItemIdPrefix)',
     ExpressionAttributeValues: {
-      ':itemId': 'session'
+      ':sessionItemId': 'session',
+      ':userItemIdPrefix': 'user'
     },
     ExpressionAttributeNames: {
       '#name': 'name'
     },
-    ProjectionExpression: 'sessionId, #name, createdAt'
+    ProjectionExpression: 'itemId, sessionId, #name, createdAt, connectionId'
   });
 
   const response = await docClient.send(scanCommand);
 
-  const gameSessions = response.Items?.map(formatSession) ?? [];
+  const sessions =
+    response.Items?.filter(item => item.itemId === 'session')
+      .map(item => ({
+        ...item,
+        users: response.Items?.filter(item => item.itemId.startsWith('user'))
+      }))
+      .map(formatSession) ?? [];
 
   return {
     statusCode: 200,
     headers: RESPONSE_HEADERS,
-    body: JSON.stringify(gameSessions)
+    body: JSON.stringify(sessions)
   };
 };
 
