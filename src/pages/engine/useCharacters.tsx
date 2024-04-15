@@ -15,13 +15,15 @@ type CharactersState = {
 };
 
 const DEFAULT_CHARACTERS_STATE: CharactersState = {
-  version: '10.0',
+  version: '11.0',
   characters: { [DEFAULT_CHARACTER.id]: structuredClone(DEFAULT_CHARACTER) },
   currentCharacterId: DEFAULT_CHARACTER.id
 };
 
 interface CSC extends CharactersState {
-  update: (partialCharactersState: Partial<CharactersState>) => void;
+  update: (
+    partialCharactersState: (charactersState: CharactersState) => Partial<CharactersState>
+  ) => void;
 }
 
 const CharactersStateContext = React.createContext<CSC>({
@@ -37,8 +39,13 @@ export const CharactersStateProvider: React.FC<{ children?: ReactNode }> = props
 
   useStateVersioner(charactersState, setCharactersState, DEFAULT_CHARACTERS_STATE);
 
-  const update = (partialCharactersState: Partial<CharactersState>) => {
-    setCharactersState(charactersState => ({ ...charactersState, ...partialCharactersState }));
+  const update = (
+    partialCharactersState: (charactersState: CharactersState) => Partial<CharactersState>
+  ) => {
+    setCharactersState(charactersState => ({
+      ...charactersState,
+      ...partialCharactersState(charactersState)
+    }));
   };
 
   const charactersStateContext: CSC = {
@@ -58,34 +65,41 @@ export const useCharacters = () => {
 
   const currentCharacter = useCurrentCharacter();
   const setCurrentCharacter = (characterId: string) => {
-    charactersState.update({ currentCharacterId: characterId });
+    charactersState.update(() => ({
+      currentCharacterId: characterId
+    }));
   };
 
   const addCharacter = () => {
     // add new default character
     const characterId = uuid();
-    const characters = {
-      ...charactersState.characters,
-      [characterId]: { ...structuredClone(DEFAULT_CHARACTER), id: characterId }
-    };
 
-    charactersState.update({ characters, currentCharacterId: characterId });
+    charactersState.update(charactersState => {
+      const characters = {
+        ...charactersState.characters,
+        [characterId]: { ...structuredClone(DEFAULT_CHARACTER), id: characterId }
+      };
+
+      return { characters, currentCharacterId: characterId };
+    });
   };
 
   const removeCharacter = (characterId: string) => {
-    // remove character from characters
-    const characters = { ...charactersState.characters };
-    delete characters[characterId];
+    charactersState.update(charactersState => {
+      // remove character from characters
+      const characters = { ...charactersState.characters };
+      delete characters[characterId];
 
-    // update characterId if current character was removed
-    let newCharacterId = currentCharacter.id;
-    if (newCharacterId === currentCharacter.id) {
-      newCharacterId = Object.keys(characters)[0];
-    }
+      // update characterId if current character was removed
+      let newCharacterId = charactersState.currentCharacterId;
+      if (newCharacterId === characterId) {
+        newCharacterId = Object.keys(characters)[0];
+      }
 
-    charactersState.update({
-      characters,
-      currentCharacterId: newCharacterId
+      return {
+        characters,
+        currentCharacterId: newCharacterId
+      };
     });
   };
 
@@ -104,10 +118,14 @@ const useCurrentCharacter = () => {
   const character = charactersState.characters[charactersState.currentCharacterId];
 
   const updateCharacter = (partialCharacter: Partial<Character>) => {
-    const newCharacter = { ...character, ...partialCharacter };
-    const characters = { ...charactersState.characters };
-    characters[charactersState.currentCharacterId] = newCharacter;
-    charactersState.update({ characters });
+    charactersState.update(charactersState => {
+      const character = charactersState.characters[charactersState.currentCharacterId];
+      const newCharacter = { ...character, ...partialCharacter };
+      const characters = { ...charactersState.characters };
+      characters[charactersState.currentCharacterId] = newCharacter;
+
+      return { characters };
+    });
   };
 
   const characterClass = character.classKey
@@ -282,9 +300,11 @@ const useCurrentCharacter = () => {
   const setName = (name: string) => updateCharacter({ name });
   const setDescription = (description: string) => updateCharacter({ description });
   const setRace = (raceKey?: string) => updateCharacter({ raceKey });
-  const setHealthPoints = (hitPoints: number) => updateCharacter({ hitPoints });
+  const setHealthPoints = (healthPoints: number) =>
+    updateCharacter({ healthPoints: Math.min(healthPoints, getMaxHealthPoints()) });
   const setClassPoints = (classPoints: number) => updateCharacter({ classPoints });
   const setSatiation = (satiation: number) => updateCharacter({ satiation });
+  const setExhaustion = (exhaustion: number) => updateCharacter({ exhaustion });
   const setClassItemDescription = (classItemDescription?: string) =>
     updateCharacter({ classItemDescription });
 
@@ -399,6 +419,7 @@ const useCurrentCharacter = () => {
     addLevel,
     removeLevel,
     setSatiation,
+    setExhaustion,
     setClassPoints,
     setClassItemDescription,
     setClass,

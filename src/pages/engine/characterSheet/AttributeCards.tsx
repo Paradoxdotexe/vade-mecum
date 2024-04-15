@@ -7,7 +7,6 @@ import { useCharacters } from '../useCharacters';
 import { Attribute, AttributeKey } from '@/pages/engine/Character';
 import { RollEvaluation, useRolls } from '../useRolls';
 import { DateTime } from 'luxon';
-import { SideSkillsCard } from './SideSkillsCard';
 
 const StyledAttributeCards = styled.div`
   display: flex;
@@ -73,7 +72,6 @@ export const AttributeCards: React.FC = () => {
             }}
           />
         ))}
-        <SideSkillsCard />
       </StyledAttributeCards>
       <VPopup
         open={rolledAttributeActive}
@@ -94,7 +92,7 @@ export const AttributeCards: React.FC = () => {
               timestamp: DateTime.now().toISO(),
               evaluation: RollEvaluation.CHECK
             });
-            setTimeout(() => setRolledAttributeActive(false), 1500);
+            setTimeout(() => setRolledAttributeActive(false), 1000);
           }}
         />
       </VPopup>

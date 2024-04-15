@@ -119,11 +119,12 @@ export type Character = {
   level: number;
   levelPoints: number;
   satiation: number;
+  exhaustion: number;
   classKey?: string;
   classItemDescription?: string;
   raceKey?: string;
   attributes: Attributes;
-  hitPoints: number;
+  healthPoints: number;
   classPoints: number;
   perkKeys: string[];
   classAbilityKeys: string[];
@@ -137,8 +138,9 @@ export const DEFAULT_CHARACTER: Character = {
   level: 1,
   levelPoints: 0,
   satiation: 0,
+  exhaustion: 0,
   attributes: DEFAULT_ATTRIBUTES,
-  hitPoints: 12,
+  healthPoints: 12,
   classPoints: 0,
   perkKeys: [],
   classAbilityKeys: [],

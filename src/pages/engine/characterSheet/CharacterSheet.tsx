@@ -25,6 +25,7 @@ import { pulsingFailure, pulsingSuccess } from '@/styles/pulsingBackground';
 import { pluralize } from '@/utils/pluralize';
 import { capitalize } from 'lodash-es';
 import { SatiationCard } from './SatiationCard';
+import { CombatSkillsCard } from './CombatSkillsCard';
 
 const Sheet = styled.div`
   display: flex;
@@ -174,6 +175,12 @@ export const CharacterSheet: React.FC = () => {
             )}
           </VHeader>
           <AttributeCards />
+
+          <VHeader className="section__header">Combat Skills</VHeader>
+          <CombatSkillsCard />
+
+          <VHeader>Satiation / Exhaustion</VHeader>
+          <SatiationCard />
         </div>
       </div>
 
@@ -194,10 +201,6 @@ export const CharacterSheet: React.FC = () => {
           <div className="sheet__section">
             <VHeader>Speed</VHeader>
             <SpeedCard />
-          </div>
-          <div className="sheet__section">
-            <VHeader>Satiation</VHeader>
-            <SatiationCard />
           </div>
           {currentCharacter.maxClassPoints > 0 && (
             <div className="sheet__section">

@@ -28,7 +28,7 @@ export const HealthPointsCard: React.FC = () => {
       <VNumberInput
         size={48}
         max={currentCharacter.maxHealthPoints}
-        value={currentCharacter.hitPoints}
+        value={currentCharacter.healthPoints}
         onChange={currentCharacter.setHealthPoints}
       />
       <div className="card__slash">/</div>

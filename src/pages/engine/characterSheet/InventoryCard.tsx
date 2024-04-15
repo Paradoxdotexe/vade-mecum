@@ -180,7 +180,7 @@ export const InventoryCard: React.FC = () => {
               timestamp: DateTime.now().toISO(),
               evaluation: rolledItemEvaluation
             });
-            setTimeout(() => setRolledItemActive(false), 1500);
+            setTimeout(() => setRolledItemActive(false), 1000);
           }}
         />
       </VPopup>

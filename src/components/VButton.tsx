@@ -41,8 +41,13 @@ const Button = styled.button`
     transition: width ease 450ms;
   }
 
-  &:hover::before {
+  &:not(:disabled)&:hover::before {
     width: 100%;
+  }
+
+  &:disabled {
+    cursor: default;
+    opacity: 0.6;
   }
 `;
 
@@ -53,6 +58,7 @@ type VButtonProps = {
   type?: 'default' | 'primary';
   size?: 'default' | 'large';
   onClick?: () => void;
+  disabled?: boolean;
 };
 
 export const VButton: React.FC<VButtonProps> = props => {
@@ -61,6 +67,7 @@ export const VButton: React.FC<VButtonProps> = props => {
       style={props.style}
       className={`${props.className} ${props.type === 'primary' ? 'button--primary' : ''} ${props.size === 'large' ? 'button--large' : ''}`}
       onClick={props.onClick}
+      disabled={props.disabled}
     >
       {props.children}
     </Button>

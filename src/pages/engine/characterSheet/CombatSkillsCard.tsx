@@ -9,7 +9,7 @@ import { DiceFactor, RollCard } from '../RollCard';
 import { VPopup } from '@/components/VPopup';
 import { parseComputation } from '@/utils/parseComputation';
 
-const StyledSideSkillsCard = styled(VCard)`
+const StyledCombatSkillsCard = styled(VCard)`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -33,7 +33,7 @@ const StyledSideSkillsCard = styled(VCard)`
   }
 `;
 
-export const SideSkillsCard: React.FC = () => {
+export const CombatSkillsCard: React.FC = () => {
   const { addRoll } = useRolls();
   const { currentCharacter } = useCharacters();
 
@@ -98,7 +98,7 @@ export const SideSkillsCard: React.FC = () => {
 
   return (
     <>
-      <StyledSideSkillsCard>
+      <StyledCombatSkillsCard>
         <div className="card__sideSkill">
           <VNumberInput value={currentCharacter.initiative} max={99} disabled />
           <div className="sideSkill__label" onClick={() => setSideSkill('Initiative')}>
@@ -111,7 +111,7 @@ export const SideSkillsCard: React.FC = () => {
             Looting
           </div>
         </div>
-      </StyledSideSkillsCard>
+      </StyledCombatSkillsCard>
       <VPopup open={!!sideSkill} onClose={() => setSideSkill(undefined)}>
         <RollCard
           title={`${currentCharacter.name || 'Anonymous'} (${sideSkill})`}
@@ -125,7 +125,7 @@ export const SideSkillsCard: React.FC = () => {
               timestamp: DateTime.now().toISO(),
               evaluation: RollEvaluation.SUM
             });
-            setTimeout(() => setSideSkill(undefined), 1500);
+            setTimeout(() => setSideSkill(undefined), 1000);
           }}
         />
       </VPopup>
