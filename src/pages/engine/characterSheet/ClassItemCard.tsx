@@ -29,6 +29,10 @@ const StyledClassItemCard = styled(VCard)`
 export const ClassItemCard: React.FC = () => {
   const { currentCharacter } = useCharacters();
 
+  if (!currentCharacter) {
+    return null;
+  }
+
   const characterClass = currentCharacter.class;
 
   return (

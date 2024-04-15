@@ -539,8 +539,7 @@ const VALE_OF_MYTHS: WorldKit = {
           key: 'silent_mage',
           name: 'Silent Mage',
           type: ClassAbilityType.PASSIVE,
-          description:
-            'When casting a spell, you can roll a Stealth check to hide your casting. Characters can roll an Insight check against your Magic bonus to spot the casting.',
+          description: 'When casting a spell, you can roll a Stealth check to hide your casting.',
           requirement: 1
         },
         {

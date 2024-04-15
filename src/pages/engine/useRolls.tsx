@@ -2,7 +2,7 @@ import React, { ReactNode, useContext, useEffect } from 'react';
 import { useLocalStorage } from '@/utils/useLocalStorage';
 import { useStateVersioner } from '@/utils/useStateVersioner';
 import { useSession } from './useSession';
-import { useQuery, useQueryClient } from 'react-query';
+import { useQueryClient } from 'react-query';
 import { v4 as uuid } from 'uuid';
 import { DateTime } from 'luxon';
 
@@ -92,20 +92,9 @@ const MAX_ROLLS = 100;
 
 export const useRolls = () => {
   const rollsState = useContext(RollsStateContext);
-  const { sessionId, userId, webSocket } = useSession();
+  const { sessionId, userId, webSocket, sessionRolls } = useSession();
 
   const queryClient = useQueryClient();
-
-  const { data: sessionRolls } = useQuery<Roll[]>(
-    ['GET_SESSION_ROLLS'],
-    () =>
-      fetch(`https://api.vademecum.thenjk.com/sessions/${sessionId}/rolls`).then(response =>
-        response.json()
-      ),
-    {
-      enabled: !!sessionId
-    }
-  );
 
   const addRoll = async (roll: Omit<Roll, 'id'>) => {
     const newRoll = { id: uuid(), ...roll };

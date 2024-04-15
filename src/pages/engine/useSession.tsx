@@ -3,6 +3,8 @@ import { useStateVersioner } from '@/utils/useStateVersioner';
 import React, { ReactNode, useContext, useEffect, useMemo, useState } from 'react';
 import { useQuery } from 'react-query';
 import { v4 as uuid } from 'uuid';
+import type { Roll } from './useRolls';
+import type { Character } from './Character';
 
 export type Session = {
   id: string;
@@ -93,6 +95,28 @@ export const useSession = () => {
     }
   );
 
+  const { data: sessionRolls } = useQuery<Roll[]>(
+    ['GET_SESSION_ROLLS'],
+    () =>
+      fetch(`https://api.vademecum.thenjk.com/sessions/${sessionState.sessionId}/rolls`).then(
+        response => response.json()
+      ),
+    {
+      enabled: !!sessionState.sessionId
+    }
+  );
+
+  const { data: sessionCharacters } = useQuery<Character[]>(
+    ['GET_SESSION_CHARACTERS'],
+    () =>
+      fetch(`https://api.vademecum.thenjk.com/sessions/${sessionState.sessionId}/characters`).then(
+        response => response.json()
+      ),
+    {
+      enabled: !!sessionState.sessionId
+    }
+  );
+
   const setSessionId = (sessionId: string) => {
     sessionState.update({ sessionId });
   };
@@ -107,6 +131,8 @@ export const useSession = () => {
     setSessionId,
     session,
     webSocket: sessionState.webSocket,
-    userId: sessionState.userId
+    userId: sessionState.userId,
+    sessionRolls,
+    sessionCharacters
   };
 };

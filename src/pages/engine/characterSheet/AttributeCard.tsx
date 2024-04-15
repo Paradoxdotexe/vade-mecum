@@ -57,6 +57,10 @@ type AttributeCardProps = {
 export const AttributeCard: React.FC<AttributeCardProps> = props => {
   const { currentCharacter } = useCharacters();
 
+  if (!currentCharacter) {
+    return null;
+  }
+
   const attribute = currentCharacter.attributes[props.attributeKey];
 
   return (

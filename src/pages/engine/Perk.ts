@@ -47,16 +47,6 @@ export const PERKS: Perk[] = [
     }
   },
   {
-    key: 'human_shield',
-    name: 'Human Shield',
-    description: 'You act as light cover in combat for all characters within 10ft behind you.',
-    requirement: {
-      attributeKey: 'strength',
-      skillKey: 'fortitude',
-      skillRequirement: 1
-    }
-  },
-  {
     key: 'pack_mule',
     name: 'Pack Mule',
     description:
@@ -64,10 +54,20 @@ export const PERKS: Perk[] = [
     requirement: {
       attributeKey: 'strength',
       skillKey: 'fortitude',
-      skillRequirement: 2
+      skillRequirement: 1
     },
     computed: {
       carryingCapacity: '[base] + [attribute.strength] + [skill.fortitude]'
+    }
+  },
+  {
+    key: 'human_shield',
+    name: 'Human Shield',
+    description: 'You act as light cover in combat for all characters within 10ft behind you.',
+    requirement: {
+      attributeKey: 'strength',
+      skillKey: 'fortitude',
+      skillRequirement: 2
     }
   },
   {

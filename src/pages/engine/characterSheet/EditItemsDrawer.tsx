@@ -43,6 +43,10 @@ export const EditItemsDrawer: React.FC<EditItemsDrawerProps> = props => {
 
   const [searchQuery, setSearchQuery] = useState('');
 
+  if (!currentCharacter) {
+    return null;
+  }
+
   const isSelected = (itemKey: string) => currentCharacter.items.some(item => item.key === itemKey);
 
   const toggleItem = (itemKey: string) => {

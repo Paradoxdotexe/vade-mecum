@@ -35,6 +35,10 @@ export const EditPerksDrawer: React.FC<EditPerksDrawerProps> = props => {
 
   const [searchQuery, setSearchQuery] = useState('');
 
+  if (!currentCharacter) {
+    return null;
+  }
+
   const isSelected = (perkKey: string) => currentCharacter.perkKeys.includes(perkKey);
 
   const togglePerk = (perkKey: string) => {

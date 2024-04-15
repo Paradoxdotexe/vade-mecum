@@ -15,6 +15,10 @@ const StyledPerksCard = styled(VCard)`
 export const PerksCard: React.FC = () => {
   const { currentCharacter } = useCharacters();
 
+  if (!currentCharacter) {
+    return null;
+  }
+
   const columns: VTableColumn<Perk>[] = [
     { key: 'name', dataKey: 'name' },
     {

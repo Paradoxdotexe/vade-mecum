@@ -114,6 +114,7 @@ const DEFAULT_ATTRIBUTES: Attributes = {
 
 export type Character = {
   id: string;
+  userId: string;
   name: string;
   description: string;
   level: number;
@@ -133,6 +134,7 @@ export type Character = {
 
 export const DEFAULT_CHARACTER: Character = {
   id: uuid(),
+  userId: '',
   name: '',
   description: '',
   level: 1,

@@ -135,6 +135,10 @@ export const CharacterSheet: React.FC = () => {
   const [editingPerks, setEditingPerks] = useState(false);
   const [editingItems, setEditingItems] = useState(false);
 
+  if (!currentCharacter) {
+    return null;
+  }
+
   const attributePointsAvailable =
     currentCharacter.maxAttributePointCount -
     Object.values(currentCharacter.attributes).reduce(

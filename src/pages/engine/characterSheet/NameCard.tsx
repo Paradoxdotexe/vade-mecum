@@ -6,6 +6,10 @@ import { useCharacters } from '../useCharacters';
 export const NameCard: React.FC = () => {
   const { currentCharacter } = useCharacters();
 
+  if (!currentCharacter) {
+    return null;
+  }
+
   return (
     <VCard style={{ padding: 0 }}>
       <VInput

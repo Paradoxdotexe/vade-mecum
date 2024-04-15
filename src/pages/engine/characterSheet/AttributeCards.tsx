@@ -21,6 +21,10 @@ export const AttributeCards: React.FC = () => {
   const [rolledAttribute, setRolledAttribute] = useState<Attribute>();
   const [rolledAttributeActive, setRolledAttributeActive] = useState(false);
 
+  if (!currentCharacter) {
+    return null;
+  }
+
   const rolledSkillKey = rolledAttribute && Object.keys(rolledAttribute.skills)[0];
   const rolledSkill = rolledSkillKey ? rolledAttribute.skills[rolledSkillKey] : undefined;
 

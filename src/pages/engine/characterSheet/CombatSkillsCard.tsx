@@ -39,6 +39,10 @@ export const CombatSkillsCard: React.FC = () => {
 
   const [sideSkill, setSideSkill] = useState<'Initiative' | 'Looting'>();
 
+  if (!currentCharacter) {
+    return null;
+  }
+
   const diceFactors: DiceFactor[] = [];
 
   if (sideSkill === 'Initiative') {

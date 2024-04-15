@@ -14,6 +14,10 @@ const StyledClassAbilitiesCard = styled(VCard)`
 export const ClassAbilitiesCard: React.FC = () => {
   const { currentCharacter } = useCharacters();
 
+  if (!currentCharacter) {
+    return null;
+  }
+
   return (
     <StyledClassAbilitiesCard>
       <VTable

@@ -179,8 +179,8 @@ As such, perks give characters a way to accentuate their strengths in ways that 
 | Strength     | **Bloody Knuckles**  | Power 1         | You double your Power bonus on skill checks to make a melee attack without a weapon.                                                              |
 | Strength     | **Dead Lift**        | Power 2         | You double your Power bonus on skill checks to lift or move a heavy object.                                                                       |
 | Strength     | **Battering Ram**    | Power 3         | You double your Power bonus on skill checks to force your way through an obstacle.                                                                |
-| Strength     | **Human Shield**     | Fortitude 1     | You act as light cover in combat for all characters within 10ft behind you.                                                                       |
-| Strength     | **Pack Mule**        | Fortitude 2     | Your carrying capacity is increased by a number of slots equal to your `(Strength + Fortitude)`.                                                  |
+| Strength     | **Pack Mule**        | Fortitude 1     | Your carrying capacity is increased by a number of slots equal to your `(Strength + Fortitude)`.                                                  |
+| Strength     | **Human Shield**     | Fortitude 2     | You act as light cover in combat for all characters within 10ft behind you.                                                                       |
 | Strength     | **Night Owl**        | Fortitude 3     | During a Rest, you can complete an additional Rest Activity with -1 disadvantage.                                                                 |
 | Strength     | **Trainer**          | Athletics 1     | You give allies +1 advantage on Athletics checks.                                                                                                 |
 | Strength     | **Free Solo**        | Athletics 2     | You double your Athletics bonus on skill checks to climb without equipment.                                                                       |

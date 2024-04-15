@@ -156,7 +156,7 @@ export const EnginePage: React.FC = () => {
   const { rolls } = useRolls();
   const { characters, currentCharacter, setCurrentCharacter, addCharacter, removeCharacter } =
     useCharacters();
-  const { session, sessionId } = useSession();
+  const { session, sessionId, userId } = useSession();
 
   const [viewingSessions, setViewingSessions] = useState(false);
 
@@ -165,7 +165,7 @@ export const EnginePage: React.FC = () => {
       <div className="page__content">
         <div className="content__tabs">
           {Object.values(characters).map(character => {
-            const active = character.id === currentCharacter.id;
+            const active = character.id === currentCharacter?.id;
             return (
               <div
                 key={character.id}
@@ -173,7 +173,7 @@ export const EnginePage: React.FC = () => {
                 onClick={() => setCurrentCharacter(character.id)}
               >
                 {character.name || 'Anonymous'}
-                {active && Object.keys(characters).length > 1 && (
+                {active && character.userId === userId && (
                   <TrashCanIcon
                     className="tab__delete"
                     onClick={event => {

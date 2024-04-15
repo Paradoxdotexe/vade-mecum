@@ -34,6 +34,10 @@ export const EditClassAbilitiesDrawer: React.FC<EditClassAbilitiesDrawerProps> =
 
   const [searchQuery, setSearchQuery] = useState('');
 
+  if (!currentCharacter) {
+    return null;
+  }
+
   const isSelected = (classAbilityKey: string) =>
     currentCharacter.classAbilities.some(ability => ability.key === classAbilityKey);
 

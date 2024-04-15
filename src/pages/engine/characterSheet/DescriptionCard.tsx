@@ -20,6 +20,10 @@ const StyledDescriptionCard = styled(VCard)`
 export const DescriptionCard: React.FC = () => {
   const { currentCharacter } = useCharacters();
 
+  if (!currentCharacter) {
+    return null;
+  }
+
   return (
     <StyledDescriptionCard>
       <VTextArea

@@ -7,6 +7,10 @@ import { WORLD_KITS } from '../WorldKit';
 export const ClassCard: React.FC = () => {
   const { currentCharacter } = useCharacters();
 
+  if (!currentCharacter) {
+    return null;
+  }
+
   return (
     <VCard style={{ padding: 0 }}>
       <VSelect

@@ -24,6 +24,10 @@ const StyledLevelCard = styled(VCard)`
 export const LevelCard: React.FC = () => {
   const { currentCharacter } = useCharacters();
 
+  if (!currentCharacter) {
+    return null;
+  }
+
   const showLevelUp = currentCharacter.levelPoints === 6;
 
   const levelUp = () => {

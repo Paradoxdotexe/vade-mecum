@@ -14,5 +14,9 @@ const StyledSpeedCard = styled(VCard)`
 export const SpeedCard: React.FC = () => {
   const { currentCharacter } = useCharacters();
 
+  if (!currentCharacter) {
+    return null;
+  }
+
   return <StyledSpeedCard>{currentCharacter.speed * 5}ft</StyledSpeedCard>;
 };

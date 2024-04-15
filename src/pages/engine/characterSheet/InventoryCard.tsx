@@ -54,6 +54,10 @@ export const InventoryCard: React.FC = () => {
   );
   const [rolledItemActive, setRolledItemActive] = useState(false);
 
+  if (!currentCharacter) {
+    return null;
+  }
+
   const diceFactors: DiceFactor[] = [];
 
   let rolledItemLabel = '';

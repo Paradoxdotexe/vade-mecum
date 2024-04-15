@@ -23,6 +23,10 @@ const StyledHealthPointsCard = styled(VCard)`
 export const HealthPointsCard: React.FC = () => {
   const { currentCharacter } = useCharacters();
 
+  if (!currentCharacter) {
+    return null;
+  }
+
   return (
     <StyledHealthPointsCard>
       <VNumberInput

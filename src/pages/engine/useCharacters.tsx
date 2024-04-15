@@ -1,4 +1,4 @@
-import React, { ReactNode, useContext, useMemo } from 'react';
+import React, { ReactNode, useContext, useEffect, useMemo } from 'react';
 import { useLocalStorage } from '@/utils/useLocalStorage';
 import { AttributeKey, Character, DEFAULT_CHARACTER } from '@/pages/engine/Character';
 import { v4 as uuid } from 'uuid';
@@ -6,18 +6,20 @@ import { useStateVersioner } from '@/utils/useStateVersioner';
 import { WORLD_KITS } from './WorldKit';
 import { parseComputation } from '@/utils/parseComputation';
 import { PERKS } from './Perk';
-import { capitalize } from 'lodash-es';
+import { capitalize, debounce } from 'lodash-es';
+import { useSession } from './useSession';
+import { useQueryClient } from 'react-query';
 
 type CharactersState = {
   version: string;
   characters: { [id: string]: Character };
-  currentCharacterId: string;
+  currentCharacterId?: string;
 };
 
 const DEFAULT_CHARACTERS_STATE: CharactersState = {
-  version: '11.0',
-  characters: { [DEFAULT_CHARACTER.id]: structuredClone(DEFAULT_CHARACTER) },
-  currentCharacterId: DEFAULT_CHARACTER.id
+  version: '12.0',
+  characters: {},
+  currentCharacterId: undefined
 };
 
 interface CSC extends CharactersState {
@@ -36,6 +38,7 @@ export const CharactersStateProvider: React.FC<{ children?: ReactNode }> = props
     'vc:engine:characters',
     structuredClone(DEFAULT_CHARACTERS_STATE)
   );
+  const { sessionId, userId, webSocket, sessionCharacters } = useSession();
 
   useStateVersioner(charactersState, setCharactersState, DEFAULT_CHARACTERS_STATE);
 
@@ -48,10 +51,77 @@ export const CharactersStateProvider: React.FC<{ children?: ReactNode }> = props
     }));
   };
 
+  const characters = { ...charactersState.characters };
+  // supplement with session characters
+  for (const sessionCharacter of sessionCharacters ?? []) {
+    if (!characters[sessionCharacter.id]) {
+      characters[sessionCharacter.id] = sessionCharacter;
+    }
+  }
+
+  let currentCharacterId = charactersState.currentCharacterId;
+
+  // prevent trying to display a character that we don't have any data for (like a session character that hasn't loaded)
+  if (currentCharacterId && !characters[currentCharacterId]) {
+    currentCharacterId = undefined;
+  }
+
   const charactersStateContext: CSC = {
     ...charactersState,
+    currentCharacterId,
+    characters,
     update
   };
+
+  const ownedCurrentCharacter = charactersState.currentCharacterId
+    ? charactersState.characters[charactersState.currentCharacterId]
+    : undefined;
+
+  const updateSessionCharacter = useMemo(
+    () =>
+      debounce((webSocket: WebSocket, character: Character) => {
+        webSocket.send(
+          JSON.stringify({
+            action: 'addCharacter',
+            sessionId,
+            userId,
+            character: character
+          })
+        );
+      }, 2000),
+    []
+  );
+
+  useEffect(() => {
+    if (webSocket && ownedCurrentCharacter) {
+      updateSessionCharacter(webSocket, ownedCurrentCharacter);
+    }
+  }, [webSocket, ownedCurrentCharacter]);
+
+  const queryClient = useQueryClient();
+
+  useEffect(() => {
+    if (webSocket) {
+      webSocket.addEventListener('message', event => {
+        const message = JSON.parse(event.data);
+        if (message.event === 'CHARACTER_UPDATE') {
+          // update GET_SESSION_CHARACTERS cache with updated character
+          queryClient.setQueryData(
+            'GET_SESSION_CHARACTERS',
+            (sessionCharacters: Character[] | undefined) => {
+              if (sessionCharacters) {
+                const index = sessionCharacters.findIndex(
+                  character => character.id === message.data.character.id
+                );
+                sessionCharacters.splice(index, 1, message.data.character);
+              }
+              return sessionCharacters ? [...sessionCharacters] : [];
+            }
+          );
+        }
+      });
+    }
+  }, [webSocket]);
 
   return (
     <CharactersStateContext.Provider value={charactersStateContext}>
@@ -62,6 +132,7 @@ export const CharactersStateProvider: React.FC<{ children?: ReactNode }> = props
 
 export const useCharacters = () => {
   const charactersState = useContext(CharactersStateContext);
+  const { userId } = useSession();
 
   const currentCharacter = useCurrentCharacter();
   const setCurrentCharacter = (characterId: string) => {
@@ -77,7 +148,7 @@ export const useCharacters = () => {
     charactersState.update(charactersState => {
       const characters = {
         ...charactersState.characters,
-        [characterId]: { ...structuredClone(DEFAULT_CHARACTER), id: characterId }
+        [characterId]: { ...structuredClone(DEFAULT_CHARACTER), id: characterId, userId }
       };
 
       return { characters, currentCharacterId: characterId };
@@ -115,14 +186,21 @@ export const useCharacters = () => {
 const useCurrentCharacter = () => {
   const charactersState = useContext(CharactersStateContext);
 
+  if (!charactersState.currentCharacterId) {
+    return undefined;
+  }
+
   const character = charactersState.characters[charactersState.currentCharacterId];
 
   const updateCharacter = (partialCharacter: Partial<Character>) => {
     charactersState.update(charactersState => {
-      const character = charactersState.characters[charactersState.currentCharacterId];
-      const newCharacter = { ...character, ...partialCharacter };
       const characters = { ...charactersState.characters };
-      characters[charactersState.currentCharacterId] = newCharacter;
+
+      if (charactersState.currentCharacterId) {
+        const character = charactersState.characters[charactersState.currentCharacterId];
+        const newCharacter = { ...character, ...partialCharacter };
+        characters[charactersState.currentCharacterId] = newCharacter;
+      }
 
       return { characters };
     });
@@ -168,25 +246,21 @@ const useCurrentCharacter = () => {
     };
   });
 
-  const computationVariables = useMemo(() => {
-    const computationVariables: { [key: string]: number } = {
-      level: character.level
-    };
+  const computationVariables: { [key: string]: number } = {
+    level: character.level
+  };
 
-    if (characterClass) {
-      computationVariables.classItemBonus = characterClass.classItemBonus;
+  if (characterClass) {
+    computationVariables.classItemBonus = characterClass.classItemBonus;
+  }
+
+  for (const [attributeKey, attribute] of Object.entries(character.attributes)) {
+    computationVariables[`attribute.${attributeKey}`] = attribute.value;
+
+    for (const [skillKey, skill] of Object.entries(attribute.skills)) {
+      computationVariables[`skill.${skillKey}`] = skill.value;
     }
-
-    for (const [attributeKey, attribute] of Object.entries(character.attributes)) {
-      computationVariables[`attribute.${attributeKey}`] = attribute.value;
-
-      for (const [skillKey, skill] of Object.entries(attribute.skills)) {
-        computationVariables[`skill.${skillKey}`] = skill.value;
-      }
-    }
-
-    return computationVariables;
-  }, [character]);
+  }
 
   const getSpeed = () => {
     const baseSpeed = parseComputation(

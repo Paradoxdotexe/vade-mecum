@@ -35,6 +35,10 @@ export const SatiationCard: React.FC = () => {
 
   const [resting, setResting] = useState(false);
 
+  if (!currentCharacter) {
+    return null;
+  }
+
   const diceFactors: DiceFactor[] = [
     {
       type: 'A',

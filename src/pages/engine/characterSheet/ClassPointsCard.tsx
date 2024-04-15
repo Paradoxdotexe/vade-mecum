@@ -24,6 +24,10 @@ const StyledClassPointsCard = styled(VCard)`
 export const ClassPointsCard: React.FC = () => {
   const { currentCharacter } = useCharacters();
 
+  if (!currentCharacter) {
+    return null;
+  }
+
   return (
     <StyledClassPointsCard>
       <VNumberInput
