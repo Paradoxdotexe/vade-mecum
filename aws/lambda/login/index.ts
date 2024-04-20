@@ -51,12 +51,12 @@ const handler: APIGatewayProxyHandler = async event => {
   }
 
   // inflate shortened token from base64
-  var inflatedToken = zlib.inflateSync(Buffer.from(body.token, 'base64')).toString();
+  const loginToken = zlib.inflateSync(Buffer.from(body.token, 'base64')).toString();
 
-  const data = JSON.parse(decrypt(inflatedToken));
+  const tokenData = JSON.parse(decrypt(loginToken));
 
   const now = new Date();
-  const expiration = new Date(data.expiration);
+  const expiration = new Date(tokenData.expiration);
 
   if (now.getTime() > expiration.getTime()) {
     return {
@@ -65,14 +65,29 @@ const handler: APIGatewayProxyHandler = async event => {
     };
   }
 
+  // store user if they don't already exist
+  if (!tokenData.userId) {
+    tokenData.userId = crypto.randomUUID();
+
+    const putUser = new PutCommand({
+      TableName: 'vade-mecum-users',
+      Item: {
+        userId: tokenData.userId,
+        itemId: 'meta',
+        email: tokenData.email
+      }
+    });
+    await docClient.send(putUser);
+  }
+
   const authToken = crypto.randomBytes(20).toString('hex');
   const authTokenExpiration = new Date(now.getTime() + 90 * 24 * 60 * 60_000); // 90 days
 
-  // store new authToken in database
+  // store new authToken
   const putCommand = new PutCommand({
     TableName: 'vade-mecum-users',
     Item: {
-      userId: data.userId,
+      userId: tokenData.userId,
       itemId: `authToken#${authToken}`,
       expiration: Math.floor(authTokenExpiration.getTime() / 1000)
     }
@@ -83,9 +98,10 @@ const handler: APIGatewayProxyHandler = async event => {
     statusCode: 200,
     headers: {
       ...RESPONSE_HEADERS,
+      // provide authToken via cookie
       'Set-Cookie': `vade-mecum-auth-token=${authToken}; Expires=${authTokenExpiration.toUTCString()}; SameSite=None; Secure; HttpOnly`
     },
-    body: data.email
+    body: ''
   };
 };
 
