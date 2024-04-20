@@ -1564,6 +1564,17 @@ const VALE_OF_MYTHS: WorldKit = {
         skillBonus: 1
       }
     },
+    battering_ram: {
+      type: InventoryItemType.TOOL,
+      name: 'Battering Ram',
+      cost: '2D6',
+      weight: 2,
+      bonus: {
+        attributeKey: 'strength',
+        skillKey: 'power',
+        skillBonus: 1
+      }
+    },
     adventuring_ration: {
       type: InventoryItemType.MEAL,
       name: 'Adventuring Ration',

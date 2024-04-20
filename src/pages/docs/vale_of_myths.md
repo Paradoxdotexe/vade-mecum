@@ -833,6 +833,7 @@ In _Vale of Myths_, valerian pieces (abbreviated as "pcs") are the main denomina
 | **Rope & Grappling Hook** | Average | 4D6 pcs | 1 slot   | +2 Athletics |
 | **Medical Pouch**         | Average | 4D6 pcs | 1/2 slot | +1 Medicine  |
 | **World Map**             | Common  | 2D6 pcs | 1/4 slot | +1 Insight   |
+| **Battering Ram**         | Common  | 2D6 pcs | 2 slots  | +1 Power     |
 
 ## Meals
 

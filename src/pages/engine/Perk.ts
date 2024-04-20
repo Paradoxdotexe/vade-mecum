@@ -18,7 +18,7 @@ export const PERKS: Perk[] = [
     key: 'bloody_knuckles',
     name: 'Bloody Knuckles',
     description:
-      'You double your Power bonus on skill checks to make a melee attack without a weapon.',
+      'You double your Power bonus on skill checks to attack without a weapon and deal 2D6 damage instead of 1D6.',
     requirement: {
       attributeKey: 'strength',
       skillKey: 'power',
@@ -26,9 +26,10 @@ export const PERKS: Perk[] = [
     }
   },
   {
-    key: 'dead_lift',
-    name: 'Dead Lift',
-    description: 'You double your Power bonus on skill checks to lift or move a heavy object.',
+    key: 'breacher',
+    name: 'Breacher',
+    description:
+      'You double your Power bonus on skill checks to force your way through an obstacle.',
     requirement: {
       attributeKey: 'strength',
       skillKey: 'power',
@@ -36,10 +37,9 @@ export const PERKS: Perk[] = [
     }
   },
   {
-    key: 'battering_ram',
-    name: 'Battering Ram',
-    description:
-      'You double your Power bonus on skill checks to force your way through an obstacle.',
+    key: 'intimidating',
+    name: 'Intimidating',
+    description: 'When rolling Influence to intimidate an NPC, add your Power bonus.',
     requirement: {
       attributeKey: 'strength',
       skillKey: 'power',
@@ -61,16 +61,6 @@ export const PERKS: Perk[] = [
     }
   },
   {
-    key: 'human_shield',
-    name: 'Human Shield',
-    description: 'You act as light cover in combat for all characters within 10ft behind you.',
-    requirement: {
-      attributeKey: 'strength',
-      skillKey: 'fortitude',
-      skillRequirement: 2
-    }
-  },
-  {
     key: 'night_owl',
     name: 'Night Owl',
     description:
@@ -78,13 +68,24 @@ export const PERKS: Perk[] = [
     requirement: {
       attributeKey: 'strength',
       skillKey: 'fortitude',
+      skillRequirement: 2
+    }
+  },
+  {
+    key: 'human_shield',
+    name: 'Human Shield',
+    description: 'You act as light cover in combat for all characters within 10ft behind you.',
+    requirement: {
+      attributeKey: 'strength',
+      skillKey: 'fortitude',
       skillRequirement: 3
     }
   },
   {
-    key: 'trainer',
-    name: 'Trainer',
-    description: 'You give allies +1 advantage on Athletics checks.',
+    key: 'spotter',
+    name: 'Spotter',
+    description:
+      'When you succeed on an Athletics check, you can make one other character instantly succeed on the same skill check.',
     requirement: {
       attributeKey: 'strength',
       skillKey: 'athletics',
