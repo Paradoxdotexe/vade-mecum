@@ -169,7 +169,7 @@ export const PERKS: Perk[] = [
     key: 'assassin',
     name: 'Assassin',
     description:
-      'When an enemy is surprised, you can make a weapon attack with advantage equivalent to your Stealth.',
+      'When an enemy is surprised, you can make a weapon attack with advantage equal to your Stealth.',
     requirement: {
       attributeKey: 'dexterity',
       skillKey: 'stealth',
@@ -189,7 +189,7 @@ export const PERKS: Perk[] = [
   {
     key: 'untouchable',
     name: 'Untouchable',
-    description: 'Opportunity attacks on you have disadvantage equivalent to your Agility.',
+    description: 'Opportunity attacks on you have disadvantage equal to your Agility.',
     requirement: {
       attributeKey: 'dexterity',
       skillKey: 'agility',
@@ -232,7 +232,7 @@ export const PERKS: Perk[] = [
     key: 'strategist',
     name: 'Strategist',
     description:
-      'When you plan a surprise attack, you add +3 advantage to the Stealth roll to surprise the enemy.',
+      'You add +3 advantage to Stealth checks made by you and your companions to surprise the enemy.',
     requirement: {
       attributeKey: 'intelligence',
       skillKey: 'comprehension',

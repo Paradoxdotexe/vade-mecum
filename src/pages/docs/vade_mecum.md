@@ -37,6 +37,7 @@ The world is defined and controlled by a Game Master that acts as both the game'
   - [2.7 Rest](#2.7-Rest)
 - [3. World](#3.-World)
   - [3.1 Currency](#3.1-Currency)
+  - [3.2 Enemies](#3.2-Enemies)
 
 ## World Kits
 
@@ -156,7 +157,7 @@ As such, perks give characters a way to accentuate their strengths in ways that 
 | Dexterity    | **Fleet Foot**       | Agility 3       | You are not impeded by Rough Terrain.                                                                                                             |
 | Intelligence | **Book Worm**        | Comprehension 1 | You double your Comprehension bonus on skill checks to comprehend written information.                                                            |
 | Intelligence | **Linguist**         | Comprehension 2 | You double your Comprehension bonus on skill checks to comprehend a foreign language.                                                             |
-| Intelligence | **Strategist**       | Comprehension 3 | When you plan a surprise attack, you add +3 advantage to the Stealth roll to surprise the enemy.                                                  |
+| Intelligence | **Strategist**       | Comprehension 3 | You add +3 advantage to Stealth checks made by you and your companions to surprise the enemy.                                                     |
 | Intelligence | **Spiritual Healer** | Medicine 1      | You can stabilize allies from up to 15 ft away.                                                                                                   |
 | Intelligence | **Field Medic**      | Medicine 2      | On a stalemate Medicine check to stabilize an ally, you decrease the injury level by one.                                                         |
 | Intelligence | **Witch Doctor**     | Medicine 3      | Even when incapacitated with a deadly injury, you can roll to stabilize yourself.                                                                 |
@@ -241,7 +242,7 @@ Knights can acquire other class abilities that enhance their abilities on the ba
 | **King's Champion**    | Passive      | Level 1     | Your initiative roll is automatically doubled.                                                                                                                                             |
 | **Last Stand**         | Passive      | Level 6     | When you have 12 health points or less, your attack damage is doubled.                                                                                                                     |
 | **Bulwark**            | Passive      | Level 6     | You take only half damage when hit by an enemy with over half of its health remaining.                                                                                                     |
-| **Formal Decree**      | Bonus Action | Level 12    | You can make an Honor check against an enemy's Intuition to command them to stand down. On a success, they will not attack unless otherwise provoked.                                      |
+| **Formal Decree**      | Bonus Action | Level 12    | You can make an Honor check against an enemy's Enemy Bonus to command them to stand down. On a success, they will not attack unless otherwise provoked.                                    |
 | **Honorable Duel**     | Bonus Action | Level 12    | You can make an Honor check to command an enemy to duel. On a success, they cannot make attacks on characters other than you. The duel ends if they are attacked by anyone other than you. |
 | **Shield Bash**        | Bonus Action | Level 18    | You can make an Honor check to bash an enemy within 5ft. On a success, they are knocked prone.                                                                                             |
 
@@ -617,17 +618,17 @@ By default, all characters can perform an opportunity attack as a reaction, but 
 ### Surprise
 
 In some cases, the Adventuring Party may attempt to surprise their enemy to gain an advantage.
-To do this, one character will roll a Stealth check with disadvantage equivalent to the highest Enemy Bonus.
+To do this, the characters roll a group Stealth check with disadvantage equal to the highest Enemy Bonus.
 
-| Result        | Outcome                                                                                  |
-| ------------- | ---------------------------------------------------------------------------------------- |
-| **Success**   | The party surprises the enemy, earning a free round while the enemies are surprised.     |
-| **Stalemate** | The party fails to surprise the enemy and begin combat as usual.                         |
-| **Failure**   | The party prematurely alerts the enemy, giving the enemy a free round for movement only. |
+| Result        | Outcome                                                                       |
+| ------------- | ----------------------------------------------------------------------------- |
+| **Success**   | The party surprises the enemy, stunning them all for one turn.                |
+| **Stalemate** | The party fails to surprise the enemy and begin combat as usual.              |
+| **Failure**   | The party prematurely alerts the enemy, giving the enemy a turn for movement. |
 
-> **Example:** A party attempts to surprise a group of soldiers on patrol. The soldiers are led by a Scout with Enemy Bonus 1.
-> The character leading the party rolls a Stealth check with -1 disadvantage and is successful.
-> The party surprised the enemies and gets a free round against them.
+> **Example:** A party attempts to surprise a group of soldiers on patrol. The soldiers are led by a Guard with Enemy Bonus 2.
+> The characters each roll a Stealth check with -2 disadvantage and succeed as a group.
+> The party surprises the enemies and stun them for one turn.
 
 ### Looting
 
@@ -820,3 +821,43 @@ Additionally, if the item is of Rare rarity or higher, an Influence check is req
 > The character can either purchase the Plate Armor for 70 CU or try again on another day.
 
 > When selling an item of Rare rarity or higher, the same rules apply but in reverse (the character attempts to haggle the price up).
+
+## 3.2 Enemies
+
+An enemy is a special creature that exists specifically to pose a threat to characters, working towards converse goals, promoting antithetical ideals, and above all else, offering interesting combat. Enemies are chiefly defined by their level, which like characters, scales from 1 to 24.
+
+Unlike characters, enemies do not have specific points allocated to attributes and skills.
+Instead, each enemy has an associated Enemy Bonus that dictates how many dice they roll on any given skill check.
+This Enemy Bonus starts at 1 and is increased by 1 at every 3rd level.
+
+Instead of having a class, enemies can have any variety of abilities that serve to make their combat unique.
+As a rule of thumb, enemies should do on average `1D6` damage per turn for each level.
+This damage expectation can be balanced out with abilities that don't do damage, but offer other combat advantages.
+
+Lastly, every enemy has a Max HP equal to `(Enemy Level + Enemy Bonus) * 6`.
+
+| Level | Enemy Bonus | Damage / Turn | Max HP | _Vale of Myths_ Example |
+| ----- | ----------- | ------------- | ------ | ----------------------- |
+| 1     | +1          | ~1D6          | 12     | Brineling               |
+| 2     | +1          | ~2D6          | 18     | Retch                   |
+| 3     | +2          | ~3D6          | 30     | Bandit, Guard           |
+| 4     | +2          | ~4D6          | 36     |                         |
+| 5     | +2          | ~5D6          | 42     | Retch Ogre              |
+| 6     | +3          | ~6D6          | 54     | Bandit Boss             |
+| 7     | +3          | ~7D6          | 60     |                         |
+| 8     | +3          | ~8D6          | 66     |
+| 9     | +4          | ~9D6          | 78     |
+| 10    | +4          | ~10D6         | 84     |
+| 11    | +4          | ~11D6         | 90     |
+| 12    | +5          | ~12D6         | 102    |                         |
+| 13    | +5          | ~13D6         | 108    |
+| 14    | +5          | ~14D6         | 114    |
+| 15    | +6          | ~15D6         | 126    |
+| 16    | +6          | ~16D6         | 132    |
+| 17    | +6          | ~17D6         | 138    |
+| 18    | +7          | ~18D6         | 150    |
+| 20    | +7          | ~20D6         | 162    |
+| 21    | +8          | ~21D6         | 174    |
+| 22    | +8          | ~22D6         | 180    |
+| 23    | +8          | ~23D6         | 186    |
+| 24    | +9          | ~24D6         | 198    | Sylvaxus                |

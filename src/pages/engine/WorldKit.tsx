@@ -181,7 +181,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Formal Decree',
           type: ClassAbilityType.BONUS_ACTION,
           description:
-            "You can make an Honor check against an enemy's Intuition to command them to stand down. On a success, they will not attack unless otherwise provoked.",
+            "You can make an Honor check against an enemy's Enemy Bonus to command them to stand down. On a success, they will not attack unless otherwise provoked.",
           requirement: 12
         },
         {
@@ -876,7 +876,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Turncoat',
           type: ClassAbilityType.MAIN_ACTION,
           description:
-            "You can make a Diplomacy check against an enemy's Intuition to convince them to join your cause. On a success, you spend DP equal to the enemy's level and they change sides until the end of combat.",
+            "You can make a Diplomacy check against an enemy's Enemy Bonus to convince them to join your cause. On a success, you spend DP equal to the enemy's level and they change sides until the end of combat.",
           requirement: 18
         }
       ],
