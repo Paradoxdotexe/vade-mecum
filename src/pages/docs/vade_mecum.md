@@ -32,8 +32,9 @@ The world is defined and controlled by a Game Master that acts as both the game'
   - [2.2 Weapons and Tools](#2.2-Weapons-and-Tools)
   - [2.3 Armor and Cover](#2.3-Armor-and-Cover)
   - [2.4 Combat](#2.4-Combat)
-  - [2.5 Death](#2.5-Death)
-  - [2.6 Rest](#2.6-Rest)
+  - [2.5 Conditions](#2.5-Conditions)
+  - [2.6 Injuries](#2.6-Injuries)
+  - [2.7 Rest](#2.7-Rest)
 - [3. World](#3.-World)
   - [3.1 Currency](#3.1-Currency)
 
@@ -306,7 +307,7 @@ The Max HP for any character is equal to `(Level + Strength + Fortitude) x 6`.
 
 > **Example:** A Level 5 character with Strength 4 and Fortitude 1 will have a Max HP of 60.
 
-As a character engages in combat, they will take damage, lose HP, and face consequences (see [2.5 Death](#2.5-Death)).
+As a character engages in combat, they will take damage, lose HP, and face consequences (see [2.6 Injuries](#2.6-Injuries)).
 
 ## 1.7 Movement Speed
 
@@ -458,13 +459,19 @@ In many cases, failure will mean the character botches the attempt and it can lo
 > The character decides to try again and rolls a Precision check with an additional -1 disadvantage.
 > This time, they get a failure. The Game Master rules the keyhole of the lock has been ruined and is now unpickable.
 
-> Skill checks made to attack with a weapon in combat are special.
-> Failure will result in the weapon taking a point of damage (see [2.2 Weapons and Tools](#2.2-Weapons-and-Tools)).
+### Attacks
 
-### Helping on Skill Checks
+Any skill check that is intended to deal direct damage against an enemy is considered an attack.
+These are most often Power or Precision checks used to make melee or ranged attacks, respectively.
+Attack skill checks have two special rules when resolving their outcome.
 
-When a character makes a skill check, others in their Adventuring Party may want to lend a hand.
-In this situation, the character making the skill check adds advantage equal to the helping character's skill bonus.
+#### Critical Damage
+
+If the attack results in a success, the damage dealt increases by `1D6` for every additional 6 rolled.
+
+#### Weapon Damage
+
+If the attack results in a failure, the weapon being used takes 1 point of damage (see [2.2 Weapons and Tools](#2.2-Weapons-and-Tools)).
 
 ### Group Skill Checks
 
@@ -479,6 +486,12 @@ The final result can then be determined by taking the highest result.
 > Two characters roll a success, one character rolls a stalemate, and one character rolls a failure.
 > After ignoring the stalemate and canceling out the one failure with one success, there remains one success.
 > As such, the group Stealth check is ruled a success.
+
+### Help
+
+When a character makes a skill check, others in their Adventuring Party may want to lend a hand.
+In this situation, the character making the skill check adds advantage equal to the helping character's skill bonus.
+During combat, this help requires a Bonus Action.
 
 ### Probability
 
@@ -528,8 +541,7 @@ Weapons, additionally, will specify the attack range and the amount of damage de
 
 When using a weapon in combat, a failed skill check will result in the item taking damage.
 Damage results in the item's advantage modifier decreasing by one.
-When an item's modifier falls below zero, it is considered broken and can no longer be used until it is repaired.
-Repairs to restore the item modifier can be made during a Rest (see [2.6 Rest](#2.6-Rest)).
+When an item's modifier falls below zero, it is considered broken and can no longer be used until it is repaired during a Rest (see [2.7 Rest](#2.7-Rest)).
 
 > Attacks made without a weapon use Power and deal 1D6 damage.
 
@@ -574,7 +586,8 @@ Characters can move a number of tiles up to their Movement Speed within the comb
 
 ### Main Action
 
-Characters can use their Main Action to attack the enemy. Most often, this will be a Power or Precision skill check to attack an enemy with a melee or ranged weapon, respectively.
+Characters can use their Main Action to attack the enemy.
+Most often, this will be a Power or Precision skill check to attack an enemy with a melee or ranged weapon, respectively.
 
 > An attack qualifies as any skill check that is intended to deal direct damage against the enemy.
 
@@ -590,6 +603,7 @@ Characters can use their Bonus Action to perform auxiliary actions within the co
 | **Object Interaction** | Consume a potion, open a door, swap weapons                                     |
 | **Dash**               | Regain all expended Movement Speed                                              |
 | **Take Cover**         | Gain protection from ranged attacks using cover                                 |
+| **Help**               | Help another character on a skill check                                         |
 
 ### Reaction
 
@@ -622,10 +636,40 @@ On a success, they either find an amount of currency equal to `(Enemy Level + Lu
 
 > **Example:** A character with Luck 1 rolls an Investigation check to loot a Level 6 enemy. They succeed on the roll and find 7D6 Currency Units.
 
-## 2.5 Death
+## 2.5 Conditions
 
-During combat, every character faces the possibility of death.
-When a character's HP is reduced to 0, they are incapacitated and incur an injury.
+In combat, there are a number of conditions that a character can suffer from.
+These conditions make the character more vulnerable to attacks and reduce their capability to fight.
+
+### Stunned
+
+While a character is Stunned, attacks against them have +1 advantage.
+A character that is Stunned cannot take any movement, actions, or reactions.
+
+### Prone
+
+While a character is knocked Prone, attacks against them have +2 advantage.
+A character that is Prone cannot take any movement, actions, or reactions.
+The Prone conditions ends after the character uses a Bonus Action to get back up.
+
+### Incapacitated
+
+When a character is reduced to 0 health points, they are Incapacitated.
+While a character is Incapacitated, attacks against them have +3 advantage.
+A character that is Incapacitated cannot take any movement, actions, or reactions.
+If the character is hit with an attack, their injury worsens by one level (see [2.6 Injuries](#2.6-Injuries)).
+The Incapacitated conditions ends after the character is healed by a successful Medicine check.
+
+### Wounded
+
+When a character recovers from a Deadly Injury, they are Wounded.
+While a character is Wounded, their Movement Speed is reduced by half.
+The Wounded condition ends after finishing a satiated Rest (see [2.7 Rest](#2.7-Rest)).
+
+## 2.6 Injuries
+
+During combat, every character faces the possibility of developing an injury that could lead to death.
+When a character's HP is reduced to 0, they are incapacitated and incur a random injury.
 There are 6 levels of injury with 6 degrees therein.
 
 Immediately after being incapacitated, the player will roll a D6 to determine their character's injury level and another D6 to determine the injury degree.
@@ -685,7 +729,7 @@ A wounded character has their movement speed reduced by half until their next Re
 | 1   | **Fatal**    | Death, 2 rounds    | 2   | **Punctured lung**          | Hard (-1)      |
 | 1   | **Fatal**    | Death, 2 rounds    | 1   | **Severed aorta**           | Very Hard (-2) |
 
-## 2.6 Rest
+## 2.7 Rest
 
 After a day of adventuring, the party is required to rest for 8 hours to refresh their minds and bodies.
 During these 8 hours, characters will engage in a mix of sleeping and Rest Activities.
@@ -698,7 +742,7 @@ The most common Rest Activities are given below.
 | ---------------------- | ---------- | ------------------------------------------------------------------- |
 | Keep watch for enemies | Detection  | Force an enemy's surprise attack to automatically fail (if present) |
 | Heal a character       | Medicine   | Double the HP gained by a character who is satiated                 |
-| Repair a damaged item  | Innovation | Restore a damaged item's bonus by 1                                 |
+| Repair a damaged item  | Innovation | Restore a damaged weapon's bonus back to full                       |
 
 > If a Rest is interrupted for more than 4 hours, it must be restarted.
 
