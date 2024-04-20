@@ -519,12 +519,12 @@ Weapons, additionally, will specify the attack range and the amount of damage de
 
 > Some examples of weapon and tools from the _Vale of Myths_ World Kit are given below.
 
-| Item           | Rarity  | Cost    | Size     | Description                               |
-| -------------- | ------- | ------- | -------- | ----------------------------------------- |
-| **Rope**       | Common  | 2D6 pcs | 1/2 slot | +1 Athletics                              |
-| **World Map**  | Common  | 2D6 pcs | 1/4 slot | +1 Insight                                |
-| **Shortsword** | Average | 4D6 pcs | 1 slot   | +1 Power to attack, 2D6 damage, 5ft range |
-| **Longsword**  | Rare    | 8D6 pcs | 2 slots  | +2 Power to attack, 3D6 damage, 5ft range |
+| Item           | Rarity  | Cost    | Size     | Description                     |
+| -------------- | ------- | ------- | -------- | ------------------------------- |
+| **Rope**       | Common  | 2D6 pcs | 1/2 slot | +1 Athletics                    |
+| **World Map**  | Common  | 2D6 pcs | 1/4 slot | +1 Insight                      |
+| **Shortsword** | Average | 4D6 pcs | 1 slot   | +1 Power, 3D6 damage, 5ft range |
+| **Longsword**  | Rare    | 8D6 pcs | 2 slots  | +2 Power, 4D6 damage, 5ft range |
 
 When using a weapon in combat, a failed skill check will result in the item taking damage.
 Damage results in the item's advantage modifier decreasing by one.
@@ -736,28 +736,30 @@ A character can have at most 3 levels of Exhaustion.
 
 # 3. World
 
+> If you are a player, you can stop your reading here. The proceeding content will cover information about how world you play in operates.
+
 The world is the universe the characters exist to adventure in, forming the most critical part of the role-playing aspect of your game.
 Based on the world, there will be different races and adventuring classes, different weapons, armor, and items used by the characters, and different adventures and enemies that can be faced.
 
 ## 3.1 Currency
 
 No matter what World Kit is being used, there exists an economic system that uses a single denomination of currency to buy and sell items.
-This currency will vary based on the world, using units such as coins, dollars, credits, or bottlecaps as stores of value.
+This currency will vary based on the world, using units such as coins, dollars, credits, or pieces as stores of value.
 To keep things generic, we refer to these as Currency Units, or CU.
 
 To price items, there are 7 levels of rarity that measure how rare and costly any given item is.
 In most adventures, characters begin with the ability to buy items of Average rarity and lower.
 Items that are Rare, Very Rare, and Legendary should require PC's to save up currency or succeed on challenging quests.
 
-| Rarity          | Cost              | Example                    |
-| --------------- | ----------------- | -------------------------- |
-| **Ubiquitous**  | Free              | Cup of water               |
-| **Very Common** | 1D6 CU (~3 CU)    | Pint of ale                |
-| **Common**      | 2D6 CU (~7 CU)    | Simple meal                |
-| **Average**     | 4D6 CU (~14 CU)   | Fancy meal, simple lodging |
-| **Rare**        | 8D6 CU (~28 CU)   | Light Armor, fancy lodging |
-| **Very Rare**   | 16D6 CU (~56 CU)  | Medium Armor               |
-| **Legendary**   | 32D6 CU (~112 CU) | Heavy Armor                |
+| Rarity          | Cost              | Example                                 |
+| --------------- | ----------------- | --------------------------------------- |
+| **Ubiquitous**  | Free              | Cup of water                            |
+| **Very Common** | 1D6 CU (~3 CU)    | Pint of ale                             |
+| **Common**      | 2D6 CU (~7 CU)    | Simple meal                             |
+| **Average**     | 4D6 CU (~14 CU)   | Fancy meal, simple lodging, light armor |
+| **Rare**        | 8D6 CU (~28 CU)   | Fancy lodging, medium armor             |
+| **Very Rare**   | 16D6 CU (~56 CU)  | Heavy armor                             |
+| **Legendary**   | 32D6 CU (~112 CU) |                                         |
 
 To purchase an item listed in the given World Kit, a character requires a marketplace or merchant that has that item (as dictated by the Game Master).
 Additionally, if the item is of Rare rarity or higher, an Influence check is required to determine how effective the character is in haggling the price.
@@ -768,8 +770,9 @@ Additionally, if the item is of Rare rarity or higher, an Influence check is req
 | Stalemate | You find the item priced as expected.  |
 | Failure   | The merchant haggles the price up 25%. |
 
-> **Example:** A character looks to buy some Heavy Armor (Legendary) in a large marketplace and the GM rules that the item is being sold there.
-> The character rolls an Influence check to haggle the price and gets a failure, increasing the price from 32D6 to 40D6.
-> The GM rolls 40D6, finalizing the price at 140 CU.
+> **Example:** A character looks to buy some Plate Armor (Very Rare) in a large marketplace and the GM rules that the item is being sold there.
+> The character rolls an Influence check to haggle the price and gets a failure, increasing the price from 16D6 to 20D6.
+> The GM rolls 20D6, finalizing the price at 70 CU.
+> The character can either purchase the Plate Armor for 70 CU or try again on another day.
 
-When selling an item of Rare rarity or higher, the same rules apply but in reverse (the character attempts to haggle the price up).
+> When selling an item of Rare rarity or higher, the same rules apply but in reverse (the character attempts to haggle the price up).

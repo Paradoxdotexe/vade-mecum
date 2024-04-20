@@ -800,19 +800,28 @@ In _Vale of Myths_, valerian pieces (abbreviated as "pcs") are the main denomina
 
 ## Weapons
 
-| Item                    | Rarity    | Cost     | Size     | Description                                    |
-| ----------------------- | --------- | -------- | -------- | ---------------------------------------------- |
-| **Dagger**              | Common    | 2D6 pcs  | 1/2 slot | +1 Power to attack, 1D6 damage, 5ft range      |
-| **Shortsword**          | Average   | 4D6 pcs  | 1 slot   | +1 Power to attack, 2D6 damage, 5ft range      |
-| **Longsword**           | Rare      | 8D6 pcs  | 2 slots  | +2 Power to attack, 3D6 damage, 5ft range      |
-| **Greatsword**          | Very Rare | 16D6 pcs | 2 slots  | +3 Power to attack, 4D6 damage, 5ft range      |
-| **Shortbow**            | Average   | 4D6 pcs  | 2 slots  | +1 Precision to attack, 1D6 damage, 60ft range |
-| **Crossbow**            | Rare      | 8D6 pcs  | 2 slots  | +2 Precision to attack, 2D6 damage, 60ft range |
-| **Longbow**             | Very Rare | 16D6 pcs | 2 slots  | +3 Precision to attack, 3D6 damage, 90ft range |
-| **Blessed Blunderbuss** | Average   | 4D6 pcs  | 1/2 slot | +1 Precision to attack, 2D6 damage, 15ft range |
-| **Frost Flintlock**     | Rare      | 8D6 pcs  | 1/2 slot | +2 Precision to attack, 3D6 damage, 30ft range |
-| **Radiant Revolver**    | Very Rare | 16D6 pcs | 1/2 slot | +3 Precision to attack, 3D6 damage, 60ft range |
-| **Resonant Repeater**   | Legendary | 32D6 pcs | 1 slot   | +3 Precision to attack, 4D6 damage, 90ft range |
+| Item                    | Rarity    | Cost     | Size     | Description                                  |
+| ----------------------- | --------- | -------- | -------- | -------------------------------------------- |
+| **Dagger**              | Common    | 2D6 pcs  | 1/2 slot | +1 Power, 2D6 damage, 5ft range              |
+| **Shortsword**          | Average   | 4D6 pcs  | 1 slot   | +1 Power, 3D6 damage, 5ft range              |
+| **Longsword**           | Rare      | 8D6 pcs  | 2 slots  | +2 Power, 4D6 damage, 5ft range              |
+| **Greatsword**          | Very Rare | 16D6 pcs | 2 slots  | +3 Power, 5D6 damage, 5ft range              |
+| **Handaxe**             | Common    | 2D6 pcs  | 1/2 slot | +0 Power, 3D6 damage, 5ft range              |
+| **Waraxe**              | Average   | 4D6 pcs  | 1 slot   | +0 Power, 4D6 damage, 5ft range              |
+| **Battleaxe**           | Rare      | 8D6 pcs  | 2 slots  | +1 Power, 5D6 damage, 5ft range              |
+| **Greataxe**            | Very Rare | 16D6 pcs | 2 slots  | +2 Power, 6D6 damage, 5ft range              |
+| **Quarterstaff**        | Common    | 2D6 pcs  | 1 slot   | +1 Power, 1D6 damage, 10ft range             |
+| **Pike**                | Average   | 4D6 pcs  | 2 slots  | +1 Power, 2D6 damage, 10ft range             |
+| **Halberd**             | Rare      | 8D6 pcs  | 2 slots  | +2 Power, 3D6 damage, 10ft range             |
+| **Glaive**              | Very Rare | 16D6 pcs | 2 slots  | +3 Power, 4D6 damage, 10ft range             |
+| **Slingshot**           | Common    | 2D6 pcs  | 1/2 slot | +1 Precision, 1D6 damage, 15ft - 30ft range  |
+| **Shortbow**            | Average   | 4D6 pcs  | 2 slots  | +1 Precision, 2D6 damage, 15ft - 90ft range  |
+| **Crossbow**            | Rare      | 8D6 pcs  | 2 slots  | +2 Precision, 3D6 damage, 15ft - 60ft range  |
+| **Longbow**             | Very Rare | 16D6 pcs | 2 slots  | +3 Precision, 4D6 damage, 30ft - 120ft range |
+| **Blessed Blunderbuss** | Average   | 4D6 pcs  | 1 slot   | +1 Precision, 2D6 damage, 15ft range         |
+| **Frost Flintlock**     | Rare      | 8D6 pcs  | 1/2 slot | +2 Precision, 3D6 damage, 30ft range         |
+| **Radiant Revolver**    | Very Rare | 16D6 pcs | 1/2 slot | +3 Precision, 4D6 damage, 60ft range         |
+| **Resonant Repeater**   | Legendary | 32D6 pcs | 1 slot   | +4 Precision, 5D6 damage, 90ft range         |
 
 ## Armor
 

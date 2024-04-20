@@ -1345,7 +1345,7 @@ const VALE_OF_MYTHS: WorldKit = {
         skillKey: 'power',
         skillBonus: 1
       },
-      damage: 1,
+      damage: 2,
       notes: '5ft range'
     },
     shortsword: {
@@ -1358,7 +1358,7 @@ const VALE_OF_MYTHS: WorldKit = {
         skillKey: 'power',
         skillBonus: 1
       },
-      damage: 2,
+      damage: 3,
       notes: '5ft range'
     },
     longsword: {
@@ -1371,7 +1371,7 @@ const VALE_OF_MYTHS: WorldKit = {
         skillKey: 'power',
         skillBonus: 2
       },
-      damage: 3,
+      damage: 4,
       notes: '5ft range'
     },
     greatsword: {
@@ -1384,8 +1384,125 @@ const VALE_OF_MYTHS: WorldKit = {
         skillKey: 'power',
         skillBonus: 3
       },
+      damage: 5,
+      notes: '5ft range'
+    },
+    handaxe: {
+      type: InventoryItemType.WEAPON,
+      name: 'Handaxe',
+      cost: '2D6',
+      weight: 1 / 2,
+      bonus: {
+        attributeKey: 'strength',
+        skillKey: 'power',
+        skillBonus: 0
+      },
+      damage: 3,
+      notes: '5ft range'
+    },
+    waraxe: {
+      type: InventoryItemType.WEAPON,
+      name: 'Waraxe',
+      cost: '4D6',
+      weight: 1,
+      bonus: {
+        attributeKey: 'strength',
+        skillKey: 'power',
+        skillBonus: 0
+      },
       damage: 4,
       notes: '5ft range'
+    },
+    battleaxe: {
+      type: InventoryItemType.WEAPON,
+      name: 'Battleaxe',
+      cost: '8D6',
+      weight: 2,
+      bonus: {
+        attributeKey: 'strength',
+        skillKey: 'power',
+        skillBonus: 1
+      },
+      damage: 5,
+      notes: '5ft range'
+    },
+    greataxe: {
+      type: InventoryItemType.WEAPON,
+      name: 'Greataxe',
+      cost: '16D6',
+      weight: 2,
+      bonus: {
+        attributeKey: 'strength',
+        skillKey: 'power',
+        skillBonus: 2
+      },
+      damage: 6,
+      notes: '5ft range'
+    },
+    quarterstaff: {
+      type: InventoryItemType.WEAPON,
+      name: 'Quarterstaff',
+      cost: '2D6',
+      weight: 1,
+      bonus: {
+        attributeKey: 'strength',
+        skillKey: 'power',
+        skillBonus: 1
+      },
+      damage: 1,
+      notes: '10ft range'
+    },
+    pike: {
+      type: InventoryItemType.WEAPON,
+      name: 'Pike',
+      cost: '4D6',
+      weight: 2,
+      bonus: {
+        attributeKey: 'strength',
+        skillKey: 'power',
+        skillBonus: 1
+      },
+      damage: 2,
+      notes: '10ft range'
+    },
+    halberd: {
+      type: InventoryItemType.WEAPON,
+      name: 'Halberd',
+      cost: '8D6',
+      weight: 2,
+      bonus: {
+        attributeKey: 'strength',
+        skillKey: 'power',
+        skillBonus: 2
+      },
+      damage: 3,
+      notes: '10ft range'
+    },
+    glaive: {
+      type: InventoryItemType.WEAPON,
+      name: 'Glaive',
+      cost: '16D6',
+      weight: 2,
+      bonus: {
+        attributeKey: 'strength',
+        skillKey: 'power',
+        skillBonus: 3
+      },
+      damage: 4,
+      notes: '10ft range'
+    },
+    slingshot: {
+      type: InventoryItemType.WEAPON,
+      name: 'Slingshot',
+      cost: '2D6',
+      weight: 1 / 2,
+      bonus: {
+        attributeKey: 'dexterity',
+        skillKey: 'precision',
+        skillBonus: 1
+      },
+      damage: 1,
+      notes: '15ft - 30ft range'
     },
     shortbow: {
       type: InventoryItemType.WEAPON,
@@ -1397,8 +1514,8 @@ const VALE_OF_MYTHS: WorldKit = {
         skillKey: 'precision',
         skillBonus: 1
       },
-      damage: 1,
-      notes: '60ft range'
+      damage: 2,
+      notes: '15ft - 90ft range'
     },
     crossbow: {
       type: InventoryItemType.WEAPON,
@@ -1410,8 +1527,8 @@ const VALE_OF_MYTHS: WorldKit = {
         skillKey: 'precision',
         skillBonus: 2
       },
-      damage: 2,
-      notes: '60ft range'
+      damage: 3,
+      notes: '15ft - 60ft range'
     },
     longbow: {
       type: InventoryItemType.WEAPON,
@@ -1423,8 +1540,8 @@ const VALE_OF_MYTHS: WorldKit = {
         skillKey: 'precision',
         skillBonus: 3
       },
-      damage: 3,
-      notes: '90ft range'
+      damage: 4,
+      notes: '30ft - 120ft range'
     },
     blessed_blunderbuss: {
       type: InventoryItemType.WEAPON,
@@ -1462,7 +1579,7 @@ const VALE_OF_MYTHS: WorldKit = {
         skillKey: 'precision',
         skillBonus: 3
       },
-      damage: 3,
+      damage: 4,
       notes: '60ft range'
     },
     resonant_repeater: {
@@ -1473,10 +1590,10 @@ const VALE_OF_MYTHS: WorldKit = {
       bonus: {
         attributeKey: 'dexterity',
         skillKey: 'precision',
-        skillBonus: 3
+        skillBonus: 4
       },
-      damage: 4,
-      notes: '60ft range'
+      damage: 5,
+      notes: '90ft range'
     },
     leather_armor: {
       type: InventoryItemType.ARMOR,
