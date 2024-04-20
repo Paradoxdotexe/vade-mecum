@@ -1,10 +1,10 @@
 import { APIGatewayProxyHandler } from 'aws-lambda';
-// import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
-// import { DynamoDBDocumentClient, PutCommand } from '@aws-sdk/lib-dynamodb';
+import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
+import { DynamoDBDocumentClient, PutCommand } from '@aws-sdk/lib-dynamodb';
 import crypto from 'crypto';
 import zlib from 'zlib';
 
-//const docClient = DynamoDBDocumentClient.from(new DynamoDBClient());
+const docClient = DynamoDBDocumentClient.from(new DynamoDBClient());
 
 const RESPONSE_HEADERS = {
   'Content-Type': 'application/json',
@@ -65,11 +65,25 @@ const handler: APIGatewayProxyHandler = async event => {
     };
   }
 
+  const authToken = crypto.randomBytes(20).toString('hex');
+  const authTokenExpiration = new Date(now.getTime() + 90 * 24 * 60 * 60_000); // 90 days
+
+  // store new authToken in database
+  const putCommand = new PutCommand({
+    TableName: 'vade-mecum-users',
+    Item: {
+      userId: data.userId,
+      itemId: `authToken#${authToken}`,
+      expiration: Math.floor(authTokenExpiration.getTime() / 1000)
+    }
+  });
+  await docClient.send(putCommand);
+
   return {
     statusCode: 200,
     headers: {
-      ...RESPONSE_HEADERS
-      //"Set-Cookie": "vade-mecum-auth="
+      ...RESPONSE_HEADERS,
+      'Set-Cookie': `vade-mecum-auth-token=${authToken}; Expires=${authTokenExpiration.toUTCString()}; SameSite=None; Secure; HttpOnly`
     },
     body: data.email
   };
