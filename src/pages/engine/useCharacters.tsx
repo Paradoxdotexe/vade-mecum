@@ -18,7 +18,7 @@ type CharactersState = {
 };
 
 const DEFAULT_CHARACTERS_STATE: CharactersState = {
-  version: '12.0',
+  version: '13.0',
   characters: {},
   currentCharacterId: undefined
 };

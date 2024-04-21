@@ -31,7 +31,7 @@ type DexterityAttribute = Attribute & {
 
 type IntelligenceAttribute = Attribute & {
   skills: {
-    comprehension: Skill;
+    intellect: Skill;
     medicine: Skill;
     innovation: Skill;
   };
@@ -87,7 +87,7 @@ const DEFAULT_ATTRIBUTES: Attributes = {
     label: 'Intelligence',
     value: 1,
     skills: {
-      comprehension: { label: 'Comprehension', value: 0 },
+      intellect: { label: 'Intellect', value: 0 },
       medicine: { label: 'Medicine', value: 0 },
       innovation: { label: 'Innovation', value: 0 }
     }

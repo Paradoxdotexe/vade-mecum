@@ -210,10 +210,10 @@ export const PERKS: Perk[] = [
     key: 'book_worm',
     name: 'Book Worm',
     description:
-      'You double your Comprehension bonus on skill checks to comprehend written information.',
+      'You double your Intellect bonus on skill checks to comprehend written information.',
     requirement: {
       attributeKey: 'intelligence',
-      skillKey: 'comprehension',
+      skillKey: 'intellect',
       skillRequirement: 1
     }
   },
@@ -221,10 +221,10 @@ export const PERKS: Perk[] = [
     key: 'linguist',
     name: 'Linguist',
     description:
-      'You double your Comprehension bonus on skill checks to comprehend a foreign language.',
+      'You double your Intellect bonus on skill checks to comprehend a foreign language.',
     requirement: {
       attributeKey: 'intelligence',
-      skillKey: 'comprehension',
+      skillKey: 'intellect',
       skillRequirement: 2
     }
   },
@@ -235,7 +235,7 @@ export const PERKS: Perk[] = [
       'You add +3 advantage to Stealth checks made by you and your companions to surprise the enemy.',
     requirement: {
       attributeKey: 'intelligence',
-      skillKey: 'comprehension',
+      skillKey: 'intellect',
       skillRequirement: 3
     }
   },

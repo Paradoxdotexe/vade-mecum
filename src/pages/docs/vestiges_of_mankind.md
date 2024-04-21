@@ -160,7 +160,7 @@ This codex is commonly an old textbook or bible that has been repurposed by blea
 ### Class Abilities
 
 Scribes gain the _Study Artifacts_ Rest Activity to build up Artifact Points, or AP.
-They also gain the ability to comprehend artifacts from the old world using History instead of Comprehension.
+They also gain the ability to comprehend artifacts from the old world using History instead of Intellect.
 
 | Rest Activity       | Skill   | Success   | Stalemate | Failure   |
 | ------------------- | ------- | --------- | --------- | --------- |
