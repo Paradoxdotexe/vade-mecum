@@ -30,8 +30,14 @@ const decrypt = (token: string) => {
   return decrypted.toString();
 };
 
+type LoginTokenData = {
+  userId?: string;
+  email: string;
+  expiration: string;
+};
+
 const handler: APIGatewayProxyHandler = async event => {
-  if (event.headers.origin && !ALLOWED_ORIGINS.includes(event.headers.origin)) {
+  if (!event.headers.origin || !ALLOWED_ORIGINS.includes(event.headers.origin)) {
     return {
       statusCode: 403,
       headers: RESPONSE_HEADERS,
@@ -46,14 +52,25 @@ const handler: APIGatewayProxyHandler = async event => {
   if (!body || !body.token) {
     return {
       statusCode: 400,
+      headers: RESPONSE_HEADERS,
       body: JSON.stringify({ detail: 'Missing token.' })
     };
   }
 
-  // inflate shortened token from base64
-  const loginToken = zlib.inflateSync(Buffer.from(body.token, 'base64')).toString();
+  let tokenData: LoginTokenData | undefined = undefined;
 
-  const tokenData = JSON.parse(decrypt(loginToken));
+  try {
+    // inflate shortened token from base64
+    const loginToken = zlib.inflateSync(Buffer.from(body.token, 'base64')).toString();
+
+    tokenData = JSON.parse(decrypt(loginToken)) as LoginTokenData;
+  } catch {
+    return {
+      statusCode: 400,
+      headers: RESPONSE_HEADERS,
+      body: JSON.stringify({ detail: 'Invalid token.' })
+    };
+  }
 
   const now = new Date();
   const expiration = new Date(tokenData.expiration);
@@ -61,6 +78,7 @@ const handler: APIGatewayProxyHandler = async event => {
   if (now.getTime() > expiration.getTime()) {
     return {
       statusCode: 400,
+      headers: RESPONSE_HEADERS,
       body: JSON.stringify({ detail: 'Token expired.' })
     };
   }
@@ -101,7 +119,10 @@ const handler: APIGatewayProxyHandler = async event => {
       // provide authToken via cookie
       'Set-Cookie': `vade-mecum-auth-token=${authToken}; Expires=${authTokenExpiration.toUTCString()}; SameSite=None; Secure; HttpOnly`
     },
-    body: ''
+    body: JSON.stringify({
+      id: tokenData.userId,
+      email: tokenData.email
+    })
   };
 };
 

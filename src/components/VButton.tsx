@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
+import { VLoader } from './VLoader';
 
 const Button = styled.button`
   position: relative;
@@ -59,6 +60,7 @@ type VButtonProps = {
   size?: 'default' | 'large';
   onClick?: () => void;
   disabled?: boolean;
+  loading?: boolean;
 };
 
 export const VButton: React.FC<VButtonProps> = props => {
@@ -67,9 +69,13 @@ export const VButton: React.FC<VButtonProps> = props => {
       style={props.style}
       className={`${props.className} ${props.type === 'primary' ? 'button--primary' : ''} ${props.size === 'large' ? 'button--large' : ''}`}
       onClick={props.onClick}
-      disabled={props.disabled}
+      disabled={props.disabled || props.loading}
     >
-      {props.children}
+      {props.loading ? (
+        <VLoader style={{ padding: 0 }} size={20} color={'#a2cceb'} />
+      ) : (
+        props.children
+      )}
     </Button>
   );
 };

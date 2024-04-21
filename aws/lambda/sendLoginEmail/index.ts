@@ -30,8 +30,14 @@ const encrypt = (data: string) => {
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
+type LoginTokenData = {
+  userId?: string;
+  email: string;
+  expiration: string;
+};
+
 const handler: APIGatewayProxyHandler = async event => {
-  if (event.headers.origin && !ALLOWED_ORIGINS.includes(event.headers.origin)) {
+  if (!event.headers.origin || !ALLOWED_ORIGINS.includes(event.headers.origin)) {
     return {
       statusCode: 403,
       headers: RESPONSE_HEADERS,
@@ -46,6 +52,7 @@ const handler: APIGatewayProxyHandler = async event => {
   if (!body || !body.email) {
     return {
       statusCode: 400,
+      headers: RESPONSE_HEADERS,
       body: JSON.stringify({ detail: 'Missing email.' })
     };
   }
@@ -53,6 +60,7 @@ const handler: APIGatewayProxyHandler = async event => {
   if (!EMAIL_REGEX.test(body.email)) {
     return {
       statusCode: 400,
+      headers: RESPONSE_HEADERS,
       body: JSON.stringify({ detail: 'Invalid email.' })
     };
   }
@@ -73,7 +81,7 @@ const handler: APIGatewayProxyHandler = async event => {
   const now = new Date();
   const expiration = new Date(now.getTime() + 20 * 60_000).toISOString();
 
-  const data = {
+  const data: LoginTokenData = {
     userId: user?.userId,
     email: body.email,
     expiration
@@ -93,14 +101,14 @@ const handler: APIGatewayProxyHandler = async event => {
     },
     Message: {
       Subject: {
-        Data: 'Login to your Vade Mecum account'
+        Data: 'Log in to your Vade Mecum account'
       },
       Body: {
         Html: {
           Data: `
             <div style="padding: 24px; display: flex; align-items: center; justify-content: center;">
               <a 
-                href="https://vademecum.thenjk.com/engine/login?token=${deflatedLoginToken}" 
+                href="https://vademecum.thenjk.com/engine?token=${encodeURIComponent(deflatedLoginToken)}" 
                 style="background: #34a9fe; color: #fff; text-decoration: none; padding: 6px 12px; font-size: 16px; border-radius: 3px; font-family: sans-serif; font-weight: bold;"
               >
                 CLICK HERE TO LOGIN
@@ -117,7 +125,7 @@ const handler: APIGatewayProxyHandler = async event => {
   return {
     statusCode: 200,
     headers: RESPONSE_HEADERS,
-    body: ''
+    body: JSON.stringify({})
   };
 };
 

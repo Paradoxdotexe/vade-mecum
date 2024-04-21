@@ -15,6 +15,7 @@ import { EnginePageController } from './pages/engine/EnginePageController';
 import { VestigesOfMankindDocsPage } from './pages/docs/VestigesOfMankindDocsPage';
 import { HomePage } from './pages/HomePage';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { AuthStateProvider } from './pages/engine/useAuth';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -23,7 +24,14 @@ const router = createBrowserRouter(
       <Route path="docs" element={<VadeMecumDocsPage />} />
       <Route path="docs/vale-of-myths" element={<ValeOfMythsDocsPage />} />
       <Route path="docs/vestiges-of-mankind" element={<VestigesOfMankindDocsPage />} />
-      <Route path="engine" element={<EnginePageController />} />
+      <Route
+        path="engine"
+        element={
+          <AuthStateProvider>
+            <EnginePageController />
+          </AuthStateProvider>
+        }
+      />
     </Route>
   )
 );

@@ -1,15 +1,15 @@
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 
-const StyledVLoader = styled.div`
+const StyledVLoader = styled.div<{ $color: string; $size: number }>`
   display: flex;
   justify-content: center;
   padding: 24px;
 
   .loader__dots {
-    height: 24px;
+    height: ${props => props.$size}px;
     aspect-ratio: 2.5;
-    --_g: no-repeat radial-gradient(farthest-side, #a1a1a1 75%, #0000);
+    --_g: no-repeat radial-gradient(farthest-side, ${props => props.$color} 75%, #0000);
     background: var(--_g), var(--_g), var(--_g), var(--_g);
     background-size: 20% 50%;
     animation: l43 1s infinite linear;
@@ -72,11 +72,18 @@ type VLoaderProps = {
   children?: ReactNode;
   style?: React.CSSProperties;
   className?: string;
+  color?: string;
+  size?: number;
 };
 
 export const VLoader: React.FC<VLoaderProps> = props => {
   return (
-    <StyledVLoader style={props.style} className={props.className}>
+    <StyledVLoader
+      $color={props.color ?? '#a1a1a1'}
+      $size={props.size ?? 24}
+      style={props.style}
+      className={props.className}
+    >
       <div className="loader__dots" />
     </StyledVLoader>
   );

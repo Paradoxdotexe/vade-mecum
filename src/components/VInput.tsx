@@ -14,12 +14,19 @@ const StyledVInput = styled.input`
   &::placeholder {
     color: #747474;
   }
+
+  &:disabled {
+    cursor: default;
+    opacity: 0.6;
+  }
 `;
 
 type VInputProps = {
   placeholder: string;
   value?: string;
   onChange?: (value: string) => void;
+  disabled?: boolean;
+  onEnter?: () => void;
 };
 
 export const VInput: React.FC<VInputProps> = props => {
@@ -43,6 +50,10 @@ export const VInput: React.FC<VInputProps> = props => {
       onChange={event => setValue(event.target.value)}
       placeholder={props.placeholder}
       spellCheck="false"
+      disabled={props.disabled}
+      onKeyUp={event => {
+        event.code === 'Enter' && props.onEnter?.();
+      }}
     />
   );
 };
