@@ -108,7 +108,7 @@ const handler: APIGatewayProxyHandler = async event => {
           Data: `
             <div style="padding: 24px; display: flex; align-items: center; justify-content: center;">
               <a 
-                href="https://vademecum.thenjk.com/engine?token=${encodeURIComponent(deflatedLoginToken)}" 
+                href="https://vademecum.thenjk.com/vtt/login?token=${encodeURIComponent(deflatedLoginToken)}" 
                 style="background: #34a9fe; color: #fff; text-decoration: none; padding: 6px 12px; font-size: 16px; border-radius: 3px; font-family: sans-serif; font-weight: bold;"
               >
                 CLICK HERE TO LOGIN

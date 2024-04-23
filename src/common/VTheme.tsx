@@ -28,7 +28,7 @@ const VARIABLES = {
 const DARK_COLORS = {
   text: {
     primary: '#fafafa',
-    secondary: '#808080',
+    secondary: '#868686',
     contrast: '#fafafa'
   },
   background: {

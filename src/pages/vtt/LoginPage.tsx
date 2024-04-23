@@ -4,7 +4,7 @@ import { VButton } from '@/components/VButton';
 import { VInput } from '@/components/VInput';
 import { VCard } from '@/components/VCard';
 import { useMutation } from 'react-query';
-import { useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { VLoader } from '@/components/VLoader';
 import { useVTTUser } from '../../common/VTTUser';
 
@@ -53,6 +53,7 @@ type User = {
 
 export const LoginPage: React.FC = () => {
   const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
 
   const user = useVTTUser();
 
@@ -98,7 +99,10 @@ export const LoginPage: React.FC = () => {
     if (token) {
       login
         .mutateAsync(token)
-        .then(user.update)
+        .then(newUser => {
+          user.update(newUser);
+          navigate('/vtt/characters');
+        })
         .catch(response => {
           if (response.detail) {
             setLoginError(response.detail as string);

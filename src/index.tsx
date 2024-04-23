@@ -19,6 +19,7 @@ import { VThemeProvider } from './common/VTheme';
 import { PageWrapper } from './common/PageWrapper';
 import { CharactersPage } from './pages/vtt/characters/CharactersPage';
 import { VTT } from './pages/vtt/VTT';
+import { LoginPage } from './pages/vtt/LoginPage';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -30,6 +31,7 @@ const router = createBrowserRouter(
       <Route path="docs/vestiges-of-mankind" element={<VestigesOfMankindDocsPage />} />
 
       <Route path="vtt/" element={<VTT />}>
+        <Route path="login" element={<LoginPage />} />
         <Route path="characters" element={<CharactersPage />} />
       </Route>
 
