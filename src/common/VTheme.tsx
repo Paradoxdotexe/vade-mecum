@@ -2,6 +2,7 @@ import React, { ReactNode, useContext, useState } from 'react';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 
 const VARIABLES = {
+  borderRadius: '3px',
   gap: {
     xs: '3px',
     sm: '6px',
@@ -11,7 +12,8 @@ const VARIABLES = {
     xxl: '48px'
   },
   fontSize: {
-    sm: '14px',
+    xs: '14px',
+    sm: '15px',
     md: '16px',
     lg: '18px',
     xl: '24px'
@@ -31,6 +33,8 @@ const DARK_COLORS = {
   background: {
     default: '#2C2C2C',
     raised: '#3B3B3B',
+    active: '#585858',
+    hovered: '#474747',
     backdrop: '#0000007a'
   },
   border: {

@@ -9,7 +9,6 @@ import {
 import './index.css';
 import { VadeMecumDocsPage } from './pages/docs/VadeMecumDocsPage';
 import reportWebVitals from './reportWebVitals';
-import styled from 'styled-components';
 import { ValeOfMythsDocsPage } from './pages/docs/ValeOfMythsDocsPage';
 import { EnginePageController } from './pages/engine/EnginePageController';
 import { VestigesOfMankindDocsPage } from './pages/docs/VestigesOfMankindDocsPage';
@@ -17,11 +16,11 @@ import { HomePage } from './pages/HomePage';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { AuthStateProvider } from './pages/engine/useAuth';
 import { VThemeProvider } from './common/VTheme';
-import { SIDE_NAV_WIDTH, SideNav } from './common/SideNav';
+import { PageWrapper } from './common/PageWrapper';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/">
+    <Route path="/" element={<PageWrapper />}>
       <Route path="" element={<HomePage />} />
       <Route path="docs" element={<VadeMecumDocsPage />} />
       <Route path="docs/vale-of-myths" element={<ValeOfMythsDocsPage />} />
@@ -38,21 +37,6 @@ const router = createBrowserRouter(
   )
 );
 
-const AppWrapper = styled.div`
-  min-height: 100vh;
-  overflow: auto;
-  padding-left: ${SIDE_NAV_WIDTH};
-  background-color: ${props => props.theme.color.background.default};
-  color: ${props => props.theme.color.text.primary};
-  font-family: ${props => props.theme.variable.fontFamily.default};
-  font-size: ${props => props.theme.variable.fontSize.md};
-  line-height: 1;
-
-  * {
-    box-sizing: border-box;
-  }
-`;
-
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -65,10 +49,7 @@ const queryClient = new QueryClient({
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <QueryClientProvider client={queryClient}>
     <VThemeProvider>
-      <AppWrapper>
-        <SideNav />
-        <RouterProvider router={router} />
-      </AppWrapper>
+      <RouterProvider router={router} />
     </VThemeProvider>
   </QueryClientProvider>
 );

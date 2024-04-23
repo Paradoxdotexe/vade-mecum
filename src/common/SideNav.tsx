@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { ReactComponent as VadeMecumLogo } from '@/icons/VadeMecumLogo.svg';
+import { ReactComponent as HomeIcon } from '@/icons/Home.svg';
+import { ReactComponent as BookIcon } from '@/icons/Book.svg';
+import { ReactComponent as DieIcon } from '@/icons/Die.svg';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-export const SIDE_NAV_WIDTH = '260px';
+export const SIDE_NAV_WIDTH = '240px';
 
 const StyledSideNav = styled.div`
   position: fixed;
   left: 0;
   display: flex;
   flex-direction: column;
+  gap: ${props => props.theme.variable.gap.xl};
   width: ${SIDE_NAV_WIDTH};
   height: 100vh;
   background: ${props => props.theme.color.background.default};
@@ -18,7 +23,7 @@ const StyledSideNav = styled.div`
     display: flex;
     align-items: center;
     gap: ${props => props.theme.variable.gap.md};
-    padding: ${props => props.theme.variable.gap.lg} ${props => props.theme.variable.gap.xl};
+    padding: ${props => props.theme.variable.gap.xl};
     background-color: ${props => props.theme.color.brand.default};
     color: ${props => props.theme.color.text.contrast};
     margin-right: -1px;
@@ -29,14 +34,153 @@ const StyledSideNav = styled.div`
       height: 20px;
     }
   }
+
+  .sideNav__items {
+    display: flex;
+    flex-direction: column;
+
+    .items__item {
+      display: flex;
+      flex-direction: column;
+      gap: ${props => props.theme.variable.gap.md};
+      padding: ${props => props.theme.variable.gap.lg} ${props => props.theme.variable.gap.xl};
+      cursor: pointer;
+      opacity: 0.6;
+
+      &.item--active,
+      &:has(.subItem--active) {
+        background-color: ${props => props.theme.color.background.raised};
+        opacity: 1;
+      }
+
+      .item__header {
+        display: flex;
+        align-items: center;
+        gap: ${props => props.theme.variable.gap.md};
+        font-weight: 600;
+
+        svg {
+          font-size: 24px;
+        }
+      }
+
+      .item__subItems {
+        display: flex;
+        flex-direction: column;
+        gap: ${props => props.theme.variable.gap.xs};
+        border-left: 1px solid ${props => props.theme.color.border.default};
+        margin-left: ${props => props.theme.variable.gap.md};
+        padding-left: ${props => props.theme.variable.gap.md};
+
+        .subItems__subItem {
+          padding: ${props => props.theme.variable.gap.md};
+          font-size: ${props => props.theme.variable.fontSize.sm};
+          opacity: 0.6;
+
+          &.subItem--active,
+          &:hover {
+            border-radius: ${props => props.theme.variable.borderRadius};
+            opacity: 1;
+          }
+
+          &:hover {
+            background-color: ${props => props.theme.color.background.hovered};
+          }
+
+          &.subItem--active {
+            background-color: ${props => props.theme.color.background.active};
+          }
+        }
+      }
+    }
+  }
 `;
 
+type NavItem = {
+  icon: ReactNode;
+  label: string;
+  path?: string;
+  children?: {
+    label: string;
+    path: string;
+  }[];
+};
+
+const NAV_ITEMS: NavItem[] = [
+  {
+    icon: <HomeIcon />,
+    label: 'Home',
+    path: '/'
+  },
+  {
+    icon: <BookIcon />,
+    label: 'Documentation',
+    children: [
+      {
+        label: 'Core Rules',
+        path: '/docs'
+      },
+      {
+        label: 'Vale of Myths',
+        path: '/docs/vale-of-myths'
+      }
+    ]
+  },
+  {
+    icon: <DieIcon />,
+    label: 'Virtual Tabletop',
+    children: [
+      {
+        label: 'Characters',
+        path: '/vtt/characters'
+      },
+      {
+        label: 'Sessions',
+        path: '/vtt/sessions'
+      }
+    ]
+  }
+];
+
 export const SideNav: React.FC = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
   return (
     <StyledSideNav>
       <div className="sideNav__logo">
         <VadeMecumLogo />
         Vade Mecum
+      </div>
+      <div className="sideNav__items">
+        {NAV_ITEMS.map((navItem, i) => (
+          <div
+            key={i}
+            className={`items__item ${location.pathname === navItem.path ? 'item--active' : ''}`}
+            onClick={() => navigate(navItem.path ?? navItem.children?.[0]?.path ?? '')}
+          >
+            <div className="item__header">
+              {navItem.icon}
+              {navItem.label}
+            </div>
+            {navItem.children && (
+              <div className="item__subItems">
+                {navItem.children.map((child, j) => (
+                  <div
+                    key={j}
+                    className={`subItems__subItem ${location.pathname === child.path ? 'subItem--active' : ''}`}
+                    onClick={event => {
+                      event.stopPropagation();
+                      navigate(child.path);
+                    }}
+                  >
+                    {child.label}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        ))}
       </div>
     </StyledSideNav>
   );
