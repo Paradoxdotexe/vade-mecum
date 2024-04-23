@@ -22,7 +22,8 @@ const VARIABLES = {
   fontFamily: {
     default: '"Noto Sans", sans-serif',
     bold: '"Noto Sans Display", sans-serif'
-  }
+  },
+  lineHeight: 1.5
 };
 
 const DARK_COLORS = {
@@ -85,14 +86,14 @@ type ColorModeKey = keyof typeof COLOR_MODES;
 
 interface VTC extends VTheme {
   key: ColorModeKey;
-  setKey: (key: ColorModeKey) => void;
+  update: (key: ColorModeKey) => void;
 }
 
 const VThemeContext = React.createContext<VTC>({
   color: DARK_COLORS,
   variable: VARIABLES,
   key: 'dark',
-  setKey: () => {}
+  update: () => {}
 });
 
 export const VThemeProvider: React.FC<{ children?: ReactNode }> = props => {
@@ -106,7 +107,7 @@ export const VThemeProvider: React.FC<{ children?: ReactNode }> = props => {
   const authStateContext: VTC = {
     ...theme,
     key,
-    setKey
+    update: setKey
   };
 
   return (
@@ -117,7 +118,5 @@ export const VThemeProvider: React.FC<{ children?: ReactNode }> = props => {
 };
 
 export const useVTheme = () => {
-  const vThemeState = useContext(VThemeContext);
-
-  return vThemeState;
+  return useContext(VThemeContext);
 };

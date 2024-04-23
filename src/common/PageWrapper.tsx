@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { SIDE_NAV_WIDTH, SideNav } from './SideNav';
 import { Outlet } from 'react-router-dom';
+import { VTTUserProvider } from './VTTUser';
 
 const StyledPageWrapper = styled.div`
   min-height: 100vh;
@@ -21,8 +22,10 @@ const StyledPageWrapper = styled.div`
 export const PageWrapper: React.FC = () => {
   return (
     <StyledPageWrapper>
-      <SideNav />
-      <Outlet />
+      <VTTUserProvider>
+        <SideNav />
+        <Outlet />
+      </VTTUserProvider>
     </StyledPageWrapper>
   );
 };

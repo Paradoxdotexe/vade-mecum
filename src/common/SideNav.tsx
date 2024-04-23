@@ -4,7 +4,9 @@ import { ReactComponent as VadeMecumLogo } from '@/icons/VadeMecumLogo.svg';
 import { ReactComponent as HomeIcon } from '@/icons/Home.svg';
 import { ReactComponent as BookIcon } from '@/icons/Book.svg';
 import { ReactComponent as DieIcon } from '@/icons/Die.svg';
+import { ReactComponent as UserIcon } from '@/icons/User.svg';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useVTTUser } from './VTTUser';
 
 export const SIDE_NAV_WIDTH = '240px';
 
@@ -95,6 +97,33 @@ const StyledSideNav = styled.div`
       }
     }
   }
+
+  .sideNav__user {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    gap: ${props => props.theme.variable.gap.sm};
+    padding: ${props => props.theme.variable.gap.md} ${props => props.theme.variable.gap.xl};
+    background-color: ${props => props.theme.color.background.raised};
+    width: 100%;
+    font-size: ${props => props.theme.variable.fontSize.sm};
+    overflow: hidden;
+
+    svg {
+      background-color: ${props => props.theme.color.background.active};
+      padding-top: 6px;
+      font-size: 24px;
+      border-radius: 100%;
+      flex-shrink: 0;
+    }
+
+    span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: ${props => props.theme.variable.lineHeight};
+    }
+  }
 `;
 
 type NavItem = {
@@ -147,12 +176,15 @@ export const SideNav: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
+  const user = useVTTUser();
+
   return (
     <StyledSideNav>
       <div className="sideNav__logo">
         <VadeMecumLogo />
         Vade Mecum
       </div>
+
       <div className="sideNav__items">
         {NAV_ITEMS.map((navItem, i) => (
           <div
@@ -183,6 +215,13 @@ export const SideNav: React.FC = () => {
           </div>
         ))}
       </div>
+
+      {user.authenticated && (
+        <div className="sideNav__user">
+          <UserIcon />
+          <span>{user.email}</span>
+        </div>
+      )}
     </StyledSideNav>
   );
 };

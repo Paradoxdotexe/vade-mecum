@@ -18,6 +18,7 @@ import { AuthStateProvider } from './pages/engine/useAuth';
 import { VThemeProvider } from './common/VTheme';
 import { PageWrapper } from './common/PageWrapper';
 import { CharactersPage } from './pages/vtt/characters/CharactersPage';
+import { VTT } from './pages/vtt/VTT';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -28,7 +29,9 @@ const router = createBrowserRouter(
       <Route path="docs/vale-of-myths" element={<ValeOfMythsDocsPage />} />
       <Route path="docs/vestiges-of-mankind" element={<VestigesOfMankindDocsPage />} />
 
-      <Route path="vtt/characters" element={<CharactersPage />} />
+      <Route path="vtt/" element={<VTT />}>
+        <Route path="characters" element={<CharactersPage />} />
+      </Route>
 
       <Route
         path="engine"
