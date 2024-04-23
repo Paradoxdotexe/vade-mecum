@@ -5,13 +5,13 @@ const StyledPageHeader = styled.div`
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  padding: ${props => props.theme.variable.gap.xl} 0;
+  padding-bottom: ${props => props.theme.variable.gap.lg};
   border-bottom: 1px solid ${props => props.theme.color.border.default};
 
   .header__left {
     display: flex;
     flex-direction: column;
-    gap: ${props => props.theme.variable.gap.md};
+    gap: ${props => props.theme.variable.gap.lg};
 
     .left__breadcrumbs {
       font-size: ${props => props.theme.variable.fontSize.sm};

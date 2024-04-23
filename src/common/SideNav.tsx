@@ -8,7 +8,7 @@ import { ReactComponent as UserIcon } from '@/icons/User.svg';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useVTTUser } from './VTTUser';
 
-export const SIDE_NAV_WIDTH = '240px';
+export const SIDE_NAV_WIDTH = '200px';
 
 const StyledSideNav = styled.div`
   position: fixed;
@@ -20,21 +20,21 @@ const StyledSideNav = styled.div`
   height: 100vh;
   background: ${props => props.theme.color.background.default};
   border-right: 1px solid ${props => props.theme.color.border.default};
-  box-shadow: 3px 0 12px ${props => props.theme.color.shadow.default};
+  box-shadow: 4px 0 16px ${props => props.theme.color.shadow.default};
 
   .sideNav__logo {
     display: flex;
     align-items: center;
     gap: ${props => props.theme.variable.gap.md};
-    padding: ${props => props.theme.variable.gap.xl};
+    padding: ${props => props.theme.variable.gap.lg};
     background-color: ${props => props.theme.color.brand.default};
     color: ${props => props.theme.color.text.contrast};
     margin-right: -1px;
     font-family: ${props => props.theme.variable.fontFamily.bold};
-    font-size: 20px;
+    font-size: 18px;
 
     svg {
-      height: 20px;
+      height: 18px;
     }
   }
 
@@ -45,8 +45,9 @@ const StyledSideNav = styled.div`
     .items__item {
       display: flex;
       flex-direction: column;
-      gap: ${props => props.theme.variable.gap.md};
-      padding: ${props => props.theme.variable.gap.lg} ${props => props.theme.variable.gap.xl};
+      gap: ${props => props.theme.variable.gap.lg};
+      padding: ${props => props.theme.variable.gap.lg};
+      font-size: ${props => props.theme.variable.fontSize.sm};
       cursor: pointer;
       opacity: 0.6;
 
@@ -60,17 +61,17 @@ const StyledSideNav = styled.div`
         display: flex;
         align-items: center;
         gap: ${props => props.theme.variable.gap.md};
-        font-weight: 600;
+        font-weight: 500;
 
         svg {
-          font-size: 24px;
+          font-size: 18px;
         }
       }
 
       .item__subItems {
         display: flex;
         flex-direction: column;
-        gap: ${props => props.theme.variable.gap.xs};
+        gap: ${props => props.theme.variable.gap.sm};
         border-left: 1px solid ${props => props.theme.color.border.default};
         margin-left: ${props => props.theme.variable.gap.md};
         padding-left: ${props => props.theme.variable.gap.md};
@@ -103,11 +104,11 @@ const StyledSideNav = styled.div`
     bottom: 0;
     display: flex;
     align-items: center;
-    gap: ${props => props.theme.variable.gap.sm};
-    padding: ${props => props.theme.variable.gap.md} ${props => props.theme.variable.gap.xl};
+    gap: ${props => props.theme.variable.gap.md};
+    padding: ${props => props.theme.variable.gap.lg};
     background-color: ${props => props.theme.color.background.raised};
     width: 100%;
-    font-size: ${props => props.theme.variable.fontSize.sm};
+    font-size: ${props => props.theme.variable.fontSize.xs};
     overflow: hidden;
 
     svg {

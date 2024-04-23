@@ -5,7 +5,7 @@ const StyledPageLayout = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
-  padding: 0 ${props => props.theme.variable.gap.xl};
+  padding: ${props => props.theme.variable.gap.xl};
 
   .layout__content {
     display: flex;

@@ -2,14 +2,13 @@ import React, { ReactNode, useContext, useState } from 'react';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 
 const VARIABLES = {
-  borderRadius: '3px',
+  borderRadius: '4px',
   gap: {
-    xs: '3px',
-    sm: '6px',
-    md: '12px',
-    lg: '18px',
-    xl: '24px',
-    xxl: '48px'
+    xs: '2px',
+    sm: '4px',
+    md: '8px',
+    lg: '16px',
+    xl: '32px'
   },
   fontSize: {
     xs: '14px',
