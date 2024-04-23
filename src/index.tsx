@@ -17,6 +17,7 @@ import { HomePage } from './pages/HomePage';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { AuthStateProvider } from './pages/engine/useAuth';
 import { VThemeProvider } from './common/VTheme';
+import { SIDE_NAV_WIDTH, SideNav } from './common/SideNav';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -37,11 +38,14 @@ const router = createBrowserRouter(
   )
 );
 
-const PageWrapper = styled.div`
-  color: #fcfcfc;
+const AppWrapper = styled.div`
   min-height: 100vh;
   overflow: auto;
-  font-size: 16px;
+  padding-left: ${SIDE_NAV_WIDTH};
+  background-color: ${props => props.theme.color.background.default};
+  color: ${props => props.theme.color.text.primary};
+  font-family: ${props => props.theme.variable.fontFamily.default};
+  font-size: ${props => props.theme.variable.fontSize.md};
   line-height: 1;
 
   * {
@@ -61,9 +65,10 @@ const queryClient = new QueryClient({
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <QueryClientProvider client={queryClient}>
     <VThemeProvider>
-      <PageWrapper>
+      <AppWrapper>
+        <SideNav />
         <RouterProvider router={router} />
-      </PageWrapper>
+      </AppWrapper>
     </VThemeProvider>
   </QueryClientProvider>
 );

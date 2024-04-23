@@ -9,6 +9,16 @@ const VARIABLES = {
     lg: '18px',
     xl: '24px',
     xxl: '48px'
+  },
+  fontSize: {
+    sm: '14px',
+    md: '16px',
+    lg: '18px',
+    xl: '24px'
+  },
+  fontFamily: {
+    default: '"Noto Sans", sans-serif',
+    bold: '"Noto Sans Display", sans-serif'
   }
 };
 
@@ -57,7 +67,7 @@ const DARK_COLORS = {
   }
 };
 
-type VTheme = {
+export type VTheme = {
   color: typeof DARK_COLORS;
   variable: typeof VARIABLES;
 };
