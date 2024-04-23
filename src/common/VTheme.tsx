@@ -15,8 +15,9 @@ const VARIABLES = {
     xs: '14px',
     sm: '15px',
     md: '16px',
-    lg: '18px',
-    xl: '24px'
+    lg: '20px',
+    xl: '28px',
+    xxl: '56px'
   },
   fontFamily: {
     default: '"Noto Sans", sans-serif',

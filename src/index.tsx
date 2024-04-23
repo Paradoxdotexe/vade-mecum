@@ -17,14 +17,19 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { AuthStateProvider } from './pages/engine/useAuth';
 import { VThemeProvider } from './common/VTheme';
 import { PageWrapper } from './common/PageWrapper';
+import { CharactersPage } from './pages/vtt/characters/CharactersPage';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<PageWrapper />}>
       <Route path="" element={<HomePage />} />
+
       <Route path="docs" element={<VadeMecumDocsPage />} />
       <Route path="docs/vale-of-myths" element={<ValeOfMythsDocsPage />} />
       <Route path="docs/vestiges-of-mankind" element={<VestigesOfMankindDocsPage />} />
+
+      <Route path="vtt/characters" element={<CharactersPage />} />
+
       <Route
         path="engine"
         element={
