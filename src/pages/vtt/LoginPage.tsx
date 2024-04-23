@@ -22,7 +22,7 @@ const Page = styled.div`
 
     .content__header {
       font-size: ${props => props.theme.variable.fontSize.xl};
-      font-family: ${props => props.theme.variable.fontFamily.bold};
+      font-family: ${props => props.theme.variable.fontFamily.display};
       padding-bottom: ${props => props.theme.variable.gap.xl};
       border-bottom: 1px solid ${props => props.theme.color.border.default};
     }
@@ -135,7 +135,6 @@ export const LoginPage: React.FC = () => {
             </VCard>
 
             <VButton
-              size="large"
               type="primary"
               onClick={onSend}
               disabled={requestLogin.isSuccess || !email}

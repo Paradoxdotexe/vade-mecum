@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { VLoader } from './VLoader';
+import classNames from 'classnames';
 
 const Button = styled.button`
   position: relative;
@@ -8,26 +9,34 @@ const Button = styled.button`
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: #fff;
-  border-radius: 4px;
-  font-family: 'Noto Sans Display', sans-serif;
+  color: ${props => props.theme.color.text.primary};
+  border-radius: ${props => props.theme.variable.borderRadius};
+  font-family: ${props => props.theme.variable.fontFamily.default};
+  font-weight: 500;
   width: 100%;
   z-index: 1;
-  box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 4px 16px ${props => props.theme.color.shadow.default};
   background-color: transparent;
-  border: 1px solid #585858;
-  padding: 1px 6px;
-  font-size: 13px;
+  border: 1px solid ${props => props.theme.color.border.default};
+  gap: ${props => props.theme.variable.gap.md};
+  font-size: ${props => props.theme.variable.fontSize.md};
+  padding: ${props => props.theme.variable.gap.md};
   user-select: none;
+  line-height: 1;
 
   &.button--primary {
-    background: #34a9fe;
-    border-color: #34a9fe;
+    background: ${props => props.theme.color.brand.default};
+    border-color: ${props => props.theme.color.brand.default};
+  }
+
+  &.button--small {
+    gap: ${props => props.theme.variable.gap.sm};
+    font-size: ${props => props.theme.variable.fontSize.xs};
   }
 
   &.button--large {
-    font-size: 15px;
-    padding: 5px 12px;
+    font-size: ${props => props.theme.variable.fontSize.lg};
+    padding-inline: ${props => props.theme.variable.gap.lg};
   }
 
   &::before {
@@ -57,17 +66,23 @@ type VButtonProps = {
   style?: React.CSSProperties;
   className?: string;
   type?: 'default' | 'primary';
-  size?: 'default' | 'large';
+  size?: 'default' | 'small' | 'large';
   onClick?: () => void;
   disabled?: boolean;
   loading?: boolean;
 };
 
 export const VButton: React.FC<VButtonProps> = props => {
+  const className = classNames(props.className, {
+    'button--primary': props.type === 'primary',
+    'button--small': props.size === 'small',
+    'button--large': props.size === 'large'
+  });
+
   return (
     <Button
       style={props.style}
-      className={`${props.className} ${props.type === 'primary' ? 'button--primary' : ''} ${props.size === 'large' ? 'button--large' : ''}`}
+      className={className}
       onClick={props.onClick}
       disabled={props.disabled || props.loading}
     >

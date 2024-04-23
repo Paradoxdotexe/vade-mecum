@@ -58,6 +58,7 @@ export const LevelCard: React.FC = () => {
 
       <VButton
         type="primary"
+        size="small"
         style={{ display: !showLevelUp ? 'none' : undefined }}
         onClick={levelUp}
       >

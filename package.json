@@ -6,6 +6,7 @@
     "@aws-sdk/client-apigatewaymanagementapi": "^3.554.0",
     "@aws-sdk/client-ses": "^3.556.0",
     "@types/lodash-es": "^4.17.12",
+    "classnames": "^2.5.1",
     "lodash-es": "^4.17.21",
     "luxon": "^3.4.4",
     "marked": "^11.1.1",

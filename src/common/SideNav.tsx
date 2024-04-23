@@ -30,7 +30,7 @@ const StyledSideNav = styled.div`
     background-color: ${props => props.theme.color.brand.default};
     color: ${props => props.theme.color.text.contrast};
     margin-right: -1px;
-    font-family: ${props => props.theme.variable.fontFamily.bold};
+    font-family: ${props => props.theme.variable.fontFamily.display};
     font-size: 18px;
 
     svg {

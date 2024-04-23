@@ -262,9 +262,7 @@ export const EnginePage: React.FC = () => {
                 </div>
               )}
               {!sessionId && (
-                <VButton size="large" onClick={() => setViewingSessions(true)}>
-                  Join Game Session
-                </VButton>
+                <VButton onClick={() => setViewingSessions(true)}>Join Game Session</VButton>
               )}
               <SessionsDrawer open={viewingSessions} onClose={() => setViewingSessions(false)} />
             </div>

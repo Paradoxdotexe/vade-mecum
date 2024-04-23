@@ -3,47 +3,53 @@ import styled from 'styled-components';
 import versionJson from '../version.json';
 import { useNavigate } from 'react-router-dom';
 import { VButton } from '@/components/VButton';
+import { ReactComponent as VadeMecumLogo } from '@/icons/VadeMecumLogo.svg';
+import { ReactComponent as BookIcon } from '@/icons/Book.svg';
+import { ReactComponent as DieIcon } from '@/icons/Die.svg';
+import { PageLayout } from '@/common/PageLayout';
 
-const Page = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+const StyledHomePage = styled(PageLayout)`
   align-items: center;
-  min-height: 100vh;
-  gap: 48px;
+  justify-content: center;
+  gap: ${props => props.theme.variable.gap.xxl};
 
   .page__header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 6px;
+    gap: ${props => props.theme.variable.gap.lg};
+
+    svg {
+      height: ${props => props.theme.variable.fontSize.xxl};
+    }
 
     .header__title {
-      font-family: 'Noto Sans Display', sans-serif;
-      font-size: 48px;
+      font-family: ${props => props.theme.variable.fontFamily.display};
+      font-size: ${props => props.theme.variable.fontSize.xxl};
     }
 
-    .header__version {
-      background: #585858;
-      width: fit-content;
-      padding: 6px;
-      border-radius: 6px;
-      float: right;
-      font-family: 'Noto Sans Mono', monospace;
-      font-size: 14px;
+    .header__slogan {
+      color: ${props => props.theme.color.text.secondary};
     }
-  }
-
-  .page__slogan {
-    color: #a0a0a0;
   }
 
   .page__routes {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 12px;
-    width: 200px;
+    gap: ${props => props.theme.variable.gap.lg};
+  }
+
+  .page__version {
+    position: absolute;
+    bottom: 0;
+    background: ${props => props.theme.color.background.hovered};
+    width: fit-content;
+    padding: ${props => props.theme.variable.gap.md};
+    border-radius: ${props => props.theme.variable.borderRadius};
+    float: right;
+    font-family: ${props => props.theme.variable.fontFamily.mono};
+    font-size: ${props => props.theme.variable.fontSize.xs};
   }
 `;
 
@@ -51,24 +57,26 @@ export const HomePage: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <Page>
+    <StyledHomePage>
       <div className="page__header">
+        <VadeMecumLogo />
         <div className="header__title">Vade Mecum</div>
-        <div className="header__version">Alpha v{versionJson.version}</div>
-      </div>
-
-      <div className="page__slogan">
-        A universe-agnostic, hyper-generalized, d6-based RPG system.
+        <div className="header__slogan">
+          A universe-agnostic, hyper-generalized, d6-based RPG system.
+        </div>
       </div>
 
       <div className="page__routes">
         <VButton type="primary" size="large" onClick={() => navigate('/docs')}>
+          <BookIcon />
           Documentation
         </VButton>
-        <VButton size="large" onClick={() => navigate('/engine')}>
-          Game Engine
+        <VButton size="large" onClick={() => navigate('/vtt/characters')}>
+          <DieIcon /> Virtual Tabletop
         </VButton>
       </div>
-    </Page>
+
+      <div className="page__version">ALPHA v{versionJson.version}</div>
+    </StyledHomePage>
   );
 };

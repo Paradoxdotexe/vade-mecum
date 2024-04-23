@@ -87,7 +87,11 @@ export const SatiationCard: React.FC = () => {
             />
           </div>
         </div>
-        <VButton onClick={() => setResting(true)} disabled={!currentCharacter.satiation}>
+        <VButton
+          size="small"
+          onClick={() => setResting(true)}
+          disabled={!currentCharacter.satiation}
+        >
           Rest
         </VButton>
       </StyledSatiationCard>

@@ -131,7 +131,6 @@ export const LoginPage: React.FC = () => {
             </VCard>
 
             <VButton
-              size="large"
               type="primary"
               onClick={onSend}
               disabled={requestLogin.isSuccess || !email}

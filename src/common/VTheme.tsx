@@ -8,19 +8,21 @@ const VARIABLES = {
     sm: '4px',
     md: '8px',
     lg: '16px',
-    xl: '32px'
+    xl: '32px',
+    xxl: '64px'
   },
   fontSize: {
     xs: '14px',
     sm: '15px',
     md: '16px',
-    lg: '20px',
+    lg: '18px',
     xl: '28px',
     xxl: '56px'
   },
   fontFamily: {
     default: '"Noto Sans", sans-serif',
-    bold: '"Noto Sans Display", sans-serif'
+    display: '"Noto Sans Display", sans-serif',
+    mono: '"Noto Sans Mono", monospace'
   },
   lineHeight: 1.5
 };
@@ -28,7 +30,7 @@ const VARIABLES = {
 const DARK_COLORS = {
   text: {
     primary: '#fafafa',
-    secondary: '#868686',
+    secondary: '#8d8d8d',
     contrast: '#fafafa'
   },
   background: {
