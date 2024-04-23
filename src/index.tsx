@@ -16,6 +16,7 @@ import { VestigesOfMankindDocsPage } from './pages/docs/VestigesOfMankindDocsPag
 import { HomePage } from './pages/HomePage';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { AuthStateProvider } from './pages/engine/useAuth';
+import { VThemeProvider } from './common/VTheme';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -59,9 +60,11 @@ const queryClient = new QueryClient({
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <QueryClientProvider client={queryClient}>
-    <PageWrapper>
-      <RouterProvider router={router} />
-    </PageWrapper>
+    <VThemeProvider>
+      <PageWrapper>
+        <RouterProvider router={router} />
+      </PageWrapper>
+    </VThemeProvider>
   </QueryClientProvider>
 );
 
