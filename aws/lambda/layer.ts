@@ -58,7 +58,7 @@ export const handlerResolver = async (
     }
 
     // attach userId to requestContext for handler to use
-    event.requestContext.accountId = authTokenItem.userId;
+    event.requestContext.identity.user = authTokenItem.userId;
   }
 
   return handler(event).then(response => ({

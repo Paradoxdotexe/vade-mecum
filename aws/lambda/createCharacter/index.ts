@@ -7,12 +7,9 @@ const docClient = DynamoDBDocumentClient.from(new DynamoDBClient());
 
 const handler: APIGatewayProxyHandler = async event =>
   layer.handlerResolver(event, async (event: APIGatewayProxyEvent) => {
-    const userId = event.requestContext.accountId;
+    const userId = event.requestContext.identity.user;
     if (!userId) {
-      return {
-        statusCode: 403,
-        body: JSON.stringify({ detail: 'Unauthenticated.' })
-      };
+      return { statusCode: 403, body: JSON.stringify({ detail: 'Unauthorized.' }) };
     }
 
     return {
