@@ -4,7 +4,11 @@ Vade Mecum is a universe-agnostic, hyper-generalized, d6-based RPG system. Check
 
 ## Development
 
-### > `npm start`
+### Serve Client
+
+```
+> npm start
+```
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -13,10 +17,28 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 To deploy frontend and backend artifacts, [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) must be installed and configured via `aws configure` with the `vade-mecum-deployment-user` credentials.
 
-### > `npm run deploy:client`
+### Deploy Client
 
-Builds and deploys the React client.
+```
+> npm run deploy:client
+```
 
-### > `npm run deploy:lambda <function-name>`
+Builds and deploys the React client to S3 and Cloudfront.
+
+### Deploy Lambda Function
+
+```
+> npm run deploy:lambda <function-name>
+```
 
 Updates the lambda function named `vade-mecum__<function-name>` with the code in `/aws/lambda/<function-name>/index.ts`.
+
+### Deploy Lambda Layer
+
+```
+> npm run deploy:lambdaLayer
+```
+
+Updates the lambda layer named `vade-mecum__layer` with the code in `/aws/lambda/layer.ts`.
+
+Subsequently updates all lambda functions that use the lambda layer to point to the new version.
