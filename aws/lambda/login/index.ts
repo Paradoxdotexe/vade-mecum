@@ -8,7 +8,8 @@ const docClient = DynamoDBDocumentClient.from(new DynamoDBClient());
 
 const RESPONSE_HEADERS = {
   'Content-Type': 'application/json',
-  'Access-Control-Allow-Methods': 'POST'
+  'Access-Control-Allow-Methods': 'POST',
+  'Access-Control-Allow-Credentials': 'true'
 };
 
 const ALLOWED_ORIGINS = ['http://localhost:3000', 'https://vademecum.thenjk.com'];
@@ -112,12 +113,14 @@ const handler: APIGatewayProxyHandler = async event => {
   });
   await docClient.send(putCommand);
 
+  // provide authToken via cookie
+  const cookie = `vade-mecum-auth-token=${authToken}; Expires=${authTokenExpiration.toUTCString()}; SameSite=None; HttpOnly; Path=/; Secure`;
+
   return {
     statusCode: 200,
     headers: {
       ...RESPONSE_HEADERS,
-      // provide authToken via cookie
-      'Set-Cookie': `vade-mecum-auth-token=${authToken}; Expires=${authTokenExpiration.toUTCString()}; SameSite=None; Secure; HttpOnly`
+      'Set-Cookie': cookie
     },
     body: JSON.stringify({
       id: tokenData.userId,

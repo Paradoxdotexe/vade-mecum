@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useEffect } from 'react';
 import { useVTTUser } from '../../common/VTTUser';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 
@@ -10,7 +10,7 @@ export const VTT: React.FC = () => {
 
   const forwardToLogin = !user.authenticated && location.pathname != '/vtt/login';
 
-  useMemo(() => {
+  useEffect(() => {
     if (forwardToLogin) {
       navigate('/vtt/login');
     }

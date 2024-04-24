@@ -14,6 +14,8 @@ const StyledPageHeader = styled.div`
     gap: ${props => props.theme.variable.gap.lg};
 
     .left__breadcrumbs {
+      display: flex;
+      gap: ${props => props.theme.variable.gap.md};
       font-size: ${props => props.theme.variable.fontSize.sm};
       color: ${props => props.theme.color.text.secondary};
     }
@@ -40,7 +42,14 @@ export const PageHeader: React.FC<PageHeaderProps> = props => {
   return (
     <StyledPageHeader>
       <div className="header__left">
-        <div className="left__breadcrumbs">{props.breadcrumbs.join('  >  ')}</div>
+        <div className="left__breadcrumbs">
+          {props.breadcrumbs.map((breadcrumb, i) => (
+            <React.Fragment key={i}>
+              {i > 0 && '>'}
+              <span>{breadcrumb}</span>
+            </React.Fragment>
+          ))}
+        </div>
         <div className="left__title">{props.title}</div>
       </div>
       <div className="header__right">{props.extra}</div>

@@ -20,6 +20,7 @@ import { PageWrapper } from './common/PageWrapper';
 import { CharactersPage } from './pages/vtt/characters/CharactersPage';
 import { VTT } from './pages/vtt/VTT';
 import { LoginPage } from './pages/vtt/LoginPage';
+import { CharacterPage } from './pages/vtt/characters/CharacterPage';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -33,6 +34,7 @@ const router = createBrowserRouter(
       <Route path="vtt/" element={<VTT />}>
         <Route path="login" element={<LoginPage />} />
         <Route path="characters" element={<CharactersPage />} />
+        <Route path="characters/:characterId" element={<CharacterPage />} />
       </Route>
 
       <Route

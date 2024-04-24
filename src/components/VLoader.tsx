@@ -1,10 +1,11 @@
+import { useVTheme } from '@/common/VTheme';
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 
 const StyledVLoader = styled.div<{ $color: string; $size: number }>`
   display: flex;
   justify-content: center;
-  padding: 24px;
+  padding: ${props => props.theme.variable.gap.xl};
 
   .loader__dots {
     height: ${props => props.$size}px;
@@ -77,9 +78,11 @@ type VLoaderProps = {
 };
 
 export const VLoader: React.FC<VLoaderProps> = props => {
+  const theme = useVTheme();
+
   return (
     <StyledVLoader
-      $color={props.color ?? '#a1a1a1'}
+      $color={props.color ?? theme.color.text.secondary}
       $size={props.size ?? 24}
       style={props.style}
       className={props.className}

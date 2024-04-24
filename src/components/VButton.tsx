@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { VLoader } from './VLoader';
 import classNames from 'classnames';
+import { useVTheme } from '@/common/VTheme';
 
 const Button = styled.button`
   position: relative;
@@ -23,6 +24,7 @@ const Button = styled.button`
   padding: ${props => props.theme.variable.gap.md};
   user-select: none;
   line-height: 1;
+  transition: opacity ease 150ms;
 
   &.button--primary {
     background: ${props => props.theme.color.brand.default};
@@ -59,6 +61,15 @@ const Button = styled.button`
     cursor: default;
     opacity: 0.6;
   }
+
+  .button__loader {
+    position: absolute;
+    padding: 0;
+  }
+
+  &:has(.button__loader) {
+    color: transparent;
+  }
 `;
 
 type VButtonProps = {
@@ -73,6 +84,8 @@ type VButtonProps = {
 };
 
 export const VButton: React.FC<VButtonProps> = props => {
+  const theme = useVTheme();
+
   const className = classNames(props.className, {
     'button--primary': props.type === 'primary',
     'button--small': props.size === 'small',
@@ -86,11 +99,10 @@ export const VButton: React.FC<VButtonProps> = props => {
       onClick={props.onClick}
       disabled={props.disabled || props.loading}
     >
-      {props.loading ? (
-        <VLoader style={{ padding: 0 }} size={20} color={'#a2cceb'} />
-      ) : (
-        props.children
+      {props.loading && (
+        <VLoader size={20} className="button__loader" color={theme.color.text.primary} />
       )}
+      {props.children}
     </Button>
   );
 };
