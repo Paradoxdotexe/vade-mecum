@@ -7,23 +7,6 @@ const layer = require('/opt/nodejs/layer');
 
 const docClient = DynamoDBDocumentClient.from(new DynamoDBClient());
 
-const ALGORITHM = 'aes-256-cbc';
-const ENCRYPTION_KEY = process.env.ENCRYPTION_KEY as string;
-
-const decrypt = (token: string) => {
-  const [encryptedData, iv] = token.split('.');
-
-  let decipher = crypto.createDecipheriv(
-    ALGORITHM,
-    Buffer.from(ENCRYPTION_KEY, 'hex'),
-    Buffer.from(iv, 'hex')
-  );
-  let decrypted = decipher.update(encryptedData, 'hex');
-  decrypted = Buffer.concat([decrypted, decipher.final()]);
-
-  return decrypted.toString();
-};
-
 type LoginTokenData = {
   email: string;
   expiration: string;
@@ -40,22 +23,10 @@ const handler: APIGatewayProxyHandler = async event =>
       };
     }
 
-    let tokenData: LoginTokenData | undefined = undefined;
-
-    try {
-      // inflate shortened token from base64
-      const loginToken = zlib.inflateSync(Buffer.from(body.token, 'base64')).toString();
-
-      tokenData = JSON.parse(decrypt(loginToken)) as LoginTokenData;
-    } catch {
-      return {
-        statusCode: 400,
-        body: JSON.stringify({ detail: 'Invalid token.' })
-      };
-    }
+    const loginTokenData: LoginTokenData = JSON.parse(await layer.decryptLoginToken(body.token));
 
     const now = new Date();
-    const expiration = new Date(tokenData.expiration);
+    const expiration = new Date(loginTokenData.expiration);
 
     if (now.getTime() > expiration.getTime()) {
       return {
@@ -70,7 +41,7 @@ const handler: APIGatewayProxyHandler = async event =>
       IndexName: 'email-itemId-index',
       KeyConditionExpression: 'email=:email and itemId=:itemId',
       ExpressionAttributeValues: {
-        ':email': tokenData.email,
+        ':email': loginTokenData.email,
         ':itemId': 'meta'
       },
       ProjectionExpression: 'userId'
@@ -88,7 +59,7 @@ const handler: APIGatewayProxyHandler = async event =>
         Item: {
           userId: userId,
           itemId: 'meta',
-          email: tokenData.email
+          email: loginTokenData.email
         }
       });
       await docClient.send(putUser);
@@ -96,13 +67,6 @@ const handler: APIGatewayProxyHandler = async event =>
 
     const authToken = crypto.randomBytes(32).toString('hex');
     const hashedAuthToken = await layer.hashAuthToken(authToken);
-
-    if (!hashedAuthToken) {
-      return {
-        statusCode: 400,
-        body: JSON.stringify({ detail: 'An error occurred with KMS.' })
-      };
-    }
 
     const authTokenExpiration = new Date(now.getTime() + 90 * 24 * 60 * 60_000); // 90 days
 
@@ -127,7 +91,7 @@ const handler: APIGatewayProxyHandler = async event =>
       },
       body: JSON.stringify({
         id: userId,
-        email: tokenData.email
+        email: loginTokenData.email
       })
     };
   });

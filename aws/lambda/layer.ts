@@ -1,12 +1,40 @@
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { DynamoDBDocumentClient, QueryCommand } from '@aws-sdk/lib-dynamodb';
-import { KMSClient, GenerateMacCommand } from '@aws-sdk/client-kms';
+import { KMSClient, GenerateMacCommand, EncryptCommand, DecryptCommand } from '@aws-sdk/client-kms';
 
 const docClient = DynamoDBDocumentClient.from(new DynamoDBClient());
 const kmsClient = new KMSClient();
 
 const ALLOWED_ORIGINS = ['http://localhost:3000', 'https://vademecum.thenjk.com'];
+
+export const encryptLoginToken = async (data: string) => {
+  const encryptLoginToken = new EncryptCommand({
+    KeyId: '5a1ca0cf-d4cc-47d4-8e29-0ce794a7e9a2',
+    Plaintext: Buffer.from(data)
+  });
+  const response = await kmsClient.send(encryptLoginToken);
+
+  if (!response.CiphertextBlob) {
+    throw new Error('An error occurred with KMS.');
+  }
+
+  return Buffer.from(response.CiphertextBlob).toString('base64');
+};
+
+export const decryptLoginToken = async (loginToken: string) => {
+  const decryptLoginToken = new DecryptCommand({
+    KeyId: '5a1ca0cf-d4cc-47d4-8e29-0ce794a7e9a2',
+    CiphertextBlob: new Uint8Array(Buffer.from(loginToken, 'base64'))
+  });
+  const response = await kmsClient.send(decryptLoginToken);
+
+  if (!response.Plaintext) {
+    throw new Error('An error occurred with KMS.');
+  }
+
+  return Buffer.from(response.Plaintext).toString();
+};
 
 export const hashAuthToken = async (authToken: string) => {
   const hashAuthToken = new GenerateMacCommand({
@@ -14,15 +42,13 @@ export const hashAuthToken = async (authToken: string) => {
     MacAlgorithm: 'HMAC_SHA_256',
     Message: Buffer.from(authToken)
   });
-  const mac = await kmsClient.send(hashAuthToken);
+  const response = await kmsClient.send(hashAuthToken);
 
-  if (!mac.Mac) {
-    return undefined;
+  if (!response.Mac) {
+    throw new Error('An error occurred with KMS.');
   }
 
-  const hashedAuthToken = [...mac.Mac].map(int => int.toString(16).padStart(2, '0')).join('');
-
-  return hashedAuthToken;
+  return Buffer.from(response.Mac).toString('hex');
 };
 
 const getCookie = (event: APIGatewayProxyEvent, name: string) => {
@@ -56,14 +82,6 @@ export const handlerResolver = async (
   const authToken = getCookie(event, 'vade-mecum-auth-token');
   if (authToken) {
     const hashedAuthToken = await hashAuthToken(authToken);
-
-    if (!hashedAuthToken) {
-      return {
-        statusCode: 400,
-        headers,
-        body: JSON.stringify({ detail: 'An error occurred with KMS.' })
-      };
-    }
 
     // query for matching auth token
     let queryAuthToken = new QueryCommand({

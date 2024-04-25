@@ -1,7 +1,7 @@
 import { APIGatewayProxyHandler } from 'aws-lambda';
 import { SESClient, SendEmailCommand } from '@aws-sdk/client-ses';
-import crypto from 'crypto';
 import zlib from 'zlib';
+const layer = require('/opt/nodejs/layer');
 
 const sesClient = new SESClient();
 
@@ -12,26 +12,7 @@ const RESPONSE_HEADERS = {
 
 const ALLOWED_ORIGINS = ['http://localhost:3000', 'https://vademecum.thenjk.com'];
 
-const ALGORITHM = 'aes-256-cbc';
-const ENCRYPTION_KEY = process.env.ENCRYPTION_KEY as string;
-
-const encrypt = (data: string) => {
-  const iv = crypto.randomBytes(16);
-
-  const cipher = crypto.createCipheriv(ALGORITHM, Buffer.from(ENCRYPTION_KEY, 'hex'), iv);
-  let encrypted = cipher.update(data);
-  encrypted = Buffer.concat([encrypted, cipher.final()]);
-
-  return { encryptedData: encrypted.toString('hex'), iv: iv.toString('hex') };
-};
-
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-
-type LoginTokenData = {
-  userId?: string;
-  email: string;
-  expiration: string;
-};
 
 const handler: APIGatewayProxyHandler = async event => {
   if (!event.headers.origin || !ALLOWED_ORIGINS.includes(event.headers.origin)) {
@@ -63,19 +44,14 @@ const handler: APIGatewayProxyHandler = async event => {
   }
 
   const now = new Date();
-  const expiration = new Date(now.getTime() + 20 * 60_000).toISOString();
+  const expiration = new Date(now.getTime() + 20 * 60_000).toISOString(); // 20 minutes
 
-  const data: LoginTokenData = {
+  const data = {
     email: body.email,
     expiration
   };
 
-  const { encryptedData, iv } = encrypt(JSON.stringify(data));
-
-  const loginToken = `${encryptedData}.${iv}`;
-
-  // deflate to base64 to shorten token
-  const deflatedLoginToken = zlib.deflateSync(loginToken).toString('base64');
+  const loginToken = await layer.encryptLoginToken(JSON.stringify(data));
 
   const sendEmailCommand = new SendEmailCommand({
     Source: '"Vade Mecum" <noreply@mail.vademecum.thenjk.com>',
@@ -91,7 +67,7 @@ const handler: APIGatewayProxyHandler = async event => {
           Data: `
             <div style="padding: 24px; display: flex; align-items: center; justify-content: center;">
               <a 
-                href="https://vademecum.thenjk.com/vtt/login?token=${encodeURIComponent(deflatedLoginToken)}" 
+                href="https://vademecum.thenjk.com/vtt/login?token=${encodeURIComponent(loginToken)}" 
                 style="background: #34a9fe; color: #fff; text-decoration: none; padding: 6px 12px; font-size: 16px; border-radius: 3px; font-family: sans-serif; font-weight: bold;"
               >
                 CLICK HERE TO LOGIN
