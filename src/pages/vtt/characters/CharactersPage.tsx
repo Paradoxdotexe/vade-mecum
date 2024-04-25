@@ -3,28 +3,18 @@ import { PageHeader } from '@/common/PageHeader';
 import { PageLayout } from '@/common/PageLayout';
 import { VButton } from '@/components/VButton';
 import { ReactComponent as PlusIcon } from '@/icons/Plus.svg';
-import { useMutation } from 'react-query';
-import { useVTTUser } from '@/common/VTTUser';
+import { usePostMutation } from '@/common/usePostMutation';
+import { useNavigate } from 'react-router-dom';
 
 export const CharactersPage: React.FC = () => {
-  const user = useVTTUser();
+  const navigate = useNavigate();
 
-  const createCharacter = useMutation(() =>
-    fetch('https://api.vademecum.thenjk.com/character', {
-      method: 'POST',
-      credentials: 'include'
-    }).then(response => {
-      const json = response.json();
-      if (response.status === 403) {
-        user.update(undefined);
-      } else {
-        return json;
-      }
-    })
-  );
+  const createCharacter = usePostMutation<{ characterId: string }>('/character');
 
   const onCreateCharacter = () => {
-    createCharacter.mutateAsync();
+    createCharacter.mutateAsync({}).then(response => {
+      navigate(`/vtt/characters/${response.characterId}`);
+    });
   };
 
   return (

@@ -3,10 +3,10 @@ import styled from 'styled-components';
 import { VButton } from '@/components/VButton';
 import { VInput } from '@/components/VInput';
 import { VCard } from '@/components/VCard';
-import { useMutation } from 'react-query';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { VLoader } from '@/components/VLoader';
 import { useVTTUser } from '../../common/VTTUser';
+import { usePostMutation } from '@/common/usePostMutation';
 
 const Page = styled.div`
   display: flex;
@@ -60,45 +60,15 @@ export const LoginPage: React.FC = () => {
   const [email, setEmail] = useState('');
   const [loginError, setLoginError] = useState<string>();
 
-  const requestLogin = useMutation((email: string) =>
-    fetch('https://api.vademecum.thenjk.com/auth/login/request', {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        email
-      })
-    })
-  );
-
-  const login = useMutation((token: string) =>
-    fetch('https://api.vademecum.thenjk.com/auth/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      credentials: 'include',
-      body: JSON.stringify({
-        token
-      })
-    }).then(response => {
-      const json = response.json();
-      if (response.status === 200) {
-        return json as Promise<User>;
-      } else {
-        return json.then(Promise.reject.bind(Promise));
-      }
-    })
-  );
+  const requestLogin = usePostMutation('/auth/login/request');
+  const login = usePostMutation<User>('/auth/login');
 
   useEffect(() => {
     const token = searchParams.get('token');
 
     if (token) {
       login
-        .mutateAsync(token)
+        .mutateAsync({ token })
         .then(newUser => {
           user.update(newUser);
           navigate('/vtt/characters');
@@ -112,7 +82,7 @@ export const LoginPage: React.FC = () => {
   }, []);
 
   const onSend = () => {
-    requestLogin.mutate(email);
+    requestLogin.mutate({ email });
   };
 
   return (

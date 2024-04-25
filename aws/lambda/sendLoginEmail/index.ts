@@ -1,70 +1,52 @@
-import { APIGatewayProxyHandler } from 'aws-lambda';
+import { APIGatewayProxyEvent, APIGatewayProxyHandler } from 'aws-lambda';
 import { SESClient, SendEmailCommand } from '@aws-sdk/client-ses';
 import zlib from 'zlib';
 const layer = require('/opt/nodejs/layer');
 
 const sesClient = new SESClient();
 
-const RESPONSE_HEADERS = {
-  'Content-Type': 'application/json',
-  'Access-Control-Allow-Methods': 'POST'
-};
-
-const ALLOWED_ORIGINS = ['http://localhost:3000', 'https://vademecum.thenjk.com'];
-
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
-const handler: APIGatewayProxyHandler = async event => {
-  if (!event.headers.origin || !ALLOWED_ORIGINS.includes(event.headers.origin)) {
-    return {
-      statusCode: 403,
-      headers: RESPONSE_HEADERS,
-      body: JSON.stringify({ detail: 'Unauthorized request origin.' })
+const handler: APIGatewayProxyHandler = async event =>
+  layer.handlerResolver(event, async (event: APIGatewayProxyEvent) => {
+    const body = event.body && JSON.parse(event.body);
+
+    if (!body || !body.email) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ detail: 'Missing email.' })
+      };
+    }
+
+    if (!EMAIL_REGEX.test(body.email)) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ detail: 'Invalid email.' })
+      };
+    }
+
+    const now = new Date();
+    const expiration = new Date(now.getTime() + 20 * 60_000).toISOString(); // 20 minutes
+
+    const data = {
+      email: body.email,
+      expiration
     };
-  } else {
-    RESPONSE_HEADERS['Access-Control-Allow-Origin'] = event.headers.origin;
-  }
 
-  const body = event.body && JSON.parse(event.body);
+    const loginToken = await layer.encryptLoginToken(JSON.stringify(data));
 
-  if (!body || !body.email) {
-    return {
-      statusCode: 400,
-      headers: RESPONSE_HEADERS,
-      body: JSON.stringify({ detail: 'Missing email.' })
-    };
-  }
-
-  if (!EMAIL_REGEX.test(body.email)) {
-    return {
-      statusCode: 400,
-      headers: RESPONSE_HEADERS,
-      body: JSON.stringify({ detail: 'Invalid email.' })
-    };
-  }
-
-  const now = new Date();
-  const expiration = new Date(now.getTime() + 20 * 60_000).toISOString(); // 20 minutes
-
-  const data = {
-    email: body.email,
-    expiration
-  };
-
-  const loginToken = await layer.encryptLoginToken(JSON.stringify(data));
-
-  const sendEmailCommand = new SendEmailCommand({
-    Source: '"Vade Mecum" <noreply@mail.vademecum.thenjk.com>',
-    Destination: {
-      ToAddresses: [body.email]
-    },
-    Message: {
-      Subject: {
-        Data: 'Log in to your Vade Mecum account'
+    const sendEmailCommand = new SendEmailCommand({
+      Source: '"Vade Mecum" <noreply@mail.vademecum.thenjk.com>',
+      Destination: {
+        ToAddresses: [body.email]
       },
-      Body: {
-        Html: {
-          Data: `
+      Message: {
+        Subject: {
+          Data: 'Log in to your Vade Mecum account'
+        },
+        Body: {
+          Html: {
+            Data: `
             <div style="padding: 24px; display: flex; align-items: center; justify-content: center;">
               <a 
                 href="https://vademecum.thenjk.com/vtt/login?token=${encodeURIComponent(loginToken)}" 
@@ -74,18 +56,17 @@ const handler: APIGatewayProxyHandler = async event => {
               </a>
             </div>
           `
+          }
         }
       }
-    }
+    });
+
+    await sesClient.send(sendEmailCommand);
+
+    return {
+      statusCode: 200,
+      body: JSON.stringify({})
+    };
   });
-
-  await sesClient.send(sendEmailCommand);
-
-  return {
-    statusCode: 200,
-    headers: RESPONSE_HEADERS,
-    body: JSON.stringify({})
-  };
-};
 
 exports.handler = handler;
