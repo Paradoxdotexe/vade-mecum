@@ -1,6 +1,6 @@
 import { APIGatewayProxyEvent, APIGatewayProxyHandler } from 'aws-lambda';
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
-import { DynamoDBDocumentClient, GetCommand } from '@aws-sdk/lib-dynamodb';
+import { DynamoDBDocumentClient, QueryCommand } from '@aws-sdk/lib-dynamodb';
 const layer = require('/opt/nodejs/layer');
 
 const docClient = DynamoDBDocumentClient.from(new DynamoDBClient());
@@ -12,35 +12,29 @@ const handler: APIGatewayProxyHandler = async event =>
       return { statusCode: 403, body: JSON.stringify({ detail: 'Unauthorized.' }) };
     }
 
-    const characterId = event.pathParameters!['characterId'];
-
-    const getCharacter = new GetCommand({
+    const queryCharacters = new QueryCommand({
       TableName: 'vade-mecum-users',
-      Key: {
-        userId: userId,
-        itemId: `character#${characterId}`
+      KeyConditionExpression: 'userId=:userId and begins_with(itemId, :itemIdPrefix)',
+      ExpressionAttributeValues: {
+        ':userId': userId,
+        ':itemIdPrefix': 'character#'
       },
       ExpressionAttributeNames: {
         '#definition': 'definition'
       },
-      ProjectionExpression: '#definition'
+      ProjectionExpression: 'itemId, #definition'
     });
-    const character = (await docClient.send(getCharacter)).Item;
-
-    if (!character) {
-      return {
-        statusCode: 404,
-        body: JSON.stringify({ detail: 'Character not found.' })
-      };
-    }
+    const characters = (await docClient.send(queryCharacters)).Items ?? [];
 
     return {
       statusCode: 200,
-      body: JSON.stringify({
-        id: characterId,
-        userId: userId,
-        ...JSON.parse(character.definition)
-      })
+      body: JSON.stringify(
+        characters.map(character => ({
+          id: character.itemId.split('#')[1],
+          userId: userId,
+          ...JSON.parse(character.definition)
+        }))
+      )
     };
   });
 

@@ -5,9 +5,12 @@ import { VButton } from '@/components/VButton';
 import { ReactComponent as PlusIcon } from '@/icons/Plus.svg';
 import { usePostMutation } from '@/common/usePostMutation';
 import { useNavigate } from 'react-router-dom';
+import { useGetQuery } from '@/common/useGetQuery';
 
 export const CharactersPage: React.FC = () => {
   const navigate = useNavigate();
+
+  const { data: characters } = useGetQuery(['GET_CHARACTERS'], `/characters`);
 
   const createCharacter = usePostMutation<{ characterId: string }>('/character');
 
@@ -16,6 +19,8 @@ export const CharactersPage: React.FC = () => {
       navigate(`/vtt/characters/${response.characterId}`);
     });
   };
+
+  console.log(characters);
 
   return (
     <PageLayout>
