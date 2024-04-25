@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { PageHeader } from '@/common/PageHeader';
 import { PageLayout } from '@/common/PageLayout';
 import { VButton } from '@/components/VButton';
@@ -9,6 +9,7 @@ import { useGetQuery } from '@/common/useGetQuery';
 import { CharacterCard } from './CharacterCard';
 import { Character } from '../types/Character';
 import styled from 'styled-components';
+import { useQueryClient } from 'react-query';
 
 const StyledCharactersPage = styled(PageLayout)`
   gap: ${props => props.theme.variable.gap.xl};
@@ -22,6 +23,7 @@ const StyledCharactersPage = styled(PageLayout)`
 
 export const CharactersPage: React.FC = () => {
   const navigate = useNavigate();
+  const queryClient = useQueryClient();
 
   const { data: characters } = useGetQuery<Character[]>(['GET_CHARACTERS'], `/characters`);
 
@@ -33,7 +35,14 @@ export const CharactersPage: React.FC = () => {
     });
   };
 
-  console.log(characters);
+  useEffect(() => {
+    if (characters) {
+      for (const character of characters) {
+        // propagate data from GET_CHARACTERS query into individual GET_CHARACTER queries
+        queryClient.setQueryData(['GET_CHARACTER', character.id], character);
+      }
+    }
+  }, [characters]);
 
   return (
     <StyledCharactersPage>
