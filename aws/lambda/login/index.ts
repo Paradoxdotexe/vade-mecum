@@ -1,18 +1,11 @@
-import { APIGatewayProxyHandler } from 'aws-lambda';
+import { APIGatewayProxyEvent, APIGatewayProxyHandler } from 'aws-lambda';
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
-import { DynamoDBDocumentClient, PutCommand } from '@aws-sdk/lib-dynamodb';
+import { DynamoDBDocumentClient, PutCommand, QueryCommand } from '@aws-sdk/lib-dynamodb';
 import crypto from 'crypto';
 import zlib from 'zlib';
+const layer = require('/opt/nodejs/layer');
 
 const docClient = DynamoDBDocumentClient.from(new DynamoDBClient());
-
-const RESPONSE_HEADERS = {
-  'Content-Type': 'application/json',
-  'Access-Control-Allow-Methods': 'POST',
-  'Access-Control-Allow-Credentials': 'true'
-};
-
-const ALLOWED_ORIGINS = ['http://localhost:3000', 'https://vademecum.thenjk.com'];
 
 const ALGORITHM = 'aes-256-cbc';
 const ENCRYPTION_KEY = process.env.ENCRYPTION_KEY as string;
@@ -32,101 +25,111 @@ const decrypt = (token: string) => {
 };
 
 type LoginTokenData = {
-  userId?: string;
   email: string;
   expiration: string;
 };
 
-const handler: APIGatewayProxyHandler = async event => {
-  if (!event.headers.origin || !ALLOWED_ORIGINS.includes(event.headers.origin)) {
-    return {
-      statusCode: 403,
-      headers: RESPONSE_HEADERS,
-      body: JSON.stringify({ detail: 'Unauthorized request origin.' })
-    };
-  } else {
-    RESPONSE_HEADERS['Access-Control-Allow-Origin'] = event.headers.origin;
-  }
+const handler: APIGatewayProxyHandler = async event =>
+  layer.handlerResolver(event, async (event: APIGatewayProxyEvent) => {
+    const body = event.body && JSON.parse(event.body);
 
-  const body = event.body && JSON.parse(event.body);
+    if (!body || !body.token) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ detail: 'Missing token.' })
+      };
+    }
 
-  if (!body || !body.token) {
-    return {
-      statusCode: 400,
-      headers: RESPONSE_HEADERS,
-      body: JSON.stringify({ detail: 'Missing token.' })
-    };
-  }
+    let tokenData: LoginTokenData | undefined = undefined;
 
-  let tokenData: LoginTokenData | undefined = undefined;
+    try {
+      // inflate shortened token from base64
+      const loginToken = zlib.inflateSync(Buffer.from(body.token, 'base64')).toString();
 
-  try {
-    // inflate shortened token from base64
-    const loginToken = zlib.inflateSync(Buffer.from(body.token, 'base64')).toString();
+      tokenData = JSON.parse(decrypt(loginToken)) as LoginTokenData;
+    } catch {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ detail: 'Invalid token.' })
+      };
+    }
 
-    tokenData = JSON.parse(decrypt(loginToken)) as LoginTokenData;
-  } catch {
-    return {
-      statusCode: 400,
-      headers: RESPONSE_HEADERS,
-      body: JSON.stringify({ detail: 'Invalid token.' })
-    };
-  }
+    const now = new Date();
+    const expiration = new Date(tokenData.expiration);
 
-  const now = new Date();
-  const expiration = new Date(tokenData.expiration);
+    if (now.getTime() > expiration.getTime()) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ detail: 'Token expired.' })
+      };
+    }
 
-  if (now.getTime() > expiration.getTime()) {
-    return {
-      statusCode: 400,
-      headers: RESPONSE_HEADERS,
-      body: JSON.stringify({ detail: 'Token expired.' })
-    };
-  }
+    // try to find existing user by email
+    let queryUser = new QueryCommand({
+      TableName: 'vade-mecum-users',
+      IndexName: 'email-itemId-index',
+      KeyConditionExpression: 'email=:email and itemId=:itemId',
+      ExpressionAttributeValues: {
+        ':email': tokenData.email,
+        ':itemId': 'meta'
+      },
+      ProjectionExpression: 'userId'
+    });
+    const user = (await docClient.send(queryUser)).Items?.[0];
 
-  // store user if they don't already exist
-  if (!tokenData.userId) {
-    tokenData.userId = crypto.randomUUID();
+    let userId = user?.userId;
 
-    const putUser = new PutCommand({
+    // store user if they don't already exist
+    if (!user) {
+      userId = crypto.randomUUID();
+
+      const putUser = new PutCommand({
+        TableName: 'vade-mecum-users',
+        Item: {
+          userId: userId,
+          itemId: 'meta',
+          email: tokenData.email
+        }
+      });
+      await docClient.send(putUser);
+    }
+
+    const authToken = crypto.randomBytes(32).toString('hex');
+    const hashedAuthToken = await layer.hashAuthToken(authToken);
+
+    if (!hashedAuthToken) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ detail: 'An error occurred with KMS.' })
+      };
+    }
+
+    const authTokenExpiration = new Date(now.getTime() + 90 * 24 * 60 * 60_000); // 90 days
+
+    // store new authToken
+    const putCommand = new PutCommand({
       TableName: 'vade-mecum-users',
       Item: {
-        userId: tokenData.userId,
-        itemId: 'meta',
-        email: tokenData.email
+        userId: userId,
+        itemId: `authToken#${hashedAuthToken}`,
+        expiration: Math.floor(authTokenExpiration.getTime() / 1000)
       }
     });
-    await docClient.send(putUser);
-  }
+    await docClient.send(putCommand);
 
-  const authToken = crypto.randomBytes(20).toString('hex');
-  const authTokenExpiration = new Date(now.getTime() + 90 * 24 * 60 * 60_000); // 90 days
+    // provide authToken via cookie
+    const cookie = `vade-mecum-auth-token=${authToken}; Expires=${authTokenExpiration.toUTCString()}; SameSite=None; HttpOnly; Path=/; Secure`;
 
-  // store new authToken
-  const putCommand = new PutCommand({
-    TableName: 'vade-mecum-users',
-    Item: {
-      userId: tokenData.userId,
-      itemId: `authToken#${authToken}`,
-      expiration: Math.floor(authTokenExpiration.getTime() / 1000)
-    }
+    return {
+      statusCode: 200,
+      headers: {
+        'Set-Cookie': cookie
+      },
+      body: JSON.stringify({
+        id: userId,
+        email: tokenData.email
+      })
+    };
   });
-  await docClient.send(putCommand);
-
-  // provide authToken via cookie
-  const cookie = `vade-mecum-auth-token=${authToken}; Expires=${authTokenExpiration.toUTCString()}; SameSite=None; HttpOnly; Path=/; Secure`;
-
-  return {
-    statusCode: 200,
-    headers: {
-      ...RESPONSE_HEADERS,
-      'Set-Cookie': cookie
-    },
-    body: JSON.stringify({
-      id: tokenData.userId,
-      email: tokenData.email
-    })
-  };
-};
 
 exports.handler = handler;

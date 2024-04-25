@@ -1,11 +1,8 @@
 import { APIGatewayProxyHandler } from 'aws-lambda';
-import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
-import { DynamoDBDocumentClient, QueryCommand } from '@aws-sdk/lib-dynamodb';
 import { SESClient, SendEmailCommand } from '@aws-sdk/client-ses';
 import crypto from 'crypto';
 import zlib from 'zlib';
 
-const docClient = DynamoDBDocumentClient.from(new DynamoDBClient());
 const sesClient = new SESClient();
 
 const RESPONSE_HEADERS = {
@@ -65,24 +62,10 @@ const handler: APIGatewayProxyHandler = async event => {
     };
   }
 
-  // try to find existing user by email
-  let queryUser = new QueryCommand({
-    TableName: 'vade-mecum-users',
-    IndexName: 'email-itemId-index',
-    KeyConditionExpression: 'email=:email and itemId=:itemId',
-    ExpressionAttributeValues: {
-      ':email': body.email,
-      ':itemId': 'meta'
-    },
-    ProjectionExpression: 'userId'
-  });
-  const user = (await docClient.send(queryUser)).Items?.[0];
-
   const now = new Date();
   const expiration = new Date(now.getTime() + 20 * 60_000).toISOString();
 
   const data: LoginTokenData = {
-    userId: user?.userId,
     email: body.email,
     expiration
   };
