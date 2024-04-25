@@ -13,7 +13,10 @@ export const useGetQuery = <T extends object>(queryKey: QueryKey, endpoint: stri
       if (response.status === 200) {
         return json as Promise<T>;
       } else {
-        user.update(undefined);
+        if (response.status === 403) {
+          user.update(undefined);
+        }
+
         return json.then(Promise.reject.bind(Promise));
       }
     })

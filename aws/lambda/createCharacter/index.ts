@@ -18,7 +18,7 @@ const handler: APIGatewayProxyHandler = async event =>
     const putCharacter = new PutCommand({
       TableName: 'vade-mecum-users',
       Item: {
-        userId: characterId,
+        userId: userId,
         itemId: `character#${characterId}`,
         definition: JSON.stringify(DEFAULT_CHARACTER_DEFINITION),
         version: VERSION

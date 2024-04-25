@@ -16,7 +16,7 @@ const response = execSync(
 const layer = JSON.parse(response.toString());
 
 // lambda functions that rely on the lambda layer
-const lambdaFunctions = ['login', 'sendLoginEmail', 'createCharacter'];
+const lambdaFunctions = ['login', 'sendLoginEmail', 'createCharacter', 'getCharacter'];
 
 for (const lambdaFunction of lambdaFunctions) {
   const functionName = `vade-mecum__${lambdaFunction}`;

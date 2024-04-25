@@ -16,6 +16,8 @@ export const useLocalStorage = <T>(
   useMemo(() => {
     if (state !== initialState) {
       localStorage.setItem(key, JSON.stringify(state));
+    } else {
+      localStorage.removeItem(key);
     }
   }, [state]);
 

@@ -9,14 +9,17 @@ export const VTT: React.FC = () => {
   const user = useVTTUser();
 
   const forwardToLogin = !user.authenticated && location.pathname != '/vtt/login';
+  const forwardToApp = user.authenticated && location.pathname == '/vtt/login';
 
   useEffect(() => {
     if (forwardToLogin) {
       navigate('/vtt/login');
+    } else if (forwardToApp) {
+      navigate('/vtt/characters');
     }
   }, [user, location]);
 
-  if (forwardToLogin) {
+  if (forwardToLogin || forwardToApp) {
     return null;
   }
 
