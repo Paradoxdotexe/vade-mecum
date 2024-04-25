@@ -37,7 +37,7 @@ const DARK_COLORS = {
     default: '#2C2C2C',
     raised: '#3B3B3B',
     active: '#585858',
-    hovered: '#474747',
+    hovered: '#454545',
     backdrop: '#0000007a'
   },
   border: {

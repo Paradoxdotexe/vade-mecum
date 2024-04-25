@@ -5,11 +5,12 @@ import { VButton } from '@/components/VButton';
 import { ReactComponent as TrashCanIcon } from '@/icons/TrashCan.svg';
 import { useGetQuery } from '@/common/useGetQuery';
 import { useParams } from 'react-router-dom';
+import { Character } from '../types/Character';
 
 export const CharacterPage: React.FC = () => {
   const { characterId } = useParams();
 
-  const { data: character } = useGetQuery(
+  const { data: character } = useGetQuery<Character>(
     ['GET_CHARACTER', characterId],
     `/character/${characterId}`
   );
@@ -20,7 +21,7 @@ export const CharacterPage: React.FC = () => {
     <PageLayout>
       <PageHeader
         breadcrumbs={['Virtual Tabletop', 'Characters']}
-        title="Valros Witherin"
+        title={character?.name || 'Unnamed Character'}
         extra={
           <VButton>
             <TrashCanIcon /> Delete character

@@ -39,6 +39,8 @@ const VERSION = 1;
 const DEFAULT_CHARACTER_DEFINITION = {
   name: '',
   description: '',
+  raceKey: 'human',
+  classKey: 'knight',
   level: 1,
   levelPoints: 0,
   satiation: 0,

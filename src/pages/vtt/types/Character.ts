@@ -67,11 +67,11 @@ export type CharacterDefinition = {
   description: string;
   level: number;
   levelPoints: number;
+  raceKey: string;
+  classKey: string;
+  classItemDescription?: string;
   satiation: number;
   exhaustion: number;
-  classKey?: string;
-  classItemDescription?: string;
-  raceKey?: string;
   attributes: Attributes;
   healthPoints: number;
   classPoints: number;

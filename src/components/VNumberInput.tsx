@@ -20,6 +20,10 @@ const StyledVNumberInput = styled.input<{ $width: number; $height: number; $font
     border: 1px solid #ec4343;
     background-color: #ec434344;
   }
+
+  &:disabled {
+    pointer-events: none;
+  }
 `;
 
 type VNumberInputProps = {
