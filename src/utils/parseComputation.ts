@@ -1,6 +1,9 @@
 const VARIABLE_REGEX = /\[(.*?)\]/;
 
-export const parseComputation = (computation: string, variables: { [key: string]: number }) => {
+export const parseComputation = (
+  computation: string,
+  variables: { [key: string]: number }
+): number => {
   let parsed = computation;
 
   let match: RegExpExecArray | null = null;

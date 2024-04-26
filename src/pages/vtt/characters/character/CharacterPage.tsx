@@ -16,6 +16,7 @@ import { ClassCard } from './ClassCard';
 import { useVTheme } from '@/common/VTheme';
 import { HealthPointsCard } from './HealthPointsCard';
 import { SpeedCard } from './SpeedCard';
+import { ClassPointsCard } from './ClassPointsCard';
 
 const StyledCharacterPage = styled(PageLayout)`
   .page__character {
@@ -107,6 +108,13 @@ export const CharacterPage: React.FC = () => {
                 <VHeader>Speed</VHeader>
                 <SpeedCard characterClient={characterClient} />
               </div>
+
+              {!!characterClient.maxClassPoints && (
+                <div className="character__section">
+                  <VHeader>Class Points</VHeader>
+                  <ClassPointsCard characterClient={characterClient} />
+                </div>
+              )}
             </div>
           </div>
         </div>

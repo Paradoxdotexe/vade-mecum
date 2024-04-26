@@ -37,8 +37,8 @@ const getClassAbilities = (character: Character) => {
 
 const useCharacterComputation = (
   character: Character,
-  baseComputation: string,
-  computationKey: keyof CharacterComputations
+  computationKey: keyof CharacterComputations,
+  defaultComputation?: string
 ) => {
   // compile variables available to computation
   const computationVariables: { [key: string]: number } = {
@@ -53,11 +53,16 @@ const useCharacterComputation = (
     }
   }
 
-  // parse base computation (which may be augmented by class)
+  // parse base computation
   const _class = classByKey[character.classKey];
   const classComputation = _class.computed?.[computationKey];
+  const baseComputation = classComputation ?? defaultComputation;
 
-  const baseValue = parseComputation(classComputation ?? baseComputation, computationVariables);
+  if (!baseComputation) {
+    return 0;
+  }
+
+  const baseValue = parseComputation(baseComputation, computationVariables);
   computationVariables.base = baseValue;
 
   // parse perk computation if applicable
@@ -100,16 +105,14 @@ export const useCharacterClient = (
   const setName = (name: string) => updateCharacter({ name });
 
   // ---------- RACE ----------- //
-  const race = character.raceKey ? raceByKey[character.raceKey] : undefined;
+  const race = raceByKey[character.raceKey];
   const setRace = (raceKey?: string) => updateCharacter({ raceKey });
 
   // ---------- CLASS ----------- //
-  const _class = character.classKey
-    ? {
-        ...classByKey[character.classKey],
-        classItemBonus: getClassItemBonus(character)
-      }
-    : undefined;
+  const _class = {
+    ...classByKey[character.classKey],
+    classItemBonus: getClassItemBonus(character)
+  };
 
   const setClass = (classKey?: string) => {
     const attributes = structuredClone(character.attributes);
@@ -139,8 +142,8 @@ export const useCharacterClient = (
   // ---------- HEALTH POINTS ----------- //
   const maxHealthPoints = useCharacterComputation(
     character,
-    '([level] + [attribute.strength] + [skill.fortitude]) * 6',
-    'maxHealthPoints'
+    'maxHealthPoints',
+    '([level] + [attribute.strength] + [skill.fortitude]) * 6'
   );
 
   const healthPoints = character.healthPoints;
@@ -150,9 +153,16 @@ export const useCharacterClient = (
   // ---------- SPEED ----------- //
   const speed = useCharacterComputation(
     character,
-    '3 + [attribute.dexterity] + [skill.agility]',
-    'speed'
+    'speed',
+    '3 + [attribute.dexterity] + [skill.agility]'
   );
+
+  // ---------- CLASS POINTS ----------- //
+  const maxClassPoints = useCharacterComputation(character, 'maxClassPoints');
+
+  const classPoints = character.classPoints;
+  const setClassPoints = (classPoints: number) =>
+    updateCharacter({ classPoints: Math.min(classPoints, maxHealthPoints) });
 
   // const maxSkillPointCount = 6 + character.level - 1;
   // const maxAttributePointCount = 12 + Math.floor(character.level / 4);
@@ -167,49 +177,6 @@ export const useCharacterClient = (
   //     ...item
   //   };
   // });
-
-  // const getSpeed = () => {
-  //   const baseSpeed = parseComputation(
-  //     characterClass?.computed?.speed ?? '3 + [attribute.dexterity] + [skill.agility]',
-  //     computationVariables
-  //   );
-
-  //   // check for class ability enhancement
-  //   const classAbilitySpeedComputation = classAbilities.find(ability => ability.computed?.speed)
-  //     ?.computed?.speed;
-  //   if (classAbilitySpeedComputation) {
-  //     return parseComputation(classAbilitySpeedComputation, {
-  //       base: baseSpeed,
-  //       ...computationVariables
-  //     });
-  //   }
-
-  //   return baseSpeed;
-  // };
-
-  // const getMaxClassPoints = () => {
-  //   if (characterClass?.computed?.maxClassPoints) {
-  //     const baseMaxClassPoints = parseComputation(
-  //       characterClass.computed.maxClassPoints,
-  //       computationVariables
-  //     );
-
-  //     // check for class ability enhancement
-  //     const classAbilityMaxClassPointsComputation = classAbilities.find(
-  //       ability => ability.computed?.maxClassPoints
-  //     )?.computed?.maxClassPoints;
-  //     if (classAbilityMaxClassPointsComputation) {
-  //       return parseComputation(classAbilityMaxClassPointsComputation, {
-  //         base: baseMaxClassPoints,
-  //         ...computationVariables
-  //       });
-  //     }
-
-  //     return baseMaxClassPoints;
-  //   }
-
-  //   return 0;
-  // };
 
   // const getCarryingCapacity = () => {
   //   const baseCarryingCapacity = parseComputation(
@@ -261,7 +228,6 @@ export const useCharacterClient = (
   // const setDescription = (description: string) => updateCharacter({ description });
   // const setHealthPoints = (healthPoints: number) =>
   //   updateCharacter({ healthPoints: Math.min(healthPoints, getMaxHealthPoints()) });
-  // const setClassPoints = (classPoints: number) => updateCharacter({ classPoints });
   // const setSatiation = (satiation: number) => updateCharacter({ satiation });
   // const setExhaustion = (exhaustion: number) => updateCharacter({ exhaustion });
   // const setClassItemDescription = (classItemDescription?: string) =>
@@ -338,7 +304,10 @@ export const useCharacterClient = (
     maxHealthPoints,
     healthPoints,
     setHealthPoints,
-    speed
+    speed,
+    maxClassPoints,
+    classPoints,
+    setClassPoints
     //...character,
     // class: characterClass,
     // classAbilities,
