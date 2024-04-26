@@ -1,9 +1,59 @@
 import { capitalize, keyBy } from 'lodash-es';
 import { Character } from '../../types/Character';
-import { WORLD_KIT } from '../../types/WorldKit';
+import { CharacterComputations, WORLD_KIT } from '../../types/WorldKit';
+import { parseComputation } from '@/utils/parseComputation';
+import { PERKS } from '../../types/Perk';
 
 const raceByKey = keyBy(WORLD_KIT.races, 'key');
 const classByKey = keyBy(WORLD_KIT.classes, 'key');
+const perkByKey = keyBy(PERKS, 'key');
+
+const getClassItemBonus = (character: Character) => Math.floor(character.level / 6);
+
+const getPerks = (character: Character) => {
+  const perks = character.perkKeys.map(key => perkByKey[key]);
+
+  if (character.raceKey) {
+    const race = raceByKey[character.raceKey];
+    perks.splice(0, 0, race.perk);
+  }
+
+  return perks;
+};
+
+const useCharacterComputation = (
+  character: Character,
+  baseComputation: string,
+  computationKey: keyof CharacterComputations
+) => {
+  // compile variables available to computation
+  const computationVariables: { [key: string]: number } = {
+    level: character.level,
+    classItemBonus: getClassItemBonus(character)
+  };
+  for (const [attributeKey, attribute] of Object.entries(character.attributes)) {
+    computationVariables[`attribute.${attributeKey}`] = attribute.value;
+
+    for (const [skillKey, skill] of Object.entries(attribute.skills)) {
+      computationVariables[`skill.${skillKey}`] = skill.value;
+    }
+  }
+
+  // parse base computation
+  const baseValue = parseComputation(baseComputation, computationVariables);
+  computationVariables.base = baseValue;
+
+  // parse perk computation if applicable
+  const perks = getPerks(character);
+  for (const perk of perks) {
+    const perkComputation = perk.computed?.[computationKey];
+    if (perkComputation) {
+      return parseComputation(perkComputation, computationVariables);
+    }
+  }
+
+  return baseValue;
+};
 
 export const useCharacterClient = (
   value: Character | undefined,
@@ -19,13 +69,21 @@ export const useCharacterClient = (
     onChange({ ...character, ...partialCharacter });
   };
 
+  // name
   const name = character.name;
   const setName = (name: string) => updateCharacter({ name });
 
+  // race
   const race = character.raceKey ? raceByKey[character.raceKey] : undefined;
   const setRace = (raceKey?: string) => updateCharacter({ raceKey });
 
-  const _class = character.classKey ? classByKey[character.classKey] : undefined;
+  // class
+  const _class = character.classKey
+    ? {
+        ...classByKey[character.classKey],
+        classItemBonus: getClassItemBonus(character)
+      }
+    : undefined;
   const setClass = (classKey?: string) => {
     const attributes = structuredClone(character.attributes);
 
@@ -51,7 +109,15 @@ export const useCharacterClient = (
     });
   };
 
-  // classItemBonus: Math.floor(character.level / 6)
+  // health points
+  const maxHealthPoints = useCharacterComputation(
+    character,
+    '([level] + [attribute.strength] + [skill.fortitude]) * 6',
+    'maxHealthPoints'
+  );
+  const healthPoints = character.healthPoints;
+  const setHealthPoints = (healthPoints: number) =>
+    updateCharacter({ healthPoints: Math.min(healthPoints, maxHealthPoints) });
 
   // const classAbilities =
   //   characterClass?.classAbilities.filter(ability => {
@@ -64,13 +130,7 @@ export const useCharacterClient = (
   //     return isInnate || isAcquired || isAcquiredByClassAbility;
   //   }) ?? [];
 
-  // const race = character.raceKey ? WORLD_KITS.vale_of_myths.races[character.raceKey] : undefined;
-
   // const perks = PERKS.filter(perk => character.perkKeys.includes(perk.key));
-
-  // if (race) {
-  //   perks.splice(0, 0, race.perk);
-  // }
 
   // const maxSkillPointCount = 6 + character.level - 1;
   // const maxAttributePointCount = 12 + Math.floor(character.level / 4);
@@ -85,22 +145,6 @@ export const useCharacterClient = (
   //     ...item
   //   };
   // });
-
-  // const computationVariables: { [key: string]: number } = {
-  //   level: character.level
-  // };
-
-  // if (characterClass) {
-  //   computationVariables.classItemBonus = characterClass.classItemBonus;
-  // }
-
-  // for (const [attributeKey, attribute] of Object.entries(character.attributes)) {
-  //   computationVariables[`attribute.${attributeKey}`] = attribute.value;
-
-  //   for (const [skillKey, skill] of Object.entries(attribute.skills)) {
-  //     computationVariables[`skill.${skillKey}`] = skill.value;
-  //   }
-  // }
 
   // const getSpeed = () => {
   //   const baseSpeed = parseComputation(
@@ -119,25 +163,6 @@ export const useCharacterClient = (
   //   }
 
   //   return baseSpeed;
-  // };
-
-  // const getMaxHealthPoints = () => {
-  //   const baseMaxHealthPoints = parseComputation(
-  //     '([level] + [attribute.strength] + [skill.fortitude]) * 6',
-  //     computationVariables
-  //   );
-
-  //   // check for perk enhancement
-  //   const perkMaxHealthPointsComputation = perks.find(perk => perk.computed?.maxHealthPoints)
-  //     ?.computed?.maxHealthPoints;
-  //   if (perkMaxHealthPointsComputation) {
-  //     return parseComputation(perkMaxHealthPointsComputation, {
-  //       base: baseMaxHealthPoints,
-  //       ...computationVariables
-  //     });
-  //   }
-
-  //   return baseMaxHealthPoints;
   // };
 
   // const getMaxClassPoints = () => {
@@ -287,7 +312,10 @@ export const useCharacterClient = (
     race,
     setRace,
     class: _class,
-    setClass
+    setClass,
+    maxHealthPoints,
+    healthPoints,
+    setHealthPoints
     //...character,
     // class: characterClass,
     // classAbilities,
