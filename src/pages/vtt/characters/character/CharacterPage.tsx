@@ -15,6 +15,7 @@ import { RaceCard } from './RaceCard';
 import { ClassCard } from './ClassCard';
 import { useVTheme } from '@/common/VTheme';
 import { HealthPointsCard } from './HealthPointsCard';
+import { SpeedCard } from './SpeedCard';
 
 const StyledCharacterPage = styled(PageLayout)`
   .page__character {
@@ -25,7 +26,7 @@ const StyledCharacterPage = styled(PageLayout)`
       display: flex;
       flex-direction: column;
       gap: ${props => props.theme.variable.gap.lg};
-      width: 300px; // TODO: Remove
+      width: 250px; // TODO: Remove
     }
 
     .character__right {
@@ -100,6 +101,11 @@ export const CharacterPage: React.FC = () => {
               <div className="character__section">
                 <VHeader>Health Points</VHeader>
                 <HealthPointsCard characterClient={characterClient} />
+              </div>
+
+              <div className="character__section">
+                <VHeader>Speed</VHeader>
+                <SpeedCard characterClient={characterClient} />
               </div>
             </div>
           </div>

@@ -8,12 +8,12 @@ const StyledHealthPointsCard = styled(VCard)`
   display: flex;
   align-items: center;
   flex: 1;
-  padding: 0 ${props => props.theme.variable.gap.lg};
+  padding: 0 ${props => props.theme.variable.gap.md};
 
   .card__slash {
     font-size: 36px;
     font-weight: 200;
-    padding-inline: ${props => props.theme.variable.gap.md} ${props => props.theme.variable.gap.sm};
+    padding-inline: ${props => props.theme.variable.gap.sm} ${props => props.theme.variable.gap.xs};
   }
 
   .card__max {

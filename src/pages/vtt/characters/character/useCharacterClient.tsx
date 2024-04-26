@@ -21,6 +21,20 @@ const getPerks = (character: Character) => {
   return perks;
 };
 
+const getClassAbilities = (character: Character) => {
+  const _class = classByKey[character.classKey];
+
+  return _class.classAbilities.filter(ability => {
+    const isInnate = ability.requirement === 'INNATE';
+    const isAcquired = character.classAbilityKeys.includes(ability.key);
+    const isAcquiredByClassAbility =
+      typeof ability.requirement === 'string' &&
+      character.classAbilityKeys.includes(ability.requirement);
+
+    return isInnate || isAcquired || isAcquiredByClassAbility;
+  });
+};
+
 const useCharacterComputation = (
   character: Character,
   baseComputation: string,
@@ -39,8 +53,11 @@ const useCharacterComputation = (
     }
   }
 
-  // parse base computation
-  const baseValue = parseComputation(baseComputation, computationVariables);
+  // parse base computation (which may be augmented by class)
+  const _class = classByKey[character.classKey];
+  const classComputation = _class.computed?.[computationKey];
+
+  const baseValue = parseComputation(classComputation ?? baseComputation, computationVariables);
   computationVariables.base = baseValue;
 
   // parse perk computation if applicable
@@ -49,6 +66,15 @@ const useCharacterComputation = (
     const perkComputation = perk.computed?.[computationKey];
     if (perkComputation) {
       return parseComputation(perkComputation, computationVariables);
+    }
+  }
+
+  // parse class ability computation if applicable
+  const classAbilities = getClassAbilities(character);
+  for (const classAbility of classAbilities) {
+    const classAbilityComputation = classAbility.computed?.[computationKey];
+    if (classAbilityComputation) {
+      return parseComputation(classAbilityComputation, computationVariables);
     }
   }
 
@@ -69,21 +95,22 @@ export const useCharacterClient = (
     onChange({ ...character, ...partialCharacter });
   };
 
-  // name
+  // ---------- NAME ----------- //
   const name = character.name;
   const setName = (name: string) => updateCharacter({ name });
 
-  // race
+  // ---------- RACE ----------- //
   const race = character.raceKey ? raceByKey[character.raceKey] : undefined;
   const setRace = (raceKey?: string) => updateCharacter({ raceKey });
 
-  // class
+  // ---------- CLASS ----------- //
   const _class = character.classKey
     ? {
         ...classByKey[character.classKey],
         classItemBonus: getClassItemBonus(character)
       }
     : undefined;
+
   const setClass = (classKey?: string) => {
     const attributes = structuredClone(character.attributes);
 
@@ -109,28 +136,23 @@ export const useCharacterClient = (
     });
   };
 
-  // health points
+  // ---------- HEALTH POINTS ----------- //
   const maxHealthPoints = useCharacterComputation(
     character,
     '([level] + [attribute.strength] + [skill.fortitude]) * 6',
     'maxHealthPoints'
   );
+
   const healthPoints = character.healthPoints;
   const setHealthPoints = (healthPoints: number) =>
     updateCharacter({ healthPoints: Math.min(healthPoints, maxHealthPoints) });
 
-  // const classAbilities =
-  //   characterClass?.classAbilities.filter(ability => {
-  //     const isInnate = ability.requirement === 'INNATE';
-  //     const isAcquired = character.classAbilityKeys.includes(ability.key);
-  //     const isAcquiredByClassAbility =
-  //       typeof ability.requirement === 'string' &&
-  //       character.classAbilityKeys.includes(ability.requirement);
-
-  //     return isInnate || isAcquired || isAcquiredByClassAbility;
-  //   }) ?? [];
-
-  // const perks = PERKS.filter(perk => character.perkKeys.includes(perk.key));
+  // ---------- SPEED ----------- //
+  const speed = useCharacterComputation(
+    character,
+    '3 + [attribute.dexterity] + [skill.agility]',
+    'speed'
+  );
 
   // const maxSkillPointCount = 6 + character.level - 1;
   // const maxAttributePointCount = 12 + Math.floor(character.level / 4);
@@ -315,7 +337,8 @@ export const useCharacterClient = (
     setClass,
     maxHealthPoints,
     healthPoints,
-    setHealthPoints
+    setHealthPoints,
+    speed
     //...character,
     // class: characterClass,
     // classAbilities,
