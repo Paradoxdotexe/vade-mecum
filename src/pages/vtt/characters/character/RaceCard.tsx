@@ -2,7 +2,7 @@ import { VSelect } from '@/components/VSelect';
 import React from 'react';
 import { VCard } from '@/components/VCard';
 import { CharacterClient } from './useCharacterClient';
-import { WORLD_KITS } from '@/pages/engine/WorldKit';
+import { WORLD_KIT } from '../../types/WorldKit';
 
 type RaceCardProps = {
   characterClient: CharacterClient;
@@ -14,11 +14,11 @@ export const RaceCard: React.FC<RaceCardProps> = props => {
     <VCard style={{ padding: 0, ...props.style }}>
       <VSelect
         placeholder="Race"
-        options={Object.entries(WORLD_KITS.vale_of_myths.races).map(([key, race]) => ({
-          value: key,
+        options={WORLD_KIT.races.map(race => ({
+          value: race.key,
           label: race.name
         }))}
-        value={props.characterClient.raceKey}
+        value={props.characterClient.race?.key}
         onChange={props.characterClient.setRace}
       />
     </VCard>

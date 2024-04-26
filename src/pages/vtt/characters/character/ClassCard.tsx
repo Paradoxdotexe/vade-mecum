@@ -2,7 +2,7 @@ import { VSelect } from '@/components/VSelect';
 import React from 'react';
 import { VCard } from '@/components/VCard';
 import { CharacterClient } from './useCharacterClient';
-import { WORLD_KITS } from '@/pages/engine/WorldKit';
+import { WORLD_KIT } from '../../types/WorldKit';
 
 type ClassCardProps = {
   characterClient: CharacterClient;
@@ -14,13 +14,11 @@ export const ClassCard: React.FC<ClassCardProps> = props => {
     <VCard style={{ padding: 0, ...props.style }}>
       <VSelect
         placeholder="Class"
-        options={Object.entries(WORLD_KITS.vale_of_myths.classes).map(
-          ([classKey, characterClass]) => ({
-            value: classKey,
-            label: characterClass.label
-          })
-        )}
-        value={props.characterClient.classKey}
+        options={WORLD_KIT.classes.map(_class => ({
+          value: _class.key,
+          label: _class.name
+        }))}
+        value={props.characterClient.class?.key}
         onChange={props.characterClient.setClass}
       />
     </VCard>

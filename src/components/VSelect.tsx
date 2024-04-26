@@ -127,7 +127,7 @@ export const VSelect: React.FC<VSelectProps> = props => {
       onClick={() => setActive(!active)}
       onBlur={() => setActive(false)}
       tabIndex={1}
-      className={` ${!value ? 'select--placeholder' : ''}`}
+      className={` ${!option ? 'select--placeholder' : ''}`}
     >
       {option?.label ?? props.placeholder}
       <ChevronDownIcon />
