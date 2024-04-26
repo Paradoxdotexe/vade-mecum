@@ -7,6 +7,7 @@ const StyledVHeader = styled.div`
   font-family: ${props => props.theme.variable.fontFamily.display};
   font-size: ${props => props.theme.variable.fontSize.lg};
   height: ${props => props.theme.variable.fontSize.lg};
+  white-space: nowrap;
 `;
 
 type VHeaderProps = {

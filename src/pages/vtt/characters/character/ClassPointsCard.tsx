@@ -13,7 +13,7 @@ const StyledClassPointsCard = styled(VCard)`
   .card__slash {
     font-size: 36px;
     font-weight: 200;
-    padding-inline: ${props => props.theme.variable.gap.sm} ${props => props.theme.variable.gap.xs};
+    padding-inline: ${props => props.theme.variable.gap.md} ${props => props.theme.variable.gap.sm};
   }
 
   .card__max {

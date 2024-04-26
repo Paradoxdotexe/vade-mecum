@@ -25,6 +25,7 @@ const Button = styled.button`
   user-select: none;
   line-height: 1;
   transition: opacity ease 150ms;
+  white-space: nowrap;
 
   &.button--primary {
     background: ${props => props.theme.color.brand.default};
