@@ -13,61 +13,62 @@ const Select = styled.div`
   justify-content: space-between;
   align-items: center;
   user-select: none;
-  padding: 9px 12px;
   outline: none;
+  gap: ${props => props.theme.variable.gap.md};
+  padding: ${props => props.theme.variable.gap.md};
 
-  &.select--empty {
-    color: #747474;
+  &.select--placeholder {
+    color: ${props => props.theme.color.text.tertiary};
   }
 
   svg {
-    font-size: 12px;
-    color: #a3a3a3;
+    font-size: ${props => props.theme.variable.fontSize.xs};
+    color: ${props => props.theme.color.text.tertiary};
   }
 
   .select__dropdown {
     position: absolute;
-    background-color: #3b3b3b;
-    border-radius: 4px;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
-    top: calc(100% + 6px);
+    background-color: ${props => props.theme.color.background.raised};
+    border-radius: ${props => props.theme.variable.borderRadius};
+    box-shadow: 2px 4px 16px ${props => props.theme.color.shadow.default};
+    top: calc(100% + ${props => props.theme.variable.gap.md});
     left: 0;
     z-index: 500;
     width: 100%;
     overflow: hidden;
-    color: #fff;
-    border: 1px solid #585858;
+    border: 1px solid ${props => props.theme.color.border.default};
+    color: ${props => props.theme.color.text.primary};
+    min-width: fit-content;
 
     .dropdown__item {
-      padding: 9px 12px;
-      cursor: pointer;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      cursor: pointer;
+      padding: ${props => props.theme.variable.gap.md};
+      gap: ${props => props.theme.variable.gap.md};
 
       &:not(:last-child) {
-        border-bottom: 1px solid #585858;
-      }
-
-      &.item--selected {
-        font-weight: 600;
-        background-color: rgba(255, 255, 255, 0.05);
+        border-bottom: 1px solid ${props => props.theme.color.border.default};
       }
 
       &:hover {
-        background-color: #585858;
+        background-color: ${props => props.theme.color.background.hovered};
+      }
+
+      &.item--selected {
+        background-color: ${props => props.theme.color.background.active};
       }
 
       svg {
-        font-size: 14px;
-        color: #fff;
+        color: ${props => props.theme.color.text.primary};
       }
     }
   }
 
   .select__dropdown-enter {
     opacity: 0;
-    transform: translateY(-6px) scaleY(0);
+    transform: translateY(-${props => props.theme.variable.gap.md}) scaleY(0);
     transform-origin: top;
   }
 
@@ -85,7 +86,7 @@ const Select = styled.div`
 
   .select__dropdown-exit-active {
     opacity: 0;
-    transform: translateY(-6px) scaleY(0);
+    transform: translateY(-${props => props.theme.variable.gap.md}) scaleY(0);
     transition: all ${TIMEOUT}ms ease;
   }
 `;
@@ -126,7 +127,7 @@ export const VSelect: React.FC<VSelectProps> = props => {
       onClick={() => setActive(!active)}
       onBlur={() => setActive(false)}
       tabIndex={1}
-      className={` ${!value ? 'select--empty' : ''}`}
+      className={` ${!value ? 'select--placeholder' : ''}`}
     >
       {option?.label ?? props.placeholder}
       <ChevronDownIcon />

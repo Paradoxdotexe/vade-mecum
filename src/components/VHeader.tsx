@@ -2,11 +2,11 @@ import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 
 const StyledVHeader = styled.div`
-  font-family: 'Noto Sans Display', sans-serif;
-  font-size: 18px;
-  height: 18px;
   display: flex;
   align-items: center;
+  font-family: ${props => props.theme.variable.fontFamily.display};
+  font-size: ${props => props.theme.variable.fontSize.lg};
+  height: ${props => props.theme.variable.fontSize.lg};
 `;
 
 type VHeaderProps = {

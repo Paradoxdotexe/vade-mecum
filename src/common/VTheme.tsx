@@ -31,6 +31,7 @@ const DARK_COLORS = {
   text: {
     primary: '#fafafa',
     secondary: '#8d8d8d',
+    tertiary: '#747474',
     contrast: '#fafafa'
   },
   background: {

@@ -20,7 +20,7 @@ import { PageWrapper } from './common/PageWrapper';
 import { CharactersPage } from './pages/vtt/characters/CharactersPage';
 import { VTT } from './pages/vtt/VTT';
 import { LoginPage } from './pages/vtt/LoginPage';
-import { CharacterPage } from './pages/vtt/characters/CharacterPage';
+import { CharacterPage } from './pages/vtt/characters/character/CharacterPage';
 
 const router = createBrowserRouter(
   createRoutesFromElements(

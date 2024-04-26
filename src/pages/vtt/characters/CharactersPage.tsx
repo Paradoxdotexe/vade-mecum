@@ -12,8 +12,6 @@ import styled from 'styled-components';
 import { useQueryClient } from 'react-query';
 
 const StyledCharactersPage = styled(PageLayout)`
-  gap: ${props => props.theme.variable.gap.xl};
-
   .page__characters {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));

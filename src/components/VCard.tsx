@@ -7,8 +7,9 @@ const StyledVCard = styled.div`
   border-bottom-left-radius: ${props => props.theme.variable.borderRadius};
   border-bottom-right-radius: ${props => props.theme.variable.borderRadius};
   box-shadow: 2px 4px 16px ${props => props.theme.color.shadow.default};
-  border-top: 1px solid ${props => props.theme.color.border.bold};
   padding: ${props => props.theme.variable.gap.lg};
+  border-top: 1px solid ${props => props.theme.color.border.bold};
+  margin-top: 1px; // border has an optical illusion of making items look closer than they are, compensate with margin
 
   &.card--clickable {
     cursor: pointer;

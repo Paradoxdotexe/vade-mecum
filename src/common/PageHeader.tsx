@@ -7,6 +7,7 @@ const StyledPageHeader = styled.div`
   justify-content: space-between;
   padding-bottom: ${props => props.theme.variable.gap.lg};
   border-bottom: 1px solid ${props => props.theme.color.border.default};
+  margin-bottom: ${props => props.theme.variable.gap.xl};
 
   .header__left {
     display: flex;

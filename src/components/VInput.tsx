@@ -2,17 +2,18 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 const StyledVInput = styled.input`
-  padding: 6px 12px;
+  padding-block: ${props => parseInt(props.theme.variable.gap.md) - 3}px;
+  padding-inline: ${props => props.theme.variable.gap.md};
   border: none;
-  color: #fff;
+  color: ${props => props.theme.color.text.primary};
   outline: none;
   background: transparent;
-  font-size: 16px;
-  font-family: 'Noto Sans';
+  font-size: ${props => props.theme.variable.fontSize.md};
+  font-family: ${props => props.theme.variable.fontFamily.default};
   width: 100%;
 
   &::placeholder {
-    color: #747474;
+    color: ${props => props.theme.color.text.tertiary};
   }
 
   &:disabled {
