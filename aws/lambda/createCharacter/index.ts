@@ -95,9 +95,9 @@ const DEFAULT_CHARACTER_DEFINITION = {
       }
     }
   },
+  perkKeys: [],
   satiation: 0,
   exhaustion: 0,
-  perkKeys: [],
   classAbilityKeys: [],
   itemQuantities: [{ key: 'currency', quantity: 0 }]
 };

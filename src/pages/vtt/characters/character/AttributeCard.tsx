@@ -7,7 +7,7 @@ import { CharacterClient } from './useCharacterClient';
 
 const StyledAttributeCard = styled(VCard)`
   display: flex;
-  padding: 12px ${props => props.theme.variable.gap.md};
+  padding: 12px;
 
   .card__attribute {
     display: flex;
@@ -15,18 +15,19 @@ const StyledAttributeCard = styled(VCard)`
     align-items: center;
     gap: ${props => props.theme.variable.gap.md};
     border-right: 1px solid ${props => props.theme.color.border.default};
-    width: 94px;
-    padding-right: ${props => props.theme.variable.gap.md};
+    padding-right: 12px;
 
     .attribute__label {
-      font-size: 12px;
+      font-size: ${props => props.theme.variable.fontSize.xxs};
+      text-align: center;
+      width: 88px;
     }
   }
 
   .card__skills {
     display: flex;
     flex-direction: column;
-    padding-left: ${props => props.theme.variable.gap.md};
+    padding-left: 12px;
     gap: ${props => props.theme.variable.gap.sm};
     flex: 1;
 

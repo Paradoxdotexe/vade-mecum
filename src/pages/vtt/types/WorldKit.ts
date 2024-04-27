@@ -72,7 +72,7 @@ const VALE_OF_MYTHS: WorldKit = {
         key: 'halfling_hospitality',
         name: 'Halfling Hospitality',
         description:
-          'You and your companions get the bonus of Simple Lodging when resting in an Adventuring Camp.'
+          'You and your companions get +1 advantage on Rest Activity rolls when resting in an Adventuring Camp.'
       }
     }
   ],

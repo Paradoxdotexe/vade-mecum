@@ -202,6 +202,15 @@ export const useCharacterClient = (
     updateCharacter({ attributes });
   };
 
+  // ---------- PERKS ----------- //
+  const perks = getPerks(character);
+  const addPerk = (perkKey: string) => {
+    updateCharacter({ perkKeys: [...character.perkKeys, perkKey] });
+  };
+  const removePerk = (perkKey: string) => {
+    updateCharacter({ perkKeys: character.perkKeys.filter(key => key != perkKey) });
+  };
+
   // const maxSkillPointCount = 6 + character.level - 1;
   // const maxAttributePointCount = 12 + Math.floor(character.level / 4);
   // const maxClassAbilityCount = 1 + Math.floor(character.level / 3);
@@ -278,11 +287,6 @@ export const useCharacterClient = (
   //     classAbilityKeys: character.classAbilityKeys.filter(key => key !== classAbilityKey)
   //   });
 
-  // const addPerk = (perkKey: string) =>
-  //   updateCharacter({ perkKeys: [...character.perkKeys, perkKey] });
-  // const removePerk = (perkKey: string) =>
-  //   updateCharacter({ perkKeys: character.perkKeys.filter(key => key !== perkKey) });
-
   // const addItem = (itemKey: string) =>
   //   updateCharacter({
   //     itemQuantities: [...character.itemQuantities, { key: itemKey, quantity: 1 }]
@@ -331,8 +335,10 @@ export const useCharacterClient = (
     attributes,
     setAttributeValue,
     setSkillValue,
+    perks,
+    addPerk,
+    removePerk
     // classAbilities,
-    // perks,
     // items,
     // itemWeight: getItemWeight(),
     // carryingCapacity: getCarryingCapacity(),
@@ -348,8 +354,6 @@ export const useCharacterClient = (
     // setClassItemDescription,
     // addClassAbility,
     // removeClassAbility,
-    // addPerk,
-    // removePerk,
     // addItem,
     // removeItem,
     // updateItemQuantity

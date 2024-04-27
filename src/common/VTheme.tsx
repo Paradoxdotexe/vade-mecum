@@ -12,6 +12,7 @@ const VARIABLES = {
     xxl: '64px'
   },
   fontSize: {
+    xxs: '13px',
     xs: '14px',
     sm: '15px',
     md: '16px',

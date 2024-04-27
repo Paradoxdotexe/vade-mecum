@@ -21,6 +21,7 @@ import { LevelCard } from './LevelCard';
 import { PartyGoalCard } from './PartyGoalCard';
 import { PersonalGoalCard } from './PersonalGoalCard';
 import { AttributeCard } from './AttributeCard';
+import { PerksCard } from './PerksCard';
 
 const StyledCharacterPage = styled(PageLayout)`
   .page__character {
@@ -141,6 +142,11 @@ export const CharacterPage: React.FC = () => {
                   <ClassPointsCard characterClient={characterClient} />
                 </div>
               )}
+            </div>
+
+            <div className="character__section">
+              <VHeader>Perks</VHeader>
+              <PerksCard characterClient={characterClient} />
             </div>
           </div>
         </div>

@@ -4,18 +4,19 @@ import styled from 'styled-components';
 const StyledVTable = styled.table`
   border-spacing: 0;
   width: 100%;
+  padding-inline: ${props => props.theme.variable.gap.sm};
 
   tr {
     &:not(:last-child) {
       td {
-        border-bottom: 1px solid #585858;
+        border-bottom: 1px solid ${props => props.theme.color.border.default};
       }
     }
 
     &.row--empty {
       td:first-child {
-        color: #a0a0a0;
-        font-size: 14px;
+        color: ${props => props.theme.color.text.tertiary};
+        font-size: ${props => props.theme.variable.fontSize.sm};
         font-weight: 400;
         line-height: 1;
       }
@@ -25,18 +26,18 @@ const StyledVTable = styled.table`
       cursor: pointer;
 
       &:hover {
-        background: #444444;
+        background: ${props => props.theme.color.background.hovered};
       }
     }
 
     &.row--disabled {
       cursor: default;
       pointer-events: none;
-      opacity: 0.5;
+      opacity: 0.6;
     }
 
     td {
-      padding: 12px;
+      padding: ${props => props.theme.variable.gap.md};
       line-height: 1.5;
 
       &:not(:last-child) {
@@ -45,7 +46,7 @@ const StyledVTable = styled.table`
       }
 
       &:first-child {
-        font-weight: 700;
+        font-weight: 600;
       }
     }
   }
