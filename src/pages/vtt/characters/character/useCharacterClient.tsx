@@ -164,6 +164,19 @@ export const useCharacterClient = (
   const setClassPoints = (classPoints: number) =>
     updateCharacter({ classPoints: Math.min(classPoints, maxHealthPoints) });
 
+  // ---------- LEVEL ----------- //
+  const level = character.level;
+  const levelUp = () => {
+    if (character.level < 24) {
+      updateCharacter({ level: character.level + 1, levelPoints: 0 });
+    }
+  };
+
+  const levelPoints = character.levelPoints;
+  const setLevelPoints = (levelPoints: number) => {
+    updateCharacter({ levelPoints: Math.min(Math.max(levelPoints, 0), 6) });
+  };
+
   // const maxSkillPointCount = 6 + character.level - 1;
   // const maxAttributePointCount = 12 + Math.floor(character.level / 4);
   // const maxClassAbilityCount = 1 + Math.floor(character.level / 3);
@@ -233,20 +246,6 @@ export const useCharacterClient = (
   // const setClassItemDescription = (classItemDescription?: string) =>
   //   updateCharacter({ classItemDescription });
 
-  // const setLevelPoints = (levelPoints: number) => {
-  //   updateCharacter({ levelPoints: levelPoints });
-  // };
-  // const addLevel = () => {
-  //   if (character.level < 24) {
-  //     updateCharacter({ level: character.level + 1, levelPoints: 0 });
-  //   }
-  // };
-  // const removeLevel = () => {
-  //   if (character.level > 1) {
-  //     updateCharacter({ level: character.level - 1 });
-  //   }
-  // };
-
   // const setAttributeValue = (attributeKey: AttributeKey, value: number) => {
   //   const attributes = structuredClone(character.attributes);
   //   attributes[attributeKey].value = value;
@@ -307,16 +306,15 @@ export const useCharacterClient = (
     speed,
     maxClassPoints,
     classPoints,
-    setClassPoints
-    //...character,
-    // class: characterClass,
+    setClassPoints,
+    level,
+    levelUp,
+    levelPoints,
+    setLevelPoints
     // classAbilities,
     // perks,
     // items,
     // itemWeight: getItemWeight(),
-    // speed: getSpeed(),
-    // maxHealthPoints: getMaxHealthPoints(),
-    // maxClassPoints: getMaxClassPoints(),
     // carryingCapacity: getCarryingCapacity(),
     // initiative: getInitiative(),
     // looting: getLooting(),
@@ -325,13 +323,8 @@ export const useCharacterClient = (
     // maxClassAbilityCount,
     // maxPerkCount,
     // setDescription,
-    // setHealthPoints,
-    // setLevelPoints,
-    // addLevel,
-    // removeLevel,
     // setSatiation,
     // setExhaustion,
-    // setClassPoints,
     // setClassItemDescription,
     // setAttributeValue,
     // setSkillValue,

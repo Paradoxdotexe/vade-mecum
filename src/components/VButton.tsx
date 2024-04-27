@@ -35,6 +35,7 @@ const Button = styled.button`
   &.button--small {
     gap: ${props => props.theme.variable.gap.sm};
     font-size: ${props => props.theme.variable.fontSize.xs};
+    padding: ${props => props.theme.variable.gap.sm};
   }
 
   &.button--large {

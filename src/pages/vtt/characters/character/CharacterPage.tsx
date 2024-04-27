@@ -17,6 +17,7 @@ import { useVTheme } from '@/common/VTheme';
 import { HealthPointsCard } from './HealthPointsCard';
 import { SpeedCard } from './SpeedCard';
 import { ClassPointsCard } from './ClassPointsCard';
+import { LevelCard } from './LevelCard';
 
 const StyledCharacterPage = styled(PageLayout)`
   .page__character {
@@ -115,6 +116,11 @@ export const CharacterPage: React.FC = () => {
                   <ClassPointsCard characterClient={characterClient} />
                 </div>
               )}
+
+              <div className="character__section">
+                <VHeader>Level</VHeader>
+                <LevelCard characterClient={characterClient} />
+              </div>
             </div>
           </div>
         </div>
