@@ -1,8 +1,9 @@
 import { capitalize, keyBy } from 'lodash-es';
-import { Character } from '../../types/Character';
+import { AttributeKey, Character } from '../../types/Character';
 import { CharacterComputations, WORLD_KIT } from '../../types/WorldKit';
 import { parseComputation } from '@/utils/parseComputation';
 import { PERKS } from '../../types/Perk';
+import { minMax } from '@/utils/minMax';
 
 const raceByKey = keyBy(WORLD_KIT.races, 'key');
 const classByKey = keyBy(WORLD_KIT.classes, 'key');
@@ -139,6 +140,30 @@ export const useCharacterClient = (
     });
   };
 
+  // ---------- GOALS ----------- //
+  const partyGoal = character.partyGoal;
+  const setPartyGoal = (partyGoal: string) => {
+    updateCharacter({ partyGoal });
+  };
+
+  const personalGoal = character.personalGoal;
+  const setPersonalGoal = (personalGoal: string) => {
+    updateCharacter({ personalGoal });
+  };
+
+  // ---------- LEVEL ----------- //
+  const level = character.level;
+  const levelUp = () => {
+    if (character.level < 24) {
+      updateCharacter({ level: character.level + 1, levelPoints: 0 });
+    }
+  };
+
+  const levelPoints = character.levelPoints;
+  const setLevelPoints = (levelPoints: number) => {
+    updateCharacter({ levelPoints: minMax(levelPoints, 0, 6) });
+  };
+
   // ---------- HEALTH POINTS ----------- //
   const maxHealthPoints = useCharacterComputation(
     character,
@@ -164,28 +189,17 @@ export const useCharacterClient = (
   const setClassPoints = (classPoints: number) =>
     updateCharacter({ classPoints: Math.min(classPoints, maxHealthPoints) });
 
-  // ---------- LEVEL ----------- //
-  const level = character.level;
-  const levelUp = () => {
-    if (character.level < 24) {
-      updateCharacter({ level: character.level + 1, levelPoints: 0 });
-    }
+  // ---------- ATTRIBUTES ----------- //
+  const attributes = character.attributes;
+  const setAttributeValue = (attributeKey: AttributeKey, value: number) => {
+    const attributes = structuredClone(character.attributes);
+    attributes[attributeKey].value = minMax(value, 1, 6);
+    updateCharacter({ attributes });
   };
-
-  const levelPoints = character.levelPoints;
-  const setLevelPoints = (levelPoints: number) => {
-    updateCharacter({ levelPoints: Math.min(Math.max(levelPoints, 0), 6) });
-  };
-
-  // ---------- GOALS ----------- //
-  const partyGoal = character.partyGoal;
-  const setPartyGoal = (partyGoal: string) => {
-    updateCharacter({ partyGoal });
-  };
-
-  const personalGoal = character.personalGoal;
-  const setPersonalGoal = (personalGoal: string) => {
-    updateCharacter({ personalGoal });
+  const setSkillValue = (attributeKey: AttributeKey, skillKey: string, value: number) => {
+    const attributes = structuredClone(character.attributes);
+    attributes[attributeKey].skills[skillKey].value = minMax(value, 0, 3);
+    updateCharacter({ attributes });
   };
 
   // const maxSkillPointCount = 6 + character.level - 1;
@@ -257,18 +271,6 @@ export const useCharacterClient = (
   // const setClassItemDescription = (classItemDescription?: string) =>
   //   updateCharacter({ classItemDescription });
 
-  // const setAttributeValue = (attributeKey: AttributeKey, value: number) => {
-  //   const attributes = structuredClone(character.attributes);
-  //   attributes[attributeKey].value = value;
-  //   updateCharacter({ attributes });
-  // };
-
-  // const setSkillValue = (attributeKey: AttributeKey, skillKey: string, value: number) => {
-  //   const attributes = structuredClone(character.attributes);
-  //   attributes[attributeKey].skills[skillKey].value = value;
-  //   updateCharacter({ attributes });
-  // };
-
   // const addClassAbility = (classAbilityKey: string) =>
   //   updateCharacter({ classAbilityKeys: [...character.classAbilityKeys, classAbilityKey] });
   // const removeClassAbility = (classAbilityKey: string) =>
@@ -311,6 +313,14 @@ export const useCharacterClient = (
     setRace,
     class: _class,
     setClass,
+    partyGoal,
+    setPartyGoal,
+    personalGoal,
+    setPersonalGoal,
+    level,
+    levelUp,
+    levelPoints,
+    setLevelPoints,
     maxHealthPoints,
     healthPoints,
     setHealthPoints,
@@ -318,14 +328,9 @@ export const useCharacterClient = (
     maxClassPoints,
     classPoints,
     setClassPoints,
-    level,
-    levelUp,
-    levelPoints,
-    setLevelPoints,
-    partyGoal,
-    setPartyGoal,
-    personalGoal,
-    setPersonalGoal
+    attributes,
+    setAttributeValue,
+    setSkillValue,
     // classAbilities,
     // perks,
     // items,
@@ -341,8 +346,6 @@ export const useCharacterClient = (
     // setSatiation,
     // setExhaustion,
     // setClassItemDescription,
-    // setAttributeValue,
-    // setSkillValue,
     // addClassAbility,
     // removeClassAbility,
     // addPerk,

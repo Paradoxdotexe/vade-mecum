@@ -50,6 +50,7 @@ const StyledSideNav = styled.div`
       font-size: ${props => props.theme.variable.fontSize.sm};
       cursor: pointer;
       opacity: 0.6;
+      transition: all ease 150ms;
 
       &.item--active,
       &:has(.subItem--active) {
@@ -80,6 +81,7 @@ const StyledSideNav = styled.div`
           padding: ${props => props.theme.variable.gap.md};
           font-size: ${props => props.theme.variable.fontSize.sm};
           opacity: 0.6;
+          transition: all ease 150ms;
 
           &.subItem--active,
           &:hover {

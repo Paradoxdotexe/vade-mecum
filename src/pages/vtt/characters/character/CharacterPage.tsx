@@ -5,7 +5,7 @@ import { VButton } from '@/components/VButton';
 import { ReactComponent as TrashCanIcon } from '@/icons/TrashCan.svg';
 import { useGetQuery } from '@/common/useGetQuery';
 import { useParams } from 'react-router-dom';
-import { Character } from '../../types/Character';
+import { AttributeKey, Character } from '../../types/Character';
 import { useCharacterClient } from './useCharacterClient';
 import { NameCard } from './NameCard';
 import styled from 'styled-components';
@@ -20,6 +20,7 @@ import { ClassPointsCard } from './ClassPointsCard';
 import { LevelCard } from './LevelCard';
 import { PartyGoalCard } from './PartyGoalCard';
 import { PersonalGoalCard } from './PersonalGoalCard';
+import { AttributeCard } from './AttributeCard';
 
 const StyledCharacterPage = styled(PageLayout)`
   .page__character {
@@ -30,7 +31,6 @@ const StyledCharacterPage = styled(PageLayout)`
       display: flex;
       flex-direction: column;
       gap: ${props => props.theme.variable.gap.lg};
-      width: 250px; // TODO: Remove
     }
 
     .character__right {
@@ -98,6 +98,17 @@ export const CharacterPage: React.FC = () => {
                 <RaceCard characterClient={characterClient} style={{ flex: 1 }} />
                 <ClassCard characterClient={characterClient} style={{ flex: 1 }} />
               </VFlex>
+            </div>
+
+            <div className="character__section">
+              <VHeader>Attributes / Skills</VHeader>
+              {Object.keys(characterClient.attributes).map(key => (
+                <AttributeCard
+                  key={key}
+                  characterClient={characterClient}
+                  attributeKey={key as AttributeKey}
+                />
+              ))}
             </div>
           </div>
 

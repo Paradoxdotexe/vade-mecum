@@ -44,8 +44,8 @@ const DEFAULT_CHARACTER_DEFINITION = {
   personalGoal: '',
   level: 1,
   levelPoints: 0,
-  satiation: 0,
-  exhaustion: 0,
+  healthPoints: 0,
+  classPoints: 0,
   attributes: {
     strength: {
       label: 'Strength',
@@ -53,7 +53,8 @@ const DEFAULT_CHARACTER_DEFINITION = {
       skills: {
         power: { label: 'Power', value: 0 },
         fortitude: { label: 'Fortitude', value: 0 },
-        athletics: { label: 'Athletics', value: 0 }
+        athletics: { label: 'Athletics', value: 0 },
+        honor: { label: 'Honor', value: 0 }
       }
     },
     dexterity: {
@@ -94,8 +95,8 @@ const DEFAULT_CHARACTER_DEFINITION = {
       }
     }
   },
-  healthPoints: 12,
-  classPoints: 0,
+  satiation: 0,
+  exhaustion: 0,
   perkKeys: [],
   classAbilityKeys: [],
   itemQuantities: [{ key: 'currency', quantity: 0 }]

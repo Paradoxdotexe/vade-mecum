@@ -61,7 +61,7 @@ type Attributes = {
 
 export type AttributeKey = keyof Attributes;
 
-// if CharacterDefinition is updated, DEFAULT_CHARACTER_DEFINITION in the API must be updated accordingly
+// if CharacterDefinition is updated, DEFAULT_CHARACTER_DEFINITION and CHARACTER_MIGRATIONS in the API must be updated accordingly
 export type CharacterDefinition = {
   name: string;
   raceKey: string;
@@ -70,12 +70,12 @@ export type CharacterDefinition = {
   personalGoal: string;
   level: number;
   levelPoints: number;
+  healthPoints: number;
+  classPoints: number;
+  attributes: Attributes;
   classItemDescription?: string;
   satiation: number;
   exhaustion: number;
-  attributes: Attributes;
-  healthPoints: number;
-  classPoints: number;
   perkKeys: string[];
   classAbilityKeys: string[];
   itemQuantities: { key: string; quantity: number }[];

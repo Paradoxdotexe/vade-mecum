@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 const StyledVFlex = styled.div<{ $vertical?: boolean }>`
   display: flex;
-  align-items: center;
   flex-direction: ${props => (props.$vertical ? 'column' : 'row')};
 `;
 
