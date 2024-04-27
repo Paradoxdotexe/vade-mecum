@@ -11,6 +11,7 @@ const StyledVInput = styled.input`
   font-size: ${props => props.theme.variable.fontSize.md};
   font-family: ${props => props.theme.variable.fontFamily.default};
   width: 100%;
+  text-overflow: ellipsis;
 
   &::placeholder {
     color: ${props => props.theme.color.text.tertiary};

@@ -3,6 +3,7 @@ import { Character } from '../../types/Character';
 import { CharacterComputations, WORLD_KIT } from '../../types/WorldKit';
 import { parseComputation } from '@/utils/parseComputation';
 import { PERKS } from '../../types/Perk';
+import { useState } from 'react';
 
 const raceByKey = keyBy(WORLD_KIT.races, 'key');
 const classByKey = keyBy(WORLD_KIT.classes, 'key');
@@ -90,6 +91,10 @@ export const useCharacterClient = (
   value: Character | undefined,
   onChange: (character: Character) => void
 ) => {
+  // ---------- TEMPORARY GOALS ----------- //
+  const [partyGoal, setPartyGoal] = useState('');
+  const [personalGoal, setPersonalGoal] = useState('');
+
   if (!value) {
     return undefined;
   }
@@ -310,7 +315,11 @@ export const useCharacterClient = (
     level,
     levelUp,
     levelPoints,
-    setLevelPoints
+    setLevelPoints,
+    partyGoal,
+    setPartyGoal,
+    personalGoal,
+    setPersonalGoal
     // classAbilities,
     // perks,
     // items,

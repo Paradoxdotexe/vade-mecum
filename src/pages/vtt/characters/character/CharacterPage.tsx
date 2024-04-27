@@ -18,6 +18,8 @@ import { HealthPointsCard } from './HealthPointsCard';
 import { SpeedCard } from './SpeedCard';
 import { ClassPointsCard } from './ClassPointsCard';
 import { LevelCard } from './LevelCard';
+import { PartyGoalCard } from './PartyGoalCard';
+import { PersonalGoalCard } from './PersonalGoalCard';
 
 const StyledCharacterPage = styled(PageLayout)`
   .page__character {
@@ -35,6 +37,7 @@ const StyledCharacterPage = styled(PageLayout)`
       display: flex;
       flex-direction: column;
       gap: ${props => props.theme.variable.gap.lg};
+      flex: 1;
 
       .right__top {
         display: flex;
@@ -100,6 +103,17 @@ export const CharacterPage: React.FC = () => {
 
           <div className="character__right">
             <div className="right__top">
+              <div className="character__section" style={{ flex: 1 }}>
+                <VHeader>Party Goal / Personal Goal</VHeader>
+                <PartyGoalCard characterClient={characterClient} />
+                <PersonalGoalCard characterClient={characterClient} />
+              </div>
+
+              <div className="character__section">
+                <VHeader>Level</VHeader>
+                <LevelCard characterClient={characterClient} />
+              </div>
+
               <div className="character__section">
                 <VHeader>Health Points</VHeader>
                 <HealthPointsCard characterClient={characterClient} />
@@ -116,11 +130,6 @@ export const CharacterPage: React.FC = () => {
                   <ClassPointsCard characterClient={characterClient} />
                 </div>
               )}
-
-              <div className="character__section">
-                <VHeader>Level</VHeader>
-                <LevelCard characterClient={characterClient} />
-              </div>
             </div>
           </div>
         </div>
