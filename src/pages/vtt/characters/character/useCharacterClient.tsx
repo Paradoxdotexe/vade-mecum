@@ -3,7 +3,6 @@ import { Character } from '../../types/Character';
 import { CharacterComputations, WORLD_KIT } from '../../types/WorldKit';
 import { parseComputation } from '@/utils/parseComputation';
 import { PERKS } from '../../types/Perk';
-import { useState } from 'react';
 
 const raceByKey = keyBy(WORLD_KIT.races, 'key');
 const classByKey = keyBy(WORLD_KIT.classes, 'key');
@@ -91,10 +90,6 @@ export const useCharacterClient = (
   value: Character | undefined,
   onChange: (character: Character) => void
 ) => {
-  // ---------- TEMPORARY GOALS ----------- //
-  const [partyGoal, setPartyGoal] = useState('');
-  const [personalGoal, setPersonalGoal] = useState('');
-
   if (!value) {
     return undefined;
   }
@@ -180,6 +175,17 @@ export const useCharacterClient = (
   const levelPoints = character.levelPoints;
   const setLevelPoints = (levelPoints: number) => {
     updateCharacter({ levelPoints: Math.min(Math.max(levelPoints, 0), 6) });
+  };
+
+  // ---------- GOALS ----------- //
+  const partyGoal = character.partyGoal;
+  const setPartyGoal = (partyGoal: string) => {
+    updateCharacter({ partyGoal });
+  };
+
+  const personalGoal = character.personalGoal;
+  const setPersonalGoal = (personalGoal: string) => {
+    updateCharacter({ personalGoal });
   };
 
   // const maxSkillPointCount = 6 + character.level - 1;

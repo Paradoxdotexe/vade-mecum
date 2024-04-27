@@ -115,3 +115,19 @@ export const handlerResolver = async (
     }
   }));
 };
+
+const CHARACTER_MIGRATIONS: ((character: any) => void)[] = [
+  character => {
+    delete character.description;
+    character.partyGoal = '';
+    character.personalGoal = '';
+  }
+];
+
+export const parseCharacterDefinition = (definition: string, version: number) => {
+  const character = JSON.parse(definition);
+  for (const migration of CHARACTER_MIGRATIONS.slice(version - 1)) {
+    migration(character);
+  }
+  return character;
+};

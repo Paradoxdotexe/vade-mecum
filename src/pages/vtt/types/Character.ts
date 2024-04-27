@@ -64,11 +64,12 @@ export type AttributeKey = keyof Attributes;
 // if CharacterDefinition is updated, DEFAULT_CHARACTER_DEFINITION in the API must be updated accordingly
 export type CharacterDefinition = {
   name: string;
-  description: string;
-  level: number;
-  levelPoints: number;
   raceKey: string;
   classKey: string;
+  partyGoal: string;
+  personalGoal: string;
+  level: number;
+  levelPoints: number;
   classItemDescription?: string;
   satiation: number;
   exhaustion: number;
