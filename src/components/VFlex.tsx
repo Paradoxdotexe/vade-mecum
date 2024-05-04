@@ -12,8 +12,8 @@ type VFlexProps = {
   children: ReactNode;
   className?: string;
   style?: React.CSSProperties;
-  align?: 'stretch' | 'center' | 'start' | 'end';
-  justify?: 'start' | 'center' | 'space-between' | 'space-around' | 'space-evenly';
+  align?: 'center' | 'start' | 'end' | 'stretch';
+  justify?: 'start' | 'center' | 'end' | 'space-between';
   vertical?: boolean;
   gap?: number | string;
 };

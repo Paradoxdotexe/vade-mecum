@@ -222,19 +222,43 @@ export const useCharacterClient = (
     });
   };
 
+  // ---------- INVENTORY ITEMS ----------- //
+  const items = character.itemQuantities.map(({ key, quantity }) => {
+    const item = WORLD_KIT.items.find(item => item.key === key)!;
+    return { ...item, quantity };
+  });
+  const itemWeight = items.reduce((weight, item) => weight + (item.weight ?? 0) * item.quantity, 0);
+
+  const addItem = (itemKey: string) =>
+    updateCharacter({
+      itemQuantities: [...character.itemQuantities, { key: itemKey, quantity: 1 }]
+    });
+  const removeItem = (itemKey: string) =>
+    updateCharacter({
+      itemQuantities: character.itemQuantities.filter(item => item.key !== itemKey)
+    });
+  const setItemQuantity = (itemKey: string, quantity: number) => {
+    const item = items.find(item => item.key === itemKey);
+    if (item) {
+      // if quantity is reduced to zero, remove item
+      // check for item.type to avoid removing currency
+      if (quantity === 0 && item.type) {
+        removeItem(itemKey);
+      } else {
+        const itemQuantities = structuredClone(character.itemQuantities);
+
+        const item = itemQuantities.find(item => item.key === itemKey)!;
+        item.quantity = quantity;
+
+        updateCharacter({ itemQuantities });
+      }
+    }
+  };
+
   // const maxSkillPointCount = 6 + character.level - 1;
   // const maxAttributePointCount = 12 + Math.floor(character.level / 4);
   // const maxClassAbilityCount = 1 + Math.floor(character.level / 3);
   // const maxPerkCount = 1 + Math.floor(character.level / 2);
-
-  // const items = character.itemQuantities.map(({ key, quantity }) => {
-  //   const item = WORLD_KITS.vale_of_myths.items[key];
-  //   return {
-  //     key,
-  //     quantity,
-  //     ...item
-  //   };
-  // });
 
   // const getCarryingCapacity = () => {
   //   const baseCarryingCapacity = parseComputation(
@@ -279,10 +303,6 @@ export const useCharacterClient = (
   //   return parseComputation('[level] + [skill.luck]', computationVariables);
   // };
 
-  // const getItemWeight = () => {
-  //   return items.reduce((sum, item) => sum + (item.weight ?? 0) * item.quantity, 0);
-  // };
-
   // const setDescription = (description: string) => updateCharacter({ description });
   // const setHealthPoints = (healthPoints: number) =>
   //   updateCharacter({ healthPoints: Math.min(healthPoints, getMaxHealthPoints()) });
@@ -290,28 +310,6 @@ export const useCharacterClient = (
   // const setExhaustion = (exhaustion: number) => updateCharacter({ exhaustion });
   // const setClassItemDescription = (classItemDescription?: string) =>
   //   updateCharacter({ classItemDescription });
-
-  // const addItem = (itemKey: string) =>
-  //   updateCharacter({
-  //     itemQuantities: [...character.itemQuantities, { key: itemKey, quantity: 1 }]
-  //   });
-  // const removeItem = (itemKey: string) =>
-  //   updateCharacter({
-  //     itemQuantities: character.itemQuantities.filter(item => item.key !== itemKey)
-  //   });
-  // const updateItemQuantity = (itemKey: string, quantity: number) => {
-  //   if (quantity === 0 && items.find(item => item.key === itemKey)?.type) {
-  //     removeItem(itemKey);
-  //   } else {
-  //     const itemQuantities = [...character.itemQuantities];
-  //     const item = itemQuantities.find(item => item.key === itemKey);
-
-  //     if (item) {
-  //       item.quantity = quantity;
-  //       updateCharacter({ itemQuantities });
-  //     }
-  //   }
-  // };
 
   return {
     id: character.id,
@@ -344,9 +342,12 @@ export const useCharacterClient = (
     removePerk,
     classAbilities,
     addClassAbility,
-    removeClassAbility
-    // items,
-    // itemWeight: getItemWeight(),
+    removeClassAbility,
+    items,
+    itemWeight,
+    addItem,
+    removeItem,
+    setItemQuantity
     // carryingCapacity: getCarryingCapacity(),
     // initiative: getInitiative(),
     // looting: getLooting(),
@@ -358,9 +359,6 @@ export const useCharacterClient = (
     // setSatiation,
     // setExhaustion,
     // setClassItemDescription,
-    // addItem,
-    // removeItem,
-    // updateItemQuantity
   };
 };
 

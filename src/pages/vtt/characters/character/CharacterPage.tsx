@@ -26,6 +26,7 @@ import { PerksDrawer } from './drawers/PerksDrawer';
 import { ReactComponent as EditIcon } from '@/icons/Edit.svg';
 import { ClassAbilitiesCard } from './cards/ClassAbilitiesCard';
 import { ClassAbilitiesDrawer } from './drawers/ClassAbilitiesDrawer';
+import { InventoryCard } from './cards/InventoryCard';
 
 const EditButton: React.FC<VButtonProps> = props => (
   <VButton {...props} type="ghost" size="small">
@@ -181,6 +182,15 @@ export const CharacterPage: React.FC = () => {
                 onClose={() => setClassAbilitiesDrawerOpen(false)}
                 characterClient={characterClient}
               />
+            </div>
+
+            <div className="character__section">
+              <VHeader>
+                <VFlex align="center" gap={theme.variable.gap.sm}>
+                  Inventory <EditButton />
+                </VFlex>
+              </VHeader>
+              <InventoryCard characterClient={characterClient} />
             </div>
           </div>
         </div>

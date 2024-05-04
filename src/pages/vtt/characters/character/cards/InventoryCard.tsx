@@ -1,0 +1,81 @@
+import React from 'react';
+import { VCard } from '@/components/VCard';
+import styled from 'styled-components';
+import { VTable } from '@/components/VTable';
+import { ReactComponent as WeightIcon } from '@/icons/Weight.svg';
+import { VNumberInput } from '@/components/VNumberInput';
+import { CharacterClient } from '../useCharacterClient';
+import { useVTheme } from '@/common/VTheme';
+import { VFlex } from '@/components/VFlex';
+import { Item } from '@/pages/vtt/types/Item';
+import { capitalize } from 'lodash-es';
+
+export const getItemDescription = (item: Item) => {
+  const descriptionParts = [];
+
+  if (item.bonus) {
+    descriptionParts.push(`+${item.bonus.skillBonus} to ${capitalize(item.bonus.skillKey)}`);
+  }
+  if (item.damage) {
+    descriptionParts.push(`${item.damage}D6 damage`);
+  }
+  if (item.notes) {
+    descriptionParts.push(item.notes);
+  }
+
+  return descriptionParts.join(', ');
+};
+
+const StyledInventoryCard = styled(VCard)`
+  padding: 0;
+  max-height: 300px;
+  overflow: auto;
+`;
+
+type InventoryCardProps = {
+  characterClient: CharacterClient;
+};
+
+export const InventoryCard: React.FC<InventoryCardProps> = props => {
+  const theme = useVTheme();
+
+  return (
+    <>
+      <StyledInventoryCard>
+        <VTable
+          columns={[
+            {
+              key: 'name',
+              render: item => (
+                <VFlex gap={theme.variable.gap.md} align="center">
+                  {item.name}
+                  <VNumberInput
+                    value={item.quantity}
+                    onChange={value => props.characterClient.setItemQuantity(item.key, value)}
+                  />
+                </VFlex>
+              )
+            },
+            {
+              key: 'description',
+              render: item => getItemDescription(item),
+              width: '100%'
+            },
+            {
+              key: 'weight',
+              render: item =>
+                item.weight && (
+                  <VFlex gap={theme.variable.gap.sm} align="center" justify="end">
+                    {(item.quantity * item.weight).toFixed(2)}
+                    <WeightIcon style={{ fontSize: 20 }} />
+                  </VFlex>
+                )
+            }
+          ]}
+          rows={props.characterClient.items}
+          emptyMessage="You have no inventory items."
+        />
+      </StyledInventoryCard>
+    </>
+  );
+};

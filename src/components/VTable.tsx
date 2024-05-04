@@ -41,7 +41,6 @@ const StyledVTable = styled.table`
       &:not(:last-child) {
         white-space: nowrap;
         vertical-align: baseline;
-        border-right: 1px solid ${props => props.theme.color.border.default};
       }
 
       &:first-child {
