@@ -270,10 +270,35 @@ export const useCharacterClient = (
   const setExhaustion = (exhaustion: number) =>
     updateCharacter({ exhaustion: minMax(exhaustion, 0, 3) });
 
-  // const maxSkillPointCount = 6 + character.level - 1;
-  // const maxAttributePointCount = 12 + Math.floor(character.level / 4);
-  // const maxClassAbilityCount = 1 + Math.floor(character.level / 3);
-  // const maxPerkCount = 1 + Math.floor(character.level / 2);
+  // ---------- ACQUISITION AVAILABILITY ----------- //
+
+  // compute number of attributes/skills to be acquired
+  const expectedAttributePoints = 12 + Math.floor(character.level / 4);
+  const expectedSkillPoints = 6 + character.level - 1;
+
+  let currentAttributePoints = 0;
+  let currentSkillPoints = 0;
+  for (const attribute of Object.values(character.attributes)) {
+    currentAttributePoints += attribute.value;
+    for (const skill of Object.values(attribute.skills)) {
+      currentSkillPoints += skill.value;
+    }
+  }
+
+  const attributePointsToAcquire = expectedAttributePoints - currentAttributePoints;
+  const skillPointsToAcquire = expectedSkillPoints - currentSkillPoints;
+
+  // compute number of class abilities to be acquired
+  const expectedClassAbilities = 1 + Math.floor(character.level / 3);
+  const currentClassAbilities = character.classAbilityKeys.length;
+
+  const classAbilitiesToAcquire = expectedClassAbilities - currentClassAbilities;
+
+  // compute number of perks to be acquired
+  const expectedPerks = 1 + Math.floor(character.level / 2);
+  const currentPerks = character.perkKeys.length;
+
+  const perksToAcquire = expectedPerks - currentPerks;
 
   // const getInitiative = () => {
   //   const baseInitiative = parseComputation(
@@ -340,14 +365,14 @@ export const useCharacterClient = (
     satiation,
     setSatiation,
     exhaustion,
-    setExhaustion
+    setExhaustion,
+    attributePointsToAcquire,
+    skillPointsToAcquire,
+    perksToAcquire,
+    classAbilitiesToAcquire
     // carryingCapacity: getCarryingCapacity(),
     // initiative: getInitiative(),
     // looting: getLooting(),
-    // maxSkillPointCount,
-    // maxAttributePointCount,
-    // maxClassAbilityCount,
-    // maxPerkCount,
   };
 };
 

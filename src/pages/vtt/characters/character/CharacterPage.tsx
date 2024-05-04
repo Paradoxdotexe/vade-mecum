@@ -30,6 +30,9 @@ import { ClassAbilitiesDrawer } from './drawers/ClassAbilitiesDrawer';
 import { InventoryCard } from './cards/InventoryCard';
 import { ItemsDrawer } from './drawers/ItemsDrawer';
 import { SatiationExhaustionCard } from './cards/SatiationExhaustionCard';
+import { pluralize } from '@/utils/pluralize';
+import { pulsingFailure, pulsingSuccess } from '@/styles/pulsingBackground';
+import { VTag } from '@/components/VTag';
 
 const EditButton: React.FC<VButtonProps> = props => (
   <VButton {...props} type="ghost" size="small">
@@ -55,6 +58,20 @@ const ItemWeight: React.FC<{ characterClient: CharacterClient }> = props => {
       {itemWeight.toFixed(2)} / {carryingCapacity.toFixed(2)}
       <WeightIcon fontSize={20} />
     </VFlex>
+  );
+};
+
+const StyledAcquisitionIndicator = styled(VTag)<{ $success: boolean }>`
+  ${props => (props.$success ? pulsingSuccess : pulsingFailure)}
+`;
+
+const AcquisitionIndicator: React.FC<{ label: string; count: number }> = props => {
+  if (props.count === 0) return null;
+  return (
+    <StyledAcquisitionIndicator $success={props.count > 0}>
+      {props.count > 0 ? '+' : '-'}
+      {Math.abs(props.count)} {pluralize(props.label, Math.abs(props.count))}
+    </StyledAcquisitionIndicator>
   );
 };
 
@@ -139,7 +156,18 @@ export const CharacterPage: React.FC = () => {
             </div>
 
             <div className="character__section">
-              <VHeader>Attributes / Skills</VHeader>
+              <VHeader>
+                <VFlex align="center" justify="space-between" style={{ width: '100%' }}>
+                  Attributes / Skills
+                  <AcquisitionIndicator
+                    label={!characterClient.attributePointsToAcquire ? 'skill' : 'attribute'}
+                    count={
+                      characterClient.attributePointsToAcquire ||
+                      characterClient.skillPointsToAcquire
+                    }
+                  />
+                </VFlex>
+              </VHeader>
               {Object.keys(characterClient.attributes).map(key => (
                 <AttributeCard
                   key={key}
@@ -187,8 +215,11 @@ export const CharacterPage: React.FC = () => {
 
             <div className="character__section">
               <VHeader>
-                <VFlex align="center" gap={theme.variable.gap.sm}>
-                  Perks <EditButton onClick={() => setPerksDrawerOpen(true)} />
+                <VFlex align="center" justify="space-between" style={{ width: '100%' }}>
+                  <VFlex align="center" gap={theme.variable.gap.sm}>
+                    Perks <EditButton onClick={() => setPerksDrawerOpen(true)} />
+                  </VFlex>
+                  <AcquisitionIndicator label="perk" count={characterClient.perksToAcquire} />
                 </VFlex>
               </VHeader>
               <PerksCard characterClient={characterClient} />
@@ -201,8 +232,14 @@ export const CharacterPage: React.FC = () => {
 
             <div className="character__section">
               <VHeader>
-                <VFlex align="center" gap={theme.variable.gap.sm}>
-                  Class Abilities <EditButton onClick={() => setClassAbilitiesDrawerOpen(true)} />
+                <VFlex align="center" justify="space-between" style={{ width: '100%' }}>
+                  <VFlex align="center" gap={theme.variable.gap.sm}>
+                    Class Abilities <EditButton onClick={() => setClassAbilitiesDrawerOpen(true)} />
+                  </VFlex>
+                  <AcquisitionIndicator
+                    label="class ability"
+                    count={characterClient.classAbilitiesToAcquire}
+                  />
                 </VFlex>
               </VHeader>
               <ClassAbilitiesCard characterClient={characterClient} />
@@ -215,7 +252,7 @@ export const CharacterPage: React.FC = () => {
 
             <div className="character__section">
               <VHeader>
-                <VFlex justify="space-between" style={{ width: '100%' }}>
+                <VFlex align="center" justify="space-between" style={{ width: '100%' }}>
                   <VFlex align="center" gap={theme.variable.gap.sm}>
                     Inventory <EditButton onClick={() => setItemsDrawerOpen(true)} />
                   </VFlex>
