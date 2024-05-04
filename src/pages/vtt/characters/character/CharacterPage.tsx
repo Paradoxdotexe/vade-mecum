@@ -27,6 +27,7 @@ import { ReactComponent as EditIcon } from '@/icons/Edit.svg';
 import { ClassAbilitiesCard } from './cards/ClassAbilitiesCard';
 import { ClassAbilitiesDrawer } from './drawers/ClassAbilitiesDrawer';
 import { InventoryCard } from './cards/InventoryCard';
+import { ItemsDrawer } from './drawers/ItemsDrawer';
 
 const EditButton: React.FC<VButtonProps> = props => (
   <VButton {...props} type="ghost" size="small">
@@ -88,6 +89,7 @@ export const CharacterPage: React.FC = () => {
 
   const [perksDrawerOpen, setPerksDrawerOpen] = useState(false);
   const [classAbilitiesDrawerOpen, setClassAbilitiesDrawerOpen] = useState(false);
+  const [itemsDrawerOpen, setItemsDrawerOpen] = useState(false);
 
   return (
     <StyledCharacterPage>
@@ -187,10 +189,15 @@ export const CharacterPage: React.FC = () => {
             <div className="character__section">
               <VHeader>
                 <VFlex align="center" gap={theme.variable.gap.sm}>
-                  Inventory <EditButton />
+                  Inventory <EditButton onClick={() => setItemsDrawerOpen(true)} />
                 </VFlex>
               </VHeader>
               <InventoryCard characterClient={characterClient} />
+              <ItemsDrawer
+                open={itemsDrawerOpen}
+                onClose={() => setItemsDrawerOpen(false)}
+                characterClient={characterClient}
+              />
             </div>
           </div>
         </div>

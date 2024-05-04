@@ -1725,14 +1725,14 @@ const VALE_OF_MYTHS: WorldKit = {
       key: 'simple_lodging',
       type: ItemType.LODGING,
       name: 'Simple Lodging',
-      cost: '4D6 CU',
+      cost: '4D6',
       notes: 'A warm place to sleep, +2 to Rest Activity rolls'
     },
     {
       key: 'fancy_lodging',
       type: ItemType.LODGING,
       name: 'Fancy Lodging',
-      cost: '8D6 CU',
+      cost: '8D6',
       notes: 'A warm and safe place to sleep, +3 to Rest Activity rolls'
     }
   ]
