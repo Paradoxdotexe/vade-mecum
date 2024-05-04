@@ -3,10 +3,11 @@ import { PageHeader } from '@/common/PageHeader';
 import { PageLayout } from '@/common/PageLayout';
 import { VButton, VButtonProps } from '@/components/VButton';
 import { ReactComponent as TrashCanIcon } from '@/icons/TrashCan.svg';
+import { ReactComponent as WeightIcon } from '@/icons/Weight.svg';
 import { useGetQuery } from '@/common/useGetQuery';
 import { useParams } from 'react-router-dom';
 import { AttributeKey, Character } from '../../types/Character';
-import { useCharacterClient } from './useCharacterClient';
+import { CharacterClient, useCharacterClient } from './useCharacterClient';
 import { NameCard } from './cards/NameCard';
 import styled from 'styled-components';
 import { VHeader } from '@/components/VHeader';
@@ -35,6 +36,27 @@ const EditButton: React.FC<VButtonProps> = props => (
     <EditIcon />
   </VButton>
 );
+
+const ItemWeight: React.FC<{ characterClient: CharacterClient }> = props => {
+  const theme = useVTheme();
+
+  const { itemWeight, carryingCapacity } = props.characterClient;
+
+  const overCarryingCapacity = itemWeight > carryingCapacity;
+
+  return (
+    <VFlex
+      align="center"
+      gap={theme.variable.gap.sm}
+      style={{
+        color: overCarryingCapacity ? theme.color.status.failure.text : undefined
+      }}
+    >
+      {itemWeight.toFixed(2)} / {carryingCapacity.toFixed(2)}
+      <WeightIcon fontSize={20} />
+    </VFlex>
+  );
+};
 
 const StyledCharacterPage = styled(PageLayout)`
   .page__character {
@@ -193,8 +215,11 @@ export const CharacterPage: React.FC = () => {
 
             <div className="character__section">
               <VHeader>
-                <VFlex align="center" gap={theme.variable.gap.sm}>
-                  Inventory <EditButton onClick={() => setItemsDrawerOpen(true)} />
+                <VFlex justify="space-between" style={{ width: '100%' }}>
+                  <VFlex align="center" gap={theme.variable.gap.sm}>
+                    Inventory <EditButton onClick={() => setItemsDrawerOpen(true)} />
+                  </VFlex>
+                  <ItemWeight characterClient={characterClient} />
                 </VFlex>
               </VHeader>
               <InventoryCard characterClient={characterClient} />

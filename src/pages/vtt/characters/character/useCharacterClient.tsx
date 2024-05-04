@@ -254,6 +254,13 @@ export const useCharacterClient = (
     }
   };
 
+  // ---------- CARRYING CAPACITY ----------- //
+  const carryingCapacity = useCharacterComputation(
+    character,
+    'carryingCapacity',
+    '([attribute.strength] + [skill.fortitude]) * 3'
+  );
+
   // ---------- SATIATION & EXHAUSTION ----------- //
   const satiation = character.satiation;
   const setSatiation = (satiation: number) =>
@@ -267,25 +274,6 @@ export const useCharacterClient = (
   // const maxAttributePointCount = 12 + Math.floor(character.level / 4);
   // const maxClassAbilityCount = 1 + Math.floor(character.level / 3);
   // const maxPerkCount = 1 + Math.floor(character.level / 2);
-
-  // const getCarryingCapacity = () => {
-  //   const baseCarryingCapacity = parseComputation(
-  //     '([attribute.strength] + [skill.fortitude]) * 3',
-  //     computationVariables
-  //   );
-
-  //   // check for perk enhancement
-  //   const perkCarryingCapacityComputation = perks.find(perk => perk.computed?.carryingCapacity)
-  //     ?.computed?.carryingCapacity;
-  //   if (perkCarryingCapacityComputation) {
-  //     return parseComputation(perkCarryingCapacityComputation, {
-  //       base: baseCarryingCapacity,
-  //       ...computationVariables
-  //     });
-  //   }
-
-  //   return baseCarryingCapacity;
-  // };
 
   // const getInitiative = () => {
   //   const baseInitiative = parseComputation(
@@ -348,6 +336,7 @@ export const useCharacterClient = (
     addItem,
     removeItem,
     setItemQuantity,
+    carryingCapacity,
     satiation,
     setSatiation,
     exhaustion,

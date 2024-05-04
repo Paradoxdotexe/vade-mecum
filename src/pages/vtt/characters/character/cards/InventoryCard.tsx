@@ -60,7 +60,7 @@ export const InventoryCard: React.FC<InventoryCardProps> = props => {
                 item.weight && (
                   <VFlex gap={theme.variable.gap.sm} align="center" justify="end">
                     {(item.quantity * item.weight).toFixed(2)}
-                    <WeightIcon style={{ fontSize: 20 }} />
+                    <WeightIcon fontSize={20} />
                   </VFlex>
                 )
             }

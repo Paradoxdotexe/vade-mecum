@@ -54,13 +54,15 @@ export const VNumberInput: React.FC<VNumberInputProps> = props => {
   }, [rawValue, max, min]);
 
   const onBlur = () => {
+    const newValue = parseInt(rawValue);
     if (!validated) {
-      const newValue = parseInt(rawValue);
       if (Number.isNaN(newValue) || newValue < min || !max) {
         setRawValue(min.toString());
       } else {
         setRawValue(max.toString());
       }
+    } else {
+      setRawValue(newValue.toString());
     }
   };
 
