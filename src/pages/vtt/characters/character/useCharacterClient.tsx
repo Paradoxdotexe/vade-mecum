@@ -211,6 +211,17 @@ export const useCharacterClient = (
     updateCharacter({ perkKeys: character.perkKeys.filter(key => key != perkKey) });
   };
 
+  // ---------- CLASS ABILITIES ----------- //
+  const classAbilities = getClassAbilities(character);
+  const addClassAbility = (classAbilityKey: string) => {
+    updateCharacter({ classAbilityKeys: [...character.classAbilityKeys, classAbilityKey] });
+  };
+  const removeClassAbility = (classAbilityKey: string) => {
+    updateCharacter({
+      classAbilityKeys: character.classAbilityKeys.filter(key => key != classAbilityKey)
+    });
+  };
+
   // const maxSkillPointCount = 6 + character.level - 1;
   // const maxAttributePointCount = 12 + Math.floor(character.level / 4);
   // const maxClassAbilityCount = 1 + Math.floor(character.level / 3);
@@ -280,13 +291,6 @@ export const useCharacterClient = (
   // const setClassItemDescription = (classItemDescription?: string) =>
   //   updateCharacter({ classItemDescription });
 
-  // const addClassAbility = (classAbilityKey: string) =>
-  //   updateCharacter({ classAbilityKeys: [...character.classAbilityKeys, classAbilityKey] });
-  // const removeClassAbility = (classAbilityKey: string) =>
-  //   updateCharacter({
-  //     classAbilityKeys: character.classAbilityKeys.filter(key => key !== classAbilityKey)
-  //   });
-
   // const addItem = (itemKey: string) =>
   //   updateCharacter({
   //     itemQuantities: [...character.itemQuantities, { key: itemKey, quantity: 1 }]
@@ -337,8 +341,10 @@ export const useCharacterClient = (
     setSkillValue,
     perks,
     addPerk,
-    removePerk
-    // classAbilities,
+    removePerk,
+    classAbilities,
+    addClassAbility,
+    removeClassAbility
     // items,
     // itemWeight: getItemWeight(),
     // carryingCapacity: getCarryingCapacity(),
@@ -352,8 +358,6 @@ export const useCharacterClient = (
     // setSatiation,
     // setExhaustion,
     // setClassItemDescription,
-    // addClassAbility,
-    // removeClassAbility,
     // addItem,
     // removeItem,
     // updateItemQuantity

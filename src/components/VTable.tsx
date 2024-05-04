@@ -15,9 +15,8 @@ const StyledVTable = styled.table`
     &.row--empty {
       td:first-child {
         color: ${props => props.theme.color.text.tertiary};
-        font-size: ${props => props.theme.variable.fontSize.sm};
         font-weight: 400;
-        line-height: 1;
+        text-align: center;
       }
     }
 
@@ -36,16 +35,22 @@ const StyledVTable = styled.table`
     }
 
     td {
-      padding: ${props => props.theme.variable.gap.md};
+      padding: ${props => props.theme.variable.gap.md} ${props => props.theme.variable.gap.lg};
       line-height: 1.5;
 
       &:not(:last-child) {
         white-space: nowrap;
         vertical-align: baseline;
+        border-right: 1px solid ${props => props.theme.color.border.default};
       }
 
       &:first-child {
         font-weight: 600;
+        padding-left: ${props => props.theme.variable.gap.md};
+      }
+
+      &:last-child {
+        padding-right: ${props => props.theme.variable.gap.md};
       }
     }
   }

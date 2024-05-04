@@ -24,6 +24,7 @@ import { AttributeCard } from './cards/AttributeCard';
 import { PerksCard } from './cards/PerksCard';
 import { PerksDrawer } from './drawers/PerksDrawer';
 import { ReactComponent as EditIcon } from '@/icons/Edit.svg';
+import { ClassAbilitiesCard } from './cards/ClassAbilitiesCard';
 
 const EditButton: React.FC<VButtonProps> = props => (
   <VButton {...props} type="ghost" size="small">
@@ -164,6 +165,11 @@ export const CharacterPage: React.FC = () => {
                 onClose={() => setPerksDrawerOpen(false)}
                 characterClient={characterClient}
               />
+            </div>
+
+            <div className="character__section">
+              <VHeader>Class Abilities</VHeader>
+              <ClassAbilitiesCard characterClient={characterClient} />
             </div>
           </div>
         </div>
