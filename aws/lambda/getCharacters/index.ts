@@ -32,7 +32,7 @@ const handler: APIGatewayProxyHandler = async event =>
         characters.map(character => ({
           id: character.itemId.split('#')[1],
           userId: userId,
-          ...JSON.parse(character.definition)
+          ...layer.parseCharacterDefinition(character.definition)
         }))
       )
     };

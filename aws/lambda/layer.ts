@@ -124,10 +124,78 @@ const CHARACTER_MIGRATIONS: ((character: any) => void)[] = [
   }
 ];
 
+export const CURRENT_CHARACTER_VERSION = CHARACTER_MIGRATIONS.length + 1;
+
 export const parseCharacterDefinition = (definition: string, version: number) => {
   const character = JSON.parse(definition);
   for (const migration of CHARACTER_MIGRATIONS.slice(version - 1)) {
     migration(character);
   }
   return character;
+};
+
+export const DEFAULT_CHARACTER_DEFINITION = {
+  name: '',
+  raceKey: 'human',
+  classKey: 'knight',
+  partyGoal: '',
+  personalGoal: '',
+  level: 1,
+  levelPoints: 0,
+  healthPoints: 0,
+  classPoints: 0,
+  attributes: {
+    strength: {
+      label: 'Strength',
+      value: 1,
+      skills: {
+        power: { label: 'Power', value: 0 },
+        fortitude: { label: 'Fortitude', value: 0 },
+        athletics: { label: 'Athletics', value: 0 },
+        honor: { label: 'Honor', value: 0 }
+      }
+    },
+    dexterity: {
+      label: 'Dexterity',
+      value: 1,
+      skills: {
+        precision: { label: 'Precision', value: 0 },
+        stealth: { label: 'Stealth', value: 0 },
+        agility: { label: 'Agility', value: 0 }
+      }
+    },
+
+    intelligence: {
+      label: 'Intelligence',
+      value: 1,
+      skills: {
+        intellect: { label: 'Intellect', value: 0 },
+        medicine: { label: 'Medicine', value: 0 },
+        innovation: { label: 'Innovation', value: 0 }
+      }
+    },
+    charisma: {
+      label: 'Charisma',
+      value: 1,
+      skills: {
+        intuition: { label: 'Intuition', value: 0 },
+        influence: { label: 'Influence', value: 0 },
+        luck: { label: 'Luck', value: 0 }
+      }
+    },
+    perception: {
+      label: 'Perception',
+      value: 1,
+      skills: {
+        insight: { label: 'Insight', value: 0 },
+        detection: { label: 'Detection', value: 0 },
+        investigation: { label: 'Investigation', value: 0 }
+      }
+    }
+  },
+  perkKeys: [],
+  classAbilityKeys: [],
+  itemQuantities: [{ key: 'currency', quantity: 0 }],
+  satiation: 0,
+  exhaustion: 0
 };

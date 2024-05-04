@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { PageHeader } from '@/common/PageHeader';
 import { PageLayout } from '@/common/PageLayout';
 import { VButton, VButtonProps } from '@/components/VButton';
@@ -34,6 +34,10 @@ import { pluralize } from '@/utils/pluralize';
 import { pulsingFailure, pulsingSuccess } from '@/styles/pulsingBackground';
 import { VTag } from '@/components/VTag';
 import { ComputedSkillsCard } from './cards/ComputedSkillsCard';
+import { useQueryClient } from 'react-query';
+import { debounce } from 'lodash-es';
+import { usePostMutation } from '@/common/usePostMutation';
+import { SavedStatus } from '../../SavedStatus';
 
 const EditButton: React.FC<VButtonProps> = props => (
   <VButton {...props} type="ghost" size="small">
@@ -118,15 +122,49 @@ export const CharacterPage: React.FC = () => {
   const { characterId } = useParams();
   const theme = useVTheme();
 
-  const [character, setCharacter] = useState<Character>();
-  const characterClient = useCharacterClient(character, setCharacter);
+  const queryClient = useQueryClient();
 
   const { data: savedCharacter } = useGetQuery<Character>(
     ['GET_CHARACTER', characterId],
     `/character/${characterId}`
   );
 
-  useEffect(() => setCharacter(savedCharacter), [savedCharacter]);
+  const _updateCharacter = usePostMutation<Character>(`/character/${characterId}`);
+  const updateCharacter = useMemo(
+    () =>
+      debounce((character: Character) => {
+        _updateCharacter.mutateAsync({ character }).then(() => setSaved(true));
+      }, 2000),
+    []
+  );
+
+  const [character, setCharacter] = useState<Character>();
+  const [saved, setSaved] = useState(true);
+
+  const characterClient = useCharacterClient(character, character => {
+    setCharacter(character);
+    // save character with debounce
+    setSaved(false);
+    updateCharacter(character);
+  });
+
+  useEffect(() => {
+    if (savedCharacter) {
+      setCharacter(savedCharacter);
+
+      const characters: Character[] | undefined = queryClient.getQueryData(['GET_CHARACTERS']);
+      if (characters) {
+        // propagate data from GET_CHARACTER query into GET_CHARACTERS query
+        const index = characters.findIndex(character => character.id === savedCharacter?.id);
+        if (index > -1) {
+          characters[index] = savedCharacter;
+        } else {
+          characters.push(savedCharacter);
+        }
+        queryClient.setQueryData(['GET_CHARACTERS'], characters);
+      }
+    }
+  }, [savedCharacter]);
 
   const [perksDrawerOpen, setPerksDrawerOpen] = useState(false);
   const [classAbilitiesDrawerOpen, setClassAbilitiesDrawerOpen] = useState(false);
@@ -138,9 +176,12 @@ export const CharacterPage: React.FC = () => {
         breadcrumbs={['Virtual Tabletop', 'Characters']}
         title={character?.name || 'Unnamed Character'}
         extra={
-          <VButton>
-            <TrashCanIcon /> Delete character
-          </VButton>
+          <VFlex vertical align="end" gap={theme.variable.gap.md}>
+            <SavedStatus saved={saved} />
+            <VButton>
+              <TrashCanIcon /> Delete character
+            </VButton>
+          </VFlex>
         }
       />
 

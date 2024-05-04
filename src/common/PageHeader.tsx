@@ -29,6 +29,7 @@ const StyledPageHeader = styled.div`
 
   .header__right {
     display: flex;
+    align-items: center;
     gap: ${props => props.theme.variable.gap.md};
   }
 `;

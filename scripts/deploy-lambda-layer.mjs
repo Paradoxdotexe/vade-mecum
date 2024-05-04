@@ -20,7 +20,7 @@ const lambdaFunctions = [
   'login',
   'sendLoginEmail',
   'createCharacter',
-  'getCharacter',
+  'getOrUpdateCharacter',
   'getCharacters'
 ];
 

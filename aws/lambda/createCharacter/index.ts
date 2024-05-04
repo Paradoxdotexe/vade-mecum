@@ -20,8 +20,8 @@ const handler: APIGatewayProxyHandler = async event =>
       Item: {
         userId: userId,
         itemId: `character#${characterId}`,
-        definition: JSON.stringify(DEFAULT_CHARACTER_DEFINITION),
-        version: VERSION
+        definition: JSON.stringify(layer.DEFAULT_CHARACTER_DEFINITION),
+        version: layer.CURRENT_CHARACTER_VERSION
       }
     });
     await docClient.send(putCharacter);
@@ -33,71 +33,3 @@ const handler: APIGatewayProxyHandler = async event =>
   });
 
 exports.handler = handler;
-
-const VERSION = 1;
-
-const DEFAULT_CHARACTER_DEFINITION = {
-  name: '',
-  raceKey: 'human',
-  classKey: 'knight',
-  partyGoal: '',
-  personalGoal: '',
-  level: 1,
-  levelPoints: 0,
-  healthPoints: 0,
-  classPoints: 0,
-  attributes: {
-    strength: {
-      label: 'Strength',
-      value: 1,
-      skills: {
-        power: { label: 'Power', value: 0 },
-        fortitude: { label: 'Fortitude', value: 0 },
-        athletics: { label: 'Athletics', value: 0 },
-        honor: { label: 'Honor', value: 0 }
-      }
-    },
-    dexterity: {
-      label: 'Dexterity',
-      value: 1,
-      skills: {
-        precision: { label: 'Precision', value: 0 },
-        stealth: { label: 'Stealth', value: 0 },
-        agility: { label: 'Agility', value: 0 }
-      }
-    },
-
-    intelligence: {
-      label: 'Intelligence',
-      value: 1,
-      skills: {
-        intellect: { label: 'Intellect', value: 0 },
-        medicine: { label: 'Medicine', value: 0 },
-        innovation: { label: 'Innovation', value: 0 }
-      }
-    },
-    charisma: {
-      label: 'Charisma',
-      value: 1,
-      skills: {
-        intuition: { label: 'Intuition', value: 0 },
-        influence: { label: 'Influence', value: 0 },
-        luck: { label: 'Luck', value: 0 }
-      }
-    },
-    perception: {
-      label: 'Perception',
-      value: 1,
-      skills: {
-        insight: { label: 'Insight', value: 0 },
-        detection: { label: 'Detection', value: 0 },
-        investigation: { label: 'Investigation', value: 0 }
-      }
-    }
-  },
-  perkKeys: [],
-  satiation: 0,
-  exhaustion: 0,
-  classAbilityKeys: [],
-  itemQuantities: [{ key: 'currency', quantity: 0 }]
-};
