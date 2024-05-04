@@ -28,6 +28,7 @@ import { ClassAbilitiesCard } from './cards/ClassAbilitiesCard';
 import { ClassAbilitiesDrawer } from './drawers/ClassAbilitiesDrawer';
 import { InventoryCard } from './cards/InventoryCard';
 import { ItemsDrawer } from './drawers/ItemsDrawer';
+import { SatiationExhaustionCard } from './cards/SatiationExhaustionCard';
 
 const EditButton: React.FC<VButtonProps> = props => (
   <VButton {...props} type="ghost" size="small">
@@ -124,6 +125,10 @@ export const CharacterPage: React.FC = () => {
                   attributeKey={key as AttributeKey}
                 />
               ))}
+            </div>
+            <div className="character__section">
+              <VHeader>Satiation / Exhaustion</VHeader>
+              <SatiationExhaustionCard characterClient={characterClient} />
             </div>
           </div>
 

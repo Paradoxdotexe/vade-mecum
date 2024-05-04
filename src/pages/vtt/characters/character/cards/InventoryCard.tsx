@@ -1,6 +1,5 @@
 import React from 'react';
 import { VCard } from '@/components/VCard';
-import styled from 'styled-components';
 import { VTable } from '@/components/VTable';
 import { ReactComponent as WeightIcon } from '@/icons/Weight.svg';
 import { VNumberInput } from '@/components/VNumberInput';
@@ -26,12 +25,6 @@ export const getItemDescription = (item: Item) => {
   return descriptionParts.join(', ');
 };
 
-const StyledInventoryCard = styled(VCard)`
-  padding: 0;
-  max-height: 300px;
-  overflow: auto;
-`;
-
 type InventoryCardProps = {
   characterClient: CharacterClient;
 };
@@ -41,7 +34,7 @@ export const InventoryCard: React.FC<InventoryCardProps> = props => {
 
   return (
     <>
-      <StyledInventoryCard>
+      <VCard style={{ padding: 0 }}>
         <VTable
           columns={[
             {
@@ -75,7 +68,7 @@ export const InventoryCard: React.FC<InventoryCardProps> = props => {
           rows={props.characterClient.items}
           emptyMessage="You have no inventory items."
         />
-      </StyledInventoryCard>
+      </VCard>
     </>
   );
 };

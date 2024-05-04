@@ -134,7 +134,6 @@ export const useCharacterClient = (
 
     updateCharacter({
       classKey,
-      classItemDescription: '',
       attributes,
       classAbilityKeys: []
     });
@@ -255,6 +254,15 @@ export const useCharacterClient = (
     }
   };
 
+  // ---------- SATIATION & EXHAUSTION ----------- //
+  const satiation = character.satiation;
+  const setSatiation = (satiation: number) =>
+    updateCharacter({ satiation: minMax(satiation, 0, 4) });
+
+  const exhaustion = character.exhaustion;
+  const setExhaustion = (exhaustion: number) =>
+    updateCharacter({ exhaustion: minMax(exhaustion, 0, 3) });
+
   // const maxSkillPointCount = 6 + character.level - 1;
   // const maxAttributePointCount = 12 + Math.floor(character.level / 4);
   // const maxClassAbilityCount = 1 + Math.floor(character.level / 3);
@@ -303,14 +311,6 @@ export const useCharacterClient = (
   //   return parseComputation('[level] + [skill.luck]', computationVariables);
   // };
 
-  // const setDescription = (description: string) => updateCharacter({ description });
-  // const setHealthPoints = (healthPoints: number) =>
-  //   updateCharacter({ healthPoints: Math.min(healthPoints, getMaxHealthPoints()) });
-  // const setSatiation = (satiation: number) => updateCharacter({ satiation });
-  // const setExhaustion = (exhaustion: number) => updateCharacter({ exhaustion });
-  // const setClassItemDescription = (classItemDescription?: string) =>
-  //   updateCharacter({ classItemDescription });
-
   return {
     id: character.id,
     name,
@@ -347,7 +347,11 @@ export const useCharacterClient = (
     itemWeight,
     addItem,
     removeItem,
-    setItemQuantity
+    setItemQuantity,
+    satiation,
+    setSatiation,
+    exhaustion,
+    setExhaustion
     // carryingCapacity: getCarryingCapacity(),
     // initiative: getInitiative(),
     // looting: getLooting(),
@@ -355,10 +359,6 @@ export const useCharacterClient = (
     // maxAttributePointCount,
     // maxClassAbilityCount,
     // maxPerkCount,
-    // setDescription,
-    // setSatiation,
-    // setExhaustion,
-    // setClassItemDescription,
   };
 };
 

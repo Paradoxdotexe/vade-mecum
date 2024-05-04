@@ -74,11 +74,10 @@ export type CharacterDefinition = {
   classPoints: number;
   attributes: Attributes;
   perkKeys: string[];
-  classItemDescription?: string;
-  satiation: number;
-  exhaustion: number;
   classAbilityKeys: string[];
   itemQuantities: { key: string; quantity: number }[];
+  satiation: number;
+  exhaustion: number;
 };
 
 export type Character = CharacterDefinition & {

@@ -1,15 +1,8 @@
 import React from 'react';
 import { VCard } from '@/components/VCard';
-import styled from 'styled-components';
 import { VTable, VTableColumn } from '@/components/VTable';
 import { CharacterClient } from '../useCharacterClient';
 import { Perk } from '@/pages/vtt/types/Perk';
-
-const StyledPerksCard = styled(VCard)`
-  padding: 0;
-  max-height: 300px;
-  overflow: auto;
-`;
 
 type PerksCardProps = {
   characterClient: CharacterClient;
@@ -22,12 +15,12 @@ export const PerksCard: React.FC<PerksCardProps> = props => {
   ];
 
   return (
-    <StyledPerksCard>
+    <VCard style={{ padding: 0 }}>
       <VTable
         columns={columns}
         rows={props.characterClient.perks}
         emptyMessage="You have no perks."
       />
-    </StyledPerksCard>
+    </VCard>
   );
 };
