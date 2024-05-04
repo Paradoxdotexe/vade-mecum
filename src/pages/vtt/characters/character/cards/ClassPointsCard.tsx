@@ -2,9 +2,9 @@ import React from 'react';
 import { VCard } from '@/components/VCard';
 import { VNumberInput } from '@/components/VNumberInput';
 import styled from 'styled-components';
-import { CharacterClient } from './useCharacterClient';
+import { CharacterClient } from '../useCharacterClient';
 
-const StyledHealthPointsCard = styled(VCard)`
+const StyledClassPointsCard = styled(VCard)`
   display: flex;
   align-items: center;
   flex: 1;
@@ -21,21 +21,21 @@ const StyledHealthPointsCard = styled(VCard)`
   }
 `;
 
-type HealthPointsCardProps = {
+type ClassPointsCardProps = {
   characterClient: CharacterClient;
 };
 
-export const HealthPointsCard: React.FC<HealthPointsCardProps> = props => {
+export const ClassPointsCard: React.FC<ClassPointsCardProps> = props => {
   return (
-    <StyledHealthPointsCard>
+    <StyledClassPointsCard>
       <VNumberInput
         size={48}
-        max={props.characterClient.maxHealthPoints}
-        value={props.characterClient.healthPoints}
-        onChange={props.characterClient.setHealthPoints}
+        max={props.characterClient.maxClassPoints}
+        value={props.characterClient.classPoints}
+        onChange={props.characterClient.setClassPoints}
       />
       <div className="card__slash">/</div>
-      <div className="card__max">{props.characterClient.maxHealthPoints}</div>
-    </StyledHealthPointsCard>
+      <div className="card__max">{props.characterClient.maxClassPoints}</div>
+    </StyledClassPointsCard>
   );
 };

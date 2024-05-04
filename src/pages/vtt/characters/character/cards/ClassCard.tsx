@@ -1,8 +1,8 @@
 import { VSelect } from '@/components/VSelect';
 import React from 'react';
 import { VCard } from '@/components/VCard';
-import { CharacterClient } from './useCharacterClient';
-import { WORLD_KIT } from '../../types/WorldKit';
+import { CharacterClient } from '../useCharacterClient';
+import { WORLD_KIT } from '../../../types/WorldKit';
 
 type ClassCardProps = {
   characterClient: CharacterClient;

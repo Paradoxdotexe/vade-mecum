@@ -2,7 +2,7 @@ import React from 'react';
 import { VCard } from '@/components/VCard';
 import styled from 'styled-components';
 import { VTable, VTableColumn } from '@/components/VTable';
-import { CharacterClient } from './useCharacterClient';
+import { CharacterClient } from '../useCharacterClient';
 import { Perk } from '@/pages/vtt/types/Perk';
 
 const StyledPerksCard = styled(VCard)`

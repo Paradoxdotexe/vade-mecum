@@ -1,7 +1,7 @@
 import React from 'react';
 import { VInput } from '@/components/VInput';
 import { VCard } from '@/components/VCard';
-import { CharacterClient } from './useCharacterClient';
+import { CharacterClient } from '../useCharacterClient';
 
 type PersonalGoalCardProps = {
   characterClient: CharacterClient;

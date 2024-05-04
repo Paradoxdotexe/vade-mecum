@@ -1,7 +1,7 @@
 import React from 'react';
 import { VCard } from '@/components/VCard';
 import styled from 'styled-components';
-import { CharacterClient } from './useCharacterClient';
+import { CharacterClient } from '../useCharacterClient';
 
 const StyledSpeedCard = styled(VCard)`
   display: flex;

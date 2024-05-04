@@ -4,7 +4,7 @@ import { VNumberInput } from '@/components/VNumberInput';
 import styled from 'styled-components';
 import { VButton } from '@/components/VButton';
 import { pulsingSuccess } from '@/styles/pulsingBackground';
-import { CharacterClient } from './useCharacterClient';
+import { CharacterClient } from '../useCharacterClient';
 import { Points } from './Points';
 import { playSound } from '@/utils/playSound';
 

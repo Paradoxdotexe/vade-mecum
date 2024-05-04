@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { VNumberInput } from '@/components/VNumberInput';
 import { VCard } from '@/components/VCard';
 import { AttributeKey } from '@/pages/engine/Character';
-import { CharacterClient } from './useCharacterClient';
+import { CharacterClient } from '../useCharacterClient';
 
 const StyledAttributeCard = styled(VCard)`
   display: flex;

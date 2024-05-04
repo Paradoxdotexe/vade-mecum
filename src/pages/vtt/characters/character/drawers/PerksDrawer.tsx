@@ -8,7 +8,7 @@ import { VCheckbox } from '@/components/VCheckbox';
 import { VHeader } from '@/components/VHeader';
 import { searchObjects } from '@/utils/searchObjects';
 import { capitalize } from 'lodash-es';
-import { CharacterClient } from './useCharacterClient';
+import { CharacterClient } from '../useCharacterClient';
 import { PERKS, Perk } from '@/pages/vtt/types/Perk';
 
 const StyledPerksDrawer = styled(VDrawer)`
