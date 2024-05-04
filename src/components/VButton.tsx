@@ -14,7 +14,6 @@ const Button = styled.button`
   border-radius: ${props => props.theme.variable.borderRadius};
   font-family: ${props => props.theme.variable.fontFamily.default};
   font-weight: 500;
-  width: 100%;
   z-index: 1;
   box-shadow: 2px 4px 16px ${props => props.theme.color.shadow.default};
   background-color: transparent;
@@ -26,6 +25,7 @@ const Button = styled.button`
   line-height: 1;
   transition: opacity ease 150ms;
   white-space: nowrap;
+  overflow: hidden;
 
   &.button--primary {
     background: ${props => props.theme.color.brand.default};
@@ -55,6 +55,20 @@ const Button = styled.button`
     transition: width ease 450ms;
   }
 
+  &.button--ghost {
+    border: none;
+    color: ${props => props.theme.color.text.secondary};
+    transition: color ease 150ms;
+
+    &::before {
+      content: none;
+    }
+
+    &:not(:disabled)&:hover {
+      color: ${props => props.theme.color.text.primary};
+    }
+  }
+
   &:not(:disabled)&:hover::before {
     width: 100%;
   }
@@ -74,11 +88,11 @@ const Button = styled.button`
   }
 `;
 
-type VButtonProps = {
+export type VButtonProps = {
   children?: ReactNode;
   style?: React.CSSProperties;
   className?: string;
-  type?: 'default' | 'primary';
+  type?: 'default' | 'primary' | 'ghost';
   size?: 'default' | 'small' | 'large';
   onClick?: () => void;
   disabled?: boolean;
@@ -90,6 +104,7 @@ export const VButton: React.FC<VButtonProps> = props => {
 
   const className = classNames(props.className, {
     'button--primary': props.type === 'primary',
+    'button--ghost': props.type === 'ghost',
     'button--small': props.size === 'small',
     'button--large': props.size === 'large'
   });

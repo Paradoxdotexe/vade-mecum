@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { PageHeader } from '@/common/PageHeader';
 import { PageLayout } from '@/common/PageLayout';
-import { VButton } from '@/components/VButton';
+import { VButton, VButtonProps } from '@/components/VButton';
 import { ReactComponent as TrashCanIcon } from '@/icons/TrashCan.svg';
 import { useGetQuery } from '@/common/useGetQuery';
 import { useParams } from 'react-router-dom';
@@ -22,6 +22,14 @@ import { PartyGoalCard } from './PartyGoalCard';
 import { PersonalGoalCard } from './PersonalGoalCard';
 import { AttributeCard } from './AttributeCard';
 import { PerksCard } from './PerksCard';
+import { PerksDrawer } from './PerksDrawer';
+import { ReactComponent as EditIcon } from '@/icons/Edit.svg';
+
+const EditButton: React.FC<VButtonProps> = props => (
+  <VButton {...props} type="ghost" size="small">
+    <EditIcon />
+  </VButton>
+);
 
 const StyledCharacterPage = styled(PageLayout)`
   .page__character {
@@ -73,9 +81,9 @@ export const CharacterPage: React.FC = () => {
     `/character/${characterId}`
   );
 
-  useEffect(() => {
-    setCharacter(savedCharacter);
-  }, [savedCharacter]);
+  useEffect(() => setCharacter(savedCharacter), [savedCharacter]);
+
+  const [perksDrawerOpen, setPerksDrawerOpen] = useState(false);
 
   return (
     <StyledCharacterPage>
@@ -145,8 +153,17 @@ export const CharacterPage: React.FC = () => {
             </div>
 
             <div className="character__section">
-              <VHeader>Perks</VHeader>
+              <VHeader>
+                <VFlex align="center" gap={theme.variable.gap.sm}>
+                  Perks <EditButton onClick={() => setPerksDrawerOpen(true)} />
+                </VFlex>
+              </VHeader>
               <PerksCard characterClient={characterClient} />
+              <PerksDrawer
+                open={perksDrawerOpen}
+                onClose={() => setPerksDrawerOpen(false)}
+                characterClient={characterClient}
+              />
             </div>
           </div>
         </div>

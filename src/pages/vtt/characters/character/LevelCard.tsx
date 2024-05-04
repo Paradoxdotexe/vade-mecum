@@ -27,6 +27,7 @@ const StyledLevelCard = styled(VCard)`
   }
 
   button {
+    width: 100%;
     ${pulsingSuccess}
   }
 `;

@@ -26,18 +26,18 @@ const StyledVDrawerContainer = styled.div<{ $width: string }>`
   .drawerContainer__drawer {
     width: ${props => props.$width};
     height: 100%;
-    background-color: #2c2c2c;
+    background-color: ${props => props.theme.color.background.default};
     display: flex;
     flex-direction: column;
-    box-shadow: -3px 6px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: -4px 0 16px ${props => props.theme.color.shadow.default};
 
     .drawer__header {
       display: flex;
       justify-content: center;
       font-family: 'Noto Sans Display', sans-serif;
-      font-size: 24px;
-      padding: 18px;
-      border-bottom: 1px solid #585858;
+      font-size: ${props => props.theme.variable.fontSize.xl};
+      padding: ${props => props.theme.variable.gap.lg};
+      border-bottom: 1px solid ${props => props.theme.color.border.default};
     }
   }
 
@@ -63,7 +63,6 @@ const StyledVDrawerContainer = styled.div<{ $width: string }>`
 const FrozenScrollStyle = createGlobalStyle`
   body {
     overflow: hidden;
-    padding-right: 18px;
   }
 `;
 
@@ -86,7 +85,7 @@ export const VDrawer: React.FC<VDrawerProps> = props => {
     <StyledVDrawerContainer
       $width={`${props.width}px`}
       className={`${props.className ?? ''} ${open ? 'drawerContainer--open' : ''}`}
-      onClick={() => setOpen(false)}
+      onMouseDown={() => setOpen(false)}
     >
       {open && <FrozenScrollStyle />}
       <CSSTransition
@@ -101,7 +100,7 @@ export const VDrawer: React.FC<VDrawerProps> = props => {
         <div
           ref={nodeRef}
           className="drawerContainer__drawer"
-          onClick={event => event.stopPropagation()}
+          onMouseDown={event => event.stopPropagation()}
         >
           {props.header && <div className="drawer__header">{props.header}</div>}
           {props.children}

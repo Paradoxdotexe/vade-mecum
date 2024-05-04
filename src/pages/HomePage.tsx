@@ -36,7 +36,7 @@ const StyledHomePage = styled(PageLayout)`
   .page__routes {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
     gap: ${props => props.theme.variable.gap.lg};
   }
 

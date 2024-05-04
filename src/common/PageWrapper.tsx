@@ -13,6 +13,7 @@ const StyledPageWrapper = styled.div`
   font-family: ${props => props.theme.variable.fontFamily.default};
   font-size: ${props => props.theme.variable.fontSize.md};
   line-height: 1;
+  scrollbar-gutter: stable;
 
   * {
     box-sizing: border-box;

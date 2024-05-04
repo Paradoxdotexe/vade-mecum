@@ -26,7 +26,6 @@ const StyledVPopup = styled.div`
 const FrozenScrollStyle = createGlobalStyle`
   body {
     overflow: hidden;
-    padding-right: 18px;
   }
 `;
 
