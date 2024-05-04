@@ -188,7 +188,7 @@ export const useCharacterClient = (
   const setClassPoints = (classPoints: number) =>
     updateCharacter({ classPoints: Math.min(classPoints, maxHealthPoints) });
 
-  // ---------- ATTRIBUTES ----------- //
+  // ---------- ATTRIBUTES & SKILLS ----------- //
   const attributes = character.attributes;
   const setAttributeValue = (attributeKey: AttributeKey, value: number) => {
     const attributes = structuredClone(character.attributes);
@@ -200,6 +200,13 @@ export const useCharacterClient = (
     attributes[attributeKey].skills[skillKey].value = minMax(value, 0, 3);
     updateCharacter({ attributes });
   };
+
+  // ---------- COMPUTED SKILLS ----------- //
+  const initiative = useCharacterComputation(
+    character,
+    'initiative',
+    '[attribute.dexterity] + [skill.agility] + [attribute.perception] + [skill.detection]'
+  );
 
   // ---------- PERKS ----------- //
   const perks = getPerks(character);
@@ -300,30 +307,6 @@ export const useCharacterClient = (
 
   const perksToAcquire = expectedPerks - currentPerks;
 
-  // const getInitiative = () => {
-  //   const baseInitiative = parseComputation(
-  //     characterClass?.computed?.initiative ??
-  //       '[attribute.dexterity] + [skill.agility] + [attribute.perception] + [skill.detection]',
-  //     computationVariables
-  //   );
-
-  //   // check for perk enhancement
-  //   const perkInitiativeComputation = perks.find(perk => perk.computed?.initiative)?.computed
-  //     ?.initiative;
-  //   if (perkInitiativeComputation) {
-  //     return parseComputation(perkInitiativeComputation, {
-  //       base: baseInitiative,
-  //       ...computationVariables
-  //     });
-  //   }
-
-  //   return baseInitiative;
-  // };
-
-  // const getLooting = () => {
-  //   return parseComputation('[level] + [skill.luck]', computationVariables);
-  // };
-
   return {
     id: character.id,
     name,
@@ -350,6 +333,7 @@ export const useCharacterClient = (
     attributes,
     setAttributeValue,
     setSkillValue,
+    initiative,
     perks,
     addPerk,
     removePerk,
@@ -370,9 +354,6 @@ export const useCharacterClient = (
     skillPointsToAcquire,
     perksToAcquire,
     classAbilitiesToAcquire
-    // carryingCapacity: getCarryingCapacity(),
-    // initiative: getInitiative(),
-    // looting: getLooting(),
   };
 };
 

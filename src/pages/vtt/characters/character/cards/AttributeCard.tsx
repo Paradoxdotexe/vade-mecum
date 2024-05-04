@@ -4,6 +4,7 @@ import { VNumberInput } from '@/components/VNumberInput';
 import { VCard } from '@/components/VCard';
 import { AttributeKey } from '@/pages/engine/Character';
 import { CharacterClient } from '../useCharacterClient';
+import { RollableSkill } from './RollableSkill';
 
 const StyledAttributeCard = styled(VCard)`
   display: flex;
@@ -30,24 +31,6 @@ const StyledAttributeCard = styled(VCard)`
     padding-left: 12px;
     gap: ${props => props.theme.variable.gap.sm};
     flex: 1;
-
-    .skills__skill {
-      display: flex;
-      align-items: center;
-      gap: ${props => props.theme.variable.gap.md};
-      font-size: ${props => props.theme.variable.fontSize.xs};
-
-      .skill__label {
-        flex: 1;
-        padding-block: 3px;
-        transition: color ease 150ms;
-
-        &:hover {
-          color: ${props => props.theme.color.brand.default};
-          cursor: pointer;
-        }
-      }
-    }
   }
 `;
 
@@ -74,16 +57,15 @@ export const AttributeCard: React.FC<AttributeCardProps> = props => {
 
       <div className="card__skills">
         {Object.entries(attribute.skills).map(([skillKey, skill]) => (
-          <div key={skill.label} className="skills__skill">
-            <VNumberInput
-              value={skill.value}
-              onChange={value =>
-                props.characterClient.setSkillValue(props.attributeKey, skillKey, value)
-              }
-              max={3}
-            />
-            <div className="skill__label">{skill.label}</div>
-          </div>
+          <RollableSkill
+            key={skillKey}
+            value={skill.value}
+            label={skill.label}
+            onChange={value =>
+              props.characterClient.setSkillValue(props.attributeKey, skillKey, value)
+            }
+            max={3}
+          />
         ))}
       </div>
     </StyledAttributeCard>

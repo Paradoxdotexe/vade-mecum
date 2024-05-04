@@ -33,6 +33,7 @@ import { SatiationExhaustionCard } from './cards/SatiationExhaustionCard';
 import { pluralize } from '@/utils/pluralize';
 import { pulsingFailure, pulsingSuccess } from '@/styles/pulsingBackground';
 import { VTag } from '@/components/VTag';
+import { ComputedSkillsCard } from './cards/ComputedSkillsCard';
 
 const EditButton: React.FC<VButtonProps> = props => (
   <VButton {...props} type="ghost" size="small">
@@ -175,6 +176,7 @@ export const CharacterPage: React.FC = () => {
                   attributeKey={key as AttributeKey}
                 />
               ))}
+              <ComputedSkillsCard characterClient={characterClient} />
             </div>
             <div className="character__section">
               <VHeader>Satiation / Exhaustion</VHeader>
