@@ -46,11 +46,9 @@ const StyledVTable = styled.table`
 
       &:first-child {
         font-weight: 600;
-        padding-left: ${props => props.theme.variable.gap.md};
       }
 
       &:last-child {
-        padding-right: ${props => props.theme.variable.gap.md};
       }
     }
   }

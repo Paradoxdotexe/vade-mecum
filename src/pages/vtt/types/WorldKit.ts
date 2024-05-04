@@ -95,8 +95,7 @@ const VALE_OF_MYTHS: WorldKit = {
           key: 'battle_knowledge',
           name: 'Battle Knowledge',
           type: ClassAbilityType.PASSIVE,
-          description:
-            'You can make Insight and Intuition checks using Honor instead when gauging an upcoming battle.',
+          description: 'You can make Insight and Intuition checks using Honor instead.',
           requirement: 1
         },
         {
