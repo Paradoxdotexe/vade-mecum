@@ -2,9 +2,9 @@ import React from 'react';
 import { Character } from '../types/Character';
 import styled from 'styled-components';
 import { VCard } from '@/components/VCard';
-import { WORLD_KITS } from '@/pages/engine/WorldKit';
 import { VNumberInput } from '@/components/VNumberInput';
 import { useNavigate } from 'react-router-dom';
+import { useCharacterClient } from './character/useCharacterClient';
 
 const StyledCharacterCard = styled(VCard)`
   display: flex;
@@ -34,8 +34,7 @@ type CharacterCardProps = {
 export const CharacterCard: React.FC<CharacterCardProps> = props => {
   const navigate = useNavigate();
 
-  const race = WORLD_KITS.vale_of_myths.races[props.character.raceKey];
-  const characterClass = WORLD_KITS.vale_of_myths.classes[props.character.classKey];
+  const characterClient = useCharacterClient(props.character)!;
 
   const onClick = () => {
     navigate(`/vtt/characters/${props.character.id}`);
@@ -44,9 +43,9 @@ export const CharacterCard: React.FC<CharacterCardProps> = props => {
   return (
     <StyledCharacterCard onClick={onClick}>
       <div className="card__left">
-        <div className="left__name">{props.character.name || 'Unnamed Character'}</div>
+        <div className="left__name">{characterClient.name || 'Unnamed Character'}</div>
         <div className="left__description">
-          {race.name} {characterClass.label}
+          {characterClient.race.name} {characterClient.class.name}
         </div>
       </div>
 
