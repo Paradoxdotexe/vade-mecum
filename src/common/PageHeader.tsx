@@ -24,6 +24,7 @@ const StyledPageHeader = styled.div`
     .left__title {
       font-size: ${props => props.theme.variable.fontSize.xl};
       font-family: ${props => props.theme.variable.fontFamily.display};
+      height: ${props => props.theme.variable.fontSize.xl};
     }
   }
 

@@ -8,6 +8,8 @@ import { useNavigate } from 'react-router-dom';
 import { CharacterCard } from './CharacterCard';
 import styled from 'styled-components';
 import { useGetCharactersQuery } from '../queries/useGetCharactersQuery';
+import { VFlex } from '@/components/VFlex';
+import { VLoader } from '@/components/VLoader';
 
 const StyledCharactersPage = styled(PageLayout)`
   .page__characters {
@@ -41,10 +43,17 @@ export const CharactersPage: React.FC = () => {
           </VButton>
         }
       />
-
-      <div className="page__characters">
-        {characters?.map(character => <CharacterCard key={character.id} character={character} />)}
-      </div>
+      {!characters ? (
+        <VFlex justify="center">
+          <VLoader />
+        </VFlex>
+      ) : (
+        <div className="page__characters">
+          {characters.map(character => (
+            <CharacterCard key={character.id} character={character} />
+          ))}
+        </div>
+      )}
     </StyledCharactersPage>
   );
 };

@@ -9,7 +9,7 @@ export const useUpdateCharacterMutation = (characterId: string | undefined) => {
   const mutation = usePostMutation<Record<string, never>, { character: Character }>(
     `/character/${characterId}`,
     {
-      onSuccess(_data, body, _context) {
+      onSuccess(_data, body) {
         propagateCharacter(queryClient, body.character);
       }
     }

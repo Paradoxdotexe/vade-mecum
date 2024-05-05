@@ -1,6 +1,5 @@
 import { useGetQuery } from '@/common/useGetQuery';
 import { Character } from '../types/Character';
-import { useEffect } from 'react';
 import { useQueryClient } from 'react-query';
 import { propagateCharacter } from './useGetCharacterQuery';
 

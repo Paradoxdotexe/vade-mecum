@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { PageHeader } from '@/common/PageHeader';
 import { PageLayout } from '@/common/PageLayout';
 import { VButton, VButtonProps } from '@/components/VButton';
@@ -37,6 +37,7 @@ import { debounce } from 'lodash-es';
 import { SavedStatus } from '../../SavedStatus';
 import { useGetCharacterQuery } from '../../queries/useGetCharacterQuery';
 import { useUpdateCharacterMutation } from '../../queries/useUpdateCharacterMutation';
+import { VLoader } from '@/components/VLoader';
 
 const EditButton: React.FC<VButtonProps> = props => (
   <VButton {...props} type="ghost" size="small">
@@ -121,7 +122,11 @@ export const CharacterPage: React.FC = () => {
   const { characterId } = useParams();
   const theme = useVTheme();
 
+  const [character, setCharacter] = useState<Character>();
+  const [saved, setSaved] = useState(true);
+
   const { data: savedCharacter } = useGetCharacterQuery(characterId);
+  useMemo(() => setCharacter(savedCharacter), [savedCharacter]);
 
   const { mutateAsync: _updateCharacter } = useUpdateCharacterMutation(characterId);
   const updateCharacter = useMemo(
@@ -132,21 +137,12 @@ export const CharacterPage: React.FC = () => {
     []
   );
 
-  const [character, setCharacter] = useState<Character>();
-  const [saved, setSaved] = useState(true);
-
   const characterClient = useCharacterClient(character, character => {
     setCharacter(character);
     // save character with debounce
     setSaved(false);
     updateCharacter(character);
   });
-
-  useEffect(() => {
-    if (savedCharacter) {
-      setCharacter(savedCharacter);
-    }
-  }, [savedCharacter]);
 
   const [perksDrawerOpen, setPerksDrawerOpen] = useState(false);
   const [classAbilitiesDrawerOpen, setClassAbilitiesDrawerOpen] = useState(false);
@@ -156,7 +152,7 @@ export const CharacterPage: React.FC = () => {
     <StyledCharacterPage>
       <PageHeader
         breadcrumbs={['Virtual Tabletop', 'Characters']}
-        title={character?.name || 'Unnamed Character'}
+        title={character ? character.name || 'Unnamed Character' : ''}
         extra={
           <VFlex vertical align="end" gap={theme.variable.gap.md}>
             <SavedStatus saved={saved} />
@@ -167,7 +163,11 @@ export const CharacterPage: React.FC = () => {
         }
       />
 
-      {characterClient && (
+      {!characterClient ? (
+        <VFlex justify="center">
+          <VLoader />
+        </VFlex>
+      ) : (
         <div className="page__character">
           <div className="character__left">
             <div className="character__section">
