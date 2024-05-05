@@ -1,7 +1,7 @@
 import { QueryKey, UseQueryOptions, useQuery } from 'react-query';
 import { useVTTUser } from './VTTUser';
 
-export const useGetQuery = <TResponse extends object>(
+export const useClientQuery = <TResponse extends object>(
   queryKey: QueryKey,
   endpoint: string,
   queryOptions?: UseQueryOptions<TResponse>

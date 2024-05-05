@@ -3,13 +3,13 @@ import { PageHeader } from '@/common/PageHeader';
 import { PageLayout } from '@/common/PageLayout';
 import { VButton } from '@/components/VButton';
 import { ReactComponent as PlusIcon } from '@/icons/Plus.svg';
-import { usePostMutation } from '@/common/usePostMutation';
 import { useNavigate } from 'react-router-dom';
 import { CharacterCard } from './CharacterCard';
 import styled from 'styled-components';
 import { useGetCharactersQuery } from '../queries/useGetCharactersQuery';
 import { VFlex } from '@/components/VFlex';
 import { VLoader } from '@/components/VLoader';
+import { useCreateCharacterMutation } from '../queries/useCreateCharacterMutation';
 
 const StyledCharactersPage = styled(PageLayout)`
   .page__characters {
@@ -24,10 +24,10 @@ export const CharactersPage: React.FC = () => {
 
   const { data: characters } = useGetCharactersQuery();
 
-  const createCharacter = usePostMutation<{ characterId: string }>('/character');
+  const createCharacterMutation = useCreateCharacterMutation();
 
   const onCreateCharacter = () => {
-    createCharacter.mutateAsync().then(response => {
+    createCharacterMutation.mutateAsync().then(response => {
       navigate(`/vtt/characters/${response.characterId}`);
     });
   };
@@ -38,7 +38,7 @@ export const CharactersPage: React.FC = () => {
         breadcrumbs={['Virtual Tabletop']}
         title="Characters"
         extra={
-          <VButton onClick={onCreateCharacter} loading={createCharacter.isLoading}>
+          <VButton onClick={onCreateCharacter} loading={createCharacterMutation.isLoading}>
             <PlusIcon /> Create character
           </VButton>
         }

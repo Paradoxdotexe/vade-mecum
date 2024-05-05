@@ -1,4 +1,4 @@
-import { useGetQuery } from '@/common/useGetQuery';
+import { useClientQuery } from '@/common/useClientQuery';
 import { Character } from '../types/Character';
 import { useQueryClient } from 'react-query';
 import { propagateCharacter } from './useGetCharacterQuery';
@@ -6,7 +6,7 @@ import { propagateCharacter } from './useGetCharacterQuery';
 export const useGetCharactersQuery = () => {
   const queryClient = useQueryClient();
 
-  const query = useGetQuery<Character[]>(['GET_CHARACTERS'], `/characters`, {
+  const query = useClientQuery<Character[]>(['GET_CHARACTERS'], `/characters`, {
     onSuccess: characters => {
       for (const character of characters) {
         propagateCharacter(queryClient, character);

@@ -2,7 +2,7 @@ import { APIGatewayProxyHandler } from 'aws-lambda';
 
 const RESPONSE_HEADERS = {
   'Content-Type': 'application/json',
-  'Access-Control-Allow-Methods': 'OPTIONS,POST',
+  'Access-Control-Allow-Methods': 'OPTIONS,POST,DELETE',
   'Access-Control-Allow-Headers': 'Content-Type',
   'Access-Control-Allow-Credentials': 'true'
 };

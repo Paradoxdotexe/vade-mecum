@@ -1,6 +1,11 @@
 import { APIGatewayProxyEvent, APIGatewayProxyHandler } from 'aws-lambda';
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
-import { DynamoDBDocumentClient, GetCommand, PutCommand } from '@aws-sdk/lib-dynamodb';
+import {
+  DynamoDBDocumentClient,
+  GetCommand,
+  PutCommand,
+  DeleteCommand
+} from '@aws-sdk/lib-dynamodb';
 const layer = require('/opt/nodejs/layer');
 
 const docClient = DynamoDBDocumentClient.from(new DynamoDBClient());
@@ -48,7 +53,6 @@ const handler: APIGatewayProxyHandler = async event =>
     // POST
     else if (event.httpMethod === 'POST') {
       const body = event.body && JSON.parse(event.body);
-
       if (!body || !body.character) {
         return { statusCode: 400, body: JSON.stringify({ detail: 'Invalid body.' }) };
       }
@@ -63,6 +67,22 @@ const handler: APIGatewayProxyHandler = async event =>
         }
       });
       await docClient.send(putCharacter);
+
+      return {
+        statusCode: 200,
+        body: JSON.stringify({})
+      };
+    }
+    // DELETE
+    else if (event.httpMethod === 'DELETE') {
+      const deleteCharacter = new DeleteCommand({
+        TableName: 'vade-mecum-users',
+        Key: {
+          userId: userId,
+          itemId: `character#${characterId}`
+        }
+      });
+      await docClient.send(deleteCharacter);
 
       return {
         statusCode: 200,

@@ -4,7 +4,7 @@ import { PageLayout } from '@/common/PageLayout';
 import { VButton, VButtonProps } from '@/components/VButton';
 import { ReactComponent as TrashCanIcon } from '@/icons/TrashCan.svg';
 import { ReactComponent as WeightIcon } from '@/icons/Weight.svg';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { AttributeKey, Character } from '../../types/Character';
 import { CharacterClient, useCharacterClient } from './useCharacterClient';
 import { NameCard } from './cards/NameCard';
@@ -38,6 +38,7 @@ import { SavedStatus } from '../../SavedStatus';
 import { useGetCharacterQuery } from '../../queries/useGetCharacterQuery';
 import { useUpdateCharacterMutation } from '../../queries/useUpdateCharacterMutation';
 import { VLoader } from '@/components/VLoader';
+import { useDeleteCharacterMutation } from '../../queries/useDeleteCharacterMutation';
 
 const EditButton: React.FC<VButtonProps> = props => (
   <VButton {...props} type="ghost" size="small">
@@ -120,13 +121,17 @@ const StyledCharacterPage = styled(PageLayout)`
 
 export const CharacterPage: React.FC = () => {
   const { characterId } = useParams();
+  const navigate = useNavigate();
   const theme = useVTheme();
 
   const [character, setCharacter] = useState<Character>();
   const [saved, setSaved] = useState(true);
+  const [deleting, setDeleting] = useState(false);
 
   const { data: savedCharacter } = useGetCharacterQuery(characterId);
   useMemo(() => setCharacter(savedCharacter), [savedCharacter]);
+
+  const { mutateAsync: deleteCharacter } = useDeleteCharacterMutation(characterId);
 
   const { mutateAsync: _updateCharacter } = useUpdateCharacterMutation(characterId);
   const updateCharacter = useMemo(
@@ -148,6 +153,11 @@ export const CharacterPage: React.FC = () => {
   const [classAbilitiesDrawerOpen, setClassAbilitiesDrawerOpen] = useState(false);
   const [itemsDrawerOpen, setItemsDrawerOpen] = useState(false);
 
+  const onDelete = () => {
+    setDeleting(true);
+    deleteCharacter().then(() => navigate('/vtt/characters'));
+  };
+
   return (
     <StyledCharacterPage>
       <PageHeader
@@ -156,7 +166,7 @@ export const CharacterPage: React.FC = () => {
         extra={
           <VFlex vertical align="end" gap={theme.variable.gap.md}>
             <SavedStatus saved={saved} />
-            <VButton>
+            <VButton onClick={onDelete} loading={deleting}>
               <TrashCanIcon /> Delete character
             </VButton>
           </VFlex>
@@ -168,7 +178,7 @@ export const CharacterPage: React.FC = () => {
           <VLoader />
         </VFlex>
       ) : (
-        <div className="page__character">
+        <div className="page__character" style={{ pointerEvents: deleting ? 'none' : undefined }}>
           <div className="character__left">
             <div className="character__section">
               <VHeader>Name / Race / Class</VHeader>

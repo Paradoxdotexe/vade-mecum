@@ -1,10 +1,11 @@
 import { UseMutationOptions, useMutation } from 'react-query';
 import { useVTTUser } from './VTTUser';
 
-export const usePostMutation = <
+export const useClientMutation = <
   TResponse extends object = Record<string, never>,
   TBody extends object | void = void
 >(
+  method: 'POST' | 'DELETE',
   endpoint: string,
   mutationOptions?: UseMutationOptions<TResponse, unknown, TBody>
 ) => {
@@ -13,7 +14,7 @@ export const usePostMutation = <
   const mutation = useMutation(
     body =>
       fetch(`https://api.vademecum.thenjk.com${endpoint}`, {
-        method: 'POST',
+        method,
         credentials: 'include',
         headers: {
           'Content-Type': 'application/json'

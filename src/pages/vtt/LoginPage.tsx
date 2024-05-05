@@ -6,7 +6,7 @@ import { VCard } from '@/components/VCard';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { VLoader } from '@/components/VLoader';
 import { useVTTUser } from '../../common/VTTUser';
-import { usePostMutation } from '@/common/usePostMutation';
+import { useClientMutation } from '@/common/useClientMutation';
 
 const Page = styled.div`
   display: flex;
@@ -60,10 +60,11 @@ export const LoginPage: React.FC = () => {
   const [email, setEmail] = useState('');
   const [loginError, setLoginError] = useState<string>();
 
-  const requestLogin = usePostMutation<Record<string, never>, { email: string }>(
+  const requestLogin = useClientMutation<Record<string, never>, { email: string }>(
+    'POST',
     '/auth/login/request'
   );
-  const login = usePostMutation<User, { token: string }>('/auth/login');
+  const login = useClientMutation<User, { token: string }>('POST', '/auth/login');
 
   useEffect(() => {
     const token = searchParams.get('token');

@@ -1,4 +1,4 @@
-import { useGetQuery } from '@/common/useGetQuery';
+import { useClientQuery } from '@/common/useClientQuery';
 import { Character } from '../types/Character';
 import { QueryClient, useQueryClient } from 'react-query';
 import { isEqual } from 'lodash-es';
@@ -33,7 +33,7 @@ export const propagateCharacter = (queryClient: QueryClient, propagatedCharacter
 export const useGetCharacterQuery = (characterId: string | undefined) => {
   const queryClient = useQueryClient();
 
-  const query = useGetQuery<Character>(
+  const query = useClientQuery<Character>(
     ['GET_CHARACTER', characterId],
     `/character/${characterId}`,
     {
