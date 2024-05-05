@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { VCard } from '@/components/VCard';
 import { Roll, RollEvaluation } from '../types/Roll';
 import { startCase, sum } from 'lodash-es';
 import { useVTheme } from '@/common/VTheme';
+import { VNumberInput } from '@/components/VNumberInput';
+import { VCollapsible } from '@/components/VCollapsible';
 
 const StyledRollCard = styled(VCard)`
   display: flex;
@@ -12,6 +14,7 @@ const StyledRollCard = styled(VCard)`
   overflow: hidden;
   padding: 0;
   border: none;
+  cursor: pointer;
 
   .card__header {
     font-family: ${props => props.theme.variable.fontFamily.display};
@@ -27,36 +30,52 @@ const StyledRollCard = styled(VCard)`
     padding: ${props => props.theme.variable.gap.lg};
     display: flex;
     flex-direction: column;
-    gap: ${props => props.theme.variable.gap.md};
 
-    .body__dice {
+    .body__diceFactors {
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: column;
       gap: ${props => props.theme.variable.gap.sm};
+      padding-bottom: ${props => props.theme.variable.gap.lg};
+      margin-bottom: ${props => props.theme.variable.gap.lg};
+      border-bottom: 1px solid ${props => props.theme.color.border.default};
 
-      .dice__die {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 28px;
-        height: 28px;
-        background: ${props => props.theme.color.background.sunken};
-        border-radius: ${props => props.theme.variable.borderRadius};
-        font-family: ${props => props.theme.variable.fontFamily.display};
-        border: 1px solid ${props => props.theme.color.border.bold};
-
-        &.die--ignored {
-          opacity: 0.6;
-        }
+      > :last-child {
+        padding-top: ${props => props.theme.variable.gap.sm};
       }
     }
 
-    .body__outcome {
+    .body__result {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: ${props => props.theme.variable.fontFamily.display};
-      font-size: ${props => props.theme.variable.fontSize.lg};
+      flex-direction: column;
+      gap: ${props => props.theme.variable.gap.md};
+
+      .result__dice {
+        display: flex;
+        flex-wrap: wrap;
+        gap: ${props => props.theme.variable.gap.sm};
+
+        .dice__die {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 28px;
+          height: 28px;
+          background: ${props => props.theme.color.background.sunken};
+          border-radius: ${props => props.theme.variable.borderRadius};
+          font-family: ${props => props.theme.variable.fontFamily.display};
+          border: 1px solid ${props => props.theme.color.border.bold};
+
+          &.die--ignored {
+            opacity: 0.6;
+          }
+        }
+      }
+
+      .result__text {
+        text-align: center;
+        font-family: ${props => props.theme.variable.fontFamily.display};
+        font-size: ${props => props.theme.variable.fontSize.lg};
+      }
     }
   }
 `;
@@ -86,11 +105,34 @@ type RollCardProps = {
 export const RollCard: React.FC<RollCardProps> = props => {
   const theme = useVTheme();
 
+  const [collapsed, setCollapsed] = useState(true);
+
   const checkResult =
     props.roll.evaluation === RollEvaluation.CHECK ? getCheckResult(props.roll.dice) : undefined;
 
+  const renderDie = (die: number, index: number) => {
+    const dieCheckResult = getCheckResult([die]);
+
+    let ignored = false;
+    if (props.roll.evaluation === RollEvaluation.CHECK && index > 0) {
+      ignored = true;
+    }
+
+    return (
+      <div
+        key={index}
+        className={`dice__die ${ignored ? 'die--ignored' : undefined}`}
+        style={{
+          background: theme.color.status[dieCheckResult].border
+        }}
+      >
+        {die}
+      </div>
+    );
+  };
+
   return (
-    <StyledRollCard>
+    <StyledRollCard onClick={() => setCollapsed(!collapsed)}>
       <div
         className="card__header"
         style={{ background: checkResult && theme.color.status[checkResult].border }}
@@ -99,38 +141,58 @@ export const RollCard: React.FC<RollCardProps> = props => {
         {props.roll.label}
       </div>
       <div className="card__body">
-        <div className="body__dice">
-          {props.roll.dice.map((die, i) => {
-            const dieCheckResult = getCheckResult([die]);
-
-            let ignored = false;
-            if (props.roll.evaluation === RollEvaluation.CHECK && i > 0) {
-              ignored = true;
-            }
-
-            return (
-              <div
-                key={i}
-                className={`dice__die ${ignored ? 'die--ignored' : undefined}`}
-                style={{
-                  background: theme.color.status[dieCheckResult].border
-                }}
-              >
-                {die}
-              </div>
-            );
-          })}
-        </div>
-
-        {props.roll.dice && (
-          <div
-            className="body__outcome"
-            style={{ color: checkResult && theme.color.status[checkResult].text }}
-          >
-            {checkResult ? startCase(checkResult) : sum(props.roll.dice)}
+        <VCollapsible collapsed={collapsed}>
+          <div className="body__diceFactors">
+            <DiceFactorInput value={1} label={'Strength'} disabled />
+            <DiceFactorInput prefix={'+'} value={2} label={'Power'} disabled />
+            <DiceFactorInput prefix={'='} value={3} label={'Total'} disabled />
           </div>
-        )}
+        </VCollapsible>
+
+        <div className="body__result">
+          <div className="result__dice">{props.roll.dice.map(renderDie)}</div>
+
+          {props.roll.dice && (
+            <div
+              className="result__text"
+              style={{ color: checkResult && theme.color.status[checkResult].text }}
+            >
+              {checkResult ? startCase(checkResult) : sum(props.roll.dice)}
+            </div>
+          )}
+        </div>
       </div>
     </StyledRollCard>
+  );
+};
+
+const StyledDiceFactorInput = styled.div`
+  display: flex;
+  align-items: center;
+  gap: ${props => props.theme.variable.gap.md};
+  white-space: nowrap;
+  font-size: ${props => props.theme.variable.fontSize.xs};
+
+  .factor__prefix {
+    display: flex;
+    justify-content: center;
+    width: ${props => props.theme.variable.gap.md};
+  }
+`;
+
+type DiceFactorInputProps = {
+  prefix?: string;
+  value: number;
+  label: string;
+  disabled: boolean;
+};
+
+const DiceFactorInput: React.FC<DiceFactorInputProps> = props => {
+  return (
+    <StyledDiceFactorInput>
+      <div className="factor__prefix">{props.prefix}</div>
+      <VNumberInput value={props.value} disabled={props.disabled} size={20} />
+      <div className="factor__label">{props.label}</div>
+    </StyledDiceFactorInput>
   );
 };

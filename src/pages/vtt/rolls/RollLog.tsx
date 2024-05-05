@@ -92,6 +92,15 @@ export const RollLog: React.FC<RollLogProps> = props => {
       diceFactor: [],
       timestamp: '',
       evaluation: RollEvaluation.CHECK
+    },
+    {
+      id: '2',
+      characterId: '2',
+      label: 'Valros Witherin (Power)',
+      dice: [6, 6, 6, 5, 4, 3, 3, 2, 1],
+      diceFactor: [],
+      timestamp: '',
+      evaluation: RollEvaluation.CHECK
     }
   ];
 
