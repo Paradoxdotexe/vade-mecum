@@ -4,12 +4,12 @@ import styled, { css } from 'styled-components';
 import { RollCard } from './RollCard';
 import { Roll, RollEvaluation } from '../types/Roll';
 
-export const ROLL_LOG_WIDTH = '256px';
+export const ROLL_LOG_WIDTH = '252px';
 
 const StyledRollLog = styled.div`
   position: fixed;
   top: 0;
-  right: 0;
+  right: ${props => props.theme.variable.gap.lg};
   border-left: 1px solid ${props => props.theme.color.border.default};
   height: 100vh;
   display: flex;
@@ -70,8 +70,8 @@ const StyledRollLog = styled.div`
     .log__session {
       width: 100%;
       text-align: center;
-      padding: ${props => props.theme.variable.gap.lg};
-      font-size: ${props => props.theme.variable.fontSize.sm};
+      padding: ${props => props.theme.variable.gap.lg} ${props => props.theme.variable.gap.md};
+      font-size: ${props => props.theme.variable.fontSize.xs};
       border-top: 1px solid ${props => props.theme.color.border.default};
       line-height: ${props => props.theme.variable.lineHeight};
     }
@@ -122,7 +122,7 @@ export const RollLog: React.FC<RollLogProps> = props => {
         </div>
         {props.sessionId && (
           <div className="log__session">
-            <strong>Unnamed Session</strong> #{props.sessionId.split('-')[0]}
+            <strong>Unnamed Session</strong> (#{props.sessionId.split('-')[0]})
           </div>
         )}
       </div>

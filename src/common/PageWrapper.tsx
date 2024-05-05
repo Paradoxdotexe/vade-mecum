@@ -26,12 +26,12 @@ const StyledPageWrapper = styled.div`
     box-sizing: border-box;
 
     &::-webkit-scrollbar {
-      width: 18px;
+      width: ${props => props.theme.variable.gap.lg};
     }
 
     &::-webkit-scrollbar-thumb {
       background: ${props => props.theme.color.background.active};
-      border: 5px solid transparent;
+      border: ${props => props.theme.variable.gap.sm} solid transparent;
       border-radius: 20px;
       background-clip: content-box;
       opacity: 0;
