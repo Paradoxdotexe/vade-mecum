@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { SIDE_NAV_WIDTH, SideNav } from './SideNav';
 import { Outlet } from 'react-router-dom';
 import { VTTUserProvider } from './VTTUser';
+import { ROLL_LOG_WIDTH } from '@/pages/vtt/rolls/RollLog';
 
 const StyledPageWrapper = styled.div`
   min-height: 100vh;
@@ -16,8 +17,29 @@ const StyledPageWrapper = styled.div`
   line-height: 1;
   scrollbar-gutter: stable;
 
+  &:has(#roll-log) {
+    padding-right: ${ROLL_LOG_WIDTH};
+  }
+
+  &,
   * {
     box-sizing: border-box;
+
+    &::-webkit-scrollbar {
+      width: 18px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: ${props => props.theme.color.background.active};
+      border: 5px solid transparent;
+      border-radius: 20px;
+      background-clip: content-box;
+      opacity: 0;
+    }
+  }
+
+  &::-webkit-scrollbar-track {
+    background: ${props => props.theme.color.background.raised};
   }
 `;
 

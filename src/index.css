@@ -3,19 +3,3 @@
 body {
   margin: 0;
 }
-
-::-webkit-scrollbar {
-  width: 18px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #585858;
-  border: 5px solid transparent;
-  border-radius: 20px;
-  background-clip: content-box;
-  opacity: 0;
-}
-
-body::-webkit-scrollbar-track {
-  background: #3b3b3b;
-}

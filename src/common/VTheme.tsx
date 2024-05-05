@@ -1,3 +1,4 @@
+import { lighten, opacify } from 'polished';
 import React, { ReactNode, useContext, useState } from 'react';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 
@@ -55,24 +56,24 @@ const DARK_COLORS = {
   },
   status: {
     success: {
-      text: '#34A9FE',
-      background: '#34A9FE44',
-      border: '#34A9FE'
+      text: lighten(0.1, '#2fa4f8'),
+      background: opacify(-0.7, '#2fa4f8'),
+      border: '#2fa4f8'
     },
     failure: {
-      text: '#F48E16',
-      background: '#F48E1644',
-      border: '#F48E16'
+      text: lighten(0.1, '#ee7f00'),
+      background: opacify(-0.7, '#ee7f00'),
+      border: '#ee7f00'
     },
     stalemate: {
-      text: '#A1A1A1',
-      background: '#A1A1A144',
-      border: '#A1A1A1'
+      text: lighten(0.1, '#979797'),
+      background: opacify(-0.7, '#979797'),
+      border: '#979797'
     },
     error: {
-      text: '#ec4343',
-      background: '#ec434344',
-      border: '#ec4343'
+      text: lighten(0.1, '#e62020'),
+      background: opacify(-0.7, '#e62020'),
+      border: '#e62020'
     }
   }
 };

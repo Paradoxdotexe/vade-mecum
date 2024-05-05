@@ -32,7 +32,7 @@ export const SatiationExhaustionCard: React.FC<SatiationExhaustionCardProps> = p
                 max={3}
                 value={props.characterClient.exhaustion}
                 onChange={props.characterClient.setExhaustion}
-                type="FAILURE"
+                type="failure"
               />
             </VFlex>
           </VFlex>

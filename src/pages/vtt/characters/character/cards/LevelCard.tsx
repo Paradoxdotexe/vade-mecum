@@ -3,7 +3,7 @@ import { VCard } from '@/components/VCard';
 import { VNumberInput } from '@/components/VNumberInput';
 import styled from 'styled-components';
 import { VButton } from '@/components/VButton';
-import { pulsingSuccess } from '@/styles/pulsingBackground';
+import { pulsingBackground } from '@/styles/pulsingBackground';
 import { CharacterClient } from '../useCharacterClient';
 import { Points } from './Points';
 import { playSound } from '@/utils/playSound';
@@ -28,7 +28,7 @@ const StyledLevelCard = styled(VCard)`
 
   button {
     width: 100%;
-    ${pulsingSuccess}
+    ${props => pulsingBackground(props.theme.color.status.success.border)}
   }
 `;
 

@@ -30,7 +30,7 @@ import { InventoryCard } from './cards/InventoryCard';
 import { ItemsDrawer } from './drawers/ItemsDrawer';
 import { SatiationExhaustionCard } from './cards/SatiationExhaustionCard';
 import { pluralize } from '@/utils/pluralize';
-import { pulsingFailure, pulsingSuccess } from '@/styles/pulsingBackground';
+import { pulsingBackground } from '@/styles/pulsingBackground';
 import { VTag } from '@/components/VTag';
 import { ComputedSkillsCard } from './cards/ComputedSkillsCard';
 import { debounce } from 'lodash-es';
@@ -39,6 +39,7 @@ import { useGetCharacterQuery } from '../../queries/useGetCharacterQuery';
 import { useUpdateCharacterMutation } from '../../queries/useUpdateCharacterMutation';
 import { VLoader } from '@/components/VLoader';
 import { useDeleteCharacterMutation } from '../../queries/useDeleteCharacterMutation';
+import { RollLog } from '../../rolls/RollLog';
 
 const EditButton: React.FC<VButtonProps> = props => (
   <VButton {...props} type="ghost" size="small">
@@ -68,7 +69,8 @@ const ItemWeight: React.FC<{ characterClient: CharacterClient }> = props => {
 };
 
 const StyledAcquisitionIndicator = styled(VTag)<{ $success: boolean }>`
-  ${props => (props.$success ? pulsingSuccess : pulsingFailure)}
+  ${props =>
+    pulsingBackground(props.theme.color.status[props.$success ? 'success' : 'failure'].border)}
 `;
 
 const AcquisitionIndicator: React.FC<{ label: string; count: number }> = props => {
@@ -304,6 +306,8 @@ export const CharacterPage: React.FC = () => {
           </div>
         </div>
       )}
+
+      <RollLog sessionId="781374ee-73b9-4464-9ca1-fc658c188306" />
     </StyledCharacterPage>
   );
 };

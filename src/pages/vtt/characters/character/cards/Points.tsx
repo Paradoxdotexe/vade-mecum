@@ -1,8 +1,8 @@
-import { pulsingFailure, pulsingSuccess } from '@/styles/pulsingBackground';
+import { pulsingBackground } from '@/styles/pulsingBackground';
 import React from 'react';
 import styled from 'styled-components';
 
-const StyledPoints = styled.div<{ $type: 'SUCCESS' | 'FAILURE' }>`
+const StyledPoints = styled.div<{ $type: 'success' | 'failure' }>`
   display: flex;
   gap: 3px;
 
@@ -14,7 +14,7 @@ const StyledPoints = styled.div<{ $type: 'SUCCESS' | 'FAILURE' }>`
     cursor: pointer;
 
     &.point--filled {
-      ${props => (props.$type === 'SUCCESS' ? pulsingSuccess : pulsingFailure)}
+      ${props => pulsingBackground(props.theme.color.status[props.$type].border)}
     }
   }
 `;
@@ -23,12 +23,12 @@ type PointsProps = {
   max: number;
   value: number;
   onChange: (value: number) => void;
-  type?: 'SUCCESS' | 'FAILURE';
+  type?: 'success' | 'failure';
 };
 
 export const Points: React.FC<PointsProps> = props => {
   return (
-    <StyledPoints $type={props.type ?? 'SUCCESS'}>
+    <StyledPoints $type={props.type ?? 'success'}>
       {[...new Array(props.max)].map((_, i) => (
         <div
           key={i}

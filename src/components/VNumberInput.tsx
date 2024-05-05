@@ -2,23 +2,23 @@ import React, { useEffect, useMemo, useState } from 'react';
 import styled from 'styled-components';
 
 const StyledVNumberInput = styled.input<{ $width: number; $height: number; $fontSize: number }>`
-  font-family: 'Noto Sans Display', sans-serif;
+  font-family: ${props => props.theme.variable.fontFamily.display};
   padding: 0;
   border: none;
-  color: #fff;
+  color: ${props => props.theme.color.text.primary};
   width: ${props => `${props.$width}px`};
   height: ${props => `${props.$height}px`};
   outline: none;
   text-align: center;
   font-size: ${props => `${props.$fontSize}px`};
   background: transparent;
-  border-radius: 4px;
-  background: #585858;
+  border-radius: ${props => props.theme.variable.borderRadius};
+  background: ${props => props.theme.color.background.sunken};
   line-height: 1.4;
 
   &.input--error {
-    border: 1px solid #ec4343;
-    background-color: #ec434344;
+    border: 1px solid ${props => props.theme.color.status.error.border};
+    background-color: ${props => props.theme.color.status.error.background};
   }
 
   &:disabled {
