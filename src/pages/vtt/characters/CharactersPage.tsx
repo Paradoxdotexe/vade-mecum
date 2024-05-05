@@ -1,15 +1,13 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { PageHeader } from '@/common/PageHeader';
 import { PageLayout } from '@/common/PageLayout';
 import { VButton } from '@/components/VButton';
 import { ReactComponent as PlusIcon } from '@/icons/Plus.svg';
 import { usePostMutation } from '@/common/usePostMutation';
 import { useNavigate } from 'react-router-dom';
-import { useGetQuery } from '@/common/useGetQuery';
 import { CharacterCard } from './CharacterCard';
-import { Character } from '../types/Character';
 import styled from 'styled-components';
-import { useQueryClient } from 'react-query';
+import { useGetCharactersQuery } from '../queries/useGetCharactersQuery';
 
 const StyledCharactersPage = styled(PageLayout)`
   .page__characters {
@@ -21,26 +19,16 @@ const StyledCharactersPage = styled(PageLayout)`
 
 export const CharactersPage: React.FC = () => {
   const navigate = useNavigate();
-  const queryClient = useQueryClient();
 
-  const { data: characters } = useGetQuery<Character[]>(['GET_CHARACTERS'], `/characters`);
+  const { data: characters } = useGetCharactersQuery();
 
   const createCharacter = usePostMutation<{ characterId: string }>('/character');
 
   const onCreateCharacter = () => {
-    createCharacter.mutateAsync({}).then(response => {
+    createCharacter.mutateAsync().then(response => {
       navigate(`/vtt/characters/${response.characterId}`);
     });
   };
-
-  useEffect(() => {
-    if (characters) {
-      for (const character of characters) {
-        // propagate data from GET_CHARACTERS query into individual GET_CHARACTER queries
-        queryClient.setQueryData(['GET_CHARACTER', character.id], character);
-      }
-    }
-  }, [characters]);
 
   return (
     <StyledCharactersPage>

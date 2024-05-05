@@ -60,8 +60,10 @@ export const LoginPage: React.FC = () => {
   const [email, setEmail] = useState('');
   const [loginError, setLoginError] = useState<string>();
 
-  const requestLogin = usePostMutation('/auth/login/request');
-  const login = usePostMutation<User>('/auth/login');
+  const requestLogin = usePostMutation<Record<string, never>, { email: string }>(
+    '/auth/login/request'
+  );
+  const login = usePostMutation<User, { token: string }>('/auth/login');
 
   useEffect(() => {
     const token = searchParams.get('token');
