@@ -1,5 +1,4 @@
 export type DiceFactor = {
-  type: 'A' | 'D';
   label: string;
   value: number;
 };
@@ -12,9 +11,10 @@ export enum RollEvaluation {
 export type Roll = {
   id: string;
   characterId: string;
+  characterName: string;
   label: string;
   dice: number[];
-  diceFactor: DiceFactor[];
+  diceFactors: DiceFactor[];
   timestamp: string;
   evaluation: RollEvaluation;
 };

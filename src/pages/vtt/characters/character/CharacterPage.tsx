@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { PageHeader } from '@/common/PageHeader';
 import { PageLayout } from '@/common/PageLayout';
 import { VButton, VButtonProps } from '@/components/VButton';
@@ -33,7 +33,7 @@ import { pluralize } from '@/utils/pluralize';
 import { pulsingBackground } from '@/styles/pulsingBackground';
 import { VTag } from '@/components/VTag';
 import { ComputedSkillsCard } from './cards/ComputedSkillsCard';
-import { debounce } from 'lodash-es';
+import { debounce, isEqual } from 'lodash-es';
 import { SavedStatus } from '../../SavedStatus';
 import { useGetCharacterQuery } from '../../queries/useGetCharacterQuery';
 import { useUpdateCharacterMutation } from '../../queries/useUpdateCharacterMutation';
@@ -131,25 +131,34 @@ export const CharacterPage: React.FC = () => {
   const [deleting, setDeleting] = useState(false);
 
   const { data: savedCharacter } = useGetCharacterQuery(characterId);
-  useMemo(() => setCharacter(savedCharacter), [savedCharacter]);
+  useMemo(() => {
+    if (savedCharacter && !character) {
+      setCharacter(savedCharacter);
+    }
+  }, [savedCharacter]);
 
   const { mutateAsync: deleteCharacter } = useDeleteCharacterMutation(characterId);
 
   const { mutateAsync: _updateCharacter } = useUpdateCharacterMutation(characterId);
   const updateCharacter = useMemo(
-    () =>
-      debounce((character: Character) => {
-        _updateCharacter({ character }).then(() => setSaved(true));
-      }, 2000),
+    () => debounce((character: Character) => _updateCharacter({ character }), 2000),
     []
   );
 
-  const characterClient = useCharacterClient(character, character => {
-    setCharacter(character);
-    // save character with debounce
-    setSaved(false);
-    updateCharacter(character);
-  });
+  const characterClient = useCharacterClient(character, setCharacter);
+
+  // updated saved state and debounce save query when needed
+  useEffect(() => {
+    if (character && savedCharacter) {
+      const saved = isEqual(character, savedCharacter);
+      setSaved(saved);
+      if (saved) {
+        updateCharacter.cancel();
+      } else {
+        updateCharacter(character);
+      }
+    }
+  }, [character, savedCharacter]);
 
   const [perksDrawerOpen, setPerksDrawerOpen] = useState(false);
   const [classAbilitiesDrawerOpen, setClassAbilitiesDrawerOpen] = useState(false);

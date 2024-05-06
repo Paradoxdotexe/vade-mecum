@@ -14,10 +14,8 @@ const StyledRollCard = styled(VCard)`
   overflow: hidden;
   padding: 0;
   border: none;
-  cursor: pointer;
 
   .card__header {
-    font-family: ${props => props.theme.variable.fontFamily.display};
     font-size: ${props => props.theme.variable.fontSize.xxs};
     padding: ${props => props.theme.variable.gap.sm} ${props => props.theme.variable.gap.md};
     background: ${props => props.theme.color.background.sunken};
@@ -100,21 +98,33 @@ const getCheckResult = (dice: number[]) => {
 
 type RollCardProps = {
   roll: Roll;
+  collapsible?: boolean;
 };
 
 export const RollCard: React.FC<RollCardProps> = props => {
   const theme = useVTheme();
 
-  const [collapsed, setCollapsed] = useState(true);
+  const [collapsed, setCollapsed] = useState(props.collapsible ? true : false);
 
-  const checkResult =
-    props.roll.evaluation === RollEvaluation.CHECK ? getCheckResult(props.roll.dice) : undefined;
+  const isRolled = !!props.roll.dice.length;
+  const isCheck = props.roll.evaluation === RollEvaluation.CHECK;
+
+  const checkResult = isRolled && isCheck ? getCheckResult(props.roll.dice) : undefined;
+
+  let dice = props.roll.dice;
+
+  // if roll hasn't been rolled, add pseudo dice based on dice factors
+  if (!isRolled) {
+    const total = sum(props.roll.diceFactors.map(diceFactor => diceFactor.value));
+    dice = [...new Array(Math.max(total, 0))].map(() => -1);
+  }
 
   const renderDie = (die: number, index: number) => {
     const dieCheckResult = getCheckResult([die]);
+    const color = die > 0 ? theme.color.status[dieCheckResult].border : undefined;
 
     let ignored = false;
-    if (props.roll.evaluation === RollEvaluation.CHECK && index > 0) {
+    if (isRolled && isCheck && index > 0) {
       ignored = true;
     }
 
@@ -123,36 +133,54 @@ export const RollCard: React.FC<RollCardProps> = props => {
         key={index}
         className={`dice__die ${ignored ? 'die--ignored' : undefined}`}
         style={{
-          background: theme.color.status[dieCheckResult].border
+          background: color
         }}
       >
-        {die}
+        {die > 0 ? die : '?'}
       </div>
     );
   };
 
   return (
-    <StyledRollCard onClick={() => setCollapsed(!collapsed)}>
+    <StyledRollCard
+      onClick={props.collapsible ? () => setCollapsed(!collapsed) : undefined}
+      style={{ cursor: props.collapsible ? 'pointer' : undefined }}
+    >
       <div
         className="card__header"
         style={{ background: checkResult && theme.color.status[checkResult].border }}
-        title={props.roll.label}
+        title={`${props.roll.characterName} (${props.roll.label})`}
       >
-        {props.roll.label}
+        <strong>{props.roll.characterName}</strong> ({props.roll.label})
       </div>
+
       <div className="card__body">
         <VCollapsible collapsed={collapsed}>
           <div className="body__diceFactors">
-            <DiceFactorInput value={1} label={'Strength'} disabled />
-            <DiceFactorInput prefix={'+'} value={2} label={'Power'} disabled />
-            <DiceFactorInput prefix={'='} value={3} label={'Total'} disabled />
+            {props.roll.diceFactors.map((diceFactor, i) => {
+              let prefix: string | undefined = undefined;
+
+              if (i > 0) {
+                prefix = diceFactor.value >= 0 ? '+' : '-';
+              }
+
+              return (
+                <DiceFactorInput
+                  key={i}
+                  prefix={prefix}
+                  value={Math.abs(diceFactor.value)}
+                  label={diceFactor.label}
+                />
+              );
+            })}
+            <DiceFactorInput prefix={'='} value={dice.length} label={'Total'} />
           </div>
         </VCollapsible>
 
         <div className="body__result">
-          <div className="result__dice">{props.roll.dice.map(renderDie)}</div>
+          <div className="result__dice">{dice.map(renderDie)}</div>
 
-          {props.roll.dice && (
+          {isRolled && (
             <div
               className="result__text"
               style={{ color: checkResult && theme.color.status[checkResult].text }}
@@ -164,6 +192,10 @@ export const RollCard: React.FC<RollCardProps> = props => {
       </div>
     </StyledRollCard>
   );
+};
+
+RollCard.defaultProps = {
+  collapsible: true
 };
 
 const StyledDiceFactorInput = styled.div`
@@ -184,14 +216,13 @@ type DiceFactorInputProps = {
   prefix?: string;
   value: number;
   label: string;
-  disabled: boolean;
 };
 
 const DiceFactorInput: React.FC<DiceFactorInputProps> = props => {
   return (
     <StyledDiceFactorInput>
       <div className="factor__prefix">{props.prefix}</div>
-      <VNumberInput value={props.value} disabled={props.disabled} size={20} />
+      <VNumberInput value={props.value} disabled size={20} />
       <div className="factor__label">{props.label}</div>
     </StyledDiceFactorInput>
   );

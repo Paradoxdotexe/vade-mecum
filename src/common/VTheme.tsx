@@ -46,6 +46,7 @@ const DARK_COLORS = {
   },
   border: {
     default: '#585858',
+    sunken: '#6d6d6d',
     bold: '#fafafa'
   },
   shadow: {

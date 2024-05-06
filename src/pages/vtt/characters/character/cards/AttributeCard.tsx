@@ -2,9 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import { VNumberInput } from '@/components/VNumberInput';
 import { VCard } from '@/components/VCard';
-import { AttributeKey } from '@/pages/engine/Character';
+import { AttributeKey, Skill } from '@/pages/engine/Character';
 import { CharacterClient } from '../useCharacterClient';
 import { RollableSkill } from './RollableSkill';
+import { useRollModal } from '@/pages/vtt/rolls/RollModal';
+import { RollEvaluation } from '@/pages/vtt/types/Roll';
 
 const StyledAttributeCard = styled(VCard)`
   display: flex;
@@ -40,7 +42,28 @@ type AttributeCardProps = {
 };
 
 export const AttributeCard: React.FC<AttributeCardProps> = props => {
+  const rollModal = useRollModal();
+
   const attribute = props.characterClient.attributes[props.attributeKey];
+
+  const onRoll = (skill: Skill) => {
+    rollModal.open({
+      characterId: props.characterClient.id,
+      characterName: props.characterClient.name,
+      label: skill.label,
+      diceFactors: [
+        {
+          label: attribute.label,
+          value: attribute.value
+        },
+        {
+          label: skill.label,
+          value: skill.value
+        }
+      ],
+      evaluation: RollEvaluation.CHECK
+    });
+  };
 
   return (
     <StyledAttributeCard>
@@ -59,12 +82,13 @@ export const AttributeCard: React.FC<AttributeCardProps> = props => {
         {Object.entries(attribute.skills).map(([skillKey, skill]) => (
           <RollableSkill
             key={skillKey}
-            value={skill.value}
             label={skill.label}
+            value={skill.value}
+            max={3}
             onChange={value =>
               props.characterClient.setSkillValue(props.attributeKey, skillKey, value)
             }
-            max={3}
+            onClick={() => onRoll(skill)}
           />
         ))}
       </div>

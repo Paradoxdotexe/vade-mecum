@@ -21,10 +21,11 @@ const StyledRollableSkill = styled.div`
 `;
 
 type RollableSkillProps = {
-  value: number;
   label: string;
-  onChange?: (value: number) => void;
+  value: number;
   max?: number;
+  onChange?: (value: number) => void;
+  onClick?: () => void;
   disabled?: boolean;
 };
 
@@ -37,7 +38,9 @@ export const RollableSkill: React.FC<RollableSkillProps> = props => {
         max={props.max}
         disabled={props.disabled}
       />
-      <div className="skill__label">{props.label}</div>
+      <div className="skill__label" onClick={props.onClick}>
+        {props.label}
+      </div>
     </StyledRollableSkill>
   );
 };

@@ -10,12 +10,12 @@ const StyledVPopup = styled.div`
   left: 0;
   display: flex;
   justify-content: center;
-  align-items: center;
   z-index: 1000;
   transition: background-color 150ms ease;
+  padding: ${props => props.theme.variable.gap.xxl};
 
   &.popup--open {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: ${props => props.theme.color.background.backdrop};
   }
 
   &:not(.popup--open) {
@@ -41,7 +41,7 @@ export const VPopup: React.FC<VPopupProps> = props => {
   useEffect(() => setOpen(props.open), [props.open]);
 
   return (
-    <StyledVPopup className={open ? 'popup--open' : ''} onClick={() => setOpen(false)}>
+    <StyledVPopup className={open ? 'popup--open' : ''} onMouseDown={() => setOpen(false)}>
       {open && <FrozenScrollStyle />}
       <VTransition
         in={open}
@@ -55,7 +55,7 @@ export const VPopup: React.FC<VPopupProps> = props => {
         `}
         onExited={props.onClose}
       >
-        {props.children}
+        <div onMouseDown={event => event.stopPropagation()}>{props.children}</div>
       </VTransition>
     </StyledVPopup>
   );

@@ -16,7 +16,7 @@ const StyledVDrawerContainer = styled.div<{ $width: string }>`
   transition: background-color ${TIMEOUT}ms ease;
 
   &.drawerContainer--open {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: ${props => props.theme.color.background.backdrop};
   }
 
   &:not(.drawerContainer--open) {
@@ -34,7 +34,7 @@ const StyledVDrawerContainer = styled.div<{ $width: string }>`
     .drawer__header {
       display: flex;
       justify-content: center;
-      font-family: 'Noto Sans Display', sans-serif;
+      font-family: ${props => props.theme.variable.fontFamily.display};
       font-size: ${props => props.theme.variable.fontSize.xl};
       padding: ${props => props.theme.variable.gap.lg};
       border-bottom: 1px solid ${props => props.theme.color.border.default};
