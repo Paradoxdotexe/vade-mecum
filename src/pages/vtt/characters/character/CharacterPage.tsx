@@ -40,6 +40,7 @@ import { useUpdateCharacterMutation } from '../../queries/useUpdateCharacterMuta
 import { VLoader } from '@/components/VLoader';
 import { useDeleteCharacterMutation } from '../../queries/useDeleteCharacterMutation';
 import { RollLog } from '../../rolls/RollLog';
+import { VModal } from '@/components/VModal';
 
 const EditButton: React.FC<VButtonProps> = props => (
   <VButton {...props} type="ghost" size="small">
@@ -128,6 +129,8 @@ export const CharacterPage: React.FC = () => {
 
   const [character, setCharacter] = useState<Character>();
   const [saved, setSaved] = useState(true);
+
+  const [deleteModalOpen, setDeleteModalOpen] = useState(false);
   const [deleting, setDeleting] = useState(false);
 
   const { data: savedCharacter } = useGetCharacterQuery(characterId);
@@ -164,7 +167,9 @@ export const CharacterPage: React.FC = () => {
   const [classAbilitiesDrawerOpen, setClassAbilitiesDrawerOpen] = useState(false);
   const [itemsDrawerOpen, setItemsDrawerOpen] = useState(false);
 
-  const onDelete = () => {
+  const onDelete = () => setDeleteModalOpen(true);
+
+  const onConfirmDelete = () => {
     setDeleting(true);
     deleteCharacter().then(() => navigate('/vtt/characters'));
   };
@@ -180,6 +185,26 @@ export const CharacterPage: React.FC = () => {
             <VButton onClick={onDelete} loading={deleting}>
               <TrashCanIcon /> Delete character
             </VButton>
+            <VModal
+              open={deleteModalOpen}
+              onClose={() => setDeleteModalOpen(false)}
+              header="Delete Character"
+              width={320}
+            >
+              <VFlex
+                vertical
+                gap={theme.variable.gap.lg}
+                style={{ padding: theme.variable.gap.lg, lineHeight: theme.variable.lineHeight }}
+              >
+                <span>
+                  Are you sure you want to delete{' '}
+                  {character?.name ? <strong>{character.name}</strong> : 'this character'}?
+                </span>
+                <VButton type="primary" onClick={onConfirmDelete} loading={deleting}>
+                  Delete
+                </VButton>
+              </VFlex>
+            </VModal>
           </VFlex>
         }
       />

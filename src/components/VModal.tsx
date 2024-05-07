@@ -25,12 +25,13 @@ type VModalProps = {
   header?: ReactNode;
   children: ReactNode;
   className?: string;
+  width?: string | number;
 };
 
 export const VModal: React.FC<VModalProps> = props => {
   return (
     <VPopup open={props.open} onClose={props.onClose}>
-      <StyledVModal className={props.className}>
+      <StyledVModal className={props.className} style={{ width: props.width }}>
         {props.header && <div className="modal__header">{props.header}</div>}
         {props.children}
       </StyledVModal>
