@@ -2,11 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import { VNumberInput } from '@/components/VNumberInput';
 import { VCard } from '@/components/VCard';
-import { AttributeKey, Skill } from '@/pages/engine/Character';
+import { AttributeKey } from '@/pages/engine/Character';
 import { CharacterClient } from '../useCharacterClient';
 import { RollableSkill } from './RollableSkill';
 import { useRollModal } from '@/pages/vtt/rolls/RollModal';
-import { RollEvaluation } from '@/pages/vtt/types/Roll';
+import { DiceFactor, RollEvaluation } from '@/pages/vtt/types/Roll';
 
 const StyledAttributeCard = styled(VCard)`
   display: flex;
@@ -46,23 +46,36 @@ export const AttributeCard: React.FC<AttributeCardProps> = props => {
 
   const attribute = props.characterClient.attributes[props.attributeKey];
 
-  const onRoll = (skill: Skill) => {
-    rollModal.open({
-      characterId: props.characterClient.id,
-      characterName: props.characterClient.name,
-      label: skill.label,
-      diceFactors: [
-        {
-          label: attribute.label,
-          value: attribute.value
-        },
-        {
-          label: skill.label,
-          value: skill.value
-        }
-      ],
-      evaluation: RollEvaluation.CHECK
-    });
+  const onRoll = (skillKey: string) => {
+    const skill = attribute.skills[skillKey];
+
+    const diceFactors: DiceFactor[] = [
+      {
+        label: attribute.label,
+        value: attribute.value
+      },
+      {
+        label: skill.label,
+        value: skill.value
+      }
+    ];
+
+    // add classItemBonus if applicable
+    if (skillKey === props.characterClient.class.skillKey) {
+      diceFactors.push({
+        label: props.characterClient.class.classItemLabel,
+        value: props.characterClient.class.classItemBonus
+      });
+    }
+
+    if (skill)
+      rollModal.open({
+        characterId: props.characterClient.id,
+        characterName: props.characterClient.name,
+        label: skill.label,
+        diceFactors,
+        evaluation: RollEvaluation.CHECK
+      });
   };
 
   return (
@@ -88,7 +101,7 @@ export const AttributeCard: React.FC<AttributeCardProps> = props => {
             onChange={value =>
               props.characterClient.setSkillValue(props.attributeKey, skillKey, value)
             }
-            onClick={() => onRoll(skill)}
+            onClick={() => onRoll(skillKey)}
           />
         ))}
       </div>

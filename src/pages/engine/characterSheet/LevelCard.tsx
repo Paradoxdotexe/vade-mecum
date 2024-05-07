@@ -31,7 +31,7 @@ export const LevelCard: React.FC = () => {
   const showLevelUp = currentCharacter.levelPoints === 6;
 
   const levelUp = () => {
-    const levelUpSound = new Audio('/sounds/level-up.mp3');
+    const levelUpSound = new Audio('/sounds/LevelUp.mp3');
     levelUpSound.addEventListener(
       'canplaythrough',
       () => {

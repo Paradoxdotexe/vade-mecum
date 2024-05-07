@@ -316,7 +316,7 @@ export const CharacterPage: React.FC = () => {
         </div>
       )}
 
-      <RollLog sessionId="781374ee-73b9-4464-9ca1-fc658c188306" />
+      <RollLog />
     </StyledCharacterPage>
   );
 };

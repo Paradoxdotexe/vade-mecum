@@ -7,6 +7,11 @@ import { VNumberInput } from '@/components/VNumberInput';
 import { VFlex } from '@/components/VFlex';
 import { useVTheme } from '@/common/VTheme';
 import { VButton } from '@/components/VButton';
+import { v4 as uuid } from 'uuid';
+import { sum } from 'lodash-es';
+import { rollDie } from '@/utils/rollDie';
+import { DateTime } from 'luxon';
+import { useRolls } from './useRolls';
 
 const StyledRollModal = styled(VModal)`
   .modal__content {
@@ -27,11 +32,12 @@ type RollModalProps = {
 
 const RollModal: React.FC<RollModalProps> = props => {
   const theme = useVTheme();
+  const { addRoll } = useRolls();
 
   const [advantage, setAdvantage] = useState(0);
   const [disadvantage, setDisadvantage] = useState(0);
 
-  const diceFactors = useMemo(() => {
+  const roll = useMemo(() => {
     const diceFactors = [...props.newRoll.diceFactors];
 
     if (advantage) {
@@ -48,13 +54,34 @@ const RollModal: React.FC<RollModalProps> = props => {
       });
     }
 
-    return diceFactors;
-  }, [advantage, disadvantage, props.newRoll]);
+    return {
+      id: '',
+      characterId: props.newRoll.characterId,
+      characterName: props.newRoll.characterName,
+      label: props.newRoll.label,
+      dice: [],
+      diceFactors,
+      timestamp: '',
+      evaluation: props.newRoll.evaluation
+    };
+  }, [props.newRoll, advantage, disadvantage]);
 
   const onClose = () => {
     setAdvantage(0);
     setDisadvantage(0);
     props.onClose?.();
+  };
+
+  const onRoll = () => {
+    const id = uuid();
+    const timestamp = DateTime.now().toISO();
+
+    // roll the dice!
+    const total = sum(roll.diceFactors.map(diceFactor => diceFactor.value));
+    const dice = [...new Array(total)].map(() => rollDie()).sort((a, b) => b - a);
+
+    addRoll({ ...roll, id, timestamp, dice });
+    onClose();
   };
 
   return (
@@ -78,21 +105,11 @@ const RollModal: React.FC<RollModalProps> = props => {
           </VFlex>
         </VFlex>
 
-        <RollCard
-          roll={{
-            id: '',
-            characterId: props.newRoll.characterId,
-            characterName: props.newRoll.characterName,
-            label: props.newRoll.label,
-            dice: [],
-            diceFactors: diceFactors,
-            timestamp: '',
-            evaluation: props.newRoll.evaluation
-          }}
-          collapsible={false}
-        />
+        <RollCard roll={roll} collapsible={false} />
 
-        <VButton type="primary">Roll</VButton>
+        <VButton type="primary" onClick={onRoll}>
+          Roll
+        </VButton>
       </div>
     </StyledRollModal>
   );

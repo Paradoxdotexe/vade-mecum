@@ -40,7 +40,7 @@ export const LevelCard: React.FC<LevelCardProps> = props => {
   const levelUpAvailable = props.characterClient.levelPoints === 6;
 
   const levelUp = () => {
-    playSound('/sounds/level-up.mp3').then(() => {
+    playSound('/sounds/LevelUp.mp3').then(() => {
       props.characterClient.levelUp();
     });
   };

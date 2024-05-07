@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useVTTUser } from '../../common/VTTUser';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { RollModalProvider } from './rolls/RollModal';
+import { RollsProvider } from './rolls/useRolls';
 
 export const VTT: React.FC = () => {
   const location = useLocation();
@@ -26,9 +27,11 @@ export const VTT: React.FC = () => {
 
   return (
     <>
-      <RollModalProvider>
-        <Outlet />
-      </RollModalProvider>
+      <RollsProvider>
+        <RollModalProvider>
+          <Outlet />
+        </RollModalProvider>
+      </RollsProvider>
     </>
   );
 };

@@ -2,14 +2,15 @@ import { VTransition } from '@/components/VTransition';
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { RollCard } from './RollCard';
-import { Roll, RollEvaluation } from '../types/Roll';
+import { useRolls } from './useRolls';
+import { VLoader } from '@/components/VLoader';
 
 export const ROLL_LOG_WIDTH = '252px';
 
 const StyledRollLog = styled.div`
   position: fixed;
   top: 0;
-  right: ${props => props.theme.variable.gap.lg};
+  right: 0;
   border-left: 1px solid ${props => props.theme.color.border.default};
   height: 100vh;
   display: flex;
@@ -83,52 +84,35 @@ type RollLogProps = {
 };
 
 export const RollLog: React.FC<RollLogProps> = props => {
-  const rolls: Roll[] = [
-    {
-      id: '1',
-      characterId: '1',
-      characterName: 'Valros Witherin',
-      label: 'Power',
-      dice: [4, 4, 4, 3, 3, 1],
-      diceFactors: [
-        {
-          label: 'Strength',
-          value: 4
-        },
-        {
-          label: 'Power',
-          value: 2
-        }
-      ],
-      timestamp: '',
-      evaluation: RollEvaluation.CHECK
-    }
-  ];
+  const { rolls } = useRolls();
 
   return (
     <StyledRollLog id="roll-log">
       <div className="rollLog__header">Roll Log</div>
       <div className="rollLog__log">
         <div className="log__rolls">
-          {rolls.map(roll => (
-            <VTransition
-              key={roll.id}
-              in
-              outStyle={css`
-                opacity: 0;
-                transform: translateY(200px);
-              `}
-              inStyle={css`
-                opacity: 1;
-                transform: translateY(0);
-              `}
-              initialTransition
-              timeout={300}
-            >
-              <RollCard roll={roll} />
-            </VTransition>
-          ))}
-          {/* {sessionId && !rolls && <VLoader style={{ padding: 0 }} />} */}
+          {rolls ? (
+            rolls.map(roll => (
+              <VTransition
+                key={roll.id}
+                in
+                outStyle={css`
+                  opacity: 0;
+                  transform: translateY(200px);
+                `}
+                inStyle={css`
+                  opacity: 1;
+                  transform: translateY(0);
+                `}
+                initialTransition
+                timeout={300}
+              >
+                <RollCard roll={roll} />
+              </VTransition>
+            ))
+          ) : (
+            <VLoader style={{ padding: 0 }} />
+          )}
         </div>
         {props.sessionId && (
           <div className="log__session">

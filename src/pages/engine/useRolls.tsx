@@ -64,7 +64,7 @@ export const RollsStateProvider: React.FC<{ children?: ReactNode }> = props => {
       webSocket.addEventListener('message', event => {
         const message = JSON.parse(event.data);
         if (message.event === 'NEW_ROLL') {
-          const rollSound = new Audio('/sounds/roll.mp3');
+          const rollSound = new Audio('/sounds/DiceRoll.mp3');
           rollSound.addEventListener(
             'canplaythrough',
             () => {

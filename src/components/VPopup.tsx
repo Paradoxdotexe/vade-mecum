@@ -1,6 +1,7 @@
 import React, { ReactNode, useEffect, useState } from 'react';
-import styled, { createGlobalStyle, css } from 'styled-components';
+import styled, { css } from 'styled-components';
 import { VTransition } from './VTransition';
+import { FrozenGlobalStyle } from '@/common/PageWrapper';
 
 const StyledVPopup = styled.div`
   position: fixed;
@@ -23,12 +24,6 @@ const StyledVPopup = styled.div`
   }
 `;
 
-const FrozenScrollStyle = createGlobalStyle`
-  body {
-    overflow: hidden;
-  }
-`;
-
 type VPopupProps = {
   open: boolean;
   onClose?: () => void;
@@ -42,7 +37,7 @@ export const VPopup: React.FC<VPopupProps> = props => {
 
   return (
     <StyledVPopup className={open ? 'popup--open' : ''} onMouseDown={() => setOpen(false)}>
-      {open && <FrozenScrollStyle />}
+      {open && <FrozenGlobalStyle />}
       <VTransition
         in={open}
         outStyle={css`

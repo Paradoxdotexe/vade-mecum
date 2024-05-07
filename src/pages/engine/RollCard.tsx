@@ -124,7 +124,7 @@ export const RollCard: React.FC<RollCardProps> = props => {
   const [dice, setDice] = useState<number[] | undefined>(props.dice);
 
   const rollDice = () => {
-    const rollSound = new Audio('/sounds/roll.mp3');
+    const rollSound = new Audio('/sounds/DiceRoll.mp3');
     rollSound.addEventListener(
       'canplaythrough',
       () => {
