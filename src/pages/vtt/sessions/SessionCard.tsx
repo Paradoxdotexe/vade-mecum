@@ -3,6 +3,7 @@ import { Session } from '../types/Session';
 import styled from 'styled-components';
 import { VCard } from '@/components/VCard';
 import { ReactComponent as UserIcon } from '@/icons/User.svg';
+import { useNavigate } from 'react-router-dom';
 
 const StyledSessionCard = styled(VCard)`
   display: flex;
@@ -41,8 +42,14 @@ type SessionCardProps = {
 };
 
 export const SessionCard: React.FC<SessionCardProps> = props => {
+  const navigate = useNavigate();
+
+  const onClick = () => {
+    navigate(`/vtt/sessions/${props.session.id}`);
+  };
+
   return (
-    <StyledSessionCard>
+    <StyledSessionCard onClick={onClick}>
       <div className="card__left">
         <div className="left__name">{props.session.name}</div>
         <div className="left__id">(#{props.session.id.split('-')[0]})</div>
