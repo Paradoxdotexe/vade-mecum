@@ -28,6 +28,7 @@ type VPopupProps = {
   open: boolean;
   onClose?: () => void;
   children: ReactNode;
+  closable?: boolean;
 };
 
 export const VPopup: React.FC<VPopupProps> = props => {
@@ -36,7 +37,10 @@ export const VPopup: React.FC<VPopupProps> = props => {
   useEffect(() => setOpen(props.open), [props.open]);
 
   return (
-    <StyledVPopup className={open ? 'popup--open' : ''} onMouseDown={() => setOpen(false)}>
+    <StyledVPopup
+      className={open ? 'popup--open' : ''}
+      onMouseDown={() => props.closable && setOpen(false)}
+    >
       {open && <FrozenGlobalStyle />}
       <VTransition
         in={open}
@@ -54,4 +58,8 @@ export const VPopup: React.FC<VPopupProps> = props => {
       </VTransition>
     </StyledVPopup>
   );
+};
+
+VPopup.defaultProps = {
+  closable: true
 };

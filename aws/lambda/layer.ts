@@ -51,7 +51,7 @@ export const hashAuthToken = async (authToken: string) => {
   return Buffer.from(response.Mac).toString('hex');
 };
 
-const getCookie = (event: APIGatewayProxyEvent, name: string) => {
+export const getCookie = (event: APIGatewayProxyEvent, name: string) => {
   if (event.headers.Cookie) {
     return new RegExp(`(?: |^)${name}=(.*?)(?:;|$)`).exec(event.headers.Cookie)?.[1];
   }
@@ -78,7 +78,7 @@ export const handlerResolver = async (
     headers['Access-Control-Allow-Origin'] = event.headers.origin;
   }
 
-  // identify user
+  // authenticate user
   const authToken = getCookie(event, 'vade-mecum-auth-token');
   if (authToken) {
     const hashedAuthToken = await hashAuthToken(authToken);
@@ -96,7 +96,7 @@ export const handlerResolver = async (
     const authTokenItem = (await docClient.send(queryAuthToken)).Items?.[0];
 
     if (!authTokenItem) {
-      // remove authToken cookie
+      // remove auth token cookie
       const cookie = `vade-mecum-auth-token=; Expires=${new Date(0).toUTCString()}; SameSite=None; HttpOnly; Path=/; Secure`;
       return {
         statusCode: 403,

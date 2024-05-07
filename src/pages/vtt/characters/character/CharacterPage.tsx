@@ -131,7 +131,6 @@ export const CharacterPage: React.FC = () => {
   const [saved, setSaved] = useState(true);
 
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
-  const [deleting, setDeleting] = useState(false);
 
   const { data: savedCharacter } = useGetCharacterQuery(characterId);
   useMemo(() => {
@@ -140,7 +139,7 @@ export const CharacterPage: React.FC = () => {
     }
   }, [savedCharacter]);
 
-  const { mutateAsync: deleteCharacter } = useDeleteCharacterMutation(characterId);
+  const deleteCharacter = useDeleteCharacterMutation(characterId);
 
   const { mutateAsync: _updateCharacter } = useUpdateCharacterMutation(characterId);
   const updateCharacter = useMemo(
@@ -167,11 +166,12 @@ export const CharacterPage: React.FC = () => {
   const [classAbilitiesDrawerOpen, setClassAbilitiesDrawerOpen] = useState(false);
   const [itemsDrawerOpen, setItemsDrawerOpen] = useState(false);
 
-  const onDelete = () => setDeleteModalOpen(true);
+  const onDelete = () => {
+    setDeleteModalOpen(true);
+  };
 
   const onConfirmDelete = () => {
-    setDeleting(true);
-    deleteCharacter().then(() => navigate('/vtt/characters'));
+    deleteCharacter.mutateAsync().then(() => navigate('/vtt/characters'));
   };
 
   return (
@@ -182,29 +182,9 @@ export const CharacterPage: React.FC = () => {
         extra={
           <VFlex vertical align="end" gap={theme.variable.gap.md}>
             <SavedStatus saved={saved} />
-            <VButton onClick={onDelete} loading={deleting}>
+            <VButton onClick={onDelete}>
               <TrashCanIcon /> Delete character
             </VButton>
-            <VModal
-              open={deleteModalOpen}
-              onClose={() => setDeleteModalOpen(false)}
-              header="Delete Character"
-              width={320}
-            >
-              <VFlex
-                vertical
-                gap={theme.variable.gap.lg}
-                style={{ padding: theme.variable.gap.lg, lineHeight: theme.variable.lineHeight }}
-              >
-                <span>
-                  Are you sure you want to delete{' '}
-                  {character?.name ? <strong>{character.name}</strong> : 'this character'}?
-                </span>
-                <VButton type="primary" onClick={onConfirmDelete} loading={deleting}>
-                  Delete
-                </VButton>
-              </VFlex>
-            </VModal>
           </VFlex>
         }
       />
@@ -214,7 +194,7 @@ export const CharacterPage: React.FC = () => {
           <VLoader />
         </VFlex>
       ) : (
-        <div className="page__character" style={{ pointerEvents: deleting ? 'none' : undefined }}>
+        <div className="page__character">
           <div className="character__left">
             <div className="character__section">
               <VHeader>Name / Race / Class</VHeader>
@@ -340,6 +320,28 @@ export const CharacterPage: React.FC = () => {
           </div>
         </div>
       )}
+
+      <VModal
+        open={deleteModalOpen}
+        onClose={() => setDeleteModalOpen(false)}
+        header="Delete Character"
+        width={320}
+        closable={!deleteCharacter.isLoading}
+      >
+        <VFlex
+          vertical
+          gap={theme.variable.gap.lg}
+          style={{ padding: theme.variable.gap.lg, lineHeight: theme.variable.lineHeight }}
+        >
+          <span>
+            Are you sure you want to delete{' '}
+            {character?.name ? <strong>{character.name}</strong> : 'this character'}?
+          </span>
+          <VButton type="primary" onClick={onConfirmDelete} loading={deleteCharacter.isLoading}>
+            Delete
+          </VButton>
+        </VFlex>
+      </VModal>
 
       <RollLog />
     </StyledCharacterPage>

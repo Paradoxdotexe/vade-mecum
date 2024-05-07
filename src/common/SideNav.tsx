@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useState } from 'react';
 import styled from 'styled-components';
 import { ReactComponent as VadeMecumLogo } from '@/icons/VadeMecumLogo.svg';
 import { ReactComponent as HomeIcon } from '@/icons/Home.svg';
@@ -7,6 +7,11 @@ import { ReactComponent as DieIcon } from '@/icons/Die.svg';
 import { ReactComponent as UserIcon } from '@/icons/User.svg';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useVTTUser } from './VTTUser';
+import { VModal } from '@/components/VModal';
+import { VButton } from '@/components/VButton';
+import { VFlex } from '@/components/VFlex';
+import { useVTheme } from './VTheme';
+import { useClientMutation } from './useClientMutation';
 
 export const SIDE_NAV_WIDTH = '200px';
 
@@ -21,6 +26,7 @@ const StyledSideNav = styled.div`
   background: ${props => props.theme.color.background.default};
   border-right: 1px solid ${props => props.theme.color.border.default};
   box-shadow: 4px 0 16px ${props => props.theme.color.shadow.default};
+  z-index: 10000;
 
   .sideNav__logo {
     display: flex;
@@ -112,6 +118,11 @@ const StyledSideNav = styled.div`
     width: 100%;
     font-size: ${props => props.theme.variable.fontSize.xs};
     overflow: hidden;
+    cursor: pointer;
+
+    &:hover {
+      background-color: ${props => props.theme.color.background.hovered};
+    }
 
     svg {
       background-color: ${props => props.theme.color.background.active};
@@ -178,8 +189,19 @@ const NAV_ITEMS: NavItem[] = [
 export const SideNav: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const theme = useVTheme();
 
   const user = useVTTUser();
+  const [userModalOpen, setUserModalOpen] = useState(false);
+
+  const logout = useClientMutation('POST', '/auth/logout');
+
+  const onLogout = () => {
+    logout.mutateAsync().then(() => {
+      user.update(undefined);
+      setUserModalOpen(false);
+    });
+  };
 
   return (
     <StyledSideNav>
@@ -220,11 +242,25 @@ export const SideNav: React.FC = () => {
       </div>
 
       {user.authenticated && (
-        <div className="sideNav__user">
+        <div className="sideNav__user" onClick={() => setUserModalOpen(true)}>
           <UserIcon />
           <span>{user.email}</span>
         </div>
       )}
+
+      <VModal
+        open={userModalOpen}
+        onClose={() => setUserModalOpen(false)}
+        header="User Account"
+        width={320}
+        closable={!logout.isLoading}
+      >
+        <VFlex vertical style={{ padding: theme.variable.gap.lg }}>
+          <VButton onClick={onLogout} loading={logout.isLoading}>
+            Logout
+          </VButton>
+        </VFlex>
+      </VModal>
     </StyledSideNav>
   );
 };

@@ -14,6 +14,29 @@ The core characters are those controlled by the players, each of which are motiv
 These characters form an Adventuring Party that share a higher, mutual goal, driving them on a challenging adventure through the world.
 The world is defined and controlled by a Game Master that acts as both the game's arbiter and storyteller, motivated to make the adventure as fun and engaging as possible.
 
+## World Kits
+
+World Kits are pre-configured worlds that have been built to plug right into the core _Vade Mecum_ rule set.
+These kits provide all the resources a Game Master will need to start an adventure, including races, classes, items, and creatures.
+We will highlight some of these kits below, but their complete documentation can be found in the kit itself.
+
+### _[Vale of Myths](/docs/vale-of-myths)_
+
+This high fantasy kit is set in a kingdom-controlled dominion where characters will face the dangers of evil kings, dark magic users, and mythical monsters.
+
+| Focus        | Class         | Description                                                                   |
+| ------------ | ------------- | ----------------------------------------------------------------------------- |
+| Strength     | **Knight**    | A stalwart force on the battlefield that fights for honor and glory.          |
+| Strength     | **Barbarian** | A fierce and frightening warrior driven by pure rage.                         |
+| Dexterity    | **Monk**      | A disciple of peace who deflects rather than attacks.                         |
+| Dexterity    | **Ranger**    | A master of range weapons and the natural environment.                        |
+| Intelligence | **Mage**      | A student of magic who bends the forces of nature to their will.              |
+| Intelligence | **Mancer**    | A tinkerer that combines metal and magic to harness the arcane forces.        |
+| Charisma     | **Herald**    | A messenger that influences people towards diplomacy and away from battle.    |
+| Charisma     | **Enchanter** | A master of manipulation that can bend others unknowingly to their will.      |
+| Perception   | **Sage**      | A practitioner of the natural arts that can call upon nature through rituals. |
+| Perception   | **Druid**     | A protector of nature who harnesses the earth and its creatures.              |
+
 ## Contents
 
 - [1. Characters](#1.-Characters)
@@ -38,46 +61,6 @@ The world is defined and controlled by a Game Master that acts as both the game'
 - [3. World](#3.-World)
   - [3.1 Currency](#3.1-Currency)
   - [3.2 Enemies](#3.2-Enemies)
-
-## World Kits
-
-World Kits are pre-configured worlds that have been built to plug right into the core _Vade Mecum_ rule set.
-These kits provide all the resources a Game Master will need to start an adventure, including races, classes, items, and creatures.
-We will highlight some of these kits below, but their complete documentation can be found in the kit itself.
-
-### _[Vale of Myths](/docs/vale-of-myths)_
-
-This high fantasy kit is set in a kingdom-controlled dominion where characters will face the dangers of evil kings, dark magic users, and mythical monsters.
-
-| Focus        | Class         | Description                                                                   |
-| ------------ | ------------- | ----------------------------------------------------------------------------- |
-| Strength     | **Knight**    | A stalwart force on the battlefield that fights for honor and glory.          |
-| Strength     | **Barbarian** | A fierce and frightening warrior driven by pure rage.                         |
-| Dexterity    | **Monk**      | A disciple of peace who deflects rather than attacks.                         |
-| Dexterity    | **Ranger**    | A master of range weapons and the natural environment.                        |
-| Intelligence | **Mage**      | A student of magic who bends the forces of nature to their will.              |
-| Intelligence | **Mancer**    | A tinkerer that combines metal and magic to harness the arcane forces.        |
-| Charisma     | **Herald**    | A messenger that influences people towards diplomacy and away from battle.    |
-| Charisma     | **Enchanter** | A master of manipulation that can bend others unknowingly to their will.      |
-| Perception   | **Sage**      | A practitioner of the natural arts that can call upon nature through rituals. |
-| Perception   | **Druid**     | A protector of nature who harnesses the earth and its creatures.              |
-
-### _[Vestiges of Mankind](/docs/vestiges-of-mankind)_ (WIP)
-
-This post-apocalyptic kit is set decades after a world-ending disaster where characters find themselves in the scarred wasteland and twisted civilization that remains.
-
-| Focus        | Class          | Description                                                                     |
-| ------------ | -------------- | ------------------------------------------------------------------------------- |
-| Strength     | **Scavenger**  | A cutthroat survivor capable of finding supplies even when times are bleak.     |
-| Strength     | **Mutant**     | A human slowly succumbing to mutations wrought by the radioactive wastes.       |
-| Dexterity    | **Runner**     | A smuggler who specializes navigating the wastes as fast as possible.           |
-| Dexterity    | **Lurker**     | A predator in the shadows who bides their time and strikes at opportunity.      |
-| Intelligence | **Scribe**     | A librarian of the wastes who seeks to recover the lost knowledge of the world. |
-| Intelligence | **Salvager**   | A specialist of junk and salvage who can make something out of nothing.         |
-| Charisma     | **Shepard**    | A respected leader capable of guiding survivors through the darkest of times.   |
-| Charisma     | **Believer**   | A magnetic zealot who riles up others through their fanatic beliefs.            |
-| Perception   | **Pathfinder** | A natural navigator capable of leading survivors through the wasteland.         |
-| Perception   | **Wanderer**   | A lone survivor who can live off the land as they journey to their next find.   |
 
 # 1. Characters
 

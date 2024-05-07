@@ -18,6 +18,7 @@ const layer = JSON.parse(response.toString());
 // lambda functions that rely on the lambda layer
 const lambdaFunctions = [
   'login',
+  'logout',
   'sendLoginEmail',
   'createCharacter',
   'getOrUpdateCharacter',

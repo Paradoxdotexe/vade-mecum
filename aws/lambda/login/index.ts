@@ -15,12 +15,8 @@ type LoginTokenData = {
 const handler: APIGatewayProxyHandler = async event =>
   layer.handlerResolver(event, async (event: APIGatewayProxyEvent) => {
     const body = event.body && JSON.parse(event.body);
-
     if (!body || !body.token) {
-      return {
-        statusCode: 400,
-        body: JSON.stringify({ detail: 'Missing token.' })
-      };
+      return { statusCode: 400, body: JSON.stringify({ detail: 'Invalid body.' }) };
     }
 
     const loginTokenData: LoginTokenData = JSON.parse(await layer.decryptLoginToken(body.token));

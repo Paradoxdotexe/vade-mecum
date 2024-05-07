@@ -19,6 +19,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
+    background-color: ${props => props.theme.color.background.default};
+
     &::-webkit-scrollbar-track {
       background: ${props => props.theme.color.background.raised};
     }
@@ -35,7 +37,6 @@ export const FrozenGlobalStyle = createGlobalStyle`
 const StyledPageWrapper = styled.div`
   overflow: auto;
   padding-left: ${SIDE_NAV_WIDTH};
-  background-color: ${props => props.theme.color.background.default};
   color: ${props => props.theme.color.text.primary};
   font-family: ${props => props.theme.variable.fontFamily.default};
   font-size: ${props => props.theme.variable.fontSize.md};

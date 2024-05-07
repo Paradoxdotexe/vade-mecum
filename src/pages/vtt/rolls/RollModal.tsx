@@ -57,7 +57,7 @@ const RollModal: React.FC<RollModalProps> = props => {
     return {
       id: '',
       characterId: props.newRoll.characterId,
-      characterName: props.newRoll.characterName,
+      characterName: props.newRoll.characterName || 'Unnamed Character',
       label: props.newRoll.label,
       dice: [],
       diceFactors,

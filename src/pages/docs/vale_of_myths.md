@@ -1,5 +1,3 @@
-### [🠈 Back to Vade Vecum](/docs)
-
 # Vale of Myths
 
 This high fantasy kit is set in a kingdom-controlled dominion where characters will face the dangers of evil kings, dark magic users, and monsters only found in myth and legend.
