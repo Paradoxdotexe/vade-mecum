@@ -21,6 +21,7 @@ import { CharactersPage } from './pages/vtt/characters/CharactersPage';
 import { VTT } from './pages/vtt/VTT';
 import { LoginPage } from './pages/vtt/LoginPage';
 import { CharacterPage } from './pages/vtt/characters/character/CharacterPage';
+import { SessionsPage } from './pages/vtt/sessions/SessionsPage';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -33,8 +34,11 @@ const router = createBrowserRouter(
 
       <Route path="vtt/" element={<VTT />}>
         <Route path="login" element={<LoginPage />} />
+
         <Route path="characters" element={<CharactersPage />} />
         <Route path="characters/:characterId" element={<CharacterPage />} />
+
+        <Route path="sessions" element={<SessionsPage />} />
       </Route>
 
       <Route
