@@ -1,6 +1,5 @@
 import { APIGatewayProxyEvent, APIGatewayProxyHandler } from 'aws-lambda';
 import { SESClient, SendEmailCommand } from '@aws-sdk/client-ses';
-import zlib from 'zlib';
 const layer = require('/opt/nodejs/layer');
 
 const sesClient = new SESClient();
@@ -10,12 +9,8 @@ const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const handler: APIGatewayProxyHandler = async event =>
   layer.handlerResolver(event, async (event: APIGatewayProxyEvent) => {
     const body = event.body && JSON.parse(event.body);
-
     if (!body || !body.email) {
-      return {
-        statusCode: 400,
-        body: JSON.stringify({ detail: 'Missing email.' })
-      };
+      return { statusCode: 400, body: JSON.stringify({ detail: 'Invalid body.' }) };
     }
 
     if (!EMAIL_REGEX.test(body.email)) {
@@ -49,7 +44,7 @@ const handler: APIGatewayProxyHandler = async event =>
             Data: `
             <div style="padding: 24px; display: flex; align-items: center; justify-content: center;">
               <a 
-                href="https://vademecum.thenjk.com/vtt/login?token=${encodeURIComponent(loginToken)}" 
+                href="${event.headers.origin}/vtt/login?token=${encodeURIComponent(loginToken)}" 
                 style="background: #34a9fe; color: #fff; text-decoration: none; padding: 6px 12px; font-size: 16px; border-radius: 3px; font-family: sans-serif; font-weight: bold;"
               >
                 CLICK HERE TO LOGIN

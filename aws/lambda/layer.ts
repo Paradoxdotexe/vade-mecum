@@ -96,9 +96,14 @@ export const handlerResolver = async (
     const authTokenItem = (await docClient.send(queryAuthToken)).Items?.[0];
 
     if (!authTokenItem) {
+      // remove authToken cookie
+      const cookie = `vade-mecum-auth-token=; Expires=${new Date(0).toUTCString()}; SameSite=None; HttpOnly; Path=/; Secure`;
       return {
         statusCode: 403,
-        headers,
+        headers: {
+          ...headers,
+          'Set-Cookie': cookie
+        },
         body: JSON.stringify({ detail: 'Invalid auth token.' })
       };
     }
