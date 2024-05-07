@@ -30,6 +30,7 @@ const Button = styled.button`
   &.button--primary {
     background: ${props => props.theme.color.brand.default};
     border-color: ${props => props.theme.color.brand.default};
+    color: ${props => props.theme.color.text.contrast};
   }
 
   &.button--small {
@@ -50,7 +51,7 @@ const Button = styled.button`
     top: 0;
     height: 100%;
     width: 0;
-    background-color: rgba(0, 0, 0, 0.15);
+    background-color: rgba(0, 0, 0, 0.1);
     z-index: -1;
     transition: width ease 450ms;
   }
@@ -59,6 +60,7 @@ const Button = styled.button`
     border: none;
     color: ${props => props.theme.color.text.secondary};
     transition: color ease 150ms;
+    box-shadow: none;
 
     &::before {
       content: none;

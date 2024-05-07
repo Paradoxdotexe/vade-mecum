@@ -29,6 +29,8 @@ const VARIABLES = {
   lineHeight: 1.5
 };
 
+type VThemeVariables = typeof VARIABLES;
+
 const DARK_COLORS = {
   text: {
     primary: '#fafafa',
@@ -79,13 +81,66 @@ const DARK_COLORS = {
   }
 };
 
+type VThemeColors = typeof DARK_COLORS;
+
+const LIGHT_COLORS: VThemeColors = {
+  text: {
+    primary: '#0e0e0e',
+    secondary: '#868686',
+    tertiary: '#b9b9b9',
+    contrast: '#fafafa'
+  },
+  background: {
+    default: '#f3f3f3',
+    raised: '#fafafa',
+    sunken: '#e2e2e2',
+    active: '#f1f1f1',
+    hovered: '#ececec',
+    backdrop: '#0000007a'
+  },
+  border: {
+    default: '#d4d4d4',
+    sunken: '#6d6d6d',
+    bold: '#000000'
+  },
+  shadow: {
+    default: '#00000013'
+  },
+  brand: {
+    default: '#34A9FE'
+  },
+  status: {
+    success: {
+      text: lighten(0.1, '#2fa4f8'),
+      background: opacify(-0.7, '#2fa4f8'),
+      border: '#2fa4f8'
+    },
+    failure: {
+      text: lighten(0.1, '#ee7f00'),
+      background: opacify(-0.7, '#ee7f00'),
+      border: '#ee7f00'
+    },
+    stalemate: {
+      text: lighten(0.1, '#979797'),
+      background: opacify(-0.7, '#979797'),
+      border: '#979797'
+    },
+    error: {
+      text: lighten(0.1, '#e62020'),
+      background: opacify(-0.7, '#e62020'),
+      border: '#e62020'
+    }
+  }
+};
+
 export type VTheme = {
-  color: typeof DARK_COLORS;
-  variable: typeof VARIABLES;
+  color: VThemeColors;
+  variable: VThemeVariables;
 };
 
 const COLOR_MODES = {
-  dark: DARK_COLORS
+  dark: DARK_COLORS,
+  light: LIGHT_COLORS
 };
 
 type ColorModeKey = keyof typeof COLOR_MODES;

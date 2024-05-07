@@ -8,6 +8,7 @@ const StyledVTag = styled.div<{ $color?: string }>`
   border-radius: ${props => props.theme.variable.borderRadius};
   background-color: ${props => props.$color ?? props.theme.color.brand.default};
   box-shadow: 2px 4px 16px ${props => props.theme.color.shadow.default};
+  color: ${props => props.theme.color.text.contrast};
 `;
 
 type VTagProps = {

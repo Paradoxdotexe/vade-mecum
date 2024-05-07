@@ -26,7 +26,7 @@ const StyledSideNav = styled.div`
   background: ${props => props.theme.color.background.default};
   border-right: 1px solid ${props => props.theme.color.border.default};
   box-shadow: 4px 0 16px ${props => props.theme.color.shadow.default};
-  z-index: 10000;
+  z-index: 500;
 
   .sideNav__logo {
     display: flex;
