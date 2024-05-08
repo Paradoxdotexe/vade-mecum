@@ -22,7 +22,8 @@ const lambdaFunctions = [
   'sendLoginEmail',
   'createCharacter',
   'getOrUpdateCharacter',
-  'getCharacters'
+  'getCharacters',
+  'getSessions'
 ];
 
 for (const lambdaFunction of lambdaFunctions) {

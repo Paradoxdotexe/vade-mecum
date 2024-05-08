@@ -1,72 +1,67 @@
-import { APIGatewayProxyHandler } from 'aws-lambda';
+import { APIGatewayProxyEvent, APIGatewayProxyHandler } from 'aws-lambda';
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { DynamoDBDocumentClient, ScanCommand } from '@aws-sdk/lib-dynamodb';
+const layer = require('/opt/nodejs/layer');
 
-const client = new DynamoDBClient({});
-const docClient = DynamoDBDocumentClient.from(client);
+const docClient = DynamoDBDocumentClient.from(new DynamoDBClient());
 
-const RESPONSE_HEADERS = {
-  'Content-Type': 'application/json',
-  'Access-Control-Allow-Methods': 'GET'
+// should match /vtt/types/Session.ts
+type Session = {
+  id: string;
+  userId: string;
+  name: string;
+  characterIds: string[];
 };
 
-const ALLOWED_ORIGINS = ['http://localhost:3000', 'https://vademecum.thenjk.com'];
+const handler: APIGatewayProxyHandler = async event =>
+  layer.handlerResolver(event, async (event: APIGatewayProxyEvent) => {
+    const userId = event.requestContext.identity.user;
+    if (!userId) {
+      return { statusCode: 403, body: JSON.stringify({ detail: 'Unauthorized.' }) };
+    }
 
-const formatSession = (item: Record<string, any>) => {
-  delete item.itemId;
+    // scan for all "meta" and "character" items
+    const scanSessionItems = new ScanCommand({
+      TableName: 'vade-mecum-sessions',
+      FilterExpression: 'itemId = :metaItemId or begins_with(itemId, :characterItemIdPrefix)',
+      ExpressionAttributeValues: {
+        ':metaItemId': 'meta',
+        ':characterItemIdPrefix': 'character#'
+      },
+      ExpressionAttributeNames: {
+        '#name': 'name'
+      },
+      ProjectionExpression: 'sessionId, itemId, #name, userId'
+    });
+    const sessionItems = (await docClient.send(scanSessionItems)).Items ?? [];
 
-  // rename "sessionId" to "id"
-  item.id = item.sessionId;
-  delete item.sessionId;
+    const metaItems = sessionItems.filter(item => item.itemId === 'meta');
+    const characterItems = sessionItems.filter(item => item.itemId.startsWith('character#'));
 
-  item.users = item.users.map(user => ({
-    id: user.itemId.split('#')[1],
-    online: !!user.connectionId
-  }));
+    const charactersBySessionId = {};
+    for (const item of characterItems) {
+      if (!charactersBySessionId[item.sessionId]) {
+        charactersBySessionId[item.sessionId] = [];
+      }
+      charactersBySessionId[item.sessionId].push(item);
+    }
 
-  return item;
-};
+    const sessions: Session[] = [];
+    for (const item of metaItems) {
+      sessions.push({
+        id: item.sessionId,
+        userId: item.userId,
+        name: item.name,
+        characterIds: charactersBySessionId[item.sessionId].map(
+          character => character.itemId.split('#')[1]
+        )
+      });
+    }
 
-const handler: APIGatewayProxyHandler = async event => {
-  if (event.headers.origin && !ALLOWED_ORIGINS.includes(event.headers.origin)) {
     return {
-      statusCode: 403,
-      headers: RESPONSE_HEADERS,
-      body: JSON.stringify({ detail: 'Unauthorized request origin.' })
+      statusCode: 200,
+      body: JSON.stringify(sessions)
     };
-  } else {
-    RESPONSE_HEADERS['Access-Control-Allow-Origin'] = event.headers.origin;
-  }
-
-  // scan for all "session" and "user" items
-  const scanCommand = new ScanCommand({
-    TableName: 'vade-mecum-sessions',
-    FilterExpression: 'itemId = :sessionItemId or begins_with(itemId, :userItemIdPrefix)',
-    ExpressionAttributeValues: {
-      ':sessionItemId': 'session',
-      ':userItemIdPrefix': 'user'
-    },
-    ExpressionAttributeNames: {
-      '#name': 'name'
-    },
-    ProjectionExpression: 'itemId, sessionId, #name, createdAt, connectionId'
   });
-
-  const response = await docClient.send(scanCommand);
-
-  const sessions =
-    response.Items?.filter(item => item.itemId === 'session')
-      .map(item => ({
-        ...item,
-        users: response.Items?.filter(item => item.itemId.startsWith('user'))
-      }))
-      .map(formatSession) ?? [];
-
-  return {
-    statusCode: 200,
-    headers: RESPONSE_HEADERS,
-    body: JSON.stringify(sessions)
-  };
-};
 
 exports.handler = handler;

@@ -6,8 +6,8 @@ import { ReactComponent as PlusIcon } from '@/icons/Plus.svg';
 import styled from 'styled-components';
 import { VFlex } from '@/components/VFlex';
 import { VLoader } from '@/components/VLoader';
-import { Session } from '../types/Session';
 import { SessionCard } from './SessionCard';
+import { useGetSessionsQuery } from '../queries/useGetSessionsQuery';
 
 const StyledSessionsPage = styled(PageLayout)`
   .page__sessions {
@@ -18,7 +18,7 @@ const StyledSessionsPage = styled(PageLayout)`
 `;
 
 export const SessionsPage: React.FC = () => {
-  const sessions: Session[] = [];
+  const { data: sessions } = useGetSessionsQuery();
 
   return (
     <StyledSessionsPage>
