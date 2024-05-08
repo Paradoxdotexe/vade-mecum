@@ -2,7 +2,6 @@ import { APIGatewayProxyEvent, APIGatewayProxyHandler } from 'aws-lambda';
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { DynamoDBDocumentClient, PutCommand, QueryCommand } from '@aws-sdk/lib-dynamodb';
 import crypto from 'crypto';
-import zlib from 'zlib';
 const layer = require('/opt/nodejs/layer');
 
 const docClient = DynamoDBDocumentClient.from(new DynamoDBClient());
