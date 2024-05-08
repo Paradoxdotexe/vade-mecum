@@ -44,9 +44,9 @@ const handler: APIGatewayProxyHandler = async event =>
         id: item.sessionId,
         userId: item.userId,
         name: item.name,
-        characterIds: charactersBySessionId[item.sessionId].map(
-          character => character.itemId.split('#')[1]
-        )
+        characterIds:
+          charactersBySessionId[item.sessionId]?.map(character => character.itemId.split('#')[1]) ??
+          []
       });
     }
 

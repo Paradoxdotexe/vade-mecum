@@ -94,22 +94,27 @@ const handler: APIGatewayProxyHandler = async event =>
         ExpressionAttributeValues: {
           ':sessionId': sessionId
         },
-        ProjectionExpression: 'itemId'
+        ProjectionExpression: 'itemId, userId'
       });
       const sessionItems = (await docClient.send(querySessionItems)).Items ?? [];
 
+      const metaItem = sessionItems.find(item => item.itemId === 'meta');
+
+      // check that user owns session
+      if (metaItem?.userId !== userId) {
+        return { statusCode: 403, body: JSON.stringify({ detail: 'Unauthorized.' }) };
+      }
+
       const deleteSessionItems = new BatchWriteCommand({
         RequestItems: {
-          'vade-mecum-sessions': [
-            sessionItems.map(({ itemId }) => ({
-              DeleteRequest: {
-                Key: {
-                  sessionId,
-                  itemId
-                }
+          'vade-mecum-sessions': sessionItems.map(({ itemId }) => ({
+            DeleteRequest: {
+              Key: {
+                sessionId,
+                itemId
               }
-            }))
-          ]
+            }
+          }))
         }
       });
       await docClient.send(deleteSessionItems);
