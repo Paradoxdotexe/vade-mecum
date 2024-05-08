@@ -23,6 +23,7 @@ const lambdaFunctions = [
   'createCharacter',
   'getOrUpdateCharacter',
   'getCharacters',
+  'createSession',
   'getOrUpdateSession',
   'getSessions'
 ];

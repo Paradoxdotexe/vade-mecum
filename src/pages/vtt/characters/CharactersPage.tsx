@@ -24,10 +24,10 @@ export const CharactersPage: React.FC = () => {
 
   const { data: characters } = useGetCharactersQuery();
 
-  const createCharacterMutation = useCreateCharacterMutation();
+  const createCharacter = useCreateCharacterMutation();
 
   const onCreateCharacter = () => {
-    createCharacterMutation.mutateAsync().then(response => {
+    createCharacter.mutateAsync().then(response => {
       navigate(`/vtt/characters/${response.characterId}`);
     });
   };
@@ -38,7 +38,7 @@ export const CharactersPage: React.FC = () => {
         breadcrumbs={['Virtual Tabletop']}
         title="Characters"
         extra={
-          <VButton onClick={onCreateCharacter} loading={createCharacterMutation.isLoading}>
+          <VButton onClick={onCreateCharacter} loading={createCharacter.isLoading}>
             <PlusIcon /> Create character
           </VButton>
         }

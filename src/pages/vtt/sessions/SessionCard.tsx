@@ -51,7 +51,7 @@ export const SessionCard: React.FC<SessionCardProps> = props => {
   return (
     <StyledSessionCard onClick={onClick}>
       <div className="card__left">
-        <div className="left__name">{props.session.name}</div>
+        <div className="left__name">{props.session.name || 'Unnamed Session'}</div>
         <div className="left__id">(#{props.session.id.split('-')[0]})</div>
       </div>
 

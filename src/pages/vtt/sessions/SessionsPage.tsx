@@ -8,6 +8,8 @@ import { VFlex } from '@/components/VFlex';
 import { VLoader } from '@/components/VLoader';
 import { SessionCard } from './SessionCard';
 import { useGetSessionsQuery } from '../queries/useGetSessionsQuery';
+import { useCreateSessionMutation } from '../queries/useCreateSessionMutation';
+import { useNavigate } from 'react-router-dom';
 
 const StyledSessionsPage = styled(PageLayout)`
   .page__sessions {
@@ -18,7 +20,17 @@ const StyledSessionsPage = styled(PageLayout)`
 `;
 
 export const SessionsPage: React.FC = () => {
+  const navigate = useNavigate();
+
   const { data: sessions } = useGetSessionsQuery();
+
+  const createSession = useCreateSessionMutation();
+
+  const onCreateSession = () => {
+    createSession.mutateAsync().then(response => {
+      navigate(`/vtt/sessions/${response.sessionId}`);
+    });
+  };
 
   return (
     <StyledSessionsPage>
@@ -26,7 +38,7 @@ export const SessionsPage: React.FC = () => {
         breadcrumbs={['Virtual Tabletop']}
         title="Sessions"
         extra={
-          <VButton>
+          <VButton onClick={onCreateSession} loading={createSession.isLoading}>
             <PlusIcon /> Create session
           </VButton>
         }
