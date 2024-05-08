@@ -36,7 +36,7 @@ const StyledPageHeader = styled.div`
 `;
 
 type PageHeaderProps = {
-  title: string;
+  title: ReactNode;
   breadcrumbs: string[];
   extra?: ReactNode;
 };

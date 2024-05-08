@@ -4,7 +4,7 @@ import {
   DynamoDBDocumentClient,
   GetCommand,
   QueryCommand,
-  PutCommand,
+  UpdateCommand,
   BatchWriteCommand
 } from '@aws-sdk/lib-dynamodb';
 const layer = require('/opt/nodejs/layer');
@@ -67,19 +67,28 @@ const handler: APIGatewayProxyHandler = async event =>
     // POST
     else if (event.httpMethod === 'POST') {
       const body = event.body && JSON.parse(event.body);
-      if (!body) {
+      if (!body || !body.session) {
         return { statusCode: 400, body: JSON.stringify({ detail: 'Invalid body.' }) };
       }
 
-      const putSession = new PutCommand({
+      const updateSession = new UpdateCommand({
         TableName: 'vade-mecum-sessions',
-        Item: {
-          sessionId: sessionId,
-          itemId: 'meta',
-          name: body.name
+        Key: {
+          sessionId,
+          itemId: 'meta'
+        },
+        UpdateExpression: 'SET #name=:name',
+        // check that user owns session
+        ConditionExpression: 'userId=:userId',
+        ExpressionAttributeValues: {
+          ':userId': userId,
+          ':name': body.session.name
+        },
+        ExpressionAttributeNames: {
+          '#name': 'name'
         }
       });
-      await docClient.send(putSession);
+      await docClient.send(updateSession);
 
       return {
         statusCode: 200,
