@@ -19,7 +19,7 @@ export const propagateCharacter = (queryClient: QueryClient, propagatedCharacter
     const index = characters.findIndex(({ id }) => id === propagatedCharacter.id);
     if (index > -1) {
       // replace existing character
-      if (!isEqual(character, propagatedCharacter)) {
+      if (!isEqual(characters[index], propagatedCharacter)) {
         characters[index] = propagatedCharacter;
         queryClient.setQueryData(['GET_CHARACTERS'], characters);
       }

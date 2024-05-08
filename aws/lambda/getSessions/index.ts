@@ -5,14 +5,6 @@ const layer = require('/opt/nodejs/layer');
 
 const docClient = DynamoDBDocumentClient.from(new DynamoDBClient());
 
-// should match /vtt/types/Session.ts
-type Session = {
-  id: string;
-  userId: string;
-  name: string;
-  characterIds: string[];
-};
-
 const handler: APIGatewayProxyHandler = async event =>
   layer.handlerResolver(event, async (event: APIGatewayProxyEvent) => {
     const userId = event.requestContext.identity.user;
@@ -46,7 +38,7 @@ const handler: APIGatewayProxyHandler = async event =>
       charactersBySessionId[item.sessionId].push(item);
     }
 
-    const sessions: Session[] = [];
+    const sessions: object[] = [];
     for (const item of metaItems) {
       sessions.push({
         id: item.sessionId,

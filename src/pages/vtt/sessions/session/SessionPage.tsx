@@ -5,16 +5,17 @@ import { VButton } from '@/components/VButton';
 import { ReactComponent as TrashCanIcon } from '@/icons/TrashCan.svg';
 import styled from 'styled-components';
 import { VFlex } from '@/components/VFlex';
-import { Session } from '@/pages/vtt/types/Session';
 import { useVTheme } from '@/common/VTheme';
+import { useGetSessionQuery } from '../../queries/useGetSessionQuery';
+import { useParams } from 'react-router-dom';
 
 const StyledSessionPage = styled(PageLayout)``;
 
 export const SessionPage: React.FC = () => {
+  const { sessionId } = useParams();
   const theme = useVTheme();
-  //const { sessionId } = useParams();
 
-  const session = undefined as Session | undefined;
+  const { data: session } = useGetSessionQuery(sessionId);
 
   return (
     <StyledSessionPage>

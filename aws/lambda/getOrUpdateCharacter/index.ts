@@ -17,7 +17,7 @@ const handler: APIGatewayProxyHandler = async event =>
       return { statusCode: 403, body: JSON.stringify({ detail: 'Unauthorized.' }) };
     }
 
-    const characterId = event.pathParameters!['characterId'];
+    const characterId = event.pathParameters!['characterId']!;
 
     // GET
     if (event.httpMethod === 'GET') {
