@@ -31,7 +31,7 @@ Builds and deploys the React client to S3 and Cloudfront.
 > npm run deploy:lambda <function-name>
 ```
 
-Updates the lambda function named `vade-mecum__<function-name>` with the code in `/aws/lambda/<function-name>/index.ts`.
+Updates the lambda function named `vade-mecum__<function-name>` with the code in `/aws/lambda/<function-name>.ts`.
 
 ### Deploy Lambda Layer
 
