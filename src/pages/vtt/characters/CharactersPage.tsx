@@ -50,7 +50,11 @@ export const CharactersPage: React.FC = () => {
       ) : (
         <div className="page__characters">
           {characters.map(character => (
-            <CharacterCard key={character.id} character={character} />
+            <CharacterCard
+              key={character.id}
+              character={character}
+              onClick={() => navigate(`/vtt/characters/${character.id}`)}
+            />
           ))}
         </div>
       )}

@@ -18,6 +18,11 @@ const StyledVCard = styled.div`
       background: ${props => props.theme.color.background.hovered};
     }
   }
+
+  &.card--disabled {
+    pointer-events: none;
+    opacity: 0.6;
+  }
 `;
 
 type VCardProps = {
@@ -25,11 +30,13 @@ type VCardProps = {
   style?: React.CSSProperties;
   className?: string;
   onClick?: MouseEventHandler<HTMLDivElement>;
+  disabled?: boolean;
 };
 
 export const VCard: React.FC<VCardProps> = props => {
   const className = classNames(props.className, {
-    'card--clickable': !!props.onClick
+    'card--clickable': !!props.onClick,
+    'card--disabled': props.disabled
   });
 
   return (

@@ -30,7 +30,7 @@ const StyledPageHeader = styled.div`
 
   .header__right {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     gap: ${props => props.theme.variable.gap.md};
   }
 `;

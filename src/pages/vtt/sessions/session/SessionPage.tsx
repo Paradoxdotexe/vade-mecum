@@ -3,18 +3,19 @@ import { PageHeader } from '@/common/PageHeader';
 import { PageLayout } from '@/common/PageLayout';
 import { VButton } from '@/components/VButton';
 import { ReactComponent as TrashCanIcon } from '@/icons/TrashCan.svg';
+import { ReactComponent as PlusIcon } from '@/icons/Plus.svg';
 import styled from 'styled-components';
 import { VFlex } from '@/components/VFlex';
 import { useVTheme } from '@/common/VTheme';
 import { useGetSessionQuery } from '@/pages/vtt/queries/useGetSessionQuery';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useVTTUser } from '@/common/VTTUser';
-import { VModal } from '@/components/VModal';
-import { useDeleteSessionMutation } from '../../queries/useDeleteSessionMutation';
 import { Session } from '../../types/Session';
 import { debounce, isEqual } from 'lodash-es';
 import { useUpdateSessionMutation } from '../../queries/useUpdateSessionMutation';
 import { SavedStatus } from '../../SavedStatus';
+import { AddCharacterModal } from './AddCharacterModal';
+import { DeleteSessionModal } from './DeleteSessionModal';
 
 const StyledSessionPage = styled(PageLayout)`
   .page__pageHeader__titleInput {
@@ -35,14 +36,14 @@ const StyledSessionPage = styled(PageLayout)`
 
 export const SessionPage: React.FC = () => {
   const { sessionId } = useParams();
-  const navigate = useNavigate();
   const theme = useVTheme();
   const user = useVTTUser();
 
   const [session, setSession] = useState<Session>();
   const [saved, setSaved] = useState(true);
 
-  const [deleteModalOpen, setDeleteModalOpen] = useState(false);
+  const [deleteSessionModalOpen, setDeleteSessionModalOpen] = useState(false);
+  const [addCharacterModalOpen, setAddCharacterModalOpen] = useState(false);
 
   const { data: savedSession } = useGetSessionQuery(sessionId);
   useMemo(() => {
@@ -50,8 +51,6 @@ export const SessionPage: React.FC = () => {
       setSession(savedSession);
     }
   }, [savedSession]);
-
-  const deleteSession = useDeleteSessionMutation(sessionId);
 
   const { mutateAsync: _updateSession } = useUpdateSessionMutation(sessionId);
   const updateSession = useMemo(
@@ -72,14 +71,6 @@ export const SessionPage: React.FC = () => {
     }
   }, [session, savedSession]);
 
-  const onDelete = () => {
-    setDeleteModalOpen(true);
-  };
-
-  const onConfirmDelete = () => {
-    deleteSession.mutateAsync().then(() => navigate('/vtt/sessions'));
-  };
-
   const canEdit = user.authenticated && user.id === session?.userId;
 
   return (
@@ -87,49 +78,48 @@ export const SessionPage: React.FC = () => {
       <PageHeader
         breadcrumbs={['Virtual Tabletop', 'Sessions']}
         title={
-          <input
-            value={session?.name ?? ''}
-            placeholder="Unnamed Session"
-            onChange={event =>
-              setSession(session => session && { ...session, name: event.target.value })
-            }
-            className="page__pageHeader__titleInput"
-            disabled={!canEdit}
-          />
+          session && (
+            <input
+              value={session.name}
+              placeholder="Unnamed Session"
+              onChange={event =>
+                setSession(session => session && { ...session, name: event.target.value })
+              }
+              className="page__pageHeader__titleInput"
+              disabled={!canEdit}
+            />
+          )
         }
         extra={
-          canEdit && (
-            <VFlex vertical align="end" gap={theme.variable.gap.md}>
-              <SavedStatus saved={saved} />
-              <VButton onClick={onDelete}>
-                <TrashCanIcon /> Delete session
-              </VButton>
-            </VFlex>
-          )
+          <>
+            <VButton onClick={() => setAddCharacterModalOpen(true)}>
+              <PlusIcon />
+              Add character
+            </VButton>
+
+            {canEdit && (
+              <VFlex vertical align="end" gap={theme.variable.gap.md}>
+                <SavedStatus saved={saved} />
+                <VButton onClick={() => setDeleteSessionModalOpen(true)}>
+                  <TrashCanIcon /> Delete session
+                </VButton>
+              </VFlex>
+            )}
+          </>
         }
       />
 
-      <VModal
-        open={deleteModalOpen}
-        onClose={() => setDeleteModalOpen(false)}
-        header="Delete Session"
-        width={320}
-        closable={!deleteSession.isLoading}
-      >
-        <VFlex
-          vertical
-          gap={theme.variable.gap.lg}
-          style={{ padding: theme.variable.gap.lg, lineHeight: theme.variable.lineHeight }}
-        >
-          <span>
-            Are you sure you want to delete{' '}
-            {session?.name ? <strong>{session.name}</strong> : 'this session'}?
-          </span>
-          <VButton type="primary" onClick={onConfirmDelete} loading={deleteSession.isLoading}>
-            Delete
-          </VButton>
-        </VFlex>
-      </VModal>
+      <DeleteSessionModal
+        open={deleteSessionModalOpen}
+        onClose={() => setDeleteSessionModalOpen(false)}
+        sessionId={sessionId}
+      />
+
+      <AddCharacterModal
+        open={addCharacterModalOpen}
+        onClose={() => setAddCharacterModalOpen(false)}
+        sessionId={sessionId}
+      />
     </StyledSessionPage>
   );
 };

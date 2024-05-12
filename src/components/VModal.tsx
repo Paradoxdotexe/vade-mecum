@@ -19,7 +19,7 @@ const StyledVModal = styled.div`
   }
 `;
 
-type VModalProps = {
+export type VModalProps = {
   open: boolean;
   onClose?: () => void;
   header?: ReactNode;

@@ -3,7 +3,6 @@ import { Character } from '../types/Character';
 import styled from 'styled-components';
 import { VCard } from '@/components/VCard';
 import { VNumberInput } from '@/components/VNumberInput';
-import { useNavigate } from 'react-router-dom';
 import { useCharacterClient } from './character/useCharacterClient';
 
 const StyledCharacterCard = styled(VCard)`
@@ -29,19 +28,15 @@ const StyledCharacterCard = styled(VCard)`
 
 type CharacterCardProps = {
   character: Character;
+  onClick?: () => void;
+  disabled?: boolean;
 };
 
 export const CharacterCard: React.FC<CharacterCardProps> = props => {
-  const navigate = useNavigate();
-
   const characterClient = useCharacterClient(props.character)!;
 
-  const onClick = () => {
-    navigate(`/vtt/characters/${props.character.id}`);
-  };
-
   return (
-    <StyledCharacterCard onClick={onClick}>
+    <StyledCharacterCard onClick={props.onClick} disabled={props.disabled}>
       <div className="card__left">
         <div className="left__name">{characterClient.name || 'Unnamed Character'}</div>
         <div className="left__description">
