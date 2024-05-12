@@ -143,7 +143,7 @@ const StyledSideNav = styled.div`
 type NavItem = {
   icon: ReactNode;
   label: string;
-  path?: string;
+  prefix?: string; // we only expect Home to not have a prefix
   children?: {
     label: string;
     path: string;
@@ -153,12 +153,12 @@ type NavItem = {
 const NAV_ITEMS: NavItem[] = [
   {
     icon: <HomeIcon />,
-    label: 'Home',
-    path: '/'
+    label: 'Home'
   },
   {
     icon: <BookIcon />,
     label: 'Documentation',
+    prefix: '/docs',
     children: [
       {
         label: 'Core Rules',
@@ -173,6 +173,7 @@ const NAV_ITEMS: NavItem[] = [
   {
     icon: <DieIcon />,
     label: 'Virtual Tabletop',
+    prefix: '/vtt',
     children: [
       {
         label: 'Characters',
@@ -211,34 +212,44 @@ export const SideNav: React.FC = () => {
       </div>
 
       <div className="sideNav__items">
-        {NAV_ITEMS.map((navItem, i) => (
-          <div
-            key={i}
-            className={`items__item ${location.pathname === navItem.path ? 'item--active' : ''}`}
-            onClick={() => navigate(navItem.path ?? navItem.children?.[0]?.path ?? '')}
-          >
-            <div className="item__header">
-              {navItem.icon}
-              {navItem.label}
-            </div>
-            {navItem.children && (
-              <div className="item__subItems">
-                {navItem.children.map((child, j) => (
-                  <div
-                    key={j}
-                    className={`subItems__subItem ${location.pathname === child.path ? 'subItem--active' : ''}`}
-                    onClick={event => {
-                      event.stopPropagation();
-                      navigate(child.path);
-                    }}
-                  >
-                    {child.label}
-                  </div>
-                ))}
+        {NAV_ITEMS.map((navItem, i) => {
+          const active = navItem.prefix
+            ? location.pathname.startsWith(navItem.prefix)
+            : location.pathname === '/';
+
+          return (
+            <div
+              key={i}
+              className={`items__item ${active ? 'item--active' : ''}`}
+              onClick={() => navigate(navItem.children?.[0].path ?? '/')}
+            >
+              <div className="item__header">
+                {navItem.icon}
+                {navItem.label}
               </div>
-            )}
-          </div>
-        ))}
+              {navItem.children && (
+                <div className="item__subItems">
+                  {navItem.children.map((child, j) => {
+                    const active = location.pathname === child.path;
+
+                    return (
+                      <div
+                        key={j}
+                        className={`subItems__subItem ${active ? 'subItem--active' : ''}`}
+                        onClick={event => {
+                          event.stopPropagation();
+                          navigate(child.path);
+                        }}
+                      >
+                        {child.label}
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          );
+        })}
       </div>
 
       {user.authenticated && (
