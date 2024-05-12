@@ -4,7 +4,7 @@ import { PageLayout } from '@/common/PageLayout';
 import { VButton, VButtonProps } from '@/components/VButton';
 import { ReactComponent as TrashCanIcon } from '@/icons/TrashCan.svg';
 import { ReactComponent as WeightIcon } from '@/icons/Weight.svg';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { AttributeKey, Character } from '../../types/Character';
 import { CharacterClient, useCharacterClient } from './useCharacterClient';
 import { NameCard } from './cards/NameCard';
@@ -38,9 +38,8 @@ import { SavedStatus } from '../../SavedStatus';
 import { useGetCharacterQuery } from '../../queries/useGetCharacterQuery';
 import { useUpdateCharacterMutation } from '../../queries/useUpdateCharacterMutation';
 import { VLoader } from '@/components/VLoader';
-import { useDeleteCharacterMutation } from '../../queries/useDeleteCharacterMutation';
 import { RollLog } from '../../rolls/RollLog';
-import { VModal } from '@/components/VModal';
+import { DeleteCharacterModal } from './DeleteCharacterModal';
 
 const EditButton: React.FC<VButtonProps> = props => (
   <VButton {...props} type="ghost" size="small">
@@ -124,13 +123,12 @@ const StyledCharacterPage = styled(PageLayout)`
 
 export const CharacterPage: React.FC = () => {
   const { characterId } = useParams();
-  const navigate = useNavigate();
   const theme = useVTheme();
 
   const [character, setCharacter] = useState<Character>();
   const [saved, setSaved] = useState(true);
 
-  const [deleteModalOpen, setDeleteModalOpen] = useState(false);
+  const [deleteCharacterModalOpen, setDeleteCharacterModalOpen] = useState(false);
 
   const { data: savedCharacter } = useGetCharacterQuery(characterId);
   useMemo(() => {
@@ -138,8 +136,6 @@ export const CharacterPage: React.FC = () => {
       setCharacter(savedCharacter);
     }
   }, [savedCharacter]);
-
-  const deleteCharacter = useDeleteCharacterMutation(characterId);
 
   const { mutateAsync: _updateCharacter } = useUpdateCharacterMutation(characterId);
   const updateCharacter = useMemo(
@@ -166,14 +162,6 @@ export const CharacterPage: React.FC = () => {
   const [classAbilitiesDrawerOpen, setClassAbilitiesDrawerOpen] = useState(false);
   const [itemsDrawerOpen, setItemsDrawerOpen] = useState(false);
 
-  const onDelete = () => {
-    setDeleteModalOpen(true);
-  };
-
-  const onConfirmDelete = () => {
-    deleteCharacter.mutateAsync().then(() => navigate('/vtt/characters'));
-  };
-
   return (
     <StyledCharacterPage>
       <PageHeader
@@ -182,7 +170,7 @@ export const CharacterPage: React.FC = () => {
         extra={
           <VFlex vertical align="end" gap={theme.variable.gap.md}>
             <SavedStatus saved={saved} />
-            <VButton onClick={onDelete}>
+            <VButton onClick={() => setDeleteCharacterModalOpen(true)} disabled={!saved}>
               <TrashCanIcon /> Delete character
             </VButton>
           </VFlex>
@@ -321,27 +309,11 @@ export const CharacterPage: React.FC = () => {
         </div>
       )}
 
-      <VModal
-        open={deleteModalOpen}
-        onClose={() => setDeleteModalOpen(false)}
-        header="Delete Character"
-        width={320}
-        closable={!deleteCharacter.isLoading}
-      >
-        <VFlex
-          vertical
-          gap={theme.variable.gap.lg}
-          style={{ padding: theme.variable.gap.lg, lineHeight: theme.variable.lineHeight }}
-        >
-          <span>
-            Are you sure you want to delete{' '}
-            {character?.name ? <strong>{character.name}</strong> : 'this character'}?
-          </span>
-          <VButton type="primary" onClick={onConfirmDelete} loading={deleteCharacter.isLoading}>
-            Delete
-          </VButton>
-        </VFlex>
-      </VModal>
+      <DeleteCharacterModal
+        open={deleteCharacterModalOpen}
+        onClose={() => setDeleteCharacterModalOpen(false)}
+        characterId={characterId}
+      />
 
       <RollLog />
     </StyledCharacterPage>

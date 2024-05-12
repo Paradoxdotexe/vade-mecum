@@ -100,7 +100,7 @@ export const SessionPage: React.FC = () => {
             {canEdit && (
               <VFlex vertical align="end" gap={theme.variable.gap.md}>
                 <SavedStatus saved={saved} />
-                <VButton onClick={() => setDeleteSessionModalOpen(true)}>
+                <VButton onClick={() => setDeleteSessionModalOpen(true)} disabled={!saved}>
                   <TrashCanIcon /> Delete session
                 </VButton>
               </VFlex>
