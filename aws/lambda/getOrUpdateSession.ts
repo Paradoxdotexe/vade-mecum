@@ -78,8 +78,7 @@ const handler: APIGatewayProxyHandler = async event =>
           itemId: 'meta'
         },
         UpdateExpression: 'SET #name=:name',
-        // check that user owns session
-        ConditionExpression: 'userId=:userId',
+        ConditionExpression: 'userId=:userId', // check that user owns session
         ExpressionAttributeValues: {
           ':userId': userId,
           ':name': body.session.name

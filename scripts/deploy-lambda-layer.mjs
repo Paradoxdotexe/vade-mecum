@@ -25,7 +25,8 @@ const lambdaFunctions = [
   'getCharacters',
   'createSession',
   'getOrUpdateSession',
-  'getSessions'
+  'getSessions',
+  'getOrUpdateSessionCharacter'
 ];
 
 for (const lambdaFunction of lambdaFunctions) {

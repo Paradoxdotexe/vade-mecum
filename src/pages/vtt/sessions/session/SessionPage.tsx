@@ -14,7 +14,7 @@ import { Session } from '../../types/Session';
 import { debounce, isEqual } from 'lodash-es';
 import { useUpdateSessionMutation } from '../../queries/useUpdateSessionMutation';
 import { SavedStatus } from '../../SavedStatus';
-import { AddCharacterModal } from './AddCharacterModal';
+import { AddSessionCharacterModal } from './AddSessionCharacterModal';
 import { DeleteSessionModal } from './DeleteSessionModal';
 
 const StyledSessionPage = styled(PageLayout)`
@@ -43,7 +43,7 @@ export const SessionPage: React.FC = () => {
   const [saved, setSaved] = useState(true);
 
   const [deleteSessionModalOpen, setDeleteSessionModalOpen] = useState(false);
-  const [addCharacterModalOpen, setAddCharacterModalOpen] = useState(false);
+  const [addSessionCharacterModalOpen, setAddSessionCharacterModalOpen] = useState(false);
 
   const { data: savedSession } = useGetSessionQuery(sessionId);
   useMemo(() => {
@@ -92,7 +92,7 @@ export const SessionPage: React.FC = () => {
         }
         extra={
           <>
-            <VButton onClick={() => setAddCharacterModalOpen(true)}>
+            <VButton onClick={() => setAddSessionCharacterModalOpen(true)}>
               <PlusIcon />
               Add character
             </VButton>
@@ -115,9 +115,9 @@ export const SessionPage: React.FC = () => {
         sessionId={sessionId}
       />
 
-      <AddCharacterModal
-        open={addCharacterModalOpen}
-        onClose={() => setAddCharacterModalOpen(false)}
+      <AddSessionCharacterModal
+        open={addSessionCharacterModalOpen}
+        onClose={() => setAddSessionCharacterModalOpen(false)}
         sessionId={sessionId}
       />
     </StyledSessionPage>
