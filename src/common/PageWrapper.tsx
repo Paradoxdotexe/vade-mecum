@@ -27,13 +27,6 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-export const FrozenGlobalStyle = createGlobalStyle`
-  html {
-    overflow: hidden;
-    padding-right: ${props => props.theme.variable.gap.lg};
-  }
-`;
-
 const StyledPageWrapper = styled.div`
   overflow: auto;
   padding-left: ${SIDE_NAV_WIDTH};

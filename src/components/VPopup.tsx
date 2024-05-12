@@ -1,7 +1,7 @@
 import React, { ReactNode, useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { VTransition } from './VTransition';
-import { FrozenGlobalStyle } from '@/common/PageWrapper';
+import { useFrozenScroll } from '@/utils/useFrozenScroll';
 
 const StyledVPopup = styled.div`
   position: fixed;
@@ -36,12 +36,13 @@ export const VPopup: React.FC<VPopupProps> = props => {
 
   useEffect(() => setOpen(props.open), [props.open]);
 
+  useFrozenScroll(open);
+
   return (
     <StyledVPopup
       className={open ? 'popup--open' : ''}
       onMouseDown={() => props.closable && setOpen(false)}
     >
-      {open && <FrozenGlobalStyle />}
       <VTransition
         in={open}
         outStyle={css`

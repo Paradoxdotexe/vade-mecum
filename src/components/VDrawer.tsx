@@ -1,7 +1,7 @@
 import React, { ReactNode, useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { CSSTransition } from 'react-transition-group';
-import { FrozenGlobalStyle } from '@/common/PageWrapper';
+import { useFrozenScroll } from '@/utils/useFrozenScroll';
 
 const TIMEOUT = 250;
 
@@ -76,13 +76,14 @@ export const VDrawer: React.FC<VDrawerProps> = props => {
 
   useEffect(() => setOpen(props.open), [props.open]);
 
+  useFrozenScroll(open);
+
   return (
     <StyledVDrawerContainer
       $width={`${props.width}px`}
       className={`${props.className ?? ''} ${open ? 'drawerContainer--open' : ''}`}
       onMouseDown={() => setOpen(false)}
     >
-      {open && <FrozenGlobalStyle />}
       <CSSTransition
         in={open}
         timeout={TIMEOUT}
