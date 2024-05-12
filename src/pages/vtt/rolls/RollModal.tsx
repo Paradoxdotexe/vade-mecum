@@ -1,5 +1,5 @@
 import { VModal } from '@/components/VModal';
-import React, { ReactNode, useContext, useMemo, useState } from 'react';
+import React, { ReactNode, useContext, useMemo, useRef, useState } from 'react';
 import { RollCard } from './RollCard';
 import { Roll } from '../types/Roll';
 import styled from 'styled-components';
@@ -26,7 +26,7 @@ type NewRoll = Pick<Roll, 'characterId' | 'characterName' | 'label' | 'diceFacto
 
 type RollModalProps = {
   open: boolean;
-  onClose?: () => void;
+  onClose?: (roll?: Roll) => void;
   newRoll: NewRoll;
 };
 
@@ -37,7 +37,7 @@ const RollModal: React.FC<RollModalProps> = props => {
   const [advantage, setAdvantage] = useState(0);
   const [disadvantage, setDisadvantage] = useState(0);
 
-  const roll = useMemo(() => {
+  const pendingRoll = useMemo(() => {
     const diceFactors = [...props.newRoll.diceFactors];
 
     if (advantage) {
@@ -66,10 +66,10 @@ const RollModal: React.FC<RollModalProps> = props => {
     };
   }, [props.newRoll, advantage, disadvantage]);
 
-  const onClose = () => {
+  const onClose = (roll?: Roll) => {
     setAdvantage(0);
     setDisadvantage(0);
-    props.onClose?.();
+    props.onClose?.(roll);
   };
 
   const onRoll = () => {
@@ -77,15 +77,16 @@ const RollModal: React.FC<RollModalProps> = props => {
     const timestamp = DateTime.now().toISO();
 
     // roll the dice!
-    const total = sum(roll.diceFactors.map(diceFactor => diceFactor.value));
+    const total = sum(pendingRoll.diceFactors.map(diceFactor => diceFactor.value));
     const dice = [...new Array(total)].map(() => rollDie()).sort((a, b) => b - a);
 
-    addRoll({ ...roll, id, timestamp, dice });
-    onClose();
+    const roll = { ...pendingRoll, id, timestamp, dice };
+    addRoll(roll);
+    onClose(roll);
   };
 
   return (
-    <StyledRollModal header="New Roll" open={props.open} onClose={onClose}>
+    <StyledRollModal header="New Roll" open={props.open} onClose={() => onClose()}>
       <div className="modal__content">
         <VFlex vertical gap={theme.variable.gap.md}>
           <VFlex justify="space-between" align="center">
@@ -105,7 +106,7 @@ const RollModal: React.FC<RollModalProps> = props => {
           </VFlex>
         </VFlex>
 
-        <RollCard roll={roll} collapsible={false} />
+        <RollCard roll={pendingRoll} collapsible={false} />
 
         <VButton type="primary" onClick={onRoll}>
           Roll
@@ -117,13 +118,13 @@ const RollModal: React.FC<RollModalProps> = props => {
 
 type _RollModalContext = {
   opened: boolean;
-  open: (newRoll: NewRoll) => void;
+  open: (newRoll: NewRoll) => Promise<Roll>;
   close: () => void;
 };
 
 const RollModalContext = React.createContext<_RollModalContext>({
   opened: false,
-  open: () => {},
+  open: () => new Promise(() => {}),
   close: () => {}
 });
 
@@ -134,18 +135,33 @@ export const RollModalProvider: React.FC<{ children: ReactNode }> = props => {
 
   const [newRoll, setNewRoll] = useState<NewRoll>();
 
+  const onRoll = useRef<(roll: Roll) => void>();
+
   const context = {
     opened,
     open: (newRoll: NewRoll) => {
       setOpened(true);
       setNewRoll(newRoll);
+
+      return new Promise<Roll>(resolve => {
+        onRoll.current = resolve;
+      });
     },
     close: () => setOpened(false)
   };
 
   return (
     <RollModalContext.Provider value={context}>
-      {newRoll && <RollModal open={opened} onClose={() => setOpened(false)} newRoll={newRoll} />}
+      {newRoll && (
+        <RollModal
+          open={opened}
+          onClose={roll => {
+            setOpened(false);
+            roll && onRoll.current?.(roll);
+          }}
+          newRoll={newRoll}
+        />
+      )}
       {props.children}
     </RollModalContext.Provider>
   );

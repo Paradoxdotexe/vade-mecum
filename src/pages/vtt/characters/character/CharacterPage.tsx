@@ -65,7 +65,7 @@ export const CharacterPage: React.FC = () => {
         }
       />
 
-      <CharacterSheet character={character} onChange={setCharacter} />
+      <CharacterSheet character={character} setCharacter={setCharacter} />
 
       <DeleteCharacterModal
         open={deleteCharacterModalOpen}

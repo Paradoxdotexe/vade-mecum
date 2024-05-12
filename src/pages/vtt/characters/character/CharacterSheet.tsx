@@ -71,19 +71,19 @@ const StyledCharacterSheet = styled.div`
 
 type CharacterSheetProps = {
   character: Character | undefined;
-  onChange?: (character: Character) => void;
+  setCharacter?: React.Dispatch<React.SetStateAction<Character | undefined>>;
 };
 
 export const CharacterSheet: React.FC<CharacterSheetProps> = props => {
   const theme = useVTheme();
 
-  const characterClient = useCharacterClient(props.character, props.onChange);
+  const characterClient = useCharacterClient(props.character, props.setCharacter);
 
   const [perksDrawerOpen, setPerksDrawerOpen] = useState(false);
   const [classAbilitiesDrawerOpen, setClassAbilitiesDrawerOpen] = useState(false);
   const [itemsDrawerOpen, setItemsDrawerOpen] = useState(false);
 
-  const disabled = !props.onChange;
+  const disabled = !props.setCharacter;
 
   return (
     <StyledCharacterSheet style={{ pointerEvents: disabled ? 'none' : undefined }}>

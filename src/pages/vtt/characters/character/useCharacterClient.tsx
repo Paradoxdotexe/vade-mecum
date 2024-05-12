@@ -89,7 +89,7 @@ const useCharacterComputation = (
 
 export const useCharacterClient = (
   value: Character | undefined,
-  onChange?: (character: Character) => void
+  setValue?: React.Dispatch<React.SetStateAction<Character | undefined>>
 ) => {
   if (!value) {
     return undefined;
@@ -98,7 +98,7 @@ export const useCharacterClient = (
   const character = value;
 
   const updateCharacter = (partialCharacter: Partial<Character>) => {
-    onChange?.({ ...character, ...partialCharacter });
+    setValue?.(character => ({ ...character!, ...partialCharacter }));
   };
 
   // ---------- NAME ----------- //
