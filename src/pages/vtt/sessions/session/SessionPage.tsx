@@ -8,7 +8,7 @@ import styled from 'styled-components';
 import { VFlex } from '@/components/VFlex';
 import { useVTheme } from '@/common/VTheme';
 import { useGetSessionQuery } from '@/pages/vtt/queries/useGetSessionQuery';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useVTTUser } from '@/common/VTTUser';
 import { Session } from '../../types/Session';
 import { debounce } from 'lodash-es';
@@ -56,6 +56,7 @@ const StyledSessionPage = styled(PageLayout)`
 
 export const SessionPage: React.FC = () => {
   const { sessionId } = useParams();
+  const navigate = useNavigate();
   const theme = useVTheme();
   const user = useVTTUser();
 
@@ -140,7 +141,17 @@ export const SessionPage: React.FC = () => {
           {characters.length ? (
             <div className="section__characters">
               {characters.map(character => (
-                <CharacterCard key={character.id} character={character} />
+                <CharacterCard
+                  key={character.id}
+                  character={character}
+                  onClick={() => {
+                    if (user.authenticated && user.id === character.userId) {
+                      navigate(`/vtt/characters/${character.id}`);
+                    } else {
+                      navigate(`/vtt/sessions/${sessionId}/characters/${character.id}`);
+                    }
+                  }}
+                />
               ))}
             </div>
           ) : (
