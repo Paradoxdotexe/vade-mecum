@@ -20,6 +20,8 @@ import { VHeader } from '@/components/VHeader';
 import { useSessionCharacters } from '../../queries/useSessionCharacters';
 import { CharacterCard } from '../../characters/CharacterCard';
 import { VLoader } from '@/components/VLoader';
+import { useRemoveSessionCharacter } from '../../queries/useRemoveSessionCharacter';
+import { Character } from '../../types/Character';
 
 const StyledSessionPage = styled(PageLayout)`
   .page__pageHeader__titleInput {
@@ -51,6 +53,20 @@ const StyledSessionPage = styled(PageLayout)`
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: ${props => props.theme.variable.gap.lg};
+
+    .characters__character {
+      position: relative;
+
+      .character__delete {
+        position: absolute;
+        top: -11px;
+        right: -11px;
+
+        button {
+          background-color: ${props => props.theme.color.background.raised};
+        }
+      }
+    }
   }
 `;
 
@@ -94,7 +110,20 @@ export const SessionPage: React.FC = () => {
     }
   }, [session, savedSession]);
 
-  const canEdit = user.authenticated && user.id === session?.userId;
+  const [removedCharacterId, setRemovedCharacterId] = useState<string>();
+
+  const removeSessionCharacter = useRemoveSessionCharacter(sessionId, removedCharacterId);
+
+  useEffect(() => {
+    if (removedCharacterId) {
+      removeSessionCharacter.mutateAsync().then(() => setRemovedCharacterId(undefined));
+    }
+  }, [removedCharacterId]);
+
+  const canEditSession = user.authenticated && user.id === session?.userId;
+
+  const canEditCharacter = (character: Character) =>
+    user.authenticated && user.id === character.userId;
 
   return (
     <StyledSessionPage>
@@ -109,7 +138,7 @@ export const SessionPage: React.FC = () => {
                 setSession(session => session && { ...session, name: event.target.value })
               }
               className="page__pageHeader__titleInput"
-              disabled={!canEdit}
+              disabled={!canEditSession}
             />
           )
         }
@@ -120,7 +149,7 @@ export const SessionPage: React.FC = () => {
               Add character
             </VButton>
 
-            {canEdit && (
+            {canEditSession && (
               <VFlex vertical align="end" gap={theme.variable.gap.md}>
                 <SavedStatus saved={saved} />
                 <VButton onClick={() => setDeleteSessionModalOpen(true)} disabled={!saved}>
@@ -141,17 +170,28 @@ export const SessionPage: React.FC = () => {
           {characters.length ? (
             <div className="section__characters">
               {characters.map(character => (
-                <CharacterCard
-                  key={character.id}
-                  character={character}
-                  onClick={() => {
-                    if (user.authenticated && user.id === character.userId) {
-                      navigate(`/vtt/characters/${character.id}`);
-                    } else {
-                      navigate(`/vtt/sessions/${sessionId}/characters/${character.id}`);
+                <div key={character.id} className="characters__character">
+                  <CharacterCard
+                    character={character}
+                    onClick={() => {
+                      if (user.authenticated && user.id === character.userId) {
+                        navigate(`/vtt/characters/${character.id}`);
+                      } else {
+                        navigate(`/vtt/sessions/${sessionId}/characters/${character.id}`);
+                      }
+                    }}
+                    loading={
+                      removeSessionCharacter.isLoading && character.id === removedCharacterId
                     }
-                  }}
-                />
+                  />
+                  {(canEditSession || canEditCharacter(character)) && (
+                    <div className="character__delete">
+                      <VButton size="small" onClick={() => setRemovedCharacterId(character.id)}>
+                        <TrashCanIcon />
+                      </VButton>
+                    </div>
+                  )}
+                </div>
               ))}
             </div>
           ) : (

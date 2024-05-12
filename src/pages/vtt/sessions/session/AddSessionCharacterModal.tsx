@@ -18,15 +18,18 @@ export const AddSessionCharacterModal: React.FC<AddSessionCharacterModalProps> =
   const { data: session } = useGetSessionQuery(props.sessionId);
   const { data: characters } = useGetCharactersQuery({ enabled: props.open });
 
-  const [characterId, setCharacterId] = useState<string>();
+  const [addedCharacterId, setAddedCharacterId] = useState<string>();
 
-  const addSessionCharacter = useAddSessionCharacter(props.sessionId, characterId);
+  const addSessionCharacter = useAddSessionCharacter(props.sessionId, addedCharacterId);
 
   useEffect(() => {
-    if (characterId) {
-      addSessionCharacter.mutateAsync().then(props.onClose);
+    if (addedCharacterId) {
+      addSessionCharacter.mutateAsync().then(() => {
+        setAddedCharacterId(undefined);
+        props.onClose?.();
+      });
     }
-  }, [characterId]);
+  }, [addedCharacterId]);
 
   return (
     <VModal
@@ -45,9 +48,9 @@ export const AddSessionCharacterModal: React.FC<AddSessionCharacterModalProps> =
               disabled={
                 session?.characterIds.includes(character.id) || addSessionCharacter.isLoading
               }
-              loading={characterId === character.id && addSessionCharacter.isLoading}
+              loading={addedCharacterId === character.id && addSessionCharacter.isLoading}
               onClick={() => {
-                setCharacterId(character.id);
+                setAddedCharacterId(character.id);
               }}
             />
           ))
