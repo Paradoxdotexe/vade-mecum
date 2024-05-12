@@ -11,11 +11,15 @@ import { useGetSessionQuery } from '@/pages/vtt/queries/useGetSessionQuery';
 import { useParams } from 'react-router-dom';
 import { useVTTUser } from '@/common/VTTUser';
 import { Session } from '../../types/Session';
-import { debounce, isEqual } from 'lodash-es';
+import { debounce } from 'lodash-es';
 import { useUpdateSessionMutation } from '../../queries/useUpdateSessionMutation';
 import { SavedStatus } from '../../SavedStatus';
 import { AddSessionCharacterModal } from './AddSessionCharacterModal';
 import { DeleteSessionModal } from './DeleteSessionModal';
+import { VHeader } from '@/components/VHeader';
+import { useSessionCharacters } from '../../queries/useSessionCharacters';
+import { CharacterCard } from '../../characters/CharacterCard';
+import { VLoader } from '@/components/VLoader';
 
 const StyledSessionPage = styled(PageLayout)`
   .page__pageHeader__titleInput {
@@ -31,6 +35,22 @@ const StyledSessionPage = styled(PageLayout)`
     &::placeholder {
       color: ${props => props.theme.color.text.tertiary};
     }
+  }
+
+  .page__section {
+    display: flex;
+    flex-direction: column;
+    gap: ${props => props.theme.variable.gap.lg};
+
+    .section__empty {
+      color: ${props => props.theme.color.text.secondary};
+    }
+  }
+
+  .section__characters {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: ${props => props.theme.variable.gap.lg};
   }
 `;
 
@@ -52,6 +72,8 @@ export const SessionPage: React.FC = () => {
     }
   }, [savedSession]);
 
+  const { data: characters } = useSessionCharacters(sessionId);
+
   const { mutateAsync: _updateSession } = useUpdateSessionMutation(sessionId);
   const updateSession = useMemo(
     () => debounce((session: Session) => _updateSession({ session }), 2000),
@@ -61,7 +83,7 @@ export const SessionPage: React.FC = () => {
   // updated saved state and debounce save query when needed
   useEffect(() => {
     if (session && savedSession) {
-      const saved = isEqual(session, savedSession);
+      const saved = session.name === savedSession.name;
       setSaved(saved);
       if (saved) {
         updateSession.cancel();
@@ -108,6 +130,24 @@ export const SessionPage: React.FC = () => {
           </>
         }
       />
+
+      {!characters ? (
+        <VLoader />
+      ) : (
+        <div className="page__section">
+          <VHeader>Characters</VHeader>
+
+          {characters.length ? (
+            <div className="section__characters">
+              {characters.map(character => (
+                <CharacterCard key={character.id} character={character} />
+              ))}
+            </div>
+          ) : (
+            <div className="section__empty">Add a character to the session to get started.</div>
+          )}
+        </div>
+      )}
 
       <DeleteSessionModal
         open={deleteSessionModalOpen}
