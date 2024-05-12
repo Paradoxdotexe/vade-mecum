@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 
@@ -10,6 +11,10 @@ const StyledVTag = styled.div<{ $color?: string }>`
   box-shadow: 2px 4px 16px ${props => props.theme.color.shadow.default};
   color: ${props => props.theme.color.text.contrast};
   line-height: 1;
+
+  &.tag--clickable {
+    cursor: pointer;
+  }
 `;
 
 type VTagProps = {
@@ -17,11 +22,21 @@ type VTagProps = {
   className?: string;
   style?: React.CSSProperties;
   color?: string;
+  onClick?: () => void;
 };
 
 export const VTag: React.FC<VTagProps> = props => {
+  const className = classNames(props.className, {
+    'tag--clickable': !!props.onClick
+  });
+
   return (
-    <StyledVTag className={props.className} style={props.style} $color={props.color}>
+    <StyledVTag
+      className={className}
+      style={props.style}
+      $color={props.color}
+      onClick={props.onClick}
+    >
       {props.children}
     </StyledVTag>
   );

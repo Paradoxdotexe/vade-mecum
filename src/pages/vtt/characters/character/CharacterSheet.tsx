@@ -168,7 +168,11 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = props => {
                   <VFlex align="center" gap={theme.variable.gap.sm}>
                     Perks {!disabled && <EditButton onClick={() => setPerksDrawerOpen(true)} />}
                   </VFlex>
-                  <AcquisitionIndicator label="perk" count={characterClient.perksToAcquire} />
+                  <AcquisitionIndicator
+                    label="perk"
+                    count={characterClient.perksToAcquire}
+                    onClick={() => setPerksDrawerOpen(true)}
+                  />
                 </VFlex>
               </VHeader>
               <PerksCard characterClient={characterClient} />
@@ -189,6 +193,7 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = props => {
                   <AcquisitionIndicator
                     label="class ability"
                     count={characterClient.classAbilitiesToAcquire}
+                    onClick={() => setClassAbilitiesDrawerOpen(true)}
                   />
                 </VFlex>
               </VHeader>
@@ -255,10 +260,16 @@ const StyledAcquisitionIndicator = styled(VTag)<{ $success: boolean }>`
     pulsingBackground(props.theme.color.status[props.$success ? 'success' : 'failure'].border)}
 `;
 
-const AcquisitionIndicator: React.FC<{ label: string; count: number }> = props => {
+type AcquisitionIndicatorProps = {
+  label: string;
+  count: number;
+  onClick?: () => void;
+};
+
+const AcquisitionIndicator: React.FC<AcquisitionIndicatorProps> = props => {
   if (props.count === 0) return null;
   return (
-    <StyledAcquisitionIndicator $success={props.count > 0}>
+    <StyledAcquisitionIndicator $success={props.count > 0} onClick={props.onClick}>
       {props.count > 0 ? '+' : '-'}
       {Math.abs(props.count)} {pluralize(props.label, Math.abs(props.count))}
     </StyledAcquisitionIndicator>
