@@ -8,22 +8,9 @@ import { useVTheme } from '@/common/VTheme';
 import { VFlex } from '@/components/VFlex';
 import { Item } from '@/pages/vtt/types/Item';
 import { capitalize } from 'lodash-es';
-
-export const getItemDescription = (item: Item) => {
-  const descriptionParts = [];
-
-  if (item.bonus) {
-    descriptionParts.push(`+${item.bonus.skillBonus} to ${capitalize(item.bonus.skillKey)}`);
-  }
-  if (item.damage) {
-    descriptionParts.push(`${item.damage}D6 damage`);
-  }
-  if (item.notes) {
-    descriptionParts.push(item.notes);
-  }
-
-  return descriptionParts.join(', ');
-};
+import { RollableSkill } from './RollableSkill';
+import { useRollModal } from '@/pages/vtt/rolls/RollModal';
+import { RollEvaluation } from '@/pages/vtt/types/Roll';
 
 type InventoryCardProps = {
   characterClient: CharacterClient;
@@ -51,7 +38,9 @@ export const InventoryCard: React.FC<InventoryCardProps> = props => {
             },
             {
               key: 'description',
-              render: item => getItemDescription(item),
+              render: item => (
+                <ItemDescription characterClient={props.characterClient} item={item} />
+              ),
               width: '100%'
             },
             {
@@ -70,5 +59,71 @@ export const InventoryCard: React.FC<InventoryCardProps> = props => {
         />
       </VCard>
     </>
+  );
+};
+
+type ItemDescriptionProps = {
+  characterClient: CharacterClient;
+  item: Item;
+  style?: React.CSSProperties;
+};
+
+export const ItemDescription: React.FC<ItemDescriptionProps> = props => {
+  const theme = useVTheme();
+
+  const rollModal = useRollModal();
+
+  const { attributes } = props.characterClient;
+
+  const onRollSkill = () => {
+    const attribute = attributes[props.item.bonus!.attributeKey];
+    const skill = attribute.skills[props.item.bonus!.skillKey];
+
+    rollModal.open({
+      characterId: props.characterClient.id,
+      characterName: props.characterClient.name,
+      label: props.item.name,
+      diceFactors: [
+        ...[attribute, skill].map(df => ({ label: df.label, value: df.value })),
+        { label: props.item.name, value: props.item.bonus!.skillBonus }
+      ],
+      evaluation: RollEvaluation.CHECK
+    });
+  };
+
+  const onRollDamage = () => {
+    rollModal.open({
+      characterId: props.characterClient.id,
+      characterName: props.characterClient.name,
+      label: props.item.name,
+      diceFactors: [{ label: 'Damage', value: props.item.damage! }],
+      evaluation: RollEvaluation.SUM
+    });
+  };
+
+  return (
+    <VFlex gap={theme.variable.gap.sm} align="center" style={props.style}>
+      {props.item.bonus && (
+        <RollableSkill
+          value={props.item.bonus.skillBonus}
+          valueLabel={`+${props.item.bonus.skillBonus}`}
+          label={`${capitalize(props.item.bonus.skillKey)},`}
+          disabled
+          style={{ gap: theme.variable.gap.sm, fontSize: 'inherit' }}
+          onClick={onRollSkill}
+        />
+      )}
+      {props.item.damage && (
+        <RollableSkill
+          value={props.item.damage}
+          valueLabel={`${props.item.damage}D6`}
+          label="damage,"
+          disabled
+          style={{ gap: theme.variable.gap.sm, fontSize: 'inherit' }}
+          onClick={onRollDamage}
+        />
+      )}
+      {props.item.notes}
+    </VFlex>
   );
 };

@@ -10,7 +10,7 @@ import { searchObjects } from '@/utils/searchObjects';
 import { Item, ItemType } from '@/pages/vtt/types/Item';
 import { CharacterClient } from '../useCharacterClient';
 import { WORLD_KIT } from '@/pages/vtt/types/WorldKit';
-import { getItemDescription } from '../cards/InventoryCard';
+import { ItemDescription } from '../cards/InventoryCard';
 
 const StyledItemsDrawer = styled(VDrawer)`
   .drawer__content {
@@ -99,7 +99,13 @@ export const ItemsDrawer: React.FC<ItemsDrawerProps> = props => {
                     },
                     {
                       key: 'description',
-                      render: item => getItemDescription(item),
+                      render: item => (
+                        <ItemDescription
+                          characterClient={props.characterClient}
+                          item={item}
+                          style={{ pointerEvents: 'none' }}
+                        />
+                      ),
                       width: '100%'
                     }
                   ]}

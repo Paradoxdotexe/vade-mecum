@@ -4,11 +4,12 @@ import styled from 'styled-components';
 const StyledVTag = styled.div<{ $color?: string }>`
   font-family: ${props => props.theme.variable.fontFamily.default};
   font-size: ${props => props.theme.variable.fontSize.xs};
-  padding: ${props => props.theme.variable.gap.xs} ${props => props.theme.variable.gap.sm};
+  padding: 3px 5px;
   border-radius: ${props => props.theme.variable.borderRadius};
   background-color: ${props => props.$color ?? props.theme.color.brand.default};
   box-shadow: 2px 4px 16px ${props => props.theme.color.shadow.default};
   color: ${props => props.theme.color.text.contrast};
+  line-height: 1;
 `;
 
 type VTagProps = {
