@@ -119,6 +119,8 @@ export const RollCard: React.FC<RollCardProps> = props => {
     dice = [...new Array(Math.max(total, 0))].map(() => -1);
   }
 
+  const successChance = (1 - Math.pow(5 / 6, dice.length)) * 100;
+
   const renderDie = (die: number, index: number) => {
     const dieCheckResult = getCheckResult([die]);
     const color = die > 0 ? theme.color.status[dieCheckResult].border : undefined;
@@ -173,7 +175,11 @@ export const RollCard: React.FC<RollCardProps> = props => {
                 />
               );
             })}
-            <DiceFactorInput prefix={'='} value={dice.length} label={'Total'} />
+            <DiceFactorInput
+              prefix={'='}
+              value={dice.length}
+              label={`Total ${isCheck ? `(${successChance.toFixed(1)}%)` : ''}`}
+            />
           </div>
         </VCollapsible>
 
