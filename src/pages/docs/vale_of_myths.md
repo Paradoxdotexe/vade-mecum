@@ -813,7 +813,7 @@ In _Vale of Myths_, Valerian Pieces (abbreviated as "VP") are the main denominat
 | **Halberd**             | Rare      | `32 VP`  | 2 slots  | `+2` Power, `3D6` damage, 10ft range             |
 | **Glaive**              | Very Rare | `64 VP`  | 2 slots  | `+3` Power, `4D6` damage, 10ft range             |
 | **Slingshot**           | Common    | `8 VP`   | 1/2 slot | `+1` Precision, `1D6` damage, 10ft - 30ft range  |
-| **Shortbow**            | Average   | `16 VP`  | 2 slots  | `+1` Precision, `2D6` damage, 10ft - 90ft range  |
+| **Shortbow**            | Average   | `16 VP`  | 1 slot   | `+1` Precision, `2D6` damage, 10ft - 90ft range  |
 | **Crossbow**            | Rare      | `32 VP`  | 2 slots  | `+2` Precision, `3D6` damage, 10ft - 60ft range  |
 | **Longbow**             | Very Rare | `64 VP`  | 2 slots  | `+3` Precision, `4D6` damage, 20ft - 120ft range |
 | **Blessed Blunderbuss** | Average   | `16 VP`  | 1 slot   | `+1` Precision, `2D6` damage, 15ft range         |

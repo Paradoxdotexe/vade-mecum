@@ -13,6 +13,8 @@ import { WORLD_KIT } from '@/pages/vtt/types/WorldKit';
 import { ItemDescription } from '../cards/InventoryCard';
 import { useVTheme } from '@/common/VTheme';
 import { VTag } from '@/components/VTag';
+import { ReactComponent as WeightIcon } from '@/icons/Weight.svg';
+import { VFlex } from '@/components/VFlex';
 
 const StyledItemsDrawer = styled(VDrawer)`
   .drawer__content {
@@ -72,7 +74,7 @@ export const ItemsDrawer: React.FC<ItemsDrawerProps> = props => {
         setSearchQuery('');
         props.onClose?.();
       }}
-      width={850}
+      width={900}
       header="Items"
     >
       <div className="drawer__content">
@@ -114,6 +116,16 @@ export const ItemsDrawer: React.FC<ItemsDrawerProps> = props => {
                         />
                       ),
                       width: '100%'
+                    },
+                    {
+                      key: 'weight',
+                      render: item =>
+                        item.weight && (
+                          <VFlex gap={theme.variable.gap.sm} align="center" justify="end">
+                            {item.weight.toFixed(2)}
+                            <WeightIcon fontSize={20} />
+                          </VFlex>
+                        )
                     }
                   ]}
                   rows={filteredItemsOfType}

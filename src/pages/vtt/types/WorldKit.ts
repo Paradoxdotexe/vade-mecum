@@ -1491,7 +1491,7 @@ const VALE_OF_MYTHS: WorldKit = {
       type: ItemType.WEAPON,
       name: 'Shortbow',
       cost: '16 VP',
-      weight: 2,
+      weight: 1,
       bonus: {
         attributeKey: 'dexterity',
         skillKey: 'precision',
@@ -1533,7 +1533,7 @@ const VALE_OF_MYTHS: WorldKit = {
       type: ItemType.WEAPON,
       name: 'Blessed Blunderbuss',
       cost: '16 VP',
-      weight: 1 / 2,
+      weight: 1,
       bonus: {
         attributeKey: 'dexterity',
         skillKey: 'precision',
@@ -1649,7 +1649,7 @@ const VALE_OF_MYTHS: WorldKit = {
       type: ItemType.TOOL,
       name: 'Rope and Grappling Hook',
       cost: '16 VP',
-      weight: 1 / 2,
+      weight: 1,
       bonus: {
         attributeKey: 'strength',
         skillKey: 'athletics',
@@ -1689,6 +1689,18 @@ const VALE_OF_MYTHS: WorldKit = {
       bonus: {
         attributeKey: 'strength',
         skillKey: 'power',
+        skillBonus: 1
+      }
+    },
+    {
+      key: 'lock_picking_set',
+      type: ItemType.TOOL,
+      name: 'Lock Picking Set',
+      cost: '8 VP',
+      weight: 1 / 4,
+      bonus: {
+        attributeKey: 'dexterity',
+        skillKey: 'precision',
         skillBonus: 1
       }
     },

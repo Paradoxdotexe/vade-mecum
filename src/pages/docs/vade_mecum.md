@@ -522,7 +522,7 @@ Weapons, additionally, will specify the attack range and the amount of damage de
 | **Rope**       | Common  | `8 VP`  | 1/2 slot | `+1` Athletics                                  |
 | **World Map**  | Common  | `8 VP`  | 1/4 slot | `+1` Insight                                    |
 | **Shortsword** | Average | `16 VP` | 1 slot   | `+1` Power, `3D6` damage, 5ft range             |
-| **Shortbow**   | Average | `16 VP` | 2 slots  | `+1` Precision, `2D6` damage, 10ft - 90ft range |
+| **Shortbow**   | Average | `16 VP` | 1 slot   | `+1` Precision, `2D6` damage, 10ft - 90ft range |
 
 When using a weapon in combat, a failed skill check will result in the item taking damage.
 Damage results in the item's advantage modifier decreasing by one.
