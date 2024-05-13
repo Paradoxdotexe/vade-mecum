@@ -7,10 +7,11 @@ const StyledVTag = styled.div<{ $color?: string }>`
   font-size: ${props => props.theme.variable.fontSize.xs};
   padding: 3px 5px;
   border-radius: ${props => props.theme.variable.borderRadius};
-  background-color: ${props => props.$color ?? props.theme.color.brand.default};
+  background-color: ${props => props.$color ?? props.theme.color.background.sunken};
   box-shadow: 2px 4px 16px ${props => props.theme.color.shadow.default};
   color: ${props => props.theme.color.text.contrast};
   line-height: 1;
+  width: fit-content;
 
   &.tag--clickable {
     cursor: pointer;

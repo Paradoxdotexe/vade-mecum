@@ -11,6 +11,8 @@ import { Item, ItemType } from '@/pages/vtt/types/Item';
 import { CharacterClient } from '../useCharacterClient';
 import { WORLD_KIT } from '@/pages/vtt/types/WorldKit';
 import { ItemDescription } from '../cards/InventoryCard';
+import { useVTheme } from '@/common/VTheme';
+import { VTag } from '@/components/VTag';
 
 const StyledItemsDrawer = styled(VDrawer)`
   .drawer__content {
@@ -42,6 +44,8 @@ const ITEM_TYPE_SECTION_HEADERS: { [key in ItemType]: string } = {
 };
 
 export const ItemsDrawer: React.FC<ItemsDrawerProps> = props => {
+  const theme = useVTheme();
+
   const [searchQuery, setSearchQuery] = useState('');
 
   const isItemSelected = (itemKey: string) =>
@@ -56,8 +60,7 @@ export const ItemsDrawer: React.FC<ItemsDrawerProps> = props => {
   };
 
   const isItemAvailable = (item: Item) => {
-    // non-armor items that are unweighted are not available
-    return !!item.weight || item.type === ItemType.ARMOR;
+    return !!item.weight;
   };
 
   const filteredItems = searchObjects(WORLD_KIT.items, ['name', 'notes'], searchQuery);
@@ -95,7 +98,11 @@ export const ItemsDrawer: React.FC<ItemsDrawerProps> = props => {
                     },
                     {
                       key: 'cost',
-                      render: item => `${item.cost} ${item.cost !== 'FREE' ? 'pcs' : ''}`
+                      render: item => (
+                        <VTag style={{ fontFamily: theme.variable.fontFamily.display }}>
+                          {item.cost}
+                        </VTag>
+                      )
                     },
                     {
                       key: 'description',

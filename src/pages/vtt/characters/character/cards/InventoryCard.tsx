@@ -102,12 +102,12 @@ export const ItemDescription: React.FC<ItemDescriptionProps> = props => {
   };
 
   return (
-    <VFlex gap={theme.variable.gap.sm} align="center" style={props.style}>
+    <VFlex gap={theme.variable.gap.sm} align="center" style={{ lineHeight: 1, ...props.style }}>
       {props.item.bonus && (
         <RollableSkill
           value={props.item.bonus.skillBonus}
           valueLabel={`+${props.item.bonus.skillBonus}`}
-          label={`${capitalize(props.item.bonus.skillKey)},`}
+          label={`${capitalize(props.item.bonus.skillKey)}${props.item.damage || props.item.notes ? ',' : ''}`}
           disabled
           style={{ gap: theme.variable.gap.sm, fontSize: 'inherit' }}
           onClick={onRollSkill}
@@ -117,7 +117,7 @@ export const ItemDescription: React.FC<ItemDescriptionProps> = props => {
         <RollableSkill
           value={props.item.damage}
           valueLabel={`${props.item.damage}D6`}
-          label="damage,"
+          label={`damage${props.item.notes ? ',' : ''}`}
           disabled
           style={{ gap: theme.variable.gap.sm, fontSize: 'inherit' }}
           onClick={onRollDamage}

@@ -14,29 +14,6 @@ The core characters are those controlled by the players, each of which are motiv
 These characters form an Adventuring Party that share a higher, mutual goal, driving them on a challenging adventure through the world.
 The world is defined and controlled by a Game Master that acts as both the game's arbiter and storyteller, motivated to make the adventure as fun and engaging as possible.
 
-## World Kits
-
-World Kits are pre-configured worlds that have been built to plug right into the core _Vade Mecum_ rule set.
-These kits provide all the resources a Game Master will need to start an adventure, including races, classes, items, and creatures.
-We will highlight some of these kits below, but their complete documentation can be found in the kit itself.
-
-### _[Vale of Myths](/docs/vale-of-myths)_
-
-This high fantasy kit is set in a kingdom-controlled dominion where characters will face the dangers of evil kings, dark magic users, and mythical monsters.
-
-| Focus        | Class         | Description                                                                   |
-| ------------ | ------------- | ----------------------------------------------------------------------------- |
-| Strength     | **Knight**    | A stalwart force on the battlefield that fights for honor and glory.          |
-| Strength     | **Barbarian** | A fierce and frightening warrior driven by pure rage.                         |
-| Dexterity    | **Monk**      | A disciple of peace who deflects rather than attacks.                         |
-| Dexterity    | **Ranger**    | A master of range weapons and the natural environment.                        |
-| Intelligence | **Mage**      | A student of magic who bends the forces of nature to their will.              |
-| Intelligence | **Mancer**    | A tinkerer that combines metal and magic to harness the arcane forces.        |
-| Charisma     | **Herald**    | A messenger that influences people towards diplomacy and away from battle.    |
-| Charisma     | **Enchanter** | A master of manipulation that can bend others unknowingly to their will.      |
-| Perception   | **Sage**      | A practitioner of the natural arts that can call upon nature through rituals. |
-| Perception   | **Druid**     | A protector of nature who harnesses the earth and its creatures.              |
-
 ## Contents
 
 - [1. Characters](#1.-Characters)
@@ -59,8 +36,32 @@ This high fantasy kit is set in a kingdom-controlled dominion where characters w
   - [2.6 Injuries](#2.6-Injuries)
   - [2.7 Rest](#2.7-Rest)
 - [3. World](#3.-World)
+
   - [3.1 Currency](#3.1-Currency)
   - [3.2 Enemies](#3.2-Enemies)
+
+## World Kits
+
+World Kits are pre-configured worlds that have been built to plug right into the core _Vade Mecum_ rule set.
+These kits provide all the resources a Game Master will need to start an adventure, including races, classes, items, and creatures.
+We will highlight some of these kits below, but their complete documentation can be found in the kit itself.
+
+### _[Vale of Myths](/docs/vale-of-myths)_
+
+This high fantasy kit is set in a kingdom-controlled dominion where characters will face the dangers of evil kings, dark magic users, and mythical monsters.
+
+| Focus        | Class         | Description                                                                   |
+| ------------ | ------------- | ----------------------------------------------------------------------------- |
+| Strength     | **Knight**    | A stalwart force on the battlefield that fights for honor and glory.          |
+| Strength     | **Barbarian** | A fierce and frightening warrior driven by pure rage.                         |
+| Dexterity    | **Monk**      | A disciple of peace who deflects rather than attacks.                         |
+| Dexterity    | **Ranger**    | A master of range weapons and the natural environment.                        |
+| Intelligence | **Mage**      | A student of magic who bends the forces of nature to their will.              |
+| Intelligence | **Mancer**    | A tinkerer that combines metal and magic to harness the arcane forces.        |
+| Charisma     | **Herald**    | A messenger that influences people towards diplomacy and away from battle.    |
+| Charisma     | **Enchanter** | A master of manipulation that can bend others unknowingly to their will.      |
+| Perception   | **Sage**      | A practitioner of the natural arts that can call upon nature through rituals. |
+| Perception   | **Druid**     | A protector of nature who harnesses the earth and its creatures.              |
 
 # 1. Characters
 
@@ -372,14 +373,14 @@ For the best experience, focus on making a unique and interesting adventurer tha
 
 > **Equipment**
 >
-> - [ ] Add 3 Adventuring Rations to your character's inventory
+> - [ ] Add 2 Adventuring Rations to your character's inventory
 > - [ ] Add 24 Currency Units to your character's inventory
->   - You can spend these Currency Units to purchase items from the World Kit being used
+>   - You can use these Currency Units to acquire items from the World Kit being used
 
 # 2. Adventuring
 
 Once you've established your Adventuring Party of characters, there's only one thing left do: adventure!
-Adventuring can take many shapes and forms, but _Vade Mecum_ provides a general set of rulles for how to resolve the adventuring day.
+Adventuring can take many shapes and forms, but _Vade Mecum_ provides a general set of rules for how to resolve the adventuring day.
 
 ## 2.1 Skill Checks
 
@@ -516,12 +517,12 @@ Weapons, additionally, will specify the attack range and the amount of damage de
 
 > Some examples of weapon and tools from the _Vale of Myths_ World Kit are given below.
 
-| Item           | Rarity  | Cost    | Size     | Description                     |
-| -------------- | ------- | ------- | -------- | ------------------------------- |
-| **Rope**       | Common  | 2D6 pcs | 1/2 slot | +1 Athletics                    |
-| **World Map**  | Common  | 2D6 pcs | 1/4 slot | +1 Insight                      |
-| **Shortsword** | Average | 4D6 pcs | 1 slot   | +1 Power, 3D6 damage, 5ft range |
-| **Longsword**  | Rare    | 8D6 pcs | 2 slots  | +2 Power, 4D6 damage, 5ft range |
+| Item           | Rarity  | Cost    | Size     | Description                                     |
+| -------------- | ------- | ------- | -------- | ----------------------------------------------- |
+| **Rope**       | Common  | `8 VP`  | 1/2 slot | `+1` Athletics                                  |
+| **World Map**  | Common  | `8 VP`  | 1/4 slot | `+1` Insight                                    |
+| **Shortsword** | Average | `16 VP` | 1 slot   | `+1` Power, `3D6` damage, 5ft range             |
+| **Shortbow**   | Average | `16 VP` | 2 slots  | `+1` Precision, `2D6` damage, 10ft - 90ft range |
 
 When using a weapon in combat, a failed skill check will result in the item taking damage.
 Damage results in the item's advantage modifier decreasing by one.
@@ -736,11 +737,11 @@ In order to rest, the Adventuring Party must find lodging in the embrace of natu
 Finding established lodging will grant advantage on Rest Activities and can stave off the dangers of the wild.
 The Game Master will decide whether NPC-provided lodging is available in any given location.
 
-| Lodging              | Rarity     | Cost   | Description                                               |
-| -------------------- | ---------- | ------ | --------------------------------------------------------- |
-| **Adventuring Camp** | Ubiquitous | Free   | A cold place to sleep                                     |
-| **Simple Lodging**   | Average    | 4D6 CU | A warm place to sleep, +2 to Rest Activity rolls          |
-| **Fancy Lodging**    | Rare       | 8D6 CU | A warm and safe place to sleep, +3 to Rest Activity rolls |
+| Lodging              | Rarity  | Cost    | Description                                               |
+| -------------------- | ------- | ------- | --------------------------------------------------------- |
+| **Adventuring Camp** |         | `FREE`  | A cold place to sleep                                     |
+| **Simple Lodging**   | Common  | `8 CU`  | A warm place to sleep, +2 to Rest Activity rolls          |
+| **Fancy Lodging**    | Average | `16 CU` | A warm and safe place to sleep, +3 to Rest Activity rolls |
 
 ### Meals
 
@@ -750,9 +751,9 @@ The Game Master will decide whether NPC-cooked meals are available in any given 
 
 | Meal                   | Rarity      | Cost   | Description                                          |
 | ---------------------- | ----------- | ------ | ---------------------------------------------------- |
-| **Adventuring Ration** | Very Common | 1D6 CU | Satiates a character for 1 Rest, carried in 1/4 slot |
-| **Simple Meal**        | Common      | 2D6 CU | Satiates a character for 2 Rests, cannot be carried  |
-| **Fancy Meal**         | Average     | 4D6 CU | Satiates a character for 4 Rests, cannot be carried  |
+| **Adventuring Ration** | Ubiquitous  | `2 CU` | Satiates a character for 1 Rest, carried in 1/4 slot |
+| **Simple Meal**        | Very Common | `4 CU` | Satiates a character for 2 Rests, cannot be carried  |
+| **Fancy Meal**         | Common      | `8 CU` | Satiates a character for 4 Rests, cannot be carried  |
 
 Characters that are satiated at the end of a Rest will heal a number of HP equal to `(Level + Strength + Fortitude) x D6`.
 
@@ -779,15 +780,15 @@ To price items, there are 7 levels of rarity that measure how rare and costly an
 In most adventures, characters begin with the ability to buy items of Average rarity and lower.
 Items that are Rare, Very Rare, and Legendary should require PC's to save up currency or succeed on challenging quests.
 
-| Rarity          | Cost              | Example                                 |
-| --------------- | ----------------- | --------------------------------------- |
-| **Ubiquitous**  | Free              | Cup of water                            |
-| **Very Common** | 1D6 CU (~3 CU)    | Pint of ale                             |
-| **Common**      | 2D6 CU (~7 CU)    | Simple meal                             |
-| **Average**     | 4D6 CU (~14 CU)   | Fancy meal, simple lodging, light armor |
-| **Rare**        | 8D6 CU (~28 CU)   | Fancy lodging, medium armor             |
-| **Very Rare**   | 16D6 CU (~56 CU)  | Heavy armor                             |
-| **Legendary**   | 32D6 CU (~112 CU) |                                         |
+| Rarity          | Cost     | _Vale of Myths_ Example                  |
+| --------------- | -------- | ---------------------------------------- |
+| **Ubiquitous**  | `2 CU`   | Pint of ale                              |
+| **Very Common** | `4 CU`   | Simple meal                              |
+| **Common**      | `8 CU`   | Simple lodging, fancy meal, dagger       |
+| **Average**     | `16 CU`  | Fancy lodging, leather armor, shortsword |
+| **Rare**        | `32 CU`  | Chainmail armor, longsword               |
+| **Very Rare**   | `64 CU`  | Plate armor, greatsword                  |
+| **Legendary**   | `128 CU` | _The unique and magical..._              |
 
 To purchase an item listed in the given World Kit, a character requires a marketplace or merchant that has that item (as dictated by the Game Master).
 Additionally, if the item is of Rare rarity or higher, an Influence check is required to determine how effective the character is in haggling the price.
@@ -799,9 +800,8 @@ Additionally, if the item is of Rare rarity or higher, an Influence check is req
 | Failure   | The merchant haggles the price up 25%. |
 
 > **Example:** A character looks to buy some Plate Armor (Very Rare) in a large marketplace and the GM rules that the item is being sold there.
-> The character rolls an Influence check to haggle the price and gets a failure, increasing the price from 16D6 to 20D6.
-> The GM rolls 20D6, finalizing the price at 70 CU.
-> The character can either purchase the Plate Armor for 70 CU or try again on another day.
+> The character rolls an Influence check to haggle the price and gets a failure, increasing the price from 32 CU to 40 CU.
+> The character can either purchase the Plate Armor for 40 CU or try again another day.
 
 > When selling an item of Rare rarity or higher, the same rules apply but in reverse (the character attempts to haggle the price up).
 

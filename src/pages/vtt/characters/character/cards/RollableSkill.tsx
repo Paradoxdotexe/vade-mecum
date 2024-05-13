@@ -41,8 +41,7 @@ export const RollableSkill: React.FC<RollableSkillProps> = props => {
       {props.valueLabel ? (
         <VTag
           style={{
-            fontFamily: theme.variable.fontFamily.display,
-            background: theme.color.background.sunken
+            fontFamily: theme.variable.fontFamily.display
           }}
         >
           {props.valueLabel}

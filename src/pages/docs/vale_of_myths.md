@@ -794,66 +794,67 @@ Druids can acquire other class abilities that unlock new untamed beasts to call 
 
 # 3. Items
 
-In _Vale of Myths_, valerian pieces (abbreviated as "pcs") are the main denomination of currency used to buy and sell items.
+In _Vale of Myths_, Valerian Pieces (abbreviated as "VP") are the main denomination of currency used to buy and sell items.
 
 ## Weapons
 
-| Item                    | Rarity    | Cost     | Size     | Description                                  |
-| ----------------------- | --------- | -------- | -------- | -------------------------------------------- |
-| **Dagger**              | Common    | 2D6 pcs  | 1/2 slot | +1 Power, 2D6 damage, 5ft range              |
-| **Shortsword**          | Average   | 4D6 pcs  | 1 slot   | +1 Power, 3D6 damage, 5ft range              |
-| **Longsword**           | Rare      | 8D6 pcs  | 2 slots  | +2 Power, 4D6 damage, 5ft range              |
-| **Greatsword**          | Very Rare | 16D6 pcs | 2 slots  | +3 Power, 5D6 damage, 5ft range              |
-| **Handaxe**             | Common    | 2D6 pcs  | 1/2 slot | +0 Power, 3D6 damage, 5ft range              |
-| **Waraxe**              | Average   | 4D6 pcs  | 1 slot   | +0 Power, 4D6 damage, 5ft range              |
-| **Battleaxe**           | Rare      | 8D6 pcs  | 2 slots  | +1 Power, 5D6 damage, 5ft range              |
-| **Greataxe**            | Very Rare | 16D6 pcs | 2 slots  | +2 Power, 6D6 damage, 5ft range              |
-| **Quarterstaff**        | Common    | 2D6 pcs  | 1 slot   | +1 Power, 1D6 damage, 10ft range             |
-| **Pike**                | Average   | 4D6 pcs  | 2 slots  | +1 Power, 2D6 damage, 10ft range             |
-| **Halberd**             | Rare      | 8D6 pcs  | 2 slots  | +2 Power, 3D6 damage, 10ft range             |
-| **Glaive**              | Very Rare | 16D6 pcs | 2 slots  | +3 Power, 4D6 damage, 10ft range             |
-| **Slingshot**           | Common    | 2D6 pcs  | 1/2 slot | +1 Precision, 1D6 damage, 15ft - 30ft range  |
-| **Shortbow**            | Average   | 4D6 pcs  | 2 slots  | +1 Precision, 2D6 damage, 15ft - 90ft range  |
-| **Crossbow**            | Rare      | 8D6 pcs  | 2 slots  | +2 Precision, 3D6 damage, 15ft - 60ft range  |
-| **Longbow**             | Very Rare | 16D6 pcs | 2 slots  | +3 Precision, 4D6 damage, 30ft - 120ft range |
-| **Blessed Blunderbuss** | Average   | 4D6 pcs  | 1 slot   | +1 Precision, 2D6 damage, 15ft range         |
-| **Frost Flintlock**     | Rare      | 8D6 pcs  | 1/2 slot | +2 Precision, 3D6 damage, 30ft range         |
-| **Radiant Revolver**    | Very Rare | 16D6 pcs | 1/2 slot | +3 Precision, 4D6 damage, 60ft range         |
-| **Resonant Repeater**   | Legendary | 32D6 pcs | 1 slot   | +4 Precision, 5D6 damage, 90ft range         |
+| Item                    | Rarity    | Cost     | Size     | Description                                      |
+| ----------------------- | --------- | -------- | -------- | ------------------------------------------------ |
+| **Dagger**              | Common    | `8 VP`   | 1/2 slot | `+1` Power, `2D6` damage, 5ft range              |
+| **Shortsword**          | Average   | `16 VP`  | 1 slot   | `+1` Power, `3D6` damage, 5ft range              |
+| **Longsword**           | Rare      | `32 VP`  | 2 slots  | `+2` Power, `4D6` damage, 5ft range              |
+| **Greatsword**          | Very Rare | `64 VP`  | 2 slots  | `+3` Power, `5D6` damage, 5ft range              |
+| **Handaxe**             | Common    | `8 VP`   | 1/2 slot | `+0` Power, `3D6` damage, 5ft range              |
+| **Waraxe**              | Average   | `16 VP`  | 1 slot   | `+0` Power, `4D6` damage, 5ft range              |
+| **Battleaxe**           | Rare      | `32 VP`  | 2 slots  | `+1` Power, `5D6` damage, 5ft range              |
+| **Greataxe**            | Very Rare | `64 VP`  | 2 slots  | `+2` Power, `6D6` damage, 5ft range              |
+| **Quarterstaff**        | Common    | `8 VP`   | 1 slot   | `+1` Power, `1D6` damage, 10ft range             |
+| **Pike**                | Average   | `16 VP`  | 2 slots  | `+1` Power, `2D6` damage, 10ft range             |
+| **Halberd**             | Rare      | `32 VP`  | 2 slots  | `+2` Power, `3D6` damage, 10ft range             |
+| **Glaive**              | Very Rare | `64 VP`  | 2 slots  | `+3` Power, `4D6` damage, 10ft range             |
+| **Slingshot**           | Common    | `8 VP`   | 1/2 slot | `+1` Precision, `1D6` damage, 10ft - 30ft range  |
+| **Shortbow**            | Average   | `16 VP`  | 2 slots  | `+1` Precision, `2D6` damage, 10ft - 90ft range  |
+| **Crossbow**            | Rare      | `32 VP`  | 2 slots  | `+2` Precision, `3D6` damage, 10ft - 60ft range  |
+| **Longbow**             | Very Rare | `64 VP`  | 2 slots  | `+3` Precision, `4D6` damage, 20ft - 120ft range |
+| **Blessed Blunderbuss** | Average   | `16 VP`  | 1 slot   | `+1` Precision, `2D6` damage, 15ft range         |
+| **Frost Flintlock**     | Rare      | `32 VP`  | 1/2 slot | `+2` Precision, `3D6` damage, 30ft range         |
+| **Radiant Revolver**    | Very Rare | `64 VP`  | 1/2 slot | `+3` Precision, `4D6` damage, 60ft range         |
+| **Resonant Repeater**   | Legendary | `128 VP` | 1 slot   | `+4` Precision, `5D6` damage, 90ft range         |
 
 ## Armor
 
-| Item                   | Rarity    | Cost     | Tier   |
-| ---------------------- | --------- | -------- | ------ |
-| **Leather Armor**      | Average   | 4D6 pcs  | Light  |
-| **Chainmail Armor**    | Rare      | 8D6 pcs  | Medium |
-| **Plate Armor**        | Very Rare | 16D6 pcs | Heavy  |
-| **Arcane Aegis Armor** | Average   | 4D6 pcs  | Light  |
-| **Mystic Mail Armor**  | Rare      | 8D6 pcs  | Medium |
-| **Eldritch Exo Armor** | Very rare | 16D6 pcs | Heavy  |
+| Item                   | Rarity    | Cost    | Size     | Description  |
+| ---------------------- | --------- | ------- | -------- | ------------ |
+| **Leather Armor**      | Average   | `16 VP` | 1/2 slot | Light armor  |
+| **Chainmail Armor**    | Rare      | `32 VP` | 1 slot   | Medium armor |
+| **Plate Armor**        | Very Rare | `64 VP` | 2 slots  | Heavy armor  |
+| **Arcane Aegis Armor** | Average   | `16 VP` | 1/4 slot | Light armor  |
+| **Mystic Mail Armor**  | Rare      | `32 VP` | 1/2 slot | Medium armor |
+| **Eldritch Exo Armor** | Very rare | `64 VP` | 1 slot   | Heavy armor  |
 
 ## Tools
 
-| Item                      | Rarity  | Cost    | Size     | Description  |
-| ------------------------- | ------- | ------- | -------- | ------------ |
-| **Rope**                  | Common  | 2D6 pcs | 1/2 slot | +1 Athletics |
-| **Rope & Grappling Hook** | Average | 4D6 pcs | 1 slot   | +2 Athletics |
-| **Medical Pouch**         | Average | 4D6 pcs | 1/2 slot | +1 Medicine  |
-| **World Map**             | Common  | 2D6 pcs | 1/4 slot | +1 Insight   |
-| **Battering Ram**         | Common  | 2D6 pcs | 2 slots  | +1 Power     |
+| Item                      | Rarity  | Cost    | Size     | Description    |
+| ------------------------- | ------- | ------- | -------- | -------------- |
+| **Rope**                  | Common  | `8 VP`  | 1/2 slot | `+1` Athletics |
+| **Rope & Grappling Hook** | Average | `16 VP` | 1 slot   | `+2` Athletics |
+| **Medical Pouch**         | Average | `16 VP` | 1/2 slot | `+1` Medicine  |
+| **World Map**             | Common  | `8 VP`  | 1/4 slot | `+1` Insight   |
+| **Battering Ram**         | Common  | `8 VP`  | 2 slots  | `+1` Power     |
+| **Lock Picking Set**      | Common  | `8 VP`  | 1/4 slot | `+1` Precision |
 
 ## Meals
 
 | Item                   | Rarity      | Cost   | Size     | Description                      |
 | ---------------------- | ----------- | ------ | -------- | -------------------------------- |
-| **Adventuring Ration** | Very Common | 1D6 CU | 1/4 slot | Satiates a character for 1 Rest  |
-| **Simple Meal**        | Common      | 2D6 CU |          | Satiates a character for 2 Rests |
-| **Fancy Meal**         | Average     | 4D6 CU |          | Satiates a character for 4 Rests |
+| **Adventuring Ration** | Ubiquitous  | `2 VP` | 1/4 slot | Satiates a character for 1 Rest  |
+| **Simple Meal**        | Very Common | `4 VP` |          | Satiates a character for 2 Rests |
+| **Fancy Meal**         | Common      | `8 VP` |          | Satiates a character for 4 Rests |
 
 ## Lodging
 
-| Item                 | Rarity     | Cost   | Description                                               |
-| -------------------- | ---------- | ------ | --------------------------------------------------------- |
-| **Adventuring Camp** | Ubiquitous | Free   | A cold place to sleep                                     |
-| **Simple Lodging**   | Average    | 4D6 CU | A warm place to sleep, +2 to Rest Activity rolls          |
-| **Fancy Lodging**    | Rare       | 8D6 CU | A warm and safe place to sleep, +3 to Rest Activity rolls |
+| Item                 | Rarity  | Cost    | Description                                               |
+| -------------------- | ------- | ------- | --------------------------------------------------------- |
+| **Adventuring Camp** |         | `FREE`  | A cold place to sleep                                     |
+| **Simple Lodging**   | Common  | `8 VP`  | A warm place to sleep, +2 to Rest Activity rolls          |
+| **Fancy Lodging**    | Average | `16 VP` | A warm and safe place to sleep, +3 to Rest Activity rolls |

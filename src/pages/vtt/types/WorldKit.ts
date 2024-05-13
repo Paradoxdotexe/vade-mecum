@@ -1308,7 +1308,7 @@ const VALE_OF_MYTHS: WorldKit = {
       key: 'dagger',
       type: ItemType.WEAPON,
       name: 'Dagger',
-      cost: '2D6',
+      cost: '8 VP',
       weight: 1 / 2,
       bonus: {
         attributeKey: 'strength',
@@ -1322,7 +1322,7 @@ const VALE_OF_MYTHS: WorldKit = {
       key: 'shortsword',
       type: ItemType.WEAPON,
       name: 'Shortsword',
-      cost: '4D6',
+      cost: '16 VP',
       weight: 1,
       bonus: {
         attributeKey: 'strength',
@@ -1336,7 +1336,7 @@ const VALE_OF_MYTHS: WorldKit = {
       key: 'longsword',
       type: ItemType.WEAPON,
       name: 'Longsword',
-      cost: '8D6',
+      cost: '32 VP',
       weight: 2,
       bonus: {
         attributeKey: 'strength',
@@ -1350,7 +1350,7 @@ const VALE_OF_MYTHS: WorldKit = {
       key: 'greatsword',
       type: ItemType.WEAPON,
       name: 'Greatsword',
-      cost: '16D6',
+      cost: '64 VP',
       weight: 2,
       bonus: {
         attributeKey: 'strength',
@@ -1364,7 +1364,7 @@ const VALE_OF_MYTHS: WorldKit = {
       key: 'handaxe',
       type: ItemType.WEAPON,
       name: 'Handaxe',
-      cost: '2D6',
+      cost: '8 VP',
       weight: 1 / 2,
       bonus: {
         attributeKey: 'strength',
@@ -1378,7 +1378,7 @@ const VALE_OF_MYTHS: WorldKit = {
       key: 'waraxe',
       type: ItemType.WEAPON,
       name: 'Waraxe',
-      cost: '4D6',
+      cost: '16 VP',
       weight: 1,
       bonus: {
         attributeKey: 'strength',
@@ -1392,7 +1392,7 @@ const VALE_OF_MYTHS: WorldKit = {
       key: 'battleaxe',
       type: ItemType.WEAPON,
       name: 'Battleaxe',
-      cost: '8D6',
+      cost: '32 VP',
       weight: 2,
       bonus: {
         attributeKey: 'strength',
@@ -1406,7 +1406,7 @@ const VALE_OF_MYTHS: WorldKit = {
       key: 'greataxe',
       type: ItemType.WEAPON,
       name: 'Greataxe',
-      cost: '16D6',
+      cost: '64 VP',
       weight: 2,
       bonus: {
         attributeKey: 'strength',
@@ -1420,7 +1420,7 @@ const VALE_OF_MYTHS: WorldKit = {
       key: 'quarterstaff',
       type: ItemType.WEAPON,
       name: 'Quarterstaff',
-      cost: '2D6',
+      cost: '8 VP',
       weight: 1,
       bonus: {
         attributeKey: 'strength',
@@ -1434,7 +1434,7 @@ const VALE_OF_MYTHS: WorldKit = {
       key: 'pike',
       type: ItemType.WEAPON,
       name: 'Pike',
-      cost: '4D6',
+      cost: '16 VP',
       weight: 2,
       bonus: {
         attributeKey: 'strength',
@@ -1448,7 +1448,7 @@ const VALE_OF_MYTHS: WorldKit = {
       key: 'halberd',
       type: ItemType.WEAPON,
       name: 'Halberd',
-      cost: '8D6',
+      cost: '32 VP',
       weight: 2,
       bonus: {
         attributeKey: 'strength',
@@ -1462,7 +1462,7 @@ const VALE_OF_MYTHS: WorldKit = {
       key: 'glaive',
       type: ItemType.WEAPON,
       name: 'Glaive',
-      cost: '16D6',
+      cost: '64 VP',
       weight: 2,
       bonus: {
         attributeKey: 'strength',
@@ -1476,7 +1476,7 @@ const VALE_OF_MYTHS: WorldKit = {
       key: 'slingshot',
       type: ItemType.WEAPON,
       name: 'Slingshot',
-      cost: '2D6',
+      cost: '8 VP',
       weight: 1 / 2,
       bonus: {
         attributeKey: 'dexterity',
@@ -1484,13 +1484,13 @@ const VALE_OF_MYTHS: WorldKit = {
         skillBonus: 1
       },
       damage: 1,
-      notes: '15ft - 30ft range'
+      notes: '10ft - 30ft range'
     },
     {
       key: 'shortbow',
       type: ItemType.WEAPON,
       name: 'Shortbow',
-      cost: '4D6',
+      cost: '16 VP',
       weight: 2,
       bonus: {
         attributeKey: 'dexterity',
@@ -1498,13 +1498,13 @@ const VALE_OF_MYTHS: WorldKit = {
         skillBonus: 1
       },
       damage: 2,
-      notes: '15ft - 90ft range'
+      notes: '10ft - 90ft range'
     },
     {
       key: 'crossbow',
       type: ItemType.WEAPON,
       name: 'Crossbow',
-      cost: '8D6',
+      cost: '32 VP',
       weight: 2,
       bonus: {
         attributeKey: 'dexterity',
@@ -1512,13 +1512,13 @@ const VALE_OF_MYTHS: WorldKit = {
         skillBonus: 2
       },
       damage: 3,
-      notes: '15ft - 60ft range'
+      notes: '10ft - 60ft range'
     },
     {
       key: 'longbow',
       type: ItemType.WEAPON,
       name: 'Longbow',
-      cost: '16D6',
+      cost: '64 VP',
       weight: 2,
       bonus: {
         attributeKey: 'dexterity',
@@ -1526,13 +1526,13 @@ const VALE_OF_MYTHS: WorldKit = {
         skillBonus: 3
       },
       damage: 4,
-      notes: '30ft - 120ft range'
+      notes: '20ft - 120ft range'
     },
     {
       key: 'blessed_blunderbuss',
       type: ItemType.WEAPON,
       name: 'Blessed Blunderbuss',
-      cost: '4D6',
+      cost: '16 VP',
       weight: 1 / 2,
       bonus: {
         attributeKey: 'dexterity',
@@ -1546,7 +1546,7 @@ const VALE_OF_MYTHS: WorldKit = {
       key: 'frost_flintlock',
       type: ItemType.WEAPON,
       name: 'Frost Flintlock',
-      cost: '8D6',
+      cost: '32 VP',
       weight: 1 / 2,
       bonus: {
         attributeKey: 'dexterity',
@@ -1560,7 +1560,7 @@ const VALE_OF_MYTHS: WorldKit = {
       key: 'radiant_revolver',
       type: ItemType.WEAPON,
       name: 'Radiant Revolver',
-      cost: '16D6',
+      cost: '64 VP',
       weight: 1 / 2,
       bonus: {
         attributeKey: 'dexterity',
@@ -1574,7 +1574,7 @@ const VALE_OF_MYTHS: WorldKit = {
       key: 'resonant_repeater',
       type: ItemType.WEAPON,
       name: 'Resonant Repeater',
-      cost: '32D6',
+      cost: '128 VP',
       weight: 1,
       bonus: {
         attributeKey: 'dexterity',
@@ -1588,55 +1588,55 @@ const VALE_OF_MYTHS: WorldKit = {
       key: 'leather_armor',
       type: ItemType.ARMOR,
       name: 'Leather Armor',
-      cost: '4D6',
-      weight: 0,
+      cost: '16 VP',
+      weight: 1 / 2,
       notes: 'Light armor'
     },
     {
       key: 'chainmail_armor',
       type: ItemType.ARMOR,
       name: 'Chainmail Armor',
-      cost: '8D6',
-      weight: 0,
+      cost: '32 VP',
+      weight: 1,
       notes: 'Medium armor'
     },
     {
       key: 'plate_armor',
       type: ItemType.ARMOR,
       name: 'Plate Armor',
-      cost: '16D6',
-      weight: 0,
+      cost: '64 VP',
+      weight: 2,
       notes: 'Heavy armor'
     },
     {
       key: 'arcane_aegis_armor',
       type: ItemType.ARMOR,
       name: 'Arcane Aegis Armor',
-      cost: '4D6',
-      weight: 0,
+      cost: '16 VP',
+      weight: 1 / 4,
       notes: 'Light armor'
     },
     {
       key: 'mystic_mail_armor',
       type: ItemType.ARMOR,
       name: 'Mystic Mail Armor',
-      cost: '8D6',
-      weight: 0,
+      cost: '32 VP',
+      weight: 1 / 2,
       notes: 'Medium armor'
     },
     {
       key: 'eldritch_exo_armor',
       type: ItemType.ARMOR,
       name: 'Eldritch Exo Armor',
-      cost: '16D6',
-      weight: 0,
+      cost: '64 VP',
+      weight: 1,
       notes: 'Heavy armor'
     },
     {
       key: 'rope',
       type: ItemType.TOOL,
       name: 'Rope',
-      cost: '2D6',
+      cost: '8 VP',
       weight: 1 / 2,
       bonus: {
         attributeKey: 'strength',
@@ -1648,7 +1648,7 @@ const VALE_OF_MYTHS: WorldKit = {
       key: 'rope_and_grappling_hook',
       type: ItemType.TOOL,
       name: 'Rope and Grappling Hook',
-      cost: '4D6',
+      cost: '16 VP',
       weight: 1 / 2,
       bonus: {
         attributeKey: 'strength',
@@ -1660,7 +1660,7 @@ const VALE_OF_MYTHS: WorldKit = {
       key: 'medical_pouch',
       type: ItemType.TOOL,
       name: 'Medical Pouch',
-      cost: '4D6',
+      cost: '16 VP',
       weight: 1 / 2,
       bonus: {
         attributeKey: 'intelligence',
@@ -1672,7 +1672,7 @@ const VALE_OF_MYTHS: WorldKit = {
       key: 'world_map',
       type: ItemType.TOOL,
       name: 'World Map',
-      cost: '2D6',
+      cost: '8 VP',
       weight: 1 / 4,
       bonus: {
         attributeKey: 'perception',
@@ -1684,7 +1684,7 @@ const VALE_OF_MYTHS: WorldKit = {
       key: 'battering_ram',
       type: ItemType.TOOL,
       name: 'Battering Ram',
-      cost: '2D6',
+      cost: '8 VP',
       weight: 2,
       bonus: {
         attributeKey: 'strength',
@@ -1696,7 +1696,7 @@ const VALE_OF_MYTHS: WorldKit = {
       key: 'adventuring_ration',
       type: ItemType.MEAL,
       name: 'Adventuring Ration',
-      cost: '1D6',
+      cost: '2 VP',
       weight: 1 / 4,
       notes: 'Satiates a character for 1 Rest'
     },
@@ -1704,14 +1704,14 @@ const VALE_OF_MYTHS: WorldKit = {
       key: 'simple_meal',
       type: ItemType.MEAL,
       name: 'Simple Meal',
-      cost: '2D6',
+      cost: '4 VP',
       notes: 'Satiates a character for 2 Rests'
     },
     {
       key: 'fancy_meal',
       type: ItemType.MEAL,
       name: 'Fancy Meal',
-      cost: '4D6',
+      cost: '8 VP',
       notes: 'Satiates a character for 4 Rests'
     },
     {
@@ -1725,14 +1725,14 @@ const VALE_OF_MYTHS: WorldKit = {
       key: 'simple_lodging',
       type: ItemType.LODGING,
       name: 'Simple Lodging',
-      cost: '4D6',
+      cost: '8 VP',
       notes: 'A warm place to sleep, +2 to Rest Activity rolls'
     },
     {
       key: 'fancy_lodging',
       type: ItemType.LODGING,
       name: 'Fancy Lodging',
-      cost: '8D6',
+      cost: '16 VP',
       notes: 'A warm and safe place to sleep, +3 to Rest Activity rolls'
     }
   ]
