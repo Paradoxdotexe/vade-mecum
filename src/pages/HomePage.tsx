@@ -18,6 +18,7 @@ const StyledHomePage = styled(PageLayout)`
     flex-direction: column;
     align-items: center;
     gap: ${props => props.theme.variable.gap.lg};
+    text-align: center;
 
     svg {
       height: ${props => props.theme.variable.fontSize.xxl};
@@ -30,6 +31,7 @@ const StyledHomePage = styled(PageLayout)`
 
     .header__slogan {
       color: ${props => props.theme.color.text.secondary};
+      line-height: ${props => props.theme.variable.lineHeight};
     }
   }
 

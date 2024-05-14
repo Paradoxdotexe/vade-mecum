@@ -38,6 +38,7 @@ const StyledSideNav = styled.div`
     margin-right: -1px;
     font-family: ${props => props.theme.variable.fontFamily.display};
     font-size: 18px;
+    cursor: pointer;
 
     svg {
       height: 18px;
@@ -150,7 +151,7 @@ type NavItem = {
   }[];
 };
 
-const NAV_ITEMS: NavItem[] = [
+export const NAV_ITEMS: NavItem[] = [
   {
     icon: <HomeIcon />,
     label: 'Home'
@@ -205,8 +206,8 @@ export const SideNav: React.FC = () => {
   };
 
   return (
-    <StyledSideNav>
-      <div className="sideNav__logo">
+    <StyledSideNav id="side-nav">
+      <div className="sideNav__logo" onClick={() => navigate('/')}>
         <VadeMecumLogo />
         Vade Mecum
       </div>

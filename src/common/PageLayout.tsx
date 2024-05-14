@@ -1,12 +1,13 @@
+import { useBreakpoint } from '@/utils/useBreakpoint';
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
+import { TOP_NAV_HEIGHT } from './TopNav';
 
 const StyledPageLayout = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
   padding: ${props => props.theme.variable.gap.xl};
-  min-height: 100vh;
 
   .layout__content {
     position: relative;
@@ -20,12 +21,21 @@ const StyledPageLayout = styled.div`
 type PageLayoutProps = {
   className?: string;
   children: ReactNode;
+  style?: React.CSSProperties;
 };
 
 export const PageLayout: React.FC<PageLayoutProps> = props => {
+  const { isMobile } = useBreakpoint();
+
   return (
-    <StyledPageLayout>
-      <div className={`layout__content ${props.className}`}>{props.children}</div>
+    <StyledPageLayout
+      style={{
+        minHeight: isMobile ? `calc(100vh - ${TOP_NAV_HEIGHT})` : '100vh'
+      }}
+    >
+      <div className={`layout__content ${props.className}`} style={props.style}>
+        {props.children}
+      </div>
     </StyledPageLayout>
   );
 };
