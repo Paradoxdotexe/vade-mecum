@@ -95,23 +95,23 @@ Below attributes, characters have 15 core skills (3 for each attribute) that rep
 These skills are scored on a scale from 0 to 3, with the average human being a 1.
 Skills allow characters to specialize themselves towards specific types of actions.
 
-| Attribute    | Skill             | Description                                                           |
-| ------------ | ----------------- | --------------------------------------------------------------------- |
-| Strength     | **Power**         | Move a heavy object, attack with a melee weapon                       |
-| Strength     | **Fortitude**     | Endure physical hardship, resist physical exhaustion                  |
-| Strength     | **Athletics**     | Climb an obstacle, jump a gap, sprint a long distance                 |
-| Dexterity    | **Precision**     | Pick a lock, disarm a trap, attack with a ranged weapon               |
-| Dexterity    | **Stealth**       | Move quietly, hide oneself, evade detection                           |
-| Dexterity    | **Agility**       | Dodge a hazard, react quickly, manuever acrobatically                 |
-| Intelligence | **Intellect**     | Understand complex information, recall history                        |
-| Intelligence | **Medicine**      | Diagnose and treat injuries and illnesses                             |
-| Intelligence | **Innovation**    | Solve mechanical or technical problems, fix damaged items             |
-| Charisma     | **Intuition**     | Understand unspoken motives and feelings, catch lies                  |
-| Charisma     | **Influence**     | Sway a person's actions through persuasion, deception, or performance |
-| Charisma     | **Luck**          | Have the unseen force of chance swing in your favor                   |
-| Perception   | **Insight**       | Understand sensory symbols or signs, recognize places                 |
-| Perception   | **Detection**     | Detect the presence of a creature, identify traps or hazards          |
-| Perception   | **Investigation** | Search for clues or objects, scan for details                         |
+| Attribute    | Skill             | Description                                                            |
+| ------------ | ----------------- | ---------------------------------------------------------------------- |
+| Strength     | **Power**         | Move a heavy object, attack with a melee weapon                        |
+| Strength     | **Fortitude**     | Endure physical hardship, resist physical exhaustion                   |
+| Strength     | **Athletics**     | Climb an obstacle, jump a gap, sprint a long distance                  |
+| Dexterity    | **Precision**     | Pick a lock, disarm a trap, attack with a ranged weapon                |
+| Dexterity    | **Stealth**       | Move quietly, hide oneself, evade detection                            |
+| Dexterity    | **Agility**       | Dodge a hazard, react quickly, manuever acrobatically                  |
+| Intelligence | **Intellect**     | Understand complex information, recall history                         |
+| Intelligence | **Medicine**      | Diagnose and treat injuries and illnesses                              |
+| Intelligence | **Innovation**    | Solve mechanical or technical problems, fix damaged items              |
+| Charisma     | **Intuition**     | Understand unspoken motives and feelings, catch lies                   |
+| Charisma     | **Influence**     | Sway a person's actions through persuasion, deception, or performance  |
+| Charisma     | **Luck**          | Have the unseen force of chance swing in your favor                    |
+| Perception   | **Insight**       | Understand sensory symbols or signs, recognize places                  |
+| Perception   | **Detection**     | Detect the presence of a creature, identify threats, traps, or hazards |
+| Perception   | **Investigation** | Search for clues or objects, scan for details                          |
 
 ## 1.3 Perks
 
@@ -723,11 +723,12 @@ The most common Rest Activities are given below.
 
 > All characters can complete a single Rest Activity by default.
 
-| Rest Activity          | Skill      | Success                                                             |
-| ---------------------- | ---------- | ------------------------------------------------------------------- |
-| Keep watch for enemies | Detection  | Force an enemy's surprise attack to automatically fail (if present) |
-| Heal a character       | Medicine   | Double the HP gained by a character who is satiated                 |
-| Repair a damaged item  | Innovation | Restore a damaged weapon's bonus back to full                       |
+| Rest Activity          | Skill         | Success                                                             |
+| ---------------------- | ------------- | ------------------------------------------------------------------- |
+| Keep watch for enemies | Detection     | Force an enemy's surprise attack to automatically fail (if present) |
+| Heal a character       | Medicine      | Double the HP gained by a character who is satiated                 |
+| Repair a damaged item  | Innovation    | Restore a damaged weapon's bonus back to full                       |
+| Investigate a clue     | Investigation | Learn something that will help progress a personal or party goal    |
 
 > If a Rest is interrupted for more than 4 hours, it must be restarted.
 
@@ -811,36 +812,39 @@ An enemy is a special creature that exists specifically to pose a threat to char
 
 Unlike characters, enemies do not have specific points allocated to attributes and skills.
 Instead, each enemy has an associated Enemy Bonus that dictates how many dice they roll on any given skill check.
-This Enemy Bonus starts at 1 and is increased by 1 at every 3rd level.
+This Enemy Bonus starts at 2 and is increased by 1 at every 3rd level.
 
 Instead of having a class, enemies can have any variety of abilities that serve to make their combat unique.
-As a rule of thumb, enemies should do on average `1D6` damage per turn for each level.
+As a rule of thumb, enemies should deal `(Enemy Bonus) * D6` damage per turn.
 This damage expectation can be balanced out with abilities that don't do damage, but offer other combat advantages.
+
+> **Example:** A level 6 enemy with an Enemy Bonus of 4 would be expected to deal `4D6` damage per turn.
 
 Lastly, every enemy has a Max HP equal to `(Enemy Level + Enemy Bonus) * 6`.
 
 | Level | Enemy Bonus | Damage / Turn | Max HP | _Vale of Myths_ Example |
 | ----- | ----------- | ------------- | ------ | ----------------------- |
-| 1     | +1          | ~1D6          | 12     | Brineling               |
-| 2     | +1          | ~2D6          | 18     | Retch                   |
-| 3     | +2          | ~3D6          | 30     | Bandit, Guard           |
-| 4     | +2          | ~4D6          | 36     |                         |
-| 5     | +2          | ~5D6          | 42     | Retch Ogre              |
-| 6     | +3          | ~6D6          | 54     | Bandit Boss             |
-| 7     | +3          | ~7D6          | 60     |                         |
-| 8     | +3          | ~8D6          | 66     |
-| 9     | +4          | ~9D6          | 78     |
-| 10    | +4          | ~10D6         | 84     |
-| 11    | +4          | ~11D6         | 90     |
-| 12    | +5          | ~12D6         | 102    |                         |
-| 13    | +5          | ~13D6         | 108    |
-| 14    | +5          | ~14D6         | 114    |
-| 15    | +6          | ~15D6         | 126    |
-| 16    | +6          | ~16D6         | 132    |
-| 17    | +6          | ~17D6         | 138    |
-| 18    | +7          | ~18D6         | 150    |
-| 20    | +7          | ~20D6         | 162    |
-| 21    | +8          | ~21D6         | 174    |
-| 22    | +8          | ~22D6         | 180    |
-| 23    | +8          | ~23D6         | 186    |
-| 24    | +9          | ~24D6         | 198    | Sylvaxus                |
+| 1     | +2          | ~2D6          | 18     |                         |
+| 2     | +2          | ~2D6          | 24     | Retch, Brine Servant    |
+| 3     | +3          | ~3D6          | 36     | Bandit, Guard           |
+| 4     | +3          | ~3D6          | 42     |                         |
+| 5     | +3          | ~3D6          | 48     | Retch Ogre              |
+| 6     | +4          | ~4D6          | 60     | Bandit Boss             |
+| 7     | +4          | ~4D6          | 66     |                         |
+| 8     | +4          | ~4D6          | 72     |
+| 9     | +5          | ~5D6          | 84     |
+| 10    | +5          | ~5D6          | 90     |
+| 11    | +5          | ~5D6          | 96     |
+| 12    | +6          | ~6D6          | 108    |                         |
+| 13    | +6          | ~6D6          | 114    |
+| 14    | +6          | ~6D6          | 120    |
+| 15    | +7          | ~7D6          | 132    |
+| 16    | +7          | ~7D6          | 138    |
+| 17    | +7          | ~7D6          | 144    |
+| 18    | +8          | ~8D6          | 156    |
+| 19    | +8          | ~8D6          | 162    |
+| 20    | +8          | ~8D6          | 168    |
+| 21    | +9          | ~9D6          | 180    |
+| 22    | +9          | ~9D6          | 186    |
+| 23    | +9          | ~9D6          | 192    |
+| 24    | +10         | ~10D6         | 204    | Sylvaxus                |
