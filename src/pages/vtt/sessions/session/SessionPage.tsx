@@ -186,7 +186,13 @@ export const SessionPage: React.FC = () => {
                   />
                   {(canEditSession || canEditCharacter(character)) && (
                     <div className="character__delete">
-                      <VButton size="small" onClick={() => setRemovedCharacterId(character.id)}>
+                      <VButton
+                        size="small"
+                        onClick={() => setRemovedCharacterId(character.id)}
+                        disabled={
+                          removeSessionCharacter.isLoading && character.id === removedCharacterId
+                        }
+                      >
                         <TrashCanIcon />
                       </VButton>
                     </div>

@@ -87,16 +87,38 @@ const handler: APIGatewayProxyHandler = async event =>
     }
     // DELETE
     else if (event.httpMethod === 'DELETE') {
+      const getSession = new GetCommand({
+        TableName: 'vade-mecum-sessions',
+        Key: {
+          sessionId: sessionId,
+          itemId: 'meta'
+        },
+        ProjectionExpression: 'userId'
+      });
+      const session = (await docClient.send(getSession)).Item;
+
+      if (!session) {
+        return {
+          statusCode: 404,
+          body: JSON.stringify({ detail: 'Session not found.' })
+        };
+      }
+
       const deleteSessionCharacter = new DeleteCommand({
         TableName: 'vade-mecum-sessions',
         Key: {
           sessionId: sessionId,
           itemId: `character#${characterId}`
         },
-        ConditionExpression: 'userId=:userId', // check that user owns session character
-        ExpressionAttributeValues: {
-          ':userId': userId
-        }
+        ...(userId !== session.userId
+          ? {
+              // check that user owns session character (if they don't own the session)
+              ConditionExpression: 'userId=:userId',
+              ExpressionAttributeValues: {
+                ':userId': userId
+              }
+            }
+          : {})
       });
       await docClient.send(deleteSessionCharacter);
 
