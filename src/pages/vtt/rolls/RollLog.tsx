@@ -1,9 +1,10 @@
 import { VTransition } from '@/components/VTransition';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { RollCard } from './RollCard';
 import { useRolls } from './useRolls';
 import { VLoader } from '@/components/VLoader';
+import { useGetSessionsQuery } from '@/pages/vtt/queries/useGetSessionsQuery';
 
 export const ROLL_LOG_WIDTH = '252px';
 
@@ -80,18 +81,31 @@ const StyledRollLog = styled.div`
 `;
 
 type RollLogProps = {
-  sessionId?: string;
+  characterId: string | undefined;
 };
 
 export const RollLog: React.FC<RollLogProps> = props => {
-  const { rolls } = useRolls();
+  const { rolls, sessionId, setSessionId } = useRolls();
+
+  const [loading, setLoading] = useState(true);
+
+  const { data: sessions } = useGetSessionsQuery();
+
+  useEffect(() => {
+    if (props.characterId && sessions) {
+      setSessionId(sessions.find(session => session.characterIds.includes(props.characterId!))?.id);
+      setLoading(false);
+    }
+  }, [props.characterId, sessions]);
+
+  const session = sessions?.find(session => session.id === sessionId);
 
   return (
     <StyledRollLog id="roll-log">
       <div className="rollLog__header">Roll Log</div>
       <div className="rollLog__log">
         <div className="log__rolls">
-          {rolls ? (
+          {rolls && !loading ? (
             rolls.map(roll => (
               <VTransition
                 key={roll.id}
@@ -114,9 +128,9 @@ export const RollLog: React.FC<RollLogProps> = props => {
             <VLoader style={{ padding: 0 }} />
           )}
         </div>
-        {props.sessionId && (
+        {session && (
           <div className="log__session">
-            <strong>Unnamed Session</strong> (#{props.sessionId.split('-')[0]})
+            <strong>Unnamed Session</strong> (#{session.id.split('-')[0]})
           </div>
         )}
       </div>

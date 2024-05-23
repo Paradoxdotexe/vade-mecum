@@ -1,4 +1,4 @@
-import React, { ReactNode, useContext } from 'react';
+import React, { ReactNode, useContext, useState } from 'react';
 import { Roll } from '../types/Roll';
 import { playSound } from '@/utils/playSound';
 import { useLocalStorage } from '@/utils/useLocalStorage';
@@ -9,16 +9,20 @@ type RollsState = {
 
 type _RollsContext = RollsState & {
   addRoll: (roll: Roll) => void;
+  sessionId?: string;
+  setSessionId: (sessionId?: string) => void;
 };
 
 const RollsContext = React.createContext<_RollsContext>({
-  addRoll: () => {}
+  addRoll: () => {},
+  setSessionId: () => {}
 });
 
 export const RollsProvider: React.FC<{ children: ReactNode }> = props => {
   const [localRolls, setLocalRolls] = useLocalStorage<Roll[]>('vm-vtt-rolls', []);
+  const [sessionId, setSessionId] = useState<string>();
 
-  const rolls = [...localRolls].reverse();
+  const rolls = sessionId ? [] : [...localRolls].reverse();
 
   const addRoll = (roll: Roll) => {
     playSound('/sounds/DiceRoll.mp3').then(() => {
@@ -28,7 +32,9 @@ export const RollsProvider: React.FC<{ children: ReactNode }> = props => {
 
   const context: _RollsContext = {
     rolls,
-    addRoll
+    addRoll,
+    sessionId,
+    setSessionId
   };
 
   return <RollsContext.Provider value={context}>{props.children}</RollsContext.Provider>;

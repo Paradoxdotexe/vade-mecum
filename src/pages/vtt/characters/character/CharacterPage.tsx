@@ -73,7 +73,7 @@ export const CharacterPage: React.FC = () => {
         characterId={characterId}
       />
 
-      <RollLog />
+      <RollLog characterId={characterId} />
     </PageLayout>
   );
 };
