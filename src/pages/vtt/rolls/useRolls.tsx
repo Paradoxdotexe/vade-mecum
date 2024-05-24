@@ -3,7 +3,6 @@ import { Roll } from '../types/Roll';
 import { playSound } from '@/utils/playSound';
 import { useLocalStorage } from '@/utils/useLocalStorage';
 import { useSessionRollsQuery } from '../queries/useSessionRollsQuery';
-import { useQueryClient } from 'react-query';
 
 type RollsState = {
   rolls?: Roll[];
@@ -21,21 +20,8 @@ const RollsContext = React.createContext<_RollsContext>({
 });
 
 export const RollsProvider: React.FC<{ children: ReactNode }> = props => {
-  const queryClient = useQueryClient();
-
   const [localRolls, setLocalRolls] = useLocalStorage<Roll[]>('vm-vtt-rolls', []);
-  const [sessionId, _setSessionId] = useState<string>();
-
-  const setSessionId = (newSessionId?: string) => {
-    _setSessionId(sessionId => {
-      // clear session rolls cache when we are done with it
-      if (sessionId && !newSessionId) {
-        setTimeout(() => queryClient.removeQueries('GET_SESSION_ROLLS'), 0);
-      }
-
-      return newSessionId;
-    });
-  };
+  const [sessionId, setSessionId] = useState<string>();
 
   const { data: sessionRolls } = useSessionRollsQuery(sessionId);
 

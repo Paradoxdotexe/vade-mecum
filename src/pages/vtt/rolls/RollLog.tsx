@@ -5,6 +5,7 @@ import { RollCard } from './RollCard';
 import { useRolls } from './useRolls';
 import { VLoader } from '@/components/VLoader';
 import { useSessionsQuery } from '@/pages/vtt/queries/useSessionsQuery';
+import { useQueryClient } from 'react-query';
 
 export const ROLL_LOG_WIDTH = '252px';
 
@@ -85,6 +86,7 @@ type RollLogProps = {
 };
 
 export const RollLog: React.FC<RollLogProps> = props => {
+  const queryClient = useQueryClient();
   const { rolls, sessionId, setSessionId } = useRolls();
 
   const [loading, setLoading] = useState(true);
@@ -97,9 +99,10 @@ export const RollLog: React.FC<RollLogProps> = props => {
       setLoading(false);
     }
 
-    // on unmount, reset sessionId so we can cache bust
     return () => {
+      // clear session rolls cache when we are done with it
       setSessionId(undefined);
+      setTimeout(() => queryClient.removeQueries('GET_SESSION_ROLLS'), 0);
     };
   }, [props.characterId, sessions]);
 
