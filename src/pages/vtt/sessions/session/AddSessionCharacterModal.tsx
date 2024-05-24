@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 import { CharacterCard } from '@/pages/vtt/characters/CharacterCard';
 import { useCharactersQuery } from '@/pages/vtt/queries/useCharactersQuery';
 import { VLoader } from '@/components/VLoader';
-import { useSessionQuery } from '@/pages/vtt/queries/useSessionQuery';
+import { useSessionsQuery } from '@/pages/vtt/queries/useSessionsQuery';
 import { useAddSessionCharacter } from '../../queries/useAddSessionCharacter';
 
 type AddSessionCharacterModalProps = Pick<VModalProps, 'open' | 'onClose'> & {
@@ -15,7 +15,7 @@ type AddSessionCharacterModalProps = Pick<VModalProps, 'open' | 'onClose'> & {
 export const AddSessionCharacterModal: React.FC<AddSessionCharacterModalProps> = props => {
   const theme = useVTheme();
 
-  const { data: session } = useSessionQuery(props.sessionId);
+  const { data: sessions } = useSessionsQuery({ enabled: props.open });
   const { data: characters } = useCharactersQuery({ enabled: props.open });
 
   const [addedCharacterId, setAddedCharacterId] = useState<string>();
@@ -36,17 +36,18 @@ export const AddSessionCharacterModal: React.FC<AddSessionCharacterModalProps> =
       open={props.open}
       onClose={props.onClose}
       header="Add Character"
-      width={320}
+      width={360}
       closable={!addSessionCharacter.isLoading}
     >
       <VFlex vertical gap={theme.variable.gap.lg} style={{ padding: theme.variable.gap.lg }}>
-        {characters ? (
+        {characters && sessions ? (
           characters.map(character => (
             <CharacterCard
               key={character.id}
               character={character}
               disabled={
-                session?.characterIds.includes(character.id) || addSessionCharacter.isLoading
+                sessions?.some(session => session.characterIds.includes(character.id)) ||
+                addSessionCharacter.isLoading
               }
               loading={addedCharacterId === character.id && addSessionCharacter.isLoading}
               onClick={() => {
