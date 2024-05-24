@@ -5,6 +5,7 @@ import { RollCard } from './RollCard';
 import { useRolls } from './useRolls';
 import { VLoader } from '@/components/VLoader';
 import { useSessionsQuery } from '@/pages/vtt/queries/useSessionsQuery';
+import { DateTime } from 'luxon';
 
 export const ROLL_LOG_WIDTH = '252px';
 
@@ -103,7 +104,14 @@ export const RollLog: React.FC<RollLogProps> = props => {
   const [loading, setLoading] = useState(true);
   const [firstRollsRender, setFirstRollsRender] = useState(true);
 
-  const rolls = useMemo(() => _rolls && [..._rolls].reverse(), [_rolls]);
+  const rolls = useMemo(
+    () =>
+      _rolls &&
+      [..._rolls].sort((a, b) =>
+        DateTime.fromISO(a.timestamp) < DateTime.fromISO(b.timestamp) ? 1 : -1
+      ),
+    [_rolls]
+  );
 
   const { data: sessions } = useSessionsQuery();
 
