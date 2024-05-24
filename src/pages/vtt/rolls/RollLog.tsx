@@ -96,6 +96,11 @@ export const RollLog: React.FC<RollLogProps> = props => {
       setSessionId(sessions.find(session => session.characterIds.includes(props.characterId!))?.id);
       setLoading(false);
     }
+
+    // on unmount, reset sessionId so we can cache bust
+    return () => {
+      setSessionId(undefined);
+    };
   }, [props.characterId, sessions]);
 
   const session = sessions?.find(session => session.id === sessionId);
