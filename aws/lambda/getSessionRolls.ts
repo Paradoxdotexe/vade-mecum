@@ -1,6 +1,6 @@
 import { APIGatewayProxyEvent, APIGatewayProxyHandler } from 'aws-lambda';
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
-import { DynamoDBDocumentClient, QueryCommand } from '@aws-sdk/lib-dynamodb';
+import { DynamoDBDocumentClient, GetCommand, QueryCommand } from '@aws-sdk/lib-dynamodb';
 const layer = require('/opt/nodejs/layer');
 
 const docClient = DynamoDBDocumentClient.from(new DynamoDBClient());
@@ -12,26 +12,28 @@ const handler: APIGatewayProxyHandler = async event =>
       return { statusCode: 403, body: JSON.stringify({ detail: 'Unauthorized.' }) };
     }
 
-    const queryCharacters = new QueryCommand({
-      TableName: 'vade-mecum-users',
-      KeyConditionExpression: 'userId=:userId and begins_with(itemId, :itemIdPrefix)',
+    const sessionId = event.pathParameters!['sessionId']!;
+
+    const querySessionRolls = new QueryCommand({
+      TableName: 'vade-mecum-sessions',
+      KeyConditionExpression: 'sessionId=:sessionId and begins_with(itemId, :itemIdPrefix)',
       ExpressionAttributeValues: {
-        ':userId': userId,
-        ':itemIdPrefix': 'character#'
+        ':sessionId': sessionId,
+        ':itemIdPrefix': 'roll#'
       },
       ExpressionAttributeNames: {
         '#definition': 'definition'
       },
-      ProjectionExpression: 'itemId, #definition, version'
+      ProjectionExpression: 'itemId, #definition'
     });
-    const characters = (await docClient.send(queryCharacters)).Items ?? [];
+    const rolls = (await docClient.send(querySessionRolls)).Items ?? [];
 
     return {
       statusCode: 200,
       body: JSON.stringify(
-        characters.map(character => ({
-          ...layer.parseCharacterDefinition(character.definition, character.version),
-          id: character.itemId.split('#')[1],
+        rolls.map(roll => ({
+          ...roll.definition,
+          id: roll.itemId.split('#')[1],
           userId: userId
         }))
       )

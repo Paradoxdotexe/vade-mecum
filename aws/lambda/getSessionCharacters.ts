@@ -52,9 +52,9 @@ const handler: APIGatewayProxyHandler = async event =>
         sessionCharacters.map(sessionCharacter => {
           const character = charactersByItemId[sessionCharacter.itemId];
           return {
+            ...layer.parseCharacterDefinition(character.definition, character.version),
             id: sessionCharacter.itemId.split('#')[1],
-            userId: sessionCharacter.userId,
-            ...layer.parseCharacterDefinition(character.definition, character.version)
+            userId: sessionCharacter.userId
           };
         })
       )

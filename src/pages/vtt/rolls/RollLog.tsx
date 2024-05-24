@@ -128,7 +128,7 @@ export const RollLog: React.FC<RollLogProps> = props => {
             <VLoader style={{ padding: 0 }} />
           )}
         </div>
-        {session && (
+        {session && rolls && !loading && (
           <div className="log__session">
             <strong>Unnamed Session</strong> (#{session.id.split('-')[0]})
           </div>

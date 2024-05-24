@@ -27,7 +27,8 @@ const lambdaFunctions = [
   'getOrUpdateSession',
   'getSessions',
   'getOrUpdateSessionCharacter',
-  'getSessionCharacters'
+  'getSessionCharacters',
+  'getSessionRolls'
 ];
 
 for (const lambdaFunction of lambdaFunctions) {

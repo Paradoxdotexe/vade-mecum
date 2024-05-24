@@ -44,9 +44,9 @@ const handler: APIGatewayProxyHandler = async event =>
       return {
         statusCode: 200,
         body: JSON.stringify({
+          ...layer.parseCharacterDefinition(character.definition, character.version),
           id: characterId,
-          userId: userId,
-          ...layer.parseCharacterDefinition(character.definition, character.version)
+          userId: userId
         })
       };
     }
