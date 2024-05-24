@@ -5,7 +5,6 @@ import { RollCard } from './RollCard';
 import { useRolls } from './useRolls';
 import { VLoader } from '@/components/VLoader';
 import { useSessionsQuery } from '@/pages/vtt/queries/useSessionsQuery';
-import { useQueryClient } from 'react-query';
 
 export const ROLL_LOG_WIDTH = '252px';
 
@@ -72,41 +71,63 @@ const StyledRollLog = styled.div`
 
     .log__session {
       width: 100%;
-      text-align: center;
       padding: ${props => props.theme.variable.gap.lg} ${props => props.theme.variable.gap.md};
-      font-size: ${props => props.theme.variable.fontSize.xs};
       border-top: 1px solid ${props => props.theme.color.border.default};
-      line-height: ${props => props.theme.variable.lineHeight};
+      display: flex;
+      justify-content: center;
+      gap: ${props => props.theme.variable.gap.sm};
+
+      .session__name {
+        font-weight: 600;
+        font-size: ${props => props.theme.variable.fontSize.sm};
+      }
+
+      .session__id {
+        color: ${props => props.theme.color.text.secondary};
+        font-size: ${props => props.theme.variable.fontSize.xs};
+      }
     }
   }
 `;
 
-type RollLogProps = {
-  characterId: string | undefined;
-};
+type RollLogProps =
+  | {
+      sessionId: string | undefined;
+    }
+  | {
+      characterId: string | undefined;
+    };
 
 export const RollLog: React.FC<RollLogProps> = props => {
-  const queryClient = useQueryClient();
   const { rolls: _rolls, sessionId, setSessionId } = useRolls();
+  const [loading, setLoading] = useState(true);
+  const [firstRollsRender, setFirstRollsRender] = useState(true);
 
   const rolls = useMemo(() => _rolls && [..._rolls].reverse(), [_rolls]);
-
-  const [loading, setLoading] = useState(true);
 
   const { data: sessions } = useSessionsQuery();
 
   useEffect(() => {
-    if (props.characterId && sessions) {
-      setSessionId(sessions.find(session => session.characterIds.includes(props.characterId!))?.id);
+    if (sessions) {
+      if ('sessionId' in props) {
+        setSessionId(props.sessionId);
+      } else if ('characterId' in props) {
+        // find session that character is in
+        setSessionId(
+          props.characterId
+            ? sessions.find(session => session.characterIds.includes(props.characterId!))?.id
+            : undefined
+        );
+      }
       setLoading(false);
     }
+  }, [props, sessions]);
 
-    return () => {
-      // clear session rolls cache when we are done with it
-      setSessionId(undefined);
-      setTimeout(() => queryClient.removeQueries('GET_SESSION_ROLLS'), 0);
-    };
-  }, [props.characterId, sessions]);
+  useEffect(() => {
+    if (!loading && rolls) {
+      setFirstRollsRender(false);
+    }
+  }, [loading, rolls]);
 
   const session = sessions?.find(session => session.id === sessionId);
 
@@ -128,7 +149,7 @@ export const RollLog: React.FC<RollLogProps> = props => {
                   opacity: 1;
                   transform: translateY(0);
                 `}
-                initialTransition
+                initialTransition={!firstRollsRender}
                 timeout={300}
               >
                 <RollCard roll={roll} />
@@ -138,9 +159,10 @@ export const RollLog: React.FC<RollLogProps> = props => {
             <VLoader style={{ padding: 0 }} />
           )}
         </div>
-        {session && rolls && !loading && (
+        {session && !loading && (
           <div className="log__session">
-            <strong>Unnamed Session</strong> (#{session.id.split('-')[0]})
+            <div className="session__name">{session.name}</div>
+            <div className="session__id">(#{session.id.split('-')[0]})</div>
           </div>
         )}
       </div>

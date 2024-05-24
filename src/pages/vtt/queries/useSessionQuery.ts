@@ -36,7 +36,8 @@ export const useSessionQuery = (sessionId: string | undefined) => {
   const query = useClientQuery<Session>(['GET_SESSION', sessionId], `/session/${sessionId}`, {
     onSuccess: session => {
       propagateSession(queryClient, session);
-    }
+    },
+    enabled: !!sessionId
   });
 
   return query;

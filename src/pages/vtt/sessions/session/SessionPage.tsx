@@ -22,6 +22,7 @@ import { CharacterCard } from '../../characters/CharacterCard';
 import { VLoader } from '@/components/VLoader';
 import { useRemoveSessionCharacter } from '../../queries/useRemoveSessionCharacter';
 import { Character } from '../../types/Character';
+import { RollLog } from '../../rolls/RollLog';
 
 const StyledSessionPage = styled(PageLayout)`
   .page__pageHeader__titleInput {
@@ -217,6 +218,8 @@ export const SessionPage: React.FC = () => {
         onClose={() => setAddSessionCharacterModalOpen(false)}
         sessionId={sessionId}
       />
+
+      <RollLog sessionId={sessionId} />
     </StyledSessionPage>
   );
 };
