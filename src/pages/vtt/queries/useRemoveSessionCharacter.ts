@@ -1,6 +1,6 @@
 import { useQueryClient } from 'react-query';
 import { useClientMutation } from '@/common/useClientMutation';
-import { propagateSession } from './useGetSessionQuery';
+import { propagateSession } from './useSessionQuery';
 import { Session } from '../types/Session';
 import { Character } from '../types/Character';
 

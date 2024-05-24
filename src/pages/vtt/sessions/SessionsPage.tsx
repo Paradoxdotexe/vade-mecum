@@ -7,7 +7,7 @@ import styled from 'styled-components';
 import { VFlex } from '@/components/VFlex';
 import { VLoader } from '@/components/VLoader';
 import { SessionCard } from './SessionCard';
-import { useGetSessionsQuery } from '../queries/useGetSessionsQuery';
+import { useSessionsQuery } from '../queries/useSessionsQuery';
 import { useCreateSessionMutation } from '../queries/useCreateSessionMutation';
 import { useNavigate } from 'react-router-dom';
 
@@ -22,7 +22,7 @@ const StyledSessionsPage = styled(PageLayout)`
 export const SessionsPage: React.FC = () => {
   const navigate = useNavigate();
 
-  const { data: sessions } = useGetSessionsQuery();
+  const { data: sessions } = useSessionsQuery();
 
   const createSession = useCreateSessionMutation();
 

@@ -9,7 +9,7 @@ import { VFlex } from '@/components/VFlex';
 import { useVTheme } from '@/common/VTheme';
 import { debounce, isEqual } from 'lodash-es';
 import { SavedStatus } from '../../SavedStatus';
-import { useGetCharacterQuery } from '../../queries/useGetCharacterQuery';
+import { useCharacterQuery } from '../../queries/useCharacterQuery';
 import { useUpdateCharacterMutation } from '../../queries/useUpdateCharacterMutation';
 import { RollLog } from '../../rolls/RollLog';
 import { DeleteCharacterModal } from './DeleteCharacterModal';
@@ -24,7 +24,7 @@ export const CharacterPage: React.FC = () => {
 
   const [deleteCharacterModalOpen, setDeleteCharacterModalOpen] = useState(false);
 
-  const { data: savedCharacter } = useGetCharacterQuery(characterId);
+  const { data: savedCharacter } = useCharacterQuery(characterId);
   useMemo(() => {
     if (savedCharacter && !character) {
       setCharacter(savedCharacter);

@@ -1,9 +1,9 @@
 import { useClientQuery } from '@/common/useClientQuery';
 import { Character } from '../types/Character';
 import { UseQueryOptions, useQueryClient } from 'react-query';
-import { propagateCharacter } from './useGetCharacterQuery';
+import { propagateCharacter } from './useCharacterQuery';
 
-export const useGetCharactersQuery = (queryOptions?: UseQueryOptions<Character[]>) => {
+export const useCharactersQuery = (queryOptions?: UseQueryOptions<Character[]>) => {
   const queryClient = useQueryClient();
 
   const query = useClientQuery<Character[]>(['GET_CHARACTERS'], `/characters`, {

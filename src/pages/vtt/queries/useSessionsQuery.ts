@@ -1,9 +1,9 @@
 import { useClientQuery } from '@/common/useClientQuery';
 import { Session } from '../types/Session';
 import { useQueryClient } from 'react-query';
-import { propagateSession } from './useGetSessionQuery';
+import { propagateSession } from './useSessionQuery';
 
-export const useGetSessionsQuery = () => {
+export const useSessionsQuery = () => {
   const queryClient = useQueryClient();
 
   const query = useClientQuery<Session[]>(['GET_SESSIONS'], `/sessions`, {

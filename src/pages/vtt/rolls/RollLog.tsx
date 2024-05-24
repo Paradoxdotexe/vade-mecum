@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 import { RollCard } from './RollCard';
 import { useRolls } from './useRolls';
 import { VLoader } from '@/components/VLoader';
-import { useGetSessionsQuery } from '@/pages/vtt/queries/useGetSessionsQuery';
+import { useSessionsQuery } from '@/pages/vtt/queries/useSessionsQuery';
 
 export const ROLL_LOG_WIDTH = '252px';
 
@@ -89,7 +89,7 @@ export const RollLog: React.FC<RollLogProps> = props => {
 
   const [loading, setLoading] = useState(true);
 
-  const { data: sessions } = useGetSessionsQuery();
+  const { data: sessions } = useSessionsQuery();
 
   useEffect(() => {
     if (props.characterId && sessions) {

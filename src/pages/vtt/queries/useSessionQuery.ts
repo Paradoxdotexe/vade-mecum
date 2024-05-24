@@ -30,7 +30,7 @@ export const propagateSession = (queryClient: QueryClient, propagatedSession: Se
   }
 };
 
-export const useGetSessionQuery = (sessionId: string | undefined) => {
+export const useSessionQuery = (sessionId: string | undefined) => {
   const queryClient = useQueryClient();
 
   const query = useClientQuery<Session>(['GET_SESSION', sessionId], `/session/${sessionId}`, {

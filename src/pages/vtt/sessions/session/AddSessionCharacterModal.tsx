@@ -3,9 +3,9 @@ import { VFlex } from '@/components/VFlex';
 import { VModal, VModalProps } from '@/components/VModal';
 import React, { useEffect, useState } from 'react';
 import { CharacterCard } from '@/pages/vtt/characters/CharacterCard';
-import { useGetCharactersQuery } from '@/pages/vtt/queries/useGetCharactersQuery';
+import { useCharactersQuery } from '@/pages/vtt/queries/useCharactersQuery';
 import { VLoader } from '@/components/VLoader';
-import { useGetSessionQuery } from '@/pages/vtt/queries/useGetSessionQuery';
+import { useSessionQuery } from '@/pages/vtt/queries/useSessionQuery';
 import { useAddSessionCharacter } from '../../queries/useAddSessionCharacter';
 
 type AddSessionCharacterModalProps = Pick<VModalProps, 'open' | 'onClose'> & {
@@ -15,8 +15,8 @@ type AddSessionCharacterModalProps = Pick<VModalProps, 'open' | 'onClose'> & {
 export const AddSessionCharacterModal: React.FC<AddSessionCharacterModalProps> = props => {
   const theme = useVTheme();
 
-  const { data: session } = useGetSessionQuery(props.sessionId);
-  const { data: characters } = useGetCharactersQuery({ enabled: props.open });
+  const { data: session } = useSessionQuery(props.sessionId);
+  const { data: characters } = useCharactersQuery({ enabled: props.open });
 
   const [addedCharacterId, setAddedCharacterId] = useState<string>();
 

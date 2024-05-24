@@ -5,7 +5,7 @@ import React from 'react';
 import { VButton } from '@/components/VButton';
 import { useNavigate } from 'react-router-dom';
 import { useDeleteCharacterMutation } from '@/pages/vtt/queries/useDeleteCharacterMutation';
-import { useGetCharacterQuery } from '@/pages/vtt/queries/useGetCharacterQuery';
+import { useCharacterQuery } from '@/pages/vtt/queries/useCharacterQuery';
 
 type DeleteCharacterModalProps = Pick<VModalProps, 'open' | 'onClose'> & {
   characterId: string | undefined;
@@ -15,7 +15,7 @@ export const DeleteCharacterModal: React.FC<DeleteCharacterModalProps> = props =
   const navigate = useNavigate();
   const theme = useVTheme();
 
-  const { data: character } = useGetCharacterQuery(props.characterId);
+  const { data: character } = useCharacterQuery(props.characterId);
 
   const deleteCharacter = useDeleteCharacterMutation(props.characterId);
 

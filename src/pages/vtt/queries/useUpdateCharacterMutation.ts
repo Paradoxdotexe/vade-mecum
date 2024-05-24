@@ -1,7 +1,7 @@
 import { Character } from '../types/Character';
 import { useQueryClient } from 'react-query';
 import { useClientMutation } from '@/common/useClientMutation';
-import { propagateCharacter } from './useGetCharacterQuery';
+import { propagateCharacter } from './useCharacterQuery';
 
 export const useUpdateCharacterMutation = (characterId: string | undefined) => {
   const queryClient = useQueryClient();

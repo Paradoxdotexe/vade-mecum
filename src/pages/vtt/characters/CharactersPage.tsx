@@ -6,7 +6,7 @@ import { ReactComponent as PlusIcon } from '@/icons/Plus.svg';
 import { useNavigate } from 'react-router-dom';
 import { CharacterCard } from './CharacterCard';
 import styled from 'styled-components';
-import { useGetCharactersQuery } from '../queries/useGetCharactersQuery';
+import { useCharactersQuery } from '../queries/useCharactersQuery';
 import { VFlex } from '@/components/VFlex';
 import { VLoader } from '@/components/VLoader';
 import { useCreateCharacterMutation } from '../queries/useCreateCharacterMutation';
@@ -22,7 +22,7 @@ const StyledCharactersPage = styled(PageLayout)`
 export const CharactersPage: React.FC = () => {
   const navigate = useNavigate();
 
-  const { data: characters } = useGetCharactersQuery();
+  const { data: characters } = useCharactersQuery();
 
   const createCharacter = useCreateCharacterMutation();
 

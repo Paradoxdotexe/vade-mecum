@@ -7,7 +7,7 @@ import { ReactComponent as PlusIcon } from '@/icons/Plus.svg';
 import styled from 'styled-components';
 import { VFlex } from '@/components/VFlex';
 import { useVTheme } from '@/common/VTheme';
-import { useGetSessionQuery } from '@/pages/vtt/queries/useGetSessionQuery';
+import { useSessionQuery } from '@/pages/vtt/queries/useSessionQuery';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useVTTUser } from '@/common/VTTUser';
 import { Session } from '../../types/Session';
@@ -17,7 +17,7 @@ import { SavedStatus } from '../../SavedStatus';
 import { AddSessionCharacterModal } from './AddSessionCharacterModal';
 import { DeleteSessionModal } from './DeleteSessionModal';
 import { VHeader } from '@/components/VHeader';
-import { useSessionCharacters } from '../../queries/useSessionCharacters';
+import { useSessionCharactersQuery } from '../../queries/useSessionCharactersQuery';
 import { CharacterCard } from '../../characters/CharacterCard';
 import { VLoader } from '@/components/VLoader';
 import { useRemoveSessionCharacter } from '../../queries/useRemoveSessionCharacter';
@@ -82,14 +82,14 @@ export const SessionPage: React.FC = () => {
   const [deleteSessionModalOpen, setDeleteSessionModalOpen] = useState(false);
   const [addSessionCharacterModalOpen, setAddSessionCharacterModalOpen] = useState(false);
 
-  const { data: savedSession } = useGetSessionQuery(sessionId);
+  const { data: savedSession } = useSessionQuery(sessionId);
   useMemo(() => {
     if (savedSession && !session) {
       setSession(savedSession);
     }
   }, [savedSession]);
 
-  const { data: characters } = useSessionCharacters(sessionId);
+  const { data: characters } = useSessionCharactersQuery(sessionId);
 
   const { mutateAsync: _updateSession } = useUpdateSessionMutation(sessionId);
   const updateSession = useMemo(

@@ -2,7 +2,7 @@ import { useVTheme } from '@/common/VTheme';
 import { VFlex } from '@/components/VFlex';
 import { VModal, VModalProps } from '@/components/VModal';
 import React from 'react';
-import { useGetSessionQuery } from '@/pages/vtt/queries/useGetSessionQuery';
+import { useSessionQuery } from '@/pages/vtt/queries/useSessionQuery';
 import { VButton } from '@/components/VButton';
 import { useNavigate } from 'react-router-dom';
 import { useDeleteSessionMutation } from '@/pages/vtt/queries/useDeleteSessionMutation';
@@ -15,7 +15,7 @@ export const DeleteSessionModal: React.FC<DeleteSessionModalProps> = props => {
   const navigate = useNavigate();
   const theme = useVTheme();
 
-  const { data: session } = useGetSessionQuery(props.sessionId);
+  const { data: session } = useSessionQuery(props.sessionId);
 
   const deleteSession = useDeleteSessionMutation(props.sessionId);
 

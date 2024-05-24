@@ -1,7 +1,7 @@
 import { useQueryClient } from 'react-query';
 import { useClientMutation } from '@/common/useClientMutation';
 import { Session } from '../types/Session';
-import { propagateSession } from './useGetSessionQuery';
+import { propagateSession } from './useSessionQuery';
 
 export const useUpdateSessionMutation = (sessionId: string | undefined) => {
   const queryClient = useQueryClient();

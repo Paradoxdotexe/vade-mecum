@@ -30,7 +30,7 @@ export const propagateCharacter = (queryClient: QueryClient, propagatedCharacter
   }
 };
 
-export const useGetCharacterQuery = (characterId: string | undefined) => {
+export const useCharacterQuery = (characterId: string | undefined) => {
   const queryClient = useQueryClient();
 
   const query = useClientQuery<Character>(

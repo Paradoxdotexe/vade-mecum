@@ -1,9 +1,9 @@
 import { useClientQuery } from '@/common/useClientQuery';
 import { Character } from '../types/Character';
 import { useQueryClient } from 'react-query';
-import { propagateSessionCharacter } from './useSessionCharacter';
+import { propagateSessionCharacter } from './useSessionCharacterQuery';
 
-export const useSessionCharacters = (sessionId: string | undefined) => {
+export const useSessionCharactersQuery = (sessionId: string | undefined) => {
   const queryClient = useQueryClient();
 
   const query = useClientQuery<Character[]>(

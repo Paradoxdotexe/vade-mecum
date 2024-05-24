@@ -14,7 +14,7 @@ export const propagateSessionCharacter = (
   );
 };
 
-export const useSessionCharacter = (
+export const useSessionCharacterQuery = (
   sessionId: string | undefined,
   characterId: string | undefined
 ) => {

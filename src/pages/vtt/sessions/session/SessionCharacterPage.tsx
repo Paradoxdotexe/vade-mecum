@@ -3,14 +3,14 @@ import { PageHeader } from '@/common/PageHeader';
 import { PageLayout } from '@/common/PageLayout';
 import { useParams } from 'react-router-dom';
 import { CharacterSheet } from '@/pages/vtt/characters/character/CharacterSheet';
-import { useGetSessionQuery } from '@/pages/vtt/queries/useGetSessionQuery';
-import { useSessionCharacter } from '../../queries/useSessionCharacter';
+import { useSessionQuery } from '@/pages/vtt/queries/useSessionQuery';
+import { useSessionCharacterQuery } from '../../queries/useSessionCharacterQuery';
 
 export const SessionCharacterPage: React.FC = () => {
   const { sessionId, characterId } = useParams();
 
-  const { data: session } = useGetSessionQuery(sessionId);
-  const { data: character } = useSessionCharacter(sessionId, characterId);
+  const { data: session } = useSessionQuery(sessionId);
+  const { data: character } = useSessionCharacterQuery(sessionId, characterId);
 
   return (
     <PageLayout>
