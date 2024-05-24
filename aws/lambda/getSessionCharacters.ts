@@ -34,10 +34,10 @@ const handler: APIGatewayProxyHandler = async event =>
           userId: sessionCharacter.userId,
           itemId: sessionCharacter.itemId
         },
-        ProjectionExpression: '#definition',
         ExpressionAttributeNames: {
           '#definition': 'definition'
-        }
+        },
+        ProjectionExpression: '#definition, version'
       });
       const character = (await docClient.send(getCharacter)).Item;
 
@@ -49,11 +49,14 @@ const handler: APIGatewayProxyHandler = async event =>
     return {
       statusCode: 200,
       body: JSON.stringify(
-        sessionCharacters.map(sessionCharacter => ({
-          id: sessionCharacter.itemId.split('#')[1],
-          userId: sessionCharacter.userId,
-          ...layer.parseCharacterDefinition(charactersByItemId[sessionCharacter.itemId].definition)
-        }))
+        sessionCharacters.map(sessionCharacter => {
+          const character = charactersByItemId[sessionCharacter.itemId];
+          return {
+            id: sessionCharacter.itemId.split('#')[1],
+            userId: sessionCharacter.userId,
+            ...layer.parseCharacterDefinition(character.definition, character.version)
+          };
+        })
       )
     };
   });

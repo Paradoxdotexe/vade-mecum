@@ -22,7 +22,7 @@ const handler: APIGatewayProxyHandler = async event =>
       ExpressionAttributeNames: {
         '#definition': 'definition'
       },
-      ProjectionExpression: 'itemId, #definition'
+      ProjectionExpression: 'itemId, #definition, version'
     });
     const characters = (await docClient.send(queryCharacters)).Items ?? [];
 
@@ -32,7 +32,7 @@ const handler: APIGatewayProxyHandler = async event =>
         characters.map(character => ({
           id: character.itemId.split('#')[1],
           userId: userId,
-          ...layer.parseCharacterDefinition(character.definition)
+          ...layer.parseCharacterDefinition(character.definition, character.version)
         }))
       )
     };

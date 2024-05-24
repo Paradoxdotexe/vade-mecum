@@ -30,7 +30,7 @@ const handler: APIGatewayProxyHandler = async event =>
         ExpressionAttributeNames: {
           '#definition': 'definition'
         },
-        ProjectionExpression: '#definition'
+        ProjectionExpression: '#definition, version'
       });
       const character = (await docClient.send(getCharacter)).Item;
 
@@ -46,7 +46,7 @@ const handler: APIGatewayProxyHandler = async event =>
         body: JSON.stringify({
           id: characterId,
           userId: userId,
-          ...layer.parseCharacterDefinition(character.definition)
+          ...layer.parseCharacterDefinition(character.definition, character.version)
         })
       };
     }
