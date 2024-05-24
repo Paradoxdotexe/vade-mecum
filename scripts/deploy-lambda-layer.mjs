@@ -28,6 +28,7 @@ const lambdaFunctions = [
   'getSessions',
   'getOrUpdateSessionCharacter',
   'getSessionCharacters',
+  'createSessionRoll',
   'getSessionRolls'
 ];
 

@@ -32,9 +32,8 @@ const handler: APIGatewayProxyHandler = async event =>
       statusCode: 200,
       body: JSON.stringify(
         rolls.map(roll => ({
-          ...roll.definition,
-          id: roll.itemId.split('#')[1],
-          userId: userId
+          ...JSON.parse(roll.definition),
+          id: roll.itemId.split('#')[1]
         }))
       )
     };

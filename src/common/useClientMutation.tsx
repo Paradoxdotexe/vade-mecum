@@ -22,7 +22,7 @@ export const useClientMutation = <
         body: JSON.stringify(body)
       }).then(response => {
         const json = response.json();
-        if (response.status === 200) {
+        if (response.status < 205) {
           return json as Promise<TResponse>;
         } else {
           if (response.status === 403) {

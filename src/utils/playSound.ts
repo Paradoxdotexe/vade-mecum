@@ -1,9 +1,9 @@
-export const playSound = async (src?: string) => {
-  return new Promise<void>(resolve => {
+export const playSound = async (src?: string, auto = true) => {
+  return new Promise<HTMLAudioElement>(resolve => {
     const sound = new Audio(src);
     sound.addEventListener('canplaythrough', () => {
-      sound.play();
-      resolve();
+      auto && sound.play();
+      resolve(sound);
     });
   });
 };

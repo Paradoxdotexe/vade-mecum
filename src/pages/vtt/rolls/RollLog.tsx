@@ -1,5 +1,5 @@
 import { VTransition } from '@/components/VTransition';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { RollCard } from './RollCard';
 import { useRolls } from './useRolls';
@@ -87,7 +87,9 @@ type RollLogProps = {
 
 export const RollLog: React.FC<RollLogProps> = props => {
   const queryClient = useQueryClient();
-  const { rolls, sessionId, setSessionId } = useRolls();
+  const { rolls: _rolls, sessionId, setSessionId } = useRolls();
+
+  const rolls = useMemo(() => _rolls && [..._rolls].reverse(), [_rolls]);
 
   const [loading, setLoading] = useState(true);
 

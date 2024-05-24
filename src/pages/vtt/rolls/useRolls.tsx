@@ -3,6 +3,7 @@ import { Roll } from '../types/Roll';
 import { playSound } from '@/utils/playSound';
 import { useLocalStorage } from '@/utils/useLocalStorage';
 import { useSessionRollsQuery } from '../queries/useSessionRollsQuery';
+import { useCreateSessionRollMutation } from '../queries/useCreateSessionRollMutation';
 
 type RollsState = {
   rolls?: Roll[];
@@ -25,11 +26,18 @@ export const RollsProvider: React.FC<{ children: ReactNode }> = props => {
 
   const { data: sessionRolls } = useSessionRollsQuery(sessionId);
 
-  const rolls = sessionId ? sessionRolls : [...localRolls].reverse();
+  const { mutateAsync: createSessionRoll } = useCreateSessionRollMutation(sessionId);
+
+  const rolls = sessionId ? sessionRolls : localRolls;
 
   const addRoll = (roll: Roll) => {
-    playSound('/sounds/DiceRoll.mp3').then(() => {
-      setLocalRolls([...localRolls, roll]);
+    playSound('/sounds/DiceRoll.mp3', false).then(sound => {
+      if (sessionId) {
+        createSessionRoll({ roll }).then(() => sound.play());
+      } else {
+        setLocalRolls([...localRolls, roll]);
+        sound.play();
+      }
     });
   };
 
