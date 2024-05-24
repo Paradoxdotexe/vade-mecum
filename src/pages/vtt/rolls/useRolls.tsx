@@ -3,7 +3,11 @@ import { Roll } from '../types/Roll';
 import { playSound } from '@/utils/playSound';
 import { useLocalStorage } from '@/utils/useLocalStorage';
 import { useSessionRollsQuery } from '../queries/useSessionRollsQuery';
-import { useCreateSessionRollMutation } from '../queries/useCreateSessionRollMutation';
+import {
+  propagateSessionRoll,
+  useCreateSessionRollMutation
+} from '../queries/useCreateSessionRollMutation';
+import { useQueryClient } from 'react-query';
 
 type RollsState = {
   rolls?: Roll[];
@@ -21,22 +25,24 @@ const RollsContext = React.createContext<_RollsContext>({
 });
 
 export const RollsProvider: React.FC<{ children: ReactNode }> = props => {
+  const queryClient = useQueryClient();
+
   const [localRolls, setLocalRolls] = useLocalStorage<Roll[]>('vm-vtt-rolls', []);
   const [sessionId, setSessionId] = useState<string>();
 
   const { data: sessionRolls } = useSessionRollsQuery(sessionId);
 
-  const { mutateAsync: createSessionRoll } = useCreateSessionRollMutation(sessionId);
+  const { mutate: createSessionRoll } = useCreateSessionRollMutation(sessionId);
 
   const rolls = sessionId ? sessionRolls : localRolls;
 
   const addRoll = (roll: Roll) => {
-    playSound('/sounds/DiceRoll.mp3', false).then(sound => {
+    playSound('/sounds/DiceRoll.mp3').then(() => {
       if (sessionId) {
-        createSessionRoll({ roll }).then(() => sound.play());
+        createSessionRoll({ roll });
+        propagateSessionRoll(queryClient, sessionId, roll);
       } else {
         setLocalRolls([...localRolls, roll]);
-        sound.play();
       }
     });
   };
