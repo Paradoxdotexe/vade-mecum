@@ -22,10 +22,10 @@ The world is defined and controlled by a Game Master that acts as both the game'
   - [1.3 Perks](#1.3-Perks)
   - [1.4 Classes](#1.4-Classes)
   - [1.5 Experience Levels](#1.5-Experience-Levels)
-  - [1.6 Health Points](#1.6-Health-Points)
-  - [1.7 Movement Speed](#1.7-Movement-Speed)
-  - [1.8 Carrying Capacity](#1.8-Carrying-Capacity)
-  - [1.9 Renown](#1.9-Renown)
+  - [1.6 Renown](#1.6-Renown)
+  - [1.7 Health Points](#1.7-Health-Points)
+  - [1.8 Movement Speed](#1.8-Movement-Speed)
+  - [1.9 Carrying Capacity](#1.9-Carrying-Capacity)
   - [1.10 Building a Character](#1.10-Building-a-Character)
 - [2. Adventuring](#2.-Adventuring)
   - [2.1 Skill Checks](#2.1-Skill-Checks)
@@ -87,7 +87,7 @@ When a character performs an action, these attribute scores are used to determin
 
 Within the 5 attributes, each character has one Flaw and one Focus.
 A character's Flaw is their glaring weakness—the quality that holds them back from being the perfect adventurer.
-Conversely, a character's Focus is their greatest power—the quality that makes them a master of their class (see [Classes](#1.4-Classes)).
+Conversely, a character's Focus is their greatest power—the quality that makes them a master of their class (see [1.4 Classes](#1.4-Classes)).
 
 ## 1.2 Skills
 
@@ -115,7 +115,7 @@ Skills allow characters to specialize themselves towards specific types of actio
 
 ## 1.3 Perks
 
-Based on skill proficiencies, characters can acquire perks after leveling up (see [Experience Levels](#1.5-Experience-Levels)) that serve as an expansion of their overall abilities.
+Based on skill proficiencies, characters can acquire perks after leveling up (see [1.5 Experience Levels](#1.5-Experience-Levels)) that serve as an expansion of their overall abilities.
 Each perk falls under a specific skill and will require a minimum level in that skill to acquire.
 As such, perks give characters a way to accentuate their strengths in ways that compliment their play style.
 
@@ -257,7 +257,7 @@ The Game Master may also choose to award additional XP beyond the criteria for s
 - On every 6th level, the character will evolve their class item.
 - On every 8th level the character gains renown.
 
-At Level 24, a character will have become a Legendary adventurer in the eyes of the world (see [1.9 Renown](#1.9-Renown)).
+At Level 24, a character will have become a Legendary adventurer in the eyes of the world (see [1.6 Renown](#1.6-Renown)).
 
 | Level | Reward(s)                                                                                                |
 | ----- | -------------------------------------------------------------------------------------------------------- |
@@ -285,7 +285,20 @@ At Level 24, a character will have become a Legendary adventurer in the eyes of 
 | 23    | `+1 skill point`                                                                                         |
 | 24    | `+1 skill point` `+1 perk` `+1 attribute point` `+1 class item evolution` `+1 renown` `+1 class ability` |
 
-## 1.6 Health Points
+## 1.6 Renown
+
+Each character starts their journey with Average renown, where the world knows they are an adventurer but have heard nothing about their feats or accomplishments.
+As they level up (see [1.5 Experience Levels](#1.5-Experience-Levels)), they gain renown and begin to have word of their skill spread amongst the people.
+Based on their renown, characters gain advantage when making Influence checks against common NPC's.
+
+| Renown        | Influence Advantage | Description                                           |
+| ------------- | ------------------- | ----------------------------------------------------- |
+| **Average**   | +0                  | People know you call yourself an adventurer           |
+| **Rare**      | +1                  | People have heard your name in passing conversation   |
+| **Very Rare** | +2                  | People know a full story about one of your adventures |
+| **Legendary** | +3                  | People think of you when thinking of an adventurer    |
+
+## 1.7 Health Points
 
 Each character has a number of health points, or HP, that measures their physical condition.
 The Max HP for any character is equal to `(Level + Strength + Fortitude) x 6`.
@@ -294,7 +307,7 @@ The Max HP for any character is equal to `(Level + Strength + Fortitude) x 6`.
 
 As a character engages in combat, they will take damage, lose HP, and face consequences (see [2.6 Injuries](#2.6-Injuries)).
 
-## 1.7 Movement Speed
+## 1.8 Movement Speed
 
 Each character has a movement speed that regulates how far they can move during combat.
 Movement speed is measured in terms of grid tiles which are roughly 5ft squares.
@@ -307,7 +320,7 @@ This speed can be increased by vehicles if available in the chosen World Kit.
 
 > Movement in combat through Rough Terrain, such as rocks, mud, debris, or water, consumes twice the amount of movement speed.
 
-## 1.8 Carrying Capacity
+## 1.9 Carrying Capacity
 
 Each character has a carrying capacity that determines how many items they can carry before becoming over-encumbered.
 Carrying capacity is measured in terms of slots (an arbitrary measure of weight and size).
@@ -332,19 +345,6 @@ They must either drop items or stay put.
 
 > All items that are carried count towards a character's carrying capacity.
 > This does not include items that are worn, such as armor, clothing, and backpacks.
-
-## 1.9 Renown
-
-Each character starts their journey with Average renown, where the world knows they are an adventurer but have heard nothing about their feats or accomplishments.
-As they level up (see [1.5 Experience Levels](#1.5-Experience-Levels)), they gain renown and begin to have word of their skill spread amongst the people.
-Based on their renown, characters gain advantage when making Influence checks against common NPC's.
-
-| Renown        | Influence Advantage | Description                                           |
-| ------------- | ------------------- | ----------------------------------------------------- |
-| **Average**   | +0                  | People know you call yourself an adventurer           |
-| **Rare**      | +1                  | People have heard your name in passing conversation   |
-| **Very Rare** | +2                  | People know a full story about one of your adventures |
-| **Legendary** | +3                  | People think of you when thinking of an adventurer    |
 
 ## 1.10 Building a Character
 
@@ -462,15 +462,13 @@ If the attack results in a failure, the weapon being used takes 1 point of damag
 
 When success hinges on the ability of multiple of characters, the Game Master may ask for a group skill check.
 In this situation, all character will make their own rolls, but the outcome will be resolved as a collective.
-
-To determine the outcome, evaluate the results of each individual skill check, ignore any stalemates, and cancel out any failures with any successes.
-The final result can then be determined by taking the highest result.
+To determine the outcome, evaluate the results of each individual skill check, cancel out any failures with any successes, and then take the highest result.
 
 > **Example:** A group of 4 characters attempt to collectively sneak into a building.
 > The Game Master calls for a group Stealth check.
 > Two characters roll a success, one character rolls a stalemate, and one character rolls a failure.
-> After ignoring the stalemate and canceling out the one failure with one success, there remains one success.
-> As such, the group Stealth check is ruled a success.
+> After canceling out the one failure with one success, there remains one success and one stalemate.
+> Taking the highest result, the group Stealth check is ruled a success.
 
 ### Help
 
@@ -512,7 +510,7 @@ The probabilities for any given amount of dice is provided below.
 To gain an advantage on skill checks, characters can utilize weapons and tools provided by the World Kit being used.
 All weapons and tools follow a universal pattern for how they are defined.
 
-Each item will specify its rarity (see [3.1 Currency](#3.1-Currency)), its size (see [1.8 Carrying Capacity](#1.8-Carrying-Capacity)), and how it can be used.
+Each item will specify its rarity (see [3.1 Currency](#3.1-Currency)), its size (see [1.9 Carrying Capacity](#1.9-Carrying-Capacity)), and how it can be used.
 Weapons, additionally, will specify the attack range and the amount of damage dealt.
 
 > Some examples of weapon and tools from the _Vale of Myths_ World Kit are given below.
@@ -558,6 +556,7 @@ rolls a number of D6 equal to `(Dexterity + Agility) + (Perception + Detection)`
 
 Combat will persist for a number of rounds until one side concedes or parishes.
 In every round of combat, each character will take their turn in the order of initiative.
+Players may also delay their turn to later in the initiative order.
 
 > Each round of combat is roughly equivalent to 6 seconds of world time.
 
@@ -668,7 +667,7 @@ If the roll is successful, the character is stabilized with 1 HP and they are ba
 
 ### Deadly Injuries
 
-If a character incurs an injury that is Severe (3), Critical (2), or Fatal (1), they will die in a give number of rounds.
+If a character incurs an injury that is Severe (3), Critical (2), or Fatal (1), they will die in a given number of rounds.
 To prevent their death, another player within 5ft must roll a Medicine check with the specified difficulty.
 If the roll is successful, the character is stabilized with 1 HP and they are back in the fight, but wounded.
 A wounded character has their movement speed reduced by half until their next Rest.
@@ -758,7 +757,7 @@ The Game Master will decide whether NPC-cooked meals are available in any given 
 
 Characters that are satiated at the end of a Rest will heal a number of HP equal to `(Level + Strength + Fortitude) x D6`.
 
-> A character does not gain any benefit from eating additional meals while already satiated.
+> A character cannot have more than 4 rests worth of Satiation at any given time.
 
 If an Adventuring Party cannot complete a Rest for any reason, they will gain a level of Exhaustion.
 For each level of exhaustion, a character suffers -1 disadvantage on all skill checks.
