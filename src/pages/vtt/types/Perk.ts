@@ -15,10 +15,9 @@ export type Perk = {
 
 export const PERKS: Perk[] = [
   {
-    key: 'bloody_knuckles',
-    name: 'Bloody Knuckles',
-    description:
-      'You double your Power bonus on skill checks to attack without a weapon and deal 2D6 damage instead of 1D6.',
+    key: 'intimidating',
+    name: 'Intimidating',
+    description: 'When rolling Influence to intimidate an NPC, add your Power bonus.',
     requirement: {
       attributeKey: 'strength',
       skillKey: 'power',
@@ -26,10 +25,10 @@ export const PERKS: Perk[] = [
     }
   },
   {
-    key: 'breacher',
-    name: 'Breacher',
+    key: 'bloody_knuckles',
+    name: 'Bloody Knuckles',
     description:
-      'You double your Power bonus on skill checks to force your way through an obstacle.',
+      'You double your Power bonus on skill checks to attack without a weapon and deal 2D6 damage instead of 1D6.',
     requirement: {
       attributeKey: 'strength',
       skillKey: 'power',
@@ -37,9 +36,10 @@ export const PERKS: Perk[] = [
     }
   },
   {
-    key: 'intimidating',
-    name: 'Intimidating',
-    description: 'When rolling Influence to intimidate an NPC, add your Power bonus.',
+    key: 'glancing_blow',
+    name: 'Glancing Blow',
+    description:
+      'When rolling Power to attack with a melee weapon, a stalemate results in a glancing hit, dealing 1D6 damage.',
     requirement: {
       attributeKey: 'strength',
       skillKey: 'power',
@@ -74,7 +74,7 @@ export const PERKS: Perk[] = [
   {
     key: 'human_shield',
     name: 'Human Shield',
-    description: 'You act as light cover in combat for all characters within 10ft behind you.',
+    description: 'During combat, you act as light cover for all characters within 5ft of you.',
     requirement: {
       attributeKey: 'strength',
       skillKey: 'fortitude',
@@ -135,10 +135,10 @@ export const PERKS: Perk[] = [
     }
   },
   {
-    key: 'snipers_nest',
-    name: "Sniper's Nest",
+    key: 'glancing_strike',
+    name: 'Glancing Strike',
     description:
-      'You double your Precision bonus on skill checks to make a ranged attack from an elevated position.',
+      'When rolling Precision to attack with a ranged weapon, a stalemate results in a glancing hit, dealing 1D6 damage.',
     requirement: {
       attributeKey: 'dexterity',
       skillKey: 'precision',
@@ -169,7 +169,7 @@ export const PERKS: Perk[] = [
     key: 'assassin',
     name: 'Assassin',
     description:
-      'When an enemy is surprised, you can make a weapon attack with advantage equal to your Stealth.',
+      "When attacking an enemy who doesn't see you, add your Stealth bonus. On a hit, increase the damage by 1D6.",
     requirement: {
       attributeKey: 'dexterity',
       skillKey: 'stealth',
@@ -221,7 +221,7 @@ export const PERKS: Perk[] = [
     key: 'linguist',
     name: 'Linguist',
     description:
-      'You double your Intellect bonus on skill checks to comprehend a foreign language.',
+      'You double your Intellect bonus on skill checks to comprehend an unknown language.',
     requirement: {
       attributeKey: 'intelligence',
       skillKey: 'intellect',
@@ -253,7 +253,7 @@ export const PERKS: Perk[] = [
     key: 'field_medic',
     name: 'Field Medic',
     description:
-      'On a stalemate Medicine check to stabilize an ally, you decrease the injury level by one.',
+      'When rolling Medicine to stabilize an ally, a stalemate decreases their injury level by one.',
     requirement: {
       attributeKey: 'intelligence',
       skillKey: 'medicine',
@@ -272,9 +272,9 @@ export const PERKS: Perk[] = [
     }
   },
   {
-    key: 'junk_collector',
-    name: 'Junk Collector',
-    description: 'You double your Innovation bonus on skill checks to craft an item using junk.',
+    key: 'handy',
+    name: 'Handy',
+    description: 'You double your Innovation bonus on skill checks to repair an item.',
     requirement: {
       attributeKey: 'intelligence',
       skillKey: 'innovation',
@@ -284,7 +284,7 @@ export const PERKS: Perk[] = [
   {
     key: 'inventor',
     name: 'Inventor',
-    description: 'You double your Innovation bonus on skill checks to build something unique.',
+    description: 'You double your Innovation bonus on skill checks to create something new.',
     requirement: {
       attributeKey: 'intelligence',
       skillKey: 'innovation',
@@ -338,7 +338,7 @@ export const PERKS: Perk[] = [
     key: 'relatable',
     name: 'Relatable',
     description:
-      "You double your Influence bonus on skill checks against NPC's from the same race or class.",
+      "You double your Influence bonus on skill checks against NPC's from the same race.",
     requirement: {
       attributeKey: 'charisma',
       skillKey: 'influence',
@@ -346,10 +346,9 @@ export const PERKS: Perk[] = [
     }
   },
   {
-    key: 'identity_theft',
-    name: 'Identity Theft',
-    description:
-      'You double your Influence bonus on skill checks while impersonating someone else.',
+    key: 'folk_hero',
+    name: 'Folk Hero',
+    description: 'You double the advantage given to Influence checks by Renown.',
     requirement: {
       attributeKey: 'charisma',
       skillKey: 'influence',
@@ -357,9 +356,10 @@ export const PERKS: Perk[] = [
     }
   },
   {
-    key: 'folk_hero',
-    name: 'Folk Hero',
-    description: 'You double the advantage given to Influence checks by Renown.',
+    key: 'identity_theft',
+    name: 'Identity Theft',
+    description:
+      'You double your Influence bonus on skill checks while impersonating someone else.',
     requirement: {
       attributeKey: 'charisma',
       skillKey: 'influence',
@@ -464,9 +464,10 @@ export const PERKS: Perk[] = [
     }
   },
   {
-    key: 'loot_goblin',
-    name: 'Loot Goblin',
-    description: 'You double your Investigation bonus on skill checks to loot after combat.',
+    key: 'emergency_exit',
+    name: 'Emergency Exit',
+    description:
+      'You double your Investigation bonus on skill checks to find an exit or escape route.',
     requirement: {
       attributeKey: 'perception',
       skillKey: 'investigation',
@@ -474,10 +475,9 @@ export const PERKS: Perk[] = [
     }
   },
   {
-    key: 'emergency_exit',
-    name: 'Emergency Exit',
-    description:
-      'You double your Investigation bonus on skill checks to find an exit or escape route.',
+    key: 'loot_goblin',
+    name: 'Loot Goblin',
+    description: 'You double your Investigation bonus on skill checks to loot after combat.',
     requirement: {
       attributeKey: 'perception',
       skillKey: 'investigation',
