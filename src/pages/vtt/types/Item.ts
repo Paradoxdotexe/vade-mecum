@@ -20,5 +20,6 @@ export enum ItemType {
   ARMOR = 'ARMOR',
   TOOL = 'TOOL',
   MEAL = 'MEAL',
-  LODGING = 'LODGING'
+  LODGING = 'LODGING',
+  VEHICLE = 'VEHICLE'
 }

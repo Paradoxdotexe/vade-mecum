@@ -123,7 +123,7 @@ export const ItemDescription: React.FC<ItemDescriptionProps> = props => {
           onClick={onRollDamage}
         />
       )}
-      {props.item.notes}
+      <div style={{ lineHeight: theme.variable.lineHeight }}>{props.item.notes}</div>
     </VFlex>
   );
 };

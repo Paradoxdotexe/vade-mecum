@@ -34,6 +34,7 @@ This high fantasy kit is set in a kingdom-controlled dominion where characters w
   - [Tools](#Tools)
   - [Meals](#Meals)
   - [Lodging](#Lodging)
+  - [Vehicles](#Vehicles)
 
 # 1. Lore
 
@@ -836,3 +837,11 @@ In _Vale of Myths_, Valerian Pieces (abbreviated as "VP") are the main denominat
 | **Adventuring Camp** |         | `FREE`  | A cold place to sleep                                     |
 | **Simple Lodging**   | Common  | `8 VP`  | A warm place to sleep, +2 to Rest Activity rolls          |
 | **Fancy Lodging**    | Average | `16 VP` | A warm and safe place to sleep, +3 to Rest Activity rolls |
+
+## Vehicles
+
+| Item         | Rarity    | Cost    | Description                                                                                                                                                                                    |
+| ------------ | --------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Donkey**   | Average   | `16 VP` | A donkey can carry one character and has a movement speed of 3 miles per hour or 24 miles per day. In a place of a character, a donkey can carry 20 slots worth of items.                      |
+| **Horse**    | Rare      | `32 VP` | A horse can carry two characters and has a movement speed of 6 miles per hour or 48 miles per day. In a place of a character, a horse can carry 20 slots worth of items.                       |
+| **Carriage** | Very Rare | `64 VP` | A carriage with two horses can carry six characters and has a movement speed of 6 miles per hour or 48 miles per day. In a place of a character, a carriage can carry 20 slots worth of items. |

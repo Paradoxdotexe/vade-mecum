@@ -42,7 +42,8 @@ const ITEM_TYPE_SECTION_HEADERS: { [key in ItemType]: string } = {
   ARMOR: 'Armor',
   TOOL: 'Tools',
   MEAL: 'Meals',
-  LODGING: 'Lodging'
+  LODGING: 'Lodging',
+  VEHICLE: 'Vehicles'
 };
 
 export const ItemsDrawer: React.FC<ItemsDrawerProps> = props => {

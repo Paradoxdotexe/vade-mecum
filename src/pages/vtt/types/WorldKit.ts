@@ -1746,6 +1746,30 @@ const VALE_OF_MYTHS: WorldKit = {
       name: 'Fancy Lodging',
       cost: '16 VP',
       notes: 'A warm and safe place to sleep, +3 to Rest Activity rolls'
+    },
+    {
+      key: 'donkey',
+      type: ItemType.VEHICLE,
+      name: 'Donkey',
+      cost: '16 VP',
+      notes:
+        'A donkey can carry one character and has a movement speed of 3 miles per hour or 24 miles per day. In a place of a character, a donkey can carry 20 slots worth of items.'
+    },
+    {
+      key: 'horse',
+      type: ItemType.VEHICLE,
+      name: 'Horse',
+      cost: '32 VP',
+      notes:
+        'A horse can carry two characters and has a movement speed of 6 miles per hour or 48 miles per day. In a place of a character, a horse can carry 20 slots worth of items.'
+    },
+    {
+      key: 'carriage',
+      type: ItemType.VEHICLE,
+      name: 'Carriage',
+      cost: '64 VP',
+      notes:
+        'A carriage with two horses can carry six characters and has a movement speed of 6 miles per hour or 48 miles per day. In a place of a character, a carriage can carry 20 slots worth of items.'
     }
   ]
 };

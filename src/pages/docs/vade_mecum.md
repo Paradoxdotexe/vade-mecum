@@ -315,7 +315,7 @@ A character's movement speed is equal to `Dexterity + Agility + 3`.
 
 > **Example:** A character with Dexterity 3 and Agility 2 will have a movement speed of 8 tiles, or 40 feet.
 
-When traversing long distances outside of combat, all characters have the same movement speed of 2 miles per hour or 24 miles per day.
+When traversing long distances outside of combat, all characters have the same movement speed of 3 miles per hour or 24 miles per day.
 This speed can be increased by vehicles if available in the chosen World Kit.
 
 > Movement in combat through Rough Terrain, such as rocks, mud, debris, or water, consumes twice the amount of movement speed.
@@ -759,7 +759,7 @@ Characters that are satiated at the end of a Rest will heal a number of HP equal
 
 > A character cannot have more than 4 rests worth of Satiation at any given time.
 
-If an Adventuring Party cannot complete a Rest for any reason, they will gain a level of Exhaustion.
+If an Adventuring Party goes 24 hours without completing a Rest, they will gain a level of Exhaustion.
 For each level of exhaustion, a character suffers -1 disadvantage on all skill checks.
 A character can have at most 3 levels of Exhaustion.
 

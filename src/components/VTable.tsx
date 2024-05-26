@@ -38,11 +38,6 @@ const StyledVTable = styled.table`
       padding: ${props => props.theme.variable.gap.md} ${props => props.theme.variable.gap.lg};
       line-height: 1.5;
 
-      &:not(:last-child) {
-        white-space: nowrap;
-        vertical-align: baseline;
-      }
-
       &:first-child {
         font-weight: 600;
       }
@@ -85,7 +80,13 @@ export const VTable = <T extends VTableRow>(props: VTableProps<T>) => {
             className={`${props.onRowClick ? 'row--clickable' : ''} ${props.rowDisabled?.(row) ? 'row--disabled' : ''}`}
           >
             {props.columns.map(column => (
-              <td key={column.key} style={{ width: column.width }}>
+              <td
+                key={column.key}
+                style={{
+                  width: column.width,
+                  whiteSpace: column.width === '100%' ? 'normal' : 'nowrap'
+                }}
+              >
                 {column.dataKey ? `${row[column.dataKey]}` : column.render?.(row)}
               </td>
             ))}
