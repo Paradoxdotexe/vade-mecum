@@ -4,6 +4,8 @@ import { VTable, VTableColumn } from '@/components/VTable';
 import { CharacterClient } from '../useCharacterClient';
 import { ClassAbility } from '@/pages/vtt/types/Class';
 import { startCase } from 'lodash-es';
+import reactStringReplace from 'react-string-replace';
+import { VTag } from '@/components/VTag';
 
 type ClassAbilitiesCardProps = {
   characterClient: CharacterClient;
@@ -13,7 +15,14 @@ export const ClassAbilitiesCard: React.FC<ClassAbilitiesCardProps> = props => {
   const columns: VTableColumn<ClassAbility>[] = [
     { key: 'name', dataKey: 'name' },
     { key: 'type', render: ability => startCase(ability.type.toLowerCase()) },
-    { key: 'description', dataKey: 'description', width: '100%' }
+    {
+      key: 'description',
+      render: classAbility =>
+        reactStringReplace(classAbility.description, /`(.*?)`/g, match => (
+          <VTag style={{ display: 'inline-block' }}>{match}</VTag>
+        )),
+      width: '100%'
+    }
   ];
 
   return (

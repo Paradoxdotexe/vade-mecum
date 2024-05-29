@@ -9,7 +9,9 @@ import { VHeader } from '@/components/VHeader';
 import { searchObjects } from '@/utils/searchObjects';
 import { startCase } from 'lodash-es';
 import { CharacterClient } from '../useCharacterClient';
-import { ClassAbility } from '@/pages/vtt/types/Class';
+import { Class, ClassAbility } from '@/pages/vtt/types/Class';
+import reactStringReplace from 'react-string-replace';
+import { VTag } from '@/components/VTag';
 
 const StyledClassAbilitiesDrawer = styled(VDrawer)`
   .drawer__content {
@@ -94,18 +96,21 @@ export const ClassAbilitiesDrawer: React.FC<ClassAbilitiesDrawerProps> = props =
                 { key: 'type', render: ability => startCase(ability.type.toLowerCase()) },
                 {
                   key: 'requirement',
-                  render: classAbility => {
-                    // requirement is usually a certain level
-                    if (typeof classAbility.requirement === 'number') {
-                      return `Level ${classAbility.requirement}`;
-                    }
-                    // but may be another class ability
-                    return props.characterClient.class?.classAbilities.find(
-                      ability => ability.key === classAbility.requirement
-                    )?.name;
-                  }
+                  render: classAbility => (
+                    <ClassAbilityRequirement
+                      class={props.characterClient.class}
+                      classAbility={classAbility}
+                    />
+                  )
                 },
-                { key: 'description', dataKey: 'description', width: '100%' }
+                {
+                  key: 'description',
+                  render: classAbility =>
+                    reactStringReplace(classAbility.description, /`(.*?)`/g, match => (
+                      <VTag style={{ display: 'inline-block' }}>{match}</VTag>
+                    )),
+                  width: '100%'
+                }
               ]}
               rows={filteredClassAbilities}
               emptyMessage="No class abilities match your query."
@@ -117,4 +122,19 @@ export const ClassAbilitiesDrawer: React.FC<ClassAbilitiesDrawerProps> = props =
       </div>
     </StyledClassAbilitiesDrawer>
   );
+};
+
+export const ClassAbilityRequirement: React.FC<{
+  class: Class;
+  classAbility: ClassAbility;
+}> = props => {
+  // requirement is usually a certain level
+  if (typeof props.classAbility.requirement === 'number') {
+    return <>Level {props.classAbility.requirement}</>;
+  }
+  // but may be another class ability
+  const requiredClassAbility = props.class.classAbilities.find(
+    ability => ability.key === props.classAbility.requirement
+  );
+  return <>{requiredClassAbility?.name}</>;
 };

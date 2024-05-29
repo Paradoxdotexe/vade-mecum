@@ -11,7 +11,6 @@ import { VadeMecumDocsPage } from './pages/docs/VadeMecumDocsPage';
 import reportWebVitals from './reportWebVitals';
 import { ValeOfMythsDocsPage } from './pages/docs/ValeOfMythsDocsPage';
 import { EnginePageController } from './pages/engine/EnginePageController';
-import { VestigesOfMankindDocsPage } from './pages/docs/VestigesOfMankindDocsPage';
 import { HomePage } from './pages/HomePage';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { AuthStateProvider } from './pages/engine/useAuth';
@@ -32,7 +31,6 @@ const router = createBrowserRouter(
 
       <Route path="docs" element={<VadeMecumDocsPage />} />
       <Route path="docs/vale-of-myths" element={<ValeOfMythsDocsPage />} />
-      <Route path="docs/vestiges-of-mankind" element={<VestigesOfMankindDocsPage />} />
 
       <Route path="vtt/" element={<VTT />}>
         <Route path="login" element={<LoginPage />} />

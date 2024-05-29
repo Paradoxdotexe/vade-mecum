@@ -173,14 +173,14 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Rampage',
           type: ClassAbilityType.BONUS_ACTION,
           description:
-            'You can make a Rage check to throw a Very Heavy item within 5 feet at an enemy within 30 feet. On a success, the target is hit and takes 2D6 damage.',
+            'You can make a Rage check to throw a Very Heavy item within 5ft at an enemy within 30ft. On a success, the target is hit and takes `2D6` damage.',
           requirement: 'INNATE'
         },
         {
           key: 'ready_to_rampage',
           name: 'Ready to Rampage',
           type: ClassAbilityType.PASSIVE,
-          description: 'You always start combat with a Very Heavy item within 5 feet of you.',
+          description: 'You always start combat with a Very Heavy item within 5ft of you.',
           requirement: 1
         },
         {
@@ -237,7 +237,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Furious Hurl',
           type: ClassAbilityType.BONUS_ACTION,
           description:
-            'You can make a Rage check to grab and throw an enemy within 5ft. On a success, the target lands prone 20ft away and takes 2D6 damage.',
+            'You can make a Rage check to grab and throw an enemy within 5ft. On a success, the target lands prone 20ft away and takes `2D6` damage.',
           requirement: 18
         },
         {
@@ -332,7 +332,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Healing Hand',
           type: ClassAbilityType.BONUS_ACTION,
           description:
-            'You can stabilize an incapacitated character using Chi instead of Medicine. On a success, the character is stabilized with 1D6 health points. For each Chi Point spent, increase this healing by 2D6.',
+            'You can stabilize an incapacitated character using Chi instead of Medicine. On a success, the character is stabilized with `1D6` health points. For each Chi Point spent, increase this healing by `2D6`.',
           requirement: 12
         },
         {
@@ -348,7 +348,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Chi Discharge',
           type: ClassAbilityType.MAIN_ACTION,
           description:
-            'You can roll a Chi check to release a forceful wave of Chi in all directions. On a success, all characters within 20ft take 2D6 damage. For each Chi Point spent, increase this damage by 2D6.',
+            'You can roll a Chi check to release a forceful wave of Chi in all directions. On a success, all characters within 20ft take `2D6` damage. For each Chi Point spent, increase this damage by `2D6`.',
           requirement: 18
         }
       ],
@@ -416,7 +416,7 @@ const VALE_OF_MYTHS: WorldKit = {
           key: 'splintering_arrows',
           name: 'Splintering Arrows',
           type: ClassAbilityType.PASSIVE,
-          description: 'The damage inflicted by bows is increased by 1D6.',
+          description: 'The damage inflicted by bows is increased by `1D6`.',
           requirement: 6
         },
         {
@@ -440,7 +440,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Healing Salve',
           type: ClassAbilityType.PASSIVE,
           description:
-            'When rolling Medicine to stabilize an incapacitated character or heal an injured character during a Rest, add your Survival bonus. Characters healed or stabilized by you gain 2D6 health points.',
+            'When rolling Medicine to stabilize an incapacitated character or heal an injured character during a Rest, add your Survival bonus. Characters healed or stabilized by you gain `2D6` health points.',
           requirement: 18
         },
         {
@@ -510,7 +510,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Magical Eminence',
           type: ClassAbilityType.PASSIVE,
           description:
-            'Allies within 15ft of you have +1 advantage on attacks and deal an additional 1D6 damage.',
+            'Allies within 15ft of you have +1 advantage on attacks and deal an additional `1D6` damage.',
           requirement: 1
         },
         {
@@ -534,7 +534,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Magic Shield',
           type: ClassAbilityType.REACTION,
           description:
-            'When you or another character is hit by an attack, you can roll a Magic check to shield them from the hit. On a success, you reduce the damage by 2D6 for each MP spent.',
+            'When you or another character is hit by an attack, you can roll a Magic check to shield them from the hit. On a success, you reduce the damage by `2D6` for each MP spent.',
           requirement: 'abjuration'
         },
         {
@@ -542,7 +542,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Magical Discharge',
           type: ClassAbilityType.PASSIVE,
           description:
-            'After consuming your last Magic Point, you can discharge your residual magic energy into a single attack. This attack deals an additional D6 for each Magic Point spent since your last Rest.',
+            'After consuming your last Magic Point, you can discharge your residual magic energy into a single attack. This attack deals an additional `1D6` for each Magic Point spent since your last Rest.',
           requirement: 6
         },
         {
@@ -558,7 +558,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Wall of Fire',
           type: ClassAbilityType.MAIN_ACTION,
           description:
-            'You can roll a Magic check to create a wall of fire that covers a 5ft x 30ft area within 30ft until the end of combat. On a success, spend 3 MP. The wall blocks line of sight for ranged attacks and any character hit by the fire must make a Fortitude check against your Magic bonus, taking 3D6 damage on a success and 6D6 damage otherwise.',
+            'You can roll a Magic check to create a wall of fire that covers a 5ft x 30ft area within 30ft until the end of combat. On a success, spend 3 MP. The wall blocks line of sight for ranged attacks and any character hit by the fire must make a Fortitude check against your Magic bonus, taking `3D6` damage on a success and `6D6` damage otherwise.',
           requirement: 'elementalism'
         },
         {
@@ -566,7 +566,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Tidal Wave',
           type: ClassAbilityType.MAIN_ACTION,
           description:
-            'You can roll a Magic check to create a tidal wave of water that hits a 15ft x 30ft area within 30ft. On a success, spend 4 MP. Any character hit by the wave must make a Fortitude check against your Magic bonus, taking 2D6 damage on a success and 4D6 damage otherwise.',
+            'You can roll a Magic check to create a tidal wave of water that hits a 15ft x 30ft area within 30ft. On a success, spend 4 MP. Any character hit by the wave must make a Fortitude check against your Magic bonus, taking `2D6` damage on a success and `4D6` damage otherwise.',
           requirement: 'elementalism'
         },
         {
@@ -574,7 +574,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Sink Hole',
           type: ClassAbilityType.MAIN_ACTION,
           description:
-            'You can roll a Magic check to crumble the earth in a 30ft x 30ft area within 30ft. On a success, spend 6 MP. All characters caught within the area must make an Agility check against your Magic bonus, taking 3D6 damage on a success and 6D6 damage otherwise. The area becomes Rough Terrain until the end of combat.',
+            'You can roll a Magic check to crumble the earth in a 30ft x 30ft area within 30ft. On a success, spend 6 MP. All characters caught within the area must make an Agility check against your Magic bonus, taking `3D6` damage on a success and `6D6` damage otherwise. The area becomes Rough Terrain until the end of combat.',
           requirement: 'elementalism'
         },
         {
@@ -582,7 +582,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Magical Recharge',
           type: ClassAbilityType.PASSIVE,
           description:
-            'Once per Rest, you can recharge your magic by focusing your remaining Magic Points. You regain 1D6 Magic Points for each Magic Point remaining.',
+            'Once per Rest, you can recharge your magic by focusing your remaining Magic Points. You regain `1D6` Magic Points for each Magic Point remaining.',
           requirement: 12
         },
         {
@@ -598,7 +598,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Necrotic Touch',
           type: ClassAbilityType.MAIN_ACTION,
           description:
-            'You can roll a Magic check to steal the life force from an enemy within 5ft. On a success, spend 3 MP. The enemy takes 3D6 damage.',
+            'You can roll a Magic check to steal the life force from an enemy within 5ft. On a success, spend 3 MP. The enemy takes `3D6` damage.',
           requirement: 'necromancy'
         },
         {
@@ -606,7 +606,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Life Steal',
           type: ClassAbilityType.MAIN_ACTION,
           description:
-            'You can roll a Magic check to steal the life force from an enemy within 5ft. On a success, spend 6 MP. The enemy takes 4D6 damage and you heal 2D6 health points.',
+            'You can roll a Magic check to steal the life force from an enemy within 5ft. On a success, spend 6 MP. The enemy takes `4D6` damage and you heal `2D6` health points.',
           requirement: 'necromancy'
         },
         {
@@ -694,7 +694,7 @@ const VALE_OF_MYTHS: WorldKit = {
           key: 'hexed_cartridges',
           name: 'Hexed Cartridges',
           type: ClassAbilityType.PASSIVE,
-          description: 'You deal an additional 1D6 of damage when using a magichanical weapon.',
+          description: 'You deal an additional `1D6` of damage when using a magichanical weapon.',
           requirement: 1
         },
         {
@@ -802,7 +802,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Combat Knowledge',
           type: ClassAbilityType.PASSIVE,
           description:
-            'When you use Call for Diplomacy to make an ally succeed on an attack roll, they deal an additional 1D6 damage.',
+            'When you use Call for Diplomacy to make an ally succeed on an attack roll, they deal an additional `1D6` damage.',
           requirement: 6
         },
         {
@@ -818,7 +818,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Psychological Warfare',
           type: ClassAbilityType.PASSIVE,
           description:
-            'When you use Call for Diplomacy to make an enemy fail on an attack roll, they take 1D6 damage.',
+            'When you use Call for Diplomacy to make an enemy fail on an attack roll, they take `1D6` damage.',
           requirement: 12
         },
         {
@@ -934,7 +934,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: "Enchanter's Cant",
           type: ClassAbilityType.MAIN_ACTION,
           description:
-            'You can make an Enchantment check to speak an ancient cant against all of your enchanted targets. On a success, all enchanted targets take 1D6 damage.',
+            'You can make an Enchantment check to speak an ancient cant against all of your enchanted targets. On a success, all enchanted targets take `1D6` damage.',
           requirement: 18
         },
         {
@@ -942,7 +942,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Enchantment of Death',
           type: ClassAbilityType.BONUS_ACTION,
           description:
-            'You can make an Enchantment check to enchant a target within 30ft with deadly psychological pain. On a success, spend 1 EP. Until recalled, the target takes 1D6 damage at the start of each turn.',
+            'You can make an Enchantment check to enchant a target within 30ft with deadly psychological pain. On a success, spend 1 EP. Until recalled, the target takes `1D6` damage at the start of each turn.',
           requirement: 18
         }
       ],
@@ -1076,7 +1076,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Solar Smite',
           type: ClassAbilityType.PASSIVE,
           description:
-            'While Ritual of Fury is in effect, melee and ranged attacks deal an additional 1D6 damage.',
+            'While Ritual of Fury is in effect, melee and ranged attacks deal an additional `1D6` damage.',
           requirement: 'ritual_of_fury'
         },
         {
@@ -1092,7 +1092,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Sun Burst',
           type: ClassAbilityType.BONUS_ACTION,
           description:
-            'While Ritual of Fury is in effect, you can roll a Nature check to summon a burst of solar energy. On a success, spend 2 NP. All enemies within 15ft take 3D6 damage.',
+            'While Ritual of Fury is in effect, you can roll a Nature check to summon a burst of solar energy. On a success, spend 2 NP. All enemies within 15ft take `3D6` damage.',
           requirement: 'ritual_of_fury'
         },
         {
@@ -1124,7 +1124,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Lightning Storm',
           type: ClassAbilityType.MAIN_ACTION,
           description:
-            'While Ritual of Chaos is in effect, you can roll a Nature check to strike up to 3 targets within 120ft with lightning. On a success, spend 2 NP. Each lightning bolt deals 2D6 damage.',
+            'While Ritual of Chaos is in effect, you can roll a Nature check to strike up to 3 targets within 120ft with lightning. On a success, spend 2 NP. Each lightning bolt deals `2D6` damage.',
           requirement: 'ritual_of_chaos'
         },
         {
@@ -1132,7 +1132,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Blizzard',
           type: ClassAbilityType.MAIN_ACTION,
           description:
-            'While Ritual of Chaos is in effect, you can roll a Nature check to target up to 3 targets within 60ft with a freezing blizzard. On a success, spend 2 NP. All targets take 1D6 damage and are stunned for 1 turn.',
+            'While Ritual of Chaos is in effect, you can roll a Nature check to target up to 3 targets within 60ft with a freezing blizzard. On a success, spend 2 NP. All targets take `1D6` damage and are stunned for 1 turn.',
           requirement: 'ritual_of_chaos'
         },
         {
@@ -1208,7 +1208,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Summon Tamed Beast',
           type: ClassAbilityType.BONUS_ACTION,
           description:
-            'You can roll a Beast check to summon your Tamed Beast to attack a target or perform an object interaction within range. Small beasts have a range of 60ft and deal 1D6 damage. Medium beasts have a range of 30ft and deal 2D6 damage. Large beasts have a range of 15ft and deal 3D6 damage.',
+            'You can roll a Beast check to summon your Tamed Beast to attack a target or perform an object interaction within range. Small beasts have a range of 60ft and deal `1D6` damage. Medium beasts have a range of 30ft and deal `2D6` damage. Large beasts have a range of 15ft and deal `3D6` damage.',
           requirement: 'INNATE'
         },
         {
@@ -1216,7 +1216,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Swarm of Bees',
           type: ClassAbilityType.MAIN_ACTION,
           description:
-            'You can roll a Beast check to summon a swarm of bees to attack a target within 120ft. On a success, spend 1 BP. The target takes 2D6 damage.',
+            'You can roll a Beast check to summon a swarm of bees to attack a target within 120ft. On a success, spend 1 BP. The target takes `2D6` damage.',
           requirement: 'INNATE'
         },
         {
@@ -1232,7 +1232,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Beast Protection',
           type: ClassAbilityType.REACTION,
           description:
-            'When you are targeted with a melee attack, you can roll a Beast check to have your Tamed Beast protect you. On a success, incoming damage is reduced by 1D6.',
+            'When you are targeted with a melee attack, you can roll a Beast check to have your Tamed Beast protect you. On a success, incoming damage is reduced by `1D6`.',
           requirement: 1
         },
         {
@@ -1240,7 +1240,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Vengeful Eagle',
           type: ClassAbilityType.MAIN_ACTION,
           description:
-            'You can roll a Beast check to summon an eagle to attack a target within 90ft. On a success, spend 2 BP. The target takes 5D6 damage.',
+            'You can roll a Beast check to summon an eagle to attack a target within 90ft. On a success, spend 2 BP. The target takes `5D6` damage.',
           requirement: 1
         },
         {
@@ -1256,7 +1256,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Charging Bear',
           type: ClassAbilityType.MAIN_ACTION,
           description:
-            '	You can roll a Beast check to summon a bear to attack a target within 60ft. On a success, spend 3 BP. The target takes 6D6 damage and is knocked prone.',
+            '	You can roll a Beast check to summon a bear to attack a target within 60ft. On a success, spend 3 BP. The target takes `6D6` damage and is knocked prone.',
           requirement: 6
         },
         {
@@ -1272,7 +1272,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Pack of Wolves',
           type: ClassAbilityType.MAIN_ACTION,
           description:
-            ' You can roll a Beast check to summon a pack of 3 wolves to attack up to 3 targets within 60ft. On a success, spend 3 BP. Each wolf deals 3D6 damage.',
+            ' You can roll a Beast check to summon a pack of 3 wolves to attack up to 3 targets within 60ft. On a success, spend 3 BP. Each wolf deals `3D6` damage.',
           requirement: 12
         },
         {
@@ -1288,7 +1288,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Prideful Lion',
           type: ClassAbilityType.MAIN_ACTION,
           description:
-            'You can roll a Beast check to summon a lion to attack a target within 30ft. On a success, spend 4 BP. The target takes 10D6 damage is a stunned for 1 turn.',
+            'You can roll a Beast check to summon a lion to attack a target within 30ft. On a success, spend 4 BP. The target takes `10D6` damage is a stunned for 1 turn.',
           requirement: 18
         }
       ],
