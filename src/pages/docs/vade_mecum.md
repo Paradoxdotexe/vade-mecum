@@ -297,9 +297,6 @@ For simplicity, all items are divided into 7 size categories that correspond to 
 When a character's carrying capacity is exceeded, they become over-encumbered and no longer have the strength to move themselves.
 They must either drop items or stay put.
 
-> All items that are carried count towards a character's carrying capacity.
-> This does not include items that are worn, such as armor, clothing, and backpacks.
-
 ## 1.10 Building a Character
 
 To build a character ready to start adventuring, define its background, abilities, and equipment using the steps provide below.

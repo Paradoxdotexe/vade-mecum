@@ -63,7 +63,7 @@ export const InventoryCard: React.FC<InventoryCardProps> = props => {
 };
 
 type ItemDescriptionProps = {
-  characterClient: CharacterClient;
+  characterClient?: CharacterClient;
   item: Item;
   style?: React.CSSProperties;
 };
@@ -73,10 +73,10 @@ export const ItemDescription: React.FC<ItemDescriptionProps> = props => {
 
   const rollModal = useRollModal();
 
-  const { attributes } = props.characterClient;
-
   const onRollSkill = () => {
-    const attribute = attributes[props.item.bonus!.attributeKey];
+    if (!props.characterClient) return;
+
+    const attribute = props.characterClient.attributes[props.item.bonus!.attributeKey];
     const skill = attribute.skills[props.item.bonus!.skillKey];
 
     rollModal.open({
@@ -92,6 +92,8 @@ export const ItemDescription: React.FC<ItemDescriptionProps> = props => {
   };
 
   const onRollDamage = () => {
+    if (!props.characterClient) return;
+
     rollModal.open({
       characterId: props.characterClient.id,
       characterName: props.characterClient.name,
