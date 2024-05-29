@@ -2,21 +2,12 @@
 
 This high fantasy kit is set in a kingdom-controlled dominion where characters will face the dangers of evil kings, dark magic users, and monsters only found in myth and legend.
 
-- [1. Lore](#1.-Lore)
-  - [1.1 Races](#1.1-Races)
-    - [Humans](#Humans)
-    - [Dwarves](#Dwarves)
-    - [Elves](#Elves)
-    - [Fay](#Fay)
-    - [Halflings](#Halflings)
-  - [1.2 Countries](#1.2-Countries)
-    - [Valeria](<#Valeria-(Humans)>)
-    - [Valantis](<#Valantis-(Humans)>)
-    - [Odenheim](<#Odenheim-(Dwarves)>)
-    - [Calestriel](<#Calestriel-(Elves)>)
-    - [Sylvantis](<#Sylvantis-(Fay)>)
-    - [Yoren](<#Yoren-(Halfings)>)
-  - [1.3 History](#1.3-History)
+- [1. Races](#1.-Races)
+  - [Humans](#Humans)
+  - [Dwarves](#Dwarves)
+  - [Elves](#Elves)
+  - [Fay](#Fay)
+  - [Halflings](#Halflings)
 - [2. Classes](#2.-Classes)
   - [Knight](#Knight)
   - [Barbarian](#Barbarian)
@@ -35,12 +26,11 @@ This high fantasy kit is set in a kingdom-controlled dominion where characters w
   - [Meals](#Meals)
   - [Lodging](#Lodging)
   - [Vehicles](#Vehicles)
+- [4. Lore](#4.-Lore)
+  - [Countries](#Countries)
+  - [History](#History)
 
-# 1. Lore
-
-This kits takes place in the _Vale_, a temperate continent with a diverse range of people and places.
-
-## 1.1 Races
+# 1. Races
 
 The Vale is home to five intelligent races: humans, halflings, dwarves, elves, and fay.
 
@@ -93,170 +83,6 @@ Halfling characters innately gain the `Halfling Hospitality` Perk.
 | Perk                     | Description                                                                                          |
 | ------------------------ | ---------------------------------------------------------------------------------------------------- |
 | **Halfling Hospitality** | You and your companions get +1 advantage on Rest Activity rolls when resting in an Adventuring Camp. |
-
-## 1.2 Countries
-
-Overtime, the Vale organized itself into six countries, divided by mountains, rivers, and seas.
-
-### Valeria (Humans)
-
-At the root of the Vale is Valeria, the original home of humans and the largest country in the world.
-Valeria spans roughly 160,000 square miles with an estimated 1.3 million humans living within its borders.
-
-Valeria's capitol is the city of High Vale, located at the tip of its southern peninsula.
-Here is where the Council of Valeria convenes to oversee world affairs, as established after the War of Wild Wood.
-
-![Valeria](/images/vale_of_myths/valeria.png)
-
-### Valantis (Humans)
-
-Hugging the Northern Shores of the Vale is the country of Valantis.
-Valantis spans the 45,000 square miles of land between the Nordonian Peaks and the Wild Wind Peaks and is home to an estimated 350 thousand humans.
-
-Valantis' capitol is the city of Vork, located on its northwestern coast.
-Once part of Valeria proper, Valantis represents the humans that divided itself from Valeria and fought on the side of Sylvantis during the War of Wild Wood.
-
-![Valantis](/images/vale_of_myths/valantis.png)
-
-### Odenheim (Dwarves)
-
-Surrounded on three sides by towering mountain ranges is the country of Odenheim, the original home and fortified stronghold of the dwarves.
-Odenheim spans roughly 30,000 square miles above ground with another 10,000 square miles of tunnels below, together housing an estimated 250 thousand dwarves.
-
-Odenheim's capitol is the city of Ordenthall, located in the lower hills of Mount Ode and built directly into the rock around it.
-After the Retchan Purge and the War of Wild Wood, Odenheim divided itself from the rest of the Vale with Dor Minthor and Dor Manthor, two gates that seal the country from outside influence.
-
-![Odenheim](/images/vale_of_myths/odenheim.png)
-
-### Calestriel (Elves)
-
-The large island on the southwest side of the Vale is the country of Calestriel, the secluded home of the elves.
-Calestriel spans roughly 70,000 square miles with an estimated 600 thousand elves calling it home.
-
-Calestriel's capitol is the city of Camalon, located in the heart of the island at the tip of the Camalon River.
-After fighting alongside Valeria in the War of Wild Wood, Calestriel plays a major role in world affairs as part of the Council of Valeria.
-
-![Calestriel](/images/vale_of_myths/calestriel.png)
-
-### Sylvantis (Fay)
-
-Spanning the west side of the Vale is the country of Sylvantis, the wooded home of the fay and the second largest country in the world.
-Sylvantis spans roughly 120,000 square miles with an estimated 1 million fay living within its borders.
-
-Sylvantis' capitol is the city of Syriel, located deep within the country's homeland.
-After being overthrown by the will of the dark fay and raging the War of Wild Wood against Valeria, Sylvantis and the fay within have become an untrusted player on the world stage.
-
-![Sylvantis](/images/vale_of_myths/sylvantis.png)
-
-### Yoren (Halfings)
-
-The small island chain on the southeast corner of the Vale is the country of Yoren, the peaceful home of the halflings.
-Yoren spans roughly 25,000 square miles and is home to an estimated 150 thousand halflings.
-
-Yoren's capitol is the city of Yenich, located on the western shore of the main island.
-Even as the Vale was being ravaged by evil forces, Yoren has managed to stay out of world affairs and live in peaceful ignorance.
-
-![Yoren](/images/vale_of_myths/yoren.png)
-
-## 1.3 History
-
-Over the recorded history of the Vale, threats to civilized life have risen and fallen, bringing some people together and driving others apart.
-
-> In present day, history is recorded based on the pivotal creation of the Council of Valeria.
->
-> - `BCV` = Before the Council of Valeria
-> - `ACV` = After the Council of Valeria
-
-### 1000 BCV
-
-Mutated creatures, called retches, are first spotted in the distant Outer Reaches.
-Unbeknownst to the rest of the Vale, a toxic gas called Retch Rot has began spewing from several mysterious craters deep in the northwest.
-Slowly, Retch Rot has begun deteriorating the minds and bodies of local creatures, turning them into feral beasts with gruesome appearances.
-
-### 900 BCV
-
-Retches have spread throughout the Outer Reaches and begun to organize themselves into dangerous hordes.
-
-### 800 BCV
-
-Hordes of retches flow south towards Valeria and east towards Odenheim.
-The humans manage to fend off the retches at Purgatory Chasm and the dwarves do the same at Oden's Pass.
-
-### 700 BCV
-
-The humans of Valeria and Dwarves of Odenheim work together to drive the retches back.
-In a campaign called the Retchan Purge, Valeria and Odenheim manage to push the retchan hordes back into the Outer Reaches.
-In following years, several Valerian outposts are built to keep the remaining retches at bay and watch for any future offensives.
-The dwarves construct Dor Minthor, a massive wall to blockade Oden's Pass from westward threats.
-
-### 200 BCV
-
-From deep within the Outer Wilds, the dark fay emerge as a small contingent of powerful enchanters and sages that seek to expand the Wild Wood, a magically unyielding forest of deep-rooted trees.
-
-### 100 BCV
-
-The dark fay seed their influence in Sylvantis, slowly spreading the dogma of Wild Wood to the fayan population.
-
-### 50 BCV
-
-The dark fay penetrate the government of Sylvantis, gaining powerful influence over the country's oligarchy.
-Sylvaxus begins to rise as the face of the Wild Wood movement, as well as the leader of the secretive dark fay.
-
-### 30 BCV
-
-By the will of the dark fay, the government of Sylvantis declare that humans living on the southwestern coasts are killing the Wild Wood.
-Humans are expelled from their settlements and those that refuse are imprisoned, building up tensions between Valeria and Sylvantis.
-
-### 25 BCV
-
-Fayan missionaries spread of the dogma of Wild Wood into northern Valeria, including rumors of the forest's ability to prolong life.
-The Will of the Wild Wood emerge as a human activist group in Sylton.
-
-### 20 BCV
-
-Seeds of the Wild Wood are planted in the area between Sylton and the Wild Wind Peaks by fayan missionaries and human activists.
-
-### 15 BCV
-
-Wild wood has taken root and begins to spread at an incredible rate throughout northern Valeria, entrenching land in thick trees and brush.
-King Alazar of Valeria orders the wild wood to be destroyed, declaring it a hostile invader planted by Sylvantis.
-In a skirmish near Sylton, Valerian soldiers clash against fayan missionaries and human activists, sparking a standoff.
-
-### 14 BCV
-
-Sylvantis lands soldiers in Sylton, beginning a major offensive to defend the wild wood, kicking off the War of Wild Wood.
-Being caught off guard, Valerian soldiers suffer significant losses and are pushed back across the Azir River, out of northern Valeria.
-
-### 13 BCV
-
-Reinforcements from Sylvantis arrive on the eastern shores of Valeria, near Valemore.
-Valerian forces struggle to defend against both the army of Sylvantis and the rebels of northern Valeria.
-Wild wood continues to spread, entrenching the position of its defenders.
-
-### 12 BCV
-
-King Alazar of Valeria seeks help from the dwarves of Odenheim, but they refuse, instead constructing Dor Manthor to defend against the foreign invaders.
-
-King Alazar seeks council with the elves of Calestriel, claiming that if Valeria falls to the wild wood, the rest of the Vale will follow.
-Queen Carmen of Calestriel sends an envoy to Sylvantis to negotiate towards peace but discovers the evil power of the dark fay that has corrupted its government.
-Calestriel joins the Valerian war effort soon after.
-
-### 1 BCV
-
-After a decade of war throughout central and northern Valeria, the Battle of Lake Vead, the Slaughter at Dor Manthor, and the Standoff at Vaseri turned the tide against Sylvantis.
-The rebels of northern Valeria broker for peace, agreeing to stop their fighting and spread of wild wood in return for becoming the sovereign country of Valantis.
-Together with the elves, Sylvantin forces are pushed back to Gale's Gorge where they put up their last stand.
-There, Sylvaxus is killed by an elven mage and the dark fay contingent are steered towards collapse.
-
-### 0 BCV
-
-With the help of human and elven enchanters, the government of Sylvantis is cleared of dark fay influence and a peace treaty is signed.
-In conclusion of the War of Wild Wood, the Council of Valeria is formed as safeguard to prevent rising threats within the Vale.
-
-### 700 ACV
-
-From deep in the Outer Waters, an evil, parasitic force called the Brine surfaces as a mutated form of sea algae.
-The Brine is capable of taking over organic creatures, reducing its innards to algae but retaining its outward appearance.
 
 # 2. Classes
 
@@ -637,3 +463,171 @@ In _Vale of Myths_, Valerian Pieces (abbreviated as "VP") are the main denominat
 ## Vehicles
 
 ##### ItemsTable_VEHICLE
+
+# 4. Lore
+
+This kits takes place in the _Vale_, a temperate continent with a diverse range of people and places.
+
+## Countries
+
+Overtime, the Vale organized itself into six countries, divided by mountains, rivers, and seas.
+
+### Valeria (Humans)
+
+At the root of the Vale is Valeria, the original home of humans and the largest country in the world.
+Valeria spans roughly 160,000 square miles with an estimated 1.3 million humans living within its borders.
+
+Valeria's capitol is the city of High Vale, located at the tip of its southern peninsula.
+Here is where the Council of Valeria convenes to oversee world affairs, as established after the War of Wild Wood.
+
+![Valeria](/images/vale_of_myths/valeria.png)
+
+### Valantis (Humans)
+
+Hugging the Northern Shores of the Vale is the country of Valantis.
+Valantis spans the 45,000 square miles of land between the Nordonian Peaks and the Wild Wind Peaks and is home to an estimated 350 thousand humans.
+
+Valantis' capitol is the city of Vork, located on its northwestern coast.
+Once part of Valeria proper, Valantis represents the humans that divided itself from Valeria and fought on the side of Sylvantis during the War of Wild Wood.
+
+![Valantis](/images/vale_of_myths/valantis.png)
+
+### Odenheim (Dwarves)
+
+Surrounded on three sides by towering mountain ranges is the country of Odenheim, the original home and fortified stronghold of the dwarves.
+Odenheim spans roughly 30,000 square miles above ground with another 10,000 square miles of tunnels below, together housing an estimated 250 thousand dwarves.
+
+Odenheim's capitol is the city of Ordenthall, located in the lower hills of Mount Ode and built directly into the rock around it.
+After the Retchan Purge and the War of Wild Wood, Odenheim divided itself from the rest of the Vale with Dor Minthor and Dor Manthor, two gates that seal the country from outside influence.
+
+![Odenheim](/images/vale_of_myths/odenheim.png)
+
+### Calestriel (Elves)
+
+The large island on the southwest side of the Vale is the country of Calestriel, the secluded home of the elves.
+Calestriel spans roughly 70,000 square miles with an estimated 600 thousand elves calling it home.
+
+Calestriel's capitol is the city of Camalon, located in the heart of the island at the tip of the Camalon River.
+After fighting alongside Valeria in the War of Wild Wood, Calestriel plays a major role in world affairs as part of the Council of Valeria.
+
+![Calestriel](/images/vale_of_myths/calestriel.png)
+
+### Sylvantis (Fay)
+
+Spanning the west side of the Vale is the country of Sylvantis, the wooded home of the fay and the second largest country in the world.
+Sylvantis spans roughly 120,000 square miles with an estimated 1 million fay living within its borders.
+
+Sylvantis' capitol is the city of Syriel, located deep within the country's homeland.
+After being overthrown by the will of the dark fay and raging the War of Wild Wood against Valeria, Sylvantis and the fay within have become an untrusted player on the world stage.
+
+![Sylvantis](/images/vale_of_myths/sylvantis.png)
+
+### Yoren (Halfings)
+
+The small island chain on the southeast corner of the Vale is the country of Yoren, the peaceful home of the halflings.
+Yoren spans roughly 25,000 square miles and is home to an estimated 150 thousand halflings.
+
+Yoren's capitol is the city of Yenich, located on the western shore of the main island.
+Even as the Vale was being ravaged by evil forces, Yoren has managed to stay out of world affairs and live in peaceful ignorance.
+
+![Yoren](/images/vale_of_myths/yoren.png)
+
+## History
+
+Over the recorded history of the Vale, threats to civilized life have risen and fallen, bringing some people together and driving others apart.
+
+> In present day, history is recorded based on the pivotal creation of the Council of Valeria.
+>
+> - `BCV` = Before the Council of Valeria
+> - `ACV` = After the Council of Valeria
+
+### 1000 BCV
+
+Mutated creatures, called retches, are first spotted in the distant Outer Reaches.
+Unbeknownst to the rest of the Vale, a toxic gas called Retch Rot has began spewing from several mysterious craters deep in the northwest.
+Slowly, Retch Rot has begun deteriorating the minds and bodies of local creatures, turning them into feral beasts with gruesome appearances.
+
+### 900 BCV
+
+Retches have spread throughout the Outer Reaches and begun to organize themselves into dangerous hordes.
+
+### 800 BCV
+
+Hordes of retches flow south towards Valeria and east towards Odenheim.
+The humans manage to fend off the retches at Purgatory Chasm and the dwarves do the same at Oden's Pass.
+
+### 700 BCV
+
+The humans of Valeria and Dwarves of Odenheim work together to drive the retches back.
+In a campaign called the Retchan Purge, Valeria and Odenheim manage to push the retchan hordes back into the Outer Reaches.
+In following years, several Valerian outposts are built to keep the remaining retches at bay and watch for any future offensives.
+The dwarves construct Dor Minthor, a massive wall to blockade Oden's Pass from westward threats.
+
+### 200 BCV
+
+From deep within the Outer Wilds, the dark fay emerge as a small contingent of powerful enchanters and sages that seek to expand the Wild Wood, a magically unyielding forest of deep-rooted trees.
+
+### 100 BCV
+
+The dark fay seed their influence in Sylvantis, slowly spreading the dogma of Wild Wood to the fayan population.
+
+### 50 BCV
+
+The dark fay penetrate the government of Sylvantis, gaining powerful influence over the country's oligarchy.
+Sylvaxus begins to rise as the face of the Wild Wood movement, as well as the leader of the secretive dark fay.
+
+### 30 BCV
+
+By the will of the dark fay, the government of Sylvantis declare that humans living on the southwestern coasts are killing the Wild Wood.
+Humans are expelled from their settlements and those that refuse are imprisoned, building up tensions between Valeria and Sylvantis.
+
+### 25 BCV
+
+Fayan missionaries spread of the dogma of Wild Wood into northern Valeria, including rumors of the forest's ability to prolong life.
+The Will of the Wild Wood emerge as a human activist group in Sylton.
+
+### 20 BCV
+
+Seeds of the Wild Wood are planted in the area between Sylton and the Wild Wind Peaks by fayan missionaries and human activists.
+
+### 15 BCV
+
+Wild wood has taken root and begins to spread at an incredible rate throughout northern Valeria, entrenching land in thick trees and brush.
+King Alazar of Valeria orders the wild wood to be destroyed, declaring it a hostile invader planted by Sylvantis.
+In a skirmish near Sylton, Valerian soldiers clash against fayan missionaries and human activists, sparking a standoff.
+
+### 14 BCV
+
+Sylvantis lands soldiers in Sylton, beginning a major offensive to defend the wild wood, kicking off the War of Wild Wood.
+Being caught off guard, Valerian soldiers suffer significant losses and are pushed back across the Azir River, out of northern Valeria.
+
+### 13 BCV
+
+Reinforcements from Sylvantis arrive on the eastern shores of Valeria, near Valemore.
+Valerian forces struggle to defend against both the army of Sylvantis and the rebels of northern Valeria.
+Wild wood continues to spread, entrenching the position of its defenders.
+
+### 12 BCV
+
+King Alazar of Valeria seeks help from the dwarves of Odenheim, but they refuse, instead constructing Dor Manthor to defend against the foreign invaders.
+
+King Alazar seeks council with the elves of Calestriel, claiming that if Valeria falls to the wild wood, the rest of the Vale will follow.
+Queen Carmen of Calestriel sends an envoy to Sylvantis to negotiate towards peace but discovers the evil power of the dark fay that has corrupted its government.
+Calestriel joins the Valerian war effort soon after.
+
+### 1 BCV
+
+After a decade of war throughout central and northern Valeria, the Battle of Lake Vead, the Slaughter at Dor Manthor, and the Standoff at Vaseri turned the tide against Sylvantis.
+The rebels of northern Valeria broker for peace, agreeing to stop their fighting and spread of wild wood in return for becoming the sovereign country of Valantis.
+Together with the elves, Sylvantin forces are pushed back to Gale's Gorge where they put up their last stand.
+There, Sylvaxus is killed by an elven mage and the dark fay contingent are steered towards collapse.
+
+### 0 BCV
+
+With the help of human and elven enchanters, the government of Sylvantis is cleared of dark fay influence and a peace treaty is signed.
+In conclusion of the War of Wild Wood, the Council of Valeria is formed as safeguard to prevent rising threats within the Vale.
+
+### 700 ACV
+
+From deep in the Outer Waters, an evil, parasitic force called the Brine surfaces as a mutated form of sea algae.
+The Brine is capable of taking over organic creatures, reducing its innards to algae but retaining its outward appearance.

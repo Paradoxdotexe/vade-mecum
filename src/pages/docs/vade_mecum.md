@@ -36,7 +36,6 @@ The world is defined and controlled by a Game Master that acts as both the game'
   - [2.6 Injuries](#2.6-Injuries)
   - [2.7 Rest](#2.7-Rest)
 - [3. World](#3.-World)
-
   - [3.1 Currency](#3.1-Currency)
   - [3.2 Enemies](#3.2-Enemies)
 
