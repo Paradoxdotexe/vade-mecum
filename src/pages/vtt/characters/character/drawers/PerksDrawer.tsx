@@ -10,6 +10,8 @@ import { searchObjects } from '@/utils/searchObjects';
 import { capitalize } from 'lodash-es';
 import { CharacterClient } from '../useCharacterClient';
 import { PERKS, Perk } from '@/pages/vtt/types/Perk';
+import reactStringReplace from 'react-string-replace';
+import { VTag } from '@/components/VTag';
 
 const StyledPerksDrawer = styled(VDrawer)`
   .drawer__content {
@@ -90,7 +92,14 @@ export const PerksDrawer: React.FC<PerksDrawerProps> = props => {
                     !!perk.requirement &&
                     `${capitalize(perk.requirement.skillKey)} ${perk.requirement.skillRequirement}`
                 },
-                { key: 'description', dataKey: 'description', width: '100%' }
+                {
+                  key: 'description',
+                  render: perk =>
+                    reactStringReplace(perk.description, /`(.*?)`/g, match => (
+                      <VTag style={{ display: 'inline-block' }}>{match}</VTag>
+                    )),
+                  width: '100%'
+                }
               ]}
               rows={filteredPerks}
               emptyMessage="No perks match your query."

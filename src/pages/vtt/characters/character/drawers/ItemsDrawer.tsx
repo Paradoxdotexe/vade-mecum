@@ -101,11 +101,7 @@ export const ItemsDrawer: React.FC<ItemsDrawerProps> = props => {
                     },
                     {
                       key: 'cost',
-                      render: item => (
-                        <VTag style={{ fontFamily: theme.variable.fontFamily.display }}>
-                          {item.cost}
-                        </VTag>
-                      )
+                      render: item => <VTag>{item.cost}</VTag>
                     },
                     {
                       key: 'description',

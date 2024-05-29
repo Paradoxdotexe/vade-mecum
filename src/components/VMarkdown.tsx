@@ -1,20 +1,24 @@
-import React, { useEffect, useState } from 'react';
+import React, { ReactElement, useEffect, useState } from 'react';
 import * as marked from 'marked';
+import parse from 'html-react-parser';
 import { useLocation } from 'react-router-dom';
-
-export type VMarkdownProps = {
-  src: string;
-};
-
-const headerRegex = /<h(\d)>(.*?)<\/h\1>/g;
 
 const processMarkdown = (markdown: string) => {
   let match: RegExpExecArray | null;
+  const headerRegex = /<h(\d)>(.*?)<\/h\1>/g;
+
   while ((match = headerRegex.exec(markdown))) {
     const id = match[2].replace(/ /g, '-');
     markdown = markdown.slice(0, match.index + 3) + ` id='${id}'` + markdown.slice(match.index + 3);
   }
   return markdown;
+};
+
+export type VMarkdownProps = {
+  src: string;
+  components?: {
+    [id: string]: ReactElement;
+  };
 };
 
 export const VMarkdown: React.FC<VMarkdownProps> = props => {
@@ -29,15 +33,30 @@ export const VMarkdown: React.FC<VMarkdownProps> = props => {
   }, [props.src]);
 
   useEffect(() => {
-    if (markdown && location.hash) {
+    if (markdown) {
       setTimeout(() => {
-        const anchor = document.getElementById(location.hash.slice(1));
-        if (anchor) {
-          anchor.scrollIntoView({ behavior: 'smooth' });
+        if (location.hash) {
+          const anchor = document.getElementById(location.hash.slice(1));
+          if (anchor) {
+            anchor.scrollIntoView();
+          }
+        } else {
+          window.scrollTo({ top: 0 });
         }
       }, 10);
     }
-  }, [markdown]);
+  }, [markdown, location]);
 
-  return <div dangerouslySetInnerHTML={{ __html: markdown }} />;
+  return (
+    <>
+      {parse(markdown, {
+        replace:
+          props.components &&
+          (node => {
+            const id = (node as { attribs: { id?: string } }).attribs?.id;
+            return id && props.components![id];
+          })
+      })}
+    </>
+  );
 };

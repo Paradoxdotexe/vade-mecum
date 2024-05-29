@@ -13,7 +13,9 @@ export type Perk = {
   computed?: CharacterComputations;
 };
 
-export const PERKS: Perk[] = [
+type PerkWithRequirement = Omit<Perk, 'requirement'> & Required<Pick<Perk, 'requirement'>>;
+
+export const PERKS: PerkWithRequirement[] = [
   {
     key: 'intimidating',
     name: 'Intimidating',
@@ -28,7 +30,7 @@ export const PERKS: Perk[] = [
     key: 'bloody_knuckles',
     name: 'Bloody Knuckles',
     description:
-      'You double your Power bonus on skill checks to attack without a weapon and deal 2D6 damage instead of 1D6.',
+      'You double your Power bonus on skill checks to attack without a weapon and deal `2D6` damage instead of `1D6`.',
     requirement: {
       attributeKey: 'strength',
       skillKey: 'power',
@@ -39,7 +41,7 @@ export const PERKS: Perk[] = [
     key: 'glancing_blow',
     name: 'Glancing Blow',
     description:
-      'When rolling Power to attack with a melee weapon, a stalemate results in a glancing hit, dealing 1D6 damage.',
+      'When rolling Power to attack with a melee weapon, a stalemate results in a glancing hit, dealing `1D6` damage.',
     requirement: {
       attributeKey: 'strength',
       skillKey: 'power',
@@ -50,7 +52,7 @@ export const PERKS: Perk[] = [
     key: 'pack_mule',
     name: 'Pack Mule',
     description:
-      'Your carrying capacity is increased by a number of slots equal to your Strength + Fortitude.',
+      'Your carrying capacity is increased by a number of slots equal to your `Strength + Fortitude`.',
     requirement: {
       attributeKey: 'strength',
       skillKey: 'fortitude',
@@ -138,7 +140,7 @@ export const PERKS: Perk[] = [
     key: 'glancing_strike',
     name: 'Glancing Strike',
     description:
-      'When rolling Precision to attack with a ranged weapon, a stalemate results in a glancing hit, dealing 1D6 damage.',
+      'When rolling Precision to attack with a ranged weapon, a stalemate results in a glancing hit, dealing `1D6` damage.',
     requirement: {
       attributeKey: 'dexterity',
       skillKey: 'precision',
@@ -169,7 +171,7 @@ export const PERKS: Perk[] = [
     key: 'assassin',
     name: 'Assassin',
     description:
-      "When attacking an enemy who doesn't see you, add your Stealth bonus. On a hit, increase the damage by 1D6.",
+      "When attacking an enemy who doesn't see you, add your Stealth bonus. On a hit, increase the damage by `1D6`.",
     requirement: {
       attributeKey: 'dexterity',
       skillKey: 'stealth',
@@ -242,7 +244,7 @@ export const PERKS: Perk[] = [
   {
     key: 'spiritual_healer',
     name: 'Spiritual Healer',
-    description: 'You can stabilize allies from up to 15 ft away.',
+    description: 'You can stabilize allies from up to 15ft away.',
     requirement: {
       attributeKey: 'intelligence',
       skillKey: 'medicine',
@@ -431,26 +433,26 @@ export const PERKS: Perk[] = [
     }
   },
   {
-    key: 'combat_ready',
-    name: 'Combat Ready',
-    description: 'You add 2D6 to your initiative roll.',
-    requirement: {
-      attributeKey: 'perception',
-      skillKey: 'detection',
-      skillRequirement: 1
-    },
-    computed: {
-      initiative: '[base] + 2'
-    }
-  },
-  {
     key: 'sixth_sense',
     name: 'Sixth Sense',
     description: "You can't be surprised during combat.",
     requirement: {
       attributeKey: 'perception',
       skillKey: 'detection',
+      skillRequirement: 1
+    }
+  },
+  {
+    key: 'combat_ready',
+    name: 'Combat Ready',
+    description: 'You add `6D6` to your initiative roll.',
+    requirement: {
+      attributeKey: 'perception',
+      skillKey: 'detection',
       skillRequirement: 2
+    },
+    computed: {
+      initiative: '[base] + 6'
     }
   },
   {

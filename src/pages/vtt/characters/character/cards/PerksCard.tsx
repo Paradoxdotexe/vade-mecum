@@ -3,6 +3,8 @@ import { VCard } from '@/components/VCard';
 import { VTable, VTableColumn } from '@/components/VTable';
 import { CharacterClient } from '../useCharacterClient';
 import { Perk } from '@/pages/vtt/types/Perk';
+import reactStringReplace from 'react-string-replace';
+import { VTag } from '@/components/VTag';
 
 type PerksCardProps = {
   characterClient: CharacterClient;
@@ -11,7 +13,14 @@ type PerksCardProps = {
 export const PerksCard: React.FC<PerksCardProps> = props => {
   const columns: VTableColumn<Perk>[] = [
     { key: 'name', dataKey: 'name' },
-    { key: 'description', dataKey: 'description', width: '100%' }
+    {
+      key: 'description',
+      render: perk =>
+        reactStringReplace(perk.description, /`(.*?)`/g, match => (
+          <VTag style={{ display: 'inline-block' }}>{match}</VTag>
+        )),
+      width: '100%'
+    }
   ];
 
   return (

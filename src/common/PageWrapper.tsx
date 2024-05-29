@@ -20,6 +20,10 @@ const GlobalStyle = createGlobalStyle`
     opacity: 0;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     background-color: ${props => props.theme.color.background.default};
 

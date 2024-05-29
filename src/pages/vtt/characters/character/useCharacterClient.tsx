@@ -2,7 +2,7 @@ import { capitalize, keyBy } from 'lodash-es';
 import { AttributeKey, Character } from '../../types/Character';
 import { CharacterComputations, WORLD_KIT } from '../../types/WorldKit';
 import { parseComputation } from '@/utils/parseComputation';
-import { PERKS } from '../../types/Perk';
+import { PERKS, Perk } from '../../types/Perk';
 import { minMax } from '@/utils/minMax';
 
 const raceByKey = keyBy(WORLD_KIT.races, 'key');
@@ -12,7 +12,7 @@ const perkByKey = keyBy(PERKS, 'key');
 const getClassItemBonus = (character: Character) => Math.floor(character.level / 6);
 
 const getPerks = (character: Character) => {
-  const perks = character.perkKeys.map(key => perkByKey[key]);
+  const perks: Perk[] = character.perkKeys.map(key => perkByKey[key]);
 
   if (character.raceKey) {
     const race = raceByKey[character.raceKey];

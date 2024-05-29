@@ -39,13 +39,7 @@ export const RollableSkill: React.FC<RollableSkillProps> = props => {
   return (
     <StyledRollableSkill style={props.style}>
       {props.valueLabel ? (
-        <VTag
-          style={{
-            fontFamily: theme.variable.fontFamily.display
-          }}
-        >
-          {props.valueLabel}
-        </VTag>
+        <VTag style={{ fontFamily: theme.variable.fontFamily.display }}>{props.valueLabel}</VTag>
       ) : (
         <VNumberInput
           value={props.value}

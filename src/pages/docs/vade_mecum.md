@@ -119,53 +119,7 @@ Based on skill proficiencies, characters can acquire perks after leveling up (se
 Each perk falls under a specific skill and will require a minimum level in that skill to acquire.
 As such, perks give characters a way to accentuate their strengths in ways that compliment their play style.
 
-| Attribute    | Perk                 | Requirement     | Description                                                                                                                                       |
-| ------------ | -------------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Strength     | **Intimidating**     | Power 1         | When rolling Influence to intimidate an NPC, add your Power bonus.                                                                                |
-| Strength     | **Bloody Knuckles**  | Power 2         | You double your Power bonus on skill checks to attack without a weapon and deal 2D6 damage instead of 1D6.                                        |
-| Strength     | **Glancing Blow**    | Power 3         | When rolling Power to attack with a melee weapon, a stalemate results in a glancing hit, dealing `1D6` damage.                                    |
-| Strength     | **Pack Mule**        | Fortitude 1     | Your carrying capacity is increased by a number of slots equal to your `(Strength + Fortitude)`.                                                  |
-| Strength     | **Night Owl**        | Fortitude 2     | During a Rest, you can complete an additional Rest Activity with -1 disadvantage.                                                                 |
-| Strength     | **Human Shield**     | Fortitude 3     | During combat, you act as light cover for all characters within 5ft of you.                                                                       |
-| Strength     | **Spotter**          | Athletics 1     | When you succeed on an Athletics check, you can make one other character instantly succeed on the same skill check.                               |
-| Strength     | **Free Solo**        | Athletics 2     | You double your Athletics bonus on skill checks to climb without equipment.                                                                       |
-| Strength     | **Big Brother**      | Athletics 3     | If an ally within 10ft is hit with an attack, you can leap in to switch places, taking all damage.                                                |
-| Dexterity    | **Locksmith**        | Precision 1     | You double your Precision bonus on skill checks to pick a lock.                                                                                   |
-| Dexterity    | **Steady Aim**       | Precision 2     | You double your Precision bonus on skill checks to make a ranged attack from behind cover.                                                        |
-| Dexterity    | **Glancing Strike**  | Precision 3     | When rolling Precision to attack with a ranged weapon, a stalemate results in a glancing hit, dealing `1D6` damage.                               |
-| Dexterity    | **Black Mass**       | Stealth 1       | You double your Stealth bonus on skill checks when cloaked by natural darkness.                                                                   |
-| Dexterity    | **Lone Wolf**        | Stealth 2       | You double your Stealth bonus on skill checks while on your own.                                                                                  |
-| Dexterity    | **Assassin**         | Stealth 3       | When attacking an enemy who doesn't see you, add your Stealth bonus. On a hit, increase the damage by `1D6`.                                      |
-| Dexterity    | **Escapist**         | Agility 1       | You double your Agility bonus on skill checks to escape someone or a situation.                                                                   |
-| Dexterity    | **Untouchable**      | Agility 2       | Opportunity attacks on you have disadvantage equal to your Agility.                                                                               |
-| Dexterity    | **Fleet Foot**       | Agility 3       | You are not impeded by Rough Terrain.                                                                                                             |
-| Intelligence | **Book Worm**        | Intellect 1     | You double your Intellect bonus on skill checks to comprehend written information.                                                                |
-| Intelligence | **Linguist**         | Intellect 2     | You double your Intellect bonus on skill checks to comprehend an unknown language.                                                                |
-| Intelligence | **Strategist**       | Intellect 3     | You add +3 advantage to Stealth checks made by you and your companions to surprise the enemy.                                                     |
-| Intelligence | **Spiritual Healer** | Medicine 1      | You can stabilize allies from up to 15 ft away.                                                                                                   |
-| Intelligence | **Field Medic**      | Medicine 2      | When rolling Medicine to stabilize an ally, a stalemate decreases their injury level by one.                                                      |
-| Intelligence | **Witch Doctor**     | Medicine 3      | Even when incapacitated with a deadly injury, you can roll to stabilize yourself.                                                                 |
-| Intelligence | **Handy**            | Innovation 1    | You double your Innovation bonus on skill checks to repair an item.                                                                               |
-| Intelligence | **Inventor**         | Innovation 2    | You double your Innovation bonus on skill checks to create something new.                                                                         |
-| Intelligence | **Repairman**        | Innovation 3    | On a successful Innovation check to repair an item, you can also repair a second item.                                                            |
-| Charisma     | **Polygraph**        | Intuition 1     | You double your Intuition bonus on skill checks to determine if an NPC is lying.                                                                  |
-| Charisma     | **Empath**           | Intuition 2     | You double your Intuition bonus on skill checks to determine an NPC's true emotional state.                                                       |
-| Charisma     | **Counselor**        | Intuition 3     | After a successful Intuition check against an NPC, you get +3 advantage on your next Influence check using that information.                      |
-| Charisma     | **Relatable**        | Influence 1     | You double your Influence bonus on skill checks against NPC's from the same race.                                                                 |
-| Charisma     | **Folk Hero**        | Influence 2     | You double the advantage given to Influence checks by Renown.                                                                                     |
-| Charisma     | **Identity Theft**   | Influence 3     | You double your Influence bonus on skill checks while impersonating someone else.                                                                 |
-| Charisma     | **Gold Rush**        | Luck 1          | After passing an Investigation check to loot after combat, you can roll a Luck check. On a success, you find double the amount of currency units. |
-| Charisma     | **Serendipity**      | Luck 2          | Once per Rest, you can replace a failed skill check with a new Luck check.                                                                        |
-| Charisma     | **Close Call**       | Luck 3          | Once per Rest, you can roll a Luck check after being incapacitated. On a success, you are reduced to 1 HP instead.                                |
-| Perception   | **Architect**        | Insight 1       | You double your Insight bonus on skill checks against man-made structures.                                                                        |
-| Perception   | **Ecologist**        | Insight 2       | You double your Insight bonus on skill checks against natural phenomena, such as animals, plants, weather, and terrain.                           |
-| Perception   | **Inspector**        | Insight 3       | After a successful Insight check, you get +3 advantage on your next Investigation/Detection check using that information.                         |
-| Perception   | **Combat Ready**     | Detection 1     | You add `2D6` to your initiative roll.                                                                                                            |
-| Perception   | **Sixth Sense**      | Detection 2     | You can't be surprised during combat.                                                                                                             |
-| Perception   | **One Eye Open**     | Detection 3     | You can keep watch for enemies during a Rest without expending a Rest Activity.                                                                   |
-| Perception   | **Emergency Exit**   | Investigation 1 | You double your Investigation bonus on skill checks to find an exit or escape route.                                                              |
-| Perception   | **Loot Goblin**      | Investigation 2 | You double your Investigation bonus on skill checks to loot after combat.                                                                         |
-| Perception   | **Detective**        | Investigation 3 | You double your Investigation bonus on skill checks to search for clues in pursuit of your personal or party's goal.                              |
+##### PerksTable
 
 ## 1.4 Classes
 
