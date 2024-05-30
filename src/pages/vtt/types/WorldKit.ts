@@ -1599,7 +1599,7 @@ const VALE_OF_MYTHS: WorldKit = {
       type: ItemType.ARMOR,
       name: 'Leather Armor',
       cost: '16 VP',
-      weight: 1 / 2,
+      weight: 1,
       notes: 'Light armor'
     },
     {
@@ -1607,7 +1607,7 @@ const VALE_OF_MYTHS: WorldKit = {
       type: ItemType.ARMOR,
       name: 'Chainmail Armor',
       cost: '32 VP',
-      weight: 1,
+      weight: 2,
       notes: 'Medium armor'
     },
     {
@@ -1615,7 +1615,7 @@ const VALE_OF_MYTHS: WorldKit = {
       type: ItemType.ARMOR,
       name: 'Plate Armor',
       cost: '64 VP',
-      weight: 2,
+      weight: 4,
       notes: 'Heavy armor'
     },
     {
@@ -1623,7 +1623,7 @@ const VALE_OF_MYTHS: WorldKit = {
       type: ItemType.ARMOR,
       name: 'Arcane Aegis Armor',
       cost: '16 VP',
-      weight: 1 / 4,
+      weight: 1 / 2,
       notes: 'Light armor'
     },
     {
@@ -1631,7 +1631,7 @@ const VALE_OF_MYTHS: WorldKit = {
       type: ItemType.ARMOR,
       name: 'Mystic Mail Armor',
       cost: '32 VP',
-      weight: 1 / 2,
+      weight: 1,
       notes: 'Medium armor'
     },
     {
@@ -1639,15 +1639,27 @@ const VALE_OF_MYTHS: WorldKit = {
       type: ItemType.ARMOR,
       name: 'Eldritch Exo Armor',
       cost: '64 VP',
-      weight: 1,
+      weight: 2,
       notes: 'Heavy armor'
+    },
+    {
+      key: 'world_map',
+      type: ItemType.TOOL,
+      name: 'World Map',
+      cost: '8 VP',
+      weight: 1 / 4,
+      bonus: {
+        attributeKey: 'perception',
+        skillKey: 'insight',
+        skillBonus: 1
+      }
     },
     {
       key: 'rope',
       type: ItemType.TOOL,
       name: 'Rope',
       cost: '8 VP',
-      weight: 1 / 2,
+      weight: 1,
       bonus: {
         attributeKey: 'strength',
         skillKey: 'athletics',
@@ -1659,7 +1671,7 @@ const VALE_OF_MYTHS: WorldKit = {
       type: ItemType.TOOL,
       name: 'Rope and Grappling Hook',
       cost: '16 VP',
-      weight: 1,
+      weight: 2,
       bonus: {
         attributeKey: 'strength',
         skillKey: 'athletics',
@@ -1679,22 +1691,10 @@ const VALE_OF_MYTHS: WorldKit = {
       }
     },
     {
-      key: 'world_map',
-      type: ItemType.TOOL,
-      name: 'World Map',
-      cost: '8 VP',
-      weight: 1 / 4,
-      bonus: {
-        attributeKey: 'perception',
-        skillKey: 'insight',
-        skillBonus: 1
-      }
-    },
-    {
       key: 'battering_ram',
       type: ItemType.TOOL,
       name: 'Battering Ram',
-      cost: '8 VP',
+      cost: '16 VP',
       weight: 2,
       bonus: {
         attributeKey: 'strength',
@@ -1706,7 +1706,7 @@ const VALE_OF_MYTHS: WorldKit = {
       key: 'lock_picking_set',
       type: ItemType.TOOL,
       name: 'Lock Picking Set',
-      cost: '8 VP',
+      cost: '16 VP',
       weight: 1 / 4,
       bonus: {
         attributeKey: 'dexterity',
@@ -1763,7 +1763,7 @@ const VALE_OF_MYTHS: WorldKit = {
       name: 'Donkey',
       cost: '16 VP',
       notes:
-        'A donkey can carry one character and has a movement speed of 3 miles per hour or 24 miles per day. In a place of a character, a donkey can carry 20 slots worth of items.'
+        'A donkey can carry one character and has a movement speed of 3 miles per hour or 24 miles per day. In place of a character, a donkey can carry 40 slots worth of items.'
     },
     {
       key: 'horse',
@@ -1771,7 +1771,7 @@ const VALE_OF_MYTHS: WorldKit = {
       name: 'Horse',
       cost: '32 VP',
       notes:
-        'A horse can carry two characters and has a movement speed of 6 miles per hour or 48 miles per day. In a place of a character, a horse can carry 20 slots worth of items.'
+        'A horse can carry two characters and has a movement speed of 6 miles per hour or 48 miles per day. In place of a character, a horse can carry 40 slots worth of items.'
     },
     {
       key: 'carriage',
@@ -1779,7 +1779,7 @@ const VALE_OF_MYTHS: WorldKit = {
       name: 'Carriage',
       cost: '64 VP',
       notes:
-        'A carriage with two horses can carry six characters and has a movement speed of 6 miles per hour or 48 miles per day. In a place of a character, a carriage can carry 20 slots worth of items.'
+        'A carriage with two horses can carry six characters and has a movement speed of 6 miles per hour or 48 miles per day. In place of a character, a carriage can carry 40 slots worth of items.'
     }
   ]
 };
