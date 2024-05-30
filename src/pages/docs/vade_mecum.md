@@ -123,7 +123,7 @@ As such, perks give characters a way to accentuate their strengths in ways that 
 ## 1.4 Classes
 
 While attributes, skills, and perks are the foundation of a character's abilities, classes are the foundation of a character's identity and nature.
-Classes define a character's Focus attribute, as well as gives them access to skills, items, and abilities that are otherwise inaccessible to other classes.
+Classes define a character's Focus attribute, as well as gives them access to skills and abilities that are otherwise inaccessible to other classes.
 
 > Specific character classes are defined by the World Kit being used, but all classes follow a universal pattern for how they are structured.
 
@@ -136,52 +136,7 @@ These class abilities will often allow the character to evolve its combat abilit
 Additionally, each class has a unique type of gear associated with them that serves as a channel for the class's power.
 This piece of gear is only attainable by leveling up and will provide bonuses to the class skill.
 
-> An example of a class from the _Vale of Myths_ World Kit is given below.
-
-### Knight
-
-Knights are soldiers sworn to uphold the code of chivalry and defend the realm at all costs.
-They are a stalwart force on the battlefield, often clad in heavy armor and weaponry and leading the charge against the enemy.
-Knights fight for honor and glory, using their strength and martial prowess to defend the helpless from evil.
-
-| Attribute | Skill     | Description                                                          |
-| --------- | --------- | -------------------------------------------------------------------- |
-| Strength  | **Honor** | Persuade others using chivalry, attack honorably with a melee weapon |
-
-#### Class Item
-
-Every Knight carries a _Honorific Banner_ that bolsters their confidence and allows them to fight with Honor.
-This piece of gear is commonly a physical banner with a coat of arms from the house they are sworn to defend.
-
-| Level | Honorific Banner Effect |
-| ----- | ----------------------- |
-| 1     | Honor +0                |
-| 6     | Honor +1                |
-| 12    | Honor +2                |
-| 18    | Honor +3                |
-| 24    | Honor +4                |
-
-#### Class Abilities
-
-Knights innately gain the _Honorific Strike_ Bonus Action, allowing them to attack twice in one turn.
-
-| Class Ability        | Type         | Description                              |
-| -------------------- | ------------ | ---------------------------------------- |
-| **Honorific Strike** | Bonus Action | You can make a melee attack using Honor. |
-
-Knights can acquire other class abilities that enhance their abilities on the battlefield while maintaining the core commandments of chivalry.
-
-| Class Ability          | Type         | Requirement | Description                                                                                                                                                                                |
-| ---------------------- | ------------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Battle Knowledge**   | Passive      | Level 1     | You can make Insight and Intuition checks using Honor instead.                                                                                                                             |
-| **Battle Charge**      | Passive      | Level 1     | Your Movement Speed is doubled for the first round of combat.                                                                                                                              |
-| **Indomitable Spirit** | Passive      | Level 1     | While a member of your Adventuring Party is incapacitated, you gain +1 advantage on melee attacks.                                                                                         |
-| **King's Champion**    | Passive      | Level 1     | Your initiative roll is automatically doubled.                                                                                                                                             |
-| **Last Stand**         | Passive      | Level 6     | When you have 12 health points or less, your attack damage is doubled.                                                                                                                     |
-| **Bulwark**            | Passive      | Level 6     | You take only half damage when hit by an enemy with over half of its health remaining.                                                                                                     |
-| **Formal Decree**      | Bonus Action | Level 12    | You can make an Honor check against an enemy's Enemy Bonus to command them to stand down. On a success, they will not attack unless otherwise provoked.                                    |
-| **Honorable Duel**     | Bonus Action | Level 12    | You can make an Honor check to command an enemy to duel. On a success, they cannot make attacks on characters other than you. The duel ends if they are attacked by anyone other than you. |
-| **Shield Bash**        | Bonus Action | Level 18    | You can make an Honor check to bash an enemy within 5ft. On a success, they are knocked prone.                                                                                             |
+[See an example of a class from the _Vale of Myths_ World Kit.](/docs/vale-of-myths#Knight)
 
 ## 1.5 Experience Levels
 
