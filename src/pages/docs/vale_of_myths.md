@@ -137,17 +137,17 @@ Knights can acquire other class abilities that enhance their abilities on the ba
 ## Barbarian
 
 Barbarians are formidable warriors that harness untamed fury against their enemies.
-They excel in chaotic combat, often entering a battle rage and unleashing savage attacks that strike fear in the most powerful of opponents.
-Barbarians fight with a deep loyalty for their tribe, standing between them and the outside world.
+They excel in chaotic combat, unleashing savage attacks that strike fear in the most powerful of opponents.
+Barbarians fight with a deep loyalty for their tribe, putting themselves in between those they care about and those that wish to do them harm.
 
-| Attribute | Skill    | Description                                             |
-| --------- | -------- | ------------------------------------------------------- |
-| Strength  | **Rage** | Persuade others using intimidation, throw heavy objects |
+| Attribute | Skill    | Description                                               |
+| --------- | -------- | --------------------------------------------------------- |
+| Strength  | **Rage** | Persuade others using intimidation, rampage during combat |
 
 ### Class Item
 
-Every Barbarian carries a _Tribal Marking_ that reminds them of who they are fighting for.
-This Tribal Marking is commonly a sacred tattoo, branding, or carving etched on their skin.
+Every Barbarian wears a _Tribal Marking_ that keeps them rooted and reminds them of who they are fighting for.
+This Tribal Marking is commonly a sacred tattoo, branding, or carving etched directly into their skin.
 
 | Level | Tribal Marking Effect |
 | ----- | --------------------- |
@@ -159,7 +159,7 @@ This Tribal Marking is commonly a sacred tattoo, branding, or carving etched on 
 
 ### Class Abilities
 
-Barbarians innately gain the _Rampage_ Bonus Action, allowing them to attack again by destroying their environment.
+Barbarians innately gain class abilities that allow them to rampage through their environment and their enemies.
 
 ##### ClassAbilityTable_Barbarian_Innate
 

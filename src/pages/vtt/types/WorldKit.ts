@@ -183,7 +183,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Rampage',
           type: ClassAbilityType.BONUS_ACTION,
           description:
-            'You can make a Rage check to throw a Very Heavy item within 5ft at an enemy within 30ft. On a success, the target is hit and takes `2D6` damage.',
+            'You can make a Rage check to throw a Very Heavy item within 5ft at an enemy within 20ft. On a success, the target is hit and takes `2D6` damage. Alternatively, you can make a Rage check to throw an enemy within 5ft at a tile within 10ft. On a success the target takes `2D6` damage and is knocked Prone.',
           requirement: 'INNATE'
         },
         {
@@ -208,22 +208,16 @@ const VALE_OF_MYTHS: WorldKit = {
           key: 'bloodlust',
           name: 'Bloodlust',
           type: ClassAbilityType.PASSIVE,
-          description: 'After killing an enemy, your next attack deals double damage.',
-          requirement: 1
+          description:
+            'After an enemy is killed by you or an ally, your next attack deals double damage.',
+          requirement: 6
         },
         {
           key: 'feral_instincts',
           name: 'Feral Instincts',
-          type: ClassAbilityType.PASSIVE,
-          description: 'You get advantage on opportunity attacks equal to your Rage.',
-          requirement: 6
-        },
-        {
-          key: 'feral_presence',
-          name: 'Feral Presence',
-          type: ClassAbilityType.PASSIVE,
+          type: ClassAbilityType.REACTION,
           description:
-            'When an enemy is within 10ft of you, they must make a Fortitude check at the beginning of their turn. On a failure, they are frightened and have -1 disadvantage on attacks until their next turn.',
+            'When an enemy within 10ft moves away from you, you can make an attack against that enemy with advantage equal to your Rage.',
           requirement: 6
         },
         {
@@ -231,23 +225,29 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Reckless Attack',
           type: ClassAbilityType.BONUS_ACTION,
           description:
-            'You can make a melee attack using Rage. Until your next turn, attacks on you have +2 advantage.',
+            'You can make an additional melee attack with advantage equal to your Rage. Until your next turn, attacks on you have +2 advantage.',
+          requirement: 12
+        },
+        {
+          key: 'feral_presence',
+          name: 'Feral Presence',
+          type: ClassAbilityType.PASSIVE,
+          description:
+            'When an enemy is within 15ft of you, they must make a Fortitude check at the beginning of each turn. On a failure, they become Frightened and have -2 disadvantage on attacks until their next turn.',
           requirement: 12
         },
         {
           key: 'reckless_beserker',
           name: 'Reckless Beserker',
           type: ClassAbilityType.PASSIVE,
-          description:
-            'After landing a melee attack using Power, your following Reckless Attack does not grant advantage on attacks made against you.',
-          requirement: 12
+          description: 'When using Reckless Attack, your damage is doubled.',
+          requirement: 18
         },
         {
-          key: 'furious_hurl',
-          name: 'Furious Hurl',
-          type: ClassAbilityType.BONUS_ACTION,
-          description:
-            'You can make a Rage check to grab and throw an enemy within 5ft. On a success, the target lands prone 20ft away and takes `2D6` damage.',
+          key: 'furious_rampage',
+          name: 'Furious Rampage',
+          type: ClassAbilityType.PASSIVE,
+          description: 'When using Rampage, your damage, reach, and range is doubled.',
           requirement: 18
         },
         {
@@ -255,8 +255,8 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Furious Frenzy',
           type: ClassAbilityType.MAIN_ACTION,
           description:
-            'You double your Movement Speed this turn and make four attacks using Rage. Afterwards, you are stunned until the end of your next turn.',
-          requirement: 18
+            'Once per rest, you can enter a combat frenzy. For two turns, your Movement Speed is doubled and whenever you make an attack, you make two attacks instead.',
+          requirement: 24
         }
       ]
     },
