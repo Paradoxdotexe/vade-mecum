@@ -544,9 +544,9 @@ Characters can use their Bonus Action to perform auxiliary actions within the co
 Additionally, characters can take one reaction per round that is prompted by the movement or action of another character.
 By default, all characters can perform an opportunity attack as a reaction, but classes and perks may give access to other types of reactions.
 
-| Reaction               | Description                                                                                 |
-| ---------------------- | ------------------------------------------------------------------------------------------- |
-| **Opportunity Attack** | When an enemy within 5 feet moves away from you, you can make an attack against that enemy. |
+| Reaction               | Description                                                                              |
+| ---------------------- | ---------------------------------------------------------------------------------------- |
+| **Opportunity Attack** | When an enemy within 5ft moves away from you, you can make an attack against that enemy. |
 
 ### Surprise
 
@@ -574,6 +574,11 @@ On a success, they either find an amount of currency equal to `(Enemy Level + Lu
 
 In combat, there are a number of conditions that a character can suffer from.
 These conditions make the character more vulnerable to attacks and reduce their capability to fight.
+
+### Bloodied
+
+When a character is reduced to half their health points, they are Bloodied.
+This condition has no effect, but can be used to convey an enemy's state during combat.
 
 ### Stunned
 

@@ -445,14 +445,14 @@ export const PERKS: PerkWithRequirement[] = [
   {
     key: 'combat_ready',
     name: 'Combat Ready',
-    description: 'You add `6D6` to your initiative roll.',
+    description: 'You add `3D6` to your initiative roll.',
     requirement: {
       attributeKey: 'perception',
       skillKey: 'detection',
       skillRequirement: 2
     },
     computed: {
-      initiative: '[base] + 6'
+      initiative: '[base] + 3'
     }
   },
   {

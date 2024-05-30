@@ -107,26 +107,26 @@ Knights are soldiers sworn to uphold the code of chivalry and defend the realm a
 They are a stalwart force on the battlefield, often clad in heavy armor and weaponry and leading the charge against the enemy.
 Knights fight for honor and glory, using their strength and martial prowess to defend the helpless from evil.
 
-| Attribute | Skill     | Description                                                          |
-| --------- | --------- | -------------------------------------------------------------------- |
-| Strength  | **Honor** | Persuade others using chivalry, attack honorably with a melee weapon |
+| Attribute | Skill        | Description                                             |
+| --------- | ------------ | ------------------------------------------------------- |
+| Strength  | **Chivalry** | Persuade others using honor, engage in honorable combat |
 
 ### Class Item
 
-Every Knight carries a _Honorific Banner_ that bolsters their confidence and allows them to fight with Honor.
-This piece of gear is commonly a physical banner with a coat of arms from the house they are sworn to defend.
+Every Knight wears a _Chivalrous Cape_ that bolsters their confidence and reminds them of what they are fighting for.
+This class item is commonly a cloak or cape adorned with a coat of arms or meaningful sigil, signifying the knight's status.
 
-| Level | Honorific Banner Effect |
-| ----- | ----------------------- |
-| 1     | Honor +0                |
-| 6     | Honor +1                |
-| 12    | Honor +2                |
-| 18    | Honor +3                |
-| 24    | Honor +4                |
+| Level | Chivalrous Cape Effect |
+| ----- | ---------------------- |
+| 1     | Chivalry +0            |
+| 6     | Chivalry +1            |
+| 12    | Chivalry +2            |
+| 18    | Chivalry +3            |
+| 24    | Chivalry +4            |
 
 ### Class Abilities
 
-Knights innately gain the _Honorific Strike_ Bonus Action, allowing them to attack twice in one turn.
+Knights innately gain class abilities that allow them to become masters of melee combat.
 
 ##### ClassAbilityTable_Knight_Innate
 

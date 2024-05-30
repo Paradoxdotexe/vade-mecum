@@ -81,22 +81,22 @@ const VALE_OF_MYTHS: WorldKit = {
       key: 'knight',
       name: 'Knight',
       attributeKey: 'strength',
-      skillKey: 'honor',
-      classItemLabel: 'Honorific Banner',
+      skillKey: 'chivalry',
+      classItemLabel: 'Chivalrous Cape',
       classAbilities: [
+        {
+          key: 'martial_prowess',
+          name: 'Martial Prowess',
+          type: ClassAbilityType.PASSIVE,
+          description: 'You gain advantage equal to your Chivalry on all melee attacks.',
+          requirement: 'INNATE'
+        },
         {
           key: 'honorific_strike',
           name: 'Honorific Strike',
           type: ClassAbilityType.BONUS_ACTION,
-          description: 'You can make a melee attack using Honor.',
+          description: 'You can make an additional melee attack.',
           requirement: 'INNATE'
-        },
-        {
-          key: 'battle_knowledge',
-          name: 'Battle Knowledge',
-          type: ClassAbilityType.PASSIVE,
-          description: 'You can make Insight and Intuition checks using Honor instead.',
-          requirement: 1
         },
         {
           key: 'battle_charge',
@@ -106,58 +106,68 @@ const VALE_OF_MYTHS: WorldKit = {
           requirement: 1
         },
         {
-          key: 'indomitable_spirit',
-          name: 'Indomitable Spirit',
-          type: ClassAbilityType.PASSIVE,
-          description:
-            'While a member of your Adventuring Party is incapacitated, you gain +1 advantage on melee attacks.',
-          requirement: 1
-        },
-        {
           key: 'kings_champion',
           name: "King's Champion",
           type: ClassAbilityType.PASSIVE,
-          description: 'Your initiative roll is automatically doubled.',
-          requirement: 1
+          description: 'You add `6D6` to your initiative roll.',
+          requirement: 1,
+          computed: {
+            initiative: '[base] + 6'
+          }
         },
         {
-          key: 'last_stand',
-          name: 'Last Stand',
+          key: 'domination',
+          name: 'Domination',
           type: ClassAbilityType.PASSIVE,
-          description: 'When you have 12 health points or less, your attack damage is doubled.',
+          description: 'You take only half damage from enemies that are Bloodied.',
           requirement: 6
         },
         {
-          key: 'bulwark',
-          name: 'Bulwark',
+          key: 'righteous_defense',
+          name: 'Righteous Defense',
           type: ClassAbilityType.PASSIVE,
           description:
-            'You take only half damage when hit by an enemy with over half of its health remaining.',
+            'While a member of your Adventuring Party is incapacitated, you double your Chivalry bonus on all melee attacks.',
           requirement: 6
-        },
-        {
-          key: 'formal_decree',
-          name: 'Formal Decree',
-          type: ClassAbilityType.BONUS_ACTION,
-          description:
-            "You can make an Honor check against an enemy's Enemy Bonus to command them to stand down. On a success, they will not attack unless otherwise provoked.",
-          requirement: 12
-        },
-        {
-          key: 'honorable_duel',
-          name: 'Honorable Duel',
-          type: ClassAbilityType.BONUS_ACTION,
-          description:
-            'You can make an Honor check to command an enemy to duel. On a success, they cannot make attacks on characters other than you. The duel ends if they are attacked by anyone other than you.',
-          requirement: 12
         },
         {
           key: 'shield_bash',
           name: 'Shield Bash',
           type: ClassAbilityType.BONUS_ACTION,
           description:
-            'You can make an Honor check to bash an enemy within 5ft. On a success, they are knocked prone.',
+            'You can make a Chivalry check to bash an enemy within 5ft. On a success, they take `2D6` damage and are Stunned for 1 turn.',
+          requirement: 12
+        },
+        {
+          key: 'formal_decree',
+          name: 'Formal Decree',
+          type: ClassAbilityType.MAIN_ACTION,
+          description:
+            "You can make a Chivalry check against an enemy's Enemy Bonus to command them to stand down. On a success, they will not attack unless otherwise provoked.",
+          requirement: 12
+        },
+        {
+          key: 'indomitable_spirit',
+          name: 'Indomitable Spirit',
+          type: ClassAbilityType.PASSIVE,
+          description: 'While you are Bloodied, your attack damage is doubled.',
           requirement: 18
+        },
+        {
+          key: 'honorable_duel',
+          name: 'Honorable Duel',
+          type: ClassAbilityType.BONUS_ACTION,
+          description:
+            'You can make a Chivalry check to command an enemy to duel. On a success, they cannot make attacks on characters other than you. The duel ends if they are attacked by anyone other than you.',
+          requirement: 18
+        },
+        {
+          key: 'righteous_wrath',
+          name: 'Righteous Wrath',
+          type: ClassAbilityType.BONUS_ACTION,
+          description:
+            'Once per rest, you can bolster yourself in combat with the righteousness of your cause. For two turns, your Movement Speed is doubled, all of your attacks instantly succeed, and your attack damage is doubled.',
+          requirement: 24
         }
       ]
     },

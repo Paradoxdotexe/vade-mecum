@@ -63,7 +63,7 @@ const useCharacterComputation = (
     return 0;
   }
 
-  const baseValue = parseComputation(baseComputation, computationVariables);
+  let baseValue = parseComputation(baseComputation, computationVariables);
   computationVariables.base = baseValue;
 
   // parse perk computation if applicable
@@ -71,7 +71,8 @@ const useCharacterComputation = (
   for (const perk of perks) {
     const perkComputation = perk.computed?.[computationKey];
     if (perkComputation) {
-      return parseComputation(perkComputation, computationVariables);
+      baseValue = parseComputation(perkComputation, computationVariables);
+      computationVariables.base = baseValue;
     }
   }
 
@@ -80,7 +81,8 @@ const useCharacterComputation = (
   for (const classAbility of classAbilities) {
     const classAbilityComputation = classAbility.computed?.[computationKey];
     if (classAbilityComputation) {
-      return parseComputation(classAbilityComputation, computationVariables);
+      baseValue = parseComputation(classAbilityComputation, computationVariables);
+      computationVariables.base = baseValue;
     }
   }
 
