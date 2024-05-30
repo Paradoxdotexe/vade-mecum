@@ -147,7 +147,7 @@ Barbarians fight with a deep loyalty for their tribe, putting themselves in betw
 ### Class Item
 
 Every Barbarian wears a _Tribal Marking_ that keeps them rooted and reminds them of who they are fighting for.
-This Tribal Marking is commonly a sacred tattoo, branding, or carving etched directly into their skin.
+This class item is commonly a sacred tattoo, branding, or carving etched directly into their skin.
 
 | Level | Tribal Marking Effect |
 | ----- | --------------------- |
@@ -173,26 +173,27 @@ Monks are disciplined guardians of peace with a deep understanding of physical a
 They prefer to deflect and neutralize attacks rather than initiate them and have learned to channel their inner energy to perform impressive feats.
 Monks are devoted to self-control and harmony, only intervening when the balance of the world is in danger.
 
-| Attribute | Skill   | Description                               |
-| --------- | ------- | ----------------------------------------- |
-| Dexterity | **Chi** | Deescalate conflict, channel inner energy |
+| Attribute | Skill   | Description                                       |
+| --------- | ------- | ------------------------------------------------- |
+| Dexterity | **Chi** | Persuade others using peace, channel inner energy |
 
 ### Class Item
 
 Every Monk carries a _Spiritual Talisman_ that enhances their ability to harness their Chi.
-This Spiritual Talisman most often manifests itself as a bracelet, pendant, or ring of beads that is inscribed with their temple's tenants.
+This class item is commonly a bracelet, pendant, or ring of beads that is inscribed with their temple's tenants.
 
 | Level | Spiritual Talisman Effect        |
 | ----- | -------------------------------- |
-| 1     | Chi +0, maximum of 3 Chi Points  |
-| 6     | Chi +1, maximum of 6 Chi Points  |
-| 12    | Chi +2, maximum of 9 Chi Points  |
-| 18    | Chi +3, maximum of 12 Chi Points |
-| 24    | Chi +4, maximum of 15 Chi Points |
+| 1     | Chi +0, maximum of 2 Chi Points  |
+| 6     | Chi +1, maximum of 4 Chi Points  |
+| 12    | Chi +2, maximum of 6 Chi Points  |
+| 18    | Chi +3, maximum of 8 Chi Points  |
+| 24    | Chi +4, maximum of 10 Chi Points |
 
 ### Class Abilities
 
-Monks have access to a number of Chi Points, or CP, granted by their _Spiritual Talisman_. They also innately gain the _Chi Surge_ Passive, _Chi Deflection_ Reaction, and _Channel Chi_ Rest Activity, allowing them to harness their inner energy to overcome challenges.
+Monks innately gain class abilities that allow them to harness their inner energy to overcome challenges.
+They also have access to a number of Chi Points, or CP, granted by their Spiritual Talisman.
 
 ##### ClassAbilityTable_Monk_Innate
 

@@ -280,7 +280,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Chi Deflection',
           type: ClassAbilityType.REACTION,
           description:
-            'When hit with an attack, roll a Chi check. On a success, you deflect all damage.',
+            'When hit with an attack, roll a Chi check. On a success, you reduce the incoming damage by half.',
           requirement: 'INNATE'
         },
         {
@@ -291,79 +291,79 @@ const VALE_OF_MYTHS: WorldKit = {
           requirement: 'INNATE'
         },
         {
-          key: 'reflexive',
-          name: 'Reflexive',
-          type: ClassAbilityType.PASSIVE,
-          description: 'You gain a second reaction during combat.',
-          requirement: 1
-        },
-        {
           key: 'pacifist_pacing',
           name: 'Pacifist Pacing',
           type: ClassAbilityType.PASSIVE,
           description:
-            'Before you make your first attack in combat, you double your Movement Speed.',
+            'Before you make your first attack in combat, your Movement Speed is doubled.',
           requirement: 1
         },
         {
-          key: 'inspire_zen',
-          name: 'Inspire Zen',
-          type: ClassAbilityType.BONUS_ACTION,
+          key: 'good_karma',
+          name: 'Good Karma',
+          type: ClassAbilityType.PASSIVE,
           description:
-            'You can make a Chi check to calm a group of people. On a success, you gain advantage on Influence checks against them equal to your Chi.',
+            'Before you make your first attack in combat, all attacks against you have -3 disadvantage.',
           requirement: 1
+        },
+        {
+          key: 'spirit_shield',
+          name: 'Spirit Shield',
+          type: ClassAbilityType.REACTION,
+          description:
+            'After using Chi Deflection to deflect an attack, you can spend 1 CP to negate all incoming damage.',
+          requirement: 6
+        },
+        {
+          key: 'reflexive',
+          name: 'Reflexive',
+          type: ClassAbilityType.PASSIVE,
+          description: 'You gain a second Reaction during combat.',
+          requirement: 6
+        },
+        {
+          key: 'return_to_sender',
+          name: 'Return to Sender',
+          type: ClassAbilityType.REACTION,
+          description:
+            'After using Chi Deflection to deflect an attack, you can spend 1 CP to deal the intended damage back on the attacker.',
+          requirement: 12
         },
         {
           key: 'credence',
           name: 'Credence',
           type: ClassAbilityType.PASSIVE,
           description:
-            'If you fail a skill check after using Chi Surge, you regain the lost Chi Point.',
-          requirement: 6
-        },
-        {
-          key: 'karmic_retribution',
-          name: 'Karmic Retribution',
-          type: ClassAbilityType.PASSIVE,
-          description:
-            'Before you make your first attack in combat, all attacks made against you have -2 disadvantage.',
-          requirement: 6
+            'If you roll an unsuccessful skill check with Chi Surge, you regain the lost Chi Point.',
+          requirement: 12
         },
         {
           key: 'spirit_walk',
           name: 'Spirit Walk',
           type: ClassAbilityType.BONUS_ACTION,
           description:
-            'You enter or leave the spirit plane. While in the spirit plane, you become intangible to all characters in the physical plane and the effect of Rough Terrain is nullified.',
-          requirement: 12
+            'You can enter or leave the spirit plane. While in the spirit plane, you become intangible to all characters in the physical plane and the effect of Rough Terrain is nullified.',
+          requirement: 18
         },
         {
-          key: 'healing_hand',
-          name: 'Healing Hand',
+          key: 'chi_restoration',
+          name: 'Chi Restoration',
           type: ClassAbilityType.BONUS_ACTION,
           description:
-            'You can stabilize an incapacitated character using Chi instead of Medicine. On a success, the character is stabilized with `1D6` health points. For each Chi Point spent, increase this healing by `2D6`.',
-          requirement: 12
+            'You can roll a Chi check to stabilize an incapacitated character. On a success, spend 1 CP. The character is stabilized with the same number of HP as you currently have.',
+          requirement: 18
         },
         {
-          key: 'return_to_sender',
-          name: 'Return to Sender',
+          key: 'transcendence',
+          name: 'Transcendence ',
           type: ClassAbilityType.PASSIVE,
           description:
-            'After using Chi Deflection to deflect an attack, you can spend 1 CP to deal the intended damage back on the attacker.',
-          requirement: 18
-        },
-        {
-          key: 'chi_discharge',
-          name: 'Chi Discharge',
-          type: ClassAbilityType.MAIN_ACTION,
-          description:
-            'You can roll a Chi check to release a forceful wave of Chi in all directions. On a success, all characters within 20ft take `2D6` damage. For each Chi Point spent, increase this damage by `2D6`.',
-          requirement: 18
+            "While in the spirit plane, you can make attacks against an enemy's spirit. These attacks deal half damage to the enemy in the physical.",
+          requirement: 24
         }
       ],
       computed: {
-        maxClassPoints: '3 + [classItemBonus] * 3'
+        maxClassPoints: '2 + [classItemBonus] * 2'
       }
     },
     {
