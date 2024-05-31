@@ -193,7 +193,7 @@ This class item is commonly a bracelet, pendant, or ring of beads that is inscri
 ### Class Abilities
 
 Monks innately gain class abilities that allow them to harness their inner energy to overcome challenges.
-They also have access to a number of Chi Points, or CP, granted by their Spiritual Talisman.
+They also have access to a number of Chi Points, or CP, granted by their _Spiritual Talisman_.
 
 ##### ClassAbilityTable_Monk_Innate
 
@@ -280,7 +280,7 @@ Mancers live for the thrill of innovation, risking their life to pave the way fo
 ### Class Item
 
 Every Mancer carries a _Portable Workshop_ that enables them to construct magichanical inventions.
-This Portable Workshop is commonly a small workbench that collapses into a wearable backpack.
+This class item is commonly a small workbench that collapses into a wearable backpack.
 
 | Level | Portable Workshop Effect                      |
 | ----- | --------------------------------------------- |
@@ -292,12 +292,12 @@ This Portable Workshop is commonly a small workbench that collapses into a weara
 
 ### Class Abilities
 
-Mancers have access to a number of Magichanics Points, or MP, granted by their _Portable Workshop_.
-They also innately gain the _Magichanical Experimentation_ Rest Activity, _Arcane Aegis Armor_ Passive, and _Blessed Blunderbuss_ Passive, allowing them to build new magichanical inventions.
+Mancers innately gain class abilities that allow them to build new magichanical inventions.
+They also have access to a number of Magichanics Points, or MP, granted by their _Portable Workshop_.
 
 ##### ClassAbilityTable_Mancer_Innate
 
-Mancers can acquire other class abilities that unlock new magichanical inventions and enhance their use of their existing ones.
+Mancers can acquire other class abilities that unlock new magichanical inventions and enhance their use of existing ones.
 
 ##### ClassAbilityTable_Mancer
 

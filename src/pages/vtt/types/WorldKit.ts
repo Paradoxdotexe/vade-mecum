@@ -682,17 +682,17 @@ const VALE_OF_MYTHS: WorldKit = {
           requirement: 'INNATE'
         },
         {
-          key: 'arcane_aegis_armor',
-          name: 'Arcane Aegis Armor',
-          type: ClassAbilityType.PASSIVE,
-          description: 'During a Rest, you can spend 1 MP to build a set of Arcane Aegis Armor.',
-          requirement: 'INNATE'
-        },
-        {
           key: 'blessed_blunderbuss',
           name: 'Blessed Blunderbuss',
           type: ClassAbilityType.PASSIVE,
-          description: 'During a Rest, you can spend 2 MP to build a Blessed Blunderbuss.',
+          description: 'During a Rest, you can spend 1 MP to build a Blessed Blunderbuss.',
+          requirement: 'INNATE'
+        },
+        {
+          key: 'arcane_aegis_armor',
+          name: 'Arcane Aegis Armor',
+          type: ClassAbilityType.PASSIVE,
+          description: 'During a Rest, you can spend 2 MP to build a set of Arcane Aegis Armor.',
           requirement: 'INNATE'
         },
         {
@@ -703,26 +703,11 @@ const VALE_OF_MYTHS: WorldKit = {
           requirement: 1
         },
         {
-          key: 'hexed_cartridges',
-          name: 'Hexed Cartridges',
+          key: 'recycled_materials',
+          name: 'Recycled Materials',
           type: ClassAbilityType.PASSIVE,
-          description: 'You deal an additional `1D6` of damage when using a magichanical weapon.',
+          description: 'All magichanical inventions cost 1 MP less (to a minimum of 1).',
           requirement: 1
-        },
-        {
-          key: 'mystic_masterkey',
-          name: 'Mystic Masterkey',
-          type: ClassAbilityType.PASSIVE,
-          description:
-            'During a Rest, you can spend 1 MP to build a Mystic Masterkey. You can use this device one time to roll a Magichanics check to open any door. On a success, the door is opened.',
-          requirement: 1
-        },
-        {
-          key: 'mystic_mail_armor',
-          name: 'Mystic Mail Armor',
-          type: ClassAbilityType.PASSIVE,
-          description: 'During a Rest, you can spend 2 MP to build a set of Mystic Mail Armor.',
-          requirement: 6
         },
         {
           key: 'frost_flintlock',
@@ -732,32 +717,46 @@ const VALE_OF_MYTHS: WorldKit = {
           requirement: 6
         },
         {
-          key: 'eldritch_exo_armor',
-          name: 'Eldritch Exo Armor',
+          key: 'mystic_mail_armor',
+          name: 'Mystic Mail Armor',
           type: ClassAbilityType.PASSIVE,
-          description: 'During a Rest, you can spend 3 MP to build a set of Eldritch Exo Armor.',
-          requirement: 12
+          description: 'During a Rest, you can spend 4 MP to build a set of Mystic Mail Armor.',
+          requirement: 6
         },
         {
           key: 'radiant_revolver',
           name: 'Radiant Revolver',
           type: ClassAbilityType.PASSIVE,
-          description: 'During a Rest, you can spend 4 MP to build a Radiant Revolver.',
+          description: 'During a Rest, you can spend 5 MP to build a Radiant Revolver.',
           requirement: 12
         },
         {
-          key: 'recycled_materials',
-          name: 'Recycled Materials',
+          key: 'eldritch_exo_armor',
+          name: 'Eldritch Exo Armor',
           type: ClassAbilityType.PASSIVE,
-          description: 'All magichanical inventions cost 1 MP less.',
-          requirement: 18
+          description: 'During a Rest, you can spend 6 MP to build a set of Eldritch Exo Armor.',
+          requirement: 12
         },
         {
           key: 'resonant_repeater',
           name: 'Resonant Repeater',
           type: ClassAbilityType.PASSIVE,
-          description: 'During a Rest, you can spend 5 MP to build a Resonant Repeater.',
+          description: 'During a Rest, you can spend 7 MP to build a Resonant Repeater.',
           requirement: 18
+        },
+        {
+          key: 'mystic_masterkey',
+          name: 'Mystic Masterkey',
+          type: ClassAbilityType.PASSIVE,
+          description: 'During a Rest, you can spend 8 MP to build a Mystic Masterkey.',
+          requirement: 18
+        },
+        {
+          key: 'hexed_cartridges',
+          name: 'Hexed Cartridges',
+          type: ClassAbilityType.PASSIVE,
+          description: 'Your attack damage is doubled when using a magichanical weapon.',
+          requirement: 24
         }
       ],
       computed: {
@@ -1549,7 +1548,7 @@ const VALE_OF_MYTHS: WorldKit = {
       bonus: {
         attributeKey: 'dexterity',
         skillKey: 'precision',
-        skillBonus: 1
+        skillBonus: 2
       },
       damage: 2,
       notes: '15ft range'
@@ -1715,6 +1714,14 @@ const VALE_OF_MYTHS: WorldKit = {
         skillKey: 'precision',
         skillBonus: 1
       }
+    },
+    {
+      key: 'mystic_masterkey',
+      type: ItemType.TOOL,
+      name: 'Mystic Masterkey',
+      cost: '128 VP',
+      weight: 1 / 4,
+      notes: 'Instantly opens any locked door'
     },
     {
       key: 'adventuring_ration',
