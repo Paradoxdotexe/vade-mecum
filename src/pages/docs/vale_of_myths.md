@@ -203,7 +203,7 @@ Monks can acquire other class abilities that harness their inner energy.
 
 ## Ranger
 
-Rangers are skilled marksmen and adept survivalists, ambushing their target from unseen vantage points when they least expect it.
+Rangers are skilled marksmen and adept survivalists, adapting to their surroundings and ambushing their targets when they least expect it.
 They specialize in navigating enemy territory, setting clever traps, finding high ground, and striking from afar.
 Rangers feels a responsibility towards the natural order of the world and never underestimate their environment in a fight.
 
@@ -214,7 +214,7 @@ Rangers feels a responsibility towards the natural order of the world and never 
 ### Class Item
 
 Every Ranger carries a _Survival Toolkit_ that enables them to wield the natural world as a tool.
-This Survival Toolkit is commonly a small bag holding a range of tools and equipment collected in their training.
+This class item is commonly a small bag holding a range of tools and equipment collected in their training.
 
 | Level | Survival Toolkit Effect |
 | ----- | ----------------------- |
@@ -226,7 +226,7 @@ This Survival Toolkit is commonly a small bag holding a range of tools and equip
 
 ### Class Abilities
 
-Rangers innately gain the _Ranger Training_ Passive and _Ranger Vision_ Passive, giving them the edge when traversing difficult and dangerous conditions.
+Rangers innately gain class abilities that give them the edge when traversing difficult and dangerous conditions.
 
 ##### ClassAbilityTable_Ranger_Innate
 

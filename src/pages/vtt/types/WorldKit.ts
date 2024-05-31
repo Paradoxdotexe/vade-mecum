@@ -253,9 +253,9 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'furious_frenzy',
           name: 'Furious Frenzy',
-          type: ClassAbilityType.MAIN_ACTION,
+          type: ClassAbilityType.BONUS_ACTION,
           description:
-            'Once per rest, you can enter a combat frenzy. For two turns, your Movement Speed is doubled and whenever you make an attack, you make two attacks instead.',
+            'Once per rest, you can enter a combat frenzy. For two turns, all of your attacks instantly succeed and those you hit are Stunned for 1 turn.',
           requirement: 24
         }
       ]
@@ -378,7 +378,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Ranger Training',
           type: ClassAbilityType.PASSIVE,
           description:
-            'You add your Survival bonus to your Movement speed and can traverse natural obstacles using Survival instead of Athletics or Agility.',
+            'You add your Survival bonus to your Movement Speed. When rolling Athletics or Agility to traverse natural obstacles, add your Survival Bonus.',
           requirement: 'INNATE',
           computed: {
             speed: '[base] + [skill.survival]'
@@ -389,60 +389,45 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Ranger Vision',
           type: ClassAbilityType.PASSIVE,
           description:
-            'While you are alert, Stealth checks made by enemies to surprise your Adventuring Party have disadvantage equal to your Survival bonus.',
+            'When rolling Insight, Detection, or Investigation to inspect a natural area, add your Survival Bonus.',
           requirement: 'INNATE'
-        },
-        {
-          key: 'scouting_lens',
-          name: 'Scouting Lens',
-          type: ClassAbilityType.PASSIVE,
-          description:
-            'When rolling Detection or Investigation to scout or search from a vantage point, add your Survival bonus.',
-          requirement: 1
-        },
-        {
-          key: 'field_notes',
-          name: 'Field Notes',
-          type: ClassAbilityType.PASSIVE,
-          description:
-            'When rolling Insight against natural phenomena, such as plants, animals, weather, or terrain, add your Survival bonus.',
-          requirement: 1
-        },
-        {
-          key: 'climbing_kit',
-          name: 'Climbing Kit',
-          type: ClassAbilityType.PASSIVE,
-          description: 'When rolling Athletics to climb, add your Survival bonus.',
-          requirement: 1
-        },
-        {
-          key: 'camouflage',
-          name: 'Camouflage',
-          type: ClassAbilityType.PASSIVE,
-          description: 'When rolling Stealth to avoid being seen, add your Survival bonus.',
-          requirement: 6
-        },
-        {
-          key: 'splintering_arrows',
-          name: 'Splintering Arrows',
-          type: ClassAbilityType.PASSIVE,
-          description: 'The damage inflicted by bows is increased by `1D6`.',
-          requirement: 6
-        },
-        {
-          key: 'tripwire',
-          name: 'Tripwire',
-          type: ClassAbilityType.PASSIVE,
-          description:
-            'When rolling Detection to watch for enemies during a Rest or in a prepared area, add your Survival bonus.',
-          requirement: 12
         },
         {
           key: 'survival_shelter',
           name: 'Survival Shelter',
           type: ClassAbilityType.PASSIVE,
+          description: 'You get the bonus of Simple Lodging when resting in an Adventuring Camp.',
+          requirement: 1
+        },
+        {
+          key: 'trapping_kit',
+          name: 'Trapping Kit',
+          type: ClassAbilityType.REST_ACTIVITY,
           description:
-            'You get the bonus of Simple Lodging when resting in an Adventuring Camp. When rolling Fortitude against natural phenomena, add your Survival bonus.',
+            'You set traps in an area to catch small wild game. Roll a Survival check. On a success, you catch an animal worth two Adventuring Rations.',
+          requirement: 1
+        },
+        {
+          key: 'handcrafted_arrows',
+          name: 'Handcrafted Arrows',
+          type: ClassAbilityType.PASSIVE,
+          description:
+            'When rolling Precision to attack with a bow, add your Survival bonus. Your attack damage with bows is increased by `1D6`.',
+          requirement: 6
+        },
+        {
+          key: 'camouflage',
+          name: 'Camouflage',
+          type: ClassAbilityType.PASSIVE,
+          description:
+            'When you or your Adventuring Party roll Stealth to avoid being detected, add your Survival bonus.',
+          requirement: 6
+        },
+        {
+          key: 'speed_quiver',
+          name: 'Speed Quiver',
+          type: ClassAbilityType.BONUS_ACTION,
+          description: 'You can make an additional ranged attack with a bow.',
           requirement: 12
         },
         {
@@ -450,15 +435,32 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Healing Salve',
           type: ClassAbilityType.PASSIVE,
           description:
-            'When rolling Medicine to stabilize an incapacitated character or heal an injured character during a Rest, add your Survival bonus. Characters healed or stabilized by you gain `2D6` health points.',
+            'When rolling Medicine to stabilize an incapacitated character or heal an injured character during a Rest, add your Survival bonus.',
+          requirement: 12
+        },
+        {
+          key: 'poisoned_arrows',
+          name: 'Poisoned Arrows',
+          type: ClassAbilityType.PASSIVE,
+          description:
+            'When you land an attack with a bow, the target becomes Poisoned. At the start of each turn, they take `2D6` damage.',
           requirement: 18
         },
         {
-          key: 'speed_quiver',
-          name: 'Speed Quiver',
-          type: ClassAbilityType.PASSIVE,
-          description: 'You can make a ranged attack with a bow using Survival.',
+          key: 'smoke_bomb',
+          name: 'Smoke Bomb',
+          type: ClassAbilityType.BONUS_ACTION,
+          description:
+            'You can throw a smoke bomb that effects a 20ft x 20ft area within 30ft. For 1 turn, this area becomes Rough Terrain, blocks all line of sight, and deals `2D6` damage per turn.',
           requirement: 18
+        },
+        {
+          key: 'hunters_tonic',
+          name: "Hunter's Tonic",
+          type: ClassAbilityType.BONUS_ACTION,
+          description:
+            'Once per rest, you can consume a special tonic to enhance your combat ability. For two turns, your Movement Speed is doubled and whenever you make an attack, you make two attacks instead.',
+          requirement: 24
         }
       ]
     },
@@ -1022,7 +1024,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Fortress of Thorns',
           type: ClassAbilityType.REST_ACTIVITY,
           description:
-            'You call forth nature to construct a fortress of thorns to rest in. You and your companions get the bonus of Simple Lodging and gain 1 Satiation. All surprise attacks instantly fail. ',
+            'You call forth nature to construct a fortress of thorns to rest in. You and your companions get the bonus of Simple Lodging and gain 1 Satiation. All surprise attacks instantly fail.',
           requirement: 1
         },
         {
