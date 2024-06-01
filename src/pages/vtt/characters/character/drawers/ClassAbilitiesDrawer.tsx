@@ -70,7 +70,7 @@ export const ClassAbilitiesDrawer: React.FC<ClassAbilitiesDrawerProps> = props =
         setSearchQuery('');
         props.onClose?.();
       }}
-      width={900}
+      width={950}
       header="Class Abilities"
     >
       <div className="drawer__content">

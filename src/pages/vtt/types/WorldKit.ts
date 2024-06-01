@@ -363,7 +363,7 @@ const VALE_OF_MYTHS: WorldKit = {
         }
       ],
       computed: {
-        maxClassPoints: '2 + [classItemBonus] * 2'
+        maxClassPoints: '(1 + [classItemBonus]) * 2'
       }
     },
     {
@@ -475,195 +475,99 @@ const VALE_OF_MYTHS: WorldKit = {
           key: 'study_magic',
           name: 'Study Magic',
           type: ClassAbilityType.REST_ACTIVITY,
-          description: 'You study magical theory and regain all of your missing Magic Points.',
-          requirement: 'INNATE'
-        },
-        {
-          key: 'prestidigitation',
-          name: 'Prestidigitation',
-          type: ClassAbilityType.PASSIVE,
           description:
-            'You unlock all spells from the School of Prestidigitation, giving the ability to cast minor illusions and tricks.',
+            'You study and practice your magic, regaining all of your missing Magic Points.',
           requirement: 'INNATE'
         },
         {
-          key: 'murmur',
-          name: 'Murmur',
+          key: 'illusionist',
+          name: 'Illusionist',
           type: ClassAbilityType.BONUS_ACTION,
           description:
-            "You can create a small sensory effect of an image, sound, or smell, such as the image of a tattoo, the sound of a barking dog, or the smell of oil. Characters can roll an Insight check against your Magic bonus to determine it's legitimacy.",
+            'You can roll a Magic check to cast Murmur or Mimic. With Murmur, you can create a small sensory effect of an image, sound, or smell. With Mimic, you can spend 1 MP to disguise you or another character as someone else for up to an hour.',
           requirement: 'INNATE'
         },
         {
-          key: 'voices',
-          name: 'Voices',
-          type: ClassAbilityType.BONUS_ACTION,
+          key: 'pyromancer',
+          name: 'Pyromancer',
+          type: ClassAbilityType.MAIN_ACTION,
           description:
-            "You can spend 1 MP to create a voice in someone's head that speaks one desired sentence. Characters can roll an Intuition check against your Magic bonus to determine it's legitimacy.",
+            'You can roll a Magic check to cast Fireball or Inferno. With Fireball, you can spend 1 MP to hit an enemy within 30ft with a ball of fire that deals `3D6` damage. With Inferno, you can spend 2 MP to fill a 15ft x 15ft area within 30ft with fire, dealing `3D6` damage to everyone inside.',
           requirement: 'INNATE'
-        },
-        {
-          key: 'mimic',
-          name: 'Mimic',
-          type: ClassAbilityType.BONUS_ACTION,
-          description:
-            "You can spend 2 MP to disguise you or another character as someone else until your next Rest. Characters can roll an Insight check against your Magic bonus to determine it's legitimacy.",
-          requirement: 'INNATE'
-        },
-        {
-          key: 'silent_mage',
-          name: 'Silent Mage',
-          type: ClassAbilityType.PASSIVE,
-          description: 'When casting a spell, you can roll a Stealth check to hide your casting.',
-          requirement: 1
         },
         {
           key: 'magical_eminence',
           name: 'Magical Eminence',
           type: ClassAbilityType.PASSIVE,
           description:
-            'Allies within 15ft of you have +1 advantage on attacks and deal an additional `1D6` damage.',
+            'All allies within 15ft of you get +1 advantage on attacks and deal an additional `1D6` damage.',
           requirement: 1
-        },
-        {
-          key: 'abjuration',
-          name: 'Abjuration',
-          type: ClassAbilityType.PASSIVE,
-          description:
-            'You unlock all spells from the School of Abjuration, giving the ability to defend yourself and your party.',
-          requirement: 1
-        },
-        {
-          key: 'mage_armor',
-          name: 'Mage Armor',
-          type: ClassAbilityType.BONUS_ACTION,
-          description:
-            'You can spend 1 to 4 MP to surround you or another character in magical armor until your next Rest. Spend 1 MP for Light Armor, 2 MP for Medium Armor, and 4 MP for Heavy Armor.',
-          requirement: 'abjuration'
-        },
-        {
-          key: 'magic_shield',
-          name: 'Magic Shield',
-          type: ClassAbilityType.REACTION,
-          description:
-            'When you or another character is hit by an attack, you can roll a Magic check to shield them from the hit. On a success, you reduce the damage by `2D6` for each MP spent.',
-          requirement: 'abjuration'
         },
         {
           key: 'magical_discharge',
           name: 'Magical Discharge',
           type: ClassAbilityType.PASSIVE,
           description:
-            'After consuming your last Magic Point, you can discharge your residual magic energy into a single attack. This attack deals an additional `1D6` for each Magic Point spent since your last Rest.',
+            'After consuming your last Magic Point, you can discharge your residual magic energy into a single attack. This attack deals an additional `1D6` damage for each Magic Point spent since your last Rest.',
+          requirement: 1
+        },
+        {
+          key: 'geomancer',
+          name: 'Geomancer',
+          type: ClassAbilityType.MAIN_ACTION,
+          description:
+            'You can roll a Magic check to cast Quicksand or Earthquake. With Quicksand, you can spend 2 MP to entrap a target within 30ft, dealing `6D6` damage and knocking them Prone. With Earthquake, you can spend 3 MP to shake the ground in a 15ft x 15ft area within 30ft, causing all enemies within the area to become Stunned for 1 turn.',
           requirement: 6
-        },
-        {
-          key: 'elementalism',
-          name: 'Elementalism',
-          type: ClassAbilityType.PASSIVE,
-          description:
-            'You unlock all spells from the School of Elementalism, giving the ability to wield the natural elements.',
-          requirement: 6
-        },
-        {
-          key: 'wall_of_fire',
-          name: 'Wall of Fire',
-          type: ClassAbilityType.MAIN_ACTION,
-          description:
-            'You can roll a Magic check to create a wall of fire that covers a 5ft x 30ft area within 30ft until the end of combat. On a success, spend 3 MP. The wall blocks line of sight for ranged attacks and any character hit by the fire must make a Fortitude check against your Magic bonus, taking `3D6` damage on a success and `6D6` damage otherwise.',
-          requirement: 'elementalism'
-        },
-        {
-          key: 'tidal_wave',
-          name: 'Tidal Wave',
-          type: ClassAbilityType.MAIN_ACTION,
-          description:
-            'You can roll a Magic check to create a tidal wave of water that hits a 15ft x 30ft area within 30ft. On a success, spend 4 MP. Any character hit by the wave must make a Fortitude check against your Magic bonus, taking `2D6` damage on a success and `4D6` damage otherwise.',
-          requirement: 'elementalism'
-        },
-        {
-          key: 'sink_hole',
-          name: 'Sink Hole',
-          type: ClassAbilityType.MAIN_ACTION,
-          description:
-            'You can roll a Magic check to crumble the earth in a 30ft x 30ft area within 30ft. On a success, spend 6 MP. All characters caught within the area must make an Agility check against your Magic bonus, taking `3D6` damage on a success and `6D6` damage otherwise. The area becomes Rough Terrain until the end of combat.',
-          requirement: 'elementalism'
-        },
-        {
-          key: 'magical_recharge',
-          name: 'Magical Recharge',
-          type: ClassAbilityType.PASSIVE,
-          description:
-            'Once per Rest, you can recharge your magic by focusing your remaining Magic Points. You regain `1D6` Magic Points for each Magic Point remaining.',
-          requirement: 12
-        },
-        {
-          key: 'necromancy',
-          name: 'Necromancy',
-          type: ClassAbilityType.PASSIVE,
-          description:
-            'You unlock all spells from the School of Necromancy, giving the ability to wield vitality and death.',
-          requirement: 12
-        },
-        {
-          key: 'necrotic_touch',
-          name: 'Necrotic Touch',
-          type: ClassAbilityType.MAIN_ACTION,
-          description:
-            'You can roll a Magic check to steal the life force from an enemy within 5ft. On a success, spend 3 MP. The enemy takes `3D6` damage.',
-          requirement: 'necromancy'
-        },
-        {
-          key: 'life_steal',
-          name: 'Life Steal',
-          type: ClassAbilityType.MAIN_ACTION,
-          description:
-            'You can roll a Magic check to steal the life force from an enemy within 5ft. On a success, spend 6 MP. The enemy takes `4D6` damage and you heal `2D6` health points.',
-          requirement: 'necromancy'
-        },
-        {
-          key: 'revival',
-          name: 'Revival',
-          type: ClassAbilityType.MAIN_ACTION,
-          description:
-            'You can spend 12 MP to revive a character that has been dead for less than 24 hours. The revived character has one attribute permanently reduced by 1.',
-          requirement: 'necromancy'
         },
         {
           key: 'war_mage',
           name: 'War Mage',
           type: ClassAbilityType.PASSIVE,
+          description: 'You can cast any spell that requires a Main Action as a Bonus Action.',
+          requirement: 6
+        },
+        {
+          key: 'protectorate',
+          name: 'Protectorate',
+          type: ClassAbilityType.MAIN_ACTION,
           description:
-            'You can cast any spell that requires a Main Action as a Bonus Action with -1 disadvantage.',
+            'You can roll a Magic check to cast Magic Armor or Shield Ward. With Magic Armor, you can spend 3 MP to surround a character with magical heavy armor for 1 minute (this stacks with physical armor). With Shield Ward, you can spend 4 MP to shield you and your allies from all damage for 1 turn.',
+          requirement: 12
+        },
+        {
+          key: 'magic_shield',
+          name: 'Magic Shield',
+          type: ClassAbilityType.REACTION,
+          description:
+            'When you or another character is hit by an attack, you can spend 1 MP to reduce the incoming damage by `3D6`.',
+          requirement: 12
+        },
+        {
+          key: 'necromancer',
+          name: 'Necromancer',
+          type: ClassAbilityType.MAIN_ACTION,
+          description:
+            'You can roll a Magic check to cast Life Steal or Resurrection. With Life Steal, you can spend 4 MP to sap the life force from a target within 10ft. The target takes `6D6` damage and you heal `6D6` health points. With Resurrection, you can spend 5 MP and 64 Valerian Pieces to resurrect a character that has been dead for less than 24 hours. The resurrected character returns to life with 1 HP.',
           requirement: 18
         },
         {
-          key: 'chronomancy',
-          name: 'Chronomancy',
+          key: 'magical_recharge',
+          name: 'Magical Recharge',
           type: ClassAbilityType.PASSIVE,
-          description:
-            'You unlock all spells from the School of Chronomancy, giving the ability to wield the flow of time.',
+          description: 'Once per Rest, you can recharge half of your maximum Magic Points.',
           requirement: 18
         },
         {
-          key: 'time_slow',
-          name: 'Time Slow',
+          key: 'chronomancer',
+          name: 'Chronomancer',
           type: ClassAbilityType.MAIN_ACTION,
           description:
-            'You can roll a Magic check to slows the flow of time within a 120ft radius for 2 turns. On a success, spend 3 MP. For 2 turns, the Movement Speed of all enemies is reduced by half and all of their skill checks have -1 disadvantage.',
-          requirement: 'chronomancy'
-        },
-        {
-          key: 'time_stop',
-          name: 'Time Stop',
-          type: ClassAbilityType.MAIN_ACTION,
-          description:
-            'You can roll a Magic check to stop the flow of time within a 120ft radius. On a success, spend 6 MP. All enemies are frozen in time for 1 turn. All attacks made against them have +3 advantage.',
-          requirement: 'chronomancy'
+            'You can roll a Magic check to cast Time Slow or Time Stop. With Time Slow, you can spend 5 MP to slow time for 2 turns. While time is slowed, all allies gain an additional Main Action and double their Movement Speed. With Time Stop, you can spend 6 MP to stop time for 2 turns. While time is stopped, all enemies forgo movement, actions, or reactions and attacks against them have +3 advantage.',
+          requirement: 24
         }
       ],
       computed: {
-        maxClassPoints: '[level]'
+        maxClassPoints: '(1 + [classItemBonus]) * 5'
       }
     },
     {
@@ -1196,7 +1100,7 @@ const VALE_OF_MYTHS: WorldKit = {
         }
       ],
       computed: {
-        maxClassPoints: '([classItemBonus] + 1) * 2'
+        maxClassPoints: '(1 + [classItemBonus]) * 2'
       }
     },
     {

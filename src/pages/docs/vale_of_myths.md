@@ -247,23 +247,24 @@ Mages are on a constant pursuit for knowledge, devoting themselves to the discov
 ### Class Item
 
 Every Mage carries a _Magical Channel_ that empowers them to wield magical energy.
-This Magical Channel is commonly a staff, book, wand, or ring imbued with knowledge or magic itself.
+This class item is commonly a staff, book, wand, or ring imbued with knowledge or magic itself.
 
-| Level | Magical Channel Effect |
-| ----- | ---------------------- |
-| 1     | Magic +0               |
-| 6     | Magic +1               |
-| 12    | Magic +2               |
-| 18    | Magic +3               |
-| 24    | Magic +4               |
+| Level | Magical Channel Effect               |
+| ----- | ------------------------------------ |
+| 1     | Magic +0, maximum of 5 Magic Points  |
+| 6     | Magic +1, maximum of 10 Magic Points |
+| 12    | Magic +2, maximum of 15 Magic Points |
+| 18    | Magic +3, maximum of 20 Magic Points |
+| 24    | Magic +4, maximum of 25 Magic Points |
 
 ### Class Abilities
 
-Mages have access to a number of Magic Points, or MP, equal to their level. They also innately gain the _Study Magic_ Rest Activity, _Prestidigitation_ Passive, and all spells granted by the _Prestidigitation_ Passive, allowing them to wield magical forces against their opponents.
+Mages innately gain class abilities that allow them to wield magical forces against their opponents.
+They also have access to a number of Magic Points, or MP, granted by their _Magical Channel_.
 
 ##### ClassAbilityTable_Mage_Innate
 
-Mages can acquire other class abilities that unlock new schools of magic and enhance their control over magic.
+Mages can acquire other class abilities that unlock new forms of magic and enhance their control over existing magic.
 
 ##### ClassAbilityTable_Mage
 
