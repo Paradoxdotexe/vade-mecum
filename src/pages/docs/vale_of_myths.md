@@ -383,20 +383,20 @@ Sages are often wise beyond their years, seeking to understand the deeper truths
 ### Class Item
 
 Every Sage carries a _Ritual Totem_ that infuses their ritual circles with nature's essence.
-This Ritual Totem is commonly a sacred drum, book, or pole that has been inscribed with nature's teachings.
+This class item is commonly a sacred drum, book, or rainstick that has been inscribed with nature's teachings.
 
 | Level | Ritual Totem Effect                    |
 | ----- | -------------------------------------- |
 | 1     | Nature +1, maximum of 2 Nature Points  |
 | 6     | Nature +2, maximum of 4 Nature Points  |
-| 12    | Nature +3, maximum of 5 Nature Points  |
-| 18    | Nature +4, maximum of 6 Nature Points  |
+| 12    | Nature +3, maximum of 6 Nature Points  |
+| 18    | Nature +4, maximum of 8 Nature Points  |
 | 24    | Nature +5, maximum of 10 Nature Points |
 
 ### Class Abilities
 
-Sages have access to a number of Nature Points, or NP, granted by their `Ritual Totem`.
-They also innately gain the _Ritual of Guidance_ Rest Activity and all class abilities granted by the _Ritual of Guidance_ Rest Activity, allowing them to wield nature's influence to their advantage.
+Sages innately gain class abilities that allow them to bend nature's energy to their cause.
+They also have access to a number of Nature Points, or NP, granted by their _Ritual Totem_.
 
 ##### ClassAbilityTable_Sage_Innate
 
