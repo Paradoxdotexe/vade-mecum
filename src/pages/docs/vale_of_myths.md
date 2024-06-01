@@ -88,18 +88,18 @@ Halfling characters innately gain the `Halfling Hospitality` Perk.
 
 Adventurers in _Vale of Myths_ have ten classes to choose from.
 
-| Focus        | Class         | Description                                                                   |
-| ------------ | ------------- | ----------------------------------------------------------------------------- |
-| Strength     | **Knight**    | A stalwart force on the battlefield that fights for honor and glory.          |
-| Strength     | **Barbarian** | A fierce and frightening warrior driven by pure rage.                         |
-| Dexterity    | **Ranger**    | A master of range weapons and the natural environment.                        |
-| Dexterity    | **Monk**      | A disciple of peace who deflects rather than attacks.                         |
-| Intelligence | **Mage**      | A student of magic who bends the forces of nature to their will.              |
-| Intelligence | **Mancer**    | A tinkerer that combines metal and magic to harness the arcane forces.        |
-| Charisma     | **Herald**    | A messenger that influences people towards diplomacy and away from battle.    |
-| Charisma     | **Enchanter** | A master of manipulation that can bend others unknowingly to their will.      |
-| Perception   | **Sage**      | A practitioner of the natural arts that can call upon nature through rituals. |
-| Perception   | **Druid**     | A protector of nature who harnesses the earth and its creatures.              |
+| Focus        | Class         | Description                                                                     |
+| ------------ | ------------- | ------------------------------------------------------------------------------- |
+| Strength     | **Knight**    | A stalwart force on the battlefield that fights for honor and glory.            |
+| Strength     | **Barbarian** | A fierce and frightening warrior driven by pure rage.                           |
+| Dexterity    | **Ranger**    | A master of range weapons and the natural environment.                          |
+| Dexterity    | **Monk**      | A disciple of peace who deflects rather than attacks.                           |
+| Intelligence | **Mage**      | A student of magic who bends the forces of nature to their will.                |
+| Intelligence | **Mancer**    | A tinkerer that combines metal and magic to harness the arcane forces.          |
+| Charisma     | **Herald**    | A messenger that influences people towards diplomacy and away from battle.      |
+| Charisma     | **Enchanter** | A master of manipulation that can bend others unknowingly to their will.        |
+| Perception   | **Sage**      | A practitioner of the natural arts that can call upon nature through rituals.   |
+| Perception   | **Druid**     | A naturalist with the primal power to call upon nature's most dangerous beasts. |
 
 ## Knight
 
@@ -416,7 +416,7 @@ Druids serve as the bridge between the untamed wilderness and the civilized worl
 ### Class Item
 
 Every Druid is accompanied by a _Tamed Beast_ that is a fiercely loyal friend and protector.
-This Tamed Beast can be a small creature, such as a rat or spider, a medium creature, such as a hawk or snake, or a large creature, such as a wolf or panther.
+This class item can be a small creature, such as a rat or tarantula, a medium creature, such as a hawk or snake, or a large creature, such as a wolf or boar.
 
 | Level | Tamed Beast Effect                  |
 | ----- | ----------------------------------- |
@@ -428,12 +428,12 @@ This Tamed Beast can be a small creature, such as a rat or spider, a medium crea
 
 ### Class Abilities
 
-Druids have access to a number of Beast Points, or BP, granted by their _Tamed Beast_.
-They also innately gain the _Foster Companionship_ Rest Activity, _Summon Tamed Beast_ Bonus Action, and _Swarm of Bees_ Main Action, allowing them to call natural beasts to their aid.
+Druids innately gain class abilities that allow them to call natural beasts to their aid.
+They also have access to a number of Beast Points, or BP, granted by their _Tamed Beast_.
 
 ##### ClassAbilityTable_Druid_Innate
 
-Druids can acquire other class abilities that unlock new untamed beasts to call upon and enhance their cooperation with natural beasts.
+Druids can acquire other class abilities that unlock new untamed beasts to call upon and enhance their cooperation with their _Tamed Beast_.
 
 ##### ClassAbilityTable_Druid
 

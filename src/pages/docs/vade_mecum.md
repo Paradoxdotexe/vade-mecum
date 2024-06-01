@@ -49,18 +49,18 @@ We will highlight some of these kits below, but their complete documentation can
 
 This high fantasy kit is set in a kingdom-controlled dominion where characters will face the dangers of evil kings, dark magic users, and mythical monsters.
 
-| Focus        | Class         | Description                                                                   |
-| ------------ | ------------- | ----------------------------------------------------------------------------- |
-| Strength     | **Knight**    | A stalwart force on the battlefield that fights for honor and glory.          |
-| Strength     | **Barbarian** | A fierce and frightening warrior driven by pure rage.                         |
-| Dexterity    | **Monk**      | A disciple of peace who deflects rather than attacks.                         |
-| Dexterity    | **Ranger**    | A master of range weapons and the natural environment.                        |
-| Intelligence | **Mage**      | A student of magic who bends the forces of nature to their will.              |
-| Intelligence | **Mancer**    | A tinkerer that combines metal and magic to harness the arcane forces.        |
-| Charisma     | **Herald**    | A messenger that influences people towards diplomacy and away from battle.    |
-| Charisma     | **Enchanter** | A master of manipulation that can bend others unknowingly to their will.      |
-| Perception   | **Sage**      | A practitioner of the natural arts that can call upon nature through rituals. |
-| Perception   | **Druid**     | A protector of nature who harnesses the earth and its creatures.              |
+| Focus        | Class         | Description                                                                     |
+| ------------ | ------------- | ------------------------------------------------------------------------------- |
+| Strength     | **Knight**    | A stalwart force on the battlefield that fights for honor and glory.            |
+| Strength     | **Barbarian** | A fierce and frightening warrior driven by pure rage.                           |
+| Dexterity    | **Monk**      | A disciple of peace who deflects rather than attacks.                           |
+| Dexterity    | **Ranger**    | A master of range weapons and the natural environment.                          |
+| Intelligence | **Mage**      | A student of magic who bends the forces of nature to their will.                |
+| Intelligence | **Mancer**    | A tinkerer that combines metal and magic to harness the arcane forces.          |
+| Charisma     | **Herald**    | A messenger that influences people towards diplomacy and away from battle.      |
+| Charisma     | **Enchanter** | A master of manipulation that can bend others unknowingly to their will.        |
+| Perception   | **Sage**      | A practitioner of the natural arts that can call upon nature through rituals.   |
+| Perception   | **Druid**     | A naturalist with the primal power to call upon nature's most dangerous beasts. |
 
 # 1. Characters
 

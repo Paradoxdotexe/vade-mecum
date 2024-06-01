@@ -280,7 +280,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Chi Deflection',
           type: ClassAbilityType.REACTION,
           description:
-            'When hit with an attack, roll a Chi check. On a success, you reduce the incoming damage by half.',
+            'When you are hit by an attack, you can roll a Chi check. On a success, you reduce the incoming damage by half.',
           requirement: 'INNATE'
         },
         {
@@ -1215,19 +1215,19 @@ const VALE_OF_MYTHS: WorldKit = {
           requirement: 'INNATE'
         },
         {
-          key: 'summon_tamed_beast',
-          name: 'Summon Tamed Beast',
+          key: 'command_tamed_beast',
+          name: 'Command Tamed Beast',
           type: ClassAbilityType.BONUS_ACTION,
           description:
-            'You can roll a Beast check to summon your Tamed Beast to attack a target or perform an object interaction within range. Small beasts have a range of 60ft and deal `1D6` damage. Medium beasts have a range of 30ft and deal `2D6` damage. Large beasts have a range of 15ft and deal `3D6` damage.',
+            'You can roll a Beast check to command your Tamed Beast to attack a target or perform an object interaction within range. Small beasts have a range of 60ft and deal `1D6` damage. Medium beasts have a range of 30ft and deal `2D6` damage. Large beasts have a range of 15ft and deal `3D6` damage.',
           requirement: 'INNATE'
         },
         {
-          key: 'swarm_of_bees',
-          name: 'Swarm of Bees',
+          key: 'summon_eagle',
+          name: 'Summon Eagle',
           type: ClassAbilityType.MAIN_ACTION,
           description:
-            'You can roll a Beast check to summon a swarm of bees to attack a target within 120ft. On a success, spend 1 BP. The target takes `2D6` damage.',
+            'You can roll a Beast check to summon an eagle to attack a target within 120ft. On a success, spend 1 BP. The target takes `4D6` damage.',
           requirement: 'INNATE'
         },
         {
@@ -1239,68 +1239,68 @@ const VALE_OF_MYTHS: WorldKit = {
           requirement: 1
         },
         {
-          key: 'beast_protection',
-          name: 'Beast Protection',
+          key: 'guard_beast',
+          name: 'Guard Beast',
           type: ClassAbilityType.REACTION,
           description:
-            'When you are targeted with a melee attack, you can roll a Beast check to have your Tamed Beast protect you. On a success, incoming damage is reduced by `1D6`.',
+            'When you are hit by a melee attack, you can roll a Beast check to have your Tamed Beast protect you. On a success, you reduce the incoming damage by half.',
           requirement: 1
         },
         {
-          key: 'vengeful_eagle',
-          name: 'Vengeful Eagle',
+          key: 'summon_wolves',
+          name: 'Summon Wolves',
           type: ClassAbilityType.MAIN_ACTION,
           description:
-            'You can roll a Beast check to summon an eagle to attack a target within 90ft. On a success, spend 2 BP. The target takes `5D6` damage.',
-          requirement: 1
-        },
-        {
-          key: 'giant_companion',
-          name: 'Giant Companion',
-          type: ClassAbilityType.BONUS_ACTION,
-          description:
-            'You can roll a Beast check to transform your Tamed Beast into a giant version of itself. On a success, spend 1 BP. For 1 turn, your Tamed Beast is enlarged and deals double damage.',
-          requirement: 6
-        },
-        {
-          key: 'charging_bear',
-          name: 'Charging Bear',
-          type: ClassAbilityType.MAIN_ACTION,
-          description:
-            '	You can roll a Beast check to summon a bear to attack a target within 60ft. On a success, spend 3 BP. The target takes `6D6` damage and is knocked prone.',
+            'You can roll a Beast check to summon a pack of wolves to attack up to 3 targets within 60ft. On a success, spend 2 BP. Each target takes `3D6` damage.',
           requirement: 6
         },
         {
           key: 'beast_shape',
           name: 'Beast Shape',
-          type: ClassAbilityType.BONUS_ACTION,
+          type: ClassAbilityType.MAIN_ACTION,
           description:
-            'You can spend 1 BP to transform into the same form as your Tamed Beast for 1 hour. While transformed, you share the same speed and attack damage as your Tamed Beast.',
+            'You can spend 1 BP to transform into the same form as your Tamed Beast for up to 1 hour. While transformed, you share the same speed and attack damage as your Tamed Beast.',
+          requirement: 6
+        },
+        {
+          key: 'summon_bear',
+          name: 'Summon Bear',
+          type: ClassAbilityType.MAIN_ACTION,
+          description:
+            'You can roll a Beast check to summon a bear to attack a target within 30ft. On a success, spend 3 BP. The target takes `12D6` damage and becomes Wounded.',
           requirement: 12
         },
         {
-          key: 'pack_of_wolves',
-          name: 'Pack of Wolves',
+          key: 'elder_beast',
+          name: 'Elder Beast',
+          type: ClassAbilityType.PASSIVE,
+          description:
+            'Your Tamed Beast grows into a giant version of itself. It now deals twice the amount of damage.',
+          requirement: 12
+        },
+        {
+          key: 'summon_panther',
+          name: 'Summon Panther',
           type: ClassAbilityType.MAIN_ACTION,
           description:
-            ' You can roll a Beast check to summon a pack of 3 wolves to attack up to 3 targets within 60ft. On a success, spend 3 BP. Each wolf deals `3D6` damage.',
-          requirement: 12
+            'You can roll a Beast check to summon a panther to attack a target within 60ft. On a success, spend 4 BP. The target takes `16D6` damage and becomes Stunned for 1 turn.',
+          requirement: 18
         },
         {
           key: 'enhanced_beast_shape',
           name: 'Enhanced Beast Shape',
           type: ClassAbilityType.PASSIVE,
           description:
-            'When using Beast Shape, you can transform into any small, medium, or large creature and the transformation lasts for 4 hours.',
+            'When using Beast Shape, you can transform into any small, medium, or large creature and the transformation lasts up to 24 hours.',
           requirement: 18
         },
         {
-          key: 'prideful_lion',
-          name: 'Prideful Lion',
+          key: 'summon_behemoth',
+          name: 'Summon Behemoth',
           type: ClassAbilityType.MAIN_ACTION,
           description:
-            'You can roll a Beast check to summon a lion to attack a target within 30ft. On a success, spend 4 BP. The target takes `10D6` damage is a stunned for 1 turn.',
-          requirement: 18
+            'You can roll a Beast check to summon a behemoth to attack a 15ft x 15ft area within 30ft. On a success, spend 5 BP. All targets within the area takes `10D6` damage and are knocked Prone.',
+          requirement: 24
         }
       ],
       computed: {
