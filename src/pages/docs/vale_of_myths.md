@@ -118,11 +118,11 @@ This class item is commonly a cloak or cape adorned with a coat of arms or meani
 
 | Level | Chivalrous Cape Effect |
 | ----- | ---------------------- |
-| 1     | Chivalry +0            |
-| 6     | Chivalry +1            |
-| 12    | Chivalry +2            |
-| 18    | Chivalry +3            |
-| 24    | Chivalry +4            |
+| 1     | Chivalry +1            |
+| 6     | Chivalry +2            |
+| 12    | Chivalry +3            |
+| 18    | Chivalry +4            |
+| 24    | Chivalry +5            |
 
 ### Class Abilities
 
@@ -151,11 +151,11 @@ This class item is commonly a sacred tattoo, branding, or carving etched directl
 
 | Level | Tribal Marking Effect |
 | ----- | --------------------- |
-| 1     | Rage +0               |
-| 6     | Rage +1               |
-| 12    | Rage +2               |
-| 18    | Rage +3               |
-| 24    | Rage +4               |
+| 1     | Rage +1               |
+| 6     | Rage +2               |
+| 12    | Rage +3               |
+| 18    | Rage +4               |
+| 24    | Rage +5               |
 
 ### Class Abilities
 
@@ -184,11 +184,11 @@ This class item is commonly a bracelet, pendant, or ring of beads that is inscri
 
 | Level | Spiritual Talisman Effect        |
 | ----- | -------------------------------- |
-| 1     | Chi +0, maximum of 2 Chi Points  |
-| 6     | Chi +1, maximum of 4 Chi Points  |
-| 12    | Chi +2, maximum of 6 Chi Points  |
-| 18    | Chi +3, maximum of 8 Chi Points  |
-| 24    | Chi +4, maximum of 10 Chi Points |
+| 1     | Chi +1, maximum of 2 Chi Points  |
+| 6     | Chi +2, maximum of 4 Chi Points  |
+| 12    | Chi +3, maximum of 6 Chi Points  |
+| 18    | Chi +4, maximum of 8 Chi Points  |
+| 24    | Chi +5, maximum of 10 Chi Points |
 
 ### Class Abilities
 
@@ -218,11 +218,11 @@ This class item is commonly a small bag holding a range of tools and equipment c
 
 | Level | Survival Toolkit Effect |
 | ----- | ----------------------- |
-| 1     | Survival +0             |
-| 6     | Survival +1             |
-| 12    | Survival +2             |
-| 18    | Survival +3             |
-| 24    | Survival +4             |
+| 1     | Survival +1             |
+| 6     | Survival +2             |
+| 12    | Survival +3             |
+| 18    | Survival +4             |
+| 24    | Survival +5             |
 
 ### Class Abilities
 
@@ -251,11 +251,11 @@ This class item is commonly a staff, book, wand, or ring imbued with knowledge o
 
 | Level | Magical Channel Effect               |
 | ----- | ------------------------------------ |
-| 1     | Magic +0, maximum of 5 Magic Points  |
-| 6     | Magic +1, maximum of 10 Magic Points |
-| 12    | Magic +2, maximum of 15 Magic Points |
-| 18    | Magic +3, maximum of 20 Magic Points |
-| 24    | Magic +4, maximum of 25 Magic Points |
+| 1     | Magic +1, maximum of 5 Magic Points  |
+| 6     | Magic +2, maximum of 10 Magic Points |
+| 12    | Magic +3, maximum of 15 Magic Points |
+| 18    | Magic +4, maximum of 20 Magic Points |
+| 24    | Magic +5, maximum of 25 Magic Points |
 
 ### Class Abilities
 
@@ -285,11 +285,11 @@ This class item is commonly a small workbench that collapses into a wearable bac
 
 | Level | Portable Workshop Effect                      |
 | ----- | --------------------------------------------- |
-| 1     | Smithing +0, maximum of 2 Magichanics Points  |
-| 6     | Smithing +1, maximum of 4 Magichanics Points  |
-| 12    | Smithing +2, maximum of 6 Magichanics Points  |
-| 18    | Smithing +3, maximum of 8 Magichanics Points  |
-| 24    | Smithing +4, maximum of 10 Magichanics Points |
+| 1     | Smithing +1, maximum of 2 Magichanics Points  |
+| 6     | Smithing +2, maximum of 4 Magichanics Points  |
+| 12    | Smithing +3, maximum of 6 Magichanics Points  |
+| 18    | Smithing +4, maximum of 8 Magichanics Points  |
+| 24    | Smithing +5, maximum of 10 Magichanics Points |
 
 ### Class Abilities
 
@@ -319,11 +319,11 @@ This Beacon of Diplomacy is commonly an instrument, such as a flute or trumpet, 
 
 | Level | Beacon of Diplomacy Effect |
 | ----- | -------------------------- |
-| 1     | Diplomacy +0               |
-| 6     | Diplomacy +1               |
-| 12    | Diplomacy +2               |
-| 18    | Diplomacy +3               |
-| 24    | Diplomacy +4               |
+| 1     | Diplomacy +1               |
+| 6     | Diplomacy +2               |
+| 12    | Diplomacy +3               |
+| 18    | Diplomacy +4               |
+| 24    | Diplomacy +5               |
 
 ### Class Abilities
 
@@ -353,11 +353,11 @@ This Enchantment Charm is commonly a unique, ornate ring, locket, diadem, or amu
 
 | Level | Enchantment Charm Effect                        |
 | ----- | ----------------------------------------------- |
-| 1     | Enchantment +0, maximum of 1 Enchantment Points |
-| 6     | Enchantment +1, maximum of 2 Enchantment Points |
-| 12    | Enchantment +2, maximum of 3 Enchantment Points |
-| 18    | Enchantment +3, maximum of 4 Enchantment Points |
-| 24    | Enchantment +4, maximum of 5 Enchantment Points |
+| 1     | Enchantment +1, maximum of 1 Enchantment Points |
+| 6     | Enchantment +2, maximum of 2 Enchantment Points |
+| 12    | Enchantment +3, maximum of 3 Enchantment Points |
+| 18    | Enchantment +4, maximum of 4 Enchantment Points |
+| 24    | Enchantment +5, maximum of 5 Enchantment Points |
 
 ### Class Abilities
 
@@ -387,11 +387,11 @@ This Ritual Totem is commonly a sacred drum, book, or pole that has been inscrib
 
 | Level | Ritual Totem Effect                    |
 | ----- | -------------------------------------- |
-| 1     | Nature +0, maximum of 2 Nature Points  |
-| 6     | Nature +1, maximum of 4 Nature Points  |
-| 12    | Nature +2, maximum of 5 Nature Points  |
-| 18    | Nature +3, maximum of 6 Nature Points  |
-| 24    | Nature +4, maximum of 10 Nature Points |
+| 1     | Nature +1, maximum of 2 Nature Points  |
+| 6     | Nature +2, maximum of 4 Nature Points  |
+| 12    | Nature +3, maximum of 5 Nature Points  |
+| 18    | Nature +4, maximum of 6 Nature Points  |
+| 24    | Nature +5, maximum of 10 Nature Points |
 
 ### Class Abilities
 
@@ -421,11 +421,11 @@ This class item can be a small creature, such as a rat or tarantula, a medium cr
 
 | Level | Tamed Beast Effect                  |
 | ----- | ----------------------------------- |
-| 1     | Beast +0, maximum of 1 Beast Point  |
-| 6     | Beast +1, maximum of 2 Beast Points |
-| 12    | Beast +2, maximum of 3 Beast Points |
-| 18    | Beast +3, maximum of 4 Beast Points |
-| 24    | Beast +4, maximum of 5 Beast Points |
+| 1     | Beast +1, maximum of 1 Beast Point  |
+| 6     | Beast +2, maximum of 2 Beast Points |
+| 12    | Beast +3, maximum of 3 Beast Points |
+| 18    | Beast +4, maximum of 4 Beast Points |
+| 24    | Beast +5, maximum of 5 Beast Points |
 
 ### Class Abilities
 

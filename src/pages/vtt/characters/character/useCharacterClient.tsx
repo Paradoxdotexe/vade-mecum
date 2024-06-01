@@ -1,4 +1,4 @@
-import { capitalize, keyBy } from 'lodash-es';
+import { keyBy } from 'lodash-es';
 import { AttributeKey, Character } from '../../types/Character';
 import { CharacterComputations, WORLD_KIT } from '../../types/WorldKit';
 import { parseComputation } from '@/utils/parseComputation';
@@ -9,7 +9,7 @@ const raceByKey = keyBy(WORLD_KIT.races, 'key');
 const classByKey = keyBy(WORLD_KIT.classes, 'key');
 const perkByKey = keyBy(PERKS, 'key');
 
-const getClassItemBonus = (character: Character) => Math.floor(character.level / 6);
+const getClassItemBonus = (character: Character) => Math.floor(1 + character.level / 6);
 
 const getPerks = (character: Character) => {
   const perks: Perk[] = character.perkKeys.map(key => perkByKey[key]);
@@ -117,29 +117,7 @@ export const useCharacterClient = (
     classItemBonus: getClassItemBonus(character)
   };
 
-  const setClass = (classKey?: string) => {
-    const attributes = structuredClone(character.attributes);
-
-    // delete old class skill
-    if (_class) {
-      delete attributes[_class.attributeKey].skills[_class.skillKey];
-    }
-
-    // add new class skill
-    if (classKey) {
-      const newClass = classByKey[classKey];
-      attributes[newClass.attributeKey].skills[newClass.skillKey] = {
-        label: capitalize(newClass.skillKey),
-        value: 0
-      };
-    }
-
-    updateCharacter({
-      classKey,
-      attributes,
-      classAbilityKeys: []
-    });
-  };
+  const setClass = (classKey?: string) => updateCharacter({ classKey, classAbilityKeys: [] });
 
   // ---------- GOALS ----------- //
   const partyGoal = character.partyGoal;

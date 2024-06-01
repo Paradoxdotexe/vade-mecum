@@ -156,8 +156,7 @@ export const DEFAULT_CHARACTER_DEFINITION = {
       skills: {
         power: { label: 'Power', value: 0 },
         fortitude: { label: 'Fortitude', value: 0 },
-        athletics: { label: 'Athletics', value: 0 },
-        honor: { label: 'Honor', value: 0 }
+        athletics: { label: 'Athletics', value: 0 }
       }
     },
     dexterity: {

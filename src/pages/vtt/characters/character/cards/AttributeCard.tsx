@@ -7,6 +7,7 @@ import { CharacterClient } from '../useCharacterClient';
 import { RollableSkill } from './RollableSkill';
 import { useRollModal } from '@/pages/vtt/rolls/RollModal';
 import { DiceFactor, RollEvaluation } from '@/pages/vtt/types/Roll';
+import { capitalize, cloneDeep } from 'lodash-es';
 
 const StyledAttributeCard = styled(VCard)`
   display: flex;
@@ -45,9 +46,18 @@ export const AttributeCard: React.FC<AttributeCardProps> = props => {
   const rollModal = useRollModal();
 
   const attribute = props.characterClient.attributes[props.attributeKey];
+  const skills = cloneDeep(attribute.skills);
+
+  // supplement class skill
+  if (props.characterClient.class.attributeKey === props.attributeKey) {
+    skills[props.characterClient.class.skillKey] = {
+      label: capitalize(props.characterClient.class.skillKey),
+      value: props.characterClient.class.classItemBonus
+    };
+  }
 
   const onRoll = (skillKey: string) => {
-    const skill = attribute.skills[skillKey];
+    const skill = skills[skillKey];
 
     const diceFactors: DiceFactor[] = [
       {
@@ -60,22 +70,13 @@ export const AttributeCard: React.FC<AttributeCardProps> = props => {
       }
     ];
 
-    // add classItemBonus if applicable
-    if (skillKey === props.characterClient.class.skillKey) {
-      diceFactors.push({
-        label: props.characterClient.class.classItemLabel,
-        value: props.characterClient.class.classItemBonus
-      });
-    }
-
-    if (skill)
-      rollModal.open({
-        characterId: props.characterClient.id,
-        characterName: props.characterClient.name,
-        label: skill.label,
-        diceFactors,
-        evaluation: RollEvaluation.CHECK
-      });
+    rollModal.open({
+      characterId: props.characterClient.id,
+      characterName: props.characterClient.name,
+      label: skill.label,
+      diceFactors,
+      evaluation: RollEvaluation.CHECK
+    });
   };
 
   return (
@@ -92,18 +93,22 @@ export const AttributeCard: React.FC<AttributeCardProps> = props => {
       </div>
 
       <div className="card__skills">
-        {Object.entries(attribute.skills).map(([skillKey, skill]) => (
-          <RollableSkill
-            key={skillKey}
-            label={skill.label}
-            value={skill.value}
-            max={3}
-            onChange={value =>
-              props.characterClient.setSkillValue(props.attributeKey, skillKey, value)
-            }
-            onClick={() => onRoll(skillKey)}
-          />
-        ))}
+        {Object.entries(skills).map(([skillKey, skill]) => {
+          const isClassSkill = skillKey === props.characterClient.class.skillKey;
+          return (
+            <RollableSkill
+              key={skillKey}
+              label={skill.label}
+              value={skill.value}
+              max={isClassSkill ? 5 : 3}
+              onChange={value =>
+                props.characterClient.setSkillValue(props.attributeKey, skillKey, value)
+              }
+              disabled={isClassSkill}
+              onClick={() => onRoll(skillKey)}
+            />
+          );
+        })}
       </div>
     </StyledAttributeCard>
   );

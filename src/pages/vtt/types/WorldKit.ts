@@ -363,7 +363,7 @@ const VALE_OF_MYTHS: WorldKit = {
         }
       ],
       computed: {
-        maxClassPoints: '(1 + [classItemBonus]) * 2'
+        maxClassPoints: '[classItemBonus] * 2'
       }
     },
     {
@@ -567,7 +567,7 @@ const VALE_OF_MYTHS: WorldKit = {
         }
       ],
       computed: {
-        maxClassPoints: '(1 + [classItemBonus]) * 5'
+        maxClassPoints: '[classItemBonus] * 5'
       }
     },
     {
@@ -578,8 +578,8 @@ const VALE_OF_MYTHS: WorldKit = {
       classItemLabel: 'Portable Workshop',
       classAbilities: [
         {
-          key: 'magichanical_experimentation',
-          name: 'Magichanical Experimentation',
+          key: 'experiment',
+          name: 'Experiment',
           type: ClassAbilityType.REST_ACTIVITY,
           description:
             'You experiment with your magichanical inventions. Roll a Magichanics check. On a success, you gain 2 MP. On a stalemate, you gain 1 MP.',
@@ -664,7 +664,7 @@ const VALE_OF_MYTHS: WorldKit = {
         }
       ],
       computed: {
-        maxClassPoints: '(1 + [classItemBonus]) * 2'
+        maxClassPoints: '[classItemBonus] * 2'
       }
     },
     {
@@ -862,7 +862,7 @@ const VALE_OF_MYTHS: WorldKit = {
         }
       ],
       computed: {
-        maxClassPoints: '[classItemBonus] + 1'
+        maxClassPoints: '[classItemBonus]'
       }
     },
     {
@@ -1100,7 +1100,7 @@ const VALE_OF_MYTHS: WorldKit = {
         }
       ],
       computed: {
-        maxClassPoints: '(1 + [classItemBonus]) * 2'
+        maxClassPoints: '[classItemBonus]'
       }
     },
     {
@@ -1208,7 +1208,7 @@ const VALE_OF_MYTHS: WorldKit = {
         }
       ],
       computed: {
-        maxClassPoints: '[classItemBonus] + 1'
+        maxClassPoints: '[classItemBonus]'
       }
     }
   ],

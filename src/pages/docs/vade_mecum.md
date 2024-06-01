@@ -123,18 +123,28 @@ As such, perks give characters a way to accentuate their strengths in ways that 
 ## 1.4 Classes
 
 While attributes, skills, and perks are the foundation of a character's abilities, classes are the foundation of a character's identity and nature.
-Classes define a character's Focus attribute, as well as gives them access to skills and abilities that are otherwise inaccessible to other classes.
+Classes define a character's Focus attribute, as well as gives them access to skills and abilities that are otherwise inaccessible to other classes. Specific character classes are defined by the World Kit being used, but all classes follow a universal pattern for how they are structured.
 
-> Specific character classes are defined by the World Kit being used, but all classes follow a universal pattern for how they are structured.
+### Class Skill
 
 Classes grant a character a unique 16th skill that falls under the designated Focus attribute.
 This class skill is used to perform class-specific actions and give the character an edge in a specialized area of the world.
 
-Each class provides unique class abilities that harness this class skill.
+> **Example:** The Knight class has the Chivalry skill that falls under the Strength attribute.
+
+### Class Item
+
+Each class has a unique and inalienable class item that serves as a channel for their class's skill.
+As a character levels up, this class item will grant bonuses to the class skill, and in some cases, grant a pool of Class Points that can be used to activate class abilities.
+
+> **Example:** The Knight class has the Chivalrous Cape class item that grants bonuses to their Chivalry.
+
+### Class Abilities
+
+Finally, each class provides a unique set of class abilities that harness their class's skill.
 These class abilities will often allow the character to evolve its combat ability in different ways.
 
-Additionally, each class has a unique type of gear associated with them that serves as a channel for the class's power.
-This piece of gear is only attainable by leveling up and will provide bonuses to the class skill.
+> **Example:** The Knight class has the Martial Prowess class ability that buffs their melee attacks using Chivalry.
 
 [See an example of a class from the _Vale of Myths_ World Kit.](/docs/vale-of-myths#Knight)
 
