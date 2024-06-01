@@ -57,7 +57,7 @@ This high fantasy kit is set in a kingdom-controlled dominion where characters w
 | Dexterity    | **Ranger**    | A master of range weapons and the natural environment.                          |
 | Intelligence | **Mage**      | A student of magic who bends the forces of nature to their will.                |
 | Intelligence | **Mancer**    | A tinkerer that combines metal and magic to harness the arcane forces.          |
-| Charisma     | **Herald**    | A messenger that influences people towards diplomacy and away from battle.      |
+| Charisma     | **Herald**    | A messenger that inspires people towards diplomacy and away from battle.        |
 | Charisma     | **Enchanter** | A master of manipulation that can bend others unknowingly to their will.        |
 | Perception   | **Sage**      | A practitioner of the natural arts that can call upon nature through rituals.   |
 | Perception   | **Druid**     | A naturalist with the primal power to call upon nature's most dangerous beasts. |

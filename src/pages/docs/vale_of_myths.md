@@ -96,7 +96,7 @@ Adventurers in _Vale of Myths_ have ten classes to choose from.
 | Dexterity    | **Monk**      | A disciple of peace who deflects rather than attacks.                           |
 | Intelligence | **Mage**      | A student of magic who bends the forces of nature to their will.                |
 | Intelligence | **Mancer**    | A tinkerer that combines metal and magic to harness the arcane forces.          |
-| Charisma     | **Herald**    | A messenger that influences people towards diplomacy and away from battle.      |
+| Charisma     | **Herald**    | A messenger that inspires people towards diplomacy and away from battle.        |
 | Charisma     | **Enchanter** | A master of manipulation that can bend others unknowingly to their will.        |
 | Perception   | **Sage**      | A practitioner of the natural arts that can call upon nature through rituals.   |
 | Perception   | **Druid**     | A naturalist with the primal power to call upon nature's most dangerous beasts. |
@@ -308,31 +308,31 @@ Heralds are messengers with a profound belief in diplomacy and dialogue, always 
 They wield the art of communication like a masterful instrument, forming alliances, resolving conflicts, and inspiring those around them.
 Heralds often find themselves as the voice of reason, guiding their allies towards success and their enemies towards failure.
 
-| Attribute | Skill         | Description                                           |
-| --------- | ------------- | ----------------------------------------------------- |
-| Charisma  | **Diplomacy** | Influence using tact, inspire allies, inhibit enemies |
+| Attribute | Skill           | Description                                                 |
+| --------- | --------------- | ----------------------------------------------------------- |
+| Charisma  | **Inspiration** | Persuade others using tact, inspire allies, inhibit enemies |
 
 ### Class Item
 
-Every Herald carries a _Beacon of Diplomacy_ that enables them to sway the thoughts and actions of those around them.
-This Beacon of Diplomacy is commonly an instrument, such as a flute or trumpet, or a treatise, such as a book or scroll.
+Every Herald carries a _Beacon of Inspiration_ that enables them to sway the thoughts and actions of those around them.
+This class item is commonly an instrument, such as a lute or flute, a recognizable amulet, such as a medallion or pendant, or a treatise, such as a book or scroll.
 
-| Level | Beacon of Diplomacy Effect |
-| ----- | -------------------------- |
-| 1     | Diplomacy +1               |
-| 6     | Diplomacy +2               |
-| 12    | Diplomacy +3               |
-| 18    | Diplomacy +4               |
-| 24    | Diplomacy +5               |
+| Level | Beacon of Inspiration Effect                     |
+| ----- | ------------------------------------------------ |
+| 1     | Inspiration +1, maximum of 6 Inspiration Points  |
+| 6     | Inspiration +2, maximum of 12 Inspiration Points |
+| 12    | Inspiration +3, maximum of 18 Inspiration Points |
+| 18    | Inspiration +4, maximum of 24 Inspiration Points |
+| 24    | Inspiration +5, maximum of 30 Inspiration Points |
 
 ### Class Abilities
 
-Heralds have access to a number of Diplomacy Points, or DP, equal to their level.
-They also innately gain the _Call for Diplomacy_ Passive and _Diplomatic Nature_ Passive, allowing them to inspire allies towards success or inhibit enemies towards failure.
+Heralds innately gain class abilities that allow them to inspire allies towards success or inhibit enemies towards failure.
+They also have access to a number of Inspiration Points, or IP, granted by their _Beacon of Inspiration_.
 
 ##### ClassAbilityTable_Herald_Innate
 
-Heralds can acquire other class abilities that enhance their diplomatic influence over others.
+Heralds can acquire other class abilities that enhance their ability to manipulate others.
 
 ##### ClassAbilityTable_Herald
 

@@ -671,53 +671,60 @@ const VALE_OF_MYTHS: WorldKit = {
       key: 'herald',
       name: 'Herald',
       attributeKey: 'charisma',
-      skillKey: 'diplomacy',
-      classItemLabel: 'Beacon of Diplomacy',
+      skillKey: 'inspiration',
+      classItemLabel: 'Beacon of Inspiration',
       classAbilities: [
         {
-          key: 'call_for_diplomacy',
-          name: 'Call for Diplomacy',
+          key: 'inspirational_nature',
+          name: 'Inspirational Nature',
           type: ClassAbilityType.PASSIVE,
-          description:
-            'At any time, you can make a Diplomacy check to force an enemy or ally to reroll a skill check. On a success, the target must reroll with advantage or disadvantage equal to the number of DP spent (minimum 1). On a stalemate, the target keeps their roll. On a failure, the target keeps their roll and you expend 1 DP.',
+          description: 'You regain all of your missing Inspiration Points after a Rest.',
           requirement: 'INNATE'
         },
         {
-          key: 'diplomatic_nature',
-          name: 'Diplomatic Nature',
-          type: ClassAbilityType.PASSIVE,
-          description: 'You regain all of your missing Diplomacy Points after a Rest.',
+          key: 'inspire_ally',
+          name: 'Inspire Ally',
+          type: ClassAbilityType.REACTION,
+          description:
+            'When an ally rolls an unsuccessful skill check, you can make an Inspiration check to allow them to reroll. On a success, the ally rerolls with advantage equal to the number of IP spent (minimum 1). On a stalemate or failure, the ally keeps their roll.',
+          requirement: 'INNATE'
+        },
+        {
+          key: 'inhibit_enemy',
+          name: 'Inhibit Enemy',
+          type: ClassAbilityType.REACTION,
+          description:
+            'When an enemy rolls a successful skill check, you can make an Inspiration check to force them to reroll. On a success, the enemy must reroll with disadvantage equal to the number of IP spent (minimum 1). On a stalemate, the enemy keeps their roll. On a failure, the enemy keeps their roll and you expend 1 IP.',
           requirement: 'INNATE'
         },
         {
           key: 'whisper',
           name: 'Whisper',
           type: ClassAbilityType.PASSIVE,
-          description: 'You go unnoticed when using Call for Diplomacy.',
+          description: 'You go unnoticed when using Inspire Ally or Inhibit Enemy.',
           requirement: 1
         },
         {
           key: 'captivating_speech',
           name: 'Captivating Speech',
-          type: ClassAbilityType.BONUS_ACTION,
+          type: ClassAbilityType.MAIN_ACTION,
           description:
-            'You can roll a Diplomacy check to captivate a group of people with a speech. On a success, spend 2 DP. All characters within 60ft are captivated by your speech, giving you and your allies advantage on Influence and Stealth checks made against them equal to your Diplomacy bonus.',
+            'You can roll an Inspiration check to captivate a group of people with a speech. On a success, spend 3 IP. All characters within 60ft are captivated by your speech, giving you and your allies advantage on Influence and Stealth checks made against them equal to your Inspiration.',
           requirement: 1
         },
         {
-          key: 'charming_presence',
-          name: 'Charming Presence',
-          type: ClassAbilityType.BONUS_ACTION,
-          description:
-            'You can roll a Diplomacy check to charm those around you with your presence. On a success, spend 2 DP. All characters within 10ft become charmed by your presence, compelling them to obey any simple commands that do not harm themselves or others.',
-          requirement: 1
-        },
-        {
-          key: 'combat_knowledge',
-          name: 'Combat Knowledge',
+          key: 'combat_guidance',
+          name: 'Combat Guidance',
           type: ClassAbilityType.PASSIVE,
           description:
-            'When you use Call for Diplomacy to make an ally succeed on an attack roll, they deal an additional `1D6` damage.',
+            'When you using Inspire Ally to make an ally succeed on an attack roll, they deal an additional `1D6` damage for each IP that had been spent.',
+          requirement: 6
+        },
+        {
+          key: 'inspirational',
+          name: 'Inspirational',
+          type: ClassAbilityType.PASSIVE,
+          description: 'You gain a second Reaction during combat.',
           requirement: 6
         },
         {
@@ -725,30 +732,31 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Rallying Cry',
           type: ClassAbilityType.MAIN_ACTION,
           description:
-            'You can make a Diplomacy check to rally your allies in combat. On a success, you spend DP equal to the number of allies rallied and they all gain +1 advantage on attacks for 3 turns.',
-          requirement: 6
+            'You can make an Inspiration check to rally your allies in combat. On a success, you spend IP equal to the number of allies rallied. For 3 turns, all allies gain +1 advantage on attacks and deal an additional `1D6` damage.',
+          requirement: 12
+        },
+        {
+          key: 'charming_presence',
+          name: 'Charming Presence',
+          type: ClassAbilityType.BONUS_ACTION,
+          description:
+            'You can roll an Inspiration check to charm those around you with your presence. On a success, spend 6 IP. All characters within 10ft become charmed by your presence, compelling them to obey any simple commands that do not harm themselves or others.',
+          requirement: 12
         },
         {
           key: 'psychological_warfare',
           name: 'Psychological Warfare',
           type: ClassAbilityType.PASSIVE,
           description:
-            'When you use Call for Diplomacy to make an enemy fail on an attack roll, they take `1D6` damage.',
-          requirement: 12
-        },
-        {
-          key: 'combat_guidance',
-          name: 'Combat Guidance',
-          type: ClassAbilityType.BONUS_ACTION,
-          description:
-            'You can roll a Diplomacy check to give an ally within 30ft guidance. On a success, that ally has advantage equal to your Diplomacy on all attack checks for 1 turn.',
-          requirement: 12
+            'When you use Inhibit Enemy to make an enemy fail on an attack roll, they take `1D6` damage for each IP that had been spent.',
+          requirement: 18
         },
         {
           key: 'student_of_life',
           name: 'Student of Life',
           type: ClassAbilityType.PASSIVE,
-          description: 'On a failure to Call for Diplomacy, you gain 1 DP instead of losing 1 DP.',
+          description:
+            'When your use Inspire Ally or Inhibit Enemy and fail to have an effect, gain 2 Inspiration Points.',
           requirement: 18
         },
         {
@@ -756,12 +764,12 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Turncoat',
           type: ClassAbilityType.MAIN_ACTION,
           description:
-            "You can make a Diplomacy check against an enemy's Enemy Bonus to convince them to join your cause. On a success, you spend DP equal to the enemy's level and they change sides until the end of combat.",
-          requirement: 18
+            "You can make an Inspiration check against an enemy's Enemy Bonus to convince them to join your cause. On a success, you spend IP equal to the enemy's level and they change sides until the end of combat.",
+          requirement: 24
         }
       ],
       computed: {
-        maxClassPoints: '[level]'
+        maxClassPoints: '[classItemBonus] * 6'
       }
     },
     {
