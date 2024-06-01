@@ -70,9 +70,9 @@ The Fay race, with their otherworldly charm and enigmatic personalities, influen
 
 Fayan characters innately gain the `Fayan Charm` Perk.
 
-| Perk            | Description                                              |
-| --------------- | -------------------------------------------------------- |
-| **Fayan Charm** | Once per Rest, you can force a person to tell one truth. |
+| Perk            | Description                                               |
+| --------------- | --------------------------------------------------------- |
+| **Fayan Charm** | Once per Rest, you can compel a person to tell the truth. |
 
 ## Halflings
 
@@ -340,29 +340,29 @@ Heralds can acquire other class abilities that enhance their ability to manipula
 
 Enchanters are master of manipulation, wielding the subtle arts of mind control and psychosis to bend people in their favor.
 They are capable of infiltrating the hearts and minds of their targets, turning enemies into allies without them ever knowing.
-Enchanters often lurk in the shadows, preferring subtlety over direct confrontation to prevent being ostracized for their dangerous abilities.
+Enchanters often lurk in the shadows, preferring subtlety over direct confrontation.
 
-| Attribute | Skill           | Description              |
-| --------- | --------------- | ------------------------ |
-| Charisma  | **Enchantment** | Bestow mind enchantments |
+| Attribute | Skill           | Description                 |
+| --------- | --------------- | --------------------------- |
+| Charisma  | **Enchantment** | Enchant the minds of others |
 
 ### Class Item
 
 Every Enchanter carries an _Enchantment Charm_ that enhances their sway over the minds others.
 This Enchantment Charm is commonly a unique, ornate ring, locket, diadem, or amulet.
 
-| Level | Enchantment Charm Effect                        |
-| ----- | ----------------------------------------------- |
-| 1     | Enchantment +1, maximum of 1 Enchantment Points |
-| 6     | Enchantment +2, maximum of 2 Enchantment Points |
-| 12    | Enchantment +3, maximum of 3 Enchantment Points |
-| 18    | Enchantment +4, maximum of 4 Enchantment Points |
-| 24    | Enchantment +5, maximum of 5 Enchantment Points |
+| Level | Enchantment Charm Effect                         |
+| ----- | ------------------------------------------------ |
+| 1     | Enchantment +1, maximum of 3 Enchantment Points  |
+| 6     | Enchantment +2, maximum of 6 Enchantment Points  |
+| 12    | Enchantment +3, maximum of 9 Enchantment Points  |
+| 18    | Enchantment +4, maximum of 12 Enchantment Points |
+| 24    | Enchantment +5, maximum of 15 Enchantment Points |
 
 ### Class Abilities
 
-Enchanters have access to a number of Enchantment Points, or EP, granted by their _Enchantment Charm_.
-They also innately gain the _Recall Enchantment_ Passive and _Enchantment of Hallucination_ Bonus Action, allowing them to enchant the minds of those around them.
+Enchanters innately gain class abilities that allow them to enchant the minds of those around them.
+They also have access to a number of Enchantment Points, or EP, granted by their _Enchantment Charm_.
 
 ##### ClassAbilityTable_Enchanter_Innate
 

@@ -62,7 +62,7 @@ const VALE_OF_MYTHS: WorldKit = {
       perk: {
         key: 'fayan_charm',
         name: 'Fayan Charm',
-        description: 'Once per Rest, you can force a person to tell one truth.'
+        description: 'Once per Rest, you can compel a person to tell the truth.'
       }
     },
     {
@@ -484,7 +484,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Illusionist',
           type: ClassAbilityType.BONUS_ACTION,
           description:
-            'You can roll a Magic check to cast Murmur or Mimic. With Murmur, you can create a small sensory effect of an image, sound, or smell. With Mimic, you can spend 1 MP to disguise you or another character as someone else for up to an hour.',
+            'You can roll a Magic check to cast Murmur or Mimic. With Murmur, you can create a small sensory effect of an image, sound, or smell for 1 minute. With Mimic, you can spend 1 MP to disguise you or another character as someone else for 1 hour.',
           requirement: 'INNATE'
         },
         {
@@ -721,8 +721,8 @@ const VALE_OF_MYTHS: WorldKit = {
           requirement: 6
         },
         {
-          key: 'inspirational',
-          name: 'Inspirational',
+          key: 'commander',
+          name: 'Commander',
           type: ClassAbilityType.PASSIVE,
           description: 'You gain a second Reaction during combat.',
           requirement: 6
@@ -780,11 +780,10 @@ const VALE_OF_MYTHS: WorldKit = {
       classItemLabel: 'Enchantment Charm',
       classAbilities: [
         {
-          key: 'recall_enchantment',
-          name: 'Recall Enchantment',
+          key: 'deep_meditation',
+          name: 'Deep Meditation',
           type: ClassAbilityType.PASSIVE,
-          description:
-            'At any time, you can recall one your enchantments to regain 1 Enchantment Point.',
+          description: 'You regain all of your missing Enchantment Points after a Rest.',
           requirement: 'INNATE'
         },
         {
@@ -792,18 +791,16 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Enchantment of Hallucination',
           type: ClassAbilityType.BONUS_ACTION,
           description:
-            "You can make an Enchantment check to enchant a target within 120ft with hallucinations. On a success, spend 1 EP. Until recalled, the target believes they see, smell, or hear something that isn't there. The target can roll an Insight check against your Enchantment bonus to see through the hallucination. This effect can grant advantage and disadvantage on related skill checks equal to your Enchantment bonus.",
+            "You can make an Enchantment check to enchant a target within 60ft with hallucinations. On a success, the target sees, smells, or hears something that isn't there for 1 minute.",
           requirement: 'INNATE'
         },
         {
-          key: 'mental_attunement',
-          name: 'Mental Attunement',
-          type: ClassAbilityType.PASSIVE,
-          description: 'You permanently increase your Enchantment Points by 1.',
-          requirement: 1,
-          computed: {
-            maxClassPoints: '[base] + 1'
-          }
+          key: 'enchantment_of_pain',
+          name: 'Enchantment of Pain',
+          type: ClassAbilityType.BONUS_ACTION,
+          description:
+            'You can make an Enchantment check to enchant a target within 30ft with psychological pain. On a success, spend 1 EP. The target takes `2D6` damage.',
+          requirement: 'INNATE'
         },
         {
           key: 'enthralling_aura',
@@ -813,35 +810,26 @@ const VALE_OF_MYTHS: WorldKit = {
           requirement: 1
         },
         {
+          key: 'painful_memories',
+          name: 'Painful Memories',
+          type: ClassAbilityType.PASSIVE,
+          description: 'You double the damage inflicted by all class abilities.',
+          requirement: 1
+        },
+        {
           key: 'enchantment_of_fear',
           name: 'Enchantment of Fear',
           type: ClassAbilityType.BONUS_ACTION,
           description:
-            'You can make an Enchantment check to enchant a target within 120ft with harrowing fear. On a success, spend 1 EP and select a character or object for the target to fear. Until recalled, the target cannot move within 15ft of their fear or target their fear with an attack.',
-          requirement: 1
+            'You can make an Enchantment check to enchant a target within 30ft with harrowing fear. On a success, spend 2 EP. On their next turn, the target must use their Movement Speed to move as far away from you as possible.',
+          requirement: 6
         },
         {
           key: 'mind_fog',
           name: 'Mind Fog',
           type: ClassAbilityType.PASSIVE,
           description:
-            'When you bestow an enchantment, you can target a 15ft x 15ft area instead of person. All characters within this area suffer the effect of your enchantment.',
-          requirement: 6
-        },
-        {
-          key: 'enchantment_of_impotence',
-          name: 'Enchantment of Impotence',
-          type: ClassAbilityType.BONUS_ACTION,
-          description:
-            'You can make an Enchantment check to enchant a target within 60ft with unnerving impotence. On a success, spend 1 EP. Until recalled, the target makes all attack checks with disadvantage equal to your Enchantment bonus.',
-          requirement: 6
-        },
-        {
-          key: 'enchantment_of_confidence',
-          name: 'Enchantment of Confidence',
-          type: ClassAbilityType.BONUS_ACTION,
-          description:
-            'You can make an enchantment check to enchant a target within 60ft with empowering confidence. On a success, spend 1 EP. Until recalled, the target makes all attack checks with advantage equal to your Enchantment Bonus.',
+            'When you use an enchantment, you can target a 15ft x 15ft area instead of an enemy. All enemies within this area suffer the effect of your enchantment.',
           requirement: 6
         },
         {
@@ -849,28 +837,43 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Enchantment of Confusion',
           type: ClassAbilityType.BONUS_ACTION,
           description:
-            'You can make an Enchantment check to enchant a target within 60ft with disorienting confusion. On a success, spend 1 EP. Until recalled, the target must roll a Fortitude check against your Enchantment bonus at the start of each turn. On a stalemate, they are confused and cannot make any attacks. On a failure, they mistake an ally for an enemy and move to attack them.',
+            'You can make an Enchantment check to enchant a target within 30ft with confusion. On a success, spend 3 EP. The target becomes Stunned for 1 turn.',
           requirement: 12
+        },
+        {
+          key: 'mental_attunement',
+          name: 'Mental Attunement',
+          type: ClassAbilityType.PASSIVE,
+          description: 'When you enchant a target, you can read their surface-level thoughts.',
+          requirement: 12
+        },
+        {
+          key: 'enchantment_of_mind_control',
+          name: 'Enchantment of Mind Control',
+          type: ClassAbilityType.MAIN_ACTION,
+          description:
+            'You can make an Enchantment check to enchant a target within 30ft to submit to your will. On a success, spend 4 EP. You can force the target to move up to 15ft and carry out one Main Action of your choosing.',
+          requirement: 18
         },
         {
           key: 'enchanters_cant',
           name: "Enchanter's Cant",
-          type: ClassAbilityType.MAIN_ACTION,
+          type: ClassAbilityType.BONUS_ACTION,
           description:
-            'You can make an Enchantment check to speak an ancient cant against all of your enchanted targets. On a success, all enchanted targets take `1D6` damage.',
+            'You can make an Enchantment check to speak an ancient cant against the last 3 targets you enchanted. On a success, spend 3 EP. All targets take `2D6` damage.',
           requirement: 18
         },
         {
           key: 'enchantment_of_death',
           name: 'Enchantment of Death',
-          type: ClassAbilityType.BONUS_ACTION,
+          type: ClassAbilityType.MAIN_ACTION,
           description:
-            'You can make an Enchantment check to enchant a target within 30ft with deadly psychological pain. On a success, spend 1 EP. Until recalled, the target takes `1D6` damage at the start of each turn.',
-          requirement: 18
+            'You can make an Enchantment check to enchant a target within 30ft with deathly psychological pain. On a success, spend 5 EP. Until they are dead, the target takes `3D6` damage at the beginning of each turn.',
+          requirement: 24
         }
       ],
       computed: {
-        maxClassPoints: '[classItemBonus]'
+        maxClassPoints: '[classItemBonus] * 3'
       }
     },
     {
