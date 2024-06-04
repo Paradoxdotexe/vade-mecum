@@ -34,18 +34,25 @@ export const RollsProvider: React.FC<{ children: ReactNode }> = props => {
   // open WebSocket connection for session
   useEffect(() => {
     if (sessionId && !webSocket) {
-      console.log('Connecting...');
       const webSocket = new WebSocket(`wss://ws.vademecum.thenjk.com?sessionId=${sessionId}`);
+
       webSocket.onmessage = event => {
-        const message = JSON.parse(event.data);
-        console.log(message.event);
+        const message: { event: string; data: object } = JSON.parse(event.data);
+
+        if (message.event === 'ROLL_CREATED') {
+          playSound('/sounds/DiceRoll.mp3').then(() => {
+            propagateSessionRoll(queryClient, sessionId, message.data as Roll);
+          });
+        }
       };
+
       webSocket.onopen = () => {
-        console.log(`Connected to session #${sessionId}.`);
+        console.log(`Connected to session #${sessionId.split('-')[0]}.`);
         setWebSocket(webSocket);
       };
+
       webSocket.onclose = () => {
-        console.log(`Disconnected from session #${sessionId}.`);
+        console.log(`Disconnected from session #${sessionId.split('-')[0]}.`);
         setWebSocket(undefined);
       };
     } else if (!sessionId && webSocket) {

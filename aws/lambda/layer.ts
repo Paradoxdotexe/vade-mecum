@@ -2,6 +2,10 @@ import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { DynamoDBDocumentClient, QueryCommand } from '@aws-sdk/lib-dynamodb';
 import { KMSClient, GenerateMacCommand, EncryptCommand, DecryptCommand } from '@aws-sdk/client-kms';
+import {
+  ApiGatewayManagementApi,
+  PostToConnectionCommand
+} from '@aws-sdk/client-apigatewaymanagementapi';
 
 const docClient = DynamoDBDocumentClient.from(new DynamoDBClient());
 const kmsClient = new KMSClient();
@@ -61,6 +65,45 @@ export const getCookie = (event: APIGatewayProxyEvent, name: string) => {
 export const makeCookie = (value = '', date = new Date(0)) => {
   // we specify Domain so cookie can be shared across api and ws
   return `vade-mecum-auth-token=${value}; Expires=${date.toUTCString()}; SameSite=None; HttpOnly; Path=/; Secure; Domain=vademecum.thenjk.com`;
+};
+
+export const sendSessionMessage = async (
+  event: APIGatewayProxyEvent,
+  sessionId: string,
+  message: { event: string; data: object }
+) => {
+  const queryConnections = new QueryCommand({
+    TableName: 'vade-mecum-sessions',
+    KeyConditionExpression: 'sessionId=:sessionId and begins_with(itemId, :itemIdPrefix)',
+    ExpressionAttributeValues: {
+      ':sessionId': sessionId,
+      ':itemIdPrefix': 'connection'
+    },
+    ProjectionExpression: 'itemId, userId'
+  });
+  const connections = (await docClient.send(queryConnections)).Items ?? [];
+
+  const webSocketClient = new ApiGatewayManagementApi({
+    endpoint: 'https://ws.vademecum.thenjk.com'
+  });
+
+  const originatingUserId = event.requestContext.identity.user;
+
+  for (const connection of connections) {
+    // exclude originating user
+    const excluded = connection.userId === originatingUserId;
+
+    if (!excluded) {
+      const connectionId = connection.itemId.split('#')[1];
+      console.log(connectionId);
+      const postToConnectionCommand = new PostToConnectionCommand({
+        ConnectionId: connectionId,
+        Data: JSON.stringify(message)
+      });
+
+      await webSocketClient.send(postToConnectionCommand);
+    }
+  }
 };
 
 export const handlerResolver = async (

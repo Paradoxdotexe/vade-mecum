@@ -29,6 +29,11 @@ const handler: APIGatewayProxyHandler = async event =>
     });
     await docClient.send(putSessionRoll);
 
+    await layer.sendSessionMessage(event, sessionId, {
+      event: 'ROLL_CREATED',
+      data: body.roll
+    });
+
     return {
       statusCode: 201,
       body: JSON.stringify({})
