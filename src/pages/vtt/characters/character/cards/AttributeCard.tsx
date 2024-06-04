@@ -2,12 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import { VNumberInput } from '@/components/VNumberInput';
 import { VCard } from '@/components/VCard';
-import { AttributeKey } from '@/pages/engine/Character';
 import { CharacterClient } from '../useCharacterClient';
 import { RollableSkill } from './RollableSkill';
 import { useRollModal } from '@/pages/vtt/rolls/RollModal';
 import { DiceFactor, RollEvaluation } from '@/pages/vtt/types/Roll';
 import { capitalize, cloneDeep } from 'lodash-es';
+import { AttributeKey } from '@/pages/vtt/types/Character';
 
 const StyledAttributeCard = styled(VCard)`
   display: flex;

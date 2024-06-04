@@ -18,8 +18,10 @@ export const ClassAbilitiesCard: React.FC<ClassAbilitiesCardProps> = props => {
     {
       key: 'description',
       render: classAbility =>
-        reactStringReplace(classAbility.description, /`(.*?)`/g, match => (
-          <VTag style={{ display: 'inline-block' }}>{match}</VTag>
+        reactStringReplace(classAbility.description, /`(.*?)`/g, (match, i) => (
+          <VTag key={i} style={{ display: 'inline-block' }}>
+            {match}
+          </VTag>
         )),
       width: '100%'
     }

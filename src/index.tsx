@@ -10,10 +10,8 @@ import './index.css';
 import { VadeMecumDocsPage } from './pages/docs/VadeMecumDocsPage';
 import reportWebVitals from './reportWebVitals';
 import { ValeOfMythsDocsPage } from './pages/docs/ValeOfMythsDocsPage';
-import { EnginePageController } from './pages/engine/EnginePageController';
 import { HomePage } from './pages/HomePage';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import { AuthStateProvider } from './pages/engine/useAuth';
 import { VThemeProvider } from './common/VTheme';
 import { PageWrapper } from './common/PageWrapper';
 import { CharactersPage } from './pages/vtt/characters/CharactersPage';
@@ -45,15 +43,6 @@ const router = createBrowserRouter(
           element={<SessionCharacterPage />}
         />
       </Route>
-
-      <Route
-        path="engine"
-        element={
-          <AuthStateProvider>
-            <EnginePageController />
-          </AuthStateProvider>
-        }
-      />
     </Route>
   )
 );
