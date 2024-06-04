@@ -58,6 +58,11 @@ export const getCookie = (event: APIGatewayProxyEvent, name: string) => {
   return undefined;
 };
 
+export const makeCookie = (value = '', date = new Date(0)) => {
+  // we specify Domain so cookie can be shared across api and ws
+  return `vade-mecum-auth-token=${value}; Expires=${date.toUTCString()}; SameSite=None; HttpOnly; Path=/; Secure; Domain=vademecum.thenjk.com`;
+};
+
 export const handlerResolver = async (
   event: APIGatewayProxyEvent,
   handler: (event: APIGatewayProxyEvent) => Promise<APIGatewayProxyResult>
@@ -67,15 +72,18 @@ export const handlerResolver = async (
     'Access-Control-Allow-Credentials': 'true'
   };
 
+  // https sends origin, wss sends Origin
+  const origin = event.headers.origin ?? event.headers.Origin;
+
   // validate Origin header
-  if (!event.headers.origin || !ALLOWED_ORIGINS.includes(event.headers.origin)) {
+  if (!origin || !ALLOWED_ORIGINS.includes(origin)) {
     return {
       statusCode: 403,
       headers,
       body: JSON.stringify({ detail: 'Unauthorized request origin.' })
     };
   } else {
-    headers['Access-Control-Allow-Origin'] = event.headers.origin;
+    headers['Access-Control-Allow-Origin'] = origin;
   }
 
   // authenticate user
@@ -97,7 +105,7 @@ export const handlerResolver = async (
 
     if (!authTokenItem) {
       // remove auth token cookie
-      const cookie = `vade-mecum-auth-token=; Expires=${new Date(0).toUTCString()}; SameSite=None; HttpOnly; Path=/; Secure`;
+      const cookie = makeCookie();
       return {
         statusCode: 403,
         headers: {

@@ -1,6 +1,6 @@
 import { APIGatewayProxyEvent, APIGatewayProxyHandler } from 'aws-lambda';
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
-import { DynamoDBDocumentClient, DeleteCommand } from '@aws-sdk/lib-dynamodb';
+import { DynamoDBDocumentClient, PutCommand } from '@aws-sdk/lib-dynamodb';
 const layer = require('/opt/nodejs/layer');
 
 const docClient = DynamoDBDocumentClient.from(new DynamoDBClient());
@@ -12,26 +12,25 @@ const handler: APIGatewayProxyHandler = async event =>
       return { statusCode: 403, body: JSON.stringify({ detail: 'Unauthorized.' }) };
     }
 
-    const authToken = layer.getCookie(event, 'vade-mecum-auth-token');
-    const hashedAuthToken = await layer.hashAuthToken(authToken);
+    const sessionId = event.queryStringParameters?.sessionId;
+    if (!sessionId) {
+      return { statusCode: 400, body: JSON.stringify({ detail: 'Invalid query params.' }) };
+    }
 
-    // delete current auth token
-    let deleteAuthToken = new DeleteCommand({
-      TableName: 'vade-mecum-users',
-      Key: {
-        userId,
-        itemId: `authToken#${hashedAuthToken}`
+    const connectionId = event.requestContext.connectionId; // identifies the WebSocket connection
+
+    const putConnection = new PutCommand({
+      TableName: 'vade-mecum-sessions',
+      Item: {
+        sessionId: sessionId,
+        itemId: `connection#${connectionId}`,
+        userId: userId
       }
     });
-    await docClient.send(deleteAuthToken);
+    await docClient.send(putConnection);
 
-    // remove auth token cookie
-    const cookie = layer.makeCookie();
     return {
       statusCode: 200,
-      headers: {
-        'Set-Cookie': cookie
-      },
       body: JSON.stringify({})
     };
   });

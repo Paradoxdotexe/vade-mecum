@@ -77,7 +77,7 @@ const handler: APIGatewayProxyHandler = async event =>
     await docClient.send(putCommand);
 
     // provide authToken via cookie
-    const cookie = `vade-mecum-auth-token=${authToken}; Expires=${authTokenExpiration.toUTCString()}; SameSite=None; HttpOnly; Path=/; Secure`;
+    const cookie = layer.makeCookie(authToken, authTokenExpiration);
 
     return {
       statusCode: 200,
