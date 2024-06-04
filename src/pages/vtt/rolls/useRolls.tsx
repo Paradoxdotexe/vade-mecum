@@ -33,7 +33,12 @@ export const RollsProvider: React.FC<{ children: ReactNode }> = props => {
 
   // open WebSocket connection for session
   useEffect(() => {
-    if (sessionId && !webSocket) {
+    if (webSocket) {
+      // we're either leaving a session or switching sessions
+      webSocket.close();
+    }
+
+    if (sessionId) {
       const webSocket = new WebSocket(`wss://ws.vademecum.thenjk.com?sessionId=${sessionId}`);
 
       webSocket.onmessage = event => {
@@ -55,10 +60,8 @@ export const RollsProvider: React.FC<{ children: ReactNode }> = props => {
         console.log(`Disconnected from session #${sessionId.split('-')[0]}.`);
         setWebSocket(undefined);
       };
-    } else if (!sessionId && webSocket) {
-      webSocket.close();
     }
-  }, [sessionId, webSocket]);
+  }, [sessionId]);
 
   const { data: sessionRolls } = useSessionRollsQuery(sessionId);
 
