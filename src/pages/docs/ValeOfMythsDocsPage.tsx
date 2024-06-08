@@ -101,7 +101,11 @@ const ItemsTable: React.FC<{ itemType: ItemType }> = props => {
             <td>
               {item.bonus && (
                 <>
-                  <code>+{item.bonus.skillBonus}</code> {capitalize(item.bonus.skillKey)}
+                  <code>
+                    {item.bonus.skillBonus > 0 && '+'}
+                    {item.bonus.skillBonus}
+                  </code>{' '}
+                  {capitalize(item.bonus.skillKey)}
                   {item.damage || item.notes ? ', ' : ''}
                 </>
               )}

@@ -1390,7 +1390,12 @@ const VALE_OF_MYTHS: WorldKit = {
       name: 'Chainmail Armor',
       cost: '32 VP',
       weight: 2,
-      notes: 'Medium armor'
+      bonus: {
+        attributeKey: 'dexterity',
+        skillKey: 'stealth',
+        skillBonus: -1
+      },
+      notes: 'medium armor'
     },
     {
       key: 'plate_armor',
@@ -1398,7 +1403,12 @@ const VALE_OF_MYTHS: WorldKit = {
       name: 'Plate Armor',
       cost: '64 VP',
       weight: 4,
-      notes: 'Heavy armor'
+      bonus: {
+        attributeKey: 'dexterity',
+        skillKey: 'stealth',
+        skillBonus: -2
+      },
+      notes: 'heavy armor'
     },
     {
       key: 'arcane_aegis_armor',
@@ -1422,7 +1432,12 @@ const VALE_OF_MYTHS: WorldKit = {
       name: 'Eldritch Exo Armor',
       cost: '64 VP',
       weight: 2,
-      notes: 'Heavy armor'
+      bonus: {
+        attributeKey: 'dexterity',
+        skillKey: 'stealth',
+        skillBonus: -1
+      },
+      notes: 'heavy armor'
     },
     {
       key: 'world_map',

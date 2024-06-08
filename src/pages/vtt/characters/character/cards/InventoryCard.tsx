@@ -108,7 +108,7 @@ export const ItemDescription: React.FC<ItemDescriptionProps> = props => {
       {props.item.bonus && (
         <RollableSkill
           value={props.item.bonus.skillBonus}
-          valueLabel={`+${props.item.bonus.skillBonus}`}
+          valueLabel={`${props.item.bonus.skillBonus > 0 ? '+' : ''}${props.item.bonus.skillBonus}`}
           label={`${capitalize(props.item.bonus.skillKey)}${props.item.damage || props.item.notes ? ',' : ''}`}
           disabled
           style={{ gap: theme.variable.gap.sm, fontSize: 'inherit' }}
