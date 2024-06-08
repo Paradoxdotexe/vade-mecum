@@ -248,15 +248,15 @@ A character's carrying capacity is equal to `(Strength + Fortitude) x 3`.
 
 For simplicity, all items are divided into 7 size categories that correspond to a specific number of slots.
 
-| Category       | Size      | Description            | _Vale of Myths_ Example   |
-| -------------- | --------- | ---------------------- | ------------------------- |
-| **Tiny**       | 1/20 slot | Fits in a small bag    | Valerian Piece (VP)       |
-| **Very Light** | 1/4 slot  | Fits in a large bag    | Arrow, adventuring ration |
-| **Light**      | 1/2 slot  | Fits in one hand       | Dagger                    |
-| **Average**    | 1 slot    | Fits in two hands      | Shortsword                |
-| **Heavy**      | 2 slots   | Heavy in two hands     | Longsword, crossbow       |
-| **Very Heavy** | 4 slots   | Heavy on your shoulder | Small crate, animal       |
-| **Cumbersome** | 20 slots  | Heavy on your back     | Large crate, person       |
+| Category       | Size      | Description            | _Vale of Myths_ Example |
+| -------------- | --------- | ---------------------- | ----------------------- |
+| **Tiny**       | 1/20 slot | Fits in a small bag    | Valerian Piece (VP)     |
+| **Very Light** | 1/4 slot  | Fits in a large bag    | Adventuring ration      |
+| **Light**      | 1/2 slot  | Fits in one hand       | Dagger                  |
+| **Average**    | 1 slot    | Fits in two hands      | Shortsword              |
+| **Heavy**      | 2 slots   | Heavy in two hands     | Longsword               |
+| **Very Heavy** | 4 slots   | Heavy on your shoulder | Small crate, animal     |
+| **Cumbersome** | 20 slots  | Heavy on your back     | Large crate, person     |
 
 When a character's carrying capacity is exceeded, they become over-encumbered and no longer have the strength to move themselves.
 They must either drop items or stay put.
