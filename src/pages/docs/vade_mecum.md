@@ -255,8 +255,8 @@ For simplicity, all items are divided into 7 size categories that correspond to 
 | **Light**      | 1/2 slot  | Fits in one hand       | Dagger                    |
 | **Average**    | 1 slot    | Fits in two hands      | Shortsword                |
 | **Heavy**      | 2 slots   | Heavy in two hands     | Longsword, crossbow       |
-| **Very Heavy** | 4 slots   | Heavy on your shoulder | Small crate               |
-| **Cumbersome** | 20 slots  | Heavy on your back     | Large crate               |
+| **Very Heavy** | 4 slots   | Heavy on your shoulder | Small crate, animal       |
+| **Cumbersome** | 20 slots  | Heavy on your back     | Large crate, person       |
 
 When a character's carrying capacity is exceeded, they become over-encumbered and no longer have the strength to move themselves.
 They must either drop items or stay put.
