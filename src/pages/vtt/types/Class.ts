@@ -11,7 +11,7 @@ export type Class = {
   computed?: CharacterComputations;
 };
 
-export enum ClassAbilityType {
+export enum AbilityType {
   PASSIVE = 'PASSIVE',
   MAIN_ACTION = 'MAIN_ACTION',
   BONUS_ACTION = 'BONUS_ACTION',
@@ -21,7 +21,7 @@ export enum ClassAbilityType {
 
 export type ClassAbility = {
   key: string;
-  type: ClassAbilityType;
+  type: AbilityType;
   name: string;
   description: string;
   requirement: string | number;

@@ -540,21 +540,21 @@ On a success, they either find an amount of currency equal to `(Enemy Level + Lu
 In combat, there are a number of conditions that a character can suffer from.
 These conditions make the character more vulnerable to attacks and reduce their capability to fight.
 
+### Prone
+
+While a character is knocked Prone, attacks against them have +1 advantage.
+A character that is Prone cannot take any movement, actions, or reactions.
+The Prone conditions ends after the character uses a Bonus Action to get back up.
+
+### Stunned
+
+While a character is Stunned, attacks against them have +2 advantage.
+A character that is Stunned cannot take a Main Action.
+
 ### Bloodied
 
 When a character is reduced to half their health points, they are Bloodied.
 This condition has no effect, but can be used to convey an enemy's state during combat.
-
-### Stunned
-
-While a character is Stunned, attacks against them have +1 advantage.
-A character that is Stunned cannot take any movement, actions, or reactions.
-
-### Prone
-
-While a character is knocked Prone, attacks against them have +2 advantage.
-A character that is Prone cannot take any movement, actions, or reactions.
-The Prone conditions ends after the character uses a Bonus Action to get back up.
 
 ### Incapacitated
 
@@ -564,11 +564,11 @@ A character that is Incapacitated cannot take any movement, actions, or reaction
 If the character is hit with an attack, their injury worsens by one level (see [2.6 Injuries](#2.6-Injuries)).
 The Incapacitated conditions ends after the character is healed by a successful Medicine check.
 
-### Wounded
+### Crippled
 
-When a character recovers from a Deadly Injury, they are Wounded.
-While a character is Wounded, their Movement Speed is reduced by half.
-The Wounded condition ends after finishing a satiated Rest (see [2.7 Rest](#2.7-Rest)).
+When a character recovers from a Deadly Injury, they are Crippled.
+While a character is Crippled, their Movement Speed is reduced by half.
+The Crippled condition ends after finishing a satiated Rest (see [2.7 Rest](#2.7-Rest)).
 
 ## 2.6 Injuries
 
@@ -589,8 +589,8 @@ If the roll is successful, the character is stabilized with 1 HP and they are ba
 
 If a character incurs an injury that is Severe (3), Critical (2), or Fatal (1), they will die in a given number of rounds.
 To prevent their death, another player within 5ft must roll a Medicine check with the specified difficulty.
-If the roll is successful, the character is stabilized with 1 HP and they are back in the fight, but wounded.
-A wounded character has their movement speed reduced by half until their next Rest.
+If the roll is successful, the character is stabilized with 1 HP and they are back in the fight, but Crippled.
+A Crippled character has their Movement Speed reduced by half until their next Rest.
 
 > While incapacitated, all attacks on the character are Trivial (+3) and increase the level of injury by one.
 
@@ -741,29 +741,29 @@ This damage expectation can be balanced out with abilities that don't do damage,
 
 Lastly, every enemy has a Max HP equal to `(Enemy Level + Enemy Bonus) * 6`.
 
-| Level | Enemy Bonus | Damage / Turn | Max HP | _Vale of Myths_ Example |
-| ----- | ----------- | ------------- | ------ | ----------------------- |
-| 1     | +2          | ~2D6          | 18     |                         |
-| 2     | +2          | ~2D6          | 24     | Retch, Brine Servant    |
-| 3     | +3          | ~3D6          | 36     | Bandit, Guard           |
-| 4     | +3          | ~3D6          | 42     |                         |
-| 5     | +3          | ~3D6          | 48     | Retch Ogre              |
-| 6     | +4          | ~4D6          | 60     | Bandit Boss             |
-| 7     | +4          | ~4D6          | 66     |                         |
-| 8     | +4          | ~4D6          | 72     |
-| 9     | +5          | ~5D6          | 84     |
-| 10    | +5          | ~5D6          | 90     |
-| 11    | +5          | ~5D6          | 96     |
-| 12    | +6          | ~6D6          | 108    |                         |
-| 13    | +6          | ~6D6          | 114    |
-| 14    | +6          | ~6D6          | 120    |
-| 15    | +7          | ~7D6          | 132    |
-| 16    | +7          | ~7D6          | 138    |
-| 17    | +7          | ~7D6          | 144    |
-| 18    | +8          | ~8D6          | 156    |
-| 19    | +8          | ~8D6          | 162    |
-| 20    | +8          | ~8D6          | 168    |
-| 21    | +9          | ~9D6          | 180    |
-| 22    | +9          | ~9D6          | 186    |
-| 23    | +9          | ~9D6          | 192    |
-| 24    | +10         | ~10D6         | 204    | Sylvaxus                |
+| Level | Enemy Bonus | Damage / Turn | Max HP | Loot   | _Vale of Myths_ Example |
+| ----- | ----------- | ------------- | ------ | ------ | ----------------------- |
+| 1     | +2          | ~2D6          | 18     | ~4 CU  | Wolf                    |
+| 2     | +2          | ~2D6          | 24     | ~7 CU  | Bandit                  |
+| 3     | +2          | ~2D6          | 36     | ~11 CU |                         |
+| 4     | +3          | ~3D6          | 42     | ~14 CU | Guard                   |
+| 5     | +3          | ~3D6          | 48     | ~18 CU |                         |
+| 6     | +3          | ~3D6          | 54     | ~21 CU |                         |
+| 7     | +3          | ~3D6          | 60     | ~25 CU |                         |
+| 8     | +4          | ~4D6          | 72     | ~28 CU |
+| 9     | +4          | ~4D6          | 78     | ~32 CU | Guard Captain           |
+| 10    | +4          | ~4D6          | 84     | ~35 CU |
+| 11    | +4          | ~4D6          | 90     | ~39 CU |
+| 12    | +5          | ~5D6          | 102    | ~42 CU |                         |
+| 13    | +5          | ~5D6          | 108    | ~46 CU |
+| 14    | +5          | ~5D6          | 114    | ~49 CU |
+| 15    | +5          | ~5D6          | 120    | ~53 CU |
+| 16    | +6          | ~6D6          | 132    | ~56 CU |
+| 17    | +6          | ~6D6          | 138    | ~60 CU |
+| 18    | +6          | ~6D6          | 144    | ~63 CU | Guard Commander         |
+| 19    | +6          | ~6D6          | 150    | ~67 CU |
+| 20    | +7          | ~7D6          | 162    | ~70 CU |
+| 21    | +7          | ~7D6          | 168    | ~74 CU |
+| 22    | +7          | ~7D6          | 174    | ~77 CU |
+| 23    | +7          | ~7D6          | 180    | ~81 CU |
+| 24    | +8          | ~8D6          | 192    | ~84 CU |                         |

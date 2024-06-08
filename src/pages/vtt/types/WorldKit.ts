@@ -1,4 +1,5 @@
-import { Class, ClassAbilityType } from './Class';
+import { Class, AbilityType } from './Class';
+import { Enemy } from './Enemy';
 import { Item, ItemType } from './Item';
 import { Perk } from './Perk';
 
@@ -21,6 +22,7 @@ type WorldKit = {
   races: Race[];
   classes: Class[];
   items: Item[];
+  enemies: Enemy[];
 };
 
 const VALE_OF_MYTHS: WorldKit = {
@@ -87,28 +89,28 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'martial_prowess',
           name: 'Martial Prowess',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description: 'You gain advantage equal to your Chivalry on all melee attacks.',
           requirement: 'INNATE'
         },
         {
           key: 'honorific_strike',
           name: 'Honorific Strike',
-          type: ClassAbilityType.BONUS_ACTION,
+          type: AbilityType.BONUS_ACTION,
           description: 'You can make an additional melee attack.',
           requirement: 'INNATE'
         },
         {
           key: 'battle_charge',
           name: 'Battle Charge',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description: 'Your Movement Speed is doubled for the first round of combat.',
           requirement: 1
         },
         {
           key: 'kings_champion',
           name: "King's Champion",
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description: 'You add `6D6` to your initiative roll.',
           requirement: 1,
           computed: {
@@ -118,14 +120,14 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'domination',
           name: 'Domination',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description: 'You take only half damage from enemies that are Bloodied.',
           requirement: 6
         },
         {
           key: 'righteous_defense',
           name: 'Righteous Defense',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description:
             'While a member of your Adventuring Party is incapacitated, you double your Chivalry bonus on all melee attacks.',
           requirement: 6
@@ -133,15 +135,15 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'shield_bash',
           name: 'Shield Bash',
-          type: ClassAbilityType.BONUS_ACTION,
+          type: AbilityType.BONUS_ACTION,
           description:
-            'You can make a Chivalry check to bash an enemy within 5ft. On a success, they take `2D6` damage and are Stunned for 1 turn.',
+            'You can make a Chivalry check to bash a target within 5ft. On a success, the target takes `2D6` damage and is Stunned for 1 turn.',
           requirement: 12
         },
         {
           key: 'formal_decree',
           name: 'Formal Decree',
-          type: ClassAbilityType.MAIN_ACTION,
+          type: AbilityType.MAIN_ACTION,
           description:
             "You can make a Chivalry check against an enemy's Enemy Bonus to command them to stand down. On a success, they will not attack unless otherwise provoked.",
           requirement: 12
@@ -149,14 +151,14 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'indomitable_spirit',
           name: 'Indomitable Spirit',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description: 'While you are Bloodied, your attack damage is doubled.',
           requirement: 18
         },
         {
           key: 'honorable_duel',
           name: 'Honorable Duel',
-          type: ClassAbilityType.BONUS_ACTION,
+          type: AbilityType.BONUS_ACTION,
           description:
             'You can make a Chivalry check to command an enemy to duel. On a success, they cannot make attacks on characters other than you. The duel ends if they are attacked by anyone other than you.',
           requirement: 18
@@ -164,7 +166,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'righteous_wrath',
           name: 'Righteous Wrath',
-          type: ClassAbilityType.BONUS_ACTION,
+          type: AbilityType.BONUS_ACTION,
           description:
             'Once per rest, you can bolster yourself in combat with the righteousness of your cause. For two turns, your Movement Speed is doubled, all of your attacks instantly succeed, and your attack damage is doubled.',
           requirement: 24
@@ -181,7 +183,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'rampage',
           name: 'Rampage',
-          type: ClassAbilityType.BONUS_ACTION,
+          type: AbilityType.BONUS_ACTION,
           description:
             'You can make a Rage check to throw a Very Heavy item within 5ft at an enemy within 20ft. On a success, the target is hit and takes `2D6` damage. Alternatively, you can make a Rage check to throw an enemy within 5ft at a tile within 10ft. On a success the target takes `2D6` damage and is knocked Prone.',
           requirement: 'INNATE'
@@ -189,14 +191,14 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'ready_to_rampage',
           name: 'Ready to Rampage',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description: 'You always start combat with a Very Heavy item within 5ft of you.',
           requirement: 1
         },
         {
           key: 'blood_rush',
           name: 'Blood Rush',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description:
             'Your Movement Speed is increased by 10ft and you can traverse obstacles using Rage instead of Athletics or Agility.',
           requirement: 1,
@@ -207,7 +209,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'bloodlust',
           name: 'Bloodlust',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description:
             'After an enemy is killed by you or an ally, your next attack deals double damage.',
           requirement: 6
@@ -215,7 +217,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'feral_instincts',
           name: 'Feral Instincts',
-          type: ClassAbilityType.REACTION,
+          type: AbilityType.REACTION,
           description:
             'When an enemy within 10ft moves away from you, you can make an attack against that enemy with advantage equal to your Rage.',
           requirement: 6
@@ -223,7 +225,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'reckless_attack',
           name: 'Reckless Attack',
-          type: ClassAbilityType.BONUS_ACTION,
+          type: AbilityType.BONUS_ACTION,
           description:
             'You can make an additional melee attack with advantage equal to your Rage. Until your next turn, attacks on you have +2 advantage.',
           requirement: 12
@@ -231,7 +233,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'feral_presence',
           name: 'Feral Presence',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description:
             'When an enemy is within 15ft of you, they must make a Fortitude check at the beginning of each turn. On a failure, they become Frightened and have -2 disadvantage on attacks until their next turn.',
           requirement: 12
@@ -239,21 +241,21 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'reckless_beserker',
           name: 'Reckless Beserker',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description: 'When using Reckless Attack, your damage is doubled.',
           requirement: 18
         },
         {
           key: 'furious_rampage',
           name: 'Furious Rampage',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description: 'When using Rampage, your damage, reach, and range is doubled.',
           requirement: 18
         },
         {
           key: 'furious_frenzy',
           name: 'Furious Frenzy',
-          type: ClassAbilityType.BONUS_ACTION,
+          type: AbilityType.BONUS_ACTION,
           description:
             'Once per rest, you can enter a combat frenzy. For two turns, all of your attacks instantly succeed and those you hit are Stunned for 1 turn.',
           requirement: 24
@@ -270,7 +272,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'chi_surge',
           name: 'Chi Surge',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description:
             'At any time, you can spend 1 CP to reroll an unsuccessful skill check. You cannot use Chi Surge twice on the same skill check.',
           requirement: 'INNATE'
@@ -278,7 +280,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'chi_deflection',
           name: 'Chi Deflection',
-          type: ClassAbilityType.REACTION,
+          type: AbilityType.REACTION,
           description:
             'When you are hit by an attack, you can roll a Chi check. On a success, you reduce the incoming damage by half.',
           requirement: 'INNATE'
@@ -286,14 +288,14 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'channel_chi',
           name: 'Channel Chi',
-          type: ClassAbilityType.REST_ACTIVITY,
+          type: AbilityType.REST_ACTIVITY,
           description: 'You find inner peace and regain all of your missing Chi Points.',
           requirement: 'INNATE'
         },
         {
           key: 'pacifist_pacing',
           name: 'Pacifist Pacing',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description:
             'Before you make your first attack in combat, your Movement Speed is doubled.',
           requirement: 1
@@ -301,7 +303,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'good_karma',
           name: 'Good Karma',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description:
             'Before you make your first attack in combat, all attacks against you have -3 disadvantage.',
           requirement: 1
@@ -309,7 +311,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'spirit_shield',
           name: 'Spirit Shield',
-          type: ClassAbilityType.REACTION,
+          type: AbilityType.REACTION,
           description:
             'After using Chi Deflection to deflect an attack, you can spend 1 CP to negate all incoming damage.',
           requirement: 6
@@ -317,14 +319,14 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'reflexive',
           name: 'Reflexive',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description: 'You gain a second Reaction during combat.',
           requirement: 6
         },
         {
           key: 'return_to_sender',
           name: 'Return to Sender',
-          type: ClassAbilityType.REACTION,
+          type: AbilityType.REACTION,
           description:
             'After using Chi Deflection to deflect an attack, you can spend 1 CP to deal the intended damage back on the attacker.',
           requirement: 12
@@ -332,7 +334,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'credence',
           name: 'Credence',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description:
             'If you roll an unsuccessful skill check with Chi Surge, you regain the lost Chi Point.',
           requirement: 12
@@ -340,7 +342,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'spirit_walk',
           name: 'Spirit Walk',
-          type: ClassAbilityType.BONUS_ACTION,
+          type: AbilityType.BONUS_ACTION,
           description:
             'You can enter or leave the spirit plane. While in the spirit plane, you become intangible to all characters in the physical plane and the effect of Rough Terrain is nullified.',
           requirement: 18
@@ -348,7 +350,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'chi_restoration',
           name: 'Chi Restoration',
-          type: ClassAbilityType.BONUS_ACTION,
+          type: AbilityType.BONUS_ACTION,
           description:
             'You can roll a Chi check to stabilize an incapacitated character. On a success, spend 1 CP. The character is stabilized with the same number of HP as you currently have.',
           requirement: 18
@@ -356,7 +358,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'transcendence',
           name: 'Transcendence ',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description:
             "While in the spirit plane, you can make attacks against an enemy's spirit. These attacks deal half damage to the enemy in the physical.",
           requirement: 24
@@ -376,7 +378,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'ranger_training',
           name: 'Ranger Training',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description:
             'You add your Survival bonus to your Movement Speed. When rolling Athletics or Agility to traverse natural obstacles, add your Survival Bonus.',
           requirement: 'INNATE',
@@ -387,7 +389,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'ranger_vision',
           name: 'Ranger Vision',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description:
             'When rolling Insight, Detection, or Investigation to inspect a natural area, add your Survival Bonus.',
           requirement: 'INNATE'
@@ -395,14 +397,14 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'survival_shelter',
           name: 'Survival Shelter',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description: 'You get the bonus of Simple Lodging when resting in an Adventuring Camp.',
           requirement: 1
         },
         {
           key: 'trapping_kit',
           name: 'Trapping Kit',
-          type: ClassAbilityType.REST_ACTIVITY,
+          type: AbilityType.REST_ACTIVITY,
           description:
             'You set traps in an area to catch small wild game. Roll a Survival check. On a success, you catch an animal worth two Adventuring Rations.',
           requirement: 1
@@ -410,7 +412,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'handcrafted_arrows',
           name: 'Handcrafted Arrows',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description:
             'When rolling Precision to attack with a bow, add your Survival bonus. Your attack damage with bows is increased by `1D6`.',
           requirement: 6
@@ -418,7 +420,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'camouflage',
           name: 'Camouflage',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description:
             'When you or your Adventuring Party roll Stealth to avoid being detected, add your Survival bonus.',
           requirement: 6
@@ -426,14 +428,14 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'speed_quiver',
           name: 'Speed Quiver',
-          type: ClassAbilityType.BONUS_ACTION,
+          type: AbilityType.BONUS_ACTION,
           description: 'You can make an additional ranged attack with a bow.',
           requirement: 12
         },
         {
           key: 'healing_salve',
           name: 'Healing Salve',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description:
             'When rolling Medicine to stabilize an incapacitated character or heal an injured character during a Rest, add your Survival bonus.',
           requirement: 12
@@ -441,7 +443,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'poisoned_arrows',
           name: 'Poisoned Arrows',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description:
             'When you land an attack with a bow, the target becomes Poisoned. At the start of each turn, they take `2D6` damage.',
           requirement: 18
@@ -449,7 +451,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'smoke_bomb',
           name: 'Smoke Bomb',
-          type: ClassAbilityType.BONUS_ACTION,
+          type: AbilityType.BONUS_ACTION,
           description:
             'You can throw a smoke bomb that effects a 20ft x 20ft area within 30ft. For 1 turn, this area becomes Rough Terrain, blocks all line of sight, and deals `2D6` damage per turn.',
           requirement: 18
@@ -457,7 +459,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'hunters_tonic',
           name: "Hunter's Tonic",
-          type: ClassAbilityType.BONUS_ACTION,
+          type: AbilityType.BONUS_ACTION,
           description:
             'Once per rest, you can consume a special tonic to enhance your combat ability. For two turns, your Movement Speed is doubled and whenever you make an attack, you make two attacks instead.',
           requirement: 24
@@ -474,7 +476,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'study_magic',
           name: 'Study Magic',
-          type: ClassAbilityType.REST_ACTIVITY,
+          type: AbilityType.REST_ACTIVITY,
           description:
             'You study and practice your magic, regaining all of your missing Magic Points.',
           requirement: 'INNATE'
@@ -482,7 +484,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'illusionist',
           name: 'Illusionist',
-          type: ClassAbilityType.BONUS_ACTION,
+          type: AbilityType.BONUS_ACTION,
           description:
             'You can roll a Magic check to cast Murmur or Mimic. With Murmur, you can create a small sensory effect of an image, sound, or smell for 1 minute. With Mimic, you can spend 1 MP to disguise you or another character as someone else for 1 hour.',
           requirement: 'INNATE'
@@ -490,7 +492,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'pyromancer',
           name: 'Pyromancer',
-          type: ClassAbilityType.MAIN_ACTION,
+          type: AbilityType.MAIN_ACTION,
           description:
             'You can roll a Magic check to cast Fireball or Inferno. With Fireball, you can spend 1 MP to hit an enemy within 30ft with a ball of fire that deals `3D6` damage. With Inferno, you can spend 2 MP to fill a 15ft x 15ft area within 30ft with fire, dealing `3D6` damage to everyone inside.',
           requirement: 'INNATE'
@@ -498,7 +500,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'magical_eminence',
           name: 'Magical Eminence',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description:
             'All allies within 15ft of you get +1 advantage on attacks and deal an additional `1D6` damage.',
           requirement: 1
@@ -506,7 +508,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'magical_discharge',
           name: 'Magical Discharge',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description:
             'After consuming your last Magic Point, you can discharge your residual magic energy into a single attack. This attack deals an additional `1D6` damage for each Magic Point spent since your last Rest.',
           requirement: 1
@@ -514,7 +516,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'geomancer',
           name: 'Geomancer',
-          type: ClassAbilityType.MAIN_ACTION,
+          type: AbilityType.MAIN_ACTION,
           description:
             'You can roll a Magic check to cast Quicksand or Earthquake. With Quicksand, you can spend 2 MP to entrap a target within 30ft, dealing `6D6` damage and knocking them Prone. With Earthquake, you can spend 3 MP to shake the ground in a 15ft x 15ft area within 30ft, causing all enemies within the area to become Stunned for 1 turn.',
           requirement: 6
@@ -522,14 +524,14 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'war_mage',
           name: 'War Mage',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description: 'You can cast any spell that requires a Main Action as a Bonus Action.',
           requirement: 6
         },
         {
           key: 'protectorate',
           name: 'Protectorate',
-          type: ClassAbilityType.MAIN_ACTION,
+          type: AbilityType.MAIN_ACTION,
           description:
             'You can roll a Magic check to cast Magic Armor or Shield Ward. With Magic Armor, you can spend 3 MP to surround a character with magical heavy armor for 1 minute (this stacks with physical armor). With Shield Ward, you can spend 4 MP to shield you and your allies from all damage for 1 turn.',
           requirement: 12
@@ -537,7 +539,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'magic_shield',
           name: 'Magic Shield',
-          type: ClassAbilityType.REACTION,
+          type: AbilityType.REACTION,
           description:
             'When you or another character is hit by an attack, you can spend 1 MP to reduce the incoming damage by `3D6`.',
           requirement: 12
@@ -545,7 +547,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'necromancer',
           name: 'Necromancer',
-          type: ClassAbilityType.MAIN_ACTION,
+          type: AbilityType.MAIN_ACTION,
           description:
             'You can roll a Magic check to cast Life Steal or Resurrection. With Life Steal, you can spend 4 MP to sap the life force from a target within 10ft. The target takes `6D6` damage and you heal `6D6` health points. With Resurrection, you can spend 5 MP and 64 Valerian Pieces to resurrect a character that has been dead for less than 24 hours. The resurrected character returns to life with 1 HP.',
           requirement: 18
@@ -553,14 +555,14 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'magical_recharge',
           name: 'Magical Recharge',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description: 'Once per Rest, you can recharge half of your maximum Magic Points.',
           requirement: 18
         },
         {
           key: 'chronomancer',
           name: 'Chronomancer',
-          type: ClassAbilityType.MAIN_ACTION,
+          type: AbilityType.MAIN_ACTION,
           description:
             'You can roll a Magic check to cast Time Slow or Time Stop. With Time Slow, you can spend 5 MP to slow time for 2 turns. While time is slowed, all allies gain an additional Main Action and double their Movement Speed. With Time Stop, you can spend 6 MP to stop time for 2 turns. While time is stopped, all enemies forgo movement, actions, or reactions and attacks against them have +3 advantage.',
           requirement: 24
@@ -580,7 +582,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'experiment',
           name: 'Experiment',
-          type: ClassAbilityType.REST_ACTIVITY,
+          type: AbilityType.REST_ACTIVITY,
           description:
             'You experiment with your magichanical inventions. Roll a Magichanics check. On a success, you gain 2 MP. On a stalemate, you gain 1 MP.',
           requirement: 'INNATE'
@@ -588,77 +590,77 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'blessed_blunderbuss',
           name: 'Blessed Blunderbuss',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description: 'During a Rest, you can spend 1 MP to build a Blessed Blunderbuss.',
           requirement: 'INNATE'
         },
         {
           key: 'arcane_aegis_armor',
           name: 'Arcane Aegis Armor',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description: 'During a Rest, you can spend 2 MP to build a set of Arcane Aegis Armor.',
           requirement: 'INNATE'
         },
         {
           key: 'mad_scientist',
           name: 'Mad Scientist',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description: 'When using Magichanical Experimentation, you gain 1 MP even on a failure.',
           requirement: 1
         },
         {
           key: 'recycled_materials',
           name: 'Recycled Materials',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description: 'All magichanical inventions cost 1 MP less (to a minimum of 1).',
           requirement: 1
         },
         {
           key: 'frost_flintlock',
           name: 'Frost Flintlock',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description: 'During a Rest, you can spend 3 MP to build a Frost Flintlock.',
           requirement: 6
         },
         {
           key: 'mystic_mail_armor',
           name: 'Mystic Mail Armor',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description: 'During a Rest, you can spend 4 MP to build a set of Mystic Mail Armor.',
           requirement: 6
         },
         {
           key: 'radiant_revolver',
           name: 'Radiant Revolver',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description: 'During a Rest, you can spend 5 MP to build a Radiant Revolver.',
           requirement: 12
         },
         {
           key: 'eldritch_exo_armor',
           name: 'Eldritch Exo Armor',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description: 'During a Rest, you can spend 6 MP to build a set of Eldritch Exo Armor.',
           requirement: 12
         },
         {
           key: 'resonant_repeater',
           name: 'Resonant Repeater',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description: 'During a Rest, you can spend 7 MP to build a Resonant Repeater.',
           requirement: 18
         },
         {
           key: 'mystic_masterkey',
           name: 'Mystic Masterkey',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description: 'During a Rest, you can spend 8 MP to build a Mystic Masterkey.',
           requirement: 18
         },
         {
           key: 'hexed_cartridges',
           name: 'Hexed Cartridges',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description: 'Your attack damage is doubled when using a magichanical weapon.',
           requirement: 24
         }
@@ -677,14 +679,14 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'inspirational_nature',
           name: 'Inspirational Nature',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description: 'You regain all of your missing Inspiration Points after a Rest.',
           requirement: 'INNATE'
         },
         {
           key: 'inspire_ally',
           name: 'Inspire Ally',
-          type: ClassAbilityType.REACTION,
+          type: AbilityType.REACTION,
           description:
             'When an ally rolls an unsuccessful skill check, you can make an Inspiration check to allow them to reroll. On a success, the ally rerolls with advantage equal to the number of IP spent (minimum 1). On a stalemate or failure, the ally keeps their roll.',
           requirement: 'INNATE'
@@ -692,7 +694,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'inhibit_enemy',
           name: 'Inhibit Enemy',
-          type: ClassAbilityType.REACTION,
+          type: AbilityType.REACTION,
           description:
             'When an enemy rolls a successful skill check, you can make an Inspiration check to force them to reroll. On a success, the enemy must reroll with disadvantage equal to the number of IP spent (minimum 1). On a stalemate, the enemy keeps their roll. On a failure, the enemy keeps their roll and you expend 1 IP.',
           requirement: 'INNATE'
@@ -700,14 +702,14 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'whisper',
           name: 'Whisper',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description: 'You go unnoticed when using Inspire Ally or Inhibit Enemy.',
           requirement: 1
         },
         {
           key: 'captivating_speech',
           name: 'Captivating Speech',
-          type: ClassAbilityType.MAIN_ACTION,
+          type: AbilityType.MAIN_ACTION,
           description:
             'You can roll an Inspiration check to captivate a group of people with a speech. On a success, spend 3 IP. All characters within 60ft are captivated by your speech, giving you and your allies advantage on Influence and Stealth checks made against them equal to your Inspiration.',
           requirement: 1
@@ -715,7 +717,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'combat_guidance',
           name: 'Combat Guidance',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description:
             'When you using Inspire Ally to make an ally succeed on an attack roll, they deal an additional `1D6` damage for each IP that had been spent.',
           requirement: 6
@@ -723,14 +725,14 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'commander',
           name: 'Commander',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description: 'You gain a second Reaction during combat.',
           requirement: 6
         },
         {
           key: 'rallying_cry',
           name: 'Rallying Cry',
-          type: ClassAbilityType.MAIN_ACTION,
+          type: AbilityType.MAIN_ACTION,
           description:
             'You can make an Inspiration check to rally your allies in combat. On a success, you spend IP equal to the number of allies rallied. For 3 turns, all allies gain +1 advantage on attacks and deal an additional `1D6` damage.',
           requirement: 12
@@ -738,7 +740,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'charming_presence',
           name: 'Charming Presence',
-          type: ClassAbilityType.BONUS_ACTION,
+          type: AbilityType.BONUS_ACTION,
           description:
             'You can roll an Inspiration check to charm those around you with your presence. On a success, spend 6 IP. All characters within 10ft become charmed by your presence, compelling them to obey any simple commands that do not harm themselves or others.',
           requirement: 12
@@ -746,7 +748,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'psychological_warfare',
           name: 'Psychological Warfare',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description:
             'When you use Inhibit Enemy to make an enemy fail on an attack roll, they take `1D6` damage for each IP that had been spent.',
           requirement: 18
@@ -754,7 +756,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'student_of_life',
           name: 'Student of Life',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description:
             'When your use Inspire Ally or Inhibit Enemy and fail to have an effect, gain 2 Inspiration Points.',
           requirement: 18
@@ -762,7 +764,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'turncoat',
           name: 'Turncoat',
-          type: ClassAbilityType.MAIN_ACTION,
+          type: AbilityType.MAIN_ACTION,
           description:
             "You can make an Inspiration check against an enemy's Enemy Bonus to convince them to join your cause. On a success, you spend IP equal to the enemy's level and they change sides until the end of combat.",
           requirement: 24
@@ -782,14 +784,14 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'deep_meditation',
           name: 'Deep Meditation',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description: 'You regain all of your missing Enchantment Points after a Rest.',
           requirement: 'INNATE'
         },
         {
           key: 'enchantment_of_hallucination',
           name: 'Enchantment of Hallucination',
-          type: ClassAbilityType.BONUS_ACTION,
+          type: AbilityType.BONUS_ACTION,
           description:
             "You can make an Enchantment check to enchant a target within 60ft with hallucinations. On a success, the target sees, smells, or hears something that isn't there for 1 minute.",
           requirement: 'INNATE'
@@ -797,7 +799,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'enchantment_of_pain',
           name: 'Enchantment of Pain',
-          type: ClassAbilityType.BONUS_ACTION,
+          type: AbilityType.BONUS_ACTION,
           description:
             'You can make an Enchantment check to enchant a target within 30ft with psychological pain. On a success, spend 1 EP. The target takes `2D6` damage.',
           requirement: 'INNATE'
@@ -805,21 +807,21 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'enthralling_aura',
           name: 'Enthralling Aura',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description: 'You automatically succeed on enchanting a target within 15ft of you.',
           requirement: 1
         },
         {
           key: 'painful_memories',
           name: 'Painful Memories',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description: 'You double the damage inflicted by all class abilities.',
           requirement: 1
         },
         {
           key: 'enchantment_of_fear',
           name: 'Enchantment of Fear',
-          type: ClassAbilityType.BONUS_ACTION,
+          type: AbilityType.BONUS_ACTION,
           description:
             'You can make an Enchantment check to enchant a target within 30ft with harrowing fear. On a success, spend 2 EP. On their next turn, the target must use their Movement Speed to move as far away from you as possible.',
           requirement: 6
@@ -827,7 +829,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'mind_fog',
           name: 'Mind Fog',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description:
             'When you use an enchantment, you can target a 15ft x 15ft area instead of an enemy. All enemies within this area suffer the effect of your enchantment.',
           requirement: 6
@@ -835,7 +837,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'enchantment_of_confusion',
           name: 'Enchantment of Confusion',
-          type: ClassAbilityType.BONUS_ACTION,
+          type: AbilityType.BONUS_ACTION,
           description:
             'You can make an Enchantment check to enchant a target within 30ft with confusion. On a success, spend 3 EP. The target becomes Stunned for 1 turn.',
           requirement: 12
@@ -843,14 +845,14 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'mental_attunement',
           name: 'Mental Attunement',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description: 'When you enchant a target, you can read their surface-level thoughts.',
           requirement: 12
         },
         {
           key: 'enchantment_of_mind_control',
           name: 'Enchantment of Mind Control',
-          type: ClassAbilityType.MAIN_ACTION,
+          type: AbilityType.MAIN_ACTION,
           description:
             'You can make an Enchantment check to enchant a target within 30ft to submit to your will. On a success, spend 4 EP. You can force the target to move up to 15ft and carry out one Main Action of your choosing.',
           requirement: 18
@@ -858,7 +860,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'enchanters_cant',
           name: "Enchanter's Cant",
-          type: ClassAbilityType.BONUS_ACTION,
+          type: AbilityType.BONUS_ACTION,
           description:
             'You can make an Enchantment check to speak an ancient cant against the last 3 targets you enchanted. On a success, spend 3 EP. All targets take `2D6` damage.',
           requirement: 18
@@ -866,7 +868,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'enchantment_of_death',
           name: 'Enchantment of Death',
-          type: ClassAbilityType.MAIN_ACTION,
+          type: AbilityType.MAIN_ACTION,
           description:
             'You can make an Enchantment check to enchant a target within 30ft with deathly psychological pain. On a success, spend 5 EP. Until they are dead, the target takes `3D6` damage at the beginning of each turn.',
           requirement: 24
@@ -886,7 +888,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'ritual_of_guidance',
           name: 'Ritual of Guidance',
-          type: ClassAbilityType.REST_ACTIVITY,
+          type: AbilityType.REST_ACTIVITY,
           description:
             'You can roll a Nature check to cast a ritual for nature to guide you on your journey. You regain all of your missing Nature Points. On a success, you choose one guided attribute. Until your next Rest, all skill checks under this attribute have advantage equal to your Nature bonus.',
           requirement: 'INNATE'
@@ -894,7 +896,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'glancing_wind',
           name: 'Glancing Wind',
-          type: ClassAbilityType.REACTION,
+          type: AbilityType.REACTION,
           description:
             'When you or an ally are hit by an attack, you can roll a Nature check. On a success, spend 1 NP. All incoming damage is negated.',
           requirement: 'INNATE'
@@ -902,7 +904,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'gust_of_wind',
           name: 'Gust of Wind',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description: 'You add your Nature bonus to your Movement Speed.',
           requirement: 1,
           computed: {
@@ -912,7 +914,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'stone_skin',
           name: 'Stone Skin',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description:
             'You are always surrounded by natural medium armor (this stacks with physical armor).',
           requirement: 1
@@ -920,7 +922,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'solar_smite',
           name: 'Solar Smite',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description:
             "While attacking with nature's guidance, your attack damage is increased by `2D6`.",
           requirement: 6
@@ -928,7 +930,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'impromptu_ritual',
           name: 'Impromptu Ritual',
-          type: ClassAbilityType.MAIN_ACTION,
+          type: AbilityType.MAIN_ACTION,
           description:
             'Once per Rest, you can change the guided attribute of an ongoing Ritual of Guidance.',
           requirement: 6
@@ -936,7 +938,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'lightning_storm',
           name: 'Lightning Storm',
-          type: ClassAbilityType.MAIN_ACTION,
+          type: AbilityType.MAIN_ACTION,
           description:
             'You can roll a Nature check to strike up to 3 targets within 120ft with lightning. On a success, spend 2 NP. Each lightning bolt deals `5D6` damage.',
           requirement: 12
@@ -944,7 +946,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'natures_blessing',
           name: "Nature's Blessing",
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description:
             'When you are incapacitated, you can roll a Nature check to determine if nature intervenes. On a success, spend 2 NP. Instead of being incapacitated, you are reduced to 1 health point.',
           requirement: 12
@@ -952,7 +954,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'freezing_strike',
           name: 'Freezing Strike',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description:
             "While attacking with nature's guidance, you can roll a Nature check to freeze the target. On a success, the target becomes Stunned for 1 turn.",
           requirement: 18
@@ -960,7 +962,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'chaotic_recharge',
           name: 'Chaotic Recharge',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description:
             "When you are unsuccessful on a roll with nature's guidance, you regain 1 Nature Point.",
           requirement: 18
@@ -968,7 +970,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'blizzard',
           name: 'Blizzard',
-          type: ClassAbilityType.MAIN_ACTION,
+          type: AbilityType.MAIN_ACTION,
           description:
             'You can roll a Nature check to strike up to 3 targets within 120ft with a freezing blizzard. On a success, spend 4 NP. Each target becomes Stunned for 1 turn.',
           requirement: 24
@@ -988,7 +990,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'foster_companionship',
           name: 'Foster Companionship',
-          type: ClassAbilityType.REST_ACTIVITY,
+          type: AbilityType.REST_ACTIVITY,
           description:
             'You foster companionship with your Tamed Beast and regain all of your missing Beast Points. You can optionally adopt a new Tamed Beast.',
           requirement: 'INNATE'
@@ -996,7 +998,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'command_tamed_beast',
           name: 'Command Tamed Beast',
-          type: ClassAbilityType.BONUS_ACTION,
+          type: AbilityType.BONUS_ACTION,
           description:
             'You can roll a Beast check to command your Tamed Beast to attack a target or perform an object interaction within range. Small beasts have a range of 60ft and deal `1D6` damage. Medium beasts have a range of 30ft and deal `2D6` damage. Large beasts have a range of 15ft and deal `3D6` damage.',
           requirement: 'INNATE'
@@ -1004,7 +1006,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'summon_eagle',
           name: 'Summon Eagle',
-          type: ClassAbilityType.MAIN_ACTION,
+          type: AbilityType.MAIN_ACTION,
           description:
             'You can roll a Beast check to summon an eagle to attack a target within 120ft. On a success, spend 1 BP. The target takes `4D6` damage.',
           requirement: 'INNATE'
@@ -1012,7 +1014,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'beast_speech',
           name: 'Beast Speech',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description:
             "You can communicate with nature's beasts through their unique visual and auditory cues. Communication is effectively limited to basic one-word messages.",
           requirement: 1
@@ -1020,7 +1022,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'guard_beast',
           name: 'Guard Beast',
-          type: ClassAbilityType.REACTION,
+          type: AbilityType.REACTION,
           description:
             'When you are hit by a melee attack, you can roll a Beast check to have your Tamed Beast protect you. On a success, you reduce the incoming damage by half.',
           requirement: 1
@@ -1028,7 +1030,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'summon_wolves',
           name: 'Summon Wolves',
-          type: ClassAbilityType.MAIN_ACTION,
+          type: AbilityType.MAIN_ACTION,
           description:
             'You can roll a Beast check to summon a pack of wolves to attack up to 3 targets within 60ft. On a success, spend 2 BP. Each target takes `3D6` damage.',
           requirement: 6
@@ -1036,7 +1038,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'beast_shape',
           name: 'Beast Shape',
-          type: ClassAbilityType.MAIN_ACTION,
+          type: AbilityType.MAIN_ACTION,
           description:
             'You can spend 1 BP to transform into the same form as your Tamed Beast for up to 1 hour. While transformed, you share the same speed and attack damage as your Tamed Beast.',
           requirement: 6
@@ -1044,15 +1046,15 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'summon_bear',
           name: 'Summon Bear',
-          type: ClassAbilityType.MAIN_ACTION,
+          type: AbilityType.MAIN_ACTION,
           description:
-            'You can roll a Beast check to summon a bear to attack a target within 30ft. On a success, spend 3 BP. The target takes `12D6` damage and becomes Wounded.',
+            'You can roll a Beast check to summon a bear to attack a target within 30ft. On a success, spend 3 BP. The target takes `12D6` damage and becomes Crippled.',
           requirement: 12
         },
         {
           key: 'elder_beast',
           name: 'Elder Beast',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description:
             'Your Tamed Beast grows into a giant version of itself. It now deals twice the amount of damage.',
           requirement: 12
@@ -1060,7 +1062,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'summon_panther',
           name: 'Summon Panther',
-          type: ClassAbilityType.MAIN_ACTION,
+          type: AbilityType.MAIN_ACTION,
           description:
             'You can roll a Beast check to summon a panther to attack a target within 60ft. On a success, spend 4 BP. The target takes `16D6` damage and becomes Stunned for 1 turn.',
           requirement: 18
@@ -1068,7 +1070,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'enhanced_beast_shape',
           name: 'Enhanced Beast Shape',
-          type: ClassAbilityType.PASSIVE,
+          type: AbilityType.PASSIVE,
           description:
             'When using Beast Shape, you can transform into any small, medium, or large creature and the transformation lasts up to 24 hours.',
           requirement: 18
@@ -1076,7 +1078,7 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'summon_behemoth',
           name: 'Summon Behemoth',
-          type: ClassAbilityType.MAIN_ACTION,
+          type: AbilityType.MAIN_ACTION,
           description:
             'You can roll a Beast check to summon a behemoth to attack a 15ft x 15ft area within 30ft. On a success, spend 5 BP. All targets within the area takes `10D6` damage and are knocked Prone.',
           requirement: 24
@@ -1568,6 +1570,85 @@ const VALE_OF_MYTHS: WorldKit = {
       cost: '64 VP',
       notes:
         'A carriage with two horses can carry six characters and has a movement speed of 6 miles per hour or 48 miles per day. In place of a character, a carriage can carry 40 slots worth of items.'
+    }
+  ],
+  enemies: [
+    {
+      key: 'wolf',
+      name: 'Wolf',
+      level: 1,
+      itemQuantities: [],
+      abilities: [
+        {
+          key: 'bite',
+          type: AbilityType.MAIN_ACTION,
+          name: 'Bite',
+          description:
+            'You can roll a Power check to bite a target within 5ft. On a success, the target takes `1D6` damage.'
+        },
+        {
+          key: 'scratch',
+          type: AbilityType.BONUS_ACTION,
+          name: 'Scratch',
+          description:
+            'You can roll a Precision check to scratch a target within 5ft. On a success, the target takes `1D6` damage.'
+        }
+      ],
+      speed: 12
+    },
+    {
+      key: 'bandit',
+      name: 'Bandit',
+      level: 2,
+      itemQuantities: [{ key: 'dagger', quantity: 1 }],
+      abilities: [],
+      speed: 6
+    },
+    {
+      key: 'guard',
+      name: 'Guard',
+      level: 4,
+      itemQuantities: [{ key: 'shortsword', quantity: 1 }],
+      abilities: [],
+      speed: 6
+    },
+    {
+      key: 'guard_captain',
+      name: 'Guard Captain',
+      level: 8,
+      itemQuantities: [{ key: 'longsword', quantity: 1 }],
+      abilities: [
+        {
+          key: 'arrow_barrage',
+          type: AbilityType.BONUS_ACTION,
+          name: 'Arrow Barrage',
+          description:
+            'You can roll an Influence check to order an arrow barrage at a target within 60ft. On a success, the target takes `1D6` damage.'
+        }
+      ],
+      speed: 6
+    },
+    {
+      key: 'guard_commander',
+      name: 'Guard Commander',
+      level: 16,
+      itemQuantities: [{ key: 'halberd', quantity: 1 }],
+      abilities: [
+        {
+          key: 'commanding_presence',
+          type: AbilityType.PASSIVE,
+          name: 'Commanding Presence',
+          description: 'Guard and Guard Captains within 30ft of you have +1 advantage on attacks.'
+        },
+        {
+          key: 'crippling_blow',
+          type: AbilityType.BONUS_ACTION,
+          name: 'Crippling Blow',
+          description:
+            'You can roll a Power check to strategically strike a target within 5ft. On a success, the target is knocked Prone and is Crippled for 1 turn.'
+        }
+      ],
+      speed: 6
     }
   ]
 };
