@@ -22,7 +22,9 @@ const handler: APIGatewayProxyHandler = async event =>
         sessionId: sessionId,
         itemId: `encounter#${encounterId}`,
         name: '',
-        enemyKeys: []
+        combatants: JSON.stringify([]),
+        turn: -1,
+        hidden: true
       }
     });
     await docClient.send(putSessionEncounter);

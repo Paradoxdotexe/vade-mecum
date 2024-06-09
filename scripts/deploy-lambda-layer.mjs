@@ -31,7 +31,8 @@ const lambdaFunctions = [
   'createSessionRoll',
   'getSessionRolls',
   'sessionConnect',
-  'createSessionEncounter'
+  'createSessionEncounter',
+  'getSessionEncounters'
 ];
 
 for (const lambdaFunction of lambdaFunctions) {
