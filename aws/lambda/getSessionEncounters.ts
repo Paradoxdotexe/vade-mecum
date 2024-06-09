@@ -14,6 +14,23 @@ const handler: APIGatewayProxyHandler = async event =>
 
     const sessionId = event.pathParameters!['sessionId']!;
 
+    const getSession = new GetCommand({
+      TableName: 'vade-mecum-sessions',
+      Key: {
+        sessionId: sessionId,
+        itemId: 'meta'
+      },
+      ProjectionExpression: 'userId'
+    });
+    const session = (await docClient.send(getSession)).Item;
+
+    if (!session) {
+      return {
+        statusCode: 404,
+        body: JSON.stringify({ detail: 'Session not found.' })
+      };
+    }
+
     const querySessionEncounters = new QueryCommand({
       TableName: 'vade-mecum-sessions',
       KeyConditionExpression: 'sessionId=:sessionId and begins_with(itemId, :itemIdPrefix)',
@@ -32,13 +49,15 @@ const handler: APIGatewayProxyHandler = async event =>
     return {
       statusCode: 200,
       body: JSON.stringify(
-        encounters.map(encounter => ({
-          id: encounter.itemId.split('#')[1],
-          name: encounter.name,
-          combatants: JSON.parse(encounter.combatants),
-          turn: encounter.turn,
-          hidden: encounter.hidden
-        }))
+        encounters
+          .filter(encounter => session.userId === userId || !encounter.hidden)
+          .map(encounter => ({
+            id: encounter.itemId.split('#')[1],
+            name: encounter.name,
+            combatants: JSON.parse(encounter.combatants),
+            turn: encounter.turn,
+            hidden: encounter.hidden
+          }))
       )
     };
   });

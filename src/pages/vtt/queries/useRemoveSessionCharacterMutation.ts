@@ -4,7 +4,7 @@ import { propagateSession } from './useSessionQuery';
 import { Session } from '../types/Session';
 import { Character } from '../types/Character';
 
-export const useRemoveSessionCharacter = (
+export const useRemoveSessionCharacterMutation = (
   sessionId: string | undefined,
   characterId: string | undefined
 ) => {

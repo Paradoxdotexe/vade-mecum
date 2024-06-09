@@ -32,6 +32,7 @@ const lambdaFunctions = [
   'getSessionRolls',
   'sessionConnect',
   'createSessionEncounter',
+  'getOrUpdateSessionEncounter',
   'getSessionEncounters'
 ];
 

@@ -22,13 +22,14 @@ import { VHeader } from '@/components/VHeader';
 import { useSessionCharactersQuery } from '../../queries/useSessionCharactersQuery';
 import { CharacterCard } from '../../characters/CharacterCard';
 import { VLoader } from '@/components/VLoader';
-import { useRemoveSessionCharacter } from '../../queries/useRemoveSessionCharacter';
+import { useRemoveSessionCharacterMutation } from '../../queries/useRemoveSessionCharacterMutation';
 import { Character } from '../../types/Character';
 import { RollLog } from '../../rolls/RollLog';
 import { useCreateSessionEncounterMutation } from '../../queries/useCreateSessionEncounterMutation';
 import { useSessionEncountersQuery } from '../../queries/useSessionEncountersQuery';
 import { EncounterCard } from './EncounterCard';
 import { useQueryClient } from 'react-query';
+import { useUpdateSessionEncounterMutation } from '../../queries/useUpdateSessionEncounterMutation';
 
 const StyledSessionPage = styled(PageLayout)`
   .page__pageHeader__titleInput {
@@ -72,6 +73,10 @@ const StyledSessionPage = styled(PageLayout)`
   .section__encounters .encounters__encounter {
     position: relative;
 
+    &:has(button:disabled) {
+      opacity: 0.6;
+    }
+
     div:has(button) {
       position: absolute;
       top: -11px;
@@ -79,6 +84,7 @@ const StyledSessionPage = styled(PageLayout)`
 
       button {
         background-color: ${props => props.theme.color.background.raised};
+        opacity: 1;
       }
     }
   }
@@ -130,13 +136,28 @@ export const SessionPage: React.FC = () => {
 
   const [removedCharacterId, setRemovedCharacterId] = useState<string>();
 
-  const removeSessionCharacter = useRemoveSessionCharacter(sessionId, removedCharacterId);
+  const removeSessionCharacter = useRemoveSessionCharacterMutation(sessionId, removedCharacterId);
 
   useEffect(() => {
     if (removedCharacterId) {
       removeSessionCharacter.mutateAsync().then(() => setRemovedCharacterId(undefined));
     }
   }, [removedCharacterId]);
+
+  const [toggledEncounterId, setToggledEncounterId] = useState<string>();
+
+  const updateEncounter = useUpdateSessionEncounterMutation(sessionId, toggledEncounterId);
+
+  useEffect(() => {
+    if (toggledEncounterId) {
+      const encounter = encounters?.find(encounter => encounter.id === toggledEncounterId);
+      if (encounter) {
+        updateEncounter
+          .mutateAsync({ encounter: { ...encounter, hidden: !encounter.hidden } })
+          .then(() => setToggledEncounterId(undefined));
+      }
+    }
+  }, [toggledEncounterId]);
 
   const canEditSession = user.authenticated && user.id === session?.userId;
 
@@ -148,8 +169,6 @@ export const SessionPage: React.FC = () => {
       queryClient.removeQueries(['GET_SESSION_ENCOUNTERS', sessionId]);
     });
   };
-
-  const visibleEncounters = encounters?.filter(encounter => !encounter.hidden || canEditSession);
 
   return (
     <StyledSessionPage>
@@ -192,83 +211,86 @@ export const SessionPage: React.FC = () => {
           </>
         }
       />
+      {!characters || !encounters ? (
+        <VLoader />
+      ) : (
+        <VFlex vertical gap={theme.variable.gap.xl}>
+          <div className="page__section">
+            <VHeader>Characters</VHeader>
 
-      <VFlex vertical gap={theme.variable.gap.xl}>
-        <div className="page__section">
-          <VHeader>Characters</VHeader>
-
-          {!characters ? (
-            <VLoader />
-          ) : characters.length ? (
-            <div className="section__characters">
-              {characters.map(character => (
-                <div key={character.id} className="characters__character">
-                  <CharacterCard
-                    character={character}
-                    onClick={() => {
-                      if (user.authenticated && user.id === character.userId) {
-                        navigate(`/vtt/characters/${character.id}`);
-                      } else {
-                        navigate(`/vtt/sessions/${sessionId}/characters/${character.id}`);
-                      }
-                    }}
-                    loading={
-                      removeSessionCharacter.isLoading && character.id === removedCharacterId
-                    }
-                  />
-                  {(canEditSession || canEditCharacter(character)) && (
-                    <div>
-                      <VButton
-                        size="small"
-                        onClick={() => setRemovedCharacterId(character.id)}
-                        disabled={
-                          removeSessionCharacter.isLoading && character.id === removedCharacterId
+            {characters.length ? (
+              <div className="section__characters">
+                {characters.map(character => (
+                  <div key={character.id} className="characters__character">
+                    <CharacterCard
+                      character={character}
+                      onClick={() => {
+                        if (user.authenticated && user.id === character.userId) {
+                          navigate(`/vtt/characters/${character.id}`);
+                        } else {
+                          navigate(`/vtt/sessions/${sessionId}/characters/${character.id}`);
                         }
-                      >
-                        <TrashCanIcon />
-                      </VButton>
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div className="section__empty">Add a character to the session to get started.</div>
-          )}
-        </div>
+                      }}
+                      loading={
+                        removeSessionCharacter.isLoading && character.id === removedCharacterId
+                      }
+                    />
+                    {(canEditSession || canEditCharacter(character)) && (
+                      <div>
+                        <VButton
+                          size="small"
+                          onClick={() => setRemovedCharacterId(character.id)}
+                          disabled={
+                            removeSessionCharacter.isLoading && character.id === removedCharacterId
+                          }
+                        >
+                          <TrashCanIcon />
+                        </VButton>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="section__empty">Add a character to the session to get started.</div>
+            )}
+          </div>
 
-        <div className="page__section">
-          <VHeader>Encounters</VHeader>
+          <div className="page__section">
+            <VHeader>Encounters</VHeader>
 
-          {!visibleEncounters ? (
-            <VLoader />
-          ) : visibleEncounters.length ? (
-            <div className="section__encounters">
-              {visibleEncounters.map(encounter => (
-                <div key={encounter.id} className="encounters__encounter">
-                  <EncounterCard sessionId={sessionId!} encounter={encounter} />
+            {encounters.length ? (
+              <div className="section__encounters">
+                {encounters.map(encounter => (
+                  <div key={encounter.id} className="encounters__encounter">
+                    <EncounterCard
+                      sessionId={sessionId!}
+                      encounter={encounter}
+                      loading={updateEncounter.isLoading && encounter.id === toggledEncounterId}
+                    />
 
-                  {canEditSession && (
-                    <div>
-                      <VButton
-                        size="small"
-                        //onClick={() => setRemovedCharacterId(character.id)}
-                        // disabled={
-                        //   removeSessionCharacter.isLoading && character.id === removedCharacterId
-                        // }
-                      >
-                        {encounter.hidden ? <EyeSlashIcon /> : <EyeIcon />}
-                      </VButton>
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div className="section__empty">There are no encounters yet.</div>
-          )}
-        </div>
-      </VFlex>
+                    {canEditSession && (
+                      <div>
+                        <VButton
+                          size="small"
+                          onClick={() => setToggledEncounterId(encounter.id)}
+                          disabled={
+                            updateEncounter.isLoading && encounter.id === toggledEncounterId
+                          }
+                        >
+                          {encounter.hidden ? <EyeSlashIcon /> : <EyeIcon />}
+                        </VButton>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="section__empty">There are no encounters yet.</div>
+            )}
+          </div>
+        </VFlex>
+      )}
 
       <DeleteSessionModal
         open={deleteSessionModalOpen}
