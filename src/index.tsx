@@ -21,6 +21,7 @@ import { CharacterPage } from './pages/vtt/characters/character/CharacterPage';
 import { SessionsPage } from './pages/vtt/sessions/SessionsPage';
 import { SessionPage } from './pages/vtt/sessions/session/SessionPage';
 import { SessionCharacterPage } from './pages/vtt/sessions/session/SessionCharacterPage';
+import { SessionEncounterPage } from './pages/vtt/sessions/session/SessionEncounterPage';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -41,6 +42,10 @@ const router = createBrowserRouter(
         <Route
           path="sessions/:sessionId/characters/:characterId"
           element={<SessionCharacterPage />}
+        />
+        <Route
+          path="sessions/:sessionId/encounters/:encounterId"
+          element={<SessionEncounterPage />}
         />
       </Route>
     </Route>
