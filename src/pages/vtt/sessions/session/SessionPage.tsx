@@ -23,6 +23,7 @@ import { VLoader } from '@/components/VLoader';
 import { useRemoveSessionCharacter } from '../../queries/useRemoveSessionCharacter';
 import { Character } from '../../types/Character';
 import { RollLog } from '../../rolls/RollLog';
+import { useCreateSessionEncounterMutation } from '../../queries/useCreateSessionEncounterMutation';
 
 const StyledSessionPage = styled(PageLayout)`
   .page__pageHeader__titleInput {
@@ -98,6 +99,8 @@ export const SessionPage: React.FC = () => {
     []
   );
 
+  const createSessionEncounterMutation = useCreateSessionEncounterMutation(sessionId);
+
   // updated saved state and debounce save query when needed
   useEffect(() => {
     if (session && savedSession) {
@@ -126,6 +129,10 @@ export const SessionPage: React.FC = () => {
   const canEditCharacter = (character: Character) =>
     user.authenticated && user.id === character.userId;
 
+  const onAddEncounter = () => {
+    createSessionEncounterMutation.mutateAsync().then(() => {});
+  };
+
   return (
     <StyledSessionPage>
       <PageHeader
@@ -151,6 +158,12 @@ export const SessionPage: React.FC = () => {
             </VButton>
 
             {canEditSession && (
+              <VButton onClick={onAddEncounter} loading={createSessionEncounterMutation.isLoading}>
+                <PlusIcon /> Add encounter
+              </VButton>
+            )}
+
+            {canEditSession && (
               <VFlex vertical align="end" gap={theme.variable.gap.md}>
                 <SavedStatus saved={saved} />
                 <VButton onClick={() => setDeleteSessionModalOpen(true)} disabled={!saved}>
@@ -162,50 +175,52 @@ export const SessionPage: React.FC = () => {
         }
       />
 
-      {!characters ? (
-        <VLoader />
-      ) : (
-        <div className="page__section">
-          <VHeader>Characters</VHeader>
+      <VFlex vertical gap={theme.variable.gap.xl}>
+        {!characters ? (
+          <VLoader />
+        ) : (
+          <div className="page__section">
+            <VHeader>Characters</VHeader>
 
-          {characters.length ? (
-            <div className="section__characters">
-              {characters.map(character => (
-                <div key={character.id} className="characters__character">
-                  <CharacterCard
-                    character={character}
-                    onClick={() => {
-                      if (user.authenticated && user.id === character.userId) {
-                        navigate(`/vtt/characters/${character.id}`);
-                      } else {
-                        navigate(`/vtt/sessions/${sessionId}/characters/${character.id}`);
-                      }
-                    }}
-                    loading={
-                      removeSessionCharacter.isLoading && character.id === removedCharacterId
-                    }
-                  />
-                  {(canEditSession || canEditCharacter(character)) && (
-                    <div className="character__delete">
-                      <VButton
-                        size="small"
-                        onClick={() => setRemovedCharacterId(character.id)}
-                        disabled={
-                          removeSessionCharacter.isLoading && character.id === removedCharacterId
+            {characters.length ? (
+              <div className="section__characters">
+                {characters.map(character => (
+                  <div key={character.id} className="characters__character">
+                    <CharacterCard
+                      character={character}
+                      onClick={() => {
+                        if (user.authenticated && user.id === character.userId) {
+                          navigate(`/vtt/characters/${character.id}`);
+                        } else {
+                          navigate(`/vtt/sessions/${sessionId}/characters/${character.id}`);
                         }
-                      >
-                        <TrashCanIcon />
-                      </VButton>
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div className="section__empty">Add a character to the session to get started.</div>
-          )}
-        </div>
-      )}
+                      }}
+                      loading={
+                        removeSessionCharacter.isLoading && character.id === removedCharacterId
+                      }
+                    />
+                    {(canEditSession || canEditCharacter(character)) && (
+                      <div className="character__delete">
+                        <VButton
+                          size="small"
+                          onClick={() => setRemovedCharacterId(character.id)}
+                          disabled={
+                            removeSessionCharacter.isLoading && character.id === removedCharacterId
+                          }
+                        >
+                          <TrashCanIcon />
+                        </VButton>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="section__empty">Add a character to the session to get started.</div>
+            )}
+          </div>
+        )}
+      </VFlex>
 
       <DeleteSessionModal
         open={deleteSessionModalOpen}
