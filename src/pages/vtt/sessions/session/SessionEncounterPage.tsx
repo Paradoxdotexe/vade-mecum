@@ -13,6 +13,7 @@ import { ReactComponent as TrashCanIcon } from '@/icons/TrashCan.svg';
 import { ReactComponent as PlayIcon } from '@/icons/Play.svg';
 import { ReactComponent as ChevronLeftIcon } from '@/icons/ChevronLeft.svg';
 import { ReactComponent as ChevronRightIcon } from '@/icons/ChevronRight.svg';
+import { ReactComponent as MarkerIcon } from '@/icons/Marker.svg';
 import { useVTheme } from '@/common/VTheme';
 import { useUpdateSessionEncounterMutation } from '../../queries/useUpdateSessionEncounterMutation';
 import { debounce, isEqual } from 'lodash-es';
@@ -123,56 +124,73 @@ export const SessionEncounterPage: React.FC = () => {
       {!encounter || !characters ? (
         <VLoader />
       ) : (
-        <VFlex vertical gap={theme.variable.gap.xl}>
-          <VFlex
-            justify="space-between"
-            align="center"
-            style={{
-              borderBottom: `1px solid ${theme.color.border.default}`,
-              paddingBottom: theme.variable.gap.lg
-            }}
-          >
-            {encounter.turn === 0 ? (
-              <VButton
-                type="primary"
-                onClick={() => setEncounter({ ...encounter, turn: 1 })}
-                style={{ margin: 'auto' }}
-              >
-                <PlayIcon />
-                Start encounter
-              </VButton>
-            ) : (
-              <>
-                <VButton onClick={() => setEncounter({ ...encounter, turn: encounter.turn - 1 })}>
-                  <ChevronLeftIcon />
-                  Back
-                </VButton>
-
-                <VFlex
-                  align="center"
-                  gap={theme.variable.gap.md}
-                  style={{ fontSize: theme.variable.fontSize.lg }}
-                >
-                  <strong>Round {Math.ceil(encounter.turn / 4)}</strong>
-                  <div>/</div>
-                  <div>Turn {1 + ((encounter.turn - 1) % 4)}</div>
-                </VFlex>
-
+        <VFlex justify="center">
+          <VFlex vertical gap={theme.variable.gap.xl} style={{ flexBasis: 464 }}>
+            <VFlex
+              justify="space-between"
+              align="center"
+              style={{
+                borderBottom: `1px solid ${theme.color.border.default}`,
+                paddingBottom: theme.variable.gap.lg
+              }}
+            >
+              {encounter.turn === 0 ? (
                 <VButton
                   type="primary"
-                  onClick={() => setEncounter({ ...encounter, turn: encounter.turn + 1 })}
+                  onClick={() => setEncounter({ ...encounter, turn: 1 })}
+                  style={{ margin: 'auto' }}
                 >
-                  Next
-                  <ChevronRightIcon />
+                  <PlayIcon />
+                  Start encounter
                 </VButton>
-              </>
-            )}
-          </VFlex>
+              ) : (
+                <>
+                  <VButton onClick={() => setEncounter({ ...encounter, turn: encounter.turn - 1 })}>
+                    <ChevronLeftIcon />
+                    Back
+                  </VButton>
 
-          <VFlex vertical gap={theme.variable.gap.lg}>
-            {characters.map(character => (
-              <EncounterCharacterCard key={character.id} character={character} />
-            ))}
+                  <VFlex
+                    align="center"
+                    gap={theme.variable.gap.md}
+                    style={{ fontSize: theme.variable.fontSize.lg }}
+                  >
+                    <strong>Round {Math.ceil(encounter.turn / 4)}</strong>
+                    <div>/</div>
+                    <div>Turn {1 + ((encounter.turn - 1) % 4)}</div>
+                  </VFlex>
+
+                  <VButton
+                    type="primary"
+                    onClick={() => setEncounter({ ...encounter, turn: encounter.turn + 1 })}
+                  >
+                    Next
+                    <ChevronRightIcon />
+                  </VButton>
+                </>
+              )}
+            </VFlex>
+
+            <VFlex vertical gap={theme.variable.gap.lg}>
+              {characters.map((character, i) => (
+                <VFlex align="center" key={character.id} style={{ position: 'relative' }}>
+                  <MarkerIcon
+                    fontSize={20}
+                    style={{
+                      position: 'absolute',
+                      left: -parseInt(theme.variable.gap.xl),
+                      display: i === (encounter.turn - 1) % 4 ? 'block' : 'none'
+                    }}
+                    color={theme.color.status.success.text}
+                  />
+                  <EncounterCharacterCard
+                    key={character.id}
+                    character={character}
+                    style={{ flex: 1 }}
+                  />
+                </VFlex>
+              ))}
+            </VFlex>
           </VFlex>
         </VFlex>
       )}

@@ -30,6 +30,7 @@ const StyledEncounterCharacterCard = styled(VCard)`
 type EncounterCharacterCardProps = {
   character: Character;
   onClick?: () => void;
+  style?: React.CSSProperties;
 };
 
 export const EncounterCharacterCard: React.FC<EncounterCharacterCardProps> = props => {
@@ -47,7 +48,7 @@ export const EncounterCharacterCard: React.FC<EncounterCharacterCardProps> = pro
   });
 
   return (
-    <StyledEncounterCharacterCard onClick={props.onClick} className={className}>
+    <StyledEncounterCharacterCard onClick={props.onClick} className={className} style={props.style}>
       <VFlex justify="space-between" align="center">
         <VFlex vertical gap={theme.variable.gap.md}>
           <div style={{ fontWeight: 600 }}>{characterClient.name || 'Unnamed Character'}</div>
