@@ -27,6 +27,7 @@ const StyledVNumberInput = styled.div<{ $width: number; $height: number; $fontSi
     text-align: center;
     font-size: ${props => `${props.$fontSize}px`};
     background: transparent;
+    border-radius: ${props => props.theme.variable.borderRadius};
 
     &:disabled {
       pointer-events: none;

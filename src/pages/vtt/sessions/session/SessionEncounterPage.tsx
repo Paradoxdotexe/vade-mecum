@@ -15,6 +15,8 @@ import { useUpdateSessionEncounterMutation } from '../../queries/useUpdateSessio
 import { debounce } from 'lodash-es';
 import styled from 'styled-components';
 import { DeleteSessionEncounterModal } from './DeleteSessionEncounterModal';
+import { EncounterCharacterCard } from '@/pages/vtt/sessions/session/EncounterCharacterCard';
+import { useSessionCharactersQuery } from '@/pages/vtt/queries/useSessionCharactersQuery';
 
 const StyledSessionEncounterPage = styled(PageLayout)`
   .page__pageHeader__titleInput {
@@ -44,6 +46,8 @@ export const SessionEncounterPage: React.FC = () => {
 
   const [encounter, setEncounter] = useState<Encounter>();
   const [saved, setSaved] = useState(true);
+
+  const { data: characters } = useSessionCharactersQuery(sessionId);
 
   const { data: savedEncounter } = useSessionEncounterQuery(sessionId, encounterId);
   useMemo(() => {
@@ -112,8 +116,15 @@ export const SessionEncounterPage: React.FC = () => {
         }
       />
 
+      <VFlex vertical gap={theme.variable.gap.lg}>
+        {characters?.map(character => (
+          <EncounterCharacterCard key={character.id} character={character} />
+        ))}
+      </VFlex>
+
       <DeleteSessionEncounterModal
         open={deleteSessionEncounterModalOpen}
+        onClose={() => setDeleteSessionEncounterModalOpen(false)}
         sessionId={sessionId}
         encounterId={encounterId}
       />

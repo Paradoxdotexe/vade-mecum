@@ -1,41 +1,26 @@
 import React from 'react';
 import { VCard } from '@/components/VCard';
-import { VNumberInput } from '@/components/VNumberInput';
-import styled from 'styled-components';
 import { CharacterClient } from '../useCharacterClient';
-
-const StyledHealthPointsCard = styled(VCard)`
-  display: flex;
-  align-items: center;
-  flex: 1;
-  padding: 0 ${props => props.theme.variable.gap.md};
-
-  .card__slash {
-    font-size: 36px;
-    font-weight: 200;
-    padding-inline: ${props => props.theme.variable.gap.md} ${props => props.theme.variable.gap.sm};
-  }
-
-  .card__max {
-    font-size: 24px;
-  }
-`;
+import { NumberInputOverMax } from '@/pages/vtt/characters/character/cards/NumberInputOverMax';
+import { useVTheme } from '@/common/VTheme';
 
 type HealthPointsCardProps = {
   characterClient: CharacterClient;
 };
 
 export const HealthPointsCard: React.FC<HealthPointsCardProps> = props => {
+  const theme = useVTheme();
+
   return (
-    <StyledHealthPointsCard>
-      <VNumberInput
+    <VCard
+      style={{ paddingBlock: 0, paddingInline: theme.variable.gap.md, flex: 1, display: 'flex' }}
+    >
+      <NumberInputOverMax
         size={48}
-        max={props.characterClient.maxHealthPoints}
         value={props.characterClient.healthPoints}
         onChange={props.characterClient.setHealthPoints}
+        max={props.characterClient.maxHealthPoints}
       />
-      <div className="card__slash">/</div>
-      <div className="card__max">{props.characterClient.maxHealthPoints}</div>
-    </StyledHealthPointsCard>
+    </VCard>
   );
 };
