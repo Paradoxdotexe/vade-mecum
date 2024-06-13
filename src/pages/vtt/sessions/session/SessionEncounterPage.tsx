@@ -10,13 +10,17 @@ import { SavedStatus } from '../../SavedStatus';
 import { Encounter } from '../../types/Encounter';
 import { VButton } from '@/components/VButton';
 import { ReactComponent as TrashCanIcon } from '@/icons/TrashCan.svg';
+import { ReactComponent as PlayIcon } from '@/icons/Play.svg';
+import { ReactComponent as ChevronLeftIcon } from '@/icons/ChevronLeft.svg';
+import { ReactComponent as ChevronRightIcon } from '@/icons/ChevronRight.svg';
 import { useVTheme } from '@/common/VTheme';
 import { useUpdateSessionEncounterMutation } from '../../queries/useUpdateSessionEncounterMutation';
-import { debounce } from 'lodash-es';
+import { debounce, isEqual } from 'lodash-es';
 import styled from 'styled-components';
 import { DeleteSessionEncounterModal } from './DeleteSessionEncounterModal';
 import { EncounterCharacterCard } from '@/pages/vtt/sessions/session/EncounterCharacterCard';
 import { useSessionCharactersQuery } from '@/pages/vtt/queries/useSessionCharactersQuery';
+import { VLoader } from '@/components/VLoader';
 
 const StyledSessionEncounterPage = styled(PageLayout)`
   .page__pageHeader__titleInput {
@@ -68,7 +72,7 @@ export const SessionEncounterPage: React.FC = () => {
   // updated saved state and debounce save query when needed
   useEffect(() => {
     if (encounter && savedEncounter) {
-      const saved = encounter.name === savedEncounter.name;
+      const saved = isEqual(encounter, savedEncounter);
       setSaved(saved);
       if (saved) {
         updateSessionEncounter.cancel();
@@ -116,11 +120,62 @@ export const SessionEncounterPage: React.FC = () => {
         }
       />
 
-      <VFlex vertical gap={theme.variable.gap.lg}>
-        {characters?.map(character => (
-          <EncounterCharacterCard key={character.id} character={character} />
-        ))}
-      </VFlex>
+      {!encounter || !characters ? (
+        <VLoader />
+      ) : (
+        <VFlex vertical gap={theme.variable.gap.xl}>
+          <VFlex
+            justify="space-between"
+            align="center"
+            style={{
+              borderBottom: `1px solid ${theme.color.border.default}`,
+              paddingBottom: theme.variable.gap.lg
+            }}
+          >
+            {encounter.turn === 0 ? (
+              <VButton
+                type="primary"
+                onClick={() => setEncounter({ ...encounter, turn: 1 })}
+                style={{ margin: 'auto' }}
+              >
+                <PlayIcon />
+                Start encounter
+              </VButton>
+            ) : (
+              <>
+                <VButton onClick={() => setEncounter({ ...encounter, turn: encounter.turn - 1 })}>
+                  <ChevronLeftIcon />
+                  Back
+                </VButton>
+
+                <VFlex
+                  align="center"
+                  gap={theme.variable.gap.md}
+                  style={{ fontSize: theme.variable.fontSize.lg }}
+                >
+                  <strong>Round {Math.ceil(encounter.turn / 4)}</strong>
+                  <div>/</div>
+                  <div>Turn {1 + ((encounter.turn - 1) % 4)}</div>
+                </VFlex>
+
+                <VButton
+                  type="primary"
+                  onClick={() => setEncounter({ ...encounter, turn: encounter.turn + 1 })}
+                >
+                  Next
+                  <ChevronRightIcon />
+                </VButton>
+              </>
+            )}
+          </VFlex>
+
+          <VFlex vertical gap={theme.variable.gap.lg}>
+            {characters.map(character => (
+              <EncounterCharacterCard key={character.id} character={character} />
+            ))}
+          </VFlex>
+        </VFlex>
+      )}
 
       <DeleteSessionEncounterModal
         open={deleteSessionEncounterModalOpen}
