@@ -7,7 +7,7 @@ import { useSessionEncounterQuery } from '../../queries/useSessionEncounterQuery
 import { useVTTUser } from '@/common/VTTUser';
 import { VFlex } from '@/components/VFlex';
 import { SavedStatus } from '../../SavedStatus';
-import { Encounter, isCharacterCombatant } from '../../types/Encounter';
+import { Encounter, isCharacterCombatant, isEnemyCombatant } from '../../types/Encounter';
 import { VButton } from '@/components/VButton';
 import { ReactComponent as TrashCanIcon } from '@/icons/TrashCan.svg';
 import { ReactComponent as PlayIcon } from '@/icons/Play.svg';
@@ -16,12 +16,15 @@ import { ReactComponent as ChevronRightIcon } from '@/icons/ChevronRight.svg';
 import { ReactComponent as MarkerIcon } from '@/icons/Marker.svg';
 import { useVTheme } from '@/common/VTheme';
 import { useUpdateSessionEncounterMutation } from '../../queries/useUpdateSessionEncounterMutation';
-import { debounce, isEqual } from 'lodash-es';
+import { debounce, isEqual, sum } from 'lodash-es';
 import styled from 'styled-components';
 import { DeleteSessionEncounterModal } from './DeleteSessionEncounterModal';
 import { EncounterCombatantCard } from '@/pages/vtt/sessions/session/EncounterCombatantCard';
 import { useSessionCharactersQuery } from '@/pages/vtt/queries/useSessionCharactersQuery';
 import { VLoader } from '@/components/VLoader';
+import { useRolls } from '@/pages/vtt/rolls/useRolls';
+import { RollLog } from '@/pages/vtt/rolls/RollLog';
+import { RollEvaluation } from '@/pages/vtt/types/Roll';
 
 const StyledSessionEncounterPage = styled(PageLayout)`
   .page__pageHeader__titleInput {
@@ -44,6 +47,7 @@ export const SessionEncounterPage: React.FC = () => {
   const { sessionId, encounterId } = useParams();
   const theme = useVTheme();
   const user = useVTTUser();
+  const { rolls } = useRolls(sessionId);
 
   const { data: session } = useSessionQuery(sessionId);
 
@@ -87,30 +91,47 @@ export const SessionEncounterPage: React.FC = () => {
 
   useEffect(() => {
     // ensure combatants is up to date with session characters and their latest initiative
-    if (encounter && encounter.turn === 0 && sessionCharacters) {
-      const combatants = encounter.combatants;
+    if (encounter && sessionCharacters && rolls) {
+      // remove combatants for removed session characters
+      const combatants = [...encounter.combatants].filter(
+        combatant =>
+          isEnemyCombatant(combatant) ||
+          sessionCharacters.some(character => character.id === combatant.characterId)
+      );
 
-      for (const character of sessionCharacters) {
-        const index = combatants.findIndex(
-          combatant => isCharacterCombatant(combatant) && combatant.characterId === character.id
-        );
-        if (index === -1) {
-          // add character to combatants
-          combatants.push({
-            characterId: character.id,
-            initiative: 0
-          });
-        } else {
-          // update character's initiative
-          combatants[index].initiative = 0;
+      // only add characters and update initiative before encounter has started
+      if (encounter.turn === 0) {
+        for (const character of sessionCharacters) {
+          const initiativeRoll = rolls.find(
+            roll =>
+              roll.characterId === character.id &&
+              roll.evaluation === RollEvaluation.SUM &&
+              roll.label === 'Initiative'
+          );
+          const initiative = initiativeRoll ? sum(initiativeRoll.dice) : 0;
+
+          const index = combatants.findIndex(
+            combatant => isCharacterCombatant(combatant) && combatant.characterId === character.id
+          );
+          if (index === -1) {
+            // add character to combatants
+            combatants.push({
+              characterId: character.id,
+              initiative
+            });
+          } else {
+            // update character's initiative
+            combatants[index].initiative = initiative;
+          }
         }
       }
+
       setEncounter({
         ...encounter,
         combatants
       });
     }
-  }, [savedEncounter, sessionCharacters]);
+  }, [encounter?.turn, sessionCharacters, rolls]);
 
   return (
     <StyledSessionEncounterPage>
@@ -148,7 +169,7 @@ export const SessionEncounterPage: React.FC = () => {
         }
       />
 
-      {!encounter || !sessionCharacters ? (
+      {!encounter || !sessionCharacters || !rolls ? (
         <VLoader />
       ) : (
         <VFlex justify="center">
@@ -199,28 +220,32 @@ export const SessionEncounterPage: React.FC = () => {
             </VFlex>
 
             <VFlex vertical gap={theme.variable.gap.lg}>
-              {encounter.combatants.map((combatant, i) => (
-                <VFlex
-                  align="center"
-                  key={isCharacterCombatant(combatant) ? combatant.characterId : combatant.enemyKey}
-                  style={{ position: 'relative' }}
-                >
-                  <MarkerIcon
-                    fontSize={20}
-                    style={{
-                      position: 'absolute',
-                      left: -parseInt(theme.variable.gap.xl),
-                      display: i === (encounter.turn - 1) % 4 ? 'block' : 'none'
-                    }}
-                    color={theme.color.status.success.text}
-                  />
-                  <EncounterCombatantCard
-                    sessionId={sessionId}
-                    encounterCombatant={combatant}
-                    style={{ flex: 1 }}
-                  />
-                </VFlex>
-              ))}
+              {[...encounter.combatants]
+                .sort((a, b) => b.initiative - a.initiative)
+                .map((combatant, i) => (
+                  <VFlex
+                    align="center"
+                    key={
+                      isCharacterCombatant(combatant) ? combatant.characterId : combatant.enemyKey
+                    }
+                    style={{ position: 'relative' }}
+                  >
+                    <MarkerIcon
+                      fontSize={20}
+                      style={{
+                        position: 'absolute',
+                        left: -parseInt(theme.variable.gap.xl),
+                        display: i === (encounter.turn - 1) % 4 ? 'block' : 'none'
+                      }}
+                      color={theme.color.status.success.text}
+                    />
+                    <EncounterCombatantCard
+                      sessionId={sessionId}
+                      encounterCombatant={combatant}
+                      style={{ flex: 1 }}
+                    />
+                  </VFlex>
+                ))}
             </VFlex>
           </VFlex>
         </VFlex>
@@ -232,6 +257,8 @@ export const SessionEncounterPage: React.FC = () => {
         sessionId={sessionId}
         encounterId={encounterId}
       />
+
+      <RollLog sessionId={sessionId} />
     </StyledSessionEncounterPage>
   );
 };

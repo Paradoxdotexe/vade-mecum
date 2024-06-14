@@ -1,4 +1,4 @@
-import React, { ReactNode, useContext, useEffect, useState } from 'react';
+import React, { ReactNode, useContext, useEffect, useMemo, useState } from 'react';
 import { Roll } from '../types/Roll';
 import { playSound } from '@/utils/playSound';
 import { useLocalStorage } from '@/utils/useLocalStorage';
@@ -8,6 +8,7 @@ import {
   useCreateSessionRollMutation
 } from '../queries/useCreateSessionRollMutation';
 import { useQueryClient } from 'react-query';
+import { DateTime } from 'luxon';
 
 type RollsState = {
   rolls?: Roll[];
@@ -67,7 +68,15 @@ export const RollsProvider: React.FC<{ children: ReactNode }> = props => {
 
   const { mutate: createSessionRoll } = useCreateSessionRollMutation(sessionId);
 
-  const rolls = sessionId ? sessionRolls : localRolls;
+  const rolls = useMemo(() => {
+    const rolls = sessionId ? sessionRolls : localRolls;
+    return (
+      rolls &&
+      [...rolls].sort((a, b) =>
+        DateTime.fromISO(a.timestamp) < DateTime.fromISO(b.timestamp) ? 1 : -1
+      )
+    );
+  }, [sessionRolls, localRolls]);
 
   const addRoll = (roll: Roll) => {
     playSound('/sounds/DiceRoll.mp3').then(() => {
@@ -90,4 +99,12 @@ export const RollsProvider: React.FC<{ children: ReactNode }> = props => {
   return <RollsContext.Provider value={context}>{props.children}</RollsContext.Provider>;
 };
 
-export const useRolls = () => useContext(RollsContext);
+export const useRolls = (sessionId?: string) => {
+  const rollsContext = useContext(RollsContext);
+
+  useEffect(() => {
+    rollsContext.setSessionId(sessionId);
+  }, [sessionId]);
+
+  return rollsContext;
+};

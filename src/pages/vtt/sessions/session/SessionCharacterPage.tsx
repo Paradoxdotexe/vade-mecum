@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import { CharacterSheet } from '@/pages/vtt/characters/character/CharacterSheet';
 import { useSessionQuery } from '@/pages/vtt/queries/useSessionQuery';
 import { useSessionCharacterQuery } from '../../queries/useSessionCharacterQuery';
+import { RollLog } from '@/pages/vtt/rolls/RollLog';
 
 export const SessionCharacterPage: React.FC = () => {
   const { sessionId, characterId } = useParams();
@@ -25,6 +26,8 @@ export const SessionCharacterPage: React.FC = () => {
       />
 
       <CharacterSheet character={character} />
+
+      <RollLog sessionId={sessionId} />
     </PageLayout>
   );
 };
