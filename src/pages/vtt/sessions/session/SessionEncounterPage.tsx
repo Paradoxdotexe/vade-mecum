@@ -7,7 +7,7 @@ import { useSessionEncounterQuery } from '../../queries/useSessionEncounterQuery
 import { useVTTUser } from '@/common/VTTUser';
 import { VFlex } from '@/components/VFlex';
 import { SavedStatus } from '../../SavedStatus';
-import { Encounter } from '../../types/Encounter';
+import { Encounter, isCharacterCombatant } from '../../types/Encounter';
 import { VButton } from '@/components/VButton';
 import { ReactComponent as TrashCanIcon } from '@/icons/TrashCan.svg';
 import { ReactComponent as PlayIcon } from '@/icons/Play.svg';
@@ -19,7 +19,7 @@ import { useUpdateSessionEncounterMutation } from '../../queries/useUpdateSessio
 import { debounce, isEqual } from 'lodash-es';
 import styled from 'styled-components';
 import { DeleteSessionEncounterModal } from './DeleteSessionEncounterModal';
-import { EncounterCharacterCard } from '@/pages/vtt/sessions/session/EncounterCharacterCard';
+import { EncounterCombatantCard } from '@/pages/vtt/sessions/session/EncounterCombatantCard';
 import { useSessionCharactersQuery } from '@/pages/vtt/queries/useSessionCharactersQuery';
 import { VLoader } from '@/components/VLoader';
 
@@ -52,7 +52,7 @@ export const SessionEncounterPage: React.FC = () => {
   const [encounter, setEncounter] = useState<Encounter>();
   const [saved, setSaved] = useState(true);
 
-  const { data: characters } = useSessionCharactersQuery(sessionId);
+  const { data: sessionCharacters } = useSessionCharactersQuery(sessionId);
 
   const { data: savedEncounter } = useSessionEncounterQuery(sessionId, encounterId);
   useMemo(() => {
@@ -66,7 +66,7 @@ export const SessionEncounterPage: React.FC = () => {
     encounterId
   );
   const updateSessionEncounter = useMemo(
-    () => debounce((encounter: Encounter) => _updateSessionEncounter({ encounter }), 2000),
+    () => debounce((encounter: Encounter) => _updateSessionEncounter({ encounter }), 1000),
     []
   );
 
@@ -84,6 +84,33 @@ export const SessionEncounterPage: React.FC = () => {
   }, [encounter, savedEncounter]);
 
   const canEditEncounter = user.authenticated && user.id === session?.userId;
+
+  useEffect(() => {
+    // ensure combatants is up to date with session characters and their latest initiative
+    if (encounter && encounter.turn === 0 && sessionCharacters) {
+      const combatants = encounter.combatants;
+
+      for (const character of sessionCharacters) {
+        const index = combatants.findIndex(
+          combatant => isCharacterCombatant(combatant) && combatant.characterId === character.id
+        );
+        if (index === -1) {
+          // add character to combatants
+          combatants.push({
+            characterId: character.id,
+            initiative: 0
+          });
+        } else {
+          // update character's initiative
+          combatants[index].initiative = 0;
+        }
+      }
+      setEncounter({
+        ...encounter,
+        combatants
+      });
+    }
+  }, [savedEncounter, sessionCharacters]);
 
   return (
     <StyledSessionEncounterPage>
@@ -121,7 +148,7 @@ export const SessionEncounterPage: React.FC = () => {
         }
       />
 
-      {!encounter || !characters ? (
+      {!encounter || !sessionCharacters ? (
         <VLoader />
       ) : (
         <VFlex justify="center">
@@ -172,8 +199,12 @@ export const SessionEncounterPage: React.FC = () => {
             </VFlex>
 
             <VFlex vertical gap={theme.variable.gap.lg}>
-              {characters.map((character, i) => (
-                <VFlex align="center" key={character.id} style={{ position: 'relative' }}>
+              {encounter.combatants.map((combatant, i) => (
+                <VFlex
+                  align="center"
+                  key={isCharacterCombatant(combatant) ? combatant.characterId : combatant.enemyKey}
+                  style={{ position: 'relative' }}
+                >
                   <MarkerIcon
                     fontSize={20}
                     style={{
@@ -183,9 +214,9 @@ export const SessionEncounterPage: React.FC = () => {
                     }}
                     color={theme.color.status.success.text}
                   />
-                  <EncounterCharacterCard
-                    key={character.id}
-                    character={character}
+                  <EncounterCombatantCard
+                    sessionId={sessionId}
+                    encounterCombatant={combatant}
                     style={{ flex: 1 }}
                   />
                 </VFlex>

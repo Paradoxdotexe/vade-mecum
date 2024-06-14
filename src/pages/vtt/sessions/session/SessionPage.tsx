@@ -115,7 +115,7 @@ export const SessionPage: React.FC = () => {
 
   const { mutateAsync: _updateSession } = useUpdateSessionMutation(sessionId);
   const updateSession = useMemo(
-    () => debounce((session: Session) => _updateSession({ session }), 2000),
+    () => debounce((session: Session) => _updateSession({ session }), 1000),
     []
   );
 
