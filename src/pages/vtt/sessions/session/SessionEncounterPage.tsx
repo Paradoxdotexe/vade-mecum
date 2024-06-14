@@ -134,6 +134,15 @@ export const SessionEncounterPage: React.FC = () => {
     }
   }, [encounter?.turn, sessionCharacters, rolls, canEditEncounter]);
 
+  const initiativeMissing =
+    encounter &&
+    encounter.combatants.some(
+      combatant => isCharacterCombatant(combatant) && !combatant.initiative
+    );
+
+  const round = encounter ? Math.ceil(encounter.turn / encounter.combatants.length) : 0;
+  const turn = encounter ? 1 + ((encounter.turn - 1) % encounter.combatants.length) : 0;
+
   return (
     <StyledSessionEncounterPage>
       <PageHeader
@@ -184,15 +193,28 @@ export const SessionEncounterPage: React.FC = () => {
               }}
             >
               {encounter.turn === 0 ? (
-                <VButton
-                  type="primary"
-                  onClick={() => setEncounter({ ...encounter, turn: 1 })}
-                  style={{ margin: 'auto' }}
-                  disabled={!canEditEncounter}
-                >
-                  <PlayIcon />
-                  Start encounter
-                </VButton>
+                initiativeMissing ? (
+                  <VFlex
+                    align="center"
+                    style={{
+                      margin: 'auto',
+                      color: theme.color.text.secondary,
+                      height: 34
+                    }}
+                  >
+                    Waiting for characters to roll for initiative...
+                  </VFlex>
+                ) : (
+                  <VButton
+                    type="primary"
+                    onClick={() => setEncounter({ ...encounter, turn: 1 })}
+                    style={{ margin: 'auto' }}
+                    disabled={!canEditEncounter}
+                  >
+                    <PlayIcon />
+                    Start encounter
+                  </VButton>
+                )
               ) : (
                 <>
                   <VButton
@@ -208,9 +230,9 @@ export const SessionEncounterPage: React.FC = () => {
                     gap={theme.variable.gap.md}
                     style={{ fontSize: theme.variable.fontSize.lg }}
                   >
-                    <strong>Round {Math.ceil(encounter.turn / 4)}</strong>
+                    <strong>Round {round}</strong>
                     <div>/</div>
-                    <div>Turn {1 + ((encounter.turn - 1) % 4)}</div>
+                    <div>Turn {turn}</div>
                   </VFlex>
 
                   <VButton
@@ -241,7 +263,7 @@ export const SessionEncounterPage: React.FC = () => {
                       style={{
                         position: 'absolute',
                         left: -parseInt(theme.variable.gap.xl),
-                        display: i === (encounter.turn - 1) % 4 ? 'block' : 'none'
+                        display: i === turn - 1 ? 'block' : 'none'
                       }}
                       color={theme.color.status.success.text}
                     />
