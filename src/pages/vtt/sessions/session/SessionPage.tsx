@@ -30,6 +30,7 @@ import { useSessionEncountersQuery } from '../../queries/useSessionEncountersQue
 import { EncounterCard } from './EncounterCard';
 import { useQueryClient } from 'react-query';
 import { useUpdateSessionEncounterMutation } from '../../queries/useUpdateSessionEncounterMutation';
+import { useSessionConnection } from '@/pages/vtt/sessions/useSessionConnection';
 
 const StyledSessionPage = styled(PageLayout)`
   .page__pageHeader__titleInput {
@@ -92,6 +93,8 @@ const StyledSessionPage = styled(PageLayout)`
 
 export const SessionPage: React.FC = () => {
   const { sessionId } = useParams();
+  useSessionConnection(sessionId);
+
   const navigate = useNavigate();
   const queryClient = useQueryClient();
   const theme = useVTheme();
@@ -304,7 +307,7 @@ export const SessionPage: React.FC = () => {
         sessionId={sessionId}
       />
 
-      <RollLog sessionId={sessionId} />
+      <RollLog />
     </StyledSessionPage>
   );
 };

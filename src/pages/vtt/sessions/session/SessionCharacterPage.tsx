@@ -6,9 +6,11 @@ import { CharacterSheet } from '@/pages/vtt/characters/character/CharacterSheet'
 import { useSessionQuery } from '@/pages/vtt/queries/useSessionQuery';
 import { useSessionCharacterQuery } from '../../queries/useSessionCharacterQuery';
 import { RollLog } from '@/pages/vtt/rolls/RollLog';
+import { useSessionConnection } from '@/pages/vtt/sessions/useSessionConnection';
 
 export const SessionCharacterPage: React.FC = () => {
   const { sessionId, characterId } = useParams();
+  useSessionConnection(sessionId);
 
   const { data: session } = useSessionQuery(sessionId);
   const { data: character } = useSessionCharacterQuery(sessionId, characterId);
@@ -27,7 +29,7 @@ export const SessionCharacterPage: React.FC = () => {
 
       <CharacterSheet character={character} />
 
-      <RollLog sessionId={sessionId} />
+      <RollLog />
     </PageLayout>
   );
 };

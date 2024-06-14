@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import { useVTTUser } from '../../common/VTTUser';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { RollModalProvider } from './rolls/RollModal';
-import { RollsProvider } from './rolls/useRolls';
+import { SessionConnectionProvider } from '@/pages/vtt/sessions/useSessionConnection';
+import { RollsProvider } from '@/pages/vtt/rolls/useRolls';
 
 export const VTT: React.FC = () => {
   const location = useLocation();
@@ -27,11 +28,13 @@ export const VTT: React.FC = () => {
 
   return (
     <>
-      <RollsProvider>
-        <RollModalProvider>
-          <Outlet />
-        </RollModalProvider>
-      </RollsProvider>
+      <SessionConnectionProvider>
+        <RollsProvider>
+          <RollModalProvider>
+            <Outlet />
+          </RollModalProvider>
+        </RollsProvider>
+      </SessionConnectionProvider>
     </>
   );
 };

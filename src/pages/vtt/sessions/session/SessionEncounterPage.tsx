@@ -25,6 +25,7 @@ import { VLoader } from '@/components/VLoader';
 import { useRolls } from '@/pages/vtt/rolls/useRolls';
 import { RollLog } from '@/pages/vtt/rolls/RollLog';
 import { RollEvaluation } from '@/pages/vtt/types/Roll';
+import { useSessionConnection } from '@/pages/vtt/sessions/useSessionConnection';
 
 const StyledSessionEncounterPage = styled(PageLayout)`
   .page__pageHeader__titleInput {
@@ -45,10 +46,12 @@ const StyledSessionEncounterPage = styled(PageLayout)`
 
 export const SessionEncounterPage: React.FC = () => {
   const { sessionId, encounterId } = useParams();
+  useSessionConnection(sessionId);
+
   const navigate = useNavigate();
   const theme = useVTheme();
   const user = useVTTUser();
-  const { rolls } = useRolls(sessionId);
+  const { rolls } = useRolls();
 
   const { data: session } = useSessionQuery(sessionId);
 
@@ -300,7 +303,7 @@ export const SessionEncounterPage: React.FC = () => {
         encounterId={encounterId}
       />
 
-      <RollLog sessionId={sessionId} />
+      <RollLog />
     </StyledSessionEncounterPage>
   );
 };

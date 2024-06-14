@@ -14,9 +14,27 @@ import { useUpdateCharacterMutation } from '../../queries/useUpdateCharacterMuta
 import { RollLog } from '../../rolls/RollLog';
 import { DeleteCharacterModal } from './DeleteCharacterModal';
 import { CharacterSheet } from './CharacterSheet';
+import { useSessionConnection } from '@/pages/vtt/sessions/useSessionConnection';
+import { useSessionsQuery } from '@/pages/vtt/queries/useSessionsQuery';
 
 export const CharacterPage: React.FC = () => {
   const { characterId } = useParams();
+  const { connect, disconnect } = useSessionConnection();
+
+  const { data: sessions } = useSessionsQuery();
+
+  // determine if character should be connected to a session
+  useEffect(() => {
+    if (sessions) {
+      const session = sessions.find(session => session.characterIds.includes(characterId!));
+      if (session) {
+        connect(session.id);
+      } else {
+        disconnect();
+      }
+    }
+  }, [sessions]);
+
   const theme = useVTheme();
 
   const [character, setCharacter] = useState<Character>();
@@ -73,7 +91,7 @@ export const CharacterPage: React.FC = () => {
         characterId={characterId}
       />
 
-      <RollLog characterId={characterId} />
+      {sessions && <RollLog />}
     </PageLayout>
   );
 };

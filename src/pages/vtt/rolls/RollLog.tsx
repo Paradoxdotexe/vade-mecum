@@ -4,7 +4,8 @@ import styled, { css } from 'styled-components';
 import { RollCard } from './RollCard';
 import { useRolls } from './useRolls';
 import { VLoader } from '@/components/VLoader';
-import { useSessionsQuery } from '@/pages/vtt/queries/useSessionsQuery';
+import { useSessionQuery } from '@/pages/vtt/queries/useSessionQuery';
+import { playSound } from '@/utils/playSound';
 
 export const ROLL_LOG_WIDTH = '252px';
 
@@ -90,36 +91,19 @@ const StyledRollLog = styled.div`
   }
 `;
 
-type RollLogProps =
-  | {
-      sessionId: string | undefined;
-    }
-  | {
-      characterId: string | undefined;
-    };
-
-export const RollLog: React.FC<RollLogProps> = props => {
-  const { rolls, sessionId, setSessionId } = useRolls();
-  const [loading, setLoading] = useState(true);
+export const RollLog: React.FC = () => {
+  const { rolls, sessionId } = useRolls();
+  const [firstRender, setFirstRender] = useState(true);
   const [firstRollsRender, setFirstRollsRender] = useState(true);
 
-  const { data: sessions } = useSessionsQuery();
+  const { data: session } = useSessionQuery(sessionId);
 
   useEffect(() => {
-    if (sessions) {
-      if ('sessionId' in props) {
-        setSessionId(props.sessionId);
-      } else if ('characterId' in props) {
-        // find session that character is in
-        setSessionId(
-          props.characterId
-            ? sessions.find(session => session.characterIds.includes(props.characterId!))?.id
-            : undefined
-        );
-      }
-      setLoading(false);
-    }
-  }, [props, sessions]);
+    setFirstRender(false);
+  }, []);
+
+  // wait past first render to confirm page has set sessionId via useSessionConnection
+  const loading = firstRender || !rolls || (sessionId && !session);
 
   useEffect(() => {
     if (!loading && rolls) {
@@ -127,7 +111,12 @@ export const RollLog: React.FC<RollLogProps> = props => {
     }
   }, [loading, rolls]);
 
-  const session = sessions?.find(session => session.id === sessionId);
+  // we play sound here to prevent playing it when a RollLog is not shown
+  useEffect(() => {
+    if (!firstRollsRender) {
+      playSound('/sounds/DiceRoll.mp3');
+    }
+  }, [rolls]);
 
   return (
     <StyledRollLog id="roll-log">
