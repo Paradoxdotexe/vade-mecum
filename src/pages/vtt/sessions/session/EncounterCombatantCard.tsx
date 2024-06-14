@@ -9,6 +9,7 @@ import { VTag } from '@/components/VTag';
 import classNames from 'classnames';
 import { EncounterCombatant, isCharacterCombatant } from '@/pages/vtt/types/Encounter';
 import { useSessionCharacterQuery } from '@/pages/vtt/queries/useSessionCharacterQuery';
+import { opacify } from 'polished';
 
 const StyledEncounterCombatantCard = styled(VCard)`
   max-width: 400px;
@@ -16,6 +17,10 @@ const StyledEncounterCombatantCard = styled(VCard)`
   &.card--bloodied {
     border-color: ${props => props.theme.color.status.error.border};
     background-color: ${props => props.theme.color.status.error.background};
+
+    &:hover {
+      background-color: ${props => opacify(0.1, props.theme.color.status.error.background)};
+    }
 
     input,
     .card__stat {

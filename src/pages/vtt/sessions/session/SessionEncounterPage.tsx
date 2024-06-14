@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { PageHeader } from '@/common/PageHeader';
 import { PageLayout } from '@/common/PageLayout';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useSessionQuery } from '@/pages/vtt/queries/useSessionQuery';
 import { useSessionEncounterQuery } from '../../queries/useSessionEncounterQuery';
 import { useVTTUser } from '@/common/VTTUser';
@@ -45,6 +45,7 @@ const StyledSessionEncounterPage = styled(PageLayout)`
 
 export const SessionEncounterPage: React.FC = () => {
   const { sessionId, encounterId } = useParams();
+  const navigate = useNavigate();
   const theme = useVTheme();
   const user = useVTTUser();
   const { rolls } = useRolls(sessionId);
@@ -91,7 +92,7 @@ export const SessionEncounterPage: React.FC = () => {
 
   useEffect(() => {
     // ensure combatants is up to date with session characters and their latest initiative
-    if (encounter && sessionCharacters && rolls) {
+    if (encounter && sessionCharacters && rolls && canEditEncounter) {
       // remove combatants for removed session characters
       const combatants = [...encounter.combatants].filter(
         combatant =>
@@ -131,7 +132,7 @@ export const SessionEncounterPage: React.FC = () => {
         combatants
       });
     }
-  }, [encounter?.turn, sessionCharacters, rolls]);
+  }, [encounter?.turn, sessionCharacters, rolls, canEditEncounter]);
 
   return (
     <StyledSessionEncounterPage>
@@ -187,13 +188,17 @@ export const SessionEncounterPage: React.FC = () => {
                   type="primary"
                   onClick={() => setEncounter({ ...encounter, turn: 1 })}
                   style={{ margin: 'auto' }}
+                  disabled={!canEditEncounter}
                 >
                   <PlayIcon />
                   Start encounter
                 </VButton>
               ) : (
                 <>
-                  <VButton onClick={() => setEncounter({ ...encounter, turn: encounter.turn - 1 })}>
+                  <VButton
+                    onClick={() => setEncounter({ ...encounter, turn: encounter.turn - 1 })}
+                    disabled={!canEditEncounter}
+                  >
                     <ChevronLeftIcon />
                     Back
                   </VButton>
@@ -211,6 +216,7 @@ export const SessionEncounterPage: React.FC = () => {
                   <VButton
                     type="primary"
                     onClick={() => setEncounter({ ...encounter, turn: encounter.turn + 1 })}
+                    disabled={!canEditEncounter}
                   >
                     Next
                     <ChevronRightIcon />
@@ -243,6 +249,20 @@ export const SessionEncounterPage: React.FC = () => {
                       sessionId={sessionId}
                       encounterCombatant={combatant}
                       style={{ flex: 1 }}
+                      onClick={() => {
+                        if (isCharacterCombatant(combatant)) {
+                          const character = sessionCharacters.find(
+                            character => character.id === combatant.characterId
+                          );
+                          if (character) {
+                            if (user.authenticated && user.id === character.userId) {
+                              navigate(`/vtt/characters/${character.id}`);
+                            } else {
+                              navigate(`/vtt/sessions/${sessionId}/characters/${character.id}`);
+                            }
+                          }
+                        }
+                      }}
                     />
                   </VFlex>
                 ))}
