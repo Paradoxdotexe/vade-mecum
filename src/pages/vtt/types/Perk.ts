@@ -276,31 +276,31 @@ export const PERKS: PerkWithRequirement[] = [
   {
     key: 'handy',
     name: 'Handy',
-    description: 'You double your Innovation bonus on skill checks to repair an item.',
+    description: 'You double your Engineering bonus on skill checks to repair an object.',
     requirement: {
       attributeKey: 'intelligence',
-      skillKey: 'innovation',
+      skillKey: 'engineering',
       skillRequirement: 1
     }
   },
   {
     key: 'inventor',
     name: 'Inventor',
-    description: 'You double your Innovation bonus on skill checks to create something new.',
+    description: 'You double your Engineering bonus on skill checks to create something new.',
     requirement: {
       attributeKey: 'intelligence',
-      skillKey: 'innovation',
+      skillKey: 'engineering',
       skillRequirement: 2
     }
   },
   {
-    key: 'repairman',
-    name: 'Repairman',
+    key: 'saboteur',
+    name: 'Saboteur',
     description:
-      'On a successful Innovation check to repair an item, you can also repair a second item.',
+      'When you set a trap during a Rest and it is triggered, all enemies are Stunned for 1 turn.',
     requirement: {
       attributeKey: 'intelligence',
-      skillKey: 'innovation',
+      skillKey: 'engineering',
       skillRequirement: 3
     }
   },

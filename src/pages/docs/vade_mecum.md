@@ -94,23 +94,23 @@ Below attributes, characters have 15 core skills (3 for each attribute) that rep
 These skills are scored on a scale from 0 to 3, with the average human being a 1.
 Skills allow characters to specialize themselves towards specific types of actions.
 
-| Attribute    | Skill             | Description                                                            |
-| ------------ | ----------------- | ---------------------------------------------------------------------- |
-| Strength     | **Power**         | Move a heavy object, attack with a melee weapon                        |
-| Strength     | **Fortitude**     | Endure physical hardship, resist physical exhaustion                   |
-| Strength     | **Athletics**     | Climb an obstacle, jump a gap, sprint a long distance                  |
-| Dexterity    | **Precision**     | Pick a lock, disarm a trap, attack with a ranged weapon                |
-| Dexterity    | **Stealth**       | Move quietly, hide oneself, evade detection                            |
-| Dexterity    | **Agility**       | Dodge a hazard, react quickly, manuever acrobatically                  |
-| Intelligence | **Intellect**     | Understand complex information, recall history                         |
-| Intelligence | **Medicine**      | Diagnose and treat injuries and illnesses                              |
-| Intelligence | **Innovation**    | Solve mechanical or technical problems, fix damaged items              |
-| Charisma     | **Intuition**     | Understand unspoken motives and feelings, catch lies                   |
-| Charisma     | **Influence**     | Sway a person's actions through persuasion, deception, or performance  |
-| Charisma     | **Luck**          | Have the unseen force of chance swing in your favor                    |
-| Perception   | **Insight**       | Understand sensory symbols or signs, recognize places                  |
-| Perception   | **Detection**     | Detect the presence of a creature, identify threats, traps, or hazards |
-| Perception   | **Investigation** | Search for clues or objects, scan for details                          |
+| Attribute    | Skill             | Description                                                                         |
+| ------------ | ----------------- | ----------------------------------------------------------------------------------- |
+| Strength     | **Power**         | Attack with a melee weapon, move a heavy object                                     |
+| Strength     | **Fortitude**     | Endure physical hardship, resist physical exhaustion                                |
+| Strength     | **Athletics**     | Move athletically, climb an obstacle, jump a gap, sprint a long distance            |
+| Dexterity    | **Precision**     | Attack with a ranged weapon, pick a lock, disarm a trap                             |
+| Dexterity    | **Stealth**       | Move undetected, hide an object from detection                                      |
+| Dexterity    | **Agility**       | Move nimbly, dodge a hazard, react quickly                                          |
+| Intelligence | **Intellect**     | Understand complex information, recall history                                      |
+| Intelligence | **Medicine**      | Fix a person's injury or illness through medical means, create a medicine           |
+| Intelligence | **Engineering**   | Fix an object's malfunction through mechanical or technical means, create an object |
+| Charisma     | **Intuition**     | Understand unspoken motives and feelings, catch lies                                |
+| Charisma     | **Influence**     | Sway a person's actions through persuasion, deception, or performance               |
+| Charisma     | **Luck**          | Have the unseen force of chance swing in your favor                                 |
+| Perception   | **Insight**       | Understand sensory symbols or signs, recognize places                               |
+| Perception   | **Detection**     | Identify the presence of people, animals, or traps                                  |
+| Perception   | **Investigation** | Identify objects, clues, or details                                                 |
 
 ## 1.3 Perks
 
@@ -363,15 +363,10 @@ In many cases, failure will mean the character botches the attempt and it can lo
 
 Any skill check that is intended to deal direct damage against an enemy is considered an attack.
 These are most often Power or Precision checks used to make melee or ranged attacks, respectively.
-Attack skill checks have two special rules when resolving their outcome.
 
 #### Critical Damage
 
-If the attack results in a success, the damage dealt increases by `1D6` for every additional 6 rolled.
-
-#### Weapon Damage
-
-If the attack results in a failure, the weapon being used takes 1 point of damage (see [2.2 Weapons and Tools](#2.2-Weapons-and-Tools)).
+If an attack results in a success, the damage dealt increases by `1D6` for every additional 6 rolled.
 
 ### Group Skill Checks
 
@@ -436,10 +431,6 @@ Weapons, additionally, will specify the attack range and the amount of damage de
 | **World Map**  | Common  | `8 VP`  | 1/4 slot | `+1` Insight                                    |
 | **Shortsword** | Average | `16 VP` | 1 slot   | `+1` Power, `3D6` damage, 5ft range             |
 | **Shortbow**   | Average | `16 VP` | 1 slot   | `+1` Precision, `2D6` damage, 10ft - 90ft range |
-
-When using a weapon in combat, a failed skill check will result in the item taking damage.
-Damage results in the item's advantage modifier decreasing by one.
-When an item's modifier falls below zero, it is considered broken and can no longer be used until it is repaired during a Rest (see [2.7 Rest](#2.7-Rest)).
 
 > Attacks made without a weapon use Power and deal 1D6 damage.
 
@@ -642,12 +633,12 @@ The most common Rest Activities are given below.
 
 > All characters can complete a single Rest Activity by default.
 
-| Rest Activity          | Skill         | Success                                                             |
-| ---------------------- | ------------- | ------------------------------------------------------------------- |
-| Keep watch for enemies | Detection     | Force an enemy's surprise attack to automatically fail (if present) |
-| Heal a character       | Medicine      | Double the HP gained by a character who is satiated                 |
-| Repair a damaged item  | Innovation    | Restore a damaged weapon's bonus back to full                       |
-| Investigate a clue     | Investigation | Learn something that will help progress a personal or party goal    |
+| Rest Activity          | Skill         | Success                                                          |
+| ---------------------- | ------------- | ---------------------------------------------------------------- |
+| Keep watch for enemies | Detection     | You cannot be stunned by an enemy's surprise attack              |
+| Investigate a clue     | Investigation | Learn something that will help progress a personal or party goal |
+| Heal a character       | Medicine      | Double the HP gained by a character who is satiated              |
+| Set a trap             | Engineering   | Force an enemy's surprise attack to automatically fail           |
 
 > If a Rest is interrupted for more than 4 hours, it must be restarted.
 

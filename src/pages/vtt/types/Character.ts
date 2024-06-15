@@ -31,7 +31,7 @@ type IntelligenceAttribute = Attribute & {
   skills: {
     intellect: Skill;
     medicine: Skill;
-    innovation: Skill;
+    engineering: Skill;
   };
 };
 

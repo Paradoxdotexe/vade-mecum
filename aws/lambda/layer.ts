@@ -177,6 +177,14 @@ const CHARACTER_MIGRATIONS: ((character: any) => void)[] = [
     delete character.description;
     character.partyGoal = '';
     character.personalGoal = '';
+  },
+  character => {
+    const innovationValue = character.attributes.intelligence.skills.innovation.value;
+    delete character.attributes.intelligence.skills.innovation;
+    character.attributes.intelligence.skills.engineering = {
+      label: 'Engineering',
+      value: innovationValue
+    };
   }
 ];
 
@@ -226,7 +234,7 @@ export const DEFAULT_CHARACTER_DEFINITION = {
       skills: {
         intellect: { label: 'Intellect', value: 0 },
         medicine: { label: 'Medicine', value: 0 },
-        innovation: { label: 'Innovation', value: 0 }
+        engineering: { label: 'Engineering', value: 0 }
       }
     },
     charisma: {
