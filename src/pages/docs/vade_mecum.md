@@ -558,7 +558,8 @@ The Incapacitated conditions ends after the character is healed by a successful 
 ### Crippled
 
 When a character recovers from a Deadly Injury, they are Crippled.
-While a character is Crippled, their Movement Speed is reduced by half.
+While a character is Crippled, their Movement Speed is reduced to 3 tiles, or 15 feet.
+When traversing long distances outside of combat, their movement speed is reduced to 1 mile per hour or 8 miles per day.
 The Crippled condition ends after finishing a satiated Rest (see [2.7 Rest](#2.7-Rest)).
 
 ## 2.6 Injuries
@@ -580,8 +581,7 @@ If the roll is successful, the character is stabilized with 1 HP and they are ba
 
 If a character incurs an injury that is Severe (3), Critical (2), or Fatal (1), they will die in a given number of rounds.
 To prevent their death, another player within 5ft must roll a Medicine check with the specified difficulty.
-If the roll is successful, the character is stabilized with 1 HP and they are back in the fight, but Crippled.
-A Crippled character has their Movement Speed reduced by half until their next Rest.
+If the roll is successful, the character is stabilized with 1 HP and are back in the fight, but are now Crippled.
 
 > While incapacitated, all attacks on the character are Trivial (+3) and increase the level of injury by one.
 
