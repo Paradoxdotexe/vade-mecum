@@ -198,17 +198,20 @@ export const SessionPage: React.FC = () => {
             </VButton>
 
             {canEditSession && (
-              <VButton onClick={onAddEncounter} loading={createSessionEncounterMutation.isLoading}>
-                <PlusIcon /> Add encounter
-              </VButton>
-            )}
-
-            {canEditSession && (
               <VFlex vertical align="end" gap={theme.variable.gap.md}>
                 <SavedStatus saved={saved} />
-                <VButton onClick={() => setDeleteSessionModalOpen(true)} disabled={!saved}>
-                  <TrashCanIcon /> Delete session
-                </VButton>
+                <VFlex gap={theme.variable.gap.md}>
+                  <VButton
+                    onClick={onAddEncounter}
+                    loading={createSessionEncounterMutation.isLoading}
+                  >
+                    <PlusIcon /> Add encounter
+                  </VButton>
+
+                  <VButton onClick={() => setDeleteSessionModalOpen(true)} disabled={!saved}>
+                    <TrashCanIcon />
+                  </VButton>
+                </VFlex>
               </VFlex>
             )}
           </>

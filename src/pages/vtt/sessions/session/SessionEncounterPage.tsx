@@ -175,7 +175,7 @@ export const SessionEncounterPage: React.FC = () => {
               <VFlex vertical align="end" gap={theme.variable.gap.md}>
                 <SavedStatus saved={saved} />
                 <VButton onClick={() => setDeleteSessionEncounterModalOpen(true)} disabled={!saved}>
-                  <TrashCanIcon /> Delete encounter
+                  <TrashCanIcon />
                 </VButton>
               </VFlex>
             )}

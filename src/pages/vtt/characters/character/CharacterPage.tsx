@@ -77,7 +77,7 @@ export const CharacterPage: React.FC = () => {
           <VFlex vertical align="end" gap={theme.variable.gap.md}>
             <SavedStatus saved={saved} />
             <VButton onClick={() => setDeleteCharacterModalOpen(true)} disabled={!saved}>
-              <TrashCanIcon /> Delete character
+              <TrashCanIcon />
             </VButton>
           </VFlex>
         }
