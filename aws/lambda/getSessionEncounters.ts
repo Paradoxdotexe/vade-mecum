@@ -42,7 +42,7 @@ const handler: APIGatewayProxyHandler = async event =>
         '#name': 'name',
         '#hidden': 'hidden'
       },
-      ProjectionExpression: 'itemId, #name, combatants, turn, #hidden'
+      ProjectionExpression: 'itemId, #name, participants, turn, #hidden'
     });
     const encounters = (await docClient.send(querySessionEncounters)).Items ?? [];
 
@@ -54,7 +54,7 @@ const handler: APIGatewayProxyHandler = async event =>
           .map(encounter => ({
             id: encounter.itemId.split('#')[1],
             name: encounter.name,
-            combatants: JSON.parse(encounter.combatants),
+            participants: JSON.parse(encounter.participants),
             turn: encounter.turn,
             hidden: encounter.hidden
           }))

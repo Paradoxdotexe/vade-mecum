@@ -22,7 +22,7 @@ const handler: APIGatewayProxyHandler = async event =>
         sessionId: sessionId,
         itemId: `encounter#${encounterId}`,
         name: '',
-        combatants: JSON.stringify([]),
+        participants: JSON.stringify([]),
         turn: 0,
         hidden: true
       }

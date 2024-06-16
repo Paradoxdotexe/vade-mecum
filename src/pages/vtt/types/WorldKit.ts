@@ -1,5 +1,5 @@
 import { Class, AbilityType } from './Class';
-import { Enemy } from './Enemy';
+import { Combatant } from './Combatant';
 import { Item, ItemType } from './Item';
 import { Perk } from './Perk';
 
@@ -22,7 +22,7 @@ type WorldKit = {
   races: Race[];
   classes: Class[];
   items: Item[];
-  enemies: Enemy[];
+  combatants: Combatant[];
 };
 
 const VALE_OF_MYTHS: WorldKit = {
@@ -145,7 +145,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Formal Decree',
           type: AbilityType.MAIN_ACTION,
           description:
-            "You can make a Chivalry check against an enemy's Enemy Bonus to command them to stand down. On a success, they will not attack unless otherwise provoked.",
+            "You can make a Chivalry check contested against an enemy's Fortitude to command them to stand down. On a success, they will not attack unless otherwise provoked.",
           requirement: 12
         },
         {
@@ -766,7 +766,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Turncoat',
           type: AbilityType.MAIN_ACTION,
           description:
-            "You can make an Inspiration check against an enemy's Enemy Bonus to convince them to join your cause. On a success, you spend IP equal to the enemy's level and they change sides until the end of combat.",
+            "You can make an Inspiration check contested against an enemy's Intuition to convince them to join your cause. On a success, you spend IP equal to the enemy's level and they change sides until the end of combat.",
           requirement: 24
         }
       ],
@@ -1587,7 +1587,7 @@ const VALE_OF_MYTHS: WorldKit = {
         'A carriage with two horses can carry six characters and has a movement speed of 6 miles per hour or 48 miles per day. In place of a character, a carriage can carry 40 slots worth of items.'
     }
   ],
-  enemies: [
+  combatants: [
     {
       key: 'wolf',
       name: 'Wolf',

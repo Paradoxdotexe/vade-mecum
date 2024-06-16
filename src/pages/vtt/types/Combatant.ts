@@ -1,15 +1,15 @@
 import { AbilityType } from './Class';
 
-export type Enemy = {
+export type Combatant = {
   key: string;
   name: string;
   level: number;
   itemQuantities: { key: string; quantity: number }[];
-  abilities: EnemyAbility[];
+  abilities: CombatantAbility[];
   speed: number;
 };
 
-export type EnemyAbility = {
+export type CombatantAbility = {
   key: string;
   type: AbilityType;
   name: string;

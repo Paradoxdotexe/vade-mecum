@@ -37,7 +37,7 @@ The world is defined and controlled by a Game Master that acts as both the game'
   - [2.7 Rest](#2.7-Rest)
 - [3. World](#3.-World)
   - [3.1 Currency](#3.1-Currency)
-  - [3.2 Enemies](#3.2-Enemies)
+  - [3.2 Combatants](#3.2-Combatants)
 
 ## World Kits
 
@@ -359,19 +359,16 @@ In many cases, failure will mean the character botches the attempt and it can lo
 > The character decides to try again and rolls a Precision check with an additional -1 disadvantage.
 > This time, they get a failure. The Game Master rules the keyhole of the lock has been ruined and is now unpickable.
 
-### Attacks
+### Help
 
-Any skill check that is intended to deal direct damage against an enemy is considered an attack.
-These are most often Power or Precision checks used to make melee or ranged attacks, respectively.
-
-#### Critical Damage
-
-If an attack results in a success, the damage dealt increases by `1D6` for every additional 6 rolled.
+When a character makes a skill check, others in their Adventuring Party may want to lend a hand.
+In this situation, the character making the skill check adds advantage equal to the helping character's skill bonus.
+During combat, this help requires a Bonus Action.
 
 ### Group Skill Checks
 
 When success hinges on the ability of multiple of characters, the Game Master may ask for a group skill check.
-In this situation, all character will make their own rolls, but the outcome will be resolved as a collective.
+In this situation, all characters will make their own rolls, but the outcome will be resolved as a collective.
 To determine the outcome, evaluate the results of each individual skill check, cancel out any failures with any successes, and then take the highest result.
 
 > **Example:** A group of 4 characters attempt to collectively sneak into a building.
@@ -380,11 +377,31 @@ To determine the outcome, evaluate the results of each individual skill check, c
 > After canceling out the one failure with one success, there remains one success and one stalemate.
 > Taking the highest result, the group Stealth check is ruled a success.
 
-### Help
+### Contested Skill Checks
 
-When a character makes a skill check, others in their Adventuring Party may want to lend a hand.
-In this situation, the character making the skill check adds advantage equal to the helping character's skill bonus.
-During combat, this help requires a Bonus Action.
+When characters or combatants have diametrically opposed goals, the Game Master may call for a contested skill check.
+When this happens, those involved will each make their own roll with the appropriate skill.
+
+To resolve the outcome, the highest rolled die from each skill check is compared.
+The roll with the higher die succeeds. If the the dice are the same, continue to the next.
+If all dice are the same, the contested skill check is ruled a stalemate.
+
+> **Example:** A character attempts to steal a key from a guard without being seen.
+> The Game Master calls for a contested skill check of Stealth vs. Detection.
+> The character rolls a Stealth check, yielding `5, 4, 2, 1`.
+> The guard rolls a Detection check, yielding `5, 3, 3`.
+> The 5 is compared to the 5 and is ignored.
+> The 4 is compared to the 3, resulting in a success for the character.
+> The key is stolen and the guard is none the wiser.
+
+### Attacks
+
+Any skill check that is intended to deal direct damage against an enemy is considered an attack.
+These are most often Power or Precision checks used to make melee or ranged attacks, respectively.
+
+#### Critical Damage
+
+If an attack results in a success, the damage dealt increases by `1D6` for every additional 6 rolled.
 
 ### Probability
 
@@ -507,7 +524,7 @@ By default, all characters can perform an opportunity attack as a reaction, but 
 ### Surprise
 
 In some cases, the Adventuring Party may attempt to surprise their enemy to gain an advantage.
-To do this, the characters roll a group Stealth check with disadvantage equal to the highest Enemy Bonus.
+To do this, all characters roll a group Stealth check to sneak into combat range.
 
 | Result        | Outcome                                                                       |
 | ------------- | ----------------------------------------------------------------------------- |
@@ -515,14 +532,14 @@ To do this, the characters roll a group Stealth check with disadvantage equal to
 | **Stalemate** | The party fails to surprise the enemy and begin combat as usual.              |
 | **Failure**   | The party prematurely alerts the enemy, giving the enemy a turn for movement. |
 
-> **Example:** A party attempts to surprise a group of soldiers on patrol. The soldiers are led by a Guard with Enemy Bonus 2.
-> The characters each roll a Stealth check with -2 disadvantage and succeed as a group.
+> **Example:** A party attempts to surprise a group of soldiers on patrol.
+> The characters each roll a Stealth check and succeed as a group.
 > The party surprises the enemies and stun them for one turn.
 
 ### Looting
 
 After completing a bout of combat, characters have the ability to search for spoils of their labor by making an Investigation check against an unlooted enemy.
-On a success, they either find an amount of currency equal to `(Enemy Level + Luck) x D6` or recover an item (at the GM's discretion).
+On a success, they either find an amount of currency equal to `(Combatant Level + Luck) x D6` or recover an item (at the GM's discretion).
 
 > **Example:** A character with Luck 1 rolls an Investigation check to loot a Level 6 enemy. They succeed on the roll and find 7D6 Currency Units.
 
@@ -716,45 +733,20 @@ Additionally, if the item is of Rare rarity or higher, an Influence check is req
 
 > When selling an item of Rare rarity or higher, the same rules apply but in reverse (the character attempts to haggle the price up).
 
-## 3.2 Enemies
+## 3.2 Combatants
 
-An enemy is a special creature that exists specifically to pose a threat to characters, working towards converse goals, promoting antithetical ideals, and above all else, offering interesting combat. Enemies are chiefly defined by their level, which like characters, scales from 1 to 24.
+A combatant is any creature that is capable of engaging in combat against or alongside characters.
+They too have goals to achieve, ideals to uphold, and a life to protect, but most importantly, they have interesting combat to offer.
 
-Unlike characters, enemies do not have specific points allocated to attributes and skills.
-Instead, each enemy has an associated Enemy Bonus that dictates how many dice they roll on any given skill check.
-This Enemy Bonus starts at 2 and is increased by 1 at every 3rd level.
+Unlike characters, combatants are chiefly defined by their level, which scales from 1 to 120.
+From this level, combatants are assigned a Combat Rating, or CR, that determines how many dice they roll on any given skill check and how much damage they deal in an average round. This Combat Rating starts at 2 and is increased by 1 at every 4th level.
 
-Instead of having a class, enemies can have any variety of abilities that serve to make their combat unique.
-As a rule of thumb, enemies should deal `(Enemy Bonus) * D6` damage per turn.
-This damage expectation can be balanced out with abilities that don't do damage, but offer other combat advantages.
+> **Example:** A Level 8 combatant has a Combat Rating of 4, meaning they would roll `4D6` on any given skill check (before advantage or disadvantage) and would be expected to deal `4D6` damage per round.
 
-> **Example:** A level 6 enemy with an Enemy Bonus of 4 would be expected to deal `4D6` damage per turn.
+Instead of having a class, combatants can have any variety of abilities that serve to make their combat unique.
+These abilities can be used to reach the expected damage output or have other effects that give them or their allies the upper hand in combat.
 
-Lastly, every enemy has a Max HP equal to `(Enemy Level + Enemy Bonus) * 6`.
+Lastly, every combatant has a Max HP equal to `(Combatant Level + Combat Rating) x 6`.
 
-| Level | Enemy Bonus | Damage / Turn | Max HP | Loot   | _Vale of Myths_ Example |
-| ----- | ----------- | ------------- | ------ | ------ | ----------------------- |
-| 1     | +2          | ~2D6          | 18     | ~4 CU  | Wolf                    |
-| 2     | +2          | ~2D6          | 24     | ~7 CU  | Bandit                  |
-| 3     | +2          | ~2D6          | 36     | ~11 CU |                         |
-| 4     | +3          | ~3D6          | 42     | ~14 CU | Guard                   |
-| 5     | +3          | ~3D6          | 48     | ~18 CU |                         |
-| 6     | +3          | ~3D6          | 54     | ~21 CU |                         |
-| 7     | +3          | ~3D6          | 60     | ~25 CU |                         |
-| 8     | +4          | ~4D6          | 72     | ~28 CU |
-| 9     | +4          | ~4D6          | 78     | ~32 CU | Guard Captain           |
-| 10    | +4          | ~4D6          | 84     | ~35 CU |
-| 11    | +4          | ~4D6          | 90     | ~39 CU |
-| 12    | +5          | ~5D6          | 102    | ~42 CU |                         |
-| 13    | +5          | ~5D6          | 108    | ~46 CU |
-| 14    | +5          | ~5D6          | 114    | ~49 CU |
-| 15    | +5          | ~5D6          | 120    | ~53 CU |
-| 16    | +6          | ~6D6          | 132    | ~56 CU |
-| 17    | +6          | ~6D6          | 138    | ~60 CU |
-| 18    | +6          | ~6D6          | 144    | ~63 CU | Guard Commander         |
-| 19    | +6          | ~6D6          | 150    | ~67 CU |
-| 20    | +7          | ~7D6          | 162    | ~70 CU |
-| 21    | +7          | ~7D6          | 168    | ~74 CU |
-| 22    | +7          | ~7D6          | 174    | ~77 CU |
-| 23    | +7          | ~7D6          | 180    | ~81 CU |
-| 24    | +8          | ~8D6          | 192    | ~84 CU |                         |
+> When a combatant is killed, they are expected to have, on average, `Combatant Level x 3.5` Currency Units worth of loot on them.
+> This can be in the form of actual Currency Units or items of similar value.

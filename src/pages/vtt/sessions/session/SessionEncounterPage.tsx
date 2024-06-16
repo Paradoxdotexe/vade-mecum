@@ -7,7 +7,7 @@ import { useSessionEncounterQuery } from '../../queries/useSessionEncounterQuery
 import { useVTTUser } from '@/common/VTTUser';
 import { VFlex } from '@/components/VFlex';
 import { SavedStatus } from '../../SavedStatus';
-import { Encounter, isCharacterCombatant, isEnemyCombatant } from '../../types/Encounter';
+import { Encounter, isCharacterParticipant, isCombatantParticipant } from '../../types/Encounter';
 import { VButton } from '@/components/VButton';
 import { ReactComponent as TrashCanIcon } from '@/icons/TrashCan.svg';
 import { ReactComponent as PlayIcon } from '@/icons/Play.svg';
@@ -19,7 +19,7 @@ import { useUpdateSessionEncounterMutation } from '../../queries/useUpdateSessio
 import { debounce, isEqual, sum } from 'lodash-es';
 import styled from 'styled-components';
 import { DeleteSessionEncounterModal } from './DeleteSessionEncounterModal';
-import { EncounterCombatantCard } from '@/pages/vtt/sessions/session/EncounterCombatantCard';
+import { EncounterParticipantCard } from '@/pages/vtt/sessions/session/EncounterParticipantCard';
 import { useSessionCharactersQuery } from '@/pages/vtt/queries/useSessionCharactersQuery';
 import { VLoader } from '@/components/VLoader';
 import { useRolls } from '@/pages/vtt/rolls/useRolls';
@@ -94,13 +94,13 @@ export const SessionEncounterPage: React.FC = () => {
   const canEditEncounter = user.authenticated && user.id === session?.userId;
 
   useEffect(() => {
-    // ensure combatants is up to date with session characters and their latest initiative
+    // ensure participants is up to date with session characters and their latest initiative
     if (encounter && sessionCharacters && rolls && canEditEncounter) {
-      // remove combatants for removed session characters
-      const combatants = [...encounter.combatants].filter(
-        combatant =>
-          isEnemyCombatant(combatant) ||
-          sessionCharacters.some(character => character.id === combatant.characterId)
+      // remove participants for removed session characters
+      const participants = [...encounter.participants].filter(
+        participant =>
+          isCombatantParticipant(participant) ||
+          sessionCharacters.some(character => character.id === participant.characterId)
       );
 
       // only add characters and update initiative before encounter has started
@@ -114,37 +114,38 @@ export const SessionEncounterPage: React.FC = () => {
           );
           const initiative = initiativeRoll ? sum(initiativeRoll.dice) : 0;
 
-          const index = combatants.findIndex(
-            combatant => isCharacterCombatant(combatant) && combatant.characterId === character.id
+          const index = participants.findIndex(
+            participant =>
+              isCharacterParticipant(participant) && participant.characterId === character.id
           );
           if (index === -1) {
-            // add character to combatants
-            combatants.push({
+            // add character to participants
+            participants.push({
               characterId: character.id,
               initiative
             });
           } else {
             // update character's initiative
-            combatants[index].initiative = initiative;
+            participants[index].initiative = initiative;
           }
         }
       }
 
       setEncounter({
         ...encounter,
-        combatants
+        participants
       });
     }
   }, [encounter?.turn, sessionCharacters, rolls, canEditEncounter]);
 
   const initiativeMissing =
     encounter &&
-    encounter.combatants.some(
-      combatant => isCharacterCombatant(combatant) && !combatant.initiative
+    encounter.participants.some(
+      participant => isCharacterParticipant(participant) && !participant.initiative
     );
 
-  const round = encounter ? Math.ceil(encounter.turn / encounter.combatants.length) : 0;
-  const turn = encounter ? 1 + ((encounter.turn - 1) % encounter.combatants.length) : 0;
+  const round = encounter ? Math.ceil(encounter.turn / encounter.participants.length) : 0;
+  const turn = encounter ? 1 + ((encounter.turn - 1) % encounter.participants.length) : 0;
 
   return (
     <StyledSessionEncounterPage>
@@ -205,7 +206,7 @@ export const SessionEncounterPage: React.FC = () => {
                       height: 34
                     }}
                   >
-                    Waiting for characters to roll for initiative...
+                    Waiting for all characters to roll for initiative...
                   </VFlex>
                 ) : (
                   <VButton
@@ -251,13 +252,15 @@ export const SessionEncounterPage: React.FC = () => {
             </VFlex>
 
             <VFlex vertical gap={theme.variable.gap.lg}>
-              {[...encounter.combatants]
+              {[...encounter.participants]
                 .sort((a, b) => b.initiative - a.initiative)
-                .map((combatant, i) => (
+                .map((participant, i) => (
                   <VFlex
                     align="center"
                     key={
-                      isCharacterCombatant(combatant) ? combatant.characterId : combatant.enemyKey
+                      isCharacterParticipant(participant)
+                        ? participant.characterId
+                        : participant.combatantKey
                     }
                     style={{ position: 'relative' }}
                   >
@@ -270,14 +273,14 @@ export const SessionEncounterPage: React.FC = () => {
                       }}
                       color={theme.color.status.success.text}
                     />
-                    <EncounterCombatantCard
+                    <EncounterParticipantCard
                       sessionId={sessionId}
-                      encounterCombatant={combatant}
+                      participant={participant}
                       style={{ flex: 1 }}
                       onClick={() => {
-                        if (isCharacterCombatant(combatant)) {
+                        if (isCharacterParticipant(participant)) {
                           const character = sessionCharacters.find(
-                            character => character.id === combatant.characterId
+                            character => character.id === participant.characterId
                           );
                           if (character) {
                             if (user.authenticated && user.id === character.userId) {

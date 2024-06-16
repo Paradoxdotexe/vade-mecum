@@ -7,11 +7,11 @@ import { useCharacterClient } from '@/pages/vtt/characters/character/useCharacte
 import { NumberInputOverMax } from '@/pages/vtt/characters/character/cards/NumberInputOverMax';
 import { VTag } from '@/components/VTag';
 import classNames from 'classnames';
-import { EncounterCombatant, isCharacterCombatant } from '@/pages/vtt/types/Encounter';
+import { EncounterParticipant, isCharacterParticipant } from '@/pages/vtt/types/Encounter';
 import { useSessionCharacterQuery } from '@/pages/vtt/queries/useSessionCharacterQuery';
 import { opacify } from 'polished';
 
-const StyledEncounterCombatantCard = styled(VCard)`
+const StyledEncounterParticipantCard = styled(VCard)`
   max-width: 400px;
 
   &.card--bloodied {
@@ -33,21 +33,21 @@ const StyledEncounterCombatantCard = styled(VCard)`
   }
 `;
 
-type EncounterCombatantCardProps = {
+type EncounterParticipantCardProps = {
   sessionId: string | undefined;
-  encounterCombatant: EncounterCombatant;
+  participant: EncounterParticipant;
   onClick?: () => void;
   style?: React.CSSProperties;
 };
 
-export const EncounterCombatantCard: React.FC<EncounterCombatantCardProps> = props => {
+export const EncounterParticipantCard: React.FC<EncounterParticipantCardProps> = props => {
   const theme = useVTheme();
 
-  const combatant = props.encounterCombatant;
+  const participant = props.participant;
 
   const { data: character } = useSessionCharacterQuery(
     props.sessionId,
-    isCharacterCombatant(combatant) ? combatant.characterId : undefined
+    isCharacterParticipant(participant) ? participant.characterId : undefined
   );
 
   const characterClient = useCharacterClient(character);
@@ -67,13 +67,17 @@ export const EncounterCombatantCard: React.FC<EncounterCombatantCardProps> = pro
   });
 
   return (
-    <StyledEncounterCombatantCard onClick={props.onClick} className={className} style={props.style}>
+    <StyledEncounterParticipantCard
+      onClick={props.onClick}
+      className={className}
+      style={props.style}
+    >
       <VFlex justify="space-between" align="center">
         <VFlex vertical gap={theme.variable.gap.md}>
           <div style={{ fontWeight: 600 }}>{name || 'Unnamed Character'}</div>
           <VFlex gap={theme.variable.gap.md}>
             <VTag className="card__stat">
-              <strong>INIT</strong> {combatant.initiative || '—'}
+              <strong>INIT</strong> {participant.initiative || '—'}
             </VTag>
             <VTag className="card__stat">
               <strong>SPEED</strong> {speed * 5}ft
@@ -89,6 +93,6 @@ export const EncounterCombatantCard: React.FC<EncounterCombatantCardProps> = pro
           disabled
         />
       </VFlex>
-    </StyledEncounterCombatantCard>
+    </StyledEncounterParticipantCard>
   );
 };

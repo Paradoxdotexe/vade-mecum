@@ -47,7 +47,7 @@ const handler: APIGatewayProxyHandler = async event =>
         '#name': 'name',
         '#hidden': 'hidden'
       },
-      ProjectionExpression: '#name, combatants, turn, #hidden'
+      ProjectionExpression: '#name, participants, turn, #hidden'
     });
     const encounter = (await docClient.send(getSessionEncounter)).Item;
 
@@ -65,7 +65,7 @@ const handler: APIGatewayProxyHandler = async event =>
         body: JSON.stringify({
           id: encounterId,
           name: encounter.name,
-          combatants: JSON.parse(encounter.combatants),
+          participants: JSON.parse(encounter.participants),
           turn: encounter.turn,
           hidden: encounter.hidden
         })
@@ -84,10 +84,11 @@ const handler: APIGatewayProxyHandler = async event =>
           sessionId,
           itemId: `encounter#${encounterId}`
         },
-        UpdateExpression: 'SET #name=:name, combatants=:combatants, turn=:turn, #hidden=:hidden',
+        UpdateExpression:
+          'SET #name=:name, participants=:participants, turn=:turn, #hidden=:hidden',
         ExpressionAttributeValues: {
           ':name': body.encounter.name,
-          ':combatants': JSON.stringify(body.encounter.combatants),
+          ':participants': JSON.stringify(body.encounter.participants),
           ':turn': body.encounter.turn,
           ':hidden': body.encounter.hidden
         },
