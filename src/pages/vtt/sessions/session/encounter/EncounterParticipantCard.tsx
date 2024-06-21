@@ -7,9 +7,17 @@ import { useCharacterClient } from '@/pages/vtt/characters/character/useCharacte
 import { NumberInputOverMax } from '@/pages/vtt/characters/character/cards/NumberInputOverMax';
 import { VTag } from '@/components/VTag';
 import classNames from 'classnames';
-import { EncounterParticipant, isCharacterParticipant } from '@/pages/vtt/types/Encounter';
+import {
+  EncounterParticipant,
+  isCharacterParticipant,
+  isCombatantParticipant
+} from '@/pages/vtt/types/Encounter';
 import { useSessionCharacterQuery } from '@/pages/vtt/queries/useSessionCharacterQuery';
 import { opacify } from 'polished';
+import { useCombatantClient } from '@/pages/vtt/sessions/session/encounter/useCombatantClient';
+import { WORLD_KIT } from '@/pages/vtt/types/WorldKit';
+import { useSessionQuery } from '@/pages/vtt/queries/useSessionQuery';
+import { useVTTUser } from '@/common/VTTUser';
 
 const StyledEncounterParticipantCard = styled(VCard)`
   max-width: 400px;
@@ -37,11 +45,15 @@ type EncounterParticipantCardProps = {
   sessionId: string | undefined;
   participant: EncounterParticipant;
   onClick?: () => void;
+  onChangeHealthPoints?: (healthPoints: number) => void;
   style?: React.CSSProperties;
 };
 
 export const EncounterParticipantCard: React.FC<EncounterParticipantCardProps> = props => {
   const theme = useVTheme();
+  const user = useVTTUser();
+
+  const { data: session } = useSessionQuery(props.sessionId);
 
   const participant = props.participant;
 
@@ -49,14 +61,19 @@ export const EncounterParticipantCard: React.FC<EncounterParticipantCardProps> =
     props.sessionId,
     isCharacterParticipant(participant) ? participant.characterId : undefined
   );
+  const combatant = isCombatantParticipant(participant)
+    ? WORLD_KIT.combatants.find(combatant => combatant.key === participant.combatantKey)
+    : undefined;
 
   const characterClient = useCharacterClient(character);
+  const combatantClient = combatant && useCombatantClient(combatant);
 
-  const name = characterClient?.name;
-  const speed = characterClient?.speed ?? 0;
-  const healthPoints = characterClient?.healthPoints ?? 0;
-  const setHealthPoints = characterClient?.setHealthPoints;
-  const maxHealthPoints = characterClient?.maxHealthPoints ?? 0;
+  const name = characterClient?.name ?? combatantClient?.name;
+  const speed = characterClient?.speed ?? combatantClient?.speed ?? 0;
+  const healthPoints = isCombatantParticipant(participant)
+    ? participant.healthPoints
+    : characterClient?.healthPoints ?? 0;
+  const maxHealthPoints = characterClient?.maxHealthPoints ?? combatantClient?.maxHealthPoints ?? 0;
 
   const incapacitated = healthPoints === 0;
   const bloodied = !incapacitated && healthPoints <= maxHealthPoints / 2;
@@ -65,6 +82,8 @@ export const EncounterParticipantCard: React.FC<EncounterParticipantCardProps> =
     'card--bloodied': bloodied,
     'card--incapacitated': incapacitated
   });
+
+  const canEditEncounter = user.authenticated && user.id === session?.userId;
 
   return (
     <StyledEncounterParticipantCard
@@ -88,9 +107,9 @@ export const EncounterParticipantCard: React.FC<EncounterParticipantCardProps> =
         <NumberInputOverMax
           size={44}
           value={healthPoints}
-          onChange={setHealthPoints}
+          onChange={props.onChangeHealthPoints}
           max={maxHealthPoints}
-          disabled
+          disabled={!canEditEncounter || isCharacterParticipant(participant)}
         />
       </VFlex>
     </StyledEncounterParticipantCard>

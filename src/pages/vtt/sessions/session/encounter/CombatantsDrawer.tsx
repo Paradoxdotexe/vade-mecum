@@ -11,6 +11,7 @@ import { VFlex } from '@/components/VFlex';
 import { useVTheme } from '@/common/VTheme';
 import { VButton } from '@/components/VButton';
 import { ReactComponent as PlusIcon } from '@/icons/Plus.svg';
+import { Combatant } from '@/pages/vtt/types/Combatant';
 
 const StyledCombatantsDrawer = styled(VDrawer)`
   .drawer__content {
@@ -29,7 +30,9 @@ const StyledCombatantsDrawer = styled(VDrawer)`
   }
 `;
 
-type CombatantsDrawerProps = Pick<VDrawerProps, 'open' | 'onClose'>;
+type CombatantsDrawerProps = Pick<VDrawerProps, 'open' | 'onClose'> & {
+  onAddCombatant: (combatant: Combatant) => void;
+};
 
 export const CombatantsDrawer: React.FC<CombatantsDrawerProps> = props => {
   const theme = useVTheme();
@@ -63,7 +66,7 @@ export const CombatantsDrawer: React.FC<CombatantsDrawerProps> = props => {
             {filteredCombatants.map(combatant => (
               <VFlex key={combatant.key} gap={theme.variable.gap.md}>
                 <CombatantCard combatant={combatant} />
-                <VButton size="small">
+                <VButton size="small" onClick={() => props.onAddCombatant(combatant)}>
                   <PlusIcon />
                 </VButton>
               </VFlex>

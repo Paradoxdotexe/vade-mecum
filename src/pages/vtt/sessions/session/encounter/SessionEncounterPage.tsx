@@ -8,6 +8,7 @@ import { useVTTUser } from '@/common/VTTUser';
 import { VFlex } from '@/components/VFlex';
 import { SavedStatus } from '../../../SavedStatus';
 import {
+  CombatantParticipant,
   Encounter,
   isCharacterParticipant,
   isCombatantParticipant
@@ -32,6 +33,7 @@ import { RollLog } from '@/pages/vtt/rolls/RollLog';
 import { RollEvaluation } from '@/pages/vtt/types/Roll';
 import { useSessionConnection } from '@/pages/vtt/sessions/useSessionConnection';
 import { CombatantsDrawer } from '@/pages/vtt/sessions/session/encounter/CombatantsDrawer';
+import { getCombatantMaxHealthPoints } from '@/pages/vtt/sessions/session/encounter/useCombatantClient';
 
 const StyledSessionEncounterPage = styled(PageLayout)`
   .page__pageHeader__titleInput {
@@ -72,7 +74,7 @@ export const SessionEncounterPage: React.FC = () => {
   const { data: savedEncounter } = useSessionEncounterQuery(sessionId, encounterId);
   useMemo(() => {
     if (savedEncounter && !encounter) {
-      setEncounter(savedEncounter);
+      setEncounter(structuredClone(savedEncounter));
     }
   }, [savedEncounter]);
 
@@ -292,7 +294,10 @@ export const SessionEncounterPage: React.FC = () => {
                     <EncounterParticipantCard
                       sessionId={sessionId}
                       participant={participant}
-                      style={{ flex: 1 }}
+                      style={{
+                        flex: 1,
+                        marginLeft: isCombatantParticipant(participant) ? theme.variable.gap.xxl : 0
+                      }}
                       onClick={() => {
                         if (isCharacterParticipant(participant)) {
                           const character = sessionCharacters.find(
@@ -306,6 +311,11 @@ export const SessionEncounterPage: React.FC = () => {
                             }
                           }
                         }
+                      }}
+                      onChangeHealthPoints={healthPoints => {
+                        const participants = [...encounter.participants];
+                        (participants[i] as CombatantParticipant).healthPoints = healthPoints;
+                        setEncounter({ ...encounter, participants });
                       }}
                     />
                   </VFlex>
@@ -322,10 +332,25 @@ export const SessionEncounterPage: React.FC = () => {
         encounterId={encounterId}
       />
 
-      <CombatantsDrawer
-        open={combatantsDrawerOpen}
-        onClose={() => setCombatantsDrawerOpen(false)}
-      />
+      {encounter && (
+        <CombatantsDrawer
+          open={combatantsDrawerOpen}
+          onClose={() => setCombatantsDrawerOpen(false)}
+          onAddCombatant={combatant =>
+            setEncounter({
+              ...encounter,
+              participants: [
+                ...encounter.participants,
+                {
+                  combatantKey: combatant.key,
+                  healthPoints: getCombatantMaxHealthPoints(combatant),
+                  initiative: 0
+                }
+              ]
+            })
+          }
+        />
+      )}
 
       <RollLog />
     </StyledSessionEncounterPage>

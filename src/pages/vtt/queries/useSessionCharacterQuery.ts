@@ -20,7 +20,10 @@ export const useSessionCharacterQuery = (
 ) => {
   const query = useClientQuery<Character>(
     ['GET_SESSION_CHARACTER', sessionId, characterId],
-    `/session/${sessionId}/character/${characterId}`
+    `/session/${sessionId}/character/${characterId}`,
+    {
+      enabled: !!sessionId && !!characterId
+    }
   );
 
   return query;
