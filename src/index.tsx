@@ -21,7 +21,7 @@ import { CharacterPage } from './pages/vtt/characters/character/CharacterPage';
 import { SessionsPage } from './pages/vtt/sessions/SessionsPage';
 import { SessionPage } from './pages/vtt/sessions/session/SessionPage';
 import { SessionCharacterPage } from './pages/vtt/sessions/session/SessionCharacterPage';
-import { SessionEncounterPage } from './pages/vtt/sessions/session/SessionEncounterPage';
+import { SessionEncounterPage } from './pages/vtt/sessions/session/encounter/SessionEncounterPage';
 
 const router = createBrowserRouter(
   createRoutesFromElements(

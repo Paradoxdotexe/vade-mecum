@@ -3,29 +3,35 @@ import { PageHeader } from '@/common/PageHeader';
 import { PageLayout } from '@/common/PageLayout';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useSessionQuery } from '@/pages/vtt/queries/useSessionQuery';
-import { useSessionEncounterQuery } from '../../queries/useSessionEncounterQuery';
+import { useSessionEncounterQuery } from '../../../queries/useSessionEncounterQuery';
 import { useVTTUser } from '@/common/VTTUser';
 import { VFlex } from '@/components/VFlex';
-import { SavedStatus } from '../../SavedStatus';
-import { Encounter, isCharacterParticipant, isCombatantParticipant } from '../../types/Encounter';
+import { SavedStatus } from '../../../SavedStatus';
+import {
+  Encounter,
+  isCharacterParticipant,
+  isCombatantParticipant
+} from '../../../types/Encounter';
 import { VButton } from '@/components/VButton';
+import { ReactComponent as PlusIcon } from '@/icons/Plus.svg';
 import { ReactComponent as TrashCanIcon } from '@/icons/TrashCan.svg';
 import { ReactComponent as PlayIcon } from '@/icons/Play.svg';
 import { ReactComponent as ChevronLeftIcon } from '@/icons/ChevronLeft.svg';
 import { ReactComponent as ChevronRightIcon } from '@/icons/ChevronRight.svg';
 import { ReactComponent as MarkerIcon } from '@/icons/Marker.svg';
 import { useVTheme } from '@/common/VTheme';
-import { useUpdateSessionEncounterMutation } from '../../queries/useUpdateSessionEncounterMutation';
+import { useUpdateSessionEncounterMutation } from '../../../queries/useUpdateSessionEncounterMutation';
 import { debounce, isEqual, sum } from 'lodash-es';
 import styled from 'styled-components';
 import { DeleteSessionEncounterModal } from './DeleteSessionEncounterModal';
-import { EncounterParticipantCard } from '@/pages/vtt/sessions/session/EncounterParticipantCard';
+import { EncounterParticipantCard } from './EncounterParticipantCard';
 import { useSessionCharactersQuery } from '@/pages/vtt/queries/useSessionCharactersQuery';
 import { VLoader } from '@/components/VLoader';
 import { useRolls } from '@/pages/vtt/rolls/useRolls';
 import { RollLog } from '@/pages/vtt/rolls/RollLog';
 import { RollEvaluation } from '@/pages/vtt/types/Roll';
 import { useSessionConnection } from '@/pages/vtt/sessions/useSessionConnection';
+import { CombatantsDrawer } from '@/pages/vtt/sessions/session/encounter/CombatantsDrawer';
 
 const StyledSessionEncounterPage = styled(PageLayout)`
   .page__pageHeader__titleInput {
@@ -56,6 +62,7 @@ export const SessionEncounterPage: React.FC = () => {
   const { data: session } = useSessionQuery(sessionId);
 
   const [deleteSessionEncounterModalOpen, setDeleteSessionEncounterModalOpen] = useState(false);
+  const [combatantsDrawerOpen, setCombatantsDrawerOpen] = useState(false);
 
   const [encounter, setEncounter] = useState<Encounter>();
   const [saved, setSaved] = useState(true);
@@ -174,9 +181,18 @@ export const SessionEncounterPage: React.FC = () => {
             {canEditEncounter && (
               <VFlex vertical align="end" gap={theme.variable.gap.md}>
                 <SavedStatus saved={saved} />
-                <VButton onClick={() => setDeleteSessionEncounterModalOpen(true)} disabled={!saved}>
-                  <TrashCanIcon />
-                </VButton>
+                <VFlex gap={theme.variable.gap.md}>
+                  <VButton onClick={() => setCombatantsDrawerOpen(true)}>
+                    <PlusIcon />
+                    Add combatant
+                  </VButton>
+                  <VButton
+                    onClick={() => setDeleteSessionEncounterModalOpen(true)}
+                    disabled={!saved}
+                  >
+                    <TrashCanIcon />
+                  </VButton>
+                </VFlex>
               </VFlex>
             )}
           </>
@@ -304,6 +320,11 @@ export const SessionEncounterPage: React.FC = () => {
         onClose={() => setDeleteSessionEncounterModalOpen(false)}
         sessionId={sessionId}
         encounterId={encounterId}
+      />
+
+      <CombatantsDrawer
+        open={combatantsDrawerOpen}
+        onClose={() => setCombatantsDrawerOpen(false)}
       />
 
       <RollLog />

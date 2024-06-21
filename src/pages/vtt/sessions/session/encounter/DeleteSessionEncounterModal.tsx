@@ -4,8 +4,8 @@ import { VModal, VModalProps } from '@/components/VModal';
 import React from 'react';
 import { VButton } from '@/components/VButton';
 import { useNavigate } from 'react-router-dom';
-import { useSessionEncounterQuery } from '../../queries/useSessionEncounterQuery';
-import { useDeleteSessionEncounterMutation } from '../../queries/useDeleteSessionEncounterMutation';
+import { useSessionEncounterQuery } from '../../../queries/useSessionEncounterQuery';
+import { useDeleteSessionEncounterMutation } from '../../../queries/useDeleteSessionEncounterMutation';
 
 type DeleteSessionEncounterModalProps = Pick<VModalProps, 'open' | 'onClose'> & {
   sessionId: string | undefined;
