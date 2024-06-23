@@ -1603,8 +1603,8 @@ const VALE_OF_MYTHS: WorldKit = {
       itemQuantities: []
     },
     {
-      key: 'hostling',
-      name: 'Hostling',
+      key: 'brineling',
+      name: 'Brineling',
       affiliation: 'The Brine',
       level: 2,
       attributes: {
@@ -1647,8 +1647,8 @@ const VALE_OF_MYTHS: WorldKit = {
       ]
     },
     {
-      key: 'host',
-      name: 'Host',
+      key: 'husk',
+      name: 'Husk',
       affiliation: 'The Brine',
       level: 4,
       attributes: {

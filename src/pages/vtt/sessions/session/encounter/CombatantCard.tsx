@@ -21,7 +21,18 @@ export const CombatantCard: React.FC<CombatantCardProps> = props => {
     <VCard onClick={props.onClick} style={{ flex: 1 }}>
       <VFlex justify="space-between" align="center">
         <VFlex vertical gap={theme.variable.gap.md}>
-          <div style={{ fontWeight: 600 }}>{combatantClient.name}</div>
+          <VFlex align="center" style={{ fontWeight: 600 }} gap={theme.variable.gap.sm}>
+            {combatantClient.name}{' '}
+            <div
+              style={{
+                color: theme.color.text.secondary,
+                fontWeight: 400,
+                fontSize: theme.variable.fontSize.sm
+              }}
+            >
+              {combatantClient.affiliation}
+            </div>
+          </VFlex>
           <VFlex gap={theme.variable.gap.md}>
             <VTag>
               <strong>CR</strong> {combatantClient.combatRating}

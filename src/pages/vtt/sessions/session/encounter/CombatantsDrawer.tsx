@@ -39,7 +39,11 @@ export const CombatantsDrawer: React.FC<CombatantsDrawerProps> = props => {
 
   const [searchQuery, setSearchQuery] = useState('');
 
-  const filteredCombatants = searchObjects(WORLD_KIT.combatants, ['name'], searchQuery);
+  const filteredCombatants = searchObjects(
+    WORLD_KIT.combatants,
+    ['name', 'affiliation'],
+    searchQuery
+  );
 
   return (
     <StyledCombatantsDrawer

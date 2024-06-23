@@ -336,7 +336,7 @@ export const SessionEncounterPage: React.FC = () => {
         <CombatantsDrawer
           open={combatantsDrawerOpen}
           onClose={() => setCombatantsDrawerOpen(false)}
-          onAddCombatant={combatant =>
+          onAddCombatant={combatant => {
             setEncounter({
               ...encounter,
               participants: [
@@ -347,8 +347,8 @@ export const SessionEncounterPage: React.FC = () => {
                   initiative: 0
                 }
               ]
-            })
-          }
+            });
+          }}
         />
       )}
 

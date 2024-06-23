@@ -93,7 +93,7 @@ export const EncounterParticipantCard: React.FC<EncounterParticipantCardProps> =
     >
       <VFlex justify="space-between" align="center">
         <VFlex vertical gap={theme.variable.gap.md}>
-          <div style={{ fontWeight: 600 }}>{name || 'Unnamed Character'}</div>
+          <div style={{ fontWeight: 600 }}>{name || 'Unnamed Participant'}</div>
           <VFlex gap={theme.variable.gap.md}>
             <VTag className="card__stat">
               <strong>INIT</strong> {participant.initiative || '—'}
