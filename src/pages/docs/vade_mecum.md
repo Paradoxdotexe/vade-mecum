@@ -391,7 +391,7 @@ If all dice are the same, the contested skill check is ruled a stalemate.
 > The character rolls a Stealth check, yielding `5, 4, 2, 1`.
 > The guard rolls a Detection check, yielding `5, 3, 3`.
 > The 5 is compared to the 5 and is ignored.
-> The 4 is compared to the 3, resulting in a success for the character.
+> The 4 is compared to the 3 and is ruled a success for the character.
 > The key is stolen and the guard is none the wiser.
 
 ### Attacks
@@ -449,7 +449,11 @@ Weapons, additionally, will specify the attack range and the amount of damage de
 | **Shortsword** | Average | `16 VP` | 1 slot   | `+1` Power, `3D6` damage, 5ft range             |
 | **Shortbow**   | Average | `16 VP` | 1 slot   | `+1` Precision, `2D6` damage, 10ft - 90ft range |
 
-> Attacks made without a weapon use Power and deal 1D6 damage.
+### Improvised Weapons
+
+Attacks made without a weapon (e.g. fisticuffs) are `+0` Power and deal `1D6` damage.
+
+Attacks made with an improvised weapon, such as a club or rock, are `+1` Power/Precision and deal `1D6` damage.
 
 ## 2.3 Armor and Cover
 
@@ -738,15 +742,37 @@ Additionally, if the item is of Rare rarity or higher, an Influence check is req
 A combatant is any creature that is capable of engaging in combat against or alongside characters.
 They too have goals to achieve, ideals to uphold, and a life to protect, but most importantly, they have interesting combat to offer.
 
-Unlike characters, combatants are chiefly defined by their level, which scales from 1 to 120.
-From this level, combatants are assigned a Combat Rating, or CR, that determines how many dice they roll on any given skill check and how much damage they deal in an average round. This Combat Rating starts at 2 and is increased by 1 at every 4th level.
+Combatants are chiefly defined by their level, which scales from 1 to 120.
+This level is designed to approximate the ability of a character at the same level, but the higher level cap means there can exist combatants who are capable of standing toe-to-toe with entire adventuring parties.
 
-> **Example:** A Level 8 combatant has a Combat Rating of 4, meaning they would roll `4D6` on any given skill check (before advantage or disadvantage) and would be expected to deal `4D6` damage per round.
+Like characters, combatants start with 12 attribute points and gain a new attribute point at every 4th level.
+Although, there are no restrictions on how attribute points are allocated for combatants.
+
+Unlike characters, combatants do not have skills, perks, or classes.
+Instead, they are assigned a simple Combat Rating, or CR, that approximates how effective they are in combat.
+A combatant's Combat Rating starts at 1, and is increased by 1 at every 3rd level.
+In general, a combatant is expected to deal damage proportional to their Combat Rating.
+
+> **Example:** A Level 8 combatant has a Combat Rating of 3. They are expected to deal `3D6` damage per round.
 
 Instead of having a class, combatants can have any variety of abilities that serve to make their combat unique.
 These abilities can be used to reach the expected damage output or have other effects that give them or their allies the upper hand in combat.
 
-Lastly, every combatant has a Max HP equal to `(Combatant Level + Combat Rating) x 6`.
+### Building a Combatant
 
-> When a combatant is killed, they are expected to have, on average, `Combatant Level x 3.5` Currency Units worth of loot on them.
-> This can be in the form of actual Currency Units or items of similar value.
+To define a new type of combatant, you can follow the steps below.
+
+> **Background**
+>
+> - [ ] Name your combatant
+> - [ ] Identify the combatant's faction affiliation (if any)
+
+> **Abilities**
+>
+> - [ ] Choose the combatant's level between 1 and 120
+> - [ ] Allocate available attribute points into the combatant's attributes
+>   - The combatant will have a minimum of 12 attribute points
+>   - Allocate an additional attribute point for every 4th level
+> - [ ] Specify one or more class abilities
+>   - These class abilities should make the combatant unique to fight
+>   - The damage and effects of these abilities should approximate the combatant's Combat Rating

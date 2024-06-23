@@ -1,12 +1,21 @@
 import { AbilityType } from './Class';
 
+type Attributes = {
+  strength: number;
+  dexterity: number;
+  intelligence: number;
+  charisma: number;
+  perception: number;
+};
+
 export type Combatant = {
   key: string;
   name: string;
+  affiliation?: string;
   level: number;
+  attributes: Attributes;
   itemQuantities: { key: string; quantity: number }[];
   abilities: CombatantAbility[];
-  speed: number;
 };
 
 export type CombatantAbility = {

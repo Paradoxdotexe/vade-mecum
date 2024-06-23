@@ -1589,81 +1589,92 @@ const VALE_OF_MYTHS: WorldKit = {
   ],
   combatants: [
     {
+      key: 'commoner',
+      name: 'Commoner',
+      level: 1,
+      attributes: {
+        strength: 2,
+        dexterity: 2,
+        intelligence: 2,
+        charisma: 2,
+        perception: 2
+      },
+      abilities: [],
+      itemQuantities: []
+    },
+    {
+      key: 'hostling',
+      name: 'Hostling',
+      affiliation: 'The Brine',
+      level: 2,
+      attributes: {
+        strength: 3,
+        dexterity: 2,
+        intelligence: 2,
+        charisma: 1,
+        perception: 2
+      },
+      abilities: [],
+      itemQuantities: []
+    },
+    {
       key: 'wolf',
       name: 'Wolf',
-      level: 1,
+      level: 3,
+      attributes: {
+        strength: 2,
+        dexterity: 4,
+        intelligence: 0,
+        charisma: 1,
+        perception: 3
+      },
       itemQuantities: [],
       abilities: [
+        {
+          key: 'maul',
+          type: AbilityType.BONUS_ACTION,
+          name: 'Maul',
+          description:
+            'You can roll a Precision check to maul a target within 5ft. On a success, the target takes `1D6` damage.'
+        },
         {
           key: 'bite',
           type: AbilityType.MAIN_ACTION,
           name: 'Bite',
           description:
             'You can roll a Power check to bite a target within 5ft. On a success, the target takes `1D6` damage.'
-        },
-        {
-          key: 'scratch',
-          type: AbilityType.BONUS_ACTION,
-          name: 'Scratch',
-          description:
-            'You can roll a Precision check to scratch a target within 5ft. On a success, the target takes `1D6` damage.'
         }
-      ],
-      speed: 12
+      ]
     },
     {
-      key: 'bandit',
-      name: 'Bandit',
-      level: 2,
-      itemQuantities: [{ key: 'dagger', quantity: 1 }],
-      abilities: [],
-      speed: 6
-    },
-    {
-      key: 'guard',
-      name: 'Guard',
+      key: 'host',
+      name: 'Host',
+      affiliation: 'The Brine',
       level: 4,
-      itemQuantities: [{ key: 'shortsword', quantity: 1 }],
-      abilities: [],
-      speed: 6
-    },
-    {
-      key: 'guard_captain',
-      name: 'Guard Captain',
-      level: 8,
-      itemQuantities: [{ key: 'longsword', quantity: 1 }],
+      attributes: {
+        strength: 3,
+        dexterity: 2,
+        intelligence: 3,
+        charisma: 1,
+        perception: 2
+      },
       abilities: [
         {
-          key: 'arrow_barrage',
-          type: AbilityType.BONUS_ACTION,
-          name: 'Arrow Barrage',
+          key: 'brine_blade',
+          type: AbilityType.MAIN_ACTION,
+          name: 'Brine Blade',
           description:
-            'You can roll an Influence check to order an arrow barrage at a target within 60ft. On a success, the target takes `1D6` damage.'
-        }
-      ],
-      speed: 6
-    },
-    {
-      key: 'guard_commander',
-      name: 'Guard Commander',
-      level: 16,
-      itemQuantities: [{ key: 'halberd', quantity: 1 }],
-      abilities: [
-        {
-          key: 'commanding_presence',
-          type: AbilityType.PASSIVE,
-          name: 'Commanding Presence',
-          description: 'Guard and Guard Captains within 30ft of you have +1 advantage on attacks.'
+            'Your arm transforms into a blade made of algae. You can roll a Power check to hit a target within 5ft. On a success, the target takes `2D6` damage.'
         },
         {
-          key: 'crippling_blow',
-          type: AbilityType.BONUS_ACTION,
-          name: 'Crippling Blow',
+          key: 'spread_the_brine',
+          type: AbilityType.MAIN_ACTION,
+          name: 'Spread the Brine',
           description:
-            'You can roll a Power check to strategically strike a target within 5ft. On a success, the target is knocked Prone and is Crippled for 1 turn.'
+            "While you have a target grappled, you can roll a Power check against the target's Fortitude to infect them. If you succeed, roll `1D6`. This is the number of turns before the infection permanently takes hold. A successful Medicine check is required to rid the infection."
         }
       ],
-      speed: 6
+      itemQuantities: []
     }
   ]
 };
