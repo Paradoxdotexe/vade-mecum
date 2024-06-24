@@ -34,6 +34,12 @@ export const propagateSessionEncounter = (
         sessionEncounters[index] = propagatedSessionEncounter;
         queryClient.setQueryData(['GET_SESSION_ENCOUNTERS', sessionId], sessionEncounters);
       }
+    } else {
+      // add new session encounter
+      queryClient.setQueryData(
+        ['GET_SESSION_ENCOUNTERS', sessionId],
+        [...sessionEncounters, propagatedSessionEncounter]
+      );
     }
   }
 };

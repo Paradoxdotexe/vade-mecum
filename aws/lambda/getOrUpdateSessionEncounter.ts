@@ -73,6 +73,10 @@ const handler: APIGatewayProxyHandler = async event =>
     }
     // POST
     else if (event.httpMethod === 'POST') {
+      if (session.userId !== userId) {
+        return { statusCode: 401, body: JSON.stringify({ detail: 'Unauthorized.' }) };
+      }
+
       const body = event.body && JSON.parse(event.body);
       if (!body || !body.encounter) {
         return { statusCode: 400, body: JSON.stringify({ detail: 'Invalid body.' }) };
@@ -99,6 +103,11 @@ const handler: APIGatewayProxyHandler = async event =>
       });
       await docClient.send(updateSessionEncounter);
 
+      await layer.sendSessionMessage(event, sessionId, {
+        event: 'ENCOUNTER_UPDATED',
+        data: body.encounter
+      });
+
       return {
         statusCode: 200,
         body: JSON.stringify({})
@@ -106,6 +115,10 @@ const handler: APIGatewayProxyHandler = async event =>
     }
     // DELETE
     else if (event.httpMethod === 'DELETE') {
+      if (session.userId !== userId) {
+        return { statusCode: 401, body: JSON.stringify({ detail: 'Unauthorized.' }) };
+      }
+
       const deleteSessionEncounter = new DeleteCommand({
         TableName: 'vade-mecum-sessions',
         Key: {

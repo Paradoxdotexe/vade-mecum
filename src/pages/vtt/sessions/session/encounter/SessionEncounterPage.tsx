@@ -78,7 +78,7 @@ export const SessionEncounterPage: React.FC = () => {
 
   const { data: savedEncounter } = useSessionEncounterQuery(sessionId, encounterId);
   useMemo(() => {
-    if (savedEncounter && !encounter) {
+    if (savedEncounter) {
       setEncounter(structuredClone(savedEncounter));
     }
   }, [savedEncounter]);
@@ -94,7 +94,7 @@ export const SessionEncounterPage: React.FC = () => {
 
   // updated saved state and debounce save query when needed
   useEffect(() => {
-    if (encounter && savedEncounter) {
+    if (encounter && savedEncounter && canEditEncounter) {
       const saved = isEqual(encounter, savedEncounter);
       setSaved(saved);
       if (saved) {
@@ -303,59 +303,57 @@ export const SessionEncounterPage: React.FC = () => {
               )}
             </VFlex>
 
-            <VFlex vertical gap={theme.variable.gap.lg}>
-              {[...encounter.participants]
-                .sort((a, b) => b.initiative - a.initiative)
-                .map((participant, i) => (
-                  <VFlex
-                    align="center"
-                    key={`${
-                      isCharacterParticipant(participant)
-                        ? participant.characterId
-                        : participant.combatantKey
-                    }#${i}`}
-                    style={{ position: 'relative' }}
-                  >
-                    <MarkerIcon
-                      fontSize={20}
-                      style={{
-                        position: 'absolute',
-                        left: -parseInt(theme.variable.gap.xl),
-                        display: i === turn - 1 ? 'block' : 'none'
-                      }}
-                      color={theme.color.status.success.text}
-                    />
-                    <EncounterParticipantCard
-                      sessionId={sessionId}
-                      participant={participant}
-                      style={{
-                        flex: 1,
-                        marginLeft: isCombatantParticipant(participant) ? theme.variable.gap.xxl : 0
-                      }}
-                      onClick={() => {
-                        if (isCharacterParticipant(participant)) {
-                          const character = sessionCharacters.find(
-                            character => character.id === participant.characterId
-                          );
-                          if (character) {
-                            if (user.authenticated && user.id === character.userId) {
-                              navigate(`/vtt/characters/${character.id}`);
-                            } else {
-                              navigate(`/vtt/sessions/${sessionId}/characters/${character.id}`);
-                            }
+            <VFlex vertical gap={theme.variable.gap.lg} style={{ flexDirection: 'column-reverse' }}>
+              {[...encounter.participants].map((participant, i) => (
+                <VFlex
+                  align="center"
+                  key={`${
+                    isCharacterParticipant(participant)
+                      ? participant.characterId
+                      : participant.combatantKey
+                  }#${i}`}
+                  style={{ position: 'relative', order: participant.initiative }} // sort using flex order such that i corresponds to the actual participant index
+                >
+                  <MarkerIcon
+                    fontSize={20}
+                    style={{
+                      position: 'absolute',
+                      left: -parseInt(theme.variable.gap.xl),
+                      display: i === turn - 1 ? 'block' : 'none'
+                    }}
+                    color={theme.color.status.success.text}
+                  />
+                  <EncounterParticipantCard
+                    sessionId={sessionId}
+                    participant={participant}
+                    style={{
+                      flex: 1,
+                      marginLeft: isCombatantParticipant(participant) ? theme.variable.gap.xxl : 0
+                    }}
+                    onClick={() => {
+                      if (isCharacterParticipant(participant)) {
+                        const character = sessionCharacters.find(
+                          character => character.id === participant.characterId
+                        );
+                        if (character) {
+                          if (user.authenticated && user.id === character.userId) {
+                            navigate(`/vtt/characters/${character.id}`);
+                          } else {
+                            navigate(`/vtt/sessions/${sessionId}/characters/${character.id}`);
                           }
-                        } else {
-                          setSelectedCombatantParticipant(participant);
                         }
-                      }}
-                      onChangeHealthPoints={healthPoints => {
-                        const participants = structuredClone(encounter.participants);
-                        (participants[i] as CombatantParticipant).healthPoints = healthPoints;
-                        setEncounter({ ...encounter, participants });
-                      }}
-                    />
-                  </VFlex>
-                ))}
+                      } else {
+                        setSelectedCombatantParticipant(participant);
+                      }
+                    }}
+                    onChangeHealthPoints={healthPoints => {
+                      const participants = structuredClone(encounter.participants);
+                      (participants[i] as CombatantParticipant).healthPoints = healthPoints;
+                      setEncounter({ ...encounter, participants });
+                    }}
+                  />
+                </VFlex>
+              ))}
             </VFlex>
           </VFlex>
         </VFlex>

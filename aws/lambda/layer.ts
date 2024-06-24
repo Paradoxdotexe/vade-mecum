@@ -89,13 +89,16 @@ export const sendSessionMessage = async (
 
   const originatingUserId = event.requestContext.identity.user;
 
+  console.log(
+    `Sending ${message.event} message in session #${sessionId} to ${connections.length} connections.`
+  );
+
   for (const connection of connections) {
     // exclude originating user
     const excluded = connection.userId === originatingUserId;
 
     if (!excluded) {
       const connectionId = connection.itemId.split('#')[1];
-      console.log(connectionId);
       const postToConnectionCommand = new PostToConnectionCommand({
         ConnectionId: connectionId,
         Data: JSON.stringify(message)

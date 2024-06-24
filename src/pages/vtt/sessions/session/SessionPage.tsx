@@ -173,6 +173,9 @@ export const SessionPage: React.FC = () => {
     });
   };
 
+  const filteredEncounters =
+    encounters?.filter(encounter => !encounter.hidden || canEditSession) ?? [];
+
   return (
     <StyledSessionPage>
       <PageHeader
@@ -265,9 +268,9 @@ export const SessionPage: React.FC = () => {
           <div className="page__section">
             <VHeader>Encounters</VHeader>
 
-            {encounters.length ? (
+            {filteredEncounters.length ? (
               <div className="section__encounters">
-                {encounters.map(encounter => (
+                {filteredEncounters.map(encounter => (
                   <div key={encounter.id} className="encounters__encounter">
                     <EncounterCard
                       sessionId={sessionId!}

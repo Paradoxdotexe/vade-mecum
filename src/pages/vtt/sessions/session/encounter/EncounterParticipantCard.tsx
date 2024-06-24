@@ -89,7 +89,10 @@ export const EncounterParticipantCard: React.FC<EncounterParticipantCardProps> =
     <StyledEncounterParticipantCard
       onClick={props.onClick}
       className={className}
-      style={props.style}
+      style={{
+        ...props.style,
+        pointerEvents: isCombatantParticipant(participant) && !canEditEncounter ? 'none' : 'all'
+      }}
     >
       <VFlex justify="space-between" align="center">
         <VFlex vertical gap={theme.variable.gap.md}>
