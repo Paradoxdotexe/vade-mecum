@@ -36,6 +36,7 @@ import { CombatantsDrawer } from '@/pages/vtt/sessions/session/encounter/Combata
 import { getCombatantMaxHealthPoints } from '@/pages/vtt/sessions/session/encounter/useCombatantClient';
 import { WORLD_KIT } from '@/pages/vtt/types/WorldKit';
 import { CombatantDrawer } from '@/pages/vtt/sessions/session/encounter/CombatantDrawer';
+import { rollDie } from '@/utils/rollDie';
 
 const StyledSessionEncounterPage = styled(PageLayout)`
   .page__pageHeader__titleInput {
@@ -151,6 +152,29 @@ export const SessionEncounterPage: React.FC = () => {
     }
   }, [encounter?.turn, sessionCharacters, rolls, canEditEncounter]);
 
+  const onStartEncounter = () => {
+    if (encounter) {
+      const participants = structuredClone(encounter.participants);
+
+      // roll initiative for combatants
+      for (const participant of participants) {
+        if (isCombatantParticipant(participant)) {
+          const combatant = WORLD_KIT.combatants.find(
+            combatant => combatant.key === participant.combatantKey
+          );
+          if (combatant) {
+            const diceCount = combatant.attributes.dexterity + combatant.attributes.perception;
+            const initiative = sum([...new Array(diceCount)].map(() => rollDie()));
+
+            participant.initiative = initiative;
+          }
+        }
+      }
+
+      setEncounter({ ...encounter, participants, turn: 1 });
+    }
+  };
+
   const initiativeMissing =
     encounter &&
     encounter.participants.some(
@@ -239,7 +263,7 @@ export const SessionEncounterPage: React.FC = () => {
                 ) : (
                   <VButton
                     type="primary"
-                    onClick={() => setEncounter({ ...encounter, turn: 1 })}
+                    onClick={onStartEncounter}
                     style={{ margin: 'auto' }}
                     disabled={!canEditEncounter}
                   >
@@ -325,7 +349,7 @@ export const SessionEncounterPage: React.FC = () => {
                         }
                       }}
                       onChangeHealthPoints={healthPoints => {
-                        const participants = [...encounter.participants];
+                        const participants = structuredClone(encounter.participants);
                         (participants[i] as CombatantParticipant).healthPoints = healthPoints;
                         setEncounter({ ...encounter, participants });
                       }}
