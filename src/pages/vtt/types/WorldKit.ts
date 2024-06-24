@@ -1591,6 +1591,7 @@ const VALE_OF_MYTHS: WorldKit = {
     {
       key: 'commoner',
       name: 'Commoner',
+      description: 'A citizen of the Vale.',
       level: 1,
       attributes: {
         strength: 2,
@@ -1605,6 +1606,8 @@ const VALE_OF_MYTHS: WorldKit = {
     {
       key: 'brineling',
       name: 'Brineling',
+      description:
+        'A host that has been recently infected by the Brine. They still maintain some autonomy and memory, but are slowly losing it to become a Husk.',
       affiliation: 'The Brine',
       level: 2,
       attributes: {
@@ -1620,6 +1623,7 @@ const VALE_OF_MYTHS: WorldKit = {
     {
       key: 'wolf',
       name: 'Wolf',
+      description: 'A wild wolf that hunts for food and defends its pack from threats.',
       level: 3,
       attributes: {
         strength: 2,
@@ -1649,6 +1653,8 @@ const VALE_OF_MYTHS: WorldKit = {
     {
       key: 'husk',
       name: 'Husk',
+      description:
+        'Basic hosts that make up the bulk of the Brine. They infiltrate communities, infect new hosts, and follow orders from Conduits.',
       affiliation: 'The Brine',
       level: 4,
       attributes: {

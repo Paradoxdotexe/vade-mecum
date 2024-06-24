@@ -11,6 +11,7 @@ type Attributes = {
 export type Combatant = {
   key: string;
   name: string;
+  description: string;
   affiliation?: string;
   level: number;
   attributes: Attributes;

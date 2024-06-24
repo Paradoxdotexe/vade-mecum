@@ -21,7 +21,7 @@ const TextArea = styled.div`
 `;
 
 type VTextAreaProps = {
-  placeholder: string;
+  placeholder?: string;
   value?: string;
   onChange?: (value: string) => void;
   style?: React.CSSProperties;

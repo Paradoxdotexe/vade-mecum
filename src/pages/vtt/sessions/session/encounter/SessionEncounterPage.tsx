@@ -34,6 +34,8 @@ import { RollEvaluation } from '@/pages/vtt/types/Roll';
 import { useSessionConnection } from '@/pages/vtt/sessions/useSessionConnection';
 import { CombatantsDrawer } from '@/pages/vtt/sessions/session/encounter/CombatantsDrawer';
 import { getCombatantMaxHealthPoints } from '@/pages/vtt/sessions/session/encounter/useCombatantClient';
+import { WORLD_KIT } from '@/pages/vtt/types/WorldKit';
+import { CombatantDrawer } from '@/pages/vtt/sessions/session/encounter/CombatantDrawer';
 
 const StyledSessionEncounterPage = styled(PageLayout)`
   .page__pageHeader__titleInput {
@@ -65,6 +67,8 @@ export const SessionEncounterPage: React.FC = () => {
 
   const [deleteSessionEncounterModalOpen, setDeleteSessionEncounterModalOpen] = useState(false);
   const [combatantsDrawerOpen, setCombatantsDrawerOpen] = useState(false);
+  const [selectedCombatantParticipant, setSelectedCombatantParticipant] =
+    useState<CombatantParticipant>();
 
   const [encounter, setEncounter] = useState<Encounter>();
   const [saved, setSaved] = useState(true);
@@ -155,6 +159,12 @@ export const SessionEncounterPage: React.FC = () => {
 
   const round = encounter ? Math.ceil(encounter.turn / encounter.participants.length) : 0;
   const turn = encounter ? 1 + ((encounter.turn - 1) % encounter.participants.length) : 0;
+
+  const selectedCombatant =
+    selectedCombatantParticipant &&
+    WORLD_KIT.combatants.find(
+      combatant => combatant.key === selectedCombatantParticipant.combatantKey
+    );
 
   return (
     <StyledSessionEncounterPage>
@@ -275,11 +285,11 @@ export const SessionEncounterPage: React.FC = () => {
                 .map((participant, i) => (
                   <VFlex
                     align="center"
-                    key={
+                    key={`${
                       isCharacterParticipant(participant)
                         ? participant.characterId
                         : participant.combatantKey
-                    }
+                    }#${i}`}
                     style={{ position: 'relative' }}
                   >
                     <MarkerIcon
@@ -310,6 +320,8 @@ export const SessionEncounterPage: React.FC = () => {
                               navigate(`/vtt/sessions/${sessionId}/characters/${character.id}`);
                             }
                           }
+                        } else {
+                          setSelectedCombatantParticipant(participant);
                         }
                       }}
                       onChangeHealthPoints={healthPoints => {
@@ -349,6 +361,15 @@ export const SessionEncounterPage: React.FC = () => {
               ]
             });
           }}
+        />
+      )}
+
+      {selectedCombatant && (
+        <CombatantDrawer
+          combatant={selectedCombatant}
+          healthPoints={selectedCombatantParticipant.healthPoints}
+          open
+          onClose={() => setSelectedCombatantParticipant(undefined)}
         />
       )}
 

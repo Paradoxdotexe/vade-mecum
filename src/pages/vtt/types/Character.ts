@@ -51,7 +51,7 @@ type PerceptionAttribute = Attribute & {
   };
 };
 
-type Attributes = {
+export type Attributes = {
   strength: StrengthAttribute;
   dexterity: DexterityAttribute;
   intelligence: IntelligenceAttribute;

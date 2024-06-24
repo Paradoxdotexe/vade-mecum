@@ -24,7 +24,7 @@ const StyledVInput = styled.input`
 `;
 
 type VInputProps = {
-  placeholder: string;
+  placeholder?: string;
   value?: string;
   onChange?: (value: string) => void;
   disabled?: boolean;

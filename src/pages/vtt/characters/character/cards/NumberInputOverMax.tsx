@@ -22,7 +22,7 @@ type NumberInputOverMaxProps = {
 
 export const NumberInputOverMax: React.FC<NumberInputOverMaxProps> = props => {
   return (
-    <StyledNumberInputOverMax>
+    <StyledNumberInputOverMax onClick={event => event.stopPropagation()}>
       <VNumberInput
         size={props.size}
         max={props.max}

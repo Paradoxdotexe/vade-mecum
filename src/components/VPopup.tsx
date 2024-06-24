@@ -11,7 +11,7 @@ const StyledVPopup = styled.div`
   left: 0;
   display: flex;
   justify-content: center;
-  z-index: 1000;
+  z-index: 2000;
   transition: background-color 150ms ease;
   padding: ${props => props.theme.variable.gap.xxl};
 
