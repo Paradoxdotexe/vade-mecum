@@ -66,6 +66,8 @@ export const SessionEncounterPage: React.FC = () => {
 
   const { data: session } = useSessionQuery(sessionId);
 
+  const canEditEncounter = user.authenticated && user.id === session?.userId;
+
   const [deleteSessionEncounterModalOpen, setDeleteSessionEncounterModalOpen] = useState(false);
   const [combatantsDrawerOpen, setCombatantsDrawerOpen] = useState(false);
   const [selectedCombatantParticipant, setSelectedCombatantParticipant] =
@@ -78,7 +80,10 @@ export const SessionEncounterPage: React.FC = () => {
 
   const { data: savedEncounter } = useSessionEncounterQuery(sessionId, encounterId);
   useMemo(() => {
-    if (savedEncounter) {
+    // only update encounter state if it's the initial load or user cannot edit the encounter
+    // otherwise we could end up overwriting an editor's changes
+    const initialLoad = !encounter;
+    if (savedEncounter && (initialLoad || !canEditEncounter)) {
       setEncounter(structuredClone(savedEncounter));
     }
   }, [savedEncounter]);
@@ -104,8 +109,6 @@ export const SessionEncounterPage: React.FC = () => {
       }
     }
   }, [encounter, savedEncounter]);
-
-  const canEditEncounter = user.authenticated && user.id === session?.userId;
 
   useEffect(() => {
     // ensure participants is up to date with session characters and their latest initiative
@@ -170,6 +173,8 @@ export const SessionEncounterPage: React.FC = () => {
           }
         }
       }
+
+      participants.sort((a, b) => b.initiative - a.initiative);
 
       setEncounter({ ...encounter, participants, turn: 1 });
     }
@@ -303,7 +308,7 @@ export const SessionEncounterPage: React.FC = () => {
               )}
             </VFlex>
 
-            <VFlex vertical gap={theme.variable.gap.lg} style={{ flexDirection: 'column-reverse' }}>
+            <VFlex vertical gap={theme.variable.gap.lg}>
               {[...encounter.participants].map((participant, i) => (
                 <VFlex
                   align="center"
@@ -312,7 +317,7 @@ export const SessionEncounterPage: React.FC = () => {
                       ? participant.characterId
                       : participant.combatantKey
                   }#${i}`}
-                  style={{ position: 'relative', order: participant.initiative }} // sort using flex order such that i corresponds to the actual participant index
+                  style={{ position: 'relative' }}
                 >
                   <MarkerIcon
                     fontSize={20}
