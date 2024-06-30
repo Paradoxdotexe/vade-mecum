@@ -4,7 +4,8 @@ import {
   DynamoDBDocumentClient,
   GetCommand,
   PutCommand,
-  DeleteCommand
+  DeleteCommand,
+  QueryCommand
 } from '@aws-sdk/lib-dynamodb';
 const layer = require('/opt/nodejs/layer');
 
@@ -67,6 +68,30 @@ const handler: APIGatewayProxyHandler = async event =>
         }
       });
       await docClient.send(putCharacter);
+
+      // query for if character is in a session
+      const querySessionCharacter = new QueryCommand({
+        TableName: 'vade-mecum-sessions',
+        IndexName: 'itemId-index',
+        KeyConditionExpression: 'itemId=:itemId',
+        ExpressionAttributeValues: {
+          ':itemId': `character#${characterId}`
+        },
+        ProjectionExpression: 'sessionId'
+      });
+      const sessionCharacter = (await docClient.send(querySessionCharacter)).Items?.[0];
+
+      // send a message if they are
+      if (sessionCharacter) {
+        await layer.sendSessionMessage(event, sessionCharacter.sessionId, {
+          event: 'CHARACTER_UPDATED',
+          data: {
+            ...body.character,
+            id: characterId,
+            userId: userId
+          }
+        });
+      }
 
       return {
         statusCode: 200,

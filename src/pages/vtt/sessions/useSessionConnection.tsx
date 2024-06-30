@@ -1,5 +1,7 @@
 import { propagateSessionRoll } from '@/pages/vtt/queries/useCreateSessionRollMutation';
+import { propagateSessionCharacter } from '@/pages/vtt/queries/useSessionCharacterQuery';
 import { propagateSessionEncounter } from '@/pages/vtt/queries/useSessionEncounterQuery';
+import { Character } from '@/pages/vtt/types/Character';
 import { Encounter } from '@/pages/vtt/types/Encounter';
 import { Roll } from '@/pages/vtt/types/Roll';
 import React, { ReactNode, useContext, useEffect, useState } from 'react';
@@ -44,6 +46,8 @@ export const SessionConnectionProvider: React.FC<{ children: ReactNode }> = prop
           propagateSessionRoll(queryClient, sessionId!, message.data as Roll);
         } else if (message.event === 'ENCOUNTER_UPDATED') {
           propagateSessionEncounter(queryClient, sessionId!, message.data as Encounter);
+        } else if (message.event === 'CHARACTER_UPDATED') {
+          propagateSessionCharacter(queryClient, sessionId, message.data as Character);
         } else {
           console.log(`Unhandled ${message.event} message received.`);
         }
