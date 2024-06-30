@@ -236,7 +236,7 @@ A character's movement speed is equal to `Dexterity + Agility + 3`.
 When traversing long distances outside of combat, all characters have the same movement speed of 3 miles per hour or 24 miles per day.
 This speed can be increased by vehicles if available in the chosen World Kit.
 
-> Movement in combat through Rough Terrain, such as rocks, mud, debris, or water, consumes twice the amount of movement speed.
+> Movement in combat through Rough Terrain, such as rocks, mud, debris, or water, consumes twice the amount of Movement Speed. Falling a sizable distance deals `1D6` damage per 10ft.
 
 ## 1.9 Carrying Capacity
 
@@ -493,7 +493,7 @@ During their turn, a character can use Movement, a Main Action, and a Bonus Acti
 
 Characters can move a number of tiles up to their Movement Speed within the combat area.
 
-> Movement through Rough Terrain, such as rocks, mud, debris, or water, consumes twice the amount of movement speed.
+> Movement through Rough Terrain, such as rocks, mud, debris, or water, consumes twice the amount of Movement Speed. Falling a sizable distance deals `1D6` damage per 10ft.
 
 ### Main Action
 
