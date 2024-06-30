@@ -362,7 +362,7 @@ In many cases, failure will mean the character botches the attempt and it can lo
 ### Help
 
 When a character makes a skill check, others in their Adventuring Party may want to lend a hand.
-In this situation, the character making the skill check adds advantage equal to the helping character's skill bonus.
+In this situation, the character making the skill check adds advantage equal to the helping character's skill bonus (with a minimum of 1).
 During combat, this help requires a Bonus Action.
 
 ### Group Skill Checks
@@ -745,7 +745,7 @@ They too have goals to achieve, ideals to uphold, and a life to protect, but mos
 Combatants are chiefly defined by their level, which scales from 1 to 120.
 This level is designed to approximate the ability of a character at the same level, but the higher level cap means there can exist combatants who are capable of standing toe-to-toe with entire adventuring parties.
 
-Like characters, combatants start with 12 attribute points and gain a new attribute point at every 4th level.
+Similar to characters, combatants start with 10 attribute points and gain a new attribute point at every 4th level.
 Although, there are no restrictions on how attribute points are allocated for combatants.
 
 Unlike characters, combatants do not have skills, perks, or classes.
@@ -771,7 +771,7 @@ To define a new type of combatant, you can follow the steps below.
 >
 > - [ ] Choose the combatant's level between 1 and 120
 > - [ ] Allocate available attribute points into the combatant's attributes
->   - The combatant will have a minimum of 12 attribute points
+>   - The combatant will have a minimum of 10 attribute points
 >   - Allocate an additional attribute point for every 4th level
 > - [ ] Specify one or more class abilities
 >   - These class abilities should make the combatant unique to fight

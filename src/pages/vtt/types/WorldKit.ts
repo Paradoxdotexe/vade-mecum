@@ -1107,7 +1107,7 @@ const VALE_OF_MYTHS: WorldKit = {
         skillKey: 'power',
         skillBonus: 1
       },
-      damage: 2,
+      damage: 3,
       notes: '5ft range'
     },
     {
@@ -1121,7 +1121,7 @@ const VALE_OF_MYTHS: WorldKit = {
         skillKey: 'power',
         skillBonus: 1
       },
-      damage: 3,
+      damage: 4,
       notes: '5ft range'
     },
     {
@@ -1135,7 +1135,7 @@ const VALE_OF_MYTHS: WorldKit = {
         skillKey: 'power',
         skillBonus: 2
       },
-      damage: 4,
+      damage: 5,
       notes: '5ft range'
     },
     {
@@ -1149,7 +1149,7 @@ const VALE_OF_MYTHS: WorldKit = {
         skillKey: 'power',
         skillBonus: 3
       },
-      damage: 5,
+      damage: 6,
       notes: '5ft range'
     },
     {
@@ -1163,7 +1163,7 @@ const VALE_OF_MYTHS: WorldKit = {
         skillKey: 'power',
         skillBonus: 0
       },
-      damage: 3,
+      damage: 4,
       notes: '5ft range'
     },
     {
@@ -1177,7 +1177,7 @@ const VALE_OF_MYTHS: WorldKit = {
         skillKey: 'power',
         skillBonus: 0
       },
-      damage: 4,
+      damage: 5,
       notes: '5ft range'
     },
     {
@@ -1191,7 +1191,7 @@ const VALE_OF_MYTHS: WorldKit = {
         skillKey: 'power',
         skillBonus: 1
       },
-      damage: 5,
+      damage: 6,
       notes: '5ft range'
     },
     {
@@ -1205,7 +1205,7 @@ const VALE_OF_MYTHS: WorldKit = {
         skillKey: 'power',
         skillBonus: 2
       },
-      damage: 6,
+      damage: 7,
       notes: '5ft range'
     },
     {
@@ -1219,7 +1219,7 @@ const VALE_OF_MYTHS: WorldKit = {
         skillKey: 'power',
         skillBonus: 1
       },
-      damage: 1,
+      damage: 2,
       notes: '10ft range'
     },
     {
@@ -1233,7 +1233,7 @@ const VALE_OF_MYTHS: WorldKit = {
         skillKey: 'power',
         skillBonus: 1
       },
-      damage: 2,
+      damage: 3,
       notes: '10ft range'
     },
     {
@@ -1247,7 +1247,7 @@ const VALE_OF_MYTHS: WorldKit = {
         skillKey: 'power',
         skillBonus: 2
       },
-      damage: 3,
+      damage: 4,
       notes: '10ft range'
     },
     {
@@ -1261,7 +1261,7 @@ const VALE_OF_MYTHS: WorldKit = {
         skillKey: 'power',
         skillBonus: 3
       },
-      damage: 4,
+      damage: 5,
       notes: '10ft range'
     },
     {
@@ -1275,7 +1275,7 @@ const VALE_OF_MYTHS: WorldKit = {
         skillKey: 'precision',
         skillBonus: 1
       },
-      damage: 1,
+      damage: 2,
       notes: '10ft - 30ft range'
     },
     {
@@ -1289,7 +1289,7 @@ const VALE_OF_MYTHS: WorldKit = {
         skillKey: 'precision',
         skillBonus: 1
       },
-      damage: 2,
+      damage: 3,
       notes: '10ft - 90ft range'
     },
     {
@@ -1303,7 +1303,7 @@ const VALE_OF_MYTHS: WorldKit = {
         skillKey: 'precision',
         skillBonus: 2
       },
-      damage: 3,
+      damage: 4,
       notes: '10ft - 60ft range'
     },
     {
@@ -1317,7 +1317,7 @@ const VALE_OF_MYTHS: WorldKit = {
         skillKey: 'precision',
         skillBonus: 3
       },
-      damage: 4,
+      damage: 5,
       notes: '20ft - 120ft range'
     },
     {
@@ -1331,7 +1331,7 @@ const VALE_OF_MYTHS: WorldKit = {
         skillKey: 'precision',
         skillBonus: 2
       },
-      damage: 2,
+      damage: 3,
       notes: '15ft range'
     },
     {
@@ -1345,7 +1345,7 @@ const VALE_OF_MYTHS: WorldKit = {
         skillKey: 'precision',
         skillBonus: 2
       },
-      damage: 3,
+      damage: 4,
       notes: '30ft range'
     },
     {
@@ -1359,7 +1359,7 @@ const VALE_OF_MYTHS: WorldKit = {
         skillKey: 'precision',
         skillBonus: 3
       },
-      damage: 4,
+      damage: 5,
       notes: '60ft range'
     },
     {
@@ -1373,7 +1373,7 @@ const VALE_OF_MYTHS: WorldKit = {
         skillKey: 'precision',
         skillBonus: 4
       },
-      damage: 5,
+      damage: 6,
       notes: '90ft range'
     },
     {
