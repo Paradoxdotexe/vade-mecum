@@ -504,6 +504,10 @@ Most often, this will be a Power or Precision skill check to attack an enemy wit
 
 If an attack is not made, the character may forfeit their Main Action to perform an additional Bonus Action.
 
+> In place an attack, the character may attempt to grapple an enemy within 5ft.
+> A grapple is resolved by a contested skill check of Athletics from the grappler and Athletics/Agility from the grappled.
+> On a success, the enemy is put into the Grappled condition.
+
 ### Bonus Action
 
 Characters can use their Bonus Action to perform auxiliary actions within the combat area.
@@ -552,11 +556,16 @@ On a success, they either find an amount of currency equal to `(Combatant Level 
 In combat, there are a number of conditions that a character can suffer from.
 These conditions make the character more vulnerable to attacks and reduce their capability to fight.
 
+### Grappled
+
+While a character is Grappled, attacks against them have +1 advantage.
+A character that is Grappled cannot take any movement, actions, or reactions, except to use their Main Action to escape the grapple.
+To escape, the character must succeed on a contested skill check of Athletics from the grappler and Athletics/Agility from the grappled.
+
 ### Prone
 
 While a character is knocked Prone, attacks against them have +1 advantage.
-A character that is Prone cannot take any movement, actions, or reactions.
-The Prone conditions ends after the character uses a Bonus Action to get back up.
+A character that is Prone cannot take any movement, actions, or reactions, except to use their Bonus Action to get back up.
 
 ### Stunned
 
