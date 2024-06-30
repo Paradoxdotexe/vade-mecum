@@ -6,6 +6,9 @@ import { useRolls } from './useRolls';
 import { VLoader } from '@/components/VLoader';
 import { useSessionQuery } from '@/pages/vtt/queries/useSessionQuery';
 import { playSound } from '@/utils/playSound';
+import { useVTTUser } from '@/common/VTTUser';
+import { VButton } from '@/components/VButton';
+import { ReactComponent as TrashCanIcon } from '@/icons/TrashCan.svg';
 
 export const ROLL_LOG_WIDTH = '252px';
 
@@ -26,6 +29,7 @@ const StyledRollLog = styled.div`
   .rollLog__header {
     display: flex;
     justify-content: center;
+    gap: ${props => props.theme.variable.gap.md};
     font-family: ${props => props.theme.variable.fontFamily.display};
     font-size: ${props => props.theme.variable.fontSize.xl};
     padding: ${props => props.theme.variable.gap.lg};
@@ -92,11 +96,17 @@ const StyledRollLog = styled.div`
 `;
 
 export const RollLog: React.FC = () => {
-  const { rolls, sessionId } = useRolls();
+  const user = useVTTUser();
+
+  const { rolls, sessionId, clearRolls } = useRolls();
+  const [clearingRolls, setClearingRolls] = useState(false);
+
   const [firstRender, setFirstRender] = useState(true);
   const [firstRollsRender, setFirstRollsRender] = useState(true);
 
   const { data: session } = useSessionQuery(sessionId);
+
+  const canEditSession = user.authenticated && user.id === session?.userId;
 
   useEffect(() => {
     setFirstRender(false);
@@ -113,14 +123,26 @@ export const RollLog: React.FC = () => {
 
   // we play sound here to prevent playing it when a RollLog is not shown
   useEffect(() => {
-    if (!firstRollsRender) {
+    if (!firstRollsRender && rolls?.length) {
       playSound('/sounds/DiceRoll.mp3');
     }
   }, [rolls]);
 
+  const onClearRolls = () => {
+    setClearingRolls(true);
+    clearRolls().then(() => setClearingRolls(false));
+  };
+
   return (
     <StyledRollLog id="roll-log">
-      <div className="rollLog__header">Roll Log</div>
+      <div className="rollLog__header">
+        Roll Log
+        {(!session || canEditSession) && (
+          <VButton size="small" onClick={onClearRolls} disabled={!rolls?.length || clearingRolls}>
+            <TrashCanIcon />
+          </VButton>
+        )}
+      </div>
       <div className="rollLog__log">
         <div className="log__rolls">
           {rolls && !loading ? (

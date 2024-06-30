@@ -1,4 +1,4 @@
-import { QueryClient } from 'react-query';
+import { QueryClient, useQueryClient } from 'react-query';
 import { useClientMutation } from '@/common/useClientMutation';
 import { Roll } from '../types/Roll';
 
@@ -22,9 +22,16 @@ export const propagateSessionRoll = (
 };
 
 export const useCreateSessionRollMutation = (sessionId: string | undefined) => {
+  const queryClient = useQueryClient();
+
   const mutation = useClientMutation<Record<string, never>, { roll: Roll }>(
     'POST',
-    `/session/${sessionId}/roll`
+    `/session/${sessionId}/roll`,
+    {
+      onSuccess: (_data, body) => {
+        propagateSessionRoll(queryClient, sessionId!, body.roll);
+      }
+    }
   );
 
   return mutation;

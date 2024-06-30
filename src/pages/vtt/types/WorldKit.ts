@@ -1614,8 +1614,8 @@ const VALE_OF_MYTHS: WorldKit = {
         strength: 3,
         dexterity: 2,
         intelligence: 2,
-        charisma: 1,
-        perception: 2
+        charisma: 2,
+        perception: 1
       },
       abilities: [],
       itemQuantities: []
@@ -1658,11 +1658,11 @@ const VALE_OF_MYTHS: WorldKit = {
       affiliation: 'The Brine',
       level: 4,
       attributes: {
-        strength: 3,
+        strength: 4,
         dexterity: 2,
-        intelligence: 3,
-        charisma: 1,
-        perception: 2
+        intelligence: 2,
+        charisma: 2,
+        perception: 1
       },
       abilities: [
         {
@@ -1677,7 +1677,7 @@ const VALE_OF_MYTHS: WorldKit = {
           type: AbilityType.MAIN_ACTION,
           name: 'Spread the Brine',
           description:
-            "While you have a target grappled, you can roll a Power check against the target's Fortitude to infect them. If you succeed, roll `1D6`. This is the number of turns before the infection permanently takes hold. A successful Medicine check is required to rid the infection."
+            "While you have a target grappled, you can roll a Power check against the target's Fortitude to infect them. If you succeed, roll `1D6`. This is the number of turns before the infection permanently takes hold. A successful Medicine check is required to prevent the infection on the target."
         }
       ],
       itemQuantities: []
