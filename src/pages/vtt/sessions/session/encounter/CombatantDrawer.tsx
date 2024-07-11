@@ -15,6 +15,8 @@ import { VTable } from '@/components/VTable';
 import { startCase } from 'lodash-es';
 import { VTag } from '@/components/VTag';
 import reactStringReplace from 'react-string-replace';
+import { ItemDescription } from '@/pages/vtt/characters/character/cards/InventoryCard';
+import { WORLD_KIT } from '@/pages/vtt/types/WorldKit';
 
 type CombatantDrawerProps = Pick<VDrawerProps, 'open' | 'onClose'> & {
   combatant: Combatant;
@@ -151,6 +153,28 @@ export const CombatantDrawer: React.FC<CombatantDrawerProps> = props => {
                 ]}
                 rows={combatantClient.abilities}
                 emptyMessage="You have no abilities. Better find an improvised weapon!"
+              />
+            </VCard>
+          </VFlex>
+
+          <VFlex vertical gap={theme.variable.gap.md}>
+            <VHeader>Inventory</VHeader>
+            <VCard style={{ padding: 0 }}>
+              <VTable
+                columns={[
+                  {
+                    key: 'name',
+                    dataKey: 'name'
+                  },
+                  {
+                    key: 'description',
+                    render: item => (
+                      <ItemDescription characterClient={combatantClient} item={item} />
+                    ),
+                    width: '100%'
+                  }
+                ]}
+                rows={WORLD_KIT.items.filter(item => item.key.startsWith('improvised_'))}
               />
             </VCard>
           </VFlex>

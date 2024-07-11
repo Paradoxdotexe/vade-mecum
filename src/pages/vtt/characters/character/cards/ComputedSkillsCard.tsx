@@ -17,7 +17,7 @@ export const ComputedSkillsCard: React.FC<ComputedSkillsCardProps> = props => {
 
   const { attributes } = props.characterClient;
 
-  const onRoll = () => {
+  const onRollInitiative = () => {
     rollModal.open({
       characterId: props.characterClient.id,
       characterName: props.characterClient.name,
@@ -34,11 +34,11 @@ export const ComputedSkillsCard: React.FC<ComputedSkillsCardProps> = props => {
 
   return (
     <VCard style={{ padding: theme.variable.gap.md }}>
-      <VFlex justify="center">
+      <VFlex justify="center" gap={theme.variable.gap.lg}>
         <RollableSkill
           label="Initiative"
           value={props.characterClient.initiative}
-          onClick={onRoll}
+          onClick={onRollInitiative}
           disabled
         />
       </VFlex>

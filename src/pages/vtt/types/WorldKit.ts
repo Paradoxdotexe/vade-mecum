@@ -1097,6 +1097,34 @@ const VALE_OF_MYTHS: WorldKit = {
       weight: 1 / 20
     },
     {
+      key: 'improvised_melee_weapon',
+      type: ItemType.WEAPON,
+      name: 'Improvised Melee Weapon',
+      cost: 'FREE',
+      weight: 1 / 2,
+      bonus: {
+        attributeKey: 'strength',
+        skillKey: 'power',
+        skillBonus: 1
+      },
+      damage: 1,
+      notes: '5ft range'
+    },
+    {
+      key: 'improvised_ranged_weapon',
+      type: ItemType.WEAPON,
+      name: 'Improvised Ranged Weapon',
+      cost: 'FREE',
+      weight: 1 / 2,
+      bonus: {
+        attributeKey: 'strength',
+        skillKey: 'power',
+        skillBonus: 1
+      },
+      damage: 1,
+      notes: '15ft range'
+    },
+    {
       key: 'dagger',
       type: ItemType.WEAPON,
       name: 'Dagger',

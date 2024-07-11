@@ -11,6 +11,7 @@ import { capitalize } from 'lodash-es';
 import { RollableSkill } from './RollableSkill';
 import { useRollModal } from '@/pages/vtt/rolls/RollModal';
 import { RollEvaluation } from '@/pages/vtt/types/Roll';
+import { CombatantClient } from '@/pages/vtt/sessions/session/encounter/useCombatantClient';
 
 type InventoryCardProps = {
   characterClient: CharacterClient;
@@ -63,7 +64,7 @@ export const InventoryCard: React.FC<InventoryCardProps> = props => {
 };
 
 type ItemDescriptionProps = {
-  characterClient?: CharacterClient;
+  characterClient?: CharacterClient | CombatantClient;
   item: Item;
   style?: React.CSSProperties;
 };
@@ -73,6 +74,9 @@ export const ItemDescription: React.FC<ItemDescriptionProps> = props => {
 
   const rollModal = useRollModal();
 
+  const characterId =
+    props.characterClient && 'id' in props.characterClient ? props.characterClient.id : '';
+
   const onRollSkill = () => {
     if (!props.characterClient) return;
 
@@ -80,7 +84,7 @@ export const ItemDescription: React.FC<ItemDescriptionProps> = props => {
     const skill = attribute.skills[props.item.bonus!.skillKey];
 
     rollModal.open({
-      characterId: props.characterClient.id,
+      characterId,
       characterName: props.characterClient.name,
       label: props.item.name,
       diceFactors: [
@@ -95,7 +99,7 @@ export const ItemDescription: React.FC<ItemDescriptionProps> = props => {
     if (!props.characterClient) return;
 
     rollModal.open({
-      characterId: props.characterClient.id,
+      characterId,
       characterName: props.characterClient.name,
       label: props.item.name,
       diceFactors: [{ label: 'Damage', value: props.item.damage! }],
