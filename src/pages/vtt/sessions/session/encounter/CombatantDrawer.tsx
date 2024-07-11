@@ -17,6 +17,9 @@ import { VTag } from '@/components/VTag';
 import reactStringReplace from 'react-string-replace';
 import { ItemDescription } from '@/pages/vtt/characters/character/cards/InventoryCard';
 import { WORLD_KIT } from '@/pages/vtt/types/WorldKit';
+import { RollableSkill } from '@/pages/vtt/characters/character/cards/RollableSkill';
+import { useRollModal } from '@/pages/vtt/rolls/RollModal';
+import { RollEvaluation } from '@/pages/vtt/types/Roll';
 
 type CombatantDrawerProps = Pick<VDrawerProps, 'open' | 'onClose'> & {
   combatant: Combatant;
@@ -25,6 +28,7 @@ type CombatantDrawerProps = Pick<VDrawerProps, 'open' | 'onClose'> & {
 
 export const CombatantDrawer: React.FC<CombatantDrawerProps> = props => {
   const theme = useVTheme();
+  const rollModal = useRollModal();
 
   const [open, setOpen] = useState(props.open);
 
@@ -35,6 +39,16 @@ export const CombatantDrawer: React.FC<CombatantDrawerProps> = props => {
   }, [props.open]);
 
   const combatantClient = useCombatantClient(props.combatant);
+
+  const onRollLooting = () => {
+    rollModal.open({
+      characterId: '',
+      characterName: combatantClient.name,
+      label: 'Looting',
+      diceFactors: [{ label: 'Combatant Level', value: combatantClient.level }],
+      evaluation: RollEvaluation.SUM
+    });
+  };
 
   return (
     <VDrawer
@@ -61,6 +75,7 @@ export const CombatantDrawer: React.FC<CombatantDrawerProps> = props => {
 
           <VFlex vertical gap={theme.variable.gap.md}>
             <VHeader>Attributes / Skills</VHeader>
+
             {Object.keys(props.combatant.attributes).map(key => (
               <CombatantAttributeCard
                 key={key}
@@ -69,6 +84,17 @@ export const CombatantDrawer: React.FC<CombatantDrawerProps> = props => {
                 onRoll={() => setOpen(false)}
               />
             ))}
+
+            <VCard style={{ padding: theme.variable.gap.md }}>
+              <VFlex justify="center" gap={theme.variable.gap.lg}>
+                <RollableSkill
+                  label="Looting"
+                  value={combatantClient.level}
+                  onClick={onRollLooting}
+                  disabled
+                />
+              </VFlex>
+            </VCard>
           </VFlex>
         </VFlex>
 
