@@ -10,8 +10,7 @@ import { searchObjects } from '@/utils/searchObjects';
 import { startCase } from 'lodash-es';
 import { CharacterClient } from '../useCharacterClient';
 import { Class, ClassAbility } from '@/pages/vtt/types/Class';
-import reactStringReplace from 'react-string-replace';
-import { VTag } from '@/components/VTag';
+import { ClassAbilityDescription } from '@/pages/vtt/characters/character/cards/ClassAbilitiesCard';
 
 const StyledClassAbilitiesDrawer = styled(VDrawer)`
   .drawer__content {
@@ -105,10 +104,13 @@ export const ClassAbilitiesDrawer: React.FC<ClassAbilitiesDrawerProps> = props =
                 },
                 {
                   key: 'description',
-                  render: classAbility =>
-                    reactStringReplace(classAbility.description, /`(.*?)`/g, match => (
-                      <VTag style={{ display: 'inline-block' }}>{match}</VTag>
-                    )),
+                  render: classAbility => (
+                    <ClassAbilityDescription
+                      characterClient={props.characterClient}
+                      classAbility={classAbility}
+                      style={{ pointerEvents: 'none' }}
+                    />
+                  ),
                   width: '100%'
                 }
               ]}

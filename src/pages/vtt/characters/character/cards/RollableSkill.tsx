@@ -9,6 +9,7 @@ const StyledRollableSkill = styled.div`
   align-items: center;
   gap: ${props => props.theme.variable.gap.md};
   font-size: ${props => props.theme.variable.fontSize.xs};
+  line-height: 1;
 
   .skill__label {
     flex: 1;
@@ -31,6 +32,7 @@ type RollableSkillProps = {
   onClick?: () => void;
   disabled?: boolean;
   style?: React.CSSProperties;
+  hideZero?: boolean;
 };
 
 export const RollableSkill: React.FC<RollableSkillProps> = props => {
@@ -40,14 +42,14 @@ export const RollableSkill: React.FC<RollableSkillProps> = props => {
     <StyledRollableSkill style={props.style}>
       {props.valueLabel ? (
         <VTag style={{ fontFamily: theme.variable.fontFamily.display }}>{props.valueLabel}</VTag>
-      ) : (
+      ) : props.value || !props.hideZero ? (
         <VNumberInput
           value={props.value}
           onChange={props.onChange}
           max={props.max}
           disabled={props.disabled}
         />
-      )}
+      ) : null}
       <div className="skill__label" onClick={props.onClick}>
         {props.label}
       </div>

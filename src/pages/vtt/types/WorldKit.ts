@@ -1605,7 +1605,7 @@ const VALE_OF_MYTHS: WorldKit = {
     },
     {
       key: 'brineling',
-      name: 'Brineling',
+      name: 'Huskling',
       description:
         'A host that has been recently infected by the Brine. They still maintain some autonomy and memory, but are slowly losing it to become a Husk.',
       affiliation: 'The Brine',

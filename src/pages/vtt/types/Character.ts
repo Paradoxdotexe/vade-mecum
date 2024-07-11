@@ -6,7 +6,7 @@ type Attribute = {
   };
 };
 
-type Skill = {
+export type Skill = {
   label: string;
   value: number;
 };
