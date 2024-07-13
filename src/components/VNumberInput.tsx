@@ -56,6 +56,7 @@ type VNumberInputProps = {
   disabled?: boolean;
   size?: number;
   controls?: boolean;
+  characters?: number;
 };
 
 export const VNumberInput: React.FC<VNumberInputProps> = props => {
@@ -68,7 +69,7 @@ export const VNumberInput: React.FC<VNumberInputProps> = props => {
   const height = size;
   const fontSize = size - 6;
 
-  const characters = (max ? max.toString() : rawValue).length;
+  const characters = props.characters ?? (max ? max.toString() : rawValue).length;
   const width = Math.max(size, Math.ceil(fontSize * 0.55 * characters) + 6);
 
   const validated = useMemo(() => {

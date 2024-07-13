@@ -53,7 +53,7 @@ const RollModal: React.FC<RollModalProps> = props => {
     if (disadvantage) {
       diceFactors.push({
         label: 'Disadvantage',
-        value: -disadvantage
+        value: disadvantage
       });
     }
 
@@ -96,7 +96,14 @@ const RollModal: React.FC<RollModalProps> = props => {
         <VFlex vertical gap={theme.variable.gap.md}>
           <VFlex justify="space-between" align="center">
             Advantage{' '}
-            <VNumberInput value={advantage} onChange={setAdvantage} size={22} controls max={6} />
+            <VNumberInput
+              value={advantage}
+              onChange={setAdvantage}
+              size={22}
+              controls
+              max={6}
+              characters={2}
+            />
           </VFlex>
 
           <VFlex justify="space-between" align="center">
@@ -106,7 +113,9 @@ const RollModal: React.FC<RollModalProps> = props => {
               onChange={setDisadvantage}
               size={22}
               controls
-              max={6}
+              min={-6}
+              max={0}
+              characters={2}
             />
           </VFlex>
         </VFlex>

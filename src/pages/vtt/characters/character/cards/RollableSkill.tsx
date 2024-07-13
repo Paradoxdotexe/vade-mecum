@@ -15,6 +15,8 @@ const StyledRollableSkill = styled.div`
     flex: 1;
     padding-block: 3px;
     transition: color ease 150ms;
+    text-decoration: underline;
+    text-decoration-color: ${props => props.theme.color.text.secondary};
 
     &:hover {
       color: ${props => props.theme.color.brand.default};
