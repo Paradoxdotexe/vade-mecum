@@ -3,7 +3,11 @@ import { Character } from '../types/Character';
 import { QueryClient, useQueryClient } from 'react-query';
 import { isEqual } from 'lodash-es';
 
-export const propagateCharacter = (queryClient: QueryClient, propagatedCharacter: Character) => {
+export const propagateCharacter = (
+  queryClient: QueryClient,
+  propagatedCharacter: Character,
+  onlyUpdate = false
+) => {
   // propagate into GET_CHARACTER query
   const character: Character | undefined = queryClient.getQueryData([
     'GET_CHARACTER',
@@ -23,7 +27,7 @@ export const propagateCharacter = (queryClient: QueryClient, propagatedCharacter
         characters[index] = propagatedCharacter;
         queryClient.setQueryData(['GET_CHARACTERS'], characters);
       }
-    } else {
+    } else if (!onlyUpdate) {
       // add new character
       queryClient.setQueryData(['GET_CHARACTERS'], [...characters, propagatedCharacter]);
     }

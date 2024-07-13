@@ -114,7 +114,7 @@ export const ClassAbilityDescription: React.FC<ClassAbilityDescriptionProps> = p
   description = reactStringReplace(description, /([A-Z][a-z]+) check/g, (match, i) => {
     return (
       <RollableSkill
-        key={i}
+        key={`check#${i}`}
         value={0}
         label={`${match} check`}
         style={{ fontSize: 'inherit', display: 'inline-flex' }}
@@ -130,7 +130,7 @@ export const ClassAbilityDescription: React.FC<ClassAbilityDescriptionProps> = p
 
     return (
       <RollableSkill
-        key={i}
+        key={`damage#${i}`}
         value={damage}
         valueLabel={`${damage}D6`}
         label="damage"
@@ -143,7 +143,7 @@ export const ClassAbilityDescription: React.FC<ClassAbilityDescriptionProps> = p
   // replace any random blocks
   description = reactStringReplace(description, /`(.*?)`/g, (match, i) => {
     return (
-      <VTag key={i} style={{ display: 'inline-block' }}>
+      <VTag key={`block#${i}`} style={{ display: 'inline-block' }}>
         {match}
       </VTag>
     );

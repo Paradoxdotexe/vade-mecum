@@ -68,7 +68,7 @@ export const makeCookie = (value = '', date = new Date(0)) => {
 };
 
 export const sendSessionMessage = async (
-  event: APIGatewayProxyEvent,
+  event: APIGatewayProxyEvent, // TODO: deprecate
   sessionId: string,
   message: { event: string; data: object }
 ) => {
@@ -87,25 +87,18 @@ export const sendSessionMessage = async (
     endpoint: 'https://ws.vademecum.thenjk.com'
   });
 
-  const originatingUserId = event.requestContext.identity.user;
-
   console.log(
     `Sending ${message.event} message in session #${sessionId} to ${connections.length} connections.`
   );
 
   for (const connection of connections) {
-    // exclude originating user
-    const excluded = connection.userId === originatingUserId;
+    const connectionId = connection.itemId.split('#')[1];
+    const postToConnectionCommand = new PostToConnectionCommand({
+      ConnectionId: connectionId,
+      Data: JSON.stringify(message)
+    });
 
-    if (!excluded) {
-      const connectionId = connection.itemId.split('#')[1];
-      const postToConnectionCommand = new PostToConnectionCommand({
-        ConnectionId: connectionId,
-        Data: JSON.stringify(message)
-      });
-
-      await webSocketClient.send(postToConnectionCommand);
-    }
+    await webSocketClient.send(postToConnectionCommand);
   }
 };
 

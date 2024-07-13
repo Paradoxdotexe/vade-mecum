@@ -44,7 +44,7 @@ export const CharacterPage: React.FC = () => {
 
   const { data: savedCharacter } = useCharacterQuery(characterId);
   useMemo(() => {
-    if (savedCharacter && !character) {
+    if (savedCharacter) {
       setCharacter(savedCharacter);
     }
   }, [savedCharacter]);

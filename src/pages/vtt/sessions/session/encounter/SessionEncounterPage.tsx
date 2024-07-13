@@ -80,10 +80,7 @@ export const SessionEncounterPage: React.FC = () => {
 
   const { data: savedEncounter } = useSessionEncounterQuery(sessionId, encounterId);
   useMemo(() => {
-    // only update encounter state if it's the initial load or user cannot edit the encounter
-    // otherwise we could end up overwriting an editor's changes
-    const initialLoad = !encounter;
-    if (savedEncounter && (initialLoad || !canEditEncounter)) {
+    if (savedEncounter) {
       setEncounter(structuredClone(savedEncounter));
     }
   }, [savedEncounter]);
