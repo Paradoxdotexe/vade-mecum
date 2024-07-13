@@ -122,8 +122,9 @@ export const RollLog: React.FC = () => {
   }, [loading, rolls]);
 
   // we play sound here to prevent playing it when a RollLog is not shown
+  // we only play sounds originating from ws messages
   useEffect(() => {
-    if (!firstRollsRender && rolls?.length) {
+    if (!firstRollsRender && rolls?.length && user.authenticated && rolls[0].userId !== user.id) {
       playSound('/sounds/DiceRoll.mp3');
     }
   }, [rolls]);

@@ -2,10 +2,14 @@ import React, { ReactNode, useContext, useMemo } from 'react';
 import { Roll } from '../types/Roll';
 import { useLocalStorage } from '@/utils/useLocalStorage';
 import { useSessionRollsQuery } from '../queries/useSessionRollsQuery';
-import { useCreateSessionRollMutation } from '../queries/useCreateSessionRollMutation';
+import {
+  propagateSessionRoll,
+  useCreateSessionRollMutation
+} from '../queries/useCreateSessionRollMutation';
 import { DateTime } from 'luxon';
 import { useSessionConnection } from '@/pages/vtt/sessions/useSessionConnection';
 import { useDeleteSessionRollsMutation } from '@/pages/vtt/queries/useDeleteSessionRollsMutation';
+import { useQueryClient } from 'react-query';
 
 type _RollsContext = {
   sessionId?: string;
@@ -20,6 +24,7 @@ const RollsContext = React.createContext<_RollsContext>({
 });
 
 export const RollsProvider: React.FC<{ children: ReactNode }> = props => {
+  const queryClient = useQueryClient();
   const { sessionId } = useSessionConnection();
   const { data: sessionRolls } = useSessionRollsQuery(sessionId);
   const { mutate: createSessionRoll } = useCreateSessionRollMutation(sessionId);
@@ -39,6 +44,7 @@ export const RollsProvider: React.FC<{ children: ReactNode }> = props => {
 
   const addRoll = (roll: Roll) => {
     if (sessionId) {
+      propagateSessionRoll(queryClient, sessionId, roll);
       createSessionRoll({ roll });
     } else {
       setLocalRolls([...localRolls, roll]);

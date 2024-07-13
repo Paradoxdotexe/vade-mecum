@@ -10,6 +10,7 @@ export enum RollEvaluation {
 
 export type Roll = {
   id: string;
+  userId: string;
   characterId: string;
   characterName: string;
   label: string;

@@ -12,6 +12,8 @@ import { sum } from 'lodash-es';
 import { rollDie } from '@/utils/rollDie';
 import { DateTime } from 'luxon';
 import { useRolls } from './useRolls';
+import { useVTTUser } from '@/common/VTTUser';
+import { playSound } from '@/utils/playSound';
 
 const StyledRollModal = styled(VModal)`
   .modal__content {
@@ -32,6 +34,7 @@ type RollModalProps = {
 
 const RollModal: React.FC<RollModalProps> = props => {
   const theme = useVTheme();
+  const user = useVTTUser();
   const { addRoll } = useRolls();
 
   const [advantage, setAdvantage] = useState(0);
@@ -56,6 +59,7 @@ const RollModal: React.FC<RollModalProps> = props => {
 
     return {
       id: '',
+      userId: user.authenticated ? user.id : '',
       characterId: props.newRoll.characterId,
       characterName: props.newRoll.characterName || 'Unnamed Character',
       label: props.newRoll.label,
@@ -83,6 +87,7 @@ const RollModal: React.FC<RollModalProps> = props => {
     const roll = { ...pendingRoll, id, timestamp, dice };
     addRoll(roll);
     onClose(roll);
+    playSound('/sounds/DiceRoll.mp3');
   };
 
   return (
