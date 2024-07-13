@@ -107,13 +107,15 @@ export const EncounterParticipantCard: React.FC<EncounterParticipantCardProps> =
           </VFlex>
         </VFlex>
 
-        <NumberInputOverMax
-          size={44}
-          value={healthPoints}
-          onChange={props.onChangeHealthPoints}
-          max={maxHealthPoints}
-          disabled={!canEditEncounter || isCharacterParticipant(participant)}
-        />
+        {canEditEncounter && (
+          <NumberInputOverMax
+            size={44}
+            value={healthPoints}
+            onChange={props.onChangeHealthPoints}
+            max={maxHealthPoints}
+            disabled={isCharacterParticipant(participant)}
+          />
+        )}
       </VFlex>
     </StyledEncounterParticipantCard>
   );
