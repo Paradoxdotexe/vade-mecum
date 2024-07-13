@@ -45,6 +45,8 @@ export const SessionConnectionProvider: React.FC<{ children: ReactNode }> = prop
 
         if (message.event === 'ROLL_CREATED') {
           propagateSessionRoll(queryClient, sessionId!, message.data as Roll);
+        } else if (message.event === 'ROLLS_DELETED') {
+          queryClient.setQueryData(['GET_SESSION_ROLLS', sessionId], []);
         } else if (message.event === 'ENCOUNTER_UPDATED') {
           propagateSessionEncounter(queryClient, sessionId!, message.data as Encounter);
         } else if (message.event === 'CHARACTER_UPDATED') {

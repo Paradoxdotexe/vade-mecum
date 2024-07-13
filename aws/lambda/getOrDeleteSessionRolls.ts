@@ -99,6 +99,10 @@ const handler: APIGatewayProxyHandler = async event =>
         await docClient.send(deleteSessionRolls);
       }
 
+      await layer.sendSessionMessage(event, sessionId, {
+        event: 'ROLLS_DELETED'
+      });
+
       return {
         statusCode: 200,
         body: JSON.stringify({})
