@@ -1663,18 +1663,18 @@ const VALE_OF_MYTHS: WorldKit = {
       itemQuantities: [],
       abilities: [
         {
-          key: 'maul',
-          type: AbilityType.BONUS_ACTION,
-          name: 'Maul',
-          description:
-            'You can roll a Precision check to maul a target within 5ft. On a success, the target takes `1D6` damage.'
-        },
-        {
           key: 'bite',
           type: AbilityType.MAIN_ACTION,
           name: 'Bite',
           description:
             'You can roll a Power check to bite a target within 5ft. On a success, the target takes `1D6` damage.'
+        },
+        {
+          key: 'maul',
+          type: AbilityType.BONUS_ACTION,
+          name: 'Maul',
+          description:
+            'You can roll a Precision check to maul a target within 5ft. On a success, the target takes `1D6` damage.'
         }
       ]
     },

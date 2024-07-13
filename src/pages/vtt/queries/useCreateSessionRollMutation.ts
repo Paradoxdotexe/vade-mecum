@@ -12,7 +12,7 @@ export const propagateSessionRoll = (
     'GET_SESSION_ROLLS',
     sessionId
   ]);
-  if (sessionRolls) {
+  if (sessionRolls && !sessionRolls.find(roll => roll.id === propagatedSessionRoll.id)) {
     // append new roll
     queryClient.setQueryData(
       ['GET_SESSION_ROLLS', sessionId],

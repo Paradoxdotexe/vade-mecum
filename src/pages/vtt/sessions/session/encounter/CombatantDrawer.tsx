@@ -1,7 +1,10 @@
 import { useVTheme } from '@/common/VTheme';
-import React, { useEffect, useState } from 'react';
-import { Combatant } from '@/pages/vtt/types/Combatant';
-import { useCombatantClient } from '@/pages/vtt/sessions/session/encounter/useCombatantClient';
+import React, { ReactNode, useEffect, useState } from 'react';
+import { Combatant, CombatantAbility } from '@/pages/vtt/types/Combatant';
+import {
+  CombatantClient,
+  useCombatantClient
+} from '@/pages/vtt/sessions/session/encounter/useCombatantClient';
 import { CombatantAttributeCard } from '@/pages/vtt/sessions/session/encounter/CombatantAttributeCard';
 import { AttributeKey } from '@/pages/vtt/types/Character';
 import { VHeader } from '@/components/VHeader';
@@ -19,7 +22,7 @@ import { ItemDescription } from '@/pages/vtt/characters/character/cards/Inventor
 import { WORLD_KIT } from '@/pages/vtt/types/WorldKit';
 import { RollableSkill } from '@/pages/vtt/characters/character/cards/RollableSkill';
 import { useRollModal } from '@/pages/vtt/rolls/RollModal';
-import { RollEvaluation } from '@/pages/vtt/types/Roll';
+import { DiceFactor, RollEvaluation } from '@/pages/vtt/types/Roll';
 
 type CombatantDrawerProps = Pick<VDrawerProps, 'open' | 'onClose'> & {
   combatant: Combatant;
@@ -168,12 +171,12 @@ export const CombatantDrawer: React.FC<CombatantDrawerProps> = props => {
                   { key: 'type', render: ability => startCase(ability.type.toLowerCase()) },
                   {
                     key: 'description',
-                    render: ability =>
-                      reactStringReplace(ability.description, /`(.*?)`/g, (match, i) => (
-                        <VTag key={i} style={{ display: 'inline-block' }}>
-                          {match}
-                        </VTag>
-                      )),
+                    render: ability => (
+                      <CombatantAbilityDescription
+                        combatantAbility={ability}
+                        combatantClient={combatantClient}
+                      />
+                    ),
                     width: '100%'
                   }
                 ]}
@@ -208,4 +211,103 @@ export const CombatantDrawer: React.FC<CombatantDrawerProps> = props => {
       </VFlex>
     </VDrawer>
   );
+};
+
+type CombatantAbilityDescriptionProps = {
+  combatantClient?: CombatantClient;
+  combatantAbility: CombatantAbility;
+  style?: React.CSSProperties;
+};
+
+const CombatantAbilityDescription: React.FC<CombatantAbilityDescriptionProps> = props => {
+  const theme = useVTheme();
+  const rollModal = useRollModal();
+
+  const attributes = Object.values(props.combatantClient?.attributes ?? {});
+
+  const onRollSkill = (skillKey: string) => {
+    if (!props.combatantClient) return;
+
+    for (const attribute of attributes) {
+      const skill = attribute.skills[skillKey];
+
+      if (skill) {
+        const diceFactors: DiceFactor[] = [
+          {
+            label: attribute.label,
+            value: attribute.value
+          },
+          {
+            label: skill.label,
+            value: skill.value
+          }
+        ];
+
+        rollModal.open({
+          characterId: '',
+          characterName: props.combatantClient.name,
+          label: skill.label,
+          diceFactors,
+          evaluation: RollEvaluation.CHECK
+        });
+
+        break;
+      }
+    }
+  };
+
+  const onRollDamage = (label: string, damage: number) => {
+    if (!props.combatantClient) return;
+
+    rollModal.open({
+      characterId: '',
+      characterName: props.combatantClient.name,
+      label: label,
+      diceFactors: [{ label: 'Damage', value: damage }],
+      evaluation: RollEvaluation.SUM
+    });
+  };
+
+  let description: ReactNode[] = [props.combatantAbility.description];
+
+  // make checks rollable
+  description = reactStringReplace(description, /([A-Z][a-z]+) check/g, (match, i) => {
+    return (
+      <RollableSkill
+        key={`check#${i}`}
+        value={0}
+        label={`${match} check`}
+        style={{ fontSize: 'inherit', display: 'inline-flex' }}
+        onClick={() => onRollSkill(match.toLowerCase())}
+        hideZero
+      />
+    );
+  });
+
+  // make damage rollable
+  description = reactStringReplace(description, /`(\d+)D6` damage/g, (match, i) => {
+    const damage = parseInt(match);
+
+    return (
+      <RollableSkill
+        key={`damage#${i}`}
+        value={damage}
+        valueLabel={`${damage}D6`}
+        label="damage"
+        style={{ gap: theme.variable.gap.sm, fontSize: 'inherit', display: 'inline-flex' }}
+        onClick={() => onRollDamage(props.combatantAbility.name, damage)}
+      />
+    );
+  });
+
+  // replace any random blocks
+  description = reactStringReplace(description, /`(.*?)`/g, (match, i) => {
+    return (
+      <VTag key={`block#${i}`} style={{ display: 'inline-block' }}>
+        {match}
+      </VTag>
+    );
+  });
+
+  return <div style={props.style}>{description}</div>;
 };
