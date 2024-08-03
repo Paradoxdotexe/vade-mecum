@@ -24,6 +24,7 @@ type VTagProps = {
   style?: React.CSSProperties;
   color?: string;
   onClick?: () => void;
+  title?: string;
 };
 
 export const VTag: React.FC<VTagProps> = props => {
@@ -33,6 +34,7 @@ export const VTag: React.FC<VTagProps> = props => {
 
   return (
     <StyledVTag
+      title={props.title}
       className={className}
       style={props.style}
       $color={props.color}

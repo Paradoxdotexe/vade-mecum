@@ -12,6 +12,8 @@ import { RollableSkill } from './RollableSkill';
 import { useRollModal } from '@/pages/vtt/rolls/RollModal';
 import { RollEvaluation } from '@/pages/vtt/types/Roll';
 import { CombatantClient } from '@/pages/vtt/sessions/session/encounter/useCombatantClient';
+import reactStringReplace from 'react-string-replace';
+import { VTag } from '@/components/VTag';
 
 type InventoryCardProps = {
   characterClient: CharacterClient;
@@ -107,6 +109,20 @@ export const ItemDescription: React.FC<ItemDescriptionProps> = props => {
     });
   };
 
+  // replace any special traits
+  const notes = reactStringReplace(props.item.notes, /\[(.*?=.*?)\]/g, (match, i) => {
+    const [name, description] = match.split('=');
+    return (
+      <VTag
+        key={`special#${i}`}
+        style={{ display: 'inline-block', cursor: 'pointer' }}
+        title={description}
+      >
+        {name}
+      </VTag>
+    );
+  });
+
   return (
     <VFlex gap={theme.variable.gap.sm} align="center" style={{ lineHeight: 1, ...props.style }}>
       {props.item.bonus && (
@@ -129,7 +145,7 @@ export const ItemDescription: React.FC<ItemDescriptionProps> = props => {
           onClick={onRollDamage}
         />
       )}
-      <div style={{ lineHeight: theme.variable.lineHeight }}>{props.item.notes}</div>
+      <div style={{ lineHeight: theme.variable.lineHeight }}>{notes}</div>
     </VFlex>
   );
 };

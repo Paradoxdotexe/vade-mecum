@@ -344,7 +344,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Spirit Walk',
           type: AbilityType.BONUS_ACTION,
           description:
-            'You can enter or leave the spirit plane. While in the spirit plane, you become intangible to all characters in the physical plane and the effect of Rough Terrain is nullified.',
+            'You can enter or leave the spirit plane. While in the spirit plane, you become intangible to all creatures in the physical plane.',
           requirement: 18
         },
         {
@@ -1405,6 +1405,21 @@ const VALE_OF_MYTHS: WorldKit = {
       notes: '90ft range'
     },
     {
+      key: 'shadowstrider',
+      type: ItemType.WEAPON,
+      name: 'Shadowstrider',
+      cost: '32 VP',
+      weight: 1,
+      bonus: {
+        attributeKey: 'strength',
+        skillKey: 'power',
+        skillBonus: 2
+      },
+      damage: 4,
+      notes:
+        '5ft range, [Shadow Step=Once per Rest, the wielder can enter the shadow plane for 1 turn. While in the shadow plane, you become intangible to all objects and creatures in the physical plane.]'
+    },
+    {
       key: 'leather_armor',
       type: ItemType.ARMOR,
       name: 'Leather Armor',
@@ -1706,6 +1721,64 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Spread the Brine',
           description:
             "While you have a target grappled, you can roll a Power check against the target's Fortitude to infect them. If you succeed, roll `1D6`. This is the number of turns before the infection permanently takes hold. A successful Medicine check is required to prevent the infection on the target."
+        }
+      ],
+      itemQuantities: []
+    },
+    {
+      key: 'ghast',
+      name: 'Ghast',
+      description: 'An evil spirit who uses apparitions to deceive its victims.',
+      level: 6,
+      attributes: {
+        strength: 3,
+        dexterity: 2,
+        intelligence: 1,
+        charisma: 4,
+        perception: 1
+      },
+      abilities: [
+        {
+          key: 'incorporeal',
+          type: AbilityType.PASSIVE,
+          name: 'Incorporeal',
+          description:
+            'You can pass through solid objects, including walls, floors, and creatures. You cannot end your turn inside of a solid object.'
+        },
+        {
+          key: 'chilling_presence',
+          type: AbilityType.MAIN_ACTION,
+          name: 'Chilling Presence',
+          description:
+            'You can roll an Influence check to frighten all nearby enemies. On a success, all enemies within 40ft are pushed 5ft away and take `1D6` damage.'
+        },
+        {
+          key: 'chilling_blast',
+          type: AbilityType.MAIN_ACTION,
+          name: 'Chilling Blast',
+          description:
+            'You can roll a Power check to blast a target within 10ft. On a success, the target is pushed 10ft away, is knocked Prone, and takes `1D6` damage.'
+        },
+        {
+          key: 'chilling_touch',
+          type: AbilityType.MAIN_ACTION,
+          name: 'Chilling Touch',
+          description:
+            'You can roll a Power check to weaken a target within 5ft. On a success, the target takes `3D6` damage.'
+        },
+        {
+          key: 'apparition',
+          type: AbilityType.BONUS_ACTION,
+          name: 'Apparition',
+          description:
+            'You can create an apparition within 40ft that deals `1D6` damage to a nearby enemy.'
+        },
+        {
+          key: 'hallucination',
+          type: AbilityType.REACTION,
+          name: 'Hallucination',
+          description:
+            'You can create disorienting hallucinations for a target within 40ft. The target has -2 disadvantage on all Perception checks for 1 turn.'
         }
       ],
       itemQuantities: []

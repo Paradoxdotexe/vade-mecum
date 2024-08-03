@@ -272,6 +272,11 @@ const CombatantAbilityDescription: React.FC<CombatantAbilityDescriptionProps> = 
 
   // make checks rollable
   description = reactStringReplace(description, /([A-Z][a-z]+) check/g, (match, i) => {
+    // check that this is a valid skill
+    if (!attributes.some(attribute => attribute.skills[match.toLowerCase()])) {
+      return `${match} check`;
+    }
+
     return (
       <RollableSkill
         key={`check#${i}`}
