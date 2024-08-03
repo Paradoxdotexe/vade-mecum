@@ -30,6 +30,16 @@ export const SessionConnectionProvider: React.FC<{ children: ReactNode }> = prop
   const [sessionId, setSessionId] = useState<string>();
   const [webSocket, setWebSocket] = useState<WebSocket>();
 
+  const ping = () => {
+    setWebSocket(webSocket => {
+      if (webSocket) {
+        webSocket.send(JSON.stringify({ action: 'ping' }));
+        setTimeout(ping, 60000);
+      }
+      return webSocket;
+    });
+  };
+
   // open WebSocket connection for session
   useEffect(() => {
     if (webSocket) {
@@ -52,6 +62,8 @@ export const SessionConnectionProvider: React.FC<{ children: ReactNode }> = prop
         } else if (message.event === 'CHARACTER_UPDATED') {
           propagateCharacter(queryClient, message.data as Character, true);
           propagateSessionCharacter(queryClient, sessionId, message.data as Character);
+        } else if (message.event === 'PONG') {
+          // keep alive!
         } else {
           console.log(`Unhandled ${message.event} message received.`);
         }
@@ -60,6 +72,9 @@ export const SessionConnectionProvider: React.FC<{ children: ReactNode }> = prop
       webSocket.onopen = () => {
         console.log(`Connected to session #${sessionId.split('-')[0]}.`);
         setWebSocket(webSocket);
+
+        // ping server every minute to keep WebSocket alive
+        setTimeout(ping, 60000);
       };
 
       webSocket.onclose = () => {
