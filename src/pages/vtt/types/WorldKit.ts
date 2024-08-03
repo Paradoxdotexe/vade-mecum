@@ -1495,6 +1495,18 @@ const VALE_OF_MYTHS: WorldKit = {
       }
     },
     {
+      key: 'local_map',
+      type: ItemType.TOOL,
+      name: 'Local Map',
+      cost: '16 VP',
+      weight: 1 / 4,
+      bonus: {
+        attributeKey: 'perception',
+        skillKey: 'insight',
+        skillBonus: 2
+      }
+    },
+    {
       key: 'rope',
       type: ItemType.TOOL,
       name: 'Rope',
