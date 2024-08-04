@@ -1,6 +1,6 @@
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
-import { DynamoDBDocumentClient, QueryCommand } from '@aws-sdk/lib-dynamodb';
+import { DynamoDBDocumentClient, QueryCommand, BatchWriteCommand } from '@aws-sdk/lib-dynamodb';
 import { KMSClient, GenerateMacCommand, EncryptCommand, DecryptCommand } from '@aws-sdk/client-kms';
 import {
   ApiGatewayManagementApi,
@@ -88,8 +88,10 @@ export const sendSessionMessage = async (
   });
 
   console.log(
-    `Sending ${message.event} message in session #${sessionId} to ${connections.length} connections.`
+    `Sending ${message.event} message in session #${sessionId} to ${connections.length} connections...`
   );
+
+  let goneConnections: Record<string, any>[] = [];
 
   for (const connection of connections) {
     const connectionId = connection.itemId.split('#')[1];
@@ -98,7 +100,30 @@ export const sendSessionMessage = async (
       Data: JSON.stringify(message)
     });
 
-    await webSocketClient.send(postToConnectionCommand);
+    try {
+      await webSocketClient.send(postToConnectionCommand);
+    } catch (error) {
+      console.error(error);
+      goneConnections.push(connection);
+    }
+  }
+
+  console.log(`Deleting ${goneConnections.length} gone connections...`);
+
+  if (goneConnections.length) {
+    const deleteGoneConnections = new BatchWriteCommand({
+      RequestItems: {
+        'vade-mecum-sessions': goneConnections.map(({ itemId }) => ({
+          DeleteRequest: {
+            Key: {
+              sessionId,
+              itemId
+            }
+          }
+        }))
+      }
+    });
+    await docClient.send(deleteGoneConnections);
   }
 };
 
