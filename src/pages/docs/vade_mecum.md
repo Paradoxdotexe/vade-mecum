@@ -463,18 +463,18 @@ For both armor and cover, there are 3 tiers that incrementally affect the Diffic
 
 Armor has the effect of providing protection against damage at the cost of being easier to hit.
 Wearing any type of armor decreases the Difficulty Threshold of being hit by 3.
-On the flip side, when the wearer is hit by an attack, they mitigate an amount of damage equal to the armor's Protection Rating.
+On the flip side, when the wearer is hit by an attack, they mitigate an amount of damage equal to the armor's Deflection Rating.
 
-| Armor      | Difficulty Threshold | Protection Rating | _Vale of Myths_ Example |
-| ---------- | -------------------- | ----------------- | ----------------------- |
-| **None**   | DT 11                | N/A               | Clothing                |
-| **Light**  | DT 8                 | 1D6               | Leather armor           |
-| **Medium** | DT 8                 | 2D6               | Chainmail armor         |
-| **Heavy**  | DT 8                 | 3D6               | Plate armor             |
+| Armor      | Difficulty Threshold | Deflection | _Vale of Myths_ Example |
+| ---------- | -------------------- | ---------- | ----------------------- |
+| **None**   | DT 11                | N/A        | Clothing                |
+| **Light**  | DT 8                 | 1D6        | Leather armor           |
+| **Medium** | DT 8                 | 2D6        | Chainmail armor         |
+| **Heavy**  | DT 8                 | 3D6        | Plate armor             |
 
 ### Cover
 
-Compared to cover, armor is much simpler.
+Compared to armor, cover is much simpler.
 For each tier of cover that is used, the Difficulty Threshold of being hit is increased by 3.
 
 | Armor      | Difficulty Threshold | _Vale of Myths_ Example |

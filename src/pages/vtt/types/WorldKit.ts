@@ -1425,7 +1425,7 @@ const VALE_OF_MYTHS: WorldKit = {
       name: 'Leather Armor',
       cost: '16 VP',
       weight: 1,
-      notes: 'Light armor'
+      notes: 'DT 8, 1D6 deflection'
     },
     {
       key: 'chainmail_armor',
@@ -1438,7 +1438,7 @@ const VALE_OF_MYTHS: WorldKit = {
         skillKey: 'stealth',
         skillBonus: -1
       },
-      notes: 'medium armor'
+      notes: 'DT 8, 2D6 deflection'
     },
     {
       key: 'plate_armor',
@@ -1451,7 +1451,7 @@ const VALE_OF_MYTHS: WorldKit = {
         skillKey: 'stealth',
         skillBonus: -2
       },
-      notes: 'heavy armor'
+      notes: 'DT 8, 3D6 deflection'
     },
     {
       key: 'arcane_aegis_armor',
@@ -1459,7 +1459,7 @@ const VALE_OF_MYTHS: WorldKit = {
       name: 'Arcane Aegis Armor',
       cost: '16 VP',
       weight: 1 / 2,
-      notes: 'Light armor'
+      notes: 'DT 8, 1D6 deflection'
     },
     {
       key: 'mystic_mail_armor',
@@ -1467,7 +1467,7 @@ const VALE_OF_MYTHS: WorldKit = {
       name: 'Mystic Mail Armor',
       cost: '32 VP',
       weight: 1,
-      notes: 'Medium armor'
+      notes: 'DT 8, 2D6 deflection'
     },
     {
       key: 'eldritch_exo_armor',
@@ -1480,7 +1480,7 @@ const VALE_OF_MYTHS: WorldKit = {
         skillKey: 'stealth',
         skillBonus: -1
       },
-      notes: 'heavy armor'
+      notes: 'DT 8, 3D6 deflection'
     },
     {
       key: 'world_map',
