@@ -172,7 +172,7 @@ export const useCharacterClient = (
   const attributes = character.attributes;
   const setAttributeValue = (attributeKey: AttributeKey, value: number) => {
     const attributes = structuredClone(character.attributes);
-    attributes[attributeKey].value = minMax(value, 1, 6);
+    attributes[attributeKey].value = minMax(value, -6, 6);
     updateCharacter({ attributes });
   };
   const setSkillValue = (attributeKey: AttributeKey, skillKey: string, value: number) => {
@@ -260,7 +260,7 @@ export const useCharacterClient = (
   // ---------- ACQUISITION AVAILABILITY ----------- //
 
   // compute number of attributes/skills to be acquired
-  const expectedAttributePoints = 12 + Math.floor(character.level / 4);
+  const expectedAttributePoints = 2 + Math.floor(character.level / 4);
   const expectedSkillPoints = 6 + character.level - 1;
 
   let currentAttributePoints = 0;

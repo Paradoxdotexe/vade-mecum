@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import { VCard } from '@/components/VCard';
 import { Roll, RollEvaluation } from '../types/Roll';
 import { sum } from 'lodash-es';
-import { useVTheme } from '@/common/VTheme';
 import { VNumberInput } from '@/components/VNumberInput';
 import { VCollapsible } from '@/components/VCollapsible';
 import { ReactComponent as D20Icon } from '@/icons/D20.svg';
 import classNames from 'classnames';
+import { pulsingBackground } from '@/styles/pulsingBackground';
 
 const StyledRollCard = styled(VCard)`
   display: flex;
@@ -16,6 +16,62 @@ const StyledRollCard = styled(VCard)`
   overflow: hidden;
   padding: 0;
   border: none;
+
+  &.card--character {
+    .card__header {
+      background: ${props => props.theme.color.status.success.border};
+    }
+
+    &.card--fate {
+      background-color: ${props => props.theme.color.status.success.background};
+
+      input {
+        background-color: ${props => props.theme.color.status.success.background};
+      }
+
+      .card__header {
+        ${props => pulsingBackground(props.theme.color.status.success.border)};
+      }
+
+      .dice__die {
+        svg {
+          color: ${props => props.theme.color.status.success.border} !important;
+        }
+      }
+    }
+  }
+
+  &.card--combatant {
+    .card__header {
+      background: ${props => props.theme.color.status.failure.border};
+    }
+
+    input {
+      background-color: ${props => props.theme.color.status.failure.background};
+    }
+
+    &.card--fate {
+      background-color: ${props => props.theme.color.status.failure.background};
+
+      .card__header {
+        ${props => pulsingBackground(props.theme.color.status.failure.border)};
+      }
+
+      .dice__die {
+        svg {
+          color: ${props => props.theme.color.status.failure.border} !important;
+        }
+      }
+    }
+  }
+
+  &.card--fury {
+    .dice__die {
+      svg {
+        color: ${props => props.theme.color.background.default} !important;
+      }
+    }
+  }
 
   .card__header {
     font-size: ${props => props.theme.variable.fontSize.xxs};
@@ -105,14 +161,14 @@ type RollCardProps = {
 };
 
 export const RollCard: React.FC<RollCardProps> = props => {
-  const theme = useVTheme();
-
   const [collapsed, setCollapsed] = useState(props.collapsible ? true : false);
+
+  let dice = props.roll.dice;
 
   const isRolled = !!props.roll.dice.length;
   const isCheck = props.roll.evaluation === RollEvaluation.CHECK;
-
-  let dice = props.roll.dice;
+  const isFate = isCheck && dice[0] == 20;
+  const isFury = isCheck && dice[0] == 1;
 
   // if roll hasn't been rolled, add pseudo dice based on dice factors
   if (!isRolled) {
@@ -124,23 +180,20 @@ export const RollCard: React.FC<RollCardProps> = props => {
     }
   }
 
-  const total = props.roll.diceFactors.reduce((v, df) => v + Math.abs(df.value), 0);
+  const total = props.roll.diceFactors.reduce((v, df) => v + df.value, 0);
 
   return (
     <StyledRollCard
       onClick={props.collapsible ? () => setCollapsed(!collapsed) : undefined}
       style={{ cursor: props.collapsible ? 'pointer' : undefined }}
+      className={classNames('card__header', {
+        'card--character': !!props.roll.characterId,
+        'card--combatant': !props.roll.characterId,
+        'card--fate': isFate,
+        'card--fury': isFury
+      })}
     >
-      <div
-        className="card__header"
-        style={{
-          // differentiate between characters and combatants
-          background: props.roll.characterId
-            ? theme.color.status.success.border
-            : theme.color.status.failure.border
-        }}
-        title={`${props.roll.characterName} (${props.roll.label})`}
-      >
+      <div className="card__header" title={`${props.roll.characterName} (${props.roll.label})`}>
         <strong>{props.roll.characterName}</strong> ({props.roll.label})
       </div>
 
@@ -152,6 +205,8 @@ export const RollCard: React.FC<RollCardProps> = props => {
 
               if (i > 0) {
                 prefix = diceFactor.value >= 0 ? '+' : '-';
+              } else if (diceFactor.value < 0) {
+                prefix = '-';
               }
 
               return (
@@ -181,11 +236,15 @@ export const RollCard: React.FC<RollCardProps> = props => {
             ))}
           </div>
 
-          {isRolled && (
-            <div className="result__text">
-              {isCheck ? ` + ${total} = ${sum(props.roll.dice) + total}` : sum(props.roll.dice)}
-            </div>
-          )}
+          <div className="result__text">
+            {isCheck && !isFate && !isFury && ` ${total >= 0 ? '+' : '-'} ${Math.abs(total)}`}
+            {isRolled && (
+              <>
+                {isCheck && !isFate && !isFury && ` = ${sum(props.roll.dice) + total}`}
+                {!isCheck && sum(props.roll.dice)}
+              </>
+            )}
+          </div>
         </div>
       </div>
     </StyledRollCard>
@@ -220,7 +279,7 @@ const DiceFactorInput: React.FC<DiceFactorInputProps> = props => {
   return (
     <StyledDiceFactorInput>
       <div className="factor__prefix">{props.prefix}</div>
-      <VNumberInput value={props.value} disabled size={20} />
+      <VNumberInput value={props.value} disabled min={-9} size={20} />
       <div className="factor__label">{props.label}</div>
     </StyledDiceFactorInput>
   );

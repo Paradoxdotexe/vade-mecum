@@ -126,7 +126,7 @@ export const VNumberInput: React.FC<VNumberInputProps> = props => {
         value={rawValue}
         onChange={event => {
           const value = event.target.value;
-          setRawValue(max ? value.slice(0, characters) : value);
+          setRawValue(max ? value.slice(0, characters + 1) : value);
         }}
         disabled={props.disabled}
         onBlur={onBlur}

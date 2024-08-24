@@ -1649,11 +1649,11 @@ const VALE_OF_MYTHS: WorldKit = {
       description: 'A citizen of the Vale.',
       level: 1,
       attributes: {
-        strength: 2,
-        dexterity: 2,
-        intelligence: 2,
-        charisma: 2,
-        perception: 2
+        strength: 0,
+        dexterity: 0,
+        intelligence: 0,
+        charisma: 0,
+        perception: 0
       },
       abilities: [],
       itemQuantities: []
@@ -1666,11 +1666,11 @@ const VALE_OF_MYTHS: WorldKit = {
       affiliation: 'The Brine',
       level: 2,
       attributes: {
-        strength: 3,
-        dexterity: 2,
-        intelligence: 2,
-        charisma: 2,
-        perception: 1
+        strength: 1,
+        dexterity: 0,
+        intelligence: 0,
+        charisma: 0,
+        perception: -1
       },
       abilities: [],
       itemQuantities: []
@@ -1681,11 +1681,11 @@ const VALE_OF_MYTHS: WorldKit = {
       description: 'A wild wolf that hunts for food and defends its pack from threats.',
       level: 3,
       attributes: {
-        strength: 2,
-        dexterity: 4,
-        intelligence: 0,
-        charisma: 1,
-        perception: 3
+        strength: 0,
+        dexterity: 2,
+        intelligence: -2,
+        charisma: -1,
+        perception: 1
       },
       itemQuantities: [],
       abilities: [
@@ -1713,11 +1713,11 @@ const VALE_OF_MYTHS: WorldKit = {
       affiliation: 'The Brine',
       level: 4,
       attributes: {
-        strength: 4,
-        dexterity: 2,
-        intelligence: 2,
-        charisma: 2,
-        perception: 1
+        strength: 2,
+        dexterity: 0,
+        intelligence: 0,
+        charisma: 0,
+        perception: -1
       },
       abilities: [
         {
@@ -1743,11 +1743,11 @@ const VALE_OF_MYTHS: WorldKit = {
       description: 'An evil spirit who uses apparitions to deceive its victims.',
       level: 6,
       attributes: {
-        strength: 3,
-        dexterity: 2,
-        intelligence: 1,
-        charisma: 4,
-        perception: 1
+        strength: 1,
+        dexterity: 0,
+        intelligence: -1,
+        charisma: 2,
+        perception: -1
       },
       abilities: [
         {

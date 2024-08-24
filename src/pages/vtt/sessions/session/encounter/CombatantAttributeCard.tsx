@@ -73,7 +73,7 @@ export const CombatantAttributeCard: React.FC<CombatantAttributeCardProps> = pro
     <StyledCombatantAttributeCard>
       <div className="card__attribute">
         <div className="attribute__label">{attribute.label.toUpperCase()}</div>
-        <VNumberInput value={attribute.value} min={1} max={6} size={48} disabled />
+        <VNumberInput value={attribute.value} min={-6} max={6} size={48} disabled />
       </div>
 
       <div className="card__skills">

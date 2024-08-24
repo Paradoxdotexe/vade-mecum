@@ -195,17 +195,34 @@ export const handlerResolver = async (
 
 const CHARACTER_MIGRATIONS: ((character: any) => void)[] = [
   character => {
+    // replace description with goals
     delete character.description;
     character.partyGoal = '';
     character.personalGoal = '';
   },
   character => {
+    // replace Innovation with Engineering
     const innovationValue = character.attributes.intelligence.skills.innovation.value;
     delete character.attributes.intelligence.skills.innovation;
     character.attributes.intelligence.skills.engineering = {
       label: 'Engineering',
       value: innovationValue
     };
+  },
+  character => {
+    // remap attribute scores
+    for (const attribute of Object.values(character.attributes)) {
+      const attr = attribute as { value: number };
+      if (attr.value === 4) {
+        attr.value = 2;
+      } else if (attr.value === 3) {
+        attr.value = 1;
+      } else if (attr.value === 2) {
+        attr.value = 0;
+      } else if (attr.value === 1) {
+        attr.value = -1;
+      }
+    }
   }
 ];
 
@@ -232,7 +249,7 @@ export const DEFAULT_CHARACTER_DEFINITION = {
   attributes: {
     strength: {
       label: 'Strength',
-      value: 1,
+      value: 0,
       skills: {
         power: { label: 'Power', value: 0 },
         fortitude: { label: 'Fortitude', value: 0 },
@@ -241,7 +258,7 @@ export const DEFAULT_CHARACTER_DEFINITION = {
     },
     dexterity: {
       label: 'Dexterity',
-      value: 1,
+      value: 0,
       skills: {
         precision: { label: 'Precision', value: 0 },
         stealth: { label: 'Stealth', value: 0 },
@@ -251,7 +268,7 @@ export const DEFAULT_CHARACTER_DEFINITION = {
 
     intelligence: {
       label: 'Intelligence',
-      value: 1,
+      value: 0,
       skills: {
         intellect: { label: 'Intellect', value: 0 },
         medicine: { label: 'Medicine', value: 0 },
@@ -260,7 +277,7 @@ export const DEFAULT_CHARACTER_DEFINITION = {
     },
     charisma: {
       label: 'Charisma',
-      value: 1,
+      value: 0,
       skills: {
         intuition: { label: 'Intuition', value: 0 },
         influence: { label: 'Influence', value: 0 },
@@ -269,7 +286,7 @@ export const DEFAULT_CHARACTER_DEFINITION = {
     },
     perception: {
       label: 'Perception',
-      value: 1,
+      value: 0,
       skills: {
         insight: { label: 'Insight', value: 0 },
         detection: { label: 'Detection', value: 0 },

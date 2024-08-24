@@ -279,9 +279,9 @@ For the best experience, focus on making a unique and interesting adventurer tha
 >
 > - [ ] Choose your character's class from the World Kit being used
 >   - Describe your character's class item
-> - [ ] Allocate 12 points into your character's attributes in the amounts of 1, 2, 2, 3, and 4
->   - The 4 must be placed into your class's Focus attribute
->   - The 1 will be considered your character's Flaw attribute
+> - [ ] Allocate points into your character's attributes in the amounts of -1, 0, 1, 1, 2
+>   - The 3 must be placed into your class's Focus attribute
+>   - The -1 will be considered your character's Flaw attribute
 > - [ ] Allocate 1 point into 6 different skills
 >   - Points cannot be allocated into skills under your Flaw attribute
 > - [ ] Acquire one perk that you meet the requirements of
@@ -792,8 +792,9 @@ To define a new type of combatant, you can follow the steps below.
 >
 > - [ ] Choose the combatant's level between 1 and 120
 > - [ ] Allocate available attribute points into the combatant's attributes
->   - The combatant will have a minimum of 10 attribute points
->   - Allocate an additional attribute point for every 4th level
+>   - The combatant will start with 0 attribute points
+>   - The combatant can increase an attribute at the cost of decreasing another attribute
+>   - For every 4th level, the combatant can increase an attribute
 > - [ ] Specify one or more class abilities
 >   - These class abilities should make the combatant unique to fight
 >   - The damage and effects of these abilities should approximate the combatant's Combat Rating
