@@ -147,7 +147,7 @@ export const useCharacterClient = (
   const maxHealthPoints = useCharacterComputation(
     character,
     'maxHealthPoints',
-    '([level] + [attribute.strength] + [skill.fortitude]) * 6'
+    '(3 + [level] + [attribute.strength] + [skill.fortitude]) * 6'
   );
 
   const healthPoints = character.healthPoints;
@@ -158,7 +158,7 @@ export const useCharacterClient = (
   const speed = useCharacterComputation(
     character,
     'speed',
-    '3 + [attribute.dexterity] + [skill.agility]'
+    '4 + [attribute.dexterity] + [skill.agility]'
   );
 
   // ---------- CLASS POINTS ----------- //
@@ -245,7 +245,7 @@ export const useCharacterClient = (
   const carryingCapacity = useCharacterComputation(
     character,
     'carryingCapacity',
-    '([attribute.strength] + [skill.fortitude]) * 3'
+    '(3 + [attribute.strength] + [skill.fortitude]) * 2'
   );
 
   // ---------- SATIATION & EXHAUSTION ----------- //

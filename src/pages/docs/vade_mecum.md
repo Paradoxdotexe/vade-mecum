@@ -220,7 +220,7 @@ Based on their renown, characters gain advantage when making Influence checks ag
 ## 1.7 Health Points
 
 Each character has a number of health points, or HP, that measures their physical condition.
-The Max HP for any character is equal to `(Level + Strength + Fortitude) x 6`.
+The Max HP for any character is equal to `(3 + Level + Strength + Fortitude) x 6`.
 
 > **Example:** A Level 5 character with Strength 4 and Fortitude 1 will have a Max HP of 60.
 
@@ -230,7 +230,7 @@ As a character engages in combat, they will take damage, lose HP, and face conse
 
 Each character has a movement speed that regulates how far they can move during combat.
 Movement speed is measured in terms of grid tiles which are roughly 5ft squares.
-A character's movement speed is equal to `Dexterity + Agility + 3`.
+A character's movement speed is equal to `Dexterity + Agility + 4`.
 
 > **Example:** A character with Dexterity 3 and Agility 2 will have a movement speed of 8 tiles, or 40 feet.
 
@@ -243,7 +243,7 @@ This speed can be increased by vehicles if available in the chosen World Kit.
 
 Each character has a carrying capacity that determines how many items they can carry before becoming over-encumbered.
 Carrying capacity is measured in terms of slots (an arbitrary measure of weight and size).
-A character's carrying capacity is equal to `(Strength + Fortitude) x 3`.
+A character's carrying capacity is equal to `(3 + Strength + Fortitude) x 2`.
 
 > **Example:** A character with Strength 4 and Fortitude 1 will have a carrying capacity of 15 slots.
 
