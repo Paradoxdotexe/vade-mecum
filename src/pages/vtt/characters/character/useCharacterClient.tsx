@@ -185,7 +185,7 @@ export const useCharacterClient = (
   const initiative = useCharacterComputation(
     character,
     'initiative',
-    '[attribute.dexterity] + [skill.agility] + [attribute.perception] + [skill.detection]'
+    '3 + [attribute.dexterity] + [skill.agility] + [attribute.perception] + [skill.detection]'
   );
 
   // ---------- PERKS ----------- //

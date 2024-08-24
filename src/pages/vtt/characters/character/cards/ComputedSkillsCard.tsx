@@ -18,16 +18,30 @@ export const ComputedSkillsCard: React.FC<ComputedSkillsCardProps> = props => {
   const { attributes } = props.characterClient;
 
   const onRollInitiative = () => {
+    const shownDiceFactors = [
+      { label: 'Base', value: 3 },
+      ...[
+        attributes.dexterity,
+        attributes.dexterity.skills.agility,
+        attributes.perception,
+        attributes.perception.skills.detection
+      ].map(df => ({ label: df.label, value: df.value }))
+    ];
+
     rollModal.open({
       characterId: props.characterClient.id,
       characterName: props.characterClient.name,
       label: 'Initiative',
       diceFactors: [
-        attributes.dexterity,
-        attributes.dexterity.skills.agility,
-        attributes.perception,
-        attributes.perception.skills.detection
-      ].map(df => ({ label: df.label, value: df.value })),
+        ...shownDiceFactors,
+        // bonus will come from things like King's Champion perk
+        {
+          label: 'Bonus',
+          value:
+            props.characterClient.initiative -
+            shownDiceFactors.reduce((sum, df) => sum + df.value, 0)
+        }
+      ],
       evaluation: RollEvaluation.SUM
     });
   };

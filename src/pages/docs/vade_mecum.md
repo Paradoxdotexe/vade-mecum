@@ -490,7 +490,7 @@ For each tier of cover that is used, the Difficulty Threshold of being hit is in
 
 When a situation reaches a point than can no longer be resolved by words, the Adventuring Party will enter combat.
 Combat begins by determining each character's turn order by rolling for initiative. Each character
-rolls a number of D6 equal to `(Dexterity + Agility) + (Perception + Detection)` and sums the roll to resolve their initiative.
+rolls a number of D6 equal to `3 + (Dexterity + Agility) + (Perception + Detection)` and sums the roll to resolve their initiative.
 
 > **Example:** A character with Dexterity 4 / Agility 2 and Perception 2 / Detection 1 rolls for initiative with 9D6. After rolling, they sum the outcome to 31.
 > Characters with a higher initiative will go before them and characters with a lower initiative will go after.
