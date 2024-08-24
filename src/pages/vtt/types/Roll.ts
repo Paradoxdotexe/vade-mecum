@@ -4,8 +4,8 @@ export type DiceFactor = {
 };
 
 export enum RollEvaluation {
-  CHECK = 'CHECK',
-  SUM = 'SUM'
+  CHECK = 'CHECK', // D20
+  SUM = 'SUM' // D6
 }
 
 export type Roll = {

@@ -78,7 +78,7 @@ export const HomePage: React.FC = () => {
         </VButton>
       </div>
 
-      <div className="page__version">ALPHA v{versionJson.version}</div>
+      <div className="page__version">BETA v{versionJson.version}</div>
     </StyledHomePage>
   );
 };

@@ -1,7 +1,7 @@
 import { VModal } from '@/components/VModal';
 import React, { ReactNode, useContext, useMemo, useRef, useState } from 'react';
 import { RollCard } from './RollCard';
-import { Roll } from '../types/Roll';
+import { Roll, RollEvaluation } from '../types/Roll';
 import styled from 'styled-components';
 import { VNumberInput } from '@/components/VNumberInput';
 import { VFlex } from '@/components/VFlex';
@@ -82,7 +82,10 @@ const RollModal: React.FC<RollModalProps> = props => {
 
     // roll the dice!
     const total = sum(pendingRoll.diceFactors.map(diceFactor => diceFactor.value));
-    const dice = [...new Array(total)].map(() => rollDie()).sort((a, b) => b - a);
+    let dice: number[] = [];
+    if (pendingRoll.evaluation === RollEvaluation.SUM) {
+      dice = [...new Array(total)].map(() => rollDie()).sort((a, b) => b - a);
+    } else [(dice = [rollDie(20)])];
 
     const roll = { ...pendingRoll, id, timestamp, dice };
     addRoll(roll);

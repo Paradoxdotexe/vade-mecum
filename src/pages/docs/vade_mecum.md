@@ -29,12 +29,13 @@ The world is defined and controlled by a Game Master that acts as both the game'
   - [1.10 Building a Character](#1.10-Building-a-Character)
 - [2. Adventuring](#2.-Adventuring)
   - [2.1 Skill Checks](#2.1-Skill-Checks)
-  - [2.2 Weapons and Tools](#2.2-Weapons-and-Tools)
-  - [2.3 Armor and Cover](#2.3-Armor-and-Cover)
-  - [2.4 Combat](#2.4-Combat)
-  - [2.5 Conditions](#2.5-Conditions)
-  - [2.6 Injuries](#2.6-Injuries)
-  - [2.7 Rest](#2.7-Rest)
+  - [2.2 Fate and Fury](#2.2-Fate-and-Fury)
+  - [2.3 Weapons and Tools](#2.3-Weapons-and-Tools)
+  - [2.4 Armor and Cover](#2.4-Armor-and-Cover)
+  - [2.5 Combat](#2.5-Combat)
+  - [2.6 Conditions](#2.6-Conditions)
+  - [2.7 Injuries](#2.7-Injuries)
+  - [2.8 Rest](#2.8-Rest)
 - [3. World](#3.-World)
   - [3.1 Currency](#3.1-Currency)
   - [3.2 Combatants](#3.2-Combatants)
@@ -73,7 +74,7 @@ Characters are chiefly defined by attributes, skills, and perks, all of which ar
 ## 1.1 Attributes
 
 Each character has 5 core attributes that define its physical and mental ability.
-These attributes are scored on a scale from 1 to 6, with the average NPC being a 2.
+These attributes are scored on a scale from -6 to 6, with the average NPC being a 0.
 When a character performs an action, these attribute scores are used to determine how well they do.
 
 | Attribute        | Description                                             |
@@ -91,7 +92,7 @@ Conversely, a character's Focus is their greatest power—the quality that makes
 ## 1.2 Skills
 
 Below attributes, characters have 15 core skills (3 for each attribute) that represent proficiencies within a specific attribute area.
-These skills are scored on a scale from 0 to 3, with the average human being a 1.
+These skills are scored on a scale from 0 to 3, with the average human being a 0.
 Skills allow characters to specialize themselves towards specific types of actions.
 
 | Attribute    | Skill             | Description                                                                         |
@@ -223,7 +224,7 @@ The Max HP for any character is equal to `(Level + Strength + Fortitude) x 6`.
 
 > **Example:** A Level 5 character with Strength 4 and Fortitude 1 will have a Max HP of 60.
 
-As a character engages in combat, they will take damage, lose HP, and face consequences (see [2.6 Injuries](#2.6-Injuries)).
+As a character engages in combat, they will take damage, lose HP, and face consequences (see [2.7 Injuries](#2.7-Injuries)).
 
 ## 1.8 Movement Speed
 
@@ -300,139 +301,137 @@ Adventuring can take many shapes and forms, but _Vade Mecum_ provides a general 
 ## 2.1 Skill Checks
 
 When a character performs an action of consequence, the Game Master will ask for a skill check.
-This includes the player rolling a number of dice determined by the character's ability and the difficulty of the action.
-Then based on the roll, the Game Master will resolve the outcome.
+This includes the player rolling a single D20 and then adjusting the result based on their character's ability and any item they are using to get an advantage.
+Based on this adjusted roll, the Game Master will resolve the outcome.
 
-For any skill check, the player will roll a number of D6 equal to `(Attribute + Skill + Advantage - Disadvantage)`.
+For any skill check, the player's roll result will be equal to `(D20 + Attribute Score + Skill Level + Item Advantage)`.
 
-### Advantage and Disadvantage
+### Difficulty
 
-While attribute and skill dice come directly from the character's innate ability, advantage/disadvantage comes from the objects or people involved in the action.
+The goal of the skill check is to meet or exceed the Difficulty Threshold (DT) of the action in question.
 
-Most commonly, advantage will come from an item assisting the action, and disadvantage will come from an item countering the action.
-Examples of common sources of advantage/disadvantage are given below.
+There are 7 discrete levels of difficulty, ranging from Effortless to Extreme.
+In the examples below, we look at the difficulty of lock picking different types of locks.
 
-| Skill     | Action                          | Advantage Source | Disadvantage Source |
-| --------- | ------------------------------- | ---------------- | ------------------- |
-| Power     | Melee attack                    | Weapon           | Armor, cover        |
-| Precision | Pick a lock                     | Tool             | Lock                |
-| Medicine  | Heal an incapacitated character | Tool             | Injury              |
-| Power     | Force open a door               | Tool             | Door                |
-| Influence | Persuade an NPC                 | NPC              | NPC                 |
+| Difficulty     | DT  | Description                               | Example                             |
+| -------------- | --- | ----------------------------------------- | ----------------------------------- |
+| **Effortless** | 2   | Something you can do without thinking.    | An old, cheap, rusted lock          |
+| **Very Easy**  | 5   | Barely requires your attention.           | An old, rusted lock                 |
+| **Easy**       | 8   | A simple task for those with basic skill. | An old lock                         |
+| **Average**    | 11  | Requires focus but within reach for most. | A lock                              |
+| **Hard**       | 14  | A challenge that tests your abilities.    | A steel lock                        |
+| **Very Hard**  | 17  | Demands exceptional skill and focus.      | A reinforced, steel lock            |
+| **Extreme**    | 20  | An awe-inspiring feat of mastery.         | An advanced, reinforced, steel lock |
 
-For ambiguous sources of advantage/disadvantage, such as locks, injuries, and NPC's, the Game Master can declare a difficulty.
-There are 7 levels of difficulty, ranging from Trivial (+3) to Titan (-3).
-In the examples below, we look at an Influence check to persuade an NPC.
+> **Tip:** When gauging difficulty, the rule of thumb is to adjust the DT by 3 for every adjective that can be used to describe the object or situation.
+> For each detrimental adjective, raise the DT and for each beneficial adjective, lower the DT.
+> A _steep, slippery_ cliff? DT 17.
+> A _nice, old_ lady? DT 5.
+> A _rusted, steel_ lock? DT 11.
 
-| Difficulty    | A/D | Description                                  | Example            |
-| ------------- | --- | -------------------------------------------- | ------------------ |
-| **Trivial**   | +3  | Extremely simple/likely                      | Your best friend   |
-| **Very Easy** | +2  | Very simple/likely                           | Your friend        |
-| **Easy**      | +1  | Somewhat simple/likely                       | A friendly NPC     |
-| **Average**   | +0  | Not too simple or challenging, evenly likely | An indifferent NPC |
-| **Hard**      | -1  | Somewhat challenging/unlikely                | A disgruntled NPC  |
-| **Very Hard** | -2  | Very challenging/unlikely                    | Your enemy         |
-| **Titan**     | -3  | Extremely challenging/unlikely               | Your nemesis       |
+### Success and Failure
 
-> **Example:** A character attempts to force open a locked door. The Game Master asks for a Power check.
-> The character has Strength 4 and Power 2 and is using a Battering Ram (+1) to assist them.
-> The Game Master sets the door's difficulty at Very Hard (-2) since it is metal and reinforced.
-> The player rolls a Power check with 5 D6.
+After a player rolls their D20 and adds all relevant bonuses, they can evaluate the outcome by comparing their roll against the Difficulty Threshold.
+In the examples below, we look at a DT 11 Precision check to pick a lock on a door.
 
-> For any skill check, the maximum advantage that can be applied is +6 and the maximum disadvantage is -6.
+| Roll   | Result      | Outcome                             | Example                  |
+| ------ | ----------- | ----------------------------------- | ------------------------ |
+| 1 - 10 | **Failure** | The character fails the action.     | The door remains locked. |
+| 11+    | **Success** | The character completes the action. | The door is unlocked.    |
 
-### Success, Stalemate, and Failure
+> **Example:** A character attempts to pick a reinforced, steel lock on a door.
+> The Game Master asks for a Precision check.
+> The PC has Dexterity 4 and Precision 2 and is using a Lock Picking Set (+1) to assist them.
+> The Game Master sets the lock's difficulty at Very Hard (DT 17) since it is reinforced and steel.
+> The player rolls a D20, rolling an 11.
+> Adding their bonuses from their attribute, skill, and item, their roll result is an 18.
+> Their skill check meets the Difficulty Threshold and is deemed a success and the door is unlocked.
 
-After a player rolls their dice, they can evaluate the outcome based on the highest die they rolled.
-In the examples below, we look at a player rolling a Power check to force open a locked door.
+Additionally, if a player rolls a natural 1 or a natural 20, the rules of [Fate and Fury](#2.2-Fate-and-Fury) come into effect.
 
-| Max D6     | Result        | Outcome                                          | Example                                              |
-| ---------- | ------------- | ------------------------------------------------ | ---------------------------------------------------- |
-| 6          | **Success**   | The character completes the action successfully. | The character forces the door open and gets inside.  |
-| 5          | **Stalemate** | The character is ineffectual in their attempt.   | The character must try again or find another way in. |
-| 1, 2, 3, 4 | **Failure**   | The character fails the action detrimentally.    | The character jams the door permanently closed.      |
+### Retry Penalty
 
-If a character is unsuccessful, they are allowed to attempt the skill check again with the disadvantage increased by 1 (as the character is frustrated and discouraged).
-In many cases, failure will mean the character botches the attempt and it can longer be attempted by them or other members of the Adventuring Party.
+After a skill check is failed, the same skill check can be tried again, but with a Retry Penalty.
+For each time a specific skill check is failed, a Retry Penalty of 1 is added to the Difficulty Threshold.
+This penalty represents the Adventuring Party getting more and more frustrated and increasingly botching the situation.
 
-> **Example:** A character rolls a Precision check to pick a lock and gets a stalemate.
-> The character decides to try again and rolls a Precision check with an additional -1 disadvantage.
-> This time, they get a failure. The Game Master rules the keyhole of the lock has been ruined and is now unpickable.
+> **Example:** A character rolls a Precision check to pick a DT 11 lock and fails.
+> The same character decides to try again at DT 11.
+> They fail again.
+> Finally, another member attempts the Precision check at DT 13 and succeeds.
 
 ### Help
 
 When a character makes a skill check, others in their Adventuring Party may want to lend a hand.
-In this situation, the character making the skill check adds advantage equal to the helping character's skill bonus (with a minimum of 1).
-During combat, this help requires a Bonus Action.
+In this situation, the character making the skill check adds the helping character's skill bonus (with a minimum of 1) to their roll.
+
+> During combat, this help requires a Bonus Action.
 
 ### Group Skill Checks
 
 When success hinges on the ability of multiple of characters, the Game Master may ask for a group skill check.
 In this situation, all characters will make their own rolls, but the outcome will be resolved as a collective.
-To determine the outcome, evaluate the results of each individual skill check, cancel out any failures with any successes, and then take the highest result.
+To determine the outcome, evaluate the results of each individual skill check, cancel out any failures with any successes, and then take the remaining result.
 
 > **Example:** A group of 4 characters attempt to collectively sneak into a building.
 > The Game Master calls for a group Stealth check.
-> Two characters roll a success, one character rolls a stalemate, and one character rolls a failure.
-> After canceling out the one failure with one success, there remains one success and one stalemate.
-> Taking the highest result, the group Stealth check is ruled a success.
+> Two characters roll a success and one character rolls a failure.
+> After canceling out the one failure with one success, there remains one success.
+> Taking the remaining result, the group Stealth check is ruled a success.
 
 ### Contested Skill Checks
 
 When characters or combatants have diametrically opposed goals, the Game Master may call for a contested skill check.
 When this happens, those involved will each make their own roll with the appropriate skill.
-
-To resolve the outcome, the highest rolled die from each skill check is compared.
-The roll with the higher die succeeds. If the the dice are the same, continue to the next.
-If all dice are the same, the contested skill check is ruled a stalemate.
+The highest roll is deemed the winner.
 
 > **Example:** A character attempts to steal a key from a guard without being seen.
 > The Game Master calls for a contested skill check of Stealth vs. Detection.
-> The character rolls a Stealth check, yielding `5, 4, 2, 1`.
-> The guard rolls a Detection check, yielding `5, 3, 3`.
-> The 5 is compared to the 5 and is ignored.
-> The 4 is compared to the 3 and is ruled a success for the character.
+> The character rolls a Stealth check, yielding a `15`.
+> The guard rolls a Detection check, yielding a `12`.
+> The contest is ruled a success for the character.
 > The key is stolen and the guard is none the wiser.
 
-### Attacks
+> In a contest, Fate and Fury does not apply.
 
-Any skill check that is intended to deal direct damage against an enemy is considered an attack.
-These are most often Power or Precision checks used to make melee or ranged attacks, respectively.
+## 2.2 Fate and Fury
 
-#### Critical Damage
+When rolling skill checks, the characters are always at the mercy of Fate and Fury, the two uncontrollable forces of the world.
+Both have the power to shift the tide of a battle, for better or for worse, or to shift the party's entire journey, towards triumph or towards catastrophe.
 
-If an attack results in a success, the damage dealt increases by `1D6` for every additional 6 rolled.
+These forces manifest in the form of Fated Successes and Furious Failures that occur when players roll extraordinarily good or bad.
 
-### Probability
+### Fated Success
 
-In this system, there is a strong relationship between the amount of dice being rolled and the chances of success and failure.
-As such, _Vade Mecum_ encourages specialization from the party, rather than a brute force mentality.
-There is a negative incentive to attempt difficult and dangerous situations, and a positive incentive to find solutions that play to the party's strengths.
+When a player rolls a natural 20, their PC achieves a Fated Success.
+In this miraculous moment, the PC succeeds on the skill check, regardless of the Difficulty Threshold.
+Additionally for an attack roll, the player may roll for Fate's Fortune with a D6.
 
-> For example, if a Strength 1 character attempts a Power check to force open a door, there is a 66.7% chance they hurt themself, hurt someone else, or jam the door.
-> But if a Strength 6 character attempts the same check, there is a 66.5% chance they succeed and only a 8.8% chance they fail.
+| D6  | Fate's Fortune                                         |
+| --- | ------------------------------------------------------ |
+| 1   | Your gain an additional Bonus Action this turn.        |
+| 2   | Your target is knocked Prone.                          |
+| 3   | Your target is Stunned for 1 turn.                     |
+| 4   | You can make an additional attack against your target. |
+| 5   | You double the damage against your target.             |
+| 6   | You triple the damage against your target.             |
 
-The probabilities for any given amount of dice is provided below.
+### Furious Failure
 
-| # of Dice | Success | Stalemate | Failure |
-| --------- | ------- | --------- | ------- |
-| 1         | 16.7%   | 16.7%     | 66.7%   |
-| 2         | 30.6%   | 25.0%     | 44.4%   |
-| 3         | 41.1%   | 28.2%     | 29.6%   |
-| 4         | 51.8%   | 28.5%     | 19.8%   |
-| 5         | 59.8%   | 27.0%     | 12.2%   |
-| 6         | 66.5%   | 24.7%     | 8.8%    |
-| 7         | 71.1%   | 21.1%     | 5.9%    |
-| 8         | 76.7%   | 19.4%     | 2.9%    |
-| 9         | 80.6%   | 16.8%     | 1.6%    |
-| 10        | 82.8%   | 14.4%     | 1.7%    |
-| 11        | 86.5%   | 11.3%     | 1.2%    |
-| 12        | 88.8%   | 10.4%     | 0.8%    |
-| 13        | 90.7%   | 8.8%      | 0.5%    |
-| 14        | 91.2%   | 7.4%      | 0.3%    |
-| 15        | 92.5%   | 6.3%      | 0.2%    |
+When a player rolls a natural 1, their PC faces a Furious Failure.
+In this catastrophic moment, the PC fails the skill check, regardless of their modifiers.
+Additionally for an attack roll, the player must roll for Fury's Wrath with a D6.
 
-## 2.2 Weapons and Tools
+| D6  | Fury's Wrath                                              |
+| --- | --------------------------------------------------------- |
+| 1   | Your target can make an attack against you as a reaction. |
+| 2   | You are Stunned for 1 turn.                               |
+| 3   | You are knocked Prone.                                    |
+| 4   |                                                           |
+| 5   |                                                           |
+| 6   |                                                           |
+
+## 2.3 Weapons and Tools
 
 To gain an advantage on skill checks, characters can utilize weapons and tools provided by the World Kit being used.
 All weapons and tools follow a universal pattern for how they are defined.
@@ -455,7 +454,7 @@ Attacks made without a weapon (e.g. fisticuffs) are `+0` Power and deal `1D6` da
 
 Attacks made with an improvised weapon, such as a club or rock, are `+1` Power/Precision and deal `1D6` damage.
 
-## 2.3 Armor and Cover
+## 2.4 Armor and Cover
 
 Similar to how weapons and tools assist friendly skill checks, armor and cover inhibit enemy skill checks.
 There are 3 tiers of armor and cover that incrementally increase the disadvantage applied to incoming attacks.
@@ -470,9 +469,9 @@ There are 3 tiers of armor and cover that incrementally increase the disadvantag
 > For example, someone wearing medium armor behind medium cover would have -4 disadvantage to being hit.
 
 While armor protects the wearer from melee and ranged attacks, cover only protects at range.
-Additionally, those in cover cannot take movement or actions until they expose themself (see [2.4 Combat](#2.4-Combat)).
+Additionally, those in cover cannot take movement or actions until they expose themself (see [2.5 Combat](#2.5-Combat)).
 
-## 2.4 Combat
+## 2.5 Combat
 
 When a situation reaches a point than can no longer be resolved by words, the Adventuring Party will enter combat.
 Combat begins by determining each character's turn order by rolling for initiative. Each character
@@ -534,11 +533,10 @@ By default, all characters can perform an opportunity attack as a reaction, but 
 In some cases, the Adventuring Party may attempt to surprise their enemy to gain an advantage.
 To do this, all characters roll a group Stealth check to sneak into combat range.
 
-| Result        | Outcome                                                                       |
-| ------------- | ----------------------------------------------------------------------------- |
-| **Success**   | The party surprises the enemy, stunning them all for one turn.                |
-| **Stalemate** | The party fails to surprise the enemy and begin combat as usual.              |
-| **Failure**   | The party prematurely alerts the enemy, giving the enemy a turn for movement. |
+| Result      | Outcome                                                                       |
+| ----------- | ----------------------------------------------------------------------------- |
+| **Success** | The party surprises the enemy, stunning them all for one turn.                |
+| **Failure** | The party prematurely alerts the enemy, giving the enemy a turn for movement. |
 
 > **Example:** A party attempts to surprise a group of soldiers on patrol.
 > The characters each roll a Stealth check and succeed as a group.
@@ -551,7 +549,7 @@ On a success, they either find an amount of currency equal to `(Combatant Level 
 
 > **Example:** A character with Luck 1 rolls an Investigation check to loot a Level 6 enemy. They succeed on the roll and find 7D6 Currency Units.
 
-## 2.5 Conditions
+## 2.6 Conditions
 
 In combat, there are a number of conditions that a character can suffer from.
 These conditions make the character more vulnerable to attacks and reduce their capability to fight.
@@ -582,7 +580,7 @@ This condition has no effect, but can be used to convey an enemy's state during 
 When a character is reduced to 0 health points, they are Incapacitated.
 While a character is Incapacitated, attacks against them have +3 advantage.
 A character that is Incapacitated cannot take any movement, actions, or reactions.
-If the character is hit with an attack, their injury worsens by one level (see [2.6 Injuries](#2.6-Injuries)).
+If the character is hit with an attack, their injury worsens by one level (see [2.7 Injuries](#2.7-Injuries)).
 The Incapacitated conditions ends after the character is healed by a successful Medicine check.
 
 ### Crippled
@@ -590,9 +588,9 @@ The Incapacitated conditions ends after the character is healed by a successful 
 When a character recovers from a Deadly Injury, they are Crippled.
 While a character is Crippled, their Movement Speed is reduced to 3 tiles, or 15 feet.
 When traversing long distances outside of combat, their movement speed is reduced to 1 mile per hour or 8 miles per day.
-The Crippled condition ends after finishing a satiated Rest (see [2.7 Rest](#2.7-Rest)).
+The Crippled condition ends after finishing a satiated Rest (see [2.8 Rest](#2.8-Rest)).
 
-## 2.6 Injuries
+## 2.7 Injuries
 
 During combat, every character faces the possibility of developing an injury that could lead to death.
 When a character's HP is reduced to 0, they are incapacitated and incur a random injury.
@@ -615,46 +613,46 @@ If the roll is successful, the character is stabilized with 1 HP and are back in
 
 > While incapacitated, all attacks on the character are Trivial (+3) and increase the level of injury by one.
 
-| D6  | Injury Level | Effect             | D6  | Injury Degree               | Difficulty     |
-| --- | ------------ | ------------------ | --- | --------------------------- | -------------- |
-| 6   | **Minor**    | Recovery, 2 rounds | 6   | **Whiplash**                | Very Easy (+2) |
-| 6   | **Minor**    | Recovery, 2 rounds | 5   | **Cut skin**                | Easy (+1)      |
-| 6   | **Minor**    | Recovery, 2 rounds | 4   | **Sprained ankle**          | Average        |
-| 6   | **Minor**    | Recovery, 2 rounds | 3   | **Sprained wrist**          | Average        |
-| 6   | **Minor**    | Recovery, 2 rounds | 2   | **Bruised rib**             | Hard (-1)      |
-| 6   | **Minor**    | Recovery, 2 rounds | 1   | **Lost breath**             | Hard (-1)      |
-| 5   | **Moderate** | Recovery, 3 rounds | 6   | **Concussion**              | Easy (+1)      |
-| 5   | **Moderate** | Recovery, 3 rounds | 5   | **Simple laceration**       | Easy (+1)      |
-| 5   | **Moderate** | Recovery, 3 rounds | 4   | **Dislocated knee**         | Average        |
-| 5   | **Moderate** | Recovery, 3 rounds | 3   | **Dislocated shoulder**     | Average        |
-| 5   | **Moderate** | Recovery, 3 rounds | 2   | **Rib fracture**            | Hard (-1)      |
-| 5   | **Moderate** | Recovery, 3 rounds | 1   | **Throat contusion**        | Hard (-1)      |
-| 4   | **Serious**  | Recovery, 4 rounds | 6   | **Black eye**               | Easy (+1)      |
-| 4   | **Serious**  | Recovery, 4 rounds | 5   | **Deep laceration**         | Easy (+1)      |
-| 4   | **Serious**  | Recovery, 4 rounds | 4   | **Crushed leg**             | Average        |
-| 4   | **Serious**  | Recovery, 4 rounds | 3   | **Crushed arm**             | Average        |
-| 4   | **Serious**  | Recovery, 4 rounds | 2   | **Multiple rib fractures**  | Hard (-1)      |
-| 4   | **Serious**  | Recovery, 4 rounds | 1   | **Cervical fracture**       | Hard (-1)      |
-| 3   | **Severe**   | Death, 4 rounds    | 6   | **Head trauma**             | Easy (+1)      |
-| 3   | **Severe**   | Death, 4 rounds    | 5   | **Lacerated tendon**        | Easy (+1)      |
-| 3   | **Severe**   | Death, 4 rounds    | 4   | **Leg fracture**            | Average        |
-| 3   | **Severe**   | Death, 4 rounds    | 3   | **Arm fracture**            | Average        |
-| 3   | **Severe**   | Death, 4 rounds    | 2   | **Internal bleeding**       | Hard (-1)      |
-| 3   | **Severe**   | Death, 4 rounds    | 1   | **Neck injury**             | Hard (-1)      |
-| 2   | **Critical** | Death, 3 rounds    | 6   | **Orbital fracture**        | Easy (+1)      |
-| 2   | **Critical** | Death, 3 rounds    | 5   | **Lacerated artery**        | Easy (+1)      |
-| 2   | **Critical** | Death, 3 rounds    | 4   | **Compound leg fracture**   | Average        |
-| 2   | **Critical** | Death, 3 rounds    | 3   | **Compound arm fracture**   | Average        |
-| 2   | **Critical** | Death, 3 rounds    | 2   | **Ruptured spleen**         | Hard (-1)      |
-| 2   | **Critical** | Death, 3 rounds    | 1   | **Spinal cord injury**      | Hard (-1)      |
-| 1   | **Fatal**    | Death, 2 rounds    | 6   | **Skull fracture**          | Easy (+1)      |
-| 1   | **Fatal**    | Death, 2 rounds    | 5   | **Lacerated organ**         | Easy (+1)      |
-| 1   | **Fatal**    | Death, 2 rounds    | 4   | **Partially amputated leg** | Average        |
-| 1   | **Fatal**    | Death, 2 rounds    | 3   | **Partially amputated arm** | Average        |
-| 1   | **Fatal**    | Death, 2 rounds    | 2   | **Punctured lung**          | Hard (-1)      |
-| 1   | **Fatal**    | Death, 2 rounds    | 1   | **Severed aorta**           | Very Hard (-2) |
+| D6  | Injury Level | Effect             | D6  | Injury Degree               | Difficulty        |
+| --- | ------------ | ------------------ | --- | --------------------------- | ----------------- |
+| 6   | **Minor**    | Recovery, 2 rounds | 6   | **Whiplash**                | Very Easy (DT 5)  |
+| 6   | **Minor**    | Recovery, 2 rounds | 5   | **Cut skin**                | Easy (DT 8)       |
+| 6   | **Minor**    | Recovery, 2 rounds | 4   | **Sprained ankle**          | Average (DT 11)   |
+| 6   | **Minor**    | Recovery, 2 rounds | 3   | **Sprained wrist**          | Average (DT 11)   |
+| 6   | **Minor**    | Recovery, 2 rounds | 2   | **Bruised rib**             | Hard (DT 14)      |
+| 6   | **Minor**    | Recovery, 2 rounds | 1   | **Lost breath**             | Hard (DT 14)      |
+| 5   | **Moderate** | Recovery, 3 rounds | 6   | **Concussion**              | Easy (DT 8)       |
+| 5   | **Moderate** | Recovery, 3 rounds | 5   | **Simple laceration**       | Easy (DT 8)       |
+| 5   | **Moderate** | Recovery, 3 rounds | 4   | **Dislocated knee**         | Average (DT 11)   |
+| 5   | **Moderate** | Recovery, 3 rounds | 3   | **Dislocated shoulder**     | Average (DT 11)   |
+| 5   | **Moderate** | Recovery, 3 rounds | 2   | **Rib fracture**            | Hard (DT 14)      |
+| 5   | **Moderate** | Recovery, 3 rounds | 1   | **Throat contusion**        | Hard (DT 14)      |
+| 4   | **Serious**  | Recovery, 4 rounds | 6   | **Black eye**               | Easy (DT 8)       |
+| 4   | **Serious**  | Recovery, 4 rounds | 5   | **Deep laceration**         | Easy (DT 8)       |
+| 4   | **Serious**  | Recovery, 4 rounds | 4   | **Crushed leg**             | Average (DT 11)   |
+| 4   | **Serious**  | Recovery, 4 rounds | 3   | **Crushed arm**             | Average (DT 11)   |
+| 4   | **Serious**  | Recovery, 4 rounds | 2   | **Multiple rib fractures**  | Hard (DT 14)      |
+| 4   | **Serious**  | Recovery, 4 rounds | 1   | **Cervical fracture**       | Hard (DT 14)      |
+| 3   | **Severe**   | Death, 4 rounds    | 6   | **Head trauma**             | Easy (DT 8)       |
+| 3   | **Severe**   | Death, 4 rounds    | 5   | **Lacerated tendon**        | Easy (DT 8)       |
+| 3   | **Severe**   | Death, 4 rounds    | 4   | **Leg fracture**            | Average (DT 11)   |
+| 3   | **Severe**   | Death, 4 rounds    | 3   | **Arm fracture**            | Average (DT 11)   |
+| 3   | **Severe**   | Death, 4 rounds    | 2   | **Internal bleeding**       | Hard (DT 14)      |
+| 3   | **Severe**   | Death, 4 rounds    | 1   | **Neck injury**             | Hard (DT 14)      |
+| 2   | **Critical** | Death, 3 rounds    | 6   | **Orbital fracture**        | Easy (DT 8)       |
+| 2   | **Critical** | Death, 3 rounds    | 5   | **Lacerated artery**        | Easy (DT 8)       |
+| 2   | **Critical** | Death, 3 rounds    | 4   | **Compound leg fracture**   | Average (DT 11)   |
+| 2   | **Critical** | Death, 3 rounds    | 3   | **Compound arm fracture**   | Average (DT 11)   |
+| 2   | **Critical** | Death, 3 rounds    | 2   | **Ruptured spleen**         | Hard (DT 14)      |
+| 2   | **Critical** | Death, 3 rounds    | 1   | **Spinal cord injury**      | Hard (DT 14)      |
+| 1   | **Fatal**    | Death, 2 rounds    | 6   | **Skull fracture**          | Easy (DT 8)       |
+| 1   | **Fatal**    | Death, 2 rounds    | 5   | **Lacerated organ**         | Easy (DT 8)       |
+| 1   | **Fatal**    | Death, 2 rounds    | 4   | **Partially amputated leg** | Average (DT 11)   |
+| 1   | **Fatal**    | Death, 2 rounds    | 3   | **Partially amputated arm** | Average (DT 11)   |
+| 1   | **Fatal**    | Death, 2 rounds    | 2   | **Punctured lung**          | Hard (DT 14)      |
+| 1   | **Fatal**    | Death, 2 rounds    | 1   | **Severed aorta**           | Very Hard (DT 17) |
 
-## 2.7 Rest
+## 2.8 Rest
 
 After a day of adventuring, the party is required to rest for 8 hours to refresh their minds and bodies.
 During these 8 hours, characters will engage in a mix of sleeping and Rest Activities.
@@ -734,11 +732,10 @@ Items that are Rare, Very Rare, and Legendary should require PC's to save up cur
 To purchase an item listed in the given World Kit, a character requires a marketplace or merchant that has that item (as dictated by the Game Master).
 Additionally, if the item is of Rare rarity or higher, an Influence check is required to determine how effective the character is in haggling the price.
 
-| Result    | Outcome                                |
-| --------- | -------------------------------------- |
-| Success   | You haggle the price down 25%.         |
-| Stalemate | You find the item priced as expected.  |
-| Failure   | The merchant haggles the price up 25%. |
+| Result  | Outcome                                |
+| ------- | -------------------------------------- |
+| Success | You haggle the price down 25%.         |
+| Failure | The merchant haggles the price up 25%. |
 
 > **Example:** A character looks to buy some Plate Armor (Very Rare) in a large marketplace and the GM rules that the item is being sold there.
 > The character rolls an Influence check to haggle the price and gets a failure, increasing the price from 32 CU to 40 CU.

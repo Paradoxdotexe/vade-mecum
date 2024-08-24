@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { VCard } from '@/components/VCard';
 import { Roll, RollEvaluation } from '../types/Roll';
-import { startCase, sum } from 'lodash-es';
+import { sum } from 'lodash-es';
 import { useVTheme } from '@/common/VTheme';
 import { VNumberInput } from '@/components/VNumberInput';
 import { VCollapsible } from '@/components/VCollapsible';
+import { ReactComponent as D20Icon } from '@/icons/D20.svg';
+import classNames from 'classnames';
 
 const StyledRollCard = styled(VCard)`
   display: flex;
@@ -47,6 +49,29 @@ const StyledRollCard = styled(VCard)`
       flex-direction: column;
       gap: ${props => props.theme.variable.gap.md};
 
+      &.result--check {
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        .result__dice {
+          .dice__die {
+            position: relative;
+            width: 32px;
+            height: 32px;
+            background: none !important;
+            border: none;
+            z-index: 1;
+
+            svg {
+              position: absolute;
+              color: ${props => props.theme.color.background.sunken};
+              z-index: -1;
+            }
+          }
+        }
+      }
+
       .result__dice {
         display: flex;
         flex-wrap: wrap;
@@ -62,10 +87,6 @@ const StyledRollCard = styled(VCard)`
           border-radius: ${props => props.theme.variable.borderRadius};
           font-family: ${props => props.theme.variable.fontFamily.display};
           border: 1px solid ${props => props.theme.color.border.bold};
-
-          &.die--ignored {
-            opacity: 0.6;
-          }
         }
       }
 
@@ -77,24 +98,6 @@ const StyledRollCard = styled(VCard)`
     }
   }
 `;
-
-enum CheckResult {
-  SUCCESS = 'success',
-  STALEMATE = 'stalemate',
-  FAILURE = 'failure'
-}
-
-const getCheckResult = (dice: number[]) => {
-  const maxDie = Math.max(...dice);
-  switch (maxDie) {
-    case 6:
-      return CheckResult.SUCCESS;
-    case 5:
-      return CheckResult.STALEMATE;
-    default:
-      return CheckResult.FAILURE;
-  }
-};
 
 type RollCardProps = {
   roll: Roll;
@@ -109,39 +112,19 @@ export const RollCard: React.FC<RollCardProps> = props => {
   const isRolled = !!props.roll.dice.length;
   const isCheck = props.roll.evaluation === RollEvaluation.CHECK;
 
-  const checkResult = isRolled && isCheck ? getCheckResult(props.roll.dice) : undefined;
-
   let dice = props.roll.dice;
 
   // if roll hasn't been rolled, add pseudo dice based on dice factors
   if (!isRolled) {
-    const total = sum(props.roll.diceFactors.map(diceFactor => diceFactor.value));
-    dice = [...new Array(Math.max(total, 0))].map(() => -1);
+    if (isCheck) {
+      dice = [-1];
+    } else {
+      const total = sum(props.roll.diceFactors.map(diceFactor => diceFactor.value));
+      dice = [...new Array(Math.max(total, 0))].map(() => -1);
+    }
   }
 
-  const successChance = (1 - Math.pow(5 / 6, dice.length)) * 100;
-
-  const renderDie = (die: number, index: number) => {
-    const dieCheckResult = getCheckResult([die]);
-    const color = die > 0 ? theme.color.status[dieCheckResult].border : undefined;
-
-    let ignored = false;
-    if (isRolled && isCheck && index > 0) {
-      ignored = true;
-    }
-
-    return (
-      <div
-        key={index}
-        className={`dice__die ${ignored ? 'die--ignored' : undefined}`}
-        style={{
-          background: color
-        }}
-      >
-        {die > 0 ? die : '?'}
-      </div>
-    );
-  };
+  const total = props.roll.diceFactors.reduce((v, df) => v + Math.abs(df.value), 0);
 
   return (
     <StyledRollCard
@@ -150,7 +133,12 @@ export const RollCard: React.FC<RollCardProps> = props => {
     >
       <div
         className="card__header"
-        style={{ background: checkResult && theme.color.status[checkResult].border }}
+        style={{
+          // differentiate between characters and combatants
+          background: props.roll.characterId
+            ? theme.color.status.success.border
+            : theme.color.status.failure.border
+        }}
         title={`${props.roll.characterName} (${props.roll.label})`}
       >
         <strong>{props.roll.characterName}</strong> ({props.roll.label})
@@ -175,23 +163,27 @@ export const RollCard: React.FC<RollCardProps> = props => {
                 />
               );
             })}
-            <DiceFactorInput
-              prefix={'='}
-              value={dice.length}
-              label={`Total ${isCheck ? `(${successChance.toFixed(1)}%)` : ''}`}
-            />
+            <DiceFactorInput prefix={'='} value={total} label={'Total'} />
           </div>
         </VCollapsible>
 
-        <div className="body__result">
-          <div className="result__dice">{dice.map(renderDie)}</div>
+        <div
+          className={classNames('body__result', {
+            'result--check': isCheck
+          })}
+        >
+          <div className="result__dice">
+            {dice.map((die, i) => (
+              <div key={i} className={`dice__die`}>
+                {die > 0 ? die : '?'}
+                {isCheck && <D20Icon />}
+              </div>
+            ))}
+          </div>
 
           {isRolled && (
-            <div
-              className="result__text"
-              style={{ color: checkResult && theme.color.status[checkResult].text }}
-            >
-              {checkResult ? startCase(checkResult) : sum(props.roll.dice)}
+            <div className="result__text">
+              {isCheck ? ` + ${total} = ${sum(props.roll.dice) + total}` : sum(props.roll.dice)}
             </div>
           )}
         </div>

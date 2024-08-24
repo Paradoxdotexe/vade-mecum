@@ -68,11 +68,6 @@ const DARK_COLORS = {
       background: opacify(-0.7, '#ee7f00'),
       border: '#ee7f00'
     },
-    stalemate: {
-      text: lighten(0.1, '#979797'),
-      background: opacify(-0.7, '#979797'),
-      border: '#979797'
-    },
     error: {
       text: lighten(0.1, '#e62020'),
       background: opacify(-0.7, '#e62020'),
@@ -119,11 +114,6 @@ const LIGHT_COLORS: VThemeColors = {
       text: lighten(0.1, '#ee7f00'),
       background: opacify(-0.7, '#ee7f00'),
       border: '#ee7f00'
-    },
-    stalemate: {
-      text: lighten(0.1, '#979797'),
-      background: opacify(-0.7, '#979797'),
-      border: '#979797'
     },
     error: {
       text: lighten(0.1, '#e62020'),
