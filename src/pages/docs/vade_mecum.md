@@ -457,19 +457,34 @@ Attacks made with an improvised weapon, such as a club or rock, are `+1` Power/P
 ## 2.4 Armor and Cover
 
 Similar to how weapons and tools assist friendly skill checks, armor and cover inhibit enemy skill checks.
-There are 3 tiers of armor and cover that incrementally increase the disadvantage applied to incoming attacks.
+For both armor and cover, there are 3 tiers that incrementally affect the Difficulty Threshold and damage of an attack.
 
-| Tier       | Disadvantage | _Vale of Myths_ Armor Example | _Vale of Myths_ Cover Example |
-| ---------- | ------------ | ----------------------------- | ----------------------------- |
-| **Light**  | -1           | Leather armor                 | Foliage, fence                |
-| **Medium** | -2           | Chainmail armor               | Tree, low wall                |
-| **Heavy**  | -3           | Plate armor                   | Battlement                    |
+### Armor
 
-> Protection given by armor and cover do stack when determining overall disadvantage.
-> For example, someone wearing medium armor behind medium cover would have -4 disadvantage to being hit.
+Armor has the effect of providing protection against damage at the cost of being easier to hit.
+Wearing any type of armor decreases the Difficulty Threshold of being hit by 3.
+On the flip side, when the wearer is hit by an attack, they mitigate an amount of damage equal to the armor's Protection Rating.
 
-While armor protects the wearer from melee and ranged attacks, cover only protects at range.
-Additionally, those in cover cannot take movement or actions until they expose themself (see [2.5 Combat](#2.5-Combat)).
+| Armor      | Difficulty Threshold | Protection Rating | _Vale of Myths_ Example |
+| ---------- | -------------------- | ----------------- | ----------------------- |
+| **None**   | DT 11                | N/A               | Clothing                |
+| **Light**  | DT 8                 | 1D6               | Leather armor           |
+| **Medium** | DT 8                 | 2D6               | Chainmail armor         |
+| **Heavy**  | DT 8                 | 3D6               | Plate armor             |
+
+### Cover
+
+Compared to cover, armor is much simpler.
+For each tier of cover that is used, the Difficulty Threshold of being hit is increased by 3.
+
+| Armor      | Difficulty Threshold | _Vale of Myths_ Example |
+| ---------- | -------------------- | ----------------------- |
+| **None**   | DT 11                | Nothing                 |
+| **Light**  | DT 14                | Foliage, fence          |
+| **Medium** | DT 17                | Tree, low wall          |
+| **Heavy**  | DT 20                | Battlement, high wall   |
+
+> Those in cover cannot take movement or actions until they expose themself (see [2.5 Combat](#2.5-Combat)).
 
 ## 2.5 Combat
 
