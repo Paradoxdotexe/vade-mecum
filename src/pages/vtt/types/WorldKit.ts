@@ -1823,6 +1823,38 @@ const VALE_OF_MYTHS: WorldKit = {
         }
       ],
       itemQuantities: []
+    },
+    {
+      key: 'shadow',
+      name: 'Shadow',
+      affiliation: 'Project Perimentum',
+      description:
+        "An undercover operative who gathers intelligence, abducts test subjects, and ensures the secrecy of the project's activities.",
+      level: 8,
+      attributes: {
+        strength: -2,
+        dexterity: 2,
+        intelligence: 0,
+        charisma: 1,
+        perception: 1
+      },
+      abilities: [
+        {
+          key: 'blowgun',
+          type: AbilityType.MAIN_ACTION,
+          name: 'Blowgun',
+          description:
+            'You can roll a Precision check to shoot a target within 60ft. On a success, the target takes `2D6` damage and must roll a Fortitude check to avoid being poisoned. The poison deals `1D6` damage for 2 turns.'
+        },
+        {
+          key: 'diversion',
+          type: AbilityType.BONUS_ACTION,
+          name: 'Diversion',
+          description:
+            'You can roll a Stealth check to create a diversion when there is no enemy within 10ft of you. On a success, you hide behind cover within 20ft.'
+        }
+      ],
+      itemQuantities: []
     }
   ]
 };
