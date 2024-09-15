@@ -203,7 +203,10 @@ export const CombatantDrawer: React.FC<CombatantDrawerProps> = props => {
                     width: '100%'
                   }
                 ]}
-                rows={WORLD_KIT.items.filter(item => item.key.startsWith('improvised_'))}
+                rows={[
+                  ...combatantClient.items,
+                  ...WORLD_KIT.items.filter(item => item.key.startsWith('improvised_'))
+                ]}
               />
             </VCard>
           </VFlex>

@@ -46,12 +46,12 @@ const StyledRollCard = styled(VCard)`
       background: ${props => props.theme.color.status.failure.border};
     }
 
-    input {
-      background-color: ${props => props.theme.color.status.failure.background};
-    }
-
     &.card--fate {
       background-color: ${props => props.theme.color.status.failure.background};
+
+      input {
+        background-color: ${props => props.theme.color.status.failure.background};
+      }
 
       .card__header {
         ${props => pulsingBackground(props.theme.color.status.failure.border)};

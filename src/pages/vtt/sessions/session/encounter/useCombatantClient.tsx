@@ -1,5 +1,6 @@
 import { Attributes } from '@/pages/vtt/types/Character';
 import { Combatant } from '@/pages/vtt/types/Combatant';
+import { WORLD_KIT } from '@/pages/vtt/types/WorldKit';
 
 export const getCombatantMaxHealthPoints = (combatant: Combatant) =>
   (combatant.level + combatant.attributes.strength) * 6;
@@ -55,6 +56,12 @@ export const useCombatantClient = (combatant: Combatant) => {
     }
   };
 
+  // ---------- INVENTORY ITEMS ----------- //
+  const items = combatant.itemQuantities.map(({ key, quantity }) => {
+    const item = WORLD_KIT.items.find(item => item.key === key)!;
+    return { ...item, quantity };
+  });
+
   // ---------- COMBAT RATING ----------- //
   const combatRating = 1 + Math.floor(combatant.level / 3);
 
@@ -67,6 +74,7 @@ export const useCombatantClient = (combatant: Combatant) => {
   return {
     ...combatant,
     attributes,
+    items,
     combatRating,
     speed,
     maxHealthPoints

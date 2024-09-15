@@ -766,8 +766,8 @@ They too have goals to achieve, ideals to uphold, and a life to protect, but mos
 Combatants are chiefly defined by their level, which scales from 1 to 120.
 This level is designed to approximate the ability of a character at the same level, but the higher level cap means there can exist combatants who are capable of standing toe-to-toe with entire adventuring parties.
 
-Similar to characters, combatants start with 10 attribute points and gain a new attribute point at every 4th level.
-Although, there are no restrictions on how attribute points are allocated for combatants.
+Combatants start with 0 attribute points and gain a new attribute point at every 4th level.
+Although, there are no restrictions on how attribute points can be allocated for combatants.
 
 Unlike characters, combatants do not have skills, perks, or classes.
 Instead, they are assigned a simple Combat Rating, or CR, that approximates how effective they are in combat.

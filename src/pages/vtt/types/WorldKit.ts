@@ -1738,6 +1738,35 @@ const VALE_OF_MYTHS: WorldKit = {
       itemQuantities: []
     },
     {
+      key: 'crazed_commoner',
+      name: 'Crazed Commoner',
+      description:
+        'A citizen of the Vale crazed into mania, usually wielding a stick, shovel, or other blunt object.',
+      level: 5,
+      attributes: {
+        strength: 2,
+        dexterity: 1,
+        intelligence: 0,
+        charisma: -2,
+        perception: 0
+      },
+      abilities: [
+        {
+          key: 'headbutt',
+          type: AbilityType.BONUS_ACTION,
+          name: 'Headbutt',
+          description:
+            'You can roll a contested Fortitude check to headbutt a target within 5ft. The loser of the contested skill check takes `1D6` damage.'
+        }
+      ],
+      itemQuantities: [
+        {
+          key: 'quarterstaff',
+          quantity: 1
+        }
+      ]
+    },
+    {
       key: 'ghast',
       name: 'Ghast',
       description: 'An evil spirit who uses apparitions to deceive its victims.',
@@ -1776,7 +1805,7 @@ const VALE_OF_MYTHS: WorldKit = {
           type: AbilityType.MAIN_ACTION,
           name: 'Chilling Touch',
           description:
-            'You can roll a Power check to weaken a target within 5ft. On a success, the target takes `3D6` damage.'
+            'You can roll a Power check to weaken a target within 5ft. On a success, the target takes `2D6` damage.'
         },
         {
           key: 'apparition',
