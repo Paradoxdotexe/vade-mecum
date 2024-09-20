@@ -1840,18 +1840,25 @@ const VALE_OF_MYTHS: WorldKit = {
       },
       abilities: [
         {
-          key: 'blowgun',
+          key: 'lightning_baton',
           type: AbilityType.MAIN_ACTION,
-          name: 'Blowgun',
+          name: 'Lightning Baton',
           description:
-            'You can roll a Precision check to shoot a target within 60ft. On a success, the target takes `2D6` damage and must roll a Fortitude check to avoid being poisoned. The poison deals `1D6` damage for 2 turns.'
+            'You can roll a Precision check to shock a target within 10ft. On a success, the target takes `2D6` damage and must roll a DT 14 Fortitude check to avoid being stunned.'
         },
         {
-          key: 'diversion',
+          key: 'fog_ball',
           type: AbilityType.BONUS_ACTION,
-          name: 'Diversion',
+          name: 'Fog Ball',
           description:
-            'You can roll a Stealth check to create a diversion when there is no enemy within 10ft of you. On a success, you hide behind cover within 20ft.'
+            'You can throw a fog ball at your feet, creating a plume of smoke that spreads 15ft in all directions. Inside the fog cloud, visibility range is decreased to 5ft.'
+        },
+        {
+          key: 'poison_capsule',
+          type: AbilityType.REACTION,
+          name: 'Poison Capsule',
+          description:
+            'If you are grappled or otherwise subdued, you can consume a poison capsule that kills you instantly.'
         }
       ],
       itemQuantities: []
