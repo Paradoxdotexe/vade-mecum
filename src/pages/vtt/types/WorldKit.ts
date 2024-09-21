@@ -1862,6 +1862,51 @@ const VALE_OF_MYTHS: WorldKit = {
         }
       ],
       itemQuantities: []
+    },
+    {
+      key: 'shambler',
+      name: 'Shambler',
+      description:
+        'A swamp monster that can move undetected through mud and engulf its targets in its muddy embrace.',
+      level: 14,
+      attributes: {
+        strength: 5,
+        dexterity: 1,
+        intelligence: 0,
+        charisma: -2,
+        perception: -1
+      },
+      abilities: [
+        {
+          key: 'death_by_mud',
+          type: AbilityType.MAIN_ACTION,
+          name: 'Death by Mud',
+          description:
+            'You can roll a grappling check to engulf a target within 5ft. On a success, the target is grappled inside of you. At the start of each turn, the target must make a DT 14 Fortitude check or take `2D6` damage. You cannot engulf multiple targets at the same time.'
+        },
+        {
+          key: 'mud_wave',
+          type: AbilityType.MAIN_ACTION,
+          name: 'Mud Wave',
+          description:
+            'You can roll a Power check to blast mud at a target within 5ft. On a success, the target takes `4D6` damage.'
+        },
+        {
+          key: 'mud_ball',
+          type: AbilityType.BONUS_ACTION,
+          name: 'Mud Ball',
+          description:
+            'You can roll a Precision check to hurl mud at a target within 60ft. On a success, the target takes `1D6` damage.'
+        },
+        {
+          key: 'born_of_mud',
+          type: AbilityType.BONUS_ACTION,
+          name: 'Born of Mud',
+          description:
+            'You submerge yourself in mud, becoming undetectable in the process. You can move freely in the mud and emerge at any time. You cannot submerge while engulfing an enemy.'
+        }
+      ],
+      itemQuantities: []
     }
   ]
 };

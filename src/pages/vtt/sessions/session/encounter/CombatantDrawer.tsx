@@ -228,7 +228,7 @@ const CombatantAbilityDescription: React.FC<CombatantAbilityDescriptionProps> = 
 
   const attributes = Object.values(props.combatantClient?.attributes ?? {});
 
-  const onRollSkill = (skillKey: string) => {
+  const onRollSkill = (label: string, skillKey: string) => {
     if (!props.combatantClient) return;
 
     for (const attribute of attributes) {
@@ -249,7 +249,7 @@ const CombatantAbilityDescription: React.FC<CombatantAbilityDescriptionProps> = 
         rollModal.open({
           characterId: '',
           characterName: props.combatantClient.name,
-          label: skill.label,
+          label: label,
           diceFactors,
           evaluation: RollEvaluation.CHECK
         });
@@ -286,7 +286,7 @@ const CombatantAbilityDescription: React.FC<CombatantAbilityDescriptionProps> = 
         value={0}
         label={`${match} check`}
         style={{ fontSize: 'inherit', display: 'inline-flex' }}
-        onClick={() => onRollSkill(match.toLowerCase())}
+        onClick={() => onRollSkill(props.combatantAbility.name, match.toLowerCase())}
         hideZero
       />
     );
