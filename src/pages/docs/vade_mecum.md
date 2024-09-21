@@ -161,11 +161,11 @@ The Game Master may also choose to award additional XP beyond the criteria for s
 ### XP Criteria
 
 - [ ] Did you participate in the session?
-- [ ] Did you build on your character's personality/backstory?
-- [ ] Did you defeat an enemy that posed a threat to yourself, your ideals, or your personal goal?
-- [ ] Did you make strategic progress towards your personal goal?
-- [ ] Did you defeat an enemy that posed a threat to your party, its companions, or its group goal?
 - [ ] Did you make strategic progress towards your party's goal?
+- [ ] Did you make strategic progress towards your personal goal?
+- [ ] Did you defeat an enemy that posed a threat to you or your goals?
+- [ ] Did your character grow as a person?
+- [ ] Were you the session MVP?
 
 ### Level Rewards
 
