@@ -1417,7 +1417,22 @@ const VALE_OF_MYTHS: WorldKit = {
       },
       damage: 4,
       notes:
-        '5ft range, [Shadow Step=Once per Rest, the wielder can enter the shadow plane for 1 turn. While in the shadow plane, you become intangible to all objects and creatures in the physical plane.]'
+        '5ft range, [Shadow Step=Once per Rest, the wielder can use a Bonus Action to enter the shadow plane. While in the shadow plane, the wielder becomes intangible to all objects and creatures in the physical plane.]'
+    },
+    {
+      key: 'bogs_blessing',
+      type: ItemType.WEAPON,
+      name: "Bog's Blessing",
+      cost: '16 VP',
+      weight: 1 / 2,
+      bonus: {
+        attributeKey: 'dexterity',
+        skillKey: 'precision',
+        skillBonus: 2
+      },
+      damage: 2,
+      notes:
+        '10ft - 30ft range, [Binding Bog=Once per Rest, the wielder can fire a special mud projectile. Upon impact, the projectile creates a mud-filled area in a 10ft radius and all creatures within the area are knocked Prone. This area is considered Difficult Terrain and restrains all creatures. A DT 14 Athletics check is required to free oneself.]'
     },
     {
       key: 'leather_armor',

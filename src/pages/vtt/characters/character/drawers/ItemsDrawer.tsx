@@ -75,7 +75,7 @@ export const ItemsDrawer: React.FC<ItemsDrawerProps> = props => {
         setSearchQuery('');
         props.onClose?.();
       }}
-      width={950}
+      width={1050}
       header="Items"
     >
       <div className="drawer__content">
