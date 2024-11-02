@@ -83,6 +83,13 @@ export const ClassAbilityDescription: React.FC<ClassAbilityDescriptionProps> = p
           }
         ];
 
+        if (props.characterClient.exhaustion) {
+          diceFactors.push({
+            label: 'Exhaustion',
+            value: -props.characterClient.exhaustion
+          });
+        }
+
         rollModal.open({
           characterId: props.characterClient.id,
           characterName: props.characterClient.name,

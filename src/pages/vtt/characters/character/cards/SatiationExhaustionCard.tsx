@@ -27,6 +27,7 @@ export const SatiationExhaustionCard: React.FC<SatiationExhaustionCardProps> = p
         characterName: props.characterClient.name,
         label: 'Rest',
         diceFactors: [
+          { label: 'Base', value: 3 },
           { label: 'Level', value: props.characterClient.level },
           ...[attributes.strength, attributes.strength.skills.fortitude].map(df => ({
             label: df.label,

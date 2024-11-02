@@ -10,7 +10,7 @@ import { Item } from '@/pages/vtt/types/Item';
 import { capitalize } from 'lodash-es';
 import { RollableSkill } from './RollableSkill';
 import { useRollModal } from '@/pages/vtt/rolls/RollModal';
-import { RollEvaluation } from '@/pages/vtt/types/Roll';
+import { DiceFactor, RollEvaluation } from '@/pages/vtt/types/Roll';
 import { CombatantClient } from '@/pages/vtt/sessions/session/encounter/useCombatantClient';
 import reactStringReplace from 'react-string-replace';
 import { VTag } from '@/components/VTag';
@@ -85,14 +85,33 @@ export const ItemDescription: React.FC<ItemDescriptionProps> = props => {
     const attribute = props.characterClient.attributes[props.item.bonus!.attributeKey];
     const skill = attribute.skills[props.item.bonus!.skillKey];
 
+    const diceFactors: DiceFactor[] = [
+      {
+        label: attribute.label,
+        value: attribute.value
+      },
+      {
+        label: skill.label,
+        value: skill.value
+      },
+      {
+        label: props.item.name,
+        value: props.item.bonus!.skillBonus
+      }
+    ];
+
+    if ('exhaustion' in props.characterClient && props.characterClient.exhaustion) {
+      diceFactors.push({
+        label: 'Exhaustion',
+        value: -props.characterClient.exhaustion
+      });
+    }
+
     rollModal.open({
       characterId,
       characterName: props.characterClient.name,
       label: props.item.name,
-      diceFactors: [
-        ...[attribute, skill].map(df => ({ label: df.label, value: df.value })),
-        { label: props.item.name, value: props.item.bonus!.skillBonus }
-      ],
+      diceFactors,
       evaluation: RollEvaluation.CHECK
     });
   };
