@@ -31,6 +31,7 @@ import { EncounterCard } from './EncounterCard';
 import { useQueryClient } from 'react-query';
 import { useUpdateSessionEncounterMutation } from '../../queries/useUpdateSessionEncounterMutation';
 import { useSessionConnection } from '@/pages/vtt/sessions/useSessionConnection';
+import { VHelmetTitle } from '@/components/VHelmetTitle';
 
 const StyledSessionPage = styled(PageLayout)`
   .page__pageHeader__titleInput {
@@ -118,7 +119,7 @@ export const SessionPage: React.FC = () => {
 
   const { mutateAsync: _updateSession } = useUpdateSessionMutation(sessionId);
   const updateSession = useMemo(
-    () => debounce((session: Session) => _updateSession({ session }), 1000),
+    () => debounce((session: Session) => _updateSession({ session }), 2000),
     []
   );
 
@@ -220,6 +221,8 @@ export const SessionPage: React.FC = () => {
           </>
         }
       />
+      <VHelmetTitle>VTT | {session ? session.name || 'Unnamed Session' : '—'}</VHelmetTitle>
+
       {!characters || !encounters ? (
         <VLoader />
       ) : (

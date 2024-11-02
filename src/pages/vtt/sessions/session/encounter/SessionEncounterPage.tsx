@@ -37,6 +37,7 @@ import { getCombatantMaxHealthPoints } from '@/pages/vtt/sessions/session/encoun
 import { WORLD_KIT } from '@/pages/vtt/types/WorldKit';
 import { CombatantDrawer } from '@/pages/vtt/sessions/session/encounter/CombatantDrawer';
 import { rollDie } from '@/utils/rollDie';
+import { VHelmetTitle } from '@/components/VHelmetTitle';
 
 const StyledSessionEncounterPage = styled(PageLayout)`
   .page__pageHeader__titleInput {
@@ -90,7 +91,7 @@ export const SessionEncounterPage: React.FC = () => {
     encounterId
   );
   const updateSessionEncounter = useMemo(
-    () => debounce((encounter: Encounter) => _updateSessionEncounter({ encounter }), 1000),
+    () => debounce((encounter: Encounter) => _updateSessionEncounter({ encounter }), 2000),
     []
   );
 
@@ -239,6 +240,10 @@ export const SessionEncounterPage: React.FC = () => {
           </>
         }
       />
+      <VHelmetTitle>
+        VTT | {session ? session.name || 'Unnamed Session' : '—'} |{' '}
+        {encounter ? encounter.name || 'Unnamed Encounter' : '—'}
+      </VHelmetTitle>
 
       {!encounter || !sessionCharacters || !rolls ? (
         <VLoader />

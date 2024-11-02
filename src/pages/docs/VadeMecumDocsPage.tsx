@@ -5,9 +5,11 @@ import { DocsMarkdown } from './DocsMarkdown';
 import { PERKS } from '../vtt/types/Perk';
 import { capitalize } from 'lodash-es';
 import reactStringReplace from 'react-string-replace';
+import { VHelmetTitle } from '@/components/VHelmetTitle';
 
 export const VadeMecumDocsPage: React.FC = () => (
   <PageLayout style={{ maxWidth: 900 }}>
+    <VHelmetTitle>Docs | Core Rules</VHelmetTitle>
     <DocsMarkdown
       src={vadeMecumDocs}
       components={{

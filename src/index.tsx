@@ -22,6 +22,7 @@ import { SessionsPage } from './pages/vtt/sessions/SessionsPage';
 import { SessionPage } from './pages/vtt/sessions/session/SessionPage';
 import { SessionCharacterPage } from './pages/vtt/sessions/session/SessionCharacterPage';
 import { SessionEncounterPage } from './pages/vtt/sessions/session/encounter/SessionEncounterPage';
+import { HelmetProvider } from 'react-helmet-async';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -64,7 +65,9 @@ const queryClient = new QueryClient({
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <QueryClientProvider client={queryClient}>
     <VThemeProvider>
-      <RouterProvider router={router} />
+      <HelmetProvider>
+        <RouterProvider router={router} />
+      </HelmetProvider>
     </VThemeProvider>
   </QueryClientProvider>
 );

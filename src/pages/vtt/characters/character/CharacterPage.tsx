@@ -16,6 +16,7 @@ import { DeleteCharacterModal } from './DeleteCharacterModal';
 import { CharacterSheet } from './CharacterSheet';
 import { useSessionConnection } from '@/pages/vtt/sessions/useSessionConnection';
 import { useSessionsQuery } from '@/pages/vtt/queries/useSessionsQuery';
+import { VHelmetTitle } from '@/components/VHelmetTitle';
 
 export const CharacterPage: React.FC = () => {
   const { characterId } = useParams();
@@ -82,6 +83,7 @@ export const CharacterPage: React.FC = () => {
           </VFlex>
         }
       />
+      <VHelmetTitle>VTT | {character ? character.name || 'Unnamed Character' : '—'}</VHelmetTitle>
 
       <CharacterSheet character={character} setCharacter={setCharacter} />
 

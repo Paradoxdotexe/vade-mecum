@@ -10,6 +10,7 @@ import { SessionCard } from './SessionCard';
 import { useSessionsQuery } from '../queries/useSessionsQuery';
 import { useCreateSessionMutation } from '../queries/useCreateSessionMutation';
 import { useNavigate } from 'react-router-dom';
+import { VHelmetTitle } from '@/components/VHelmetTitle';
 
 const StyledSessionsPage = styled(PageLayout)`
   .page__sessions {
@@ -43,6 +44,8 @@ export const SessionsPage: React.FC = () => {
           </VButton>
         }
       />
+      <VHelmetTitle>VTT | Sessions</VHelmetTitle>
+
       {!sessions ? (
         <VFlex justify="center">
           <VLoader />

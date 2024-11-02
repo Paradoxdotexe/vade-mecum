@@ -8,6 +8,7 @@ import { WORLD_KITS } from '../vtt/types/WorldKit';
 import { ClassAbilityRequirement } from '../vtt/characters/character/drawers/ClassAbilitiesDrawer';
 import reactStringReplace from 'react-string-replace';
 import { ItemType } from '../vtt/types/Item';
+import { VHelmetTitle } from '@/components/VHelmetTitle';
 
 export const ValeOfMythsDocsPage: React.FC = () => {
   const markdownComponents: { [id: string]: ReactElement } = {};
@@ -24,6 +25,7 @@ export const ValeOfMythsDocsPage: React.FC = () => {
 
   return (
     <PageLayout style={{ maxWidth: 900 }}>
+      <VHelmetTitle>Docs | Vale of Myths</VHelmetTitle>
       <DocsMarkdown src={valeOfMythsDocs} components={markdownComponents} />
     </PageLayout>
   );

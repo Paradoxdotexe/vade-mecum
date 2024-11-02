@@ -10,6 +10,7 @@ import { useCharactersQuery } from '../queries/useCharactersQuery';
 import { VFlex } from '@/components/VFlex';
 import { VLoader } from '@/components/VLoader';
 import { useCreateCharacterMutation } from '../queries/useCreateCharacterMutation';
+import { VHelmetTitle } from '@/components/VHelmetTitle';
 
 const StyledCharactersPage = styled(PageLayout)`
   .page__characters {
@@ -43,6 +44,7 @@ export const CharactersPage: React.FC = () => {
           </VButton>
         }
       />
+      <VHelmetTitle>VTT | Characters</VHelmetTitle>
       {!characters ? (
         <VFlex justify="center">
           <VLoader />

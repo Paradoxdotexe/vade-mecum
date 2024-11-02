@@ -7,6 +7,7 @@ import { useSessionQuery } from '@/pages/vtt/queries/useSessionQuery';
 import { useSessionCharacterQuery } from '../../queries/useSessionCharacterQuery';
 import { RollLog } from '@/pages/vtt/rolls/RollLog';
 import { useSessionConnection } from '@/pages/vtt/sessions/useSessionConnection';
+import { VHelmetTitle } from '@/components/VHelmetTitle';
 
 export const SessionCharacterPage: React.FC = () => {
   const { sessionId, characterId } = useParams();
@@ -29,6 +30,10 @@ export const SessionCharacterPage: React.FC = () => {
         ]}
         title={character ? character.name || 'Unnamed Character' : ''}
       />
+      <VHelmetTitle>
+        VTT | {session ? session.name || 'Unnamed Session' : '—'} |{' '}
+        {character ? character.name || 'Unnamed Character' : '—'}
+      </VHelmetTitle>
 
       <CharacterSheet character={character} />
 

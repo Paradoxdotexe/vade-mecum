@@ -7,6 +7,7 @@ import { ReactComponent as VadeMecumLogo } from '@/icons/VadeMecumLogo.svg';
 import { ReactComponent as BookIcon } from '@/icons/Book.svg';
 import { ReactComponent as DieIcon } from '@/icons/Die.svg';
 import { PageLayout } from '@/common/PageLayout';
+import { VHelmetTitle } from '@/components/VHelmetTitle';
 
 const StyledHomePage = styled(PageLayout)`
   align-items: center;
@@ -60,6 +61,8 @@ export const HomePage: React.FC = () => {
 
   return (
     <StyledHomePage>
+      <VHelmetTitle>Vade Mecum</VHelmetTitle>
+
       <div className="page__header">
         <VadeMecumLogo />
         <div className="header__title">Vade Mecum</div>
