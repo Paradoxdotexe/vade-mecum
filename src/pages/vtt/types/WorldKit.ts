@@ -1717,6 +1717,13 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Maul',
           description:
             'You can roll a Precision check to maul a target within 5ft. On a success, the target takes `1D6` damage.'
+        },
+        {
+          key: 'spread_the_brine',
+          type: AbilityType.MAIN_ACTION,
+          name: 'Spread the Brine',
+          description:
+            "While you have a target grappled, you can roll a Power check against the target's Fortitude to infect them. If you succeed, roll `1D6`. This is the number of turns before the infection permanently takes hold. A successful Medicine check is required to prevent the infection on the target."
         }
       ]
     },
@@ -1922,6 +1929,47 @@ const VALE_OF_MYTHS: WorldKit = {
         }
       ],
       itemQuantities: []
+    },
+    {
+      key: 'elder_husk',
+      name: 'Elder Husk',
+      description:
+        "Indoctrinated hosts that serve as the Brine's primary enforcers. They ensure the Brine's will is enforced and its interests are protected.",
+      affiliation: 'The Brine',
+      level: 15,
+      attributes: {
+        strength: 4,
+        dexterity: 1,
+        intelligence: 0,
+        charisma: 0,
+        perception: -2
+      },
+      abilities: [
+        {
+          key: 'brine_blades',
+          type: AbilityType.MAIN_ACTION,
+          name: 'Brine Blades',
+          description:
+            'Your arms transform into blades made of algae. You can roll a Power check to hit up to two targets within 5ft. On a success, each target takes `2D6` damage.'
+        },
+        {
+          key: 'aqueous_evasion',
+          type: AbilityType.BONUS_ACTION,
+          name: 'Aqueous Evasion',
+          description: 'You move 5ft, dodging nearby combatants. All opportunity attacks are DT 17.'
+        },
+        {
+          key: 'spread_the_brine',
+          type: AbilityType.MAIN_ACTION,
+          name: 'Spread the Brine',
+          description:
+            "While you have a target grappled, you can roll a Power check against the target's Fortitude to infect them. If you succeed, roll `1D6`. This is the number of turns before the infection permanently takes hold. A successful Medicine check is required to prevent the infection of the target."
+        }
+      ],
+      itemQuantities: [
+        { key: 'halberd', quantity: 1 },
+        { key: 'chainmail_armor', quantity: 1 }
+      ]
     }
   ]
 };
