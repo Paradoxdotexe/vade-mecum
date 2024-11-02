@@ -71,7 +71,7 @@ export const CharacterPage: React.FC = () => {
   return (
     <PageLayout>
       <PageHeader
-        breadcrumbs={['Virtual Tabletop', 'Characters']}
+        breadcrumbs={['Virtual Tabletop', { label: 'Characters', path: '/vtt/characters' }]}
         title={character ? character.name || 'Unnamed Character' : ''}
         extra={
           <VFlex vertical align="end" gap={theme.variable.gap.md}>

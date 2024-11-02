@@ -179,7 +179,7 @@ export const SessionPage: React.FC = () => {
   return (
     <StyledSessionPage>
       <PageHeader
-        breadcrumbs={['Virtual Tabletop', 'Sessions']}
+        breadcrumbs={['Virtual Tabletop', { label: 'Sessions', path: '/vtt/sessions' }]}
         title={
           session && (
             <input

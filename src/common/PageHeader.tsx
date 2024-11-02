@@ -1,4 +1,6 @@
+import classNames from 'classnames';
 import React, { ReactNode } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 const StyledPageHeader = styled.div`
@@ -19,6 +21,16 @@ const StyledPageHeader = styled.div`
       gap: ${props => props.theme.variable.gap.md};
       font-size: ${props => props.theme.variable.fontSize.sm};
       color: ${props => props.theme.color.text.secondary};
+
+      .breadcrumbs__breadcrumb {
+        &.breadcrumb--clickable {
+          cursor: pointer;
+
+          &:hover {
+            color: ${props => props.theme.color.text.primary};
+          }
+        }
+      }
     }
 
     .left__title {
@@ -35,23 +47,40 @@ const StyledPageHeader = styled.div`
   }
 `;
 
+type PageHeaderBreadcrumb = {
+  label: string;
+  path: string;
+};
+
 type PageHeaderProps = {
   title: ReactNode;
-  breadcrumbs: string[];
+  breadcrumbs: (string | PageHeaderBreadcrumb)[];
   extra?: ReactNode;
 };
 
 export const PageHeader: React.FC<PageHeaderProps> = props => {
+  const navigate = useNavigate();
+
   return (
     <StyledPageHeader>
       <div className="header__left">
         <div className="left__breadcrumbs">
-          {props.breadcrumbs.map((breadcrumb, i) => (
-            <React.Fragment key={i}>
-              {i > 0 && '>'}
-              <span>{breadcrumb}</span>
-            </React.Fragment>
-          ))}
+          {props.breadcrumbs.map((breadcrumb, i) => {
+            const isClickable = typeof breadcrumb === 'object';
+            return (
+              <React.Fragment key={i}>
+                {i > 0 && '>'}
+                <span
+                  onClick={isClickable ? () => navigate(breadcrumb.path) : undefined}
+                  className={classNames('breadcrumbs__breadcrumb', {
+                    'breadcrumb--clickable': isClickable
+                  })}
+                >
+                  {isClickable ? breadcrumb.label : breadcrumb}
+                </span>
+              </React.Fragment>
+            );
+          })}
         </div>
         <div className="left__title">{props.title}</div>
       </div>

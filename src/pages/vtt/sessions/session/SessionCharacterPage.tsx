@@ -20,8 +20,11 @@ export const SessionCharacterPage: React.FC = () => {
       <PageHeader
         breadcrumbs={[
           'Virtual Tabletop',
-          'Sessions',
-          session ? session.name || 'Unnamed Session' : '...',
+          { label: 'Sessions', path: '/vtt/sessions' },
+          {
+            label: session ? session.name || 'Unnamed Session' : '...',
+            path: `/vtt/sessions/${sessionId}`
+          },
           'Characters'
         ]}
         title={character ? character.name || 'Unnamed Character' : ''}
