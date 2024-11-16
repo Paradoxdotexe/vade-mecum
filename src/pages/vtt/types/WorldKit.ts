@@ -898,7 +898,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Glancing Wind',
           type: AbilityType.REACTION,
           description:
-            'When you or an ally are hit by an attack, you can roll a Nature check. On a success, spend 1 NP. All incoming damage is negated.',
+            'When you or an ally within 60ft are hit by an attack, you can roll a Nature check. On a success, spend 1 NP. All incoming damage is negated.',
           requirement: 'INNATE'
         },
         {
