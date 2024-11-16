@@ -1886,6 +1886,34 @@ const VALE_OF_MYTHS: WorldKit = {
       itemQuantities: []
     },
     {
+      key: 'arcanotech_officer',
+      name: 'Arcanotech Officer',
+      description:
+        'An officer of the Cirllion Vanguard that specializes in magical technology to support field operations.',
+      affiliation: 'Cirillion Vanguard',
+      level: 13,
+      attributes: {
+        strength: 0,
+        dexterity: 2,
+        intelligence: 2,
+        charisma: -2,
+        perception: 0
+      },
+      abilities: [
+        {
+          key: 'improvised_grenade',
+          type: AbilityType.REACTION,
+          name: 'Improvised Grenade',
+          description:
+            'As a reaction, you can roll an Intellect check to prep and throw an improvised grenade up to 30ft. This grenades affects all creatures within 10ft. At DT 20, the grenade stuns. At DT 17, the grenade deals `2D6` damage. At DT 14, the grenade deals `1D6` damage. At DT 11, the grenade forces a reaction usage. At DT 8, the grenade duds. At DT 5, the grenade goes off in your hand (reroll for its effect). You can use three grenades per Rest.'
+        }
+      ],
+      itemQuantities: [
+        { key: 'radiant_revolver', quantity: 1 },
+        { key: 'arcane_aegis_armor', quantity: 1 }
+      ]
+    },
+    {
       key: 'shambler',
       name: 'Shambler',
       description:
