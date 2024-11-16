@@ -915,8 +915,7 @@ const VALE_OF_MYTHS: WorldKit = {
           key: 'stone_skin',
           name: 'Stone Skin',
           type: AbilityType.PASSIVE,
-          description:
-            'You are always surrounded by natural medium armor (this stacks with physical armor).',
+          description: 'Your Difficulty Threshold to be hit by an attack is increased by 3.',
           requirement: 1
         },
         {
