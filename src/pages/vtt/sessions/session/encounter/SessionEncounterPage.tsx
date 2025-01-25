@@ -165,7 +165,7 @@ export const SessionEncounterPage: React.FC = () => {
           );
           if (combatant) {
             const diceCount = combatant.attributes.dexterity + combatant.attributes.perception;
-            const initiative = sum([...new Array(diceCount)].map(() => rollDie()));
+            const initiative = sum([...new Array(Math.max(diceCount, 1))].map(() => rollDie()));
 
             participant.initiative = initiative;
           }
