@@ -1997,6 +1997,65 @@ const VALE_OF_MYTHS: WorldKit = {
         { key: 'halberd', quantity: 1 },
         { key: 'chainmail_armor', quantity: 1 }
       ]
+    },
+    {
+      key: 'winged_harbinger',
+      name: 'Winged Harbinger',
+      description:
+        'A corrupted creature with glowing red eyes, leathery wings, and a terrifying screech.',
+      level: 24,
+      attributes: {
+        strength: -1,
+        dexterity: 5,
+        intelligence: -2,
+        charisma: 3,
+        perception: 1
+      },
+      abilities: [
+        {
+          key: 'winged',
+          type: AbilityType.PASSIVE,
+          name: 'Winged',
+          description:
+            'You can use your movement to fly in any direction. You are not impeded by Rough Terrain.'
+        },
+        {
+          key: 'terrifying_screech',
+          type: AbilityType.MAIN_ACTION,
+          name: 'Terrifying Screech',
+          description:
+            'You can roll a contested Influence check to scare up to six targets within 120ft. If a target fails, they become Terrified for 1 turn (-6 disadvantage on attacks).'
+        },
+        {
+          key: 'retched_wind',
+          type: AbilityType.MAIN_ACTION,
+          name: 'Retched Wind',
+          description:
+            'You can roll an Influence check to make a breath attack on all targets within 5ft. On a success, each target is Stunned and rolls a Strength check. On a failure, the target contracts Retch Rot.'
+        },
+        {
+          key: 'wing_wind',
+          type: AbilityType.BONUS_ACTION,
+          name: 'Wing Wind',
+          description:
+            'You can roll an Agility check to make a winged attack on all targets within 10ft. On a success, each target takes `2D6` damage, is pushed back 10ft, and is knocked Prone.'
+        },
+        {
+          key: 'claw_above',
+          type: AbilityType.BONUS_ACTION,
+          name: 'Claw Above',
+          description:
+            'You can roll a Precision check to make a claw attack on a target within 10ft. On a success, the target takes `3D6` damage and is knocked Prone.'
+        },
+        {
+          key: 'claw_face',
+          type: AbilityType.MAIN_ACTION,
+          name: 'Claw Face',
+          description:
+            'You can roll a Precision check to make a claw attack on a target within 10ft. On a success, the target takes `6D6` damage and is Blinded for 1 turn (sight reduced to 5ft).'
+        }
+      ],
+      itemQuantities: []
     }
   ]
 };
