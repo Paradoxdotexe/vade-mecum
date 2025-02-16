@@ -356,7 +356,7 @@ For each time a specific skill check is failed, a Retry Penalty of 1 is added to
 This penalty represents the Adventuring Party getting more and more frustrated and increasingly botching the situation.
 
 > **Example:** A character rolls a Precision check to pick a DT 11 lock and fails.
-> The same character decides to try again at DT 11.
+> The same character decides to try again at DT 12.
 > They fail again.
 > Finally, another member attempts the Precision check at DT 13 and succeeds.
 
@@ -384,6 +384,7 @@ To determine the outcome, evaluate the results of each individual skill check, c
 When characters or combatants have diametrically opposed goals, the Game Master may call for a contested skill check.
 When this happens, those involved will each make their own roll with the appropriate skill.
 The highest roll is deemed the winner.
+In the case of a tie, there is no winner.
 
 > **Example:** A character attempts to steal a key from a guard without being seen.
 > The Game Master calls for a contested skill check of Stealth vs. Detection.

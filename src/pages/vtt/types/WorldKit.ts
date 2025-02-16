@@ -1434,6 +1434,21 @@ const VALE_OF_MYTHS: WorldKit = {
         '10ft - 30ft range, [Binding Bog=Once per Rest, the wielder can fire a special mud projectile. Upon impact, the projectile creates a mud-filled area in a 10ft radius and all creatures within the area are knocked Prone. This area is considered Difficult Terrain and restrains all creatures. A DT 14 Athletics check is required to free oneself.]'
     },
     {
+      key: 'Whisperwood',
+      type: ItemType.WEAPON,
+      name: 'Whisperwood',
+      cost: '32 VP',
+      weight: 1 / 2,
+      bonus: {
+        attributeKey: 'strength',
+        skillKey: 'power',
+        skillBonus: 2
+      },
+      damage: 3,
+      notes:
+        '10ft range, [Wind Whisper=The wielder can focus to hear sounds from 100ft away.] [Wind Gust=Once per Rest, the wielder can fade into the breeze, silent teleporting up to 60 feet away.]'
+    },
+    {
       key: 'leather_armor',
       type: ItemType.ARMOR,
       name: 'Leather Armor',
