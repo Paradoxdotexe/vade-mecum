@@ -1446,7 +1446,7 @@ const VALE_OF_MYTHS: WorldKit = {
       },
       damage: 3,
       notes:
-        '10ft range, [Wind Whisper=The wielder can focus to hear sounds from 100ft away.] [Wind Gust=Once per Rest, the wielder can fade into the breeze, silent teleporting up to 60 feet away.]'
+        '10ft range, [Wind Whisper=The wielder can focus to hear sounds from 100ft away.] [Wind Gust=Once per Rest, the wielder can fade into the breeze, silently teleporting up to 60 feet away.]'
     },
     {
       key: 'leather_armor',
@@ -1510,6 +1510,24 @@ const VALE_OF_MYTHS: WorldKit = {
         skillBonus: -1
       },
       notes: 'DT 8, 3D6 deflection'
+    },
+    {
+      key: 'cloak_of_billowing',
+      type: ItemType.ARMOR,
+      name: 'Cloak of Billowing',
+      cost: '128 VP',
+      weight: 1 / 4,
+      notes:
+        'When falling, this cloak automatically billows, letting the wearer control their descent safely and silently, negating all fall damage.'
+    },
+    {
+      key: 'goggles_of_true_sight',
+      type: ItemType.ARMOR,
+      name: 'Goggles of True Sight',
+      cost: '128 VP',
+      weight: 1 / 4,
+      notes:
+        'Once per Rest, these goggles can be activated to gain True Sight for 10 minutes. While active, the wearer can see any creature within 60ft, even if it is obscured by darkness, obstructions, or magic.'
     },
     {
       key: 'world_map',
