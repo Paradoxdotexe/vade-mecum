@@ -30,6 +30,7 @@ import { pulsingBackground } from '@/styles/pulsingBackground';
 import { VTag } from '@/components/VTag';
 import { ComputedSkillsCard } from './cards/ComputedSkillsCard';
 import { VLoader } from '@/components/VLoader';
+import { RandomRollCard } from '@/pages/vtt/characters/character/cards/RandomRollCard';
 
 const StyledCharacterSheet = styled.div`
   .page__character {
@@ -128,6 +129,10 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = props => {
             <div className="character__section">
               <VHeader>Satiation / Exhaustion</VHeader>
               <SatiationExhaustionCard characterClient={characterClient} />
+            </div>
+            <div className="character__section">
+              <VHeader>Random Rolls</VHeader>
+              <RandomRollCard characterClient={characterClient} />
             </div>
           </div>
 

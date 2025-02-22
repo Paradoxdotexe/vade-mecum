@@ -13,7 +13,7 @@ type VFlexProps = {
   className?: string;
   style?: React.CSSProperties;
   align?: 'center' | 'start' | 'end' | 'stretch';
-  justify?: 'start' | 'center' | 'end' | 'space-between';
+  justify?: 'start' | 'center' | 'end' | 'space-between' | 'space-around';
   vertical?: boolean;
   gap?: number | string;
 };
