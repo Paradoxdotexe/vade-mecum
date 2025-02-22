@@ -584,7 +584,7 @@ A character that is Prone cannot take any movement, actions, or reactions, excep
 ### Stunned
 
 While a character is Stunned, attacks against them have +2 advantage.
-A character that is Stunned cannot take a Main Action.
+A character that is Stunned cannot take a Main Action or movement.
 
 ### Bloodied
 

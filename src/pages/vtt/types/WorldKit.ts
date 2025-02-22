@@ -2014,6 +2014,57 @@ const VALE_OF_MYTHS: WorldKit = {
       ]
     },
     {
+      key: 'the_hellman',
+      name: 'The Hellman',
+      description: 'A hunter that seeks to trap, ambush, and incapacitate its quarry.',
+      level: 17,
+      attributes: {
+        strength: -2,
+        dexterity: 4,
+        intelligence: 1,
+        charisma: 0,
+        perception: 1
+      },
+      abilities: [
+        {
+          key: 'ensnaring_chain',
+          type: AbilityType.BONUS_ACTION,
+          name: 'Ensnaring Chain',
+          description:
+            'You can roll a Precision check to ensnare a target within 15ft with your chain. On a success, the target becomes Grappled at DT 17.'
+        },
+        {
+          key: 'chain_strangulation',
+          type: AbilityType.BONUS_ACTION,
+          name: 'Chain Strangulation',
+          description:
+            'When you have a target ensnared in your chain for 1 turn or more, you can strangle them. Strangling a target will incapacitate them for 3 turns.'
+        },
+        {
+          key: 'chain_whip',
+          type: AbilityType.MAIN_ACTION,
+          name: 'Chain Whip',
+          description:
+            'You can roll a Precision check to whip a target within 15ft with your chain. On a success, the target takes `5D6` damage and is pushed back 5ft.'
+        },
+        {
+          key: 'toxic_bomb',
+          type: AbilityType.BONUS_ACTION,
+          name: 'Toxic Bomb',
+          description:
+            'You can roll a Precision check to throw a toxic bomb at a spot within 45ft. On a success, all enemies within 10ft of the blast must make a DT 14 Fortitude check to resist the toxic smoke. If an enemy fails, they are incapacitated for 1 turn.'
+        },
+        {
+          key: 'toxic_dart',
+          type: AbilityType.MAIN_ACTION,
+          name: 'Toxic Dart',
+          description:
+            'You can roll a Precision check to shoot a target within 45ft with a toxic dart. On a success, the target must make a DT 14 Fortitude check to resist the toxic venom. If the target fails, they are incapacitated for 3 turns.'
+        }
+      ],
+      itemQuantities: []
+    },
+    {
       key: 'winged_harbinger',
       name: 'Winged Harbinger',
       description:
