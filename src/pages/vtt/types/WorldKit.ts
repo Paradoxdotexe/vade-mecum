@@ -2062,7 +2062,7 @@ const VALE_OF_MYTHS: WorldKit = {
             'You can roll a Precision check to shoot a target within 45ft with a toxic dart. On a success, the target must make a DT 14 Fortitude check to resist the toxic venom. If the target fails, they are incapacitated for 3 turns.'
         }
       ],
-      itemQuantities: []
+      itemQuantities: [{ key: 'plate_armor', quantity: 1 }]
     },
     {
       key: 'winged_harbinger',
