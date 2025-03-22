@@ -2117,21 +2117,27 @@ const VALE_OF_MYTHS: WorldKit = {
         strength: 4,
         dexterity: 0,
         intelligence: -1,
-        charisma: 0,
+        charisma: 1,
         perception: -1
       },
       abilities: [
         {
           key: 'seeing_red',
-          type: AbilityType.PASSIVE,
+          type: AbilityType.REACTION,
           name: 'Seeing Red',
           description:
-            'When you are Bloodied, you can make an additional melee attack as a Bonus Action.'
+            'After becoming Bloodied, you can make two melee attacks against your last attacker.'
         },
         {
-          key: 'forced_fist_fight',
+          key: 'fighting_dirty',
           type: AbilityType.BONUS_ACTION,
-          name: 'Forced Fist Fight',
+          name: 'Fighting Dirty',
+          description: 'While Bloodied, you can make a melee attack as a Bonus Action.'
+        },
+        {
+          key: 'fist_fight',
+          type: AbilityType.BONUS_ACTION,
+          name: 'Fist Fight',
           description:
             'You can roll a contested Power check to wrestle a weapon away from a target within 5ft. On a success, you can throw the weapon 10ft away.'
         }
