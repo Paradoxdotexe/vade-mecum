@@ -1446,7 +1446,37 @@ const VALE_OF_MYTHS: WorldKit = {
       },
       damage: 3,
       notes:
-        '10ft range, [Wind Whisper=The wielder can focus to hear sounds from 100ft away.] [Wind Gust=Once per Rest, the wielder can fade into the breeze, silently teleporting up to 60 feet away.]'
+        '10ft range, [Wind Whisper=The wielder can focus to hear sounds from 100ft away.] [Wind Gust=Twice per Rest, the wielder can fade into the breeze, silently teleporting up to 60 feet away.]'
+    },
+    {
+      key: 'nerve_agitator',
+      type: ItemType.WEAPON,
+      name: 'Nerve Agitator',
+      cost: '128 VP',
+      weight: 1,
+      bonus: {
+        attributeKey: 'dexterity',
+        skillKey: 'precision',
+        skillBonus: 4
+      },
+      damage: 2,
+      notes:
+        '15ft range, [Nervous System Shutdown=When a target is hit, they must roll a DT 14 Fortitude check. On a failure, the target is knocked Prone and Stunned for 1 turn.]'
+    },
+    {
+      key: 'nerve_lance',
+      type: ItemType.WEAPON,
+      name: 'Nerve Lance',
+      cost: '128 VP',
+      weight: 2,
+      bonus: {
+        attributeKey: 'strength',
+        skillKey: 'power',
+        skillBonus: 4
+      },
+      damage: 6,
+      notes:
+        '10ft range, [Nervous System Overload=If a target is Stunned, they take an additional 3D6 damage.]'
     },
     {
       key: 'leather_armor',
@@ -1620,6 +1650,14 @@ const VALE_OF_MYTHS: WorldKit = {
       cost: '128 VP',
       weight: 1 / 4,
       notes: 'Instantly opens any locked door'
+    },
+    {
+      key: 'fog_goggles',
+      type: ItemType.TOOL,
+      name: 'Fog Goggles',
+      cost: '64 VP',
+      weight: 1 / 4,
+      notes: 'Visibility in smoke is extended to 10ft'
     },
     {
       key: 'adventuring_ration',
@@ -2029,6 +2067,51 @@ const VALE_OF_MYTHS: WorldKit = {
       itemQuantities: [
         { key: 'halberd', quantity: 1 },
         { key: 'chainmail_armor', quantity: 1 }
+      ]
+    },
+    {
+      key: 'sentinel',
+      name: 'Sentinel',
+      affiliation: 'Project Perimentum',
+      description:
+        'A trained enforcer responsible for protecting the secret bunkers and operations of Project Perimentum.',
+      level: 16,
+      attributes: {
+        strength: -2,
+        dexterity: 4,
+        intelligence: 0,
+        charisma: 1,
+        perception: 1
+      },
+      abilities: [
+        {
+          key: 'fog_grenade',
+          type: AbilityType.BONUS_ACTION,
+          name: 'Fog Grenade',
+          description:
+            'Twice per Rest, you can throw a fog grenade up to 30ft, creating a plume of smoke that spreads 20ft in all directions. Inside the fog cloud, visibility range is decreased to 5ft. The fog lasts 4 turns.'
+        },
+        {
+          key: 'poison_capsule',
+          type: AbilityType.REACTION,
+          name: 'Poison Capsule',
+          description:
+            'If you are grappled or otherwise subdued, you can consume a poison capsule that kills you instantly.'
+        }
+      ],
+      itemQuantities: [
+        {
+          key: 'nerve_agitator',
+          quantity: 1
+        },
+        {
+          key: 'nerve_lance',
+          quantity: 1
+        },
+        {
+          key: 'fog_goggles',
+          quantity: 1
+        }
       ]
     },
     {
