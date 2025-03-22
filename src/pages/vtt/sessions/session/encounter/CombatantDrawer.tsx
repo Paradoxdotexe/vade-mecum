@@ -181,7 +181,7 @@ export const CombatantDrawer: React.FC<CombatantDrawerProps> = props => {
                   }
                 ]}
                 rows={combatantClient.abilities}
-                emptyMessage="You have no abilities. Better find an improvised weapon!"
+                emptyMessage="You have no abilities. Better find a weapon!"
               />
             </VCard>
           </VFlex>

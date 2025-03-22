@@ -1479,6 +1479,21 @@ const VALE_OF_MYTHS: WorldKit = {
         '10ft range, [Nervous System Overload=If a target is Stunned, they take an additional 3D6 damage.]'
     },
     {
+      key: 'red_knuckles',
+      type: ItemType.WEAPON,
+      name: 'Red Knuckles',
+      cost: '64 VP',
+      weight: 1 / 4,
+      bonus: {
+        attributeKey: 'strength',
+        skillKey: 'power',
+        skillBonus: 3
+      },
+      damage: 5,
+      notes:
+        '5ft range, [Clear Matter=When worn around your knuckles, this weapon is imperceptible.]'
+    },
+    {
       key: 'leather_armor',
       type: ItemType.ARMOR,
       name: 'Leather Armor',
@@ -1917,6 +1932,28 @@ const VALE_OF_MYTHS: WorldKit = {
       itemQuantities: []
     },
     {
+      key: 'deckhand',
+      name: 'Deckhand',
+      affiliation: 'The Dockyard Saints',
+      description:
+        'A rank-and-file member of the gang, carrying out the bulk of the gang’s criminal activities, such as theft, mugging, and running protection schemes.',
+      level: 7,
+      attributes: {
+        strength: 2,
+        dexterity: 0,
+        intelligence: -1,
+        charisma: 0,
+        perception: -1
+      },
+      abilities: [],
+      itemQuantities: [
+        {
+          key: 'dagger',
+          quantity: 1
+        }
+      ]
+    },
+    {
       key: 'shadow',
       name: 'Shadow',
       affiliation: 'Project Perimentum',
@@ -2070,46 +2107,38 @@ const VALE_OF_MYTHS: WorldKit = {
       ]
     },
     {
-      key: 'sentinel',
-      name: 'Sentinel',
-      affiliation: 'Project Perimentum',
+      key: 'corsair',
+      name: 'Corsair',
+      affiliation: 'The Dockyard Saints',
       description:
-        'A trained enforcer responsible for protecting the secret bunkers and operations of Project Perimentum.',
-      level: 16,
+        'A skilled fighter and intimidator, tasked with handling difficult jobs, enforcing the gang’s will, and protecting higher-ranking members.',
+      level: 15,
       attributes: {
-        strength: -2,
-        dexterity: 4,
-        intelligence: 0,
-        charisma: 1,
-        perception: 1
+        strength: 4,
+        dexterity: 0,
+        intelligence: -1,
+        charisma: 0,
+        perception: -1
       },
       abilities: [
         {
-          key: 'fog_grenade',
-          type: AbilityType.BONUS_ACTION,
-          name: 'Fog Grenade',
+          key: 'seeing_red',
+          type: AbilityType.PASSIVE,
+          name: 'Seeing Red',
           description:
-            'Twice per Rest, you can throw a fog grenade up to 30ft, creating a plume of smoke that spreads 20ft in all directions. Inside the fog cloud, visibility range is decreased to 5ft. The fog lasts 4 turns.'
+            'When you are Bloodied, you can make an additional melee attack as a Bonus Action.'
         },
         {
-          key: 'poison_capsule',
-          type: AbilityType.REACTION,
-          name: 'Poison Capsule',
+          key: 'forced_fist_fight',
+          type: AbilityType.BONUS_ACTION,
+          name: 'Forced Fist Fight',
           description:
-            'If you are grappled or otherwise subdued, you can consume a poison capsule that kills you instantly.'
+            'You can roll a contested Power check to wrestle a weapon away from a target within 5ft. On a success, you can throw the weapon 10ft away.'
         }
       ],
       itemQuantities: [
         {
-          key: 'nerve_agitator',
-          quantity: 1
-        },
-        {
-          key: 'nerve_lance',
-          quantity: 1
-        },
-        {
-          key: 'fog_goggles',
+          key: 'red_knuckles',
           quantity: 1
         }
       ]
@@ -2164,6 +2193,51 @@ const VALE_OF_MYTHS: WorldKit = {
         }
       ],
       itemQuantities: [{ key: 'plate_armor', quantity: 1 }]
+    },
+    {
+      key: 'sentinel',
+      name: 'Sentinel',
+      affiliation: 'Project Perimentum',
+      description:
+        'A trained enforcer responsible for protecting the secret bunkers and operations of Project Perimentum.',
+      level: 18,
+      attributes: {
+        strength: -2,
+        dexterity: 4,
+        intelligence: 0,
+        charisma: 1,
+        perception: 1
+      },
+      abilities: [
+        {
+          key: 'fog_grenade',
+          type: AbilityType.BONUS_ACTION,
+          name: 'Fog Grenade',
+          description:
+            'Twice per Rest, you can throw a fog grenade up to 30ft, creating a plume of smoke that spreads 20ft in all directions. Inside the fog cloud, visibility range is decreased to 5ft. The fog lasts 4 turns.'
+        },
+        {
+          key: 'poison_capsule',
+          type: AbilityType.REACTION,
+          name: 'Poison Capsule',
+          description:
+            'If you are grappled or otherwise subdued, you can consume a poison capsule that kills you instantly.'
+        }
+      ],
+      itemQuantities: [
+        {
+          key: 'nerve_agitator',
+          quantity: 1
+        },
+        {
+          key: 'nerve_lance',
+          quantity: 1
+        },
+        {
+          key: 'fog_goggles',
+          quantity: 1
+        }
+      ]
     },
     {
       key: 'winged_harbinger',
