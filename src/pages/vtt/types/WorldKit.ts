@@ -2304,6 +2304,52 @@ const VALE_OF_MYTHS: WorldKit = {
         }
       ],
       itemQuantities: []
+    },
+    {
+      key: 'wretched_husky',
+      name: 'Wretched Husk',
+      description:
+        'A host that reacted badly to the Brine, becoming a terribly mutated monster, their mind caught between humanity and the hive.',
+      affiliation: 'The Brine',
+      level: 27,
+      attributes: {
+        strength: 6,
+        dexterity: 4,
+        intelligence: -1,
+        charisma: -1,
+        perception: -2
+      },
+      abilities: [
+        {
+          key: 'crushing_grasp',
+          type: AbilityType.MAIN_ACTION,
+          name: 'Crushing Grasp',
+          description:
+            'You can roll a Power check to grapple a target within 5ft. On a success, the target is grappled and you deal `8D6` damage.'
+        },
+        {
+          key: 'crushing_blow',
+          type: AbilityType.BONUS_ACTION,
+          name: 'Crushing Blow',
+          description:
+            'You can roll a Power check to punch a target within 5ft. On a success, the target takes `2D6` damage, is pushed back 15ft, and is knocked Prone.'
+        },
+        {
+          key: 'feral_evasion',
+          type: AbilityType.REACTION,
+          name: 'Feral Evasion',
+          description:
+            'When you would be hit by an attack, you can dive 5ft away and dodge all damage.'
+        },
+        {
+          key: 'spread_the_brine',
+          type: AbilityType.MAIN_ACTION,
+          name: 'Spread the Brine',
+          description:
+            "While you have a target grappled, you can roll a Power check against the target's Fortitude to infect them. If you succeed, roll `1D6`. This is the number of turns before the infection permanently takes hold. A successful Medicine check is required to prevent the infection of the target."
+        }
+      ],
+      itemQuantities: []
     }
   ]
 };
