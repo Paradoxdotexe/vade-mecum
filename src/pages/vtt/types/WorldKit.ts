@@ -297,7 +297,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Pacifist Pacing',
           type: AbilityType.PASSIVE,
           description:
-            'Before you make your first attack in combat, your Movement Speed is doubled.',
+            "If you didn't attack last turn (or if combat just started), your Movement Speed is doubled and attacks against you have -3 disadvantage.",
           requirement: 1
         },
         {
@@ -305,7 +305,7 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Good Karma',
           type: AbilityType.PASSIVE,
           description:
-            'Before you make your first attack in combat, all attacks against you have -3 disadvantage.',
+            'Each time you are hit with an attack, you add the number of D6 you take as damage to your Karma Pool. When you land an attack, you can expend D6 from your Karma Pool as additional damage.',
           requirement: 1
         },
         {
@@ -404,9 +404,9 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'trapping_kit',
           name: 'Trapping Kit',
-          type: AbilityType.REST_ACTIVITY,
+          type: AbilityType.BONUS_ACTION,
           description:
-            'You set traps in an area to catch small wild game. Roll a Survival check. On a success, you catch an animal worth two Adventuring Rations.',
+            'Roll a Survival check to lay a trap in an unoccupied 10ft square area. On a success, the trap is set. The first enemy that enters the trapped area take `1D6` damage and is Stunned for 1 turn.',
           requirement: 1
         },
         {
@@ -904,8 +904,9 @@ const VALE_OF_MYTHS: WorldKit = {
         {
           key: 'gust_of_wind',
           name: 'Gust of Wind',
-          type: AbilityType.PASSIVE,
-          description: 'You add your Nature bonus to your Movement Speed.',
+          type: AbilityType.BONUS_ACTION,
+          description:
+            "You can roll a Nature check to summon wind's grace. On a success, your Movement Speed is doubled and the first enemy that you run past (as if to prompt an Opportunity Attack) is knocked Prone.",
           requirement: 1,
           computed: {
             speed: '[base] + [classItemBonus]'
@@ -1446,7 +1447,7 @@ const VALE_OF_MYTHS: WorldKit = {
       },
       damage: 3,
       notes:
-        '10ft range, [Wind Whisper=The wielder can focus to hear sounds from 100ft away.] [Wind Gust=Twice per Rest, the wielder can fade into the breeze, silently teleporting up to 60 feet away.]'
+        '10ft range, [Wind Whisper=The wielder can focus to hear sounds from 100ft away.] [Wind Gust=Twice per Rest, the wielder can use a Bonus Action to fade into the breeze, silently teleporting up to 60 feet away.]'
     },
     {
       key: 'nerve_agitator',
@@ -1459,9 +1460,9 @@ const VALE_OF_MYTHS: WorldKit = {
         skillKey: 'precision',
         skillBonus: 4
       },
-      damage: 2,
+      damage: 1,
       notes:
-        '15ft range, [Nervous System Shutdown=When a target is hit, they must roll a DT 14 Fortitude check. On a failure, the target is knocked Prone and Stunned for 1 turn.]'
+        '15ft range, [Nervous System Shutdown=When a target is hit, they must roll a DT 14 Fortitude check. On a failure, the target is Stunned for 1 turn.]'
     },
     {
       key: 'nerve_lance',
