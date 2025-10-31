@@ -1955,6 +1955,58 @@ const VALE_OF_MYTHS: WorldKit = {
       ]
     },
     {
+      key: 'animated_guardian',
+      name: 'Animated Guardian',
+      description:
+        'A patchwork guardian animated by illusion magic to guard its domain. Though it has no soul, it enforces the will of its creators.',
+      level: 7,
+      attributes: {
+        strength: -1,
+        dexterity: 3,
+        intelligence: 0,
+        charisma: -2,
+        perception: 1
+      },
+      abilities: [
+        {
+          key: 'uncanny_lunge',
+          type: AbilityType.MAIN_ACTION,
+          name: 'Uncanny Lunge',
+          description:
+            'You can roll a Precision check to lunge at a target within 10ft. On a success, the target takes `2D6` damage and must pass a DT 14 Fortitude check or become Grappled by animated threads.'
+        },
+        {
+          key: 'splitting_threads',
+          type: AbilityType.BONUS_ACTION,
+          name: 'Splitting Threads',
+          description:
+            'You unstitch yourself into two in your current tile. The next attacker to attack you must roll a DT 11 Luck check. On a failure, the attack goes through you.'
+        },
+        {
+          key: 'threads_of_binding',
+          type: AbilityType.BONUS_ACTION,
+          name: 'Threads of Binding',
+          description:
+            "You can roll a Precision check to bind a target within 20ft. On a success, spectral threads lash out and reduce the target's movement to 10ft for one turn."
+        },
+        {
+          key: 'friction_burn',
+          type: AbilityType.REACTION,
+          name: 'Friction Burn',
+          description:
+            'When you are hit by a melee attack, deal `2D6` damage to the attacker. Or when a Grappled combatant attempts to escape you, deal `4D6` damage to the combatant.'
+        },
+        {
+          key: 'homebound',
+          type: AbilityType.PASSIVE,
+          name: 'Homebound',
+          description:
+            'If reduced to 0 HP, the Animated Guardian dissolves into thread and shadow. If still within its domain, it reforms in 1D4 turns unless destroyed by fire.'
+        }
+      ],
+      itemQuantities: []
+    },
+    {
       key: 'shadow',
       name: 'Shadow',
       affiliation: 'Project Perimentum',
@@ -1989,58 +2041,6 @@ const VALE_OF_MYTHS: WorldKit = {
           name: 'Poison Capsule',
           description:
             'If you are grappled or otherwise subdued, you can consume a poison capsule that kills you instantly.'
-        }
-      ],
-      itemQuantities: []
-    },
-    {
-      key: 'animated_guardian',
-      name: 'Animated Guardian',
-      description:
-        'A patchwork guardian animated by illusion magic to guard its domain. Though it has no soul, it enforces the will of its creators.',
-      level: 9,
-      attributes: {
-        strength: 0,
-        dexterity: 3,
-        intelligence: 0,
-        charisma: -2,
-        perception: 1
-      },
-      abilities: [
-        {
-          key: 'uncanny_lunge',
-          type: AbilityType.MAIN_ACTION,
-          name: 'Uncanny Lunge',
-          description:
-            'You can roll a Precision check to lunge at a target within 10ft. On a success, the target takes `3D6` damage and must pass a DT 14 Fortitude check or become Grappled by animated threads.'
-        },
-        {
-          key: 'splitting_threads',
-          type: AbilityType.BONUS_ACTION,
-          name: 'Splitting Threads',
-          description:
-            'You unstitch yourself into two in your current tile. The next attacker to attack you must roll a DT 11 Luck check. On a failure, the attack goes through you.'
-        },
-        {
-          key: 'threads_of_binding',
-          type: AbilityType.BONUS_ACTION,
-          name: 'Threads of Binding',
-          description:
-            "You can roll a Precision check to bind a target within 20ft. On a success, spectral threads lash out and reduce the target's movement to 10ft for one turn."
-        },
-        {
-          key: 'friction_burn',
-          type: AbilityType.REACTION,
-          name: 'Friction Burn',
-          description:
-            'When you are hit by a melee attack, deal `2D6` damage to the attacker as your patchwork body rubs against them.'
-        },
-        {
-          key: 'homebound',
-          type: AbilityType.PASSIVE,
-          name: 'Homebound',
-          description:
-            'If reduced to 0 HP, the Animated Guardian dissolves into thread and shadow. If still within its domain, it reforms in 1D4 turns unless destroyed by fire.'
         }
       ],
       itemQuantities: []
