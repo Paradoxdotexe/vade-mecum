@@ -1718,6 +1718,15 @@ const VALE_OF_MYTHS: WorldKit = {
         'A pocket watch that borrows time from the Grim. When its wearer dies, the watch resurrects them to half their maximum Health Points and the Grim steals five years of their life.'
     },
     {
+      key: 'fates_favor',
+      type: ItemType.TOOL,
+      name: "Fate's Favor",
+      cost: '128 VP',
+      weight: 1 / 8,
+      notes:
+        "A silver coin that steers fate in its user's favor. At any time, the holder can flip the coin and choose a lucky number from 2 to 19. They gain a Fated Success on natural rolls of that number."
+    },
+    {
       key: 'proscenium',
       type: ItemType.TOOL,
       name: 'Proscenium',
