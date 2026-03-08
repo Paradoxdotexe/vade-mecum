@@ -1468,7 +1468,7 @@ const VALE_OF_MYTHS: WorldKit = {
       key: 'nerve_lance',
       type: ItemType.WEAPON,
       name: 'Nerve Lance',
-      cost: '64 VP',
+      cost: '128 VP',
       weight: 2,
       bonus: {
         attributeKey: 'strength',
@@ -1508,6 +1508,21 @@ const VALE_OF_MYTHS: WorldKit = {
       damage: 5,
       notes:
         '5ft range, [Clear Matter=When worn around your knuckles, this weapon is imperceptible.]'
+    },
+    {
+      key: 'unraveler',
+      type: ItemType.WEAPON,
+      name: 'Unraveler',
+      cost: '128 VP',
+      weight: 1 / 2,
+      bonus: {
+        attributeKey: 'dexterity',
+        skillKey: 'precision',
+        skillBonus: 4
+      },
+      damage: 8,
+      notes:
+        '30ft range, throwable, [AOE=All creatures within 10ft of the target are damaged.] [Unraveling Shockwave=On impact, the Unraveler releases a magical shockwave that dispels all magical effects within 10ft of the target.]'
     },
     {
       key: 'leather_armor',
