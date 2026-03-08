@@ -1606,6 +1606,30 @@ const VALE_OF_MYTHS: WorldKit = {
         'Once per Rest, these goggles can be activated to gain True Sight for 10 minutes. While active, the wearer can see any creature within 60ft, even if it is obscured by darkness, obstructions, or magic.'
     },
     {
+      key: 'adventuring_journal_1',
+      type: ItemType.TOOL,
+      name: 'Adventuring Journal #1',
+      cost: '8 VP',
+      weight: 1 / 2,
+      notes: 'You get +1 advantage on Insight and Investigation checks related to local mysteries.'
+    },
+    {
+      key: 'adventuring_journal_2',
+      type: ItemType.TOOL,
+      name: 'Adventuring Journal #2',
+      cost: '16 VP',
+      weight: 1 / 2,
+      notes: 'You get +2 advantage on Insight and Investigation checks related to local mysteries.'
+    },
+    {
+      key: 'adventuring_journal_3',
+      type: ItemType.TOOL,
+      name: 'Adventuring Journal #3',
+      cost: '32 VP',
+      weight: 1 / 2,
+      notes: 'You get +4 advantage on Insight and Investigation checks related to local mysteries.'
+    },
+    {
       key: 'world_map',
       type: ItemType.TOOL,
       name: 'World Map',
