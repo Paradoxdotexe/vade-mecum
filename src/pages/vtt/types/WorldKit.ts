@@ -1691,6 +1691,15 @@ const VALE_OF_MYTHS: WorldKit = {
       notes: 'Visibility in smoke is extended to 10ft'
     },
     {
+      key: 'boon_of_becoming',
+      type: ItemType.TOOL,
+      name: 'Boon of Becoming',
+      cost: '128 VP',
+      weight: 1 / 4,
+      notes:
+        "Once per Rest, you can transform into the creature bound to this boon. You take on that creature's attributes, skills, speed, and abilities. This transformation lasts for thirty minutes or until you are incapacitated."
+    },
+    {
       key: 'adventuring_ration',
       type: ItemType.MEAL,
       name: 'Adventuring Ration',
