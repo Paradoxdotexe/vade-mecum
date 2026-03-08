@@ -1742,6 +1742,15 @@ const VALE_OF_MYTHS: WorldKit = {
         "A silver coin that steers fate in its user's favor. At any time, the holder can flip the coin and choose a lucky number from 2 to 19. They gain a Fated Success on natural rolls of that number."
     },
     {
+      key: 'skull_of_vengeance',
+      type: ItemType.TOOL,
+      name: 'Skull of Vengeance',
+      cost: '128 VP',
+      weight: 1,
+      notes:
+        "Once per 7 days, this skull can resurrect a dead creature with the Spirit of Vengeance. The resurrected creature returns to half their maximum Health Points and deals double damage on every hit. The effect lasts until the skull's vengeance is satiated, after which the creature is incapacitated."
+    },
+    {
       key: 'proscenium',
       type: ItemType.TOOL,
       name: 'Proscenium',
