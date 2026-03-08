@@ -1709,6 +1709,15 @@ const VALE_OF_MYTHS: WorldKit = {
         'A compass that can be bound to a creature as its quarry. Once per hour, the compass can be rebound to a new quarry. The compass points towards its quarry at all times and gives the holder advantage on all attacks against the quarry.'
     },
     {
+      key: 'grim_reapers_pocket_watch',
+      type: ItemType.TOOL,
+      name: "Grim Reaper's Pocket Watch",
+      cost: '128 VP',
+      weight: 1 / 4,
+      notes:
+        'A pocket watch that borrows time from the Grim. When its wearer dies, the watch resurrects them to half their maximum Health Points and the Grim steals five years of their life.'
+    },
+    {
       key: 'proscenium',
       type: ItemType.TOOL,
       name: 'Proscenium',
