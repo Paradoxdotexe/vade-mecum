@@ -1742,6 +1742,15 @@ const VALE_OF_MYTHS: WorldKit = {
         "A silver coin that steers fate in its user's favor. At any time, the holder can flip the coin and choose a lucky number from 2 to 19. They gain a Fated Success on natural rolls of that number."
     },
     {
+      key: 'shroud_lantern',
+      type: ItemType.TOOL,
+      name: 'Shroud Lantern',
+      cost: '128 VP',
+      weight: 1,
+      notes:
+        'A lantern and lighter that, when lit, shrouds a person or place from being located through magical means.'
+    },
+    {
       key: 'skull_of_vengeance',
       type: ItemType.TOOL,
       name: 'Skull of Vengeance',
