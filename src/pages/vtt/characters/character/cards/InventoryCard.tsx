@@ -69,6 +69,7 @@ type ItemDescriptionProps = {
   characterClient?: CharacterClient | CombatantClient;
   item: Item;
   style?: React.CSSProperties;
+  disabled?: boolean;
 };
 
 export const ItemDescription: React.FC<ItemDescriptionProps> = props => {
@@ -149,7 +150,8 @@ export const ItemDescription: React.FC<ItemDescriptionProps> = props => {
           value={props.item.bonus.skillBonus}
           valueLabel={`${props.item.bonus.skillBonus >= 0 ? '+' : ''}${props.item.bonus.skillBonus}`}
           label={`${capitalize(props.item.bonus.skillKey)}${props.item.damage || props.item.notes ? ',' : ''}`}
-          disabled
+          unmodifiable
+          disabled={props.disabled}
           style={{ gap: theme.variable.gap.sm, fontSize: 'inherit' }}
           onClick={onRollSkill}
         />
@@ -159,7 +161,8 @@ export const ItemDescription: React.FC<ItemDescriptionProps> = props => {
           value={props.item.damage}
           valueLabel={`${props.item.damage}D6`}
           label={`damage${props.item.notes ? ',' : ''}`}
-          disabled
+          unmodifiable
+          disabled={props.disabled}
           style={{ gap: theme.variable.gap.sm, fontSize: 'inherit' }}
           onClick={onRollDamage}
         />

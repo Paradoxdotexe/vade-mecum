@@ -109,7 +109,7 @@ export const ItemsDrawer: React.FC<ItemsDrawerProps> = props => {
                         <ItemDescription
                           characterClient={props.characterClient}
                           item={item}
-                          style={{ pointerEvents: 'none' }}
+                          disabled
                         />
                       ),
                       width: '100%'

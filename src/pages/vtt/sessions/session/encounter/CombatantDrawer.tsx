@@ -94,7 +94,7 @@ export const CombatantDrawer: React.FC<CombatantDrawerProps> = props => {
                   label="Looting"
                   value={combatantClient.level}
                   onClick={onRollLooting}
-                  disabled
+                  unmodifiable
                 />
               </VFlex>
             </VCard>

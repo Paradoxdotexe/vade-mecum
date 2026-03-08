@@ -53,7 +53,7 @@ export const ComputedSkillsCard: React.FC<ComputedSkillsCardProps> = props => {
           label="Initiative"
           value={props.characterClient.initiative}
           onClick={onRollInitiative}
-          disabled
+          unmodifiable
         />
       </VFlex>
     </VCard>

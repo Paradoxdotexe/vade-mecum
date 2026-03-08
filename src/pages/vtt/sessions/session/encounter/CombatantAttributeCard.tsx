@@ -84,7 +84,7 @@ export const CombatantAttributeCard: React.FC<CombatantAttributeCardProps> = pro
               label={skill.label}
               value={skill.value}
               max={3}
-              disabled
+              unmodifiable
               onClick={() => onRoll(skillKey)}
             />
           );

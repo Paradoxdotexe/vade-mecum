@@ -111,7 +111,7 @@ export const AttributeCard: React.FC<AttributeCardProps> = props => {
               onChange={value =>
                 props.characterClient.setSkillValue(props.attributeKey, skillKey, value)
               }
-              disabled={isClassSkill}
+              unmodifiable={isClassSkill}
               onClick={() => onRoll(skillKey)}
             />
           );

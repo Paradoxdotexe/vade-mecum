@@ -32,6 +32,7 @@ type RollableSkillProps = {
   max?: number;
   onChange?: (value: number) => void;
   onClick?: () => void;
+  unmodifiable?: boolean;
   disabled?: boolean;
   style?: React.CSSProperties;
   hideZero?: boolean;
@@ -49,10 +50,14 @@ export const RollableSkill: React.FC<RollableSkillProps> = props => {
           value={props.value}
           onChange={props.onChange}
           max={props.max}
-          disabled={props.disabled}
+          disabled={props.unmodifiable || props.disabled}
         />
       ) : null}
-      <div className="skill__label" onClick={props.onClick}>
+      <div
+        className="skill__label"
+        onClick={props.onClick}
+        style={{ pointerEvents: props.disabled ? 'none' : undefined }}
+      >
         {props.label}
       </div>
     </StyledRollableSkill>
