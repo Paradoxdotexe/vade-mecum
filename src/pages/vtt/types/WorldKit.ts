@@ -2392,6 +2392,58 @@ const VALE_OF_MYTHS: WorldKit = {
       ]
     },
     {
+      key: 'wendigo',
+      name: 'Wendigo',
+      description:
+        'A monstrous predator of the deep wilderness that stalks its prey from the shadows before dragging them away into the dark.',
+      level: 18,
+      attributes: {
+        strength: 4,
+        dexterity: 4,
+        intelligence: -2,
+        charisma: -2,
+        perception: 0
+      },
+      abilities: [
+        {
+          key: 'feral_swipe',
+          type: AbilityType.MAIN_ACTION,
+          name: 'Feral Swipe',
+          description:
+            'You can roll a Power check to slash at a target within 10ft. On a success, the target takes `5D6` damage.'
+        },
+        {
+          key: 'drag_into_the_dark',
+          type: AbilityType.MAIN_ACTION,
+          name: 'Drag into the Dark',
+          description:
+            'You can roll a Power check to seize a target within 10ft. On a success, the target is Grappled and you can drag them up to 30ft.'
+        },
+        {
+          key: 'meld_into_shadow',
+          type: AbilityType.BONUS_ACTION,
+          name: 'Meld into Shadow',
+          description:
+            'You dissolve into the surrounding shadows, becoming Hidden until your next attack. While Hidden, the Wendigo requires a DT 14 Detection check to be located.'
+        },
+        {
+          key: 'harrowing_wail',
+          type: AbilityType.BONUS_ACTION,
+          name: 'Harrowing Wail',
+          description:
+            'You unleash a bone-chilling wail. All creatures within 30ft must pass a DT 17 Fortitude check or become Frightened for 1 turn. While Frightened, a creature cannot take a Main Action.'
+        },
+        {
+          key: 'ambush_from_shadow',
+          type: AbilityType.PASSIVE,
+          name: 'Ambush From Shadow',
+          description:
+            'When you strike a target while Hidden, the attack deals an additional `2D6` damage and the target must pass a DT 14 Fortitude check or become Frightened.'
+        }
+      ],
+      itemQuantities: []
+    },
+    {
       key: 'winged_harbinger',
       name: 'Winged Harbinger',
       description:
