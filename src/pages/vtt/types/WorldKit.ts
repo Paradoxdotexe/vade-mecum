@@ -1700,6 +1700,15 @@ const VALE_OF_MYTHS: WorldKit = {
         "Once per Rest, you can transform into the creature bound to this boon. You take on that creature's attributes, skills, speed, and abilities. This transformation lasts for thirty minutes or until you are incapacitated."
     },
     {
+      key: 'proscenium',
+      type: ItemType.TOOL,
+      name: 'Proscenium',
+      cost: '128 VP',
+      weight: 1 / 2,
+      notes:
+        'A picture frame capable of projecting any image into the air in front of it. This projection is completely convincing to the eye, only detectable by a DT 20 Detection check.'
+    },
+    {
       key: 'adventuring_ration',
       type: ItemType.MEAL,
       name: 'Adventuring Ration',
