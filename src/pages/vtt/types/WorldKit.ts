@@ -1700,6 +1700,15 @@ const VALE_OF_MYTHS: WorldKit = {
         "Once per Rest, you can transform into the creature bound to this boon. You take on that creature's attributes, skills, speed, and abilities. This transformation lasts for thirty minutes or until you are incapacitated."
     },
     {
+      key: 'quarry_compass',
+      type: ItemType.TOOL,
+      name: 'Quarry Compass',
+      cost: '128 VP',
+      weight: 1 / 4,
+      notes:
+        'A compass that can be bound to a creature as its quarry. Once per hour, the compass can be rebound to a new quarry. The compass points towards its quarry at all times and gives the holder advantage on all attacks against the quarry.'
+    },
+    {
       key: 'proscenium',
       type: ItemType.TOOL,
       name: 'Proscenium',
