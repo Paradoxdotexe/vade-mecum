@@ -1453,7 +1453,7 @@ const VALE_OF_MYTHS: WorldKit = {
       key: 'nerve_agitator',
       type: ItemType.WEAPON,
       name: 'Nerve Agitator',
-      cost: '128 VP',
+      cost: '64 VP',
       weight: 1,
       bonus: {
         attributeKey: 'dexterity',
@@ -1468,7 +1468,7 @@ const VALE_OF_MYTHS: WorldKit = {
       key: 'nerve_lance',
       type: ItemType.WEAPON,
       name: 'Nerve Lance',
-      cost: '128 VP',
+      cost: '64 VP',
       weight: 2,
       bonus: {
         attributeKey: 'strength',
@@ -1478,6 +1478,21 @@ const VALE_OF_MYTHS: WorldKit = {
       damage: 6,
       notes:
         '10ft range, [Nervous System Overload=If a target is Stunned, they take an additional 3D6 damage.]'
+    },
+    {
+      key: 'bolas_of_binding',
+      type: ItemType.WEAPON,
+      name: 'Bolas of Binding',
+      cost: '64 VP',
+      weight: 1 / 2,
+      bonus: {
+        attributeKey: 'dexterity',
+        skillKey: 'precision',
+        skillBonus: 4
+      },
+      damage: 1,
+      notes:
+        '15ft range, [Binding=When a target is hit, they must roll a DT 17 Athletics check. On a failure, the target is Grappled. The escape DT is 17.]'
     },
     {
       key: 'red_knuckles',
