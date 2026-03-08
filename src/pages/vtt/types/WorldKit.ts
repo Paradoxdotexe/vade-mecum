@@ -2101,8 +2101,8 @@ const VALE_OF_MYTHS: WorldKit = {
     },
     {
       key: 'shadow',
-      name: 'Shadow',
-      affiliation: 'Project Perimentum',
+      name: 'Devoted',
+      affiliation: 'Covenant of Collapse',
       description:
         "An undercover operative who gathers intelligence, abducts test subjects, and ensures the secrecy of the project's activities.",
       level: 8,
@@ -2136,7 +2136,13 @@ const VALE_OF_MYTHS: WorldKit = {
             'If you are grappled or otherwise subdued, you can consume a poison capsule that kills you instantly.'
         }
       ],
-      itemQuantities: []
+      itemQuantities: [
+        { key: 'bolas_of_binding', quantity: 1 },
+        { key: 'proscenium', quantity: 1 },
+        { key: 'grim_reapers_pocket_watch', quantity: 1 },
+        { key: 'quarry_compass', quantity: 1 },
+        { key: 'fates_favor', quantity: 1 }
+      ]
     },
     {
       key: 'arcanotech_officer',
@@ -2349,9 +2355,9 @@ const VALE_OF_MYTHS: WorldKit = {
     {
       key: 'sentinel',
       name: 'Sentinel',
-      affiliation: 'Project Perimentum',
+      affiliation: 'Covenant of Collapse',
       description:
-        'A trained enforcer responsible for protecting the secret bunkers and operations of Project Perimentum.',
+        'A trained enforcer responsible for protecting the secret bunkers and operations of the Covenant.',
       level: 18,
       attributes: {
         strength: -2,

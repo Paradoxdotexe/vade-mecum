@@ -64,7 +64,10 @@ export const CombatantDrawer: React.FC<CombatantDrawerProps> = props => {
       width={1050}
       header={combatantClient.name}
     >
-      <VFlex style={{ padding: theme.variable.gap.xl }} gap={theme.variable.gap.lg}>
+      <VFlex
+        style={{ padding: theme.variable.gap.xl, overflowY: 'auto', flex: 1 }}
+        gap={theme.variable.gap.lg}
+      >
         <VFlex vertical gap={theme.variable.gap.lg}>
           <VFlex vertical gap={theme.variable.gap.md} style={{ pointerEvents: 'none' }}>
             <VHeader>Name / Affiliation</VHeader>
